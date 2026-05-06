@@ -1,0 +1,25 @@
+{
+  "iteration": 2,
+  "date": "2026-04-19",
+  "fixes": [
+    {
+      "iteration": 2,
+      "action": "edge_addition",
+      "description": "Added BZR1\u2192Storage_reserves (+1) to strengthen BR-to-seed-size coupling",
+      "reason": "Failures T059 (det2 KO), T060 (dwf4 KO), T061 (bri1 KO), T101 (Brz) all predicted INCREASED instead of DECREASED in algebraic mode due to RAV1\u22a3ABI5 detour inverting the BR direction. Adding direct BZR1\u2192Storage_reserves was meant to give BR a positive growth-coupling that overrides the RAV1 detour.",
+      "biological_justification": "BR signalling via BES1/BZR1 promotes seed reserve accumulation; BR-deficient and BR-signalling mutants show reduced storage protein deposition (Pankaj et al. 2024 review).",
+      "source": "BZR1",
+      "target": "Storage_reserves",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 65.4,
+    "ode_accuracy": 85.6,
+    "rwr_accuracy": 89.4,
+    "kept": false,
+    "reason": "REVERTED. Best-method (RWR) accuracy unchanged at 89.4% (gain = 0.0%, below the +0.5% threshold). Investigation revealed iter 1's restoration of Storage_reserves had already given RWR enough signed-graph propagation to correct the BR mutants T059/T060/T061/T101 indirectly via the BZR1\u22a3RAV1 \u2192 LAFL \u2192 Storage_reserves path. Adding the direct BZR1\u2192Storage_reserves edge was redundant for RWR. For algebraic mode, the additional edge dropped Storage_reserves from 1.0 to 0.63 in BR-deficient mutants, but the RAV1\u22a3ABI5 inhibition release still overwhelms the cascade. Reverted per Hard Rule 3."
+  }
+}

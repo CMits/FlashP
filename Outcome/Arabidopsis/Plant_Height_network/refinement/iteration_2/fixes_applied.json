@@ -1,0 +1,25 @@
+{
+  "iteration": 2,
+  "date": "2026-04-19",
+  "fixes": [
+    {
+      "iteration": 2,
+      "action": "edge_addition",
+      "description": "Added Strigolactone -> Plant_Height (+1) direct edge as a parallel coherent feed-forward alongside the iter-3 Perception Gate (SL -> D14 -> MAX2 -| BZR_BES).",
+      "reason": "Iter-3 JUDGE structural change routed all SL effects through MAX2 -| BZR_BES which inverted the predicted direction of max1/max3/max4 KO (T110/T111/T112), d14 KO (T113), and SL exogenous treatment (T115). The curated sign SL -> Plant_Height (+1, E211) was lost. Re-adding as parallel path restores all 5 signs while keeping the Perception Gate for signaling-mutant specificity.",
+      "biological_justification": "Umehara 2008 Nature and Gomez-Roldan 2008 Nature established that strigolactone is a shoot-branching-inhibiting hormone in Arabidopsis (max1/3/4 mutants are branchy). For primary shoot height, max mutants in curated E211 show an overall stature reduction that the direct edge captures. The Perception Gate (D14 + MAX2) remains as the mechanistic layer; the direct edge is the coherent-feed-forward summary of SL -> SMXL678 repressors -> growth-regulatory outputs that are not individually curated in this repository. Motif 1 purity is compromised (hormone has 2 outgoing edges) - this is documented as a deliberate refinement choice, not an oversight.",
+      "source": "Strigolactone",
+      "target": "Plant_Height",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 74.8,
+    "ode_accuracy": 77.4,
+    "rwr_accuracy": 92.2,
+    "kept": true,
+    "reason": "Best-method (RWR) improved from 88.7% to 92.2% (+3.5%). Kappa jumped to 0.85 (almost-perfect Landis-Koch band). Algebraic dropped slightly (-0.9%) due to an extra Plant_Height activator (now 5) diluting some tests via geometric mean, but the net gain on best-method is well over the 0.5% keep-threshold."
+  }
+}

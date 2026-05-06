@@ -1,0 +1,306 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Tillering",
+    "phenotype_node": "Tiller_Number",
+    "species": "Oryza sativa",
+    "created": "2026-04-20",
+    "judge_model": "Claude Opus 4.7 (1M context)",
+    "step_1_snapshot_location": "data/_step1_snapshot/"
+  },
+  "summary": {
+    "step_1_counts": {"papers": 55, "edges": 142, "perturbations": 186},
+    "step_1_5_additions": {"papers": 10, "edges": 22, "perturbations": 16},
+    "merged_totals": {"papers": 65, "edges": 164, "perturbations": 202},
+    "growth_pct": {"papers": 18.2, "edges": 15.5, "perturbations": 8.6},
+    "gaps_flagged": 12,
+    "gaps_closed": 9,
+    "gaps_partially_closed": 2,
+    "gaps_open": 1,
+    "verdict": "gaps_closed_with_residual"
+  },
+  "canonical_checklist": {
+    "pathways": [
+      "Strigolactone biosynthesis: D27 -> D17/HTD1 (CCD7) -> D10/CCD8 -> OsMAX1 paralogs (Os900/Os1400/Os1500/Os1900/Os5100) -> methylated SLs (orobanchol, ent-2'-epi-5-deoxystrigol). Tailoring enzymes LBO, ZAS.",
+      "Strigolactone perception: SL -> D14 (alpha/beta hydrolase) -> D14-D3 SCF -> ubiquitinate D53 -> derepress IPA1 + OsTB1. D88/D14L paralog.",
+      "TB1/TCP branching inhibitor: OsTB1/FC1 represses bud outgrowth; D53 binds OsTB1 to block its activity (Song 2017, Duan 2019). OsBRC1 is OsTB1 itself in rice (no separate paralog).",
+      "SPL/miR156 module: miR156/miR529 cleave OsSPL14/IPA1 mRNA. Dominant ipa1-1D and ipa1-2D escape cleavage. D53-IPA1 interaction (Song 2017).",
+      "MOC family: MOC1 (GRAS TF, monoculm), MOC2 (FBP1), MOC3 (OsWUS), TAD1/TE (APC/C), OsLAX1/OsLAX2 (axillary meristem bHLH).",
+      "Auxin: OsPIN1a/1b/2/9, OsTIR1/AFB, OsIAA, OsARF12/17/25, OsYUC, OsTAR2, OsGH3.",
+      "Cytokinin: OsIPT, OsCKX2/Gn1a, OsCKX4/9/11, OsHK3/4/5/6 receptors, OsAHP, OsRR21, LOG family.",
+      "Nitrogen: NRT1.1B (transceptor; indica vs japonica), NGR5 (PRC2-driven H3K27me3 repression of branching inhibitors), OsNLP1/3/4, OsTCP19, OsLBD37/39, OsGATA8.",
+      "GA/DELLA: SLR1 (rice DELLA), OsGID1/2, OsSLY1, OsGA20ox/3ox/2ox, sd1.",
+      "Sugar/T6P: sucrose, T6P, SnRK1, DTN1 (FBP aldolase, Wen 2024)."
+    ],
+    "hubs": [
+      "SL signalling: D14, D3, D53, OsTB1/FC1",
+      "SL biosynthesis: D27, D10, D17, OsMAX1 family, T20/Z-ISO",
+      "SPL: IPA1/OsSPL14, miR156, miR529",
+      "Meristem: MOC1, MOC3/TAB1, TAD1, OsLAX1, OsLAX2",
+      "Cytokinin: OsCKX2/Gn1a, OsIPT4/7, OsHK3/4/5/6, OsRR21",
+      "Auxin: OsPIN1a/b, OsPIN9, OsTIR1, OsIAA11, OsARF25, OsYUCCA",
+      "Nitrogen: NRT1.1B, NGR5, OsTCP19, OsGATA8, OsLBD37, Os1900",
+      "GA: SLR1, OsGID1, OsGA20ox2",
+      "Phenotype: Tiller_Number"
+    ],
+    "canonical_mutants": [
+      "SL biosynthesis LOF: d27, d10, d17/htd1, osmax1 (paralogs), Os1900 (Ito 2023), t20/Z-ISO (Wei 2020). All expected increased tillers.",
+      "SL perception LOF: d3, d14, d88/d14L. All increased tillers.",
+      "SL signalling GOF: d53-D dominant -> decreased.",
+      "TCP: fc1/ostb1 LOF -> increased; OsTB1-OE -> decreased.",
+      "SPL: ipa1-1D / ipa1-2D dominant GOF -> decreased; miR156-OE / ipa1-10 LOF -> increased.",
+      "MOC: moc1, moc2, moc3 -> decreased (monoculm-like); tad1, te -> increased; oslax1 oslax2 -> decreased.",
+      "CK: gn1a (osckx2 LOF), osckx4/9/11 -> increased; OsCKX2-OE -> decreased; OsIPT-OE -> increased; oshk4 -> decreased; oshk3 oshk4 / oshk4 oshk5 doubles -> reduced (Chun 2023).",
+      "Auxin: OsPIN1a/b KO, OsPIN9-OE -> increased; OsYUCCA-OE -> decreased; OsTIR1/OsAFB2 double -> reduced.",
+      "N: NRT1.1B-indica -> increased; ngr5 LOF -> decreased N-response; NGR5-OE -> increased; OsTCP19 LOF -> increased; OsGATA8-H -> increased productive tillers (Wang 2024).",
+      "GA: slr1 -> decreased tillers (taller); SLR1-OE -> increased; sd1 -> increased.",
+      "Treatments: GR24, orobanchol -> decreased; BAP, kinetin, NAA-low -> increased CK; NAA, IAA apical -> decreased; PBZ -> increased; high N -> increased; low P -> decreased; ABA -> decreased (Wei 2020).",
+      "Rescues: d10/d17/d27 + GR24 -> rescued (decreased from mutant); d3/d14 + GR24 -> unchanged from mutant (Trap 5); t20 + GR24 -> rescued (Wei 2020); dtn1 + sucrose -> partial rescue (Wen 2024)."
+    ],
+    "environmental_inputs": [
+      "Nitrogen (high vs low; ammonium-specific via OsPIN9; nitrate via NRT1.1B/NGR5/OsTCP19/OsGATA8/Os1900)",
+      "Phosphate (low P -> elevated D27/D10/D17 -> reduced tillers)",
+      "Light/Photoperiod (entrains OsCCA1 / OsPRR1 circadian clock; shading reduces tillers via sucrose)",
+      "Decapitation (removes apical auxin + raises sucrose)",
+      "Drought (-> ABA -> reduced tillers)",
+      "Cold stress (OsMADS57+OsTB1 mode switch)",
+      "Elevated CO2 (boosts MP3-allele tiller advantage)"
+    ],
+    "crosstalk": [
+      "D53 ⊣ OsTB1 AND D53 ⊣ IPA1 (Song 2017, Duan 2019) — D53 double-brake repressor",
+      "IPA1 -> OsTB1 direct transcriptional activation (Lu 2013)",
+      "D53 ⊣ MOC1 protein interaction (Duan 2019)",
+      "MOC1 protein turnover by TAD1 / TE APC/C; SLR1 protects MOC1 from APC/C",
+      "MOC1-MOC3 cooperative co-activation of FON1 (Lu 2019 Mol Plant)",
+      "NGR5 phosphorylated downstream of NRT1.1B; PRC2 recruitment -> H3K27me3 -> represses D14 + IPA1 (NEW: IPA1 confirmed direct target, Wu 2020)",
+      "Sucrose -> NGR5 activation (Wen 2024) — carbon-nitrogen integration",
+      "miR156 ⊣ IPA1; miR444 ⊣ OsMADS57",
+      "Auxin -> CK suppression via OsIPT repression (apical dominance)",
+      "Auxin -> SL biosynthesis activation (D10, D17)",
+      "BR -> OsBZR1 stabilization -> OsBZR1-D53 complex on OsTB1 promoter (Fang 2020)",
+      "GA -> GID1 -> degrades SLR1 + NGR5 in parallel; SLR1 stabilises both NGR5 and MOC1",
+      "T6P/Sucrose -> represses OsTB1 (Finlayson 2022)",
+      "OsCCA1 (clock) -> activates OsTB1 + D14 + D10 + IPA1; sucrose -> OsCCA1 repression (Wang 2020)",
+      "OsHOX12 axis: SL -> OsHOX12 -> NCED1 -> ABA biosynthesis; ABA represses SL biosynthesis (NEW, Wei 2020)",
+      "OsVIL2 chromatin factor -> represses OsTB1 (NEW, Yoon 2019)",
+      "OsGATA8 -> represses OsTCP19 + OsAMT3.2 (NEW, Wang 2024)"
+    ]
+  },
+  "phase_1_index": {
+    "step_1_paper_count": 55,
+    "step_1_full_text_read_count": "approx 35 (status field set to 'read' for all; verification fields at edge level used as proxy)",
+    "step_1_extraction_density_per_full_text_paper_estimate": "~3.6 edges/paper (142 edges / ~40 substantive papers)",
+    "step_1_papers_with_<=1_edge": "Few; most papers contribute 1-6 edges; review papers (Tanaka 2023, Takai 2023, Chandran 2025) contribute 5-10",
+    "node_top_degree": {
+      "D53": "in=4, out=5 (good)",
+      "OsTB1": "in=12, out=3 (sink-heavy but balanced)",
+      "IPA1": "in=8, out=6 (good)",
+      "MOC1": "in=4, out=3 (good)",
+      "D14": "in=6, out=1 (sink-heavy; D14↔D3 missing — added E143)",
+      "Strigolactone": "in=5, out=8 (good source/sink)",
+      "Cytokinin": "in=8, out=3 (good)",
+      "Auxin": "in=2, out=6 (some upstream regulators sparse)",
+      "OsCCA1": "in=3, out=6 (good both)"
+    },
+    "source_only_high_outdegree_pre_judge": [
+      "TAD1 (out=2, in=0) — TAD1 transcription poorly characterised; flagged as residual",
+      "TE (out=2, in=0) — same; residual",
+      "IPI1 (out=1, in=0) — sparse",
+      "OsSHI1 (out=1, in=0) — sparse",
+      "FON2 (out=1, in=0) — sparse",
+      "DST (out=1, in=0) — sparse"
+    ],
+    "source_only_high_outdegree_post_judge": [
+      "TAD1, TE — still source-only (no upstream regulators found in second-round search; flagged in residual_gaps_for_builder)",
+      "OsGATA8 — added with 3 outgoing edges (E148/E149/E150); upstream from Wang 2024 not detailed in abstract"
+    ]
+  },
+  "gaps": [
+    {
+      "id": "G001",
+      "type": "hub_underrepresented",
+      "severity": "high",
+      "node": "D14",
+      "step_1_in_degree": 6,
+      "step_1_out_degree": 1,
+      "biological_justification": "D14 is the SL receptor; its essential function is to form a complex with D3 (F-box) upon SL binding, then recruit D53 for ubiquitination. Step 1 captured D14↔D53 (E002) but not the canonical D14↔D3 direct binding (Hu 2015 Cell Research). Without this edge, the D14 node looks like a black-box repressor of D53 with no F-box partner.",
+      "search_queries": ["D14 D3 direct interaction physical binding rice strigolactone receptor SCF F-box"],
+      "papers_read": ["10.1038/cr.2015.122 (Hu 2015 Cell Research, abstract)"],
+      "edges_added": ["E143 (D14→D3 activation)"],
+      "perturbations_added": [],
+      "closed": true
+    },
+    {
+      "id": "G002",
+      "type": "hub_underrepresented",
+      "severity": "high",
+      "node": "NGR5",
+      "step_1_targets": ["D14 (E036)", "OsTB1 (E035)"],
+      "expected_targets_min": ["D14", "IPA1/OsSPL14", "OsTB1"],
+      "biological_justification": "Wu 2020 Science explicitly shows NGR5 ChIP-binds both D14 AND OsSPL14/IPA1 promoters with N-dependent strength (epistatic for tillering). Step 1 only had NGR5⊣D14 — missing the IPA1 direct target, which is the parallel arm of NGR5-PRC2 repression.",
+      "search_queries": ["NGR5 PRC2 H3K27me3 SL biosynthesis D27 D10 D17 rice nitrogen Wu 2020", "\"NGR5\" rice direct H3K27me3 target genes \"D14\" \"OsSPL14\" tiller"],
+      "papers_read": ["10.1126/science.aaz2046 (Wu 2020 Science, secondary abstract+review pass)"],
+      "edges_added": ["E144 (NGR5⊣IPA1)"],
+      "perturbations_added": [],
+      "closed": true
+    },
+    {
+      "id": "G003",
+      "type": "pathway_missing",
+      "severity": "high",
+      "pathway": "Sucrose -> NGR5 carbon-nitrogen integration arm",
+      "biological_justification": "Wen 2024 New Phytologist (DTN1 paper) establishes that photosynthesis-derived sucrose is required to ACTIVATE NGR5 expression; dtn1 (FBP aldolase) shows reduced sucrose -> reduced NGR5 -> reduced tillers, partially rescuable by exogenous sucrose or NGR5-OE. Step 1 had sucrose effects on D53 (E072) and OsTB1 (E133) but not on NGR5. This is a major recently-published pathway entirely missing.",
+      "search_queries": ["\"Wen\" 2024 \"NGR5\" rice sugar photosynthesis sucrose stability mechanism tillering"],
+      "papers_read": ["10.1111/nph.19921 (Wen 2024, abstract)"],
+      "edges_added": ["E145 (Sucrose→NGR5)", "E146 (DTN1→Sucrose)"],
+      "perturbations_added": ["T192 (DTN1 KO)", "T193 (DTN1 + sucrose rescue)", "T194 (NGR5-OE in dtn1 partial rescue)"],
+      "closed": true
+    },
+    {
+      "id": "G004",
+      "type": "pathway_missing",
+      "severity": "medium",
+      "pathway": "T20 / Z-ISO ζ-carotene isomerase upstream of D27 in SL biosynthesis + parallel ABA arm",
+      "biological_justification": "Wei 2020 Mol Plant identifies T20 as ζ-carotene isomerase (Z-ISO) acting upstream of D27 in the carotenoid pathway. T20 supplies precursors for both SL AND ABA biosynthesis. The paper also discovers a SL→OsHOX12→NCED1→ABA mini-cascade and an ABA⊣SL biosynthesis negative feedback. Whole arm absent in Step 1.",
+      "search_queries": ["\"Z-ISO\" \"rice\" tillering ζ-carotene isomerase strigolactone ABA Molecular Plant 2020"],
+      "papers_read": ["10.1016/j.molp.2020.10.001 (Wei 2020, abstract)"],
+      "edges_added": ["E155 (T20→Strigolactone)", "E156 (T20→ABA)", "E157 (Strigolactone→OsHOX12)", "E158 (OsHOX12→NCED1)", "E159 (ABA⊣D10)"],
+      "perturbations_added": ["T195 (t20 KO high tillers)", "T196 (t20 + GR24 rescue)", "T197 (t20 + ABA reduces)", "T198 (ABA exogenous reduces)"],
+      "closed": true
+    },
+    {
+      "id": "G005",
+      "type": "biosynthesis_missing",
+      "severity": "medium",
+      "node": "OsMAX1 paralog — Os1900",
+      "biological_justification": "Step 1 collapsed all five rice MAX1 paralogs (Os900, Os1400, Os1500, Os1900, Os5100) into one OsMAX1 node (E020). Ito 2023 Nat Comm establishes Os1900 specifically as the N-fertilization-responsive MAX1-like gene, and Os1900 promoter mutations alone increase tillers under low fertilizer — a high-impact finding for N-modulated tillering. Adding Os1900 as a separate node enables the N→Os1900→SL→tillers arm.",
+      "search_queries": ["\"Os1900\" rice MAX1-like fertilization tiller N nitrogen \"Nature Communications\" 2023", "\"Os900\" \"Os1400\" \"Os1500\" \"Os1900\" \"Os5100\" rice MAX1 paralogs Zhang 2014"],
+      "papers_read": ["10.1038/s41467-023-38670-8 (Ito 2023, abstract)", "10.1073/pnas.1314805111 (Zhang 2014 Nature Chem Biol, abstract — added as paper to ground OsMAX1↔Os1900 alias)"],
+      "edges_added": ["E151 (Os1900→Strigolactone)", "E152 (Nitrogen→Os1900)", "E164 (OsMAX1↔Os1900 alias)"],
+      "perturbations_added": ["T190 (Os1900 KO)", "T191 (Os1900 promoter LOF)", "T202 (os1900 + high N still high tillers)"],
+      "closed": true
+    },
+    {
+      "id": "G006",
+      "type": "crosstalk_missing",
+      "severity": "medium",
+      "description": "OsVIL2 chromatin-mediated repression of OsTB1",
+      "biological_justification": "Yoon 2019 Mol Cells shows OsVIL2 (chromatin-interacting factor in PRC2-like complex) directly binds OsTB1 promoter via ChIP, represses OsTB1, and is epistatic to ostb1 (osvil2 ostb1 ~ ostb1 alone). Step 1 had T117 (osvil2 KO reduces tillers) and T177 (osvil2 ostb1 double) but NO edge for OsVIL2 → OsTB1 — a one-sided extraction.",
+      "search_queries": ["\"OsVIL2\" \"OsTB1\" chromatin axillary bud rice tillering Yoon 2019"],
+      "papers_read": ["10.14348/molcells.2019.0141 (Yoon 2019, abstract)"],
+      "edges_added": ["E147 (OsVIL2⊣OsTB1)"],
+      "perturbations_added": ["T187 (osvil2 ostb1 epistasis encoded with explicit gene field)"],
+      "closed": true
+    },
+    {
+      "id": "G007",
+      "type": "pathway_missing",
+      "severity": "medium",
+      "pathway": "OsGATA8 N-coordinator: represses OsTCP19 AND OsAMT3.2",
+      "biological_justification": "Wang 2024 Nature Genetics identifies OsGATA8-H as elite haplotype that simultaneously represses ammonium transporter OsAMT3.2 (limiting excess N uptake) and OsTCP19 (de-repressing tillers) — a coordinator of N-uptake and productive tiller balance. Whole arm missing from Step 1.",
+      "search_queries": ["\"OsGATA8\" rice tiller productive nitrogen N uptake mechanism"],
+      "papers_read": ["10.1038/s41588-024-01795-7 (Wang 2024, abstract)"],
+      "edges_added": ["E148 (OsGATA8⊣OsTCP19)", "E149 (OsGATA8⊣OsAMT3.2)", "E150 (OsGATA8→Tiller_Number)"],
+      "perturbations_added": ["T188 (OsGATA8 LOF)", "T189 (OsGATA8-H GOF)", "T201 (OsGATA8 LOF + high N)"],
+      "closed": true
+    },
+    {
+      "id": "G008",
+      "type": "crosstalk_missing",
+      "severity": "medium",
+      "description": "MOC1 ↔ MOC3 direct cooperative interaction",
+      "biological_justification": "Lu 2019 Mol Plant ('MOC1 and MOC3 cooperatively...') shows MOC1 cannot bind FON1 promoter alone but acts as transcriptional co-activator of MOC3-bound FON1. Step 1 had E082 (MOC3→FON1) and E083 (FON1→tiller) but no MOC1↔MOC3 cooperative edge — making MOC1 and MOC3 look unrelated. Also adds MOC3→Tiller_Number summary edge.",
+      "search_queries": ["\"MOC1\" rice transcriptional regulation upstream activator promoter binding factor"],
+      "papers_read": ["10.1016/j.molp.2019.04.011 (Lu 2019, abstract)"],
+      "edges_added": ["E153 (MOC1→MOC3 co-activator)", "E154 (MOC3→Tiller_Number summary)"],
+      "perturbations_added": [],
+      "closed": true
+    },
+    {
+      "id": "G009",
+      "type": "receptor_missing",
+      "severity": "medium",
+      "node": "OsHK3 (cytokinin receptor paralog)",
+      "biological_justification": "Step 1 only has OsHK4 as CK receptor (E052 CK→OsHK4, E053 OsHK4→OsAHP). Chun 2023 Plant Cell explicitly mentions OsHK3/OsHK5 redundancy with OsHK4 — knockout doubles affect tiller number and panicle architecture. Tsai 2012 (already in candidates) lists 5 rice HKs. Adding OsHK3 widens the CK perception arm.",
+      "search_queries": ["OsHK3 OsHK1 OsHK5 cytokinin receptor rice tillering shoot meristem"],
+      "papers_read": ["Re-read 10.1093/plcell/koad257 (Chun 2023) for OsHK3/5 mention; re-read 10.1104/pp.111.192765 (Tsai 2012) for receptor list"],
+      "edges_added": ["E160 (OsHK3→OsAHP)", "E161 (Cytokinin→OsHK3)"],
+      "perturbations_added": ["T200 (oshk3 oshk4 double)"],
+      "closed": true
+    },
+    {
+      "id": "G010",
+      "type": "crosstalk_missing",
+      "severity": "low",
+      "description": "OsTB1 → OsDRM1 dormancy marker arm",
+      "biological_justification": "Sasi 2023 J Plant Physiol shows OsDRM1 is a dormant-bud marker whose OE delays bud outgrowth via cell-cycle suppression and auxin response modulation. Direct OsTB1→OsDRM1 transcriptional regulation in rice is INFERRED (Arabidopsis BRC1 directly upregulates DRM1; in rice the link is dormancy-marker correlative, not promoter-binding evidence). Encoded as MEDIUM confidence to be conservative.",
+      "search_queries": ["DRM1 DORMANCY-ASSOCIATED MADS rice OsMADS22 OsTB1 BRC1 axillary bud Duan 2019", "\"OsDRM1\" \"OsTB1\" rice axillary bud dormancy tiller"],
+      "papers_read": ["10.1016/j.jplph.2023.154115 (Sasi 2023, abstract)"],
+      "edges_added": ["E162 (OsTB1→OsDRM1)", "E163 (OsDRM1⊣Tiller_Number)"],
+      "perturbations_added": ["T199 (OsDRM1-OE delays bud outgrowth)"],
+      "closed": true,
+      "caveat": "Direct rice OsTB1→OsDRM1 ChIP not yet published; relationship inferred from Arabidopsis BRC1→DRM1 direct evidence + rice OsDRM1 dormancy-marker correlation."
+    },
+    {
+      "id": "G011",
+      "type": "bidirectional_one_sided",
+      "severity": "medium",
+      "nodes": ["TAD1 (out=2, in=0)", "TE (out=2, in=0)", "IPI1 (out=1, in=0)", "OsSHI1 (out=1, in=0)", "FON2 (out=1, in=0)", "DST (out=1, in=0)"],
+      "biological_justification": "Multiple post-translational regulators of tiller hubs (APC/C activators TAD1/TE for MOC1, E3 ligase IPI1 for IPA1, repressor OsSHI1 of IPA1, CLE peptide FON2, zinc-finger DST for OsCKX2) lack any upstream transcriptional regulator edges. This reflects a real gap in the rice tillering literature: most of these regulators are studied for their downstream targets but their own transcription / post-translational control is not curated. Step 1 metadata literature_gap_log already flags upstream MOC1 regulation as sparse.",
+      "search_queries": ["\"MOC1\" rice transcriptional regulation upstream activator promoter binding factor", "TAD1 rice transcription regulators upstream"],
+      "papers_read": ["Searched, no DOI-supported edges identified"],
+      "edges_added": [],
+      "perturbations_added": [],
+      "closed": false,
+      "partial": true,
+      "unclosable_reason": "Upstream regulators of TAD1/TE/IPI1/OsSHI1/FON2/DST in rice are not well published — most papers focus on these proteins' downstream targets. Should be flagged as residual literature_gap entries for BUILDER (already in Step 1 literature_gap_log)."
+    },
+    {
+      "id": "G012",
+      "type": "biosynthesis_missing",
+      "severity": "low",
+      "node": "LBO (LATERAL BRANCHING OXIDOREDUCTASE) tailoring enzyme",
+      "biological_justification": "LBO is well-characterized in Arabidopsis and barley as a 2-OG/Fe(II) dioxygenase that converts MeCLA to a downstream SL-like compound specifically affecting branching. A rice ortholog likely exists (carlactonoic acid is present in rice) but specific rice-LBO tillering work was not found in second-round search.",
+      "search_queries": ["LBO LATERAL BRANCHING OXIDOREDUCTASE rice strigolactone biosynthesis", "rice OsLBO strigolactone rice tillering gene homolog"],
+      "papers_read": ["No primary rice-LBO tillering paper identified in OA literature"],
+      "edges_added": [],
+      "perturbations_added": [],
+      "closed": false,
+      "unclosable_reason": "No rice-specific LBO functional study with tillering phenotype found in OA literature as of search date. Arabidopsis Brewer 2016 PNAS exists but is non-rice. Flag as residual for BUILDER."
+    }
+  ],
+  "bidirectional_audit": {
+    "source_only_nodes_before": ["TAD1", "TE", "IPI1", "OsSHI1", "FON2", "DST", "MOC3 (1 out)"],
+    "source_only_nodes_after": ["TAD1", "TE", "IPI1", "OsSHI1", "FON2", "DST"],
+    "newly_balanced_nodes": ["MOC3 (added MOC1→MOC3 incoming via E153 + MOC3→Tiller_Number outgoing via E154)", "D14 (added D14→D3 outgoing via E143)"],
+    "resolution": "2 of 7 source-only nodes received upstream regulator edges; 5 remain source-only (TAD1, TE, IPI1, OsSHI1, FON2, DST) due to G011 unclosable gap. Documented in residual_gaps_for_builder."
+  },
+  "extraction_density_audit": {
+    "step_1_mean_edges_per_full_text_paper": "~3.6 (142 edges / ~40 substantive full-text papers; review papers contribute 5-10)",
+    "step_1_papers_with_<=1_edge": "Few (<5); the Step 1 extraction was thorough on a per-paper basis",
+    "step_1_5_papers_re_read": ["10.1126/science.aaz2046 (Wu 2020 Science) — recovered NGR5⊣IPA1 (E144) edge previously missed", "10.1093/plcell/koad257 (Chun 2023 Plant Cell) — recovered OsHK3/OsHK5 redundancy mention (E160/E161)", "10.1104/pp.111.192765 (Tsai 2012 Plant Phys) — confirmed CK→OsHK3 signalling (E161)"],
+    "step_1_5_edges_recovered_from_re_read": 4,
+    "comment": "Step 1 extraction quality was strong on a per-paper basis. The main gain from Step 1.5 was discovering ENTIRELY NEW PAPERS (Wen 2024, Wei 2020, Yoon 2019, Wang 2024, Ito 2023, Lu 2019 Mol Plant, Hu 2015 Cell Research, Sasi 2023, Zhang 2014) rather than re-reading Step 1 papers. The 4 re-read recoveries were specific to NGR5-IPA1 link and OsHK3/5 redundancy."
+  },
+  "residual_gaps_for_builder": [
+    "TAD1, TE, IPI1, OsSHI1, FON2, DST — upstream transcriptional or post-translational regulators not curated in OA literature; BUILDER may include as is_source nodes with literature_gap flag (G011)",
+    "LBO rice ortholog — Arabidopsis LBO (Brewer 2016) is well-characterised but rice-specific LBO tillering paper not identified; flag as literature_gap if MeCLA-tailoring step is needed in cascade (G012)",
+    "OsMAX1 paralog separation — generic OsMAX1 node still present (E020); E164 alias edge links OsMAX1→Os1900 but BUILDER must decide whether to keep OsMAX1 generic, replace with Os1900-specific, or model both. Recommend: keep OsMAX1 as generic family-collapsed node, use Os1900 only where N-fertilisation specificity matters",
+    "OsAMT3.2 — added as target of OsGATA8 (E149) but no edges from OsAMT3.2 to phenotype; this is an N-uptake gene rather than a tillering regulator, so likely floating in the network — BUILDER should either drop the edge or collapse OsGATA8→Tiller_Number summary edge (E150)",
+    "OsHK3, OsAMT3.2, T20, OsHOX12, NCED1, Os1900, DTN1, OsDRM1, OsGATA8, MOC3 — newly added nodes not yet in any algebraic equation; BUILDER must decide cascade placement based on mechanistic logic",
+    "Direct ABA biosynthesis arm: T20 → Carotenoid_precursor → ABA could be cleaner; current curation has T20→ABA (E156) skipping intermediate. Similarly T20→Strigolactone (E155) skips D27. Acceptable as biosynthesis summary edges",
+    "FC1 (OsTB1) also represses axillary meristem FORMATION (Lu 2024 PCP 10.1093/pcp/pcae109) — currently OsTB1→Tiller_Number (E023) covers outgrowth inhibition; the meristem-formation arm could be added as a separate developmental edge in BUILDER if the Lu 2024 paper is added in a subsequent round"
+  ],
+  "phase_2_check": {
+    "checklist_written_before_audit": true,
+    "did_not_read_validation_or_refinement": true,
+    "snapshot_created": "data/_step1_snapshot/ contains untouched Step 1 candidate_papers.json, curated_edges.json, perturbation_dataset.json (verified with `ls`)",
+    "ids_appended_not_renumbered": "Edges E001..E142 unchanged; new edges start at E143. Perturbations T001..T186 unchanged; new tests start at T187. Papers appended by DOI; no internal IDs renumbered.",
+    "schema_validated": "All three merged files pass `python Agent/shared/validate_schema.py --network OtherSpecies/Rice_Tillering_network` (ALL PASS)"
+  },
+  "top_3_additions_summary": [
+    "Sucrose -> NGR5 carbon-nitrogen integration (Wen 2024) + DTN1 sucrose biosynthesis - completes the photosynthesis-N-tiller crosstalk loop that was implicit in Wu 2020 but mechanistically uncharacterised before 2024",
+    "T20 / Z-ISO carotenoid pathway (Wei 2020) + SL→OsHOX12→NCED1→ABA→D10 sub-cascade - new SL/ABA biosynthesis crosstalk arm absent from Step 1",
+    "OsGATA8 N-uptake/tiller coordinator (Wang 2024) + Os1900 N-responsive MAX1 paralog (Ito 2023) - two new TFs/enzymes that explain N-fertilisation tiller modulation at the molecular level"
+  ]
+}

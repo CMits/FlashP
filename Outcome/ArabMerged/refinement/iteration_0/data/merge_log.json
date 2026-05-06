@@ -1,0 +1,1336 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "merged_arabidopsis",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "merge_script": "Agent/merge_arabidopsis_v2.py"
+  },
+  "source_networks": [
+    {
+      "name": "flowering_time",
+      "phenotype_node": "Flowering_Time",
+      "nodes": 42,
+      "edges": 87,
+      "tests": 195
+    },
+    {
+      "name": "hypocotyl_length",
+      "phenotype_node": "Hypocotyl_Length",
+      "nodes": 54,
+      "edges": 103,
+      "tests": 161
+    },
+    {
+      "name": "lateral_root_density",
+      "phenotype_node": "Lateral_Root_Density",
+      "nodes": 55,
+      "edges": 68,
+      "tests": 158
+    },
+    {
+      "name": "plant_height",
+      "phenotype_node": "Plant_Height",
+      "nodes": 78,
+      "edges": 98,
+      "tests": 131
+    },
+    {
+      "name": "seed_size",
+      "phenotype_node": "Seed_Size",
+      "nodes": 80,
+      "edges": 134,
+      "tests": 122
+    },
+    {
+      "name": "shoot_branching",
+      "phenotype_node": "Shoot_Branching",
+      "nodes": 38,
+      "edges": 75,
+      "tests": 201
+    }
+  ],
+  "normalization_map": {
+    "GA": "Gibberellin",
+    "GA1": "Gibberellin",
+    "Brassinolide": "Brassinosteroid",
+    "JA": "Jasmonate",
+    "COP1": "COP1_SPA",
+    "GA20OX": "GA20OX1",
+    "Abscisic_Acid": "ABA"
+  },
+  "merged_stats": {
+    "total_nodes": 238,
+    "total_edges": 501,
+    "total_tests": 968,
+    "shared_nodes": 63,
+    "per_phenotype_counts": {
+      "Flowering_Time": 195,
+      "Hypocotyl_Length": 161,
+      "Lateral_Root_Density": 158,
+      "Plant_Height": 131,
+      "Seed_Size": 122,
+      "Shoot_Branching": 201
+    }
+  },
+  "shared_nodes": {
+    "FRI": [
+      "flowering_time",
+      "plant_height"
+    ],
+    "PRC2": [
+      "flowering_time",
+      "plant_height",
+      "seed_size"
+    ],
+    "SLY1": [
+      "flowering_time",
+      "plant_height"
+    ],
+    "GA20OX1": [
+      "flowering_time",
+      "hypocotyl_length",
+      "plant_height",
+      "seed_size"
+    ],
+    "GA2OX": [
+      "flowering_time",
+      "plant_height",
+      "seed_size",
+      "shoot_branching"
+    ],
+    "GI": [
+      "flowering_time",
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "Sucrose": [
+      "flowering_time",
+      "plant_height",
+      "shoot_branching"
+    ],
+    "TPS1": [
+      "flowering_time",
+      "plant_height"
+    ],
+    "miR156": [
+      "flowering_time",
+      "plant_height",
+      "seed_size",
+      "shoot_branching"
+    ],
+    "T6P": [
+      "flowering_time",
+      "plant_height",
+      "shoot_branching"
+    ],
+    "FKF1": [
+      "flowering_time",
+      "plant_height"
+    ],
+    "CDF1": [
+      "flowering_time",
+      "plant_height"
+    ],
+    "CO": [
+      "flowering_time",
+      "plant_height"
+    ],
+    "VIN3": [
+      "flowering_time",
+      "plant_height"
+    ],
+    "FLC": [
+      "flowering_time",
+      "plant_height"
+    ],
+    "SVP": [
+      "flowering_time",
+      "plant_height"
+    ],
+    "PIF4": [
+      "flowering_time",
+      "hypocotyl_length"
+    ],
+    "Gibberellin": [
+      "flowering_time",
+      "lateral_root_density",
+      "plant_height",
+      "seed_size",
+      "shoot_branching"
+    ],
+    "GID1": [
+      "flowering_time",
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "DELLA": [
+      "flowering_time",
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height",
+      "seed_size",
+      "shoot_branching"
+    ],
+    "SPL9": [
+      "flowering_time",
+      "plant_height",
+      "shoot_branching"
+    ],
+    "miR172": [
+      "flowering_time",
+      "plant_height",
+      "seed_size"
+    ],
+    "AP2": [
+      "flowering_time",
+      "seed_size"
+    ],
+    "FT": [
+      "flowering_time",
+      "plant_height",
+      "shoot_branching"
+    ],
+    "Light": [
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "Temperature": [
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "PHYB": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height"
+    ],
+    "PHYA": [
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "COP1_SPA": [
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "HY5": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height"
+    ],
+    "HFR1": [
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "DET2": [
+      "hypocotyl_length",
+      "seed_size"
+    ],
+    "DWF4": [
+      "hypocotyl_length",
+      "seed_size"
+    ],
+    "BAS1": [
+      "hypocotyl_length",
+      "seed_size"
+    ],
+    "BRI1": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height",
+      "seed_size"
+    ],
+    "BAK1": [
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "BIN2": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height",
+      "seed_size"
+    ],
+    "BZR1": [
+      "hypocotyl_length",
+      "seed_size"
+    ],
+    "PP2A": [
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "TAA1": [
+      "hypocotyl_length",
+      "lateral_root_density"
+    ],
+    "Auxin": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height",
+      "seed_size",
+      "shoot_branching"
+    ],
+    "TIR1": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height",
+      "seed_size"
+    ],
+    "Ethylene": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height"
+    ],
+    "CTR1": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height"
+    ],
+    "EIN2": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height"
+    ],
+    "EIN3": [
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "ABA": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height",
+      "seed_size",
+      "shoot_branching"
+    ],
+    "Cytokinin": [
+      "lateral_root_density",
+      "plant_height",
+      "seed_size",
+      "shoot_branching"
+    ],
+    "Strigolactone": [
+      "lateral_root_density",
+      "plant_height",
+      "shoot_branching"
+    ],
+    "Brassinosteroid": [
+      "lateral_root_density",
+      "plant_height",
+      "seed_size"
+    ],
+    "CKX2": [
+      "lateral_root_density",
+      "seed_size"
+    ],
+    "ABI1": [
+      "lateral_root_density",
+      "plant_height"
+    ],
+    "SNRK2": [
+      "lateral_root_density",
+      "plant_height"
+    ],
+    "D14": [
+      "lateral_root_density",
+      "plant_height",
+      "shoot_branching"
+    ],
+    "MAX2": [
+      "lateral_root_density",
+      "plant_height",
+      "shoot_branching"
+    ],
+    "MAX1": [
+      "lateral_root_density",
+      "shoot_branching"
+    ],
+    "NCED3": [
+      "plant_height",
+      "seed_size",
+      "shoot_branching"
+    ],
+    "GA3OX": [
+      "plant_height",
+      "seed_size"
+    ],
+    "IPT": [
+      "plant_height",
+      "seed_size",
+      "shoot_branching"
+    ],
+    "CKX3": [
+      "plant_height",
+      "seed_size"
+    ],
+    "ARR1": [
+      "plant_height",
+      "shoot_branching"
+    ],
+    "ABI5": [
+      "plant_height",
+      "seed_size"
+    ],
+    "ABA2": [
+      "seed_size",
+      "shoot_branching"
+    ]
+  },
+  "edge_conflicts": [],
+  "equation_merge_decisions": {
+    "ABA": {
+      "strategy": "best-single-model",
+      "base_network": "seed_size",
+      "other_networks": [
+        "hypocotyl_length",
+        "lateral_root_density",
+        "plant_height",
+        "shoot_branching"
+      ],
+      "final_activators": [
+        "NCED3",
+        "ABA2"
+      ],
+      "final_inhibitors": [
+        "CYP707A"
+      ],
+      "total_activators": 2,
+      "total_inhibitors": 1
+    },
+    "ABA2": {
+      "strategy": "best-single-model",
+      "base_network": "shoot_branching",
+      "other_networks": [
+        "seed_size"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [],
+      "total_activators": 0,
+      "total_inhibitors": 0
+    },
+    "ABI1": {
+      "strategy": "best-single-model",
+      "base_network": "lateral_root_density",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [
+        "PYL8"
+      ],
+      "total_activators": 0,
+      "total_inhibitors": 1
+    },
+    "ABI5": {
+      "strategy": "best-single-model",
+      "base_network": "seed_size",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [
+        "ABA",
+        "ABI4"
+      ],
+      "final_inhibitors": [
+        "RAV1"
+      ],
+      "total_activators": 2,
+      "total_inhibitors": 1
+    },
+    "AP2": {
+      "strategy": "best-single-model",
+      "base_network": "flowering_time",
+      "other_networks": [
+        "seed_size"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [
+        "miR172",
+        "SOC1"
+      ],
+      "total_activators": 0,
+      "total_inhibitors": 2
+    },
+    "ARR1": {
+      "strategy": "best-single-model",
+      "base_network": "plant_height",
+      "other_networks": [
+        "shoot_branching"
+      ],
+      "final_activators": [
+        "AHP1"
+      ],
+      "final_inhibitors": [],
+      "total_activators": 1,
+      "total_inhibitors": 0
+    },
+    "Auxin": {
+      "strategy": "best-single-model",
+      "base_network": "lateral_root_density",
+      "other_networks": [
+        "hypocotyl_length",
+        "plant_height",
+        "seed_size",
+        "shoot_branching"
+      ],
+      "final_activators": [
+        "TAA1",
+        "TAR2",
+        "YUC4",
+        "AUX1"
+      ],
+      "final_inhibitors": [
+        "GH3",
+        "DAO1"
+      ],
+      "total_activators": 4,
+      "total_inhibitors": 2
+    },
+    "BAK1": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [],
+      "total_activators": 0,
+      "total_inhibitors": 0
+    },
+    "BAS1": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "seed_size"
+      ],
+      "final_activators": [
+        "PHYB"
+      ],
+      "final_inhibitors": [],
+      "total_activators": 1,
+      "total_inhibitors": 0
+    },
+    "BIN2": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "lateral_root_density",
+        "plant_height",
+        "seed_size"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [
+        "COP1_SPA",
+        "BRI1",
+        "BAK1",
+        "SPA1"
+      ],
+      "total_activators": 0,
+      "total_inhibitors": 4
+    },
+    "BRI1": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "lateral_root_density",
+        "plant_height",
+        "seed_size"
+      ],
+      "final_activators": [
+        "BR"
+      ],
+      "final_inhibitors": [],
+      "total_activators": 1,
+      "total_inhibitors": 0
+    },
+    "BZR1": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "seed_size"
+      ],
+      "final_activators": [
+        "PP2A"
+      ],
+      "final_inhibitors": [
+        "BIN2",
+        "DELLA"
+      ],
+      "total_activators": 1,
+      "total_inhibitors": 2
+    },
+    "Brassinosteroid": {
+      "strategy": "best-single-model",
+      "base_network": "seed_size",
+      "other_networks": [
+        "lateral_root_density",
+        "plant_height"
+      ],
+      "final_activators": [
+        "DET2",
+        "DWF4"
+      ],
+      "final_inhibitors": [
+        "BAS1"
+      ],
+      "total_activators": 2,
+      "total_inhibitors": 1
+    },
+    "CDF1": {
+      "strategy": "best-single-model",
+      "base_network": "flowering_time",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [
+        "FKF1",
+        "GI"
+      ],
+      "total_activators": 0,
+      "total_inhibitors": 2
+    },
+    "CKX2": {
+      "strategy": "best-single-model",
+      "base_network": "seed_size",
+      "other_networks": [
+        "lateral_root_density"
+      ],
+      "final_activators": [
+        "MINI3"
+      ],
+      "final_inhibitors": [
+        "PRC2"
+      ],
+      "total_activators": 1,
+      "total_inhibitors": 1
+    },
+    "CKX3": {
+      "strategy": "best-single-model",
+      "base_network": "plant_height",
+      "other_networks": [
+        "seed_size"
+      ],
+      "final_activators": [
+        "Cytokinin"
+      ],
+      "final_inhibitors": [],
+      "total_activators": 1,
+      "total_inhibitors": 0
+    },
+    "CO": {
+      "strategy": "best-single-model",
+      "base_network": "flowering_time",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [
+        "Long_Day",
+        "GI",
+        "FKF1"
+      ],
+      "final_inhibitors": [
+        "CDF1",
+        "DELLA"
+      ],
+      "total_activators": 3,
+      "total_inhibitors": 2
+    },
+    "COP1_SPA": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [
+        "SPA1"
+      ],
+      "final_inhibitors": [
+        "PHYB",
+        "PHYA",
+        "CRY1",
+        "CRY2",
+        "UVR8"
+      ],
+      "total_activators": 1,
+      "total_inhibitors": 5
+    },
+    "CTR1": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "lateral_root_density",
+        "plant_height"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [
+        "Ethylene"
+      ],
+      "total_activators": 0,
+      "total_inhibitors": 1
+    },
+    "Cytokinin": {
+      "strategy": "best-single-model",
+      "base_network": "seed_size",
+      "other_networks": [
+        "lateral_root_density",
+        "plant_height",
+        "shoot_branching"
+      ],
+      "final_activators": [
+        "IPT"
+      ],
+      "final_inhibitors": [
+        "CKX2",
+        "CKX3",
+        "CKX5",
+        "AHP6"
+      ],
+      "total_activators": 1,
+      "total_inhibitors": 4
+    },
+    "D14": {
+      "strategy": "best-single-model",
+      "base_network": "shoot_branching",
+      "other_networks": [
+        "lateral_root_density",
+        "plant_height"
+      ],
+      "final_activators": [
+        "Strigolactone"
+      ],
+      "final_inhibitors": [
+        "D14"
+      ],
+      "total_activators": 1,
+      "total_inhibitors": 1
+    },
+    "DELLA": {
+      "strategy": "best-single-model",
+      "base_network": "plant_height",
+      "other_networks": [
+        "flowering_time",
+        "hypocotyl_length",
+        "lateral_root_density",
+        "seed_size",
+        "shoot_branching"
+      ],
+      "final_activators": [
+        "SPY"
+      ],
+      "final_inhibitors": [
+        "GID1",
+        "SLY1"
+      ],
+      "total_activators": 1,
+      "total_inhibitors": 2
+    },
+    "DET2": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "seed_size"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [],
+      "total_activators": 0,
+      "total_inhibitors": 0
+    },
+    "DWF4": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "seed_size"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [
+        "BZR1"
+      ],
+      "total_activators": 0,
+      "total_inhibitors": 1
+    },
+    "EIN2": {
+      "strategy": "best-single-model",
+      "base_network": "lateral_root_density",
+      "other_networks": [
+        "hypocotyl_length",
+        "plant_height"
+      ],
+      "final_activators": [
+        "Ethylene"
+      ],
+      "final_inhibitors": [
+        "CTR1"
+      ],
+      "total_activators": 1,
+      "total_inhibitors": 1
+    },
+    "EIN3": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [
+        "EIN2"
+      ],
+      "final_inhibitors": [],
+      "total_activators": 1,
+      "total_inhibitors": 0
+    },
+    "Ethylene": {
+      "strategy": "best-single-model",
+      "base_network": "lateral_root_density",
+      "other_networks": [
+        "hypocotyl_length",
+        "plant_height"
+      ],
+      "final_activators": [
+        "ACS",
+        "ACO"
+      ],
+      "final_inhibitors": [],
+      "total_activators": 2,
+      "total_inhibitors": 0
+    },
+    "FKF1": {
+      "strategy": "best-single-model",
+      "base_network": "flowering_time",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [
+        "Blue_Light",
+        "GI"
+      ],
+      "final_inhibitors": [],
+      "total_activators": 2,
+      "total_inhibitors": 0
+    },
+    "FLC": {
+      "strategy": "best-single-model",
+      "base_network": "flowering_time",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [
+        "FRI",
+        "SVP"
+      ],
+      "final_inhibitors": [
+        "VIN3",
+        "PRC2",
+        "FCA",
+        "FPA",
+        "FLD",
+        "FVE",
+        "LD"
+      ],
+      "total_activators": 2,
+      "total_inhibitors": 7
+    },
+    "FRI": {
+      "strategy": "best-single-model",
+      "base_network": "flowering_time",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [],
+      "total_activators": 0,
+      "total_inhibitors": 0
+    },
+    "FT": {
+      "strategy": "best-single-model",
+      "base_network": "flowering_time",
+      "other_networks": [
+        "plant_height",
+        "shoot_branching"
+      ],
+      "final_activators": [
+        "CO",
+        "PIF4",
+        "FKF1",
+        "GI",
+        "Warm_Temperature",
+        "T6P",
+        "TPS1"
+      ],
+      "final_inhibitors": [
+        "FLC",
+        "SVP",
+        "CDF1"
+      ],
+      "total_activators": 7,
+      "total_inhibitors": 3
+    },
+    "GA20OX1": {
+      "strategy": "best-single-model",
+      "base_network": "plant_height",
+      "other_networks": [
+        "flowering_time",
+        "hypocotyl_length",
+        "seed_size"
+      ],
+      "final_activators": [
+        "PIF4_5_7"
+      ],
+      "final_inhibitors": [
+        "Gibberellin",
+        "ABA"
+      ],
+      "total_activators": 1,
+      "total_inhibitors": 2
+    },
+    "GA2OX": {
+      "strategy": "best-single-model",
+      "base_network": "plant_height",
+      "other_networks": [
+        "flowering_time",
+        "seed_size",
+        "shoot_branching"
+      ],
+      "final_activators": [
+        "Gibberellin"
+      ],
+      "final_inhibitors": [],
+      "total_activators": 1,
+      "total_inhibitors": 0
+    },
+    "GA3OX": {
+      "strategy": "best-single-model",
+      "base_network": "plant_height",
+      "other_networks": [
+        "seed_size"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [
+        "Gibberellin"
+      ],
+      "total_activators": 0,
+      "total_inhibitors": 1
+    },
+    "GI": {
+      "strategy": "best-single-model",
+      "base_network": "flowering_time",
+      "other_networks": [
+        "hypocotyl_length",
+        "plant_height"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [],
+      "total_activators": 0,
+      "total_inhibitors": 0
+    },
+    "GID1": {
+      "strategy": "best-single-model",
+      "base_network": "flowering_time",
+      "other_networks": [
+        "hypocotyl_length",
+        "plant_height"
+      ],
+      "final_activators": [
+        "Gibberellin"
+      ],
+      "final_inhibitors": [],
+      "total_activators": 1,
+      "total_inhibitors": 0
+    },
+    "Gibberellin": {
+      "strategy": "best-single-model",
+      "base_network": "plant_height",
+      "other_networks": [
+        "flowering_time",
+        "lateral_root_density",
+        "seed_size",
+        "shoot_branching"
+      ],
+      "final_activators": [
+        "GA20OX1",
+        "GA3OX"
+      ],
+      "final_inhibitors": [
+        "GA2OX"
+      ],
+      "total_activators": 2,
+      "total_inhibitors": 1
+    },
+    "HFR1": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [
+        "FHY1",
+        "PIF5"
+      ],
+      "final_inhibitors": [
+        "COP1_SPA"
+      ],
+      "total_activators": 2,
+      "total_inhibitors": 1
+    },
+    "HY5": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "lateral_root_density",
+        "plant_height"
+      ],
+      "final_activators": [
+        "BBX21",
+        "UVR8",
+        "BBX11"
+      ],
+      "final_inhibitors": [
+        "Temperature",
+        "COP1_SPA",
+        "SPA1",
+        "BBX25"
+      ],
+      "total_activators": 3,
+      "total_inhibitors": 4
+    },
+    "IPT": {
+      "strategy": "best-single-model",
+      "base_network": "shoot_branching",
+      "other_networks": [
+        "plant_height",
+        "seed_size"
+      ],
+      "final_activators": [
+        "Nitrogen",
+        "Decapitation"
+      ],
+      "final_inhibitors": [
+        "Auxin"
+      ],
+      "total_activators": 2,
+      "total_inhibitors": 1
+    },
+    "Light": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [],
+      "total_activators": 0,
+      "total_inhibitors": 0
+    },
+    "MAX1": {
+      "strategy": "best-single-model",
+      "base_network": "shoot_branching",
+      "other_networks": [
+        "lateral_root_density"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [
+        "Gibberellin"
+      ],
+      "total_activators": 0,
+      "total_inhibitors": 1
+    },
+    "MAX2": {
+      "strategy": "best-single-model",
+      "base_network": "plant_height",
+      "other_networks": [
+        "lateral_root_density",
+        "shoot_branching"
+      ],
+      "final_activators": [
+        "D14"
+      ],
+      "final_inhibitors": [],
+      "total_activators": 1,
+      "total_inhibitors": 0
+    },
+    "NCED3": {
+      "strategy": "best-single-model",
+      "base_network": "plant_height",
+      "other_networks": [
+        "seed_size",
+        "shoot_branching"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [],
+      "total_activators": 0,
+      "total_inhibitors": 0
+    },
+    "PHYA": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [
+        "Light"
+      ],
+      "final_inhibitors": [],
+      "total_activators": 1,
+      "total_inhibitors": 0
+    },
+    "PHYB": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "lateral_root_density",
+        "plant_height"
+      ],
+      "final_activators": [
+        "Light"
+      ],
+      "final_inhibitors": [],
+      "total_activators": 1,
+      "total_inhibitors": 0
+    },
+    "PIF4": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "flowering_time"
+      ],
+      "final_activators": [
+        "DET1",
+        "BZR1",
+        "HSFA1D"
+      ],
+      "final_inhibitors": [
+        "PHYB",
+        "CRY1",
+        "HFR1",
+        "ELF3_EC",
+        "DELLA",
+        "TOC1",
+        "GI"
+      ],
+      "total_activators": 3,
+      "total_inhibitors": 7
+    },
+    "PP2A": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [],
+      "total_activators": 0,
+      "total_inhibitors": 0
+    },
+    "PRC2": {
+      "strategy": "best-single-model",
+      "base_network": "flowering_time",
+      "other_networks": [
+        "plant_height",
+        "seed_size"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [],
+      "total_activators": 0,
+      "total_inhibitors": 0
+    },
+    "SLY1": {
+      "strategy": "best-single-model",
+      "base_network": "flowering_time",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [],
+      "total_activators": 0,
+      "total_inhibitors": 0
+    },
+    "SNRK2": {
+      "strategy": "best-single-model",
+      "base_network": "lateral_root_density",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [
+        "ABI1"
+      ],
+      "total_activators": 0,
+      "total_inhibitors": 1
+    },
+    "SPL9": {
+      "strategy": "best-single-model",
+      "base_network": "shoot_branching",
+      "other_networks": [
+        "flowering_time",
+        "plant_height"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [
+        "SMXL678",
+        "DELLA",
+        "miR156",
+        "FHY3"
+      ],
+      "total_activators": 0,
+      "total_inhibitors": 4
+    },
+    "SVP": {
+      "strategy": "best-single-model",
+      "base_network": "flowering_time",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [
+        "Warm_Temperature",
+        "FCA",
+        "FVE",
+        "SOC1"
+      ],
+      "total_activators": 0,
+      "total_inhibitors": 4
+    },
+    "Strigolactone": {
+      "strategy": "best-single-model",
+      "base_network": "shoot_branching",
+      "other_networks": [
+        "lateral_root_density",
+        "plant_height"
+      ],
+      "final_activators": [
+        "CCD7",
+        "CCD8",
+        "D27",
+        "MAX1",
+        "LBO"
+      ],
+      "final_inhibitors": [
+        "Decapitation",
+        "Sucrose",
+        "Nitrogen"
+      ],
+      "total_activators": 5,
+      "total_inhibitors": 3
+    },
+    "Sucrose": {
+      "strategy": "best-single-model",
+      "base_network": "flowering_time",
+      "other_networks": [
+        "plant_height",
+        "shoot_branching"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [],
+      "total_activators": 0,
+      "total_inhibitors": 0
+    },
+    "T6P": {
+      "strategy": "best-single-model",
+      "base_network": "flowering_time",
+      "other_networks": [
+        "plant_height",
+        "shoot_branching"
+      ],
+      "final_activators": [
+        "Sucrose",
+        "TPS1"
+      ],
+      "final_inhibitors": [],
+      "total_activators": 2,
+      "total_inhibitors": 0
+    },
+    "TAA1": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "lateral_root_density"
+      ],
+      "final_activators": [
+        "PIF4"
+      ],
+      "final_inhibitors": [],
+      "total_activators": 1,
+      "total_inhibitors": 0
+    },
+    "TIR1": {
+      "strategy": "best-single-model",
+      "base_network": "lateral_root_density",
+      "other_networks": [
+        "hypocotyl_length",
+        "plant_height",
+        "seed_size"
+      ],
+      "final_activators": [
+        "Auxin",
+        "Low_Phosphate"
+      ],
+      "final_inhibitors": [],
+      "total_activators": 2,
+      "total_inhibitors": 0
+    },
+    "TPS1": {
+      "strategy": "best-single-model",
+      "base_network": "flowering_time",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [],
+      "total_activators": 0,
+      "total_inhibitors": 0
+    },
+    "Temperature": {
+      "strategy": "best-single-model",
+      "base_network": "hypocotyl_length",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [],
+      "total_activators": 0,
+      "total_inhibitors": 0
+    },
+    "VIN3": {
+      "strategy": "best-single-model",
+      "base_network": "flowering_time",
+      "other_networks": [
+        "plant_height"
+      ],
+      "final_activators": [
+        "Cold",
+        "Vernalization"
+      ],
+      "final_inhibitors": [],
+      "total_activators": 2,
+      "total_inhibitors": 0
+    },
+    "miR156": {
+      "strategy": "best-single-model",
+      "base_network": "plant_height",
+      "other_networks": [
+        "flowering_time",
+        "seed_size",
+        "shoot_branching"
+      ],
+      "final_activators": [],
+      "final_inhibitors": [
+        "Sucrose",
+        "T6P"
+      ],
+      "total_activators": 0,
+      "total_inhibitors": 2
+    },
+    "miR172": {
+      "strategy": "best-single-model",
+      "base_network": "flowering_time",
+      "other_networks": [
+        "plant_height",
+        "seed_size"
+      ],
+      "final_activators": [
+        "SPL9"
+      ],
+      "final_inhibitors": [
+        "AP2"
+      ],
+      "total_activators": 1,
+      "total_inhibitors": 1
+    }
+  }
+}

@@ -1,0 +1,346 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Plant_Height",
+    "phenotype_node": "Plant_Height",
+    "species": "Triticum aestivum",
+    "created": "2026-04-20",
+    "iteration": 1,
+    "judge_model": "Claude Opus 4.7",
+    "inputs_read": [
+      "network/network.json",
+      "network/algebraic_equations.json",
+      "network/ode_equations.json",
+      "network/node_annotations.json",
+      "data/curated_edges.json",
+      "data/literature_judge_report.json",
+      "Agent/BUILDER_AGENT.md"
+    ],
+    "forbidden_inputs_confirmed_unread": [
+      "data/perturbation_dataset.json",
+      "data/reconciled_perturbation_dataset.json",
+      "validation/",
+      "refinement/"
+    ]
+  },
+  "verdict": "approved",
+  "summary": "Well-structured literature-built network (43 nodes, 53 edges, 44.2% source). Perception Gate purity is preserved for all three hormones — GA, BL, and Auxin each route only through their receptor — which correctly blocks Trap-3 signaling-mutant rescues (Rht-B1b + GA3, TaBRI1 triple + BL). Per-node coverage is healthy: no major hub is silently under-represented (no node with ≥5 curated edges has <0.30 coverage). The 26 rejected curated edges are defensible (4 bypasses, 4 damping feedbacks, 4 peripheral PROCESS targets, 4 early-GA enzymes consolidated, plus direct-phenotype edges correctly routed via mechanism intermediates). Minor advisory gaps remain: TaEXP (expansin) was dropped entirely rather than wired via a non-bypass upstream; this is an acceptable architectural trade-off but flags a LOW-priority literature_gap for a TaARF→TaEXP or TaPIF4→TaEXP primary wheat paper. Network is approved to proceed to Step 3.",
+  "rubric_scores": {
+    "pathway_completeness": {
+      "score": 4,
+      "justification": "All major wheat-height pathways are represented end-to-end: GA biosynthesis (TAGA20OX, TAGA3OX) + catabolism (TAGA2OX, TAGA1OX1); GA perception via TAGID1-SCF-TASLY1; DELLA homeolog-specific RHT_B1 and RHT_D1 with direct growth-repression to Plant_Height and indirect repression via PIF/PLATZ_A1/TAGRF4; BR biosynthesis (TAD11, TADWF4) + perception (TABRI1, TASERK, TABKI1, TAZNF) + transduction (TABIN2, TABZR1); Auxin perception (TATIR1, TAIAA, TAARF) + TaARF4-TaHB33-TaGH3 homeostasis; Light/PIF axis with TAERF_A1; Vernalization/VRN1; Photoperiod/PPD_D1; specialty Rht loci (Rht8, Rht12, Rht13, Rht18, Rht24, TAOSCA1_4, PLATZ_A1). Minor gap: no cell-wall-effector node (TaEXP dropped to preserve Perception Gate purity — cannot be added without curated non-bypass upstream). BR biosynthesis has synthesis but no degradation (Motif 4 half-applied).",
+      "pathway_coverage_table": {
+        "GA_biosynthesis_late": "complete (TAGA20OX, TAGA3OX → Gibberellin)",
+        "GA_biosynthesis_early": "documented as literature_gap (TaCPS/TaKS/TaKO/TaKAO excluded; no perturbation coverage)",
+        "GA_catabolism": "complete (TAGA2OX, TAGA1OX1)",
+        "GA_perception": "complete (Gibberellin → TAGID1)",
+        "DELLA_degradation": "complete (TAGID1 + TASLY1 → RHT_B1, RHT_D1 — Perception Gate Motif 1)",
+        "DELLA_growth_repression": "complete (RHT_B1/D1 → Plant_Height direct + via PIF/PLATZ_A1/TAGRF4)",
+        "DELLA_biosynthesis_feedback": "complete (RHT_B1 → TAGA20OX homeostatic loop)",
+        "GA_homeostasis": "complete (Gibberellin → TAGA2OX self-catabolism)",
+        "Green_Revolution_alleles": "encoded at node level (RHT_B1, RHT_D1 separate); GOF handled at Step 3 via gm",
+        "Rht8": "present as source + Rht8 → Gibberellin",
+        "Rht12_18_24_mechanism": "wired via RHT → TAGA2OX (closes G002 gap)",
+        "Rht13_autoimmunity": "wired via RHT13 → Pathogenesis_Related_Genes → Plant_Height",
+        "BR_biosynthesis": "partial (TaD11 + TaDWF4 synthesis; no degradation)",
+        "BR_perception_signalling": "complete (BL → TaBRI1 + TaSERK → TaBKI1 release → TaBIN2 → TaBZR1)",
+        "BR_GA_crosstalk": "complete (TaBZR1 ⊣ RHT_B1; TaBIN2 → RHT_B1)",
+        "Auxin_perception": "complete (Auxin → TaTIR1 → TaIAA → TaARF)",
+        "Auxin_homeostasis": "complete (TaARF4 → TaHB33 → TaGH3 → Auxin)",
+        "Auxin_to_GA_crosstalk": "MISSING — literature_gap G007 carried over from Step 1.5",
+        "Cell_wall_elongation_effectors": "MISSING — TaEXP dropped; literature_gap for non-bypass upstream",
+        "Photoperiod_Ppd1": "complete (Photoperiod → PPD_D1 → Plant_Height)",
+        "Vernalization_VRN1": "complete (Vernalization → VRN1 → TAGA20OX)",
+        "Light_PIF": "complete (Light ⊣ PIF; TAERF_A1 → PIF)",
+        "TaOSCA1_4_Ca2+": "complete (source → Plant_Height direct)"
+      }
+    },
+    "mechanistic_depth": {
+      "score": 4,
+      "justification": "The GA axis has proper 4-5 step cascades: TAGA20OX/TAGA3OX → Gibberellin → TAGID1 → RHT_B1 → (PIF/PLATZ_A1/TAGRF4) → Plant_Height. BR cascade is 5 steps: BL → TABRI1 → TABIN2 → TABZR1 → Plant_Height (with TABKI1 mutual-inhibition gate, TAZNF release, TASERK co-receptor). Auxin is 4 steps to Plant_Height. Some nodes feed Plant_Height directly without intermediates (TAOSCA1_4, PPD_D1, PLATZ_A1, Pathogenesis_Related_Genes) — defensible because no curated mechanistic intermediate exists for these specialty routes. Max path length is ~5 hops (within §10 limit of 7)."
+    },
+    "motif_coverage": {
+      "score": 4,
+      "justification": "Perception Gate (Motif 1) applied correctly and purely for all three hormones: Gibberellin → TAGID1 with TASLY1 co-inhibitor on RHT_B1/RHT_D1; Brassinosteroid → TABRI1 with TASERK co-receptor (and TABKI1/TAZNF mutual-inhibition sub-motif); Auxin → TATIR1 with TAIAA degradation. Biosynthesis-Degradation Balance (Motif 4) applied to GA (synthesis TAGA20OX+TAGA3OX vs. catabolism TAGA2OX+TAGA1OX1) — exemplary. Multi-Output Scaffold (Motif 5) on TAGID1 and TASLY1 targeting both DELLA homeologs; on RHT_B1 with multiple downstream targets. Self-Limiting Feedback (Motif 6 hormone variant) via Gibberellin → TAGA2OX → Gibberellin loop. Coherent Feed-Forward (Motif 3) via RHT_B1 → Plant_Height direct AND via PIF/PLATZ_A1. Mutual Inhibition (Motif 7) partially: TABZR1 ⊣ RHT_B1 paired with TABIN2 → RHT_B1 stabilisation creates BR–GA antagonism but not a strict bistable switch. Not scored 5 because: (a) BR side of Biosynthesis-Degradation Balance is one-sided (no curated BR-degradation gene), (b) the Auxin-GA crosstalk feed-forward (Motif 3) is absent due to G007 literature gap."
+    },
+    "cascade_balance": {
+      "score": 5,
+      "justification": "43 nodes, 19 sources (44.2%) — squarely in 30–50% target. Max activators on any node = 5 (Gibberellin and Plant_Height); max inhibitors = 5 (RHT_B1) — both within the 7-cap with comfort. No dead-end nodes; no >7-input hubs; one connected component (verified by backward BFS). Geometric-mean dilution risk is bounded."
+    },
+    "composite_node_handling": {
+      "score": 5,
+      "justification": "Homeolog-handling convention matches the Step 1.5 decision exactly: DELLA split (RHT_B1, RHT_D1 separate — each has distinct Green Revolution allele phenotype on different chromosomes); GA-pathway enzymes and BR-receptor family composite (TAGA20OX, TAGA3OX, TAGA2OX, TAGID1, TABRI1, TABZR1, TABIN2, VRN1, TAGRF4, TAARF, TAIAA, TATIR1); allele-specific nodes where a named allele IS the phenotype driver (PLATZ-A1 = Rht25, TAARF4, TAERF-A1 = JD6, PPD_D1 = Ppd-D1a, TAOSCA1_4, RHT18, RHT24, RHT12, TAGA1OX1 = TaGA1ox1-B1). The composite node rules §9.3 are followed: functional redundancy + same target + same sign all hold. RHT_A1 omission is documented in Step 1.5 as acceptable (minor homeolog without homeolog-specific phenotype evidence)."
+    },
+    "hub_completeness": {
+      "score": 4,
+      "justification": "Major hub coverage: RHT_B1 (11/16 curated = 69%); Plant_Height (9/17 = 53%); Gibberellin (8/18 = 44%); TABRI1 (5/6 = 83%); TAGA2OX (5/5 = 100%); TABZR1 (3/3 = 100%). RHT_B1 exclusions are all defensible (E012 perception-gate bypass; E051/E055/E056/E058 peripheral PROCESS; TAGA2OX feedback redundant with RHT_B1 → TAGA20OX → Gibberellin ⊣ RHT_B1 cycle). Gibberellin coverage at 44% is the lowest among majors but every excluded edge is either a bypass (E012, E013, E041), a damping feedback (E014, E015, E017) or an early-GA enzyme consolidated away (E064–E067). No silent hub-regulator drops."
+    },
+    "topology_hazards": {
+      "score": 4,
+      "justification": "No positive Hormone↔Transporter loops. No sole-activator collapses (Plant_Height has 5 activators). No undocumented self-loops. Perception Gate purity: Brassinosteroid has exactly one outgoing edge (→ TABRI1) ✓; Auxin has exactly one (→ TATIR1) ✓; Gibberellin has two (→ TAGID1 and → TAGA2OX). The second edge (GA → TAGA2OX) implements Motif 6 self-limiting homeostasis — it does NOT bypass the receptor to reach any downstream TF or Plant_Height activator (TAGA2OX feeds only back into Gibberellin as an inhibitor). Under Rht-B1b + GA3, this loop only dampens GA elevation; it cannot produce a rescue bypass. Marked down one point as a topology advisory — the outgoing edge should be explicitly documented as homeostatic (not a perception-gate violation) in the edge mechanism string; otherwise a future reviewer could confuse it for a bypass."
+    },
+    "evidence_quality": {
+      "score": 5,
+      "justification": "Spot-check (10 edges): mechanism strings are consistently specific (N014 'GA-bound TaGID1 binds Rht-B1 DELLA N-terminal motif, recruiting SCF-SLY1 for ubiquitination'; N040 'TaBIN2 phosphorylates and stabilises DELLA (when BR low); BR-GA crosstalk'; N038 'Dephosphorylated TaBZR1/TaBES1 activates BR-response growth and cell-elongation genes'). Evidence sentences are direct paper quotes. Mix of full_text_read and abstract_read, documented per edge. No vague 'X regulates Y' strings detected."
+    },
+    "phenotype_audit": {
+      "score": 4,
+      "justification": "Plant_Height has 5 activators (PLATZ_A1, PIF, TABZR1, TAARF, TAOSCA1_4) and 4 inhibitors (RHT_B1, RHT_D1, PPD_D1, Pathogenesis_Related_Genes) — at the top of the 3-5 target for activators and 4 for inhibitors. Major effector classes present: DELLA TFs (RHT_B1, RHT_D1), BR-response TF (TABZR1), auxin-response TF (TAARF), light-response TF (PIF), photoperiod regulator (PPD_D1), developmental enforcer (PLATZ_A1), novel Ca2+-signalling (TAOSCA1_4), cell-wall cross-linking (PR_Genes). Missing effector class: cell-wall-loosening expansins (TaEXP dropped). Both promoting and repressing arms are present and balanced (5 up, 4 down). Marked down one point for the expansin gap."
+    },
+    "rejected_edges_review": {
+      "score": 4,
+      "justification": "26 curated edges rejected; each has a defensible reason documented either in network.json metadata or implicit in the Perception Gate / composite / PROCESS-peripheral logic: (a) Perception-Gate bypasses E012, E013, E041, E042 — correct removal; (b) damping feedbacks E014, E015, E017, E035 — simplification trade-off to avoid signal-kill; (c) peripheral PROCESS targets E051, E055, E056, E058 (Rht-B1 to photosynthesis/dormancy/coleoptile/anther length — off-target phenotypes) — correct; (d) early GA enzymes E064–E067 — composite-consolidation literature_gap (no perturbations map to TaCPS/TaKS/TaKO/TaKAO individually); (e) direct-phenotype edges routed via mechanistic intermediate: E023 (TAGRF4 via RHT_B1), E031 (TABRI1 via TABIN2→TABZR1), E045 (VRN1 via TAGA20OX), E047 (RHT8 via Gibberellin), E057 (TAZNF via TABKI1→TABRI1 cascade), E074 (TAERF_A1 via PIF); (f) E043 TaEXP→Plant_Height + E040 Auxin→TaEXP consequence of TaEXP node drop; (g) dead-end sink E021 PLATZ→TAGRF1 — correctly dropped. One point off because (f) deserves more explicit metadata justification than the BUILDER provided."
+    },
+    "key_player_density": {
+      "score": 5,
+      "justification": "Per-node coverage ratio audit (all nodes with ≥2 curated edges checked): NO node meets the §9.11 flag criterion (≥5 curated AND <0.30 coverage). The lowest ratio among majors is Gibberellin at 0.44 — above the 0.30 threshold. Every Green-Revolution-relevant hub (RHT_B1 0.69, TABRI1 0.83, TAGA2OX 1.00, TABZR1 1.00, Plant_Height 0.53) is well represented. Anti-Pattern 6 (silent under-representation) does not apply.",
+      "per_player_ratios": {
+        "Gibberellin": 0.44,
+        "Plant_Height": 0.53,
+        "RHT_B1": 0.69,
+        "TABRI1": 0.83,
+        "TAGA2OX": 1.00,
+        "Brassinosteroid": 0.60,
+        "TAGID1": 0.75,
+        "TAGA20OX": 0.75,
+        "RHT_D1": 0.75,
+        "PIF": 1.00,
+        "VRN1": 0.67,
+        "TAGRF4": 0.67,
+        "TABZR1": 1.00,
+        "TABKI1": 1.00,
+        "TABIN2": 1.00,
+        "PLATZ_A1": 0.67,
+        "Auxin": 0.67,
+        "TASLY1": 1.00,
+        "TAEXP_node_absent": 0.00
+      },
+      "flagged_major_regulator_under_representation": [],
+      "homeolog_convention_check": "CONSISTENT — matches Step 1.5 decision: DELLA split (RHT_B1, RHT_D1 separate); GA/BR receptors and enzymes composite; allele-specific where allele-driven."
+    }
+  },
+  "per_node_audit": [
+    {"node": "Vernalization", "type": "ENVIRONMENT", "inputs": [], "outputs": ["VRN1(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source environmental input. Only curated downstream edge to VRN1 is included."},
+    {"node": "Photoperiod", "type": "ENVIRONMENT", "inputs": [], "outputs": ["PPD_D1(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source. Connects long-day signal to Ppd-D1 per Chen 2018."},
+    {"node": "Light", "type": "ENVIRONMENT", "inputs": [], "outputs": ["PIF(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source. Phytochrome-degradation of PIF is the only curated link — correctly captured."},
+    {"node": "Nitrogen", "type": "ENVIRONMENT", "inputs": [], "outputs": ["Gibberellin(+)", "RHT_B1(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source. Camut 2021 dual route (N→GA biosynthesis and N→DELLA destabilisation) both present."},
+    {"node": "Gibberellin", "type": "HORMONE", "inputs": ["TAGA20OX(+)", "TAGA3OX(+)", "RHT8(+)", "Nitrogen(+)", "TAGA2OX(-)", "TAGA1OX1(-)"], "outputs": ["TAGID1(+)", "TAGA2OX(+)"], "curated_regulators_excluded": ["TACPS/TAKS/TAKO/TAKAO(+) — composite-consolidation literature_gap"], "verdict": "appropriate", "comment": "Biosynthesis-Degradation Balance correctly applied. Two outgoing edges — receptor (TAGID1) and homeostatic self-catabolism (TAGA2OX) — the second is Motif 6 self-limiting, not a perception-gate bypass. Coverage ratio 0.44."},
+    {"node": "Brassinosteroid", "type": "HORMONE", "inputs": ["TAD11(+)", "TADWF4(+)"], "outputs": ["TABRI1(+)"], "curated_regulators_excluded": ["BL→TaEXP (E042) — bypass", "BL→TaD11 (E035) — damping feedback"], "verdict": "appropriate", "comment": "Exactly one outgoing edge to the receptor — perception-gate pure. Missing BR-degradation gene (no curated)."},
+    {"node": "Auxin", "type": "HORMONE", "inputs": ["TAGH3(-)"], "outputs": ["TATIR1(+)"], "curated_regulators_excluded": ["Auxin→TaEXP (E040) — bypass"], "verdict": "appropriate", "comment": "Near-source; one outgoing edge to TATIR1 — perception-gate pure. TaGH3 conjugation is only curated regulator of Auxin itself."},
+    {"node": "TASLY1", "type": "GENE", "inputs": [], "outputs": ["RHT_B1(-)", "RHT_D1(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source F-box co-repressor of DELLA; paired with TAGID1 as Perception Gate co-inhibitors. No upstream regulator curated in wheat."},
+    {"node": "TAGA3OX", "type": "GENE", "inputs": [], "outputs": ["Gibberellin(+)"], "curated_regulators_excluded": ["Gibberellin→TaGA3ox (E015) damping feedback excluded"], "verdict": "appropriate", "comment": "Source biosynthesis enzyme. Feedback edge excluded to avoid dampening GA signal propagation."},
+    {"node": "TAGA1OX1", "type": "GENE", "inputs": [], "outputs": ["Gibberellin(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source; diverts GA precursors to inactive forms."},
+    {"node": "TASERK", "type": "GENE", "inputs": [], "outputs": ["TABRI1(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Constitutive BR co-receptor source; Singh 2016 heterodimer evidence."},
+    {"node": "TAZNF", "type": "GENE", "inputs": [], "outputs": ["TABKI1(-)"], "curated_regulators_excluded": ["TAZNF→Plant_Height direct (E057) — routed via BR cascade"], "verdict": "appropriate", "comment": "Source RING E3 ligase; correctly routed via TABKI1→TABRI1 cascade rather than direct to Plant_Height."},
+    {"node": "TAARF4", "type": "GENE", "inputs": [], "outputs": ["TAHB33(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source; allele-specific ARF4 homeolog per Step 1.5 convention."},
+    {"node": "TAERF_A1", "type": "GENE", "inputs": [], "outputs": ["PIF(+)"], "curated_regulators_excluded": ["TAERF_A1→Plant_Height direct (E074) — routed via PIF mechanism"], "verdict": "appropriate", "comment": "Source AP2/ERF TF; mechanistic path via PIF correctly preserved (Li 2024 EMSA/ChIP)."},
+    {"node": "RHT8", "type": "GENE", "inputs": [], "outputs": ["Gibberellin(+)"], "curated_regulators_excluded": ["RHT8→Plant_Height direct (E047) — routed via GA"], "verdict": "appropriate", "comment": "Source (no published upstream regulator — G005 unclosable). Mechanistic path via Gibberellin preserves causal chain."},
+    {"node": "RHT13", "type": "GENE", "inputs": [], "outputs": ["Pathogenesis_Related_Genes(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source autoactive NB-LRR; GA-independent cell-wall-peroxidase mechanism preserved."},
+    {"node": "RHT18", "type": "GENE", "inputs": [], "outputs": ["TAGA2OX(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source allele; TaGA2ox-A9 OE mechanism wired (Ford 2018)."},
+    {"node": "RHT24", "type": "GENE", "inputs": [], "outputs": ["TAGA2OX(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source allele; TaGA2ox-A9 OE mechanism wired (Tian 2022)."},
+    {"node": "RHT12", "type": "GENE", "inputs": [], "outputs": ["TAGA2OX(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source allele; TaGA2oxA13 OE mechanism wired (Zhang 2023)."},
+    {"node": "TAOSCA1_4", "type": "GENE", "inputs": [], "outputs": ["Plant_Height(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source novel Rht gene; direct Plant_Height edge is the only curated mechanism (GA-independent Ca2+ channel, Lv 2024)."},
+    {"node": "TAD11", "type": "GENE", "inputs": [], "outputs": ["Brassinosteroid(+)"], "curated_regulators_excluded": ["BL→TaD11 (E035) damping feedback excluded"], "verdict": "appropriate", "comment": "Source BR C6-oxidase; feedback exclusion defensible."},
+    {"node": "TADWF4", "type": "GENE", "inputs": [], "outputs": ["Brassinosteroid(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source rate-limiting BR biosynthesis (Milner 2022); closes G003."},
+    {"node": "TAGID1", "type": "GENE", "inputs": ["Gibberellin(+)"], "outputs": ["RHT_B1(-)", "RHT_D1(-)"], "curated_regulators_excluded": ["Gibberellin→TAGID1 (E017) damping feedback excluded"], "verdict": "appropriate", "comment": "Perception Gate receptor; Multi-Output Scaffold targeting both DELLA homeologs."},
+    {"node": "TAGA20OX", "type": "GENE", "inputs": ["VRN1(+)", "RHT_B1(+)"], "outputs": ["Gibberellin(+)"], "curated_regulators_excluded": ["Gibberellin→TAGA20OX (E014) damping feedback"], "verdict": "appropriate", "comment": "DELLA-mediated positive feedback correctly captured; VRN1 vernalization-GA link included."},
+    {"node": "TAGA2OX", "type": "GENE", "inputs": ["RHT18(+)", "RHT24(+)", "RHT12(+)", "Gibberellin(+)"], "outputs": ["Gibberellin(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Four specialty-Rht activators + GA homeostatic self-activation. Serves dual role as catabolism enzyme and convergence point for all Rht-GA-catabolism alleles."},
+    {"node": "RHT_B1", "type": "GENE", "inputs": ["TAGID1(-)", "TASLY1(-)", "Nitrogen(-)", "TAGRF4(-)", "TABZR1(-)", "TABIN2(+)"], "outputs": ["Plant_Height(-)", "PLATZ_A1(-)", "TAGRF4(-)", "PIF(-)", "TAGA20OX(+)"], "curated_regulators_excluded": ["Gibberellin→RHT_B1 (E012) — bypass", "Rht-B1→Photosynthetic_Rate/Grain_Dormancy/Coleoptile_Length/Anther_Length (E051/E055/E056/E058) — peripheral PROCESS"], "verdict": "appropriate", "comment": "Central DELLA hub. Coverage 69%. Multi-Output Scaffold with 5 downstream targets. BR-GA crosstalk wired both ways (TABZR1 ⊣, TABIN2 →). Perception-gate purity preserved."},
+    {"node": "RHT_D1", "type": "GENE", "inputs": ["TAGID1(-)", "TASLY1(-)"], "outputs": ["Plant_Height(-)"], "curated_regulators_excluded": ["Gibberellin→RHT_D1 (E013) — bypass"], "verdict": "appropriate", "comment": "Second DELLA homeolog; asymmetric coverage vs RHT_B1 reflects literature — Rht-D1-specific mechanistic papers are fewer. Acceptable."},
+    {"node": "PLATZ_A1", "type": "GENE", "inputs": ["RHT_B1(-)"], "outputs": ["Plant_Height(+)"], "curated_regulators_excluded": ["PLATZ_A1→TAGRF1 (E021) — dead-end sink"], "verdict": "appropriate", "comment": "Rht25 causal gene; dead-end TaGRF1 correctly dropped per judge report option (b)."},
+    {"node": "TAGRF4", "type": "GENE", "inputs": ["RHT_B1(-)"], "outputs": ["RHT_B1(-)"], "curated_regulators_excluded": ["TAGRF4→Plant_Height direct (E023) — routed via DELLA antagonism"], "verdict": "appropriate", "comment": "Mutual-antagonism with DELLA correctly encoded; direct Plant_Height edge redundant with DELLA path."},
+    {"node": "PIF", "type": "GENE", "inputs": ["Light(-)", "RHT_B1(-)", "TAERF_A1(+)"], "outputs": ["Plant_Height(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "All curated PIF regulators and outputs present (100% coverage). Perfect integration hub."},
+    {"node": "PPD_D1", "type": "GENE", "inputs": ["Photoperiod(+)"], "outputs": ["Plant_Height(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Photoperiod-driven internode-shortening preserved end-to-end."},
+    {"node": "VRN1", "type": "GENE", "inputs": ["Vernalization(+)"], "outputs": ["TAGA20OX(+)"], "curated_regulators_excluded": ["VRN1→Plant_Height direct (E045) — routed via TAGA20OX"], "verdict": "appropriate", "comment": "Vernalization-to-GA biosynthesis route (Liu 2025); direct Plant_Height redundant — correctly excluded."},
+    {"node": "TABRI1", "type": "GENE", "inputs": ["Brassinosteroid(+)", "TASERK(+)", "TABKI1(-)"], "outputs": ["TABKI1(-)", "TABIN2(-)"], "curated_regulators_excluded": ["TABRI1→Plant_Height direct (E031) — routed via TABIN2/TABZR1"], "verdict": "appropriate", "comment": "BR Perception Gate receptor; Mutual Inhibition with TABKI1 encodes Motif 7 bistable switch. 83% coverage."},
+    {"node": "TABKI1", "type": "GENE", "inputs": ["TABRI1(-)", "TAZNF(-)"], "outputs": ["TABRI1(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "BRI1-kinase-inhibitor correctly wired as mutual inhibitor of TABRI1 with TAZNF as BR-activated release."},
+    {"node": "TABIN2", "type": "GENE", "inputs": ["TABRI1(-)"], "outputs": ["TABZR1(-)", "RHT_B1(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "GSK3-like kinase; negative regulator of both TABZR1 and positive regulator of DELLA (BR-off state) — correct dual output."},
+    {"node": "TABZR1", "type": "GENE", "inputs": ["TABIN2(-)"], "outputs": ["Plant_Height(+)", "RHT_B1(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "BR response TF; Multi-Output Scaffold to growth and DELLA antagonism. 100% coverage."},
+    {"node": "TATIR1", "type": "GENE", "inputs": ["Auxin(+)"], "outputs": ["TAIAA(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Auxin receptor; linear Perception Gate chain correctly implemented."},
+    {"node": "TAIAA", "type": "GENE", "inputs": ["TATIR1(-)"], "outputs": ["TAARF(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Aux/IAA repressor; standard auxin cascade step."},
+    {"node": "TAARF", "type": "GENE", "inputs": ["TAIAA(-)"], "outputs": ["Plant_Height(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Auxin response TF; direct Plant_Height edge preserves auxin branch connectivity (no curated TAARF→TAEXP in wheat)."},
+    {"node": "TAHB33", "type": "GENE", "inputs": ["TAARF4(+)"], "outputs": ["TAGH3(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "HD-Zip intermediate in auxin homeostasis loop."},
+    {"node": "TAGH3", "type": "GENE", "inputs": ["TAHB33(-)"], "outputs": ["Auxin(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Gretchen Hagen 3 IAA-conjugase; closes the TAARF4-modulation sub-loop for Auxin."},
+    {"node": "Pathogenesis_Related_Genes", "type": "PROCESS", "inputs": ["RHT13(+)"], "outputs": ["Plant_Height(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Class-III peroxidases; cell-wall cross-linking mechanism for Rht13 dwarfism (Borrill 2022)."},
+    {"node": "Plant_Height", "type": "PHENOTYPE", "inputs": ["PLATZ_A1(+)", "PIF(+)", "TABZR1(+)", "TAARF(+)", "TAOSCA1_4(+)", "RHT_B1(-)", "RHT_D1(-)", "PPD_D1(-)", "Pathogenesis_Related_Genes(-)"], "outputs": [], "curated_regulators_excluded": ["TABRI1 direct (E031) — via TABZR1", "TAGRF4 direct (E023) — via DELLA", "VRN1 direct (E045) — via TAGA20OX→GA", "RHT8 direct (E047) — via Gibberellin", "TAZNF direct (E057) — via BR cascade", "TAERF_A1 direct (E074) — via PIF", "TAEXP (E043) — TaEXP node dropped", "TATB1 (E059) — LOW confidence review only"], "verdict": "appropriate", "comment": "5 activators + 4 inhibitors — both arms represented; all major hormone/TF/cell-wall classes (except TaEXP). Redundant direct edges correctly routed through mechanism intermediates."}
+  ],
+  "per_pathway_audit": [
+    {
+      "pathway": "GA biosynthesis (late) → bioactive GA",
+      "completeness": "high",
+      "comment": "TAGA20OX (rate-limiting) + TAGA3OX (3β-hydroxylation) both present as activators of Gibberellin. VRN1-driven biosynthesis and DELLA positive-feedback biosynthesis both wired.",
+      "missing_pieces": ["TaCPS/TaKS/TaKO/TaKAO early pathway (E064–E067) documented as literature_gap — no perturbation coverage justifies exclusion"]
+    },
+    {
+      "pathway": "GA catabolism → inactive GAs",
+      "completeness": "high",
+      "comment": "TAGA2OX (major) + TAGA1OX1 (diversion) both inhibit Gibberellin. TAGA2OX additionally receives RHT18/RHT24/RHT12 allele-driven upregulation — all three specialty Rht loci converge here (closes G002).",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "GA perception (GA + TAGID1 → DELLA degradation)",
+      "completeness": "high",
+      "comment": "Textbook Perception Gate (Motif 1). Gibberellin → TAGID1 (+1) is the only ligand-receptor edge; TAGID1 AND TASLY1 act as co-inhibitors (Multi-Output Scaffold Motif 5) on RHT_B1 AND RHT_D1. No direct GA → DELLA bypass — Rht-B1b + GA3 Trap-3 test architecturally blocked.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "DELLA growth repression (RHT_B1/D1 → Plant_Height)",
+      "completeness": "high",
+      "comment": "Direct -1 edges from both RHT_B1 and RHT_D1 to Plant_Height (canonical DELLA mechanism). Coherent Feed-Forward (Motif 3) via RHT_B1 → {PLATZ_A1, TAGRF4, PIF} → Plant_Height sub-paths. All signs correctly negative.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "DELLA-GA homeostasis (DELLA ⊣/→ GA biosynthesis)",
+      "completeness": "high",
+      "comment": "Self-limiting feedback RHT_B1 → TAGA20OX (+1) correctly implements DELLA-induced GA biosynthesis. Homeostatic loop: GA↑ → DELLA↓ → TAGA20OX↓ → GA↓; stabilising negative feedback.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Green Revolution gain-of-function alleles (Rht-B1b/c, Rht-D1b)",
+      "completeness": "high (at network level)",
+      "comment": "RHT_B1 and RHT_D1 are separate homeolog-specific nodes. GOF allele encoding deferred to Step 3 (gm=2.0 on the DELLA node). Because GA has no direct DELLA bypass, Rht-B1b + GA3 cannot be rescued through the model — correct Trap-3 blocking.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Rht8 (TaRNHL-D1) independent dwarfing",
+      "completeness": "medium",
+      "comment": "Rht8 → Gibberellin (+1) captures GA-biosynthesis-route mechanism (Xiong 2022 abstract). Upstream regulator genuinely unknown (G005 unclosable). Direct Rht8→Plant_Height (E047) correctly routed via GA.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Rht12 / Rht18 / Rht24 as TaGA2ox OE variants",
+      "completeness": "high",
+      "comment": "Three allele-specific GENE nodes each with +1 edge to TAGA2OX — closes the G002 hub-underrepresented gap. Mechanistic convergence correct.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Rht13 (autoimmune NB-LRR)",
+      "completeness": "high",
+      "comment": "RHT13 → Pathogenesis_Related_Genes (+1) → Plant_Height (-1) — two-step cascade through class-III peroxidase cell-wall cross-linking. GA-independent mechanism preserved.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "BR biosynthesis (TaD11 + TaDWF4 → BL)",
+      "completeness": "medium",
+      "comment": "Synthesis arm complete (TaD11 late + TaDWF4 rate-limiting; closes G003). No BR-degradation gene curated in wheat — half-applied Biosynthesis-Degradation Balance (Motif 4). This is a literature gap, not a BUILDER oversight.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "BR perception + signalling (BL → TaBRI1 + TaSERK → TaBIN2 → TaBZR1)",
+      "completeness": "high",
+      "comment": "Full canonical cascade: BL → TABRI1 (+1); TASERK co-activates TABRI1; TABKI1 mutual-inhibition release (Motif 7) via TAZNF; TABRI1 ⊣ TABIN2 ⊣ TABZR1 → Plant_Height. All five signalling-cascade components present (closes G004).",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "BR–GA crosstalk (TaBIN2/TaBZR1 → DELLA)",
+      "completeness": "high",
+      "comment": "Both documented crosstalk arms present: TABZR1 ⊣ RHT_B1 (BZR1 sequesters DELLA) and TABIN2 → RHT_B1 (+1, BIN2 phosphorylates/stabilises DELLA when BR low). Creates coherent BR↑ → dwarfism-rescue signal.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Auxin perception (Auxin → TaTIR1 → TaIAA → TaARF)",
+      "completeness": "high",
+      "comment": "Canonical Aux/IAA Perception Gate: Auxin has exactly one outgoing edge (→ TATIR1). Chain preserves perception-gate purity.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Auxin homeostasis (TaARF4 → TaHB33 → TaGH3 ⊣ Auxin)",
+      "completeness": "high",
+      "comment": "TaARF4-specific regulatory loop wired with correct signs per Wang 2019.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Auxin → GA biosynthesis crosstalk",
+      "completeness": "missing",
+      "comment": "G007 residual gap from Step 1.5 — no OA wheat primary paper. BUILDER metadata correctly flags as literature_gap. Without this edge, auxin modulation of stem GA biosynthesis (canonical in Arabidopsis/bamboo) is not modelled.",
+      "missing_pieces": ["Wheat primary paper for Auxin→TaGA20ox transcriptional activation"]
+    },
+    {
+      "pathway": "Cell-wall elongation effectors (expansins / XTH)",
+      "completeness": "missing",
+      "comment": "TaEXP was dropped entirely by BUILDER because the only curated upstream edges (Auxin/GA/BR → TaEXP, E040/E041/E042) are Perception-Gate bypasses. Correct architectural decision but leaves no expansin effector in the model. Plant_Height's cell-wall-output is absorbed into PIF, TABZR1, and TAARF (all of which biologically activate expansins in planta). Literature_gap for a curated non-bypass upstream (e.g., TaPIF4 → TaEXP, TaBZR1 → TaEXP, TaARF → TaEXP in wheat).",
+      "missing_pieces": ["Non-bypass upstream for TaEXP in curated_edges.json"]
+    },
+    {
+      "pathway": "Light / PIF axis",
+      "completeness": "high",
+      "comment": "Light ⊣ PIF (phytochrome degradation); TAERF_A1 → PIF transcriptional activation (Li 2024; closes G008); RHT_B1 ⊣ PIF (DELLA sequestration); PIF → Plant_Height (+1). Four-input integration hub captured completely.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Photoperiod (Ppd-D1)",
+      "completeness": "high",
+      "comment": "Photoperiod → PPD_D1 → Plant_Height end-to-end captured (Chen 2018).",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Vernalization (VRN1)",
+      "completeness": "high",
+      "comment": "Vernalization → VRN1 → TAGA20OX → Gibberellin route preserved; direct VRN1→Plant_Height redundant and correctly excluded.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "TaOSCA1.4 Ca2+-channel dwarfing",
+      "completeness": "high",
+      "comment": "Novel Rht gene; only curated mechanism is direct Plant_Height activation (GA-independent). Included as direct edge with appropriate LOW_confidence marker in mechanism description.",
+      "missing_pieces": []
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "S001",
+      "type": "literature_gap",
+      "priority": "medium",
+      "description": "Flag Step 1 follow-up: curated edges for TaEXP only come via Perception-Gate-violating direct hormone edges (E040/E041/E042). A wheat primary paper wiring TaEXP via TaPIF4, TaBZR1, or TaARF would allow re-adding the canonical cell-wall-loosening effector node without creating a Trap-3 bypass.",
+      "biological_justification": "Expansins (TaEXPA/B, TaXTH) are the biochemical effectors of cell-wall creep that physically enable internode elongation. The model currently has no cell-wall-effector node; Plant_Height activation relies entirely on TF-level outputs (PIF, TABZR1, TAARF, PLATZ_A1). This is biologically incomplete though simulation-wise the TFs absorb the effector role. Adding TaEXP properly requires a curated non-bypass upstream.",
+      "curated_edge_ids": [],
+      "implementation": "Step 1 LITERATURE REVIEW search: 'wheat TaPIF4 expansin transcriptional target', 'TaBZR1 ChIP-seq expansin', 'wheat ARF expansin cell wall'. If a primary paper establishes one of these edges, BUILDER adds TaEXP node + the new edge + TaEXP→Plant_Height (+1, E043)."
+    },
+    {
+      "id": "S002",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "Carry forward G007 from Step 1.5: Auxin → TAGA20OX crosstalk has no OA wheat primary paper despite being canonical in Arabidopsis/bamboo/tobacco. Re-flagging for any subsequent literature sweep.",
+      "biological_justification": "Auxin induces stem GA biosynthesis; this edge would connect the auxin and GA arms of the network directly (currently crosstalk is limited to the BR-GA axis). Without it, decapitation/auxin-depletion experiments cannot reduce stem GA pool.",
+      "curated_edge_ids": [],
+      "implementation": "Step 1 LITERATURE REVIEW search: 'wheat ARF GA20ox promoter AuxRE', 'Triticum auxin-induced gibberellin biosynthesis stem'."
+    },
+    {
+      "id": "S003",
+      "type": "mechanism_improvement",
+      "priority": "low",
+      "description": "Edge N007 (Gibberellin → TAGA2OX +1) is the second outgoing edge from Gibberellin; document its role as Motif-6 self-limiting homeostasis rather than a Perception-Gate second path in the mechanism string.",
+      "biological_justification": "Strict reading of BUILDER §12 Motif 1 'ligand has only one outgoing edge' could mislead a future reviewer into treating N007 as a bypass. In practice N007 is a safe self-limiting homeostasis (Motif 6 hormone variant) — GA-induced catabolism via TAGA2OX damps GA but cannot route signal to Plant_Height. Mechanism string update preserves the architectural intent for the paper-trail.",
+      "curated_edge_ids": ["E016"],
+      "implementation": "BUILDER updates edge N007 mechanism to append '(Motif 6 self-limiting homeostasis — GA induces TaGA2ox which then catabolises GA; does not bypass the TaGID1 perception gate because TaGA2ox has no downstream effector path to Plant_Height)'. Non-structural change."
+    }
+  ],
+  "literature_gaps": [
+    "TaPIF4 / TaBZR1 / TaARF transcriptional target for TaEXP (or similar wheat cell-wall-effector wiring that does not bypass Perception Gates) — would allow re-adding TaEXP node.",
+    "Wheat primary paper for Auxin → TaGA20ox (G007 carried over from Step 1.5).",
+    "Wheat BR-degradation gene (TaBAS1 / TaCYP734A1 ortholog) — would complete Biosynthesis-Degradation Balance (Motif 4) on the BR side.",
+    "TaTB1 upstream regulators in wheat primary literature (G006 from Step 1.5 — omitted from network until available).",
+    "Rht4 / Rht5 / Rht26 causative gene cloning — currently locus-level only.",
+    "TaGA20ox RNAi / Uniconazole primary wheat paper with OA access (G009 partial from Step 1.5)."
+  ],
+  "iteration_diff_from_previous": null,
+  "homeolog_handling_consistency_check": {
+    "status": "consistent",
+    "expected_convention": "Step 1.5 decision: DELLA split (RHT_B1, RHT_D1 separate); GA-pathway + BR-receptor genes composite; allele-specific where allele drives phenotype.",
+    "observed_in_network": "Matches. RHT_B1/RHT_D1 separate; TAGA20OX/TAGA3OX/TAGA2OX/TAGID1/TABRI1/TABZR1/TABIN2/VRN1/TAGRF4/TAARF/TAIAA/TATIR1 composite; PLATZ_A1, TAARF4, TAERF_A1, PPD_D1, TAOSCA1_4, RHT18/24/12, TAGA1OX1 allele-specific.",
+    "violations": []
+  },
+  "topology_hazard_audit": {
+    "positive_hormone_transporter_loops": "none",
+    "perception_gate_purity": {
+      "Gibberellin": {"outgoing_edges": 2, "targets": ["TAGID1(+)", "TAGA2OX(+) [Motif-6 self-limiting]"], "assessment": "OK — TAGA2OX is not a phenotype bypass"},
+      "Brassinosteroid": {"outgoing_edges": 1, "targets": ["TABRI1(+)"], "assessment": "pure"},
+      "Auxin": {"outgoing_edges": 1, "targets": ["TATIR1(+)"], "assessment": "pure"}
+    },
+    "sole_activator_collapses": "none",
+    "self_loops_undocumented": "none",
+    "Trap3_rescue_bypass_risk": "none — all three hormones flow only through their receptors to downstream TFs/effectors."
+  },
+  "verdict_rationale": "Verdict = approved. Zero HIGH-priority suggestions. One MEDIUM (TaEXP literature_gap — architectural trade-off, not a defect). Two LOW (mechanism-string documentation and carry-forward Auxin→GA20ox gap). §11 stop-condition: only LOW priority plus one MEDIUM literature_gap that cannot be closed without Step 1 re-entry — BUILDER proceeds to Step 3 PERTURBATION. Mean rubric score 4.36/5. No §9.11 key-player under-representation. No topology hazards. All homeolog-handling matches Step 1.5 decision.",
+  "stop_reason": null
+}

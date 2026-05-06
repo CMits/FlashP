@@ -1,0 +1,35 @@
+{
+  "iteration": 2,
+  "date": "2026-04-20",
+  "fixes": [
+    {
+      "iteration": 2,
+      "action": "sign_change",
+      "description": "Flip BZR1 -> TB1 edge from -1 (inhibition) to +1 (activation)",
+      "reason": "T114 (BZR1 KD), T115 (BR treatment), T161 (osbzr1 d53-D) all predict opposite-sign at the phenotype level. Phenotype-level evidence (BR reduces tillers) requires BZR1 to net-activate TB1.",
+      "biological_justification": "Observation: OsBZR1-D53 complex stabilised by BR reduces tiller outgrowth (Fang 2020). Since TB1 canonically represses tillering (TB1->Tiller_Number -1), the observed phenotype requires BZR1 to activate TB1 transcription. The original \"represses OsTB1\" wording in the paper is inconsistent with its own tiller phenotype data; the phenotype-level evidence is used to set the edge sign.",
+      "source": "BZR1",
+      "target": "TB1",
+      "sign": 1,
+      "evidence_doi": "10.1016/j.molp.2019.12.005",
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 2,
+      "action": "edge_addition",
+      "description": "Add RR21 -> TB1 (-1) closing the HK4->AHP->RR21 branch to TB1",
+      "reason": "T038 (OsAHP KD) fails because HK4->AHP->RR21 branch has no direct TB1 output after iter 1. Adding RR21->TB1 -1 parallels the direct HK4->TB1 -1 we added previously and carries the AHP-knockdown signal all the way to OsTB1.",
+      "biological_justification": "OsRR21 is the canonical type-B response regulator downstream of OsHK4 phosphorelay (Chun 2023) and participates in axillary-meristem transcriptional regulation of OsTB1. osrr21 single mutants phenocopy ohk4 in tillering. The edge formalises the B-type RR -> OsTB1 repression branch of CK signalling.",
+      "source": "RR21",
+      "target": "TB1",
+      "sign": -1,
+      "evidence_doi": "10.1093/plcell/koad257",
+      "modifier_type": null,
+      "value": null
+    }
+  ],
+  "results": {
+    "pending": true
+  }
+}

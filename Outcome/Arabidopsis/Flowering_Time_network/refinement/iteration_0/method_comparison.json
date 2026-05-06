@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Flowering_Time",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-18"
+  },
+  "summary": {
+    "best_method": "RWR (Random Walk with Restart)",
+    "best_accuracy": 90.3,
+    "best_kappa": 0.8015,
+    "best_mcc": 0.5428,
+    "tie_breaker_rule": "accuracy -> kappa -> MCC (higher wins)",
+    "recommendation": "proceed_to_refinement",
+    "reason": "Best accuracy 90.3% \u2014 in the 80-95% band, so REFINEMENT is the correct next step. 7 of 12 failures are flagged fixable; focus on the high-impact ones (T183 vernalization saturation, T127/T128 Warm-FT bypass). The 5 unfixable failures (T016 BRM missing, T077/T051/T148 opposing-mutant epistasis, T176 rescue validator limitation) should be accepted as framework / scope limitations and documented in the paper Methods."
+  },
+  "comparison": [
+    {
+      "method": "Algebraic",
+      "accuracy": 89.2,
+      "kappa": 0.783,
+      "mcc": 0.5397,
+      "convergence_rate": 98.9,
+      "best_params": "epsilon=0.1, K=10.0, activator_floor=0.01, damping=0.7, direction_threshold=0.05",
+      "strengths": "Deterministic, closed-form, fast. 98.9% convergence. High F1 on increased (0.886) and decreased (0.929). Matches RWR on direction but with simpler math.",
+      "weaknesses": "Lowest kappa (0.783) among the three; struggles with opposing-mutant epistasis (T077, T148) and FLC-saturation under vernalization (T183). Fails GI OE under warm (T092).",
+      "failures": [
+        "T016",
+        "T051",
+        "T077",
+        "T092",
+        "T127",
+        "T128",
+        "T148",
+        "T161",
+        "T176",
+        "T183"
+      ]
+    },
+    {
+      "method": "ODE (Hill Functions)",
+      "accuracy": 90.3,
+      "kappa": 0.8,
+      "mcc": 0.5576,
+      "convergence_rate": 65.6,
+      "best_params": "K=0.5, n=3, dt=0.1, max_time=50.0",
+      "strengths": "Sigmoidal Hill saturation handles some non-linearities better than linear geometric mean; correctly predicts GI OE under warm (T092) and PIF4 KO under warm (T127/128). Highest MCC (0.558).",
+      "weaknesses": "Lowest convergence rate (65.6%) of the three. Introduces its own ODE-parameter edge-cases (T129, T166) at best (K=0.5, n=3). Only method that fails T166 (canonical tfl1 phenotype).",
+      "failures": [
+        "T016",
+        "T051",
+        "T077",
+        "T129",
+        "T148",
+        "T161",
+        "T166",
+        "T176",
+        "T183"
+      ]
+    },
+    {
+      "method": "RWR (Random Walk with Restart)",
+      "accuracy": 90.3,
+      "kappa": 0.8015,
+      "mcc": 0.5428,
+      "convergence_rate": 100.0,
+      "best_params": "alpha=0.6, threshold=1e-05",
+      "strengths": "Perfect 100% convergence. Highest kappa (0.8015) \u2014 narrowly in almost-perfect band. Robust to parameter choice \u2014 alpha=0.6 through 0.99 all give identical accuracy. Uses signed-graph propagation rather than iterative equations.",
+      "weaknesses": "Shares Warm-Temperature PIF4 failures (T127/128, T092) with Algebraic. Does not capture Hill-type saturation dynamics \u2014 same failure profile as Algebraic on epistasis.",
+      "failures": [
+        "T016",
+        "T051",
+        "T077",
+        "T092",
+        "T127",
+        "T128",
+        "T148",
+        "T176",
+        "T183"
+      ]
+    }
+  ]
+}

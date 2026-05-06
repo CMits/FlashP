@@ -1,0 +1,702 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "shoot_branching",
+    "phenotype_node": "Shoot_Branching",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-05-03",
+    "iteration": 1,
+    "curated_edges_source": "390-edge repository",
+    "total_nodes": 12,
+    "total_edges": 20,
+    "source_nodes": 7,
+    "source_percentage": 58.3,
+    "builder_model": "gemma4:31b (local)",
+    "polish_applied": "v3: merged plurals; fixed types; trim sources only if > 65%"
+  },
+  "nodes": [
+    {
+      "id": "Auxin",
+      "type": "HORMONE",
+      "full_name": "Auxin",
+      "description": "hormone Auxin",
+      "is_source": true
+    },
+    {
+      "id": "BRC1",
+      "type": "GENE",
+      "full_name": "BRC1",
+      "description": "gene BRC1",
+      "is_source": false
+    },
+    {
+      "id": "Cytokinin",
+      "type": "HORMONE",
+      "full_name": "Cytokinin",
+      "description": "hormone Cytokinin",
+      "is_source": false
+    },
+    {
+      "id": "D53",
+      "type": "GENE",
+      "full_name": "D53",
+      "description": "gene D53",
+      "is_source": true
+    },
+    {
+      "id": "Decapitation",
+      "type": "ENVIRONMENT",
+      "full_name": "Decapitation",
+      "description": "environment Decapitation",
+      "is_source": true
+    },
+    {
+      "id": "FT",
+      "type": "GENE",
+      "full_name": "FT",
+      "description": "gene FT",
+      "is_source": true
+    },
+    {
+      "id": "GA",
+      "type": "HORMONE",
+      "full_name": "GA",
+      "description": "hormone GA",
+      "is_source": true
+    },
+    {
+      "id": "MAX2",
+      "type": "GENE",
+      "full_name": "MAX2",
+      "description": "gene MAX2",
+      "is_source": false
+    },
+    {
+      "id": "SMXL678",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "SMXL678",
+      "description": "protein complex SMXL678",
+      "is_source": false
+    },
+    {
+      "id": "Shoot_Branching",
+      "type": "PHENOTYPE",
+      "full_name": "Shoot Branching",
+      "description": "phenotype Shoot_Branching",
+      "is_source": false
+    },
+    {
+      "id": "Strigolactone",
+      "type": "HORMONE",
+      "full_name": "Strigolactone",
+      "description": "hormone Strigolactone",
+      "is_source": true
+    },
+    {
+      "id": "Sucrose",
+      "type": "METABOLITE",
+      "full_name": "Sucrose",
+      "description": "metabolite Sucrose",
+      "is_source": true
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "N001",
+      "source": "BRC1",
+      "target": "Shoot_Branching",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "BRC1 inhibits shoot branching",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.048934",
+          "title": "Arabidopsis BRANCHED1 Acts as an Integrator of Branching Signals within Axillary Buds",
+          "authors": [
+            "José Antonio Aguilar-Martı́nez",
+            "César Poza-Carrión",
+            "Pilar Cubas"
+          ],
+          "year": 2007,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "BRC1 is expressed in developing buds, where it arrests bud development.",
+          "claim": "BRC1 inhibits shoot branching"
+        }
+      ]
+    },
+    {
+      "edge_id": "N002",
+      "source": "Auxin",
+      "target": "BRC1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "Auxin promotes BRC1 expression",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.048934",
+          "title": "Arabidopsis BRANCHED1 Acts as an Integrator of Branching Signals within Axillary Buds",
+          "authors": [
+            "José Antonio Aguilar-Martı́nez",
+            "César Poza-Carrión",
+            "Pilar Cubas"
+          ],
+          "year": 2007,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "Mutant and expression analyses suggest that BRC1 is downstream of the MORE AXILLARY GROWTH pathway and that it is required for auxin-induced apical dominance.",
+          "claim": "Auxin promotes BRC1 expression"
+        }
+      ]
+    },
+    {
+      "edge_id": "N003",
+      "source": "Decapitation",
+      "target": "BRC1",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "Decapitation inhibits BRC1 expression",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.048934",
+          "title": "Arabidopsis BRANCHED1 Acts as an Integrator of Branching Signals within Axillary Buds",
+          "authors": [
+            "José Antonio Aguilar-Martı́nez",
+            "César Poza-Carrión",
+            "Pilar Cubas"
+          ],
+          "year": 2007,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "BRC1 was downregulated significantly in decapitated plants at 1 h after decapitation",
+          "claim": "Decapitation inhibits BRC1 expression"
+        }
+      ]
+    },
+    {
+      "edge_id": "N004",
+      "source": "Sucrose",
+      "target": "MAX2",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "Sucrose inhibits MAX2 expression",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/erv047",
+          "title": "Sucrose is an early modulator of the key hormonal mechanisms controlling bud outgrowth in Rosa hybrida",
+          "authors": [
+            "François Barbier",
+            "Thomas Péron",
+            "Marion Lecerf",
+            "Maria-Dolores Perez-Garcia",
+            "Quentin Barrière",
+            "Jakub Rolčík",
+            "Stéphanie Boutet-Mercey",
+            "Sylvie Citerne",
+            "Remi Lemoine",
+            "Benoît Porcheron",
+            "Hanaé Roman",
+            "Nathalie Leduc",
+            "José Le Gourrierec",
+            "Jessica Bertheloot",
+            "Soulaiman Sakr"
+          ],
+          "year": 2015,
+          "journal": "Journal of Experimental Botany",
+          "evidence_sentence": "Sucrose downregulated both RwMAX2, involved in the strigolactone-transduction pathway",
+          "claim": "Sucrose inhibits MAX2 expression"
+        }
+      ]
+    },
+    {
+      "edge_id": "N005",
+      "source": "Sucrose",
+      "target": "BRC1",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "Sucrose inhibits BRC1 expression",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/erv047",
+          "title": "Sucrose is an early modulator of the key hormonal mechanisms controlling bud outgrowth in Rosa hybrida",
+          "authors": [
+            "François Barbier",
+            "Thomas Péron",
+            "Marion Lecerf",
+            "Maria-Dolores Perez-Garcia",
+            "Quentin Barrière",
+            "Jakub Rolčík",
+            "Stéphanie Boutet-Mercey",
+            "Sylvie Citerne",
+            "Remi Lemoine",
+            "Benoît Porcheron",
+            "Hanaé Roman",
+            "Nathalie Leduc",
+            "José Le Gourrierec",
+            "Jessica Bertheloot",
+            "Soulaiman Sakr"
+          ],
+          "year": 2015,
+          "journal": "Journal of Experimental Botany",
+          "evidence_sentence": "and RhBRC1, a repressor of branching, at an early stage.",
+          "claim": "Sucrose inhibits BRC1 expression"
+        }
+      ]
+    },
+    {
+      "edge_id": "N006",
+      "source": "Auxin",
+      "target": "Cytokinin",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "Auxin inhibits Cytokinin",
+      "evidence": [
+        {
+          "doi": "10.1016/j.tplants.2018.12.001",
+          "title": "An Update on the Signals Controlling Shoot Branching",
+          "authors": [
+            "Francois F. Barbier",
+            "Elizabeth A. Dun",
+            "Stephanie C. Kerr",
+            "Tinashe G. Chabikwa",
+            "Christine A. Beveridge"
+          ],
+          "year": 2019,
+          "journal": "Trends in Plant Science",
+          "evidence_sentence": "Auxin inhibits bud outgrowth by inducing strigolactone and inhibiting cytokinin",
+          "claim": "Auxin inhibits Cytokinin"
+        }
+      ]
+    },
+    {
+      "edge_id": "N007",
+      "source": "Cytokinin",
+      "target": "Shoot_Branching",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "Cytokinin promotes shoot branching",
+      "evidence": [
+        {
+          "doi": "10.1016/j.tplants.2018.12.001",
+          "title": "An Update on the Signals Controlling Shoot Branching",
+          "authors": [
+            "Francois F. Barbier",
+            "Elizabeth A. Dun",
+            "Stephanie C. Kerr",
+            "Tinashe G. Chabikwa",
+            "Christine A. Beveridge"
+          ],
+          "year": 2019,
+          "journal": "Trends in Plant Science",
+          "evidence_sentence": "Cytokinin promotes bud outgrowth when supplied exogenously to axillary buds",
+          "claim": "Cytokinin promotes shoot branching"
+        }
+      ]
+    },
+    {
+      "edge_id": "N008",
+      "source": "Cytokinin",
+      "target": "BRC1",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "Cytokinin inhibits BRC1 expression",
+      "evidence": [
+        {
+          "doi": "10.1016/j.tplants.2018.12.001",
+          "title": "An Update on the Signals Controlling Shoot Branching",
+          "authors": [
+            "Francois F. Barbier",
+            "Elizabeth A. Dun",
+            "Stephanie C. Kerr",
+            "Tinashe G. Chabikwa",
+            "Christine A. Beveridge"
+          ],
+          "year": 2019,
+          "journal": "Trends in Plant Science",
+          "evidence_sentence": "Cytokinin negatively regulates BRC1/TB1 expression in both monocots and dicots",
+          "claim": "Cytokinin inhibits BRC1 expression"
+        }
+      ]
+    },
+    {
+      "edge_id": "N009",
+      "source": "Strigolactone",
+      "target": "BRC1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "Strigolactone promotes BRC1 expression",
+      "evidence": [
+        {
+          "doi": "10.1016/j.tplants.2018.12.001",
+          "title": "An Update on the Signals Controlling Shoot Branching",
+          "authors": [
+            "Francois F. Barbier",
+            "Elizabeth A. Dun",
+            "Stephanie C. Kerr",
+            "Tinashe G. Chabikwa",
+            "Christine A. Beveridge"
+          ],
+          "year": 2019,
+          "journal": "Trends in Plant Science",
+          "evidence_sentence": "whereas strigolactone positively regulates BRC1 expression in dicots.",
+          "claim": "Strigolactone promotes BRC1 expression"
+        }
+      ]
+    },
+    {
+      "edge_id": "N010",
+      "source": "SMXL678",
+      "target": "BRC1",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "SMXL6/7/8 inhibit BRC1 expression",
+      "evidence": [
+        {
+          "doi": "10.1016/j.tplants.2018.12.001",
+          "title": "An Update on the Signals Controlling Shoot Branching",
+          "authors": [
+            "Francois F. Barbier",
+            "Elizabeth A. Dun",
+            "Stephanie C. Kerr",
+            "Tinashe G. Chabikwa",
+            "Christine A. Beveridge"
+          ],
+          "year": 2019,
+          "journal": "Trends in Plant Science",
+          "evidence_sentence": "D53/SMXL6/7/8 are available to inhibit transcriptional activation of genes, including BRC1 in dicots.",
+          "claim": "SMXL6/7/8 inhibit BRC1 expression"
+        }
+      ]
+    },
+    {
+      "edge_id": "N011",
+      "source": "GA",
+      "target": "BRC1",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "GA inhibits BRC1 expression",
+      "evidence": [
+        {
+          "doi": "10.1016/j.tplants.2018.12.001",
+          "title": "An Update on the Signals Controlling Shoot Branching",
+          "authors": [
+            "Francois F. Barbier",
+            "Elizabeth A. Dun",
+            "Stephanie C. Kerr",
+            "Tinashe G. Chabikwa",
+            "Christine A. Beveridge"
+          ],
+          "year": 2019,
+          "journal": "Trends in Plant Science",
+          "evidence_sentence": "Gibberellin (GA) inhibits expression of BRC1",
+          "claim": "GA inhibits BRC1 expression"
+        }
+      ]
+    },
+    {
+      "edge_id": "N012",
+      "source": "Auxin",
+      "target": "Shoot_Branching",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "Auxin inhibits shoot branching",
+      "evidence": [
+        {
+          "doi": "10.1016/j.devcel.2005.01.009",
+          "title": "MAX1 Encodes a Cytochrome P450 Family Member that Acts Downstream of MAX3/4 to Produce a Carotenoid-Derived Branch-Inhibiting Hormone",
+          "authors": [
+            "Jonathan Booker",
+            "Tobias Sieberer",
+            "Wendy Wright",
+            "Lisa Williamson",
+            "Barbara Willett",
+            "Petra Stirnberg",
+            "Colin Turnbull",
+            "Murali Srinivasan",
+            "Peter Goddard",
+            "Ottoline Leyser"
+          ],
+          "year": 2005,
+          "journal": "Developmental Cell",
+          "evidence_sentence": "Auxin, derived from the primary shoot apex, is pumped down the plant in the polar transport stream and inhibits the outgrowth of axillary buds.",
+          "claim": "Auxin inhibits shoot branching",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N013",
+      "source": "MAX2",
+      "target": "Shoot_Branching",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "MAX2 suppresses shoot branching",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.122903",
+          "title": "Strigolactone Promotes Degradation of DWARF14, an a/b Hydrolase Essential for Strigolactone Signaling in Arabidopsis",
+          "authors": [
+            "Florian Chevalier",
+            "Kaisa Nieminen",
+            "Juan Carlos Sánchez-Ferrero",
+            "María Luisa Rodríguez",
+            "Mónica Chagoyen",
+            "Christian S. Hardtke",
+            "Pilar Cubas"
+          ],
+          "year": 2014,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "Like MAX2, D14 is required locally in the aerial part of the plant to suppress shoot branching.",
+          "claim": "MAX2 suppresses shoot branching",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N014",
+      "source": "MAX2",
+      "target": "BRC1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "MAX2 promotes BRC1 expression",
+      "evidence": [
+        {
+          "doi": "10.3390/plants3020223",
+          "title": "Light Signaling in Bud Outgrowth and Branching in Plants",
+          "authors": [
+            "Nathalie Leduc",
+            "Hanaé Roman",
+            "François Barbier",
+            "uma Thomas Péron",
+            "Lydie Huché-Thélier",
+            "Jérémy Lothier",
+            "Sabine Demotes-Mainard",
+            "Soulaiman Sakr"
+          ],
+          "year": 2014,
+          "journal": "Plants",
+          "evidence_sentence": "MAX2 was also shown to promote expression of negative branching integrators such as BRC1 [144,145].",
+          "claim": "MAX2 promotes BRC1 expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N015",
+      "source": "FT",
+      "target": "Shoot_Branching",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "FT promotes shoot branching",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17006",
+          "title": "Regulation of shoot branching in arabidopsis by trehalose 6-phosphate",
+          "authors": [
+            "Franziska Fichtner",
+            "Francois F. Barbier",
+            "Maria G. Annunziata",
+            "Regina Feil",
+            "Justyna J. Olas",
+            "Bernd Mueller-Roeber",
+            "Mark Stitt",
+            "Christine A. Beveridge",
+            "John E. Lunn"
+          ],
+          "year": 2021,
+          "journal": "New Phytologist",
+          "evidence_sentence": "Increased vascular Tre6P levels enhanced branching and was accompanied by higher expression of FLOWERING LOCUS T (FT) and upregulation of sucrose transporters.",
+          "claim": "FT promotes shoot branching",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N016",
+      "source": "FT",
+      "target": "BRC1",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "FT inhibits BRC1",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17006",
+          "title": "Regulation of shoot branching in arabidopsis by trehalose 6-phosphate",
+          "authors": [
+            "Franziska Fichtner",
+            "Francois F. Barbier",
+            "Maria G. Annunziata",
+            "Regina Feil",
+            "Justyna J. Olas",
+            "Bernd Mueller-Roeber",
+            "Mark Stitt",
+            "Christine A. Beveridge",
+            "John E. Lunn"
+          ],
+          "year": 2021,
+          "journal": "New Phytologist",
+          "evidence_sentence": "In arabidopsis and wheat, the FT protein (also TSF in arabidopsis) has been shown to interact directly with BRC1, and this interaction leads to a reciprocal repressive effect, i.e. FT and BRC1 inhibit each other (Niwa et al., 2013; Dixon et al., 2018).",
+          "claim": "FT inhibits BRC1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N017",
+      "source": "Auxin",
+      "target": "BRC1",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "Auxin inhibits BRC1 transcription",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.145649",
+          "title": "BRC1 expression regulates bud activation potential but is not necessary or sufficient for bud growth inhibition in Arabidopsis",
+          "authors": [
+            "Madeleine Seale",
+            "Tom Bennett",
+            "Ottoline Leyser"
+          ],
+          "year": 2017,
+          "journal": "Development",
+          "evidence_sentence": "Together, these data suggest that an apically derived signal, such as auxin, moving basipetally in the stem regulates BRC1 transcription.",
+          "claim": "Auxin inhibits BRC1 transcription",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N018",
+      "source": "Strigolactone",
+      "target": "Shoot_Branching",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "Strigolactone inhibits shoot branching",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.145649",
+          "title": "BRC1 expression regulates bud activation potential but is not necessary or sufficient for bud growth inhibition in Arabidopsis",
+          "authors": [
+            "Madeleine Seale",
+            "Tom Bennett",
+            "Ottoline Leyser"
+          ],
+          "year": 2017,
+          "journal": "Development",
+          "evidence_sentence": "The canalization-based model can also explain how the plant hormone strigolactone (SL) inhibits branching.",
+          "claim": "Strigolactone inhibits shoot branching",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N019",
+      "source": "MAX2",
+      "target": "SMXL678",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "MAX2 recruits SMXL6 for degradation",
+      "evidence": [
+        {
+          "doi": "10.1038/nature19073",
+          "title": "DWARF14 is a non-canonical hormone receptor for strigolactone",
+          "authors": [
+            "Ruifeng Yao",
+            "Zhenhua Ming",
+            "Liming Yan",
+            "Suhua Li",
+            "Fei Wang",
+            "Sui Ma",
+            "Caiting Yu",
+            "Mai Yang",
+            "Li Chen",
+            "Linhai Chen",
+            "Yuwen Li",
+            "Chun Yan",
+            "Di Miao",
+            "Zhongyuan Sun",
+            "Jianbin Yan",
+            "Yuna Sun",
+            "Lei Wang",
+            "Jinfang Chu",
+            "Shilong Fan",
+            "Wei He",
+            "Haiteng Deng",
+            "Fajun Nan",
+            "Jiayang Li",
+            "Zihe Rao",
+            "Zhiyong Lou",
+            "Daoxin Xie"
+          ],
+          "year": 2016,
+          "journal": "Nature",
+          "evidence_sentence": "MAX2/D3 encodes an F-box protein, which interacts with D14 in a SL-dependent manner and recruits various repressors (such as rice D53 and Arabidopsis SMXL6/7/8) for 26S proteasome-mediated degradation",
+          "claim": "MAX2 recruits SMXL6 for degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N020",
+      "source": "D53",
+      "target": "Shoot_Branching",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "D53 represses SL signalling, which inhibits shoot branching",
+      "evidence": [
+        {
+          "doi": "10.1038/nature12878",
+          "title": "D14–SCFD3-dependent degradation of D53 regulates strigolactone signalling",
+          "authors": [
+            "Feng Zhou",
+            "Qibing Lin",
+            "Lihong Zhu",
+            "Yulong Ren",
+            "Kunneng Zhou",
+            "Nitzan Shabek",
+            "Fuqing Wu",
+            "Haibin Mao",
+            "Wei Dong",
+            "Lu Gan",
+            "Weiwei Ma",
+            "He Gao",
+            "Jun Chen",
+            "Chao Yang",
+            "Dan Wang",
+            "Junjie Tan",
+            "Xin Zhang",
+            "Xiuping Guo",
+            "Jiulin Wang",
+            "Ling Jiang",
+            "Xi Liu",
+            "Weiqi Chen",
+            "Jinfang Chu",
+            "Cunyu Yan",
+            "Kotomi Ueno",
+            "Shinsaku Ito",
+            "Tadao Asami",
+            "Zhijun Cheng",
+            "Jie Wang",
+            "Cailin Lei",
+            "Huqu Zhai",
+            "Chuanyin Wu",
+            "Haiyang Wang",
+            "Ning Zheng",
+            "Jianmin Wan"
+          ],
+          "year": 2013,
+          "journal": "Nature",
+          "evidence_sentence": "Our combined genetic and biochemical data reveal that D53 acts as a repressor of the SL signalling pathway, whose hormone-induced degradation represents a key molecular link between SL perception and responses.",
+          "claim": "D53 represses SL signalling, which inhibits shoot branching",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    }
+  ]
+}

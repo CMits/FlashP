@@ -1,0 +1,4753 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lycopene_Titer",
+    "species": "Escherichia coli",
+    "created": "2026-04-21",
+    "total_tests": 108,
+    "in_network": 87,
+    "not_in_network": 21,
+    "phenotype_node": "Lycopene_Titer",
+    "convention": "WT baseline = standard K-12 host (MG1655 or W3110 or comparable) harbouring the standard crtEBI cassette at chromosomally integrated or plasmid-based wild-type expression, cultured in LB at 30 C with inducer on. 'increased' = lycopene titer higher than this baseline. 'decreased' = lower. 'unchanged' = within measurement noise of baseline. Fold-changes quoted in evidence are reported as published."
+  },
+  "direction_threshold": 0.05,
+  "perturbations": [
+    {
+      "test_id": "T001",
+      "gene": "Dxs",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "DXS"
+      ],
+      "gene_modifiers": {
+        "DXS": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "DXS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Dxs -> DXS (case)",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "overexpression of dxs in E. coli carotenoid production was enhanced 3.5-fold",
+          "claim": "Dxs OE increases lycopene ~3.5x",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "Dxs -> DXS (case)",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T002",
+      "gene": "Idi",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "IDI"
+      ],
+      "gene_modifiers": {
+        "IDI": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "IDI",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Idi -> IDI",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "mutant IDI exhibited a 1.8-fold increase in lycopene production",
+          "claim": "Idi OE increases lycopene ~1.8-2x",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "Idi -> IDI",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T003",
+      "gene": "Dxs_Idi",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "DXS",
+        "IDI"
+      ],
+      "gene_modifiers": {
+        "DXS": 2.0,
+        "IDI": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "DXS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "IDI",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "dxs+idi combined OE",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "expressed the foreign MEP pathway genes dxs and idi simultaneously in E. coli, resulting in an increase of 16.5 times in lycopene yield",
+          "claim": "Combined dxs+idi OE increases lycopene ~16.5x",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "dxs+idi combined OE",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T004",
+      "gene": "Dxs_Dxr",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "DXR",
+        "DXS"
+      ],
+      "gene_modifiers": {
+        "DXS": 2.0,
+        "DXR": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "DXS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "DXR",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "dxs+dxr combined OE",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "highest lycopene yield (22 mg/L) was reached with the arabinose-inducible promoter on a medium-copy plasmid pBAD24 in the E. coli XL1-Blue strain",
+          "claim": "Combined dxs+dxr OE gives 22 mg/L (strong increase over baseline)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "dxs+dxr combined OE",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T005",
+      "gene": "Dxs_Idi_IspD_IspF",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "DXS",
+        "IDI"
+      ],
+      "gene_modifiers": {
+        "DXS": 2.0,
+        "IDI": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "DXS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "IDI",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "ispD/ispF not explicit nodes; kept dxs+idi OE",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "co-overexpression of IDI, DXS, IspD, and IspF...showed a 6-fold increase in lycopene production (5.39 mg/g DCW)",
+          "claim": "dxs+idi+ispD+ispF quad-OE gives ~6x lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "ispD/ispF not explicit nodes; kept dxs+idi OE",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T006",
+      "gene": "IspA",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ISPA"
+      ],
+      "gene_modifiers": {
+        "ISPA": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ISPA",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "IspA -> ISPA OE",
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2302.02003",
+          "title": "Evaluation of Various E. coli Strains for Enhanced Lycopene Production",
+          "authors": "Ren J, Shen J, Thai TD, Kim M, Lee SH, Lim W, Na D",
+          "year": 2023,
+          "journal": "Journal of Microbiology and Biotechnology",
+          "evidence_sentence": "four E. coli genes (dxs, dxr, ispA, and idi) were cloned into a mid-copy plasmid and overexpressed under PBAD promoter control",
+          "claim": "IspA OE contributes to elevated lycopene in MEP-pathway engineered strains",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "IspA -> ISPA OE",
+      "expected_magnitude": "slight",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T007",
+      "gene": "IspB",
+      "perturbation_type": "knockdown",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ISPB"
+      ],
+      "gene_modifiers": {
+        "ISPB": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ISPB",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "IspB RBS-down / antisense KD (essential gene cannot be fully KO'd)",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "FPP, in turn, is catalyzed by geranylgeranyl diphosphate (GGPP) synthase (CrtE)",
+          "claim": "ispB RBS-downregulation reduces the competing octaprenyl-PP sink and increases lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "IspB RBS-down / antisense KD (essential gene cannot be fully KO'd)",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T008",
+      "gene": "CrtE",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "CRTE"
+      ],
+      "gene_modifiers": {
+        "CRTE": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CRTE",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "CrtE -> CRTE OE",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "enhanced the expression of CrtE...60% increase in lycopene production",
+          "claim": "CrtE OE increases lycopene 60%",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "CrtE -> CRTE OE",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T009",
+      "gene": "CrtB",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "CRTB"
+      ],
+      "gene_modifiers": {
+        "CRTB": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CRTB",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "CrtB -> CRTB OE",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "combinational overexpression...resulted in lycopene production of 5.2 mg/g DCW",
+          "claim": "CrtB OE (in combination) contributes to lycopene improvement",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "CrtB -> CRTB OE",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T010",
+      "gene": "CrtI",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "CRTI"
+      ],
+      "gene_modifiers": {
+        "CRTI": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CRTI",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "CrtI -> CRTI OE",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "produced an engineered CrtI mutant (Y160F&N576S)...60% increase in lycopene production",
+          "claim": "CrtI variant OE increases lycopene 60%",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "CrtI -> CRTI OE",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T011",
+      "gene": "CrtE_CrtB_CrtI",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "CRTB",
+        "CRTE",
+        "CRTI"
+      ],
+      "gene_modifiers": {
+        "CRTE": 2.0,
+        "CRTB": 2.0,
+        "CRTI": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CRTE",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "CRTB",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "CRTI",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "crtEBI cassette co-OE",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "combinational overexpression...resulted in lycopene production of 5.2 mg/g DCW",
+          "claim": "Crt cassette OE is required for any lycopene production in E. coli (no native pathway)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "crtEBI cassette co-OE",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T012",
+      "gene": "CrtE",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "CRTE"
+      ],
+      "gene_modifiers": {
+        "CRTE": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CRTE",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "CrtE KO",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "heterologous expressions of geranylgeranyl diphosphate synthase (crtE), phytoene synthase (crtB), and phytoene desaturase (crtI) allow conversion of FPP to lycopene",
+          "claim": "Without CrtE, no GGPP synthesised, lycopene=0",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "CrtE KO",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T013",
+      "gene": "CrtB",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "CRTB"
+      ],
+      "gene_modifiers": {
+        "CRTB": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CRTB",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "CrtB KO",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "phytoene synthase (CrtB)",
+          "claim": "Without CrtB, no phytoene, no lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "CrtB KO",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T014",
+      "gene": "CrtI",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "CRTI"
+      ],
+      "gene_modifiers": {
+        "CRTI": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CRTI",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "CrtI KO",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "phytoene desaturase (CrtI) to successively form...finally lycopene",
+          "claim": "Without CrtI, phytoene accumulates but no lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "CrtI KO",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T015",
+      "gene": "MVA_full_upper_lower",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ATOB",
+        "HMGR",
+        "HMGS",
+        "MVD",
+        "MVK"
+      ],
+      "gene_modifiers": {
+        "ATOB": 2.0,
+        "HMGS": 2.0,
+        "HMGR": 2.0,
+        "MVK": 2.0,
+        "MVD": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ATOB",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "HMGS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "HMGR",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "MVK",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "MVD",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Full MVA upper+lower cassette OE; PMK not in network so omitted",
+      "evidence": [
+        {
+          "doi": "10.1016/j.synbio.2021.04.001",
+          "title": "Rationally optimized integrated E. coli with MVA lycopene",
+          "authors": "Hussain MH, et al.",
+          "year": 2021,
+          "journal": "Synthetic and Systems Biotechnology",
+          "evidence_sentence": "reaching 1.22 g/L of lycopene...integrated strain with heterologous mevalonate",
+          "claim": "Full MVA upper+lower pathway cassette integration gives 1.22 g/L lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "Full MVA upper+lower cassette OE; PMK not in network so omitted",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T016",
+      "gene": "AtoB",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ATOB"
+      ],
+      "gene_modifiers": {
+        "ATOB": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ATOB",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "AtoB -> ATOB OE",
+      "evidence": [
+        {
+          "doi": "10.1016/j.synbio.2021.04.001",
+          "title": "Rationally optimized integrated E. coli with MVA lycopene",
+          "authors": "Hussain MH, et al.",
+          "year": 2021,
+          "journal": "Synthetic and Systems Biotechnology",
+          "evidence_sentence": "mvaE and mvaS...catalyzes the conversion from acetyl-CoA to mevalonic acid",
+          "claim": "AtoB (mvaE) OE supports MVA upper pathway flux",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "AtoB -> ATOB OE",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T017",
+      "gene": "HMGS",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "HMGS"
+      ],
+      "gene_modifiers": {
+        "HMGS": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "HMGS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "HMGS OE",
+      "evidence": [
+        {
+          "doi": "10.1016/j.synbio.2021.04.001",
+          "title": "Rationally optimized integrated E. coli with MVA lycopene",
+          "authors": "Hussain MH, et al.",
+          "year": 2021,
+          "journal": "Synthetic and Systems Biotechnology",
+          "evidence_sentence": "mvaE and mvaS...catalyzes the conversion from acetyl-CoA to mevalonic acid",
+          "claim": "HMGS (mvaS) OE boosts HMG-CoA production",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "HMGS OE",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T018",
+      "gene": "HMGR",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "HMGR"
+      ],
+      "gene_modifiers": {
+        "HMGR": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "HMGR",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "HMGR OE (maps to tHMGR engineered variant too)",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "overexpressed tHMGR from X. dendrorhous, a truncated form of HMGR...2.2-fold enhancement in beta-carotene production",
+          "claim": "tHMGR OE gives 2.2x carotenoid increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "HMGR OE (maps to tHMGR engineered variant too)",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T019",
+      "gene": "MVK",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "MVK"
+      ],
+      "gene_modifiers": {
+        "MVK": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MVK",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "MVK OE",
+      "evidence": [
+        {
+          "doi": "10.1186/s13568-022-01418-6",
+          "title": "Directed evolution of mevalonate kinase for improved lycopene",
+          "authors": "Tan X, et al.",
+          "year": 2022,
+          "journal": "AMB Express",
+          "evidence_sentence": "Mevalonate kinase (MK) is one of the rate-limiting enzymes in the lycopene synthetic pathway",
+          "claim": "MVK OE/directed evolution increases lycopene in MVA-engineered strains",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "MVK OE",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T020",
+      "gene": "PMK",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "PMK (phosphomevalonate kinase) not a node in this network",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "addition of the MVA pathway genes mvak1, mvak2, mvaD, and idi...resulted in...> three-fold increase in lycopene production",
+          "claim": "PMK (mvak2) OE within full MVA cassette contributes to lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "PMK (phosphomevalonate kinase) not a node in this network",
+      "expected_magnitude": "slight",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T021",
+      "gene": "MVD",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "MVD"
+      ],
+      "gene_modifiers": {
+        "MVD": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MVD",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "MVD OE",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "addition of the MVA pathway genes mvak1, mvak2, mvaD, and idi...resulted in...> three-fold increase in lycopene production",
+          "claim": "MVD (mvaD) OE within full MVA cassette contributes to lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "MVD OE",
+      "expected_magnitude": "slight",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T022",
+      "gene": "Dxs",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "DXS"
+      ],
+      "gene_modifiers": {
+        "DXS": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "DXS",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Dxs KO",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "the step that limits the rate of the MEP pathway",
+          "claim": "Î”dxs blocks MEP flux; essential gene in most contexts",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "Dxs KO",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T023",
+      "gene": "IspA",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "ISPA"
+      ],
+      "gene_modifiers": {
+        "ISPA": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ISPA",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "IspA KO (encoded as full KO of node)",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "farnesyl pyrophosphate (FPP) is formed from GPP catalyzed by FPP synthase (IspA)",
+          "claim": "IspA KO blocks FPP supply; lycopene strongly decreased",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "IspA KO (encoded as full KO of node)",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T024",
+      "gene": "Pgi",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "PGI"
+      ],
+      "gene_modifiers": {
+        "PGI": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PGI",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Pgi KO (redirects flux to PPP)",
+      "evidence": [
+        {
+          "doi": "10.1128/AEM.02155-15",
+          "title": "Improving Product Yields on D-Glucose via pgi and zwf Knockout",
+          "authors": "Archer FS, Jerez BP, Prather KL",
+          "year": 2015,
+          "journal": "Applied and Environmental Microbiology",
+          "evidence_sentence": "Deletion of pgi and zwf was found to eliminate catabolite repression...yield from glucose of the bioproduct...was significantly increased",
+          "claim": "Î”pgi improves carotenoid yield via NADPH-rich PPP rerouting (context-dependent)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "Pgi KO (redirects flux to PPP)",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T025",
+      "gene": "Zwf",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ZWF"
+      ],
+      "gene_modifiers": {
+        "ZWF": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ZWF",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Zwf KO (removes PPP entry)",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "knockout of the zwf gene, significantly enhanced lycopene production by over 130%",
+          "claim": "Î”zwf gives >130% lycopene increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1007/s10529-013-1317-0",
+          "title": "Lycopene production improved by zwf knockout",
+          "authors": "Sung JH, Yoon SH, Lee JH, Kim SW",
+          "year": 2013,
+          "journal": "Biotechnology Letters",
+          "evidence_sentence": "deletion of the zwf gene encoding glucose-6-phosphate dehydrogenase...indirectly led to an increase in lycopene production",
+          "claim": "Î”zwf increases lycopene via EMP redirect",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "Zwf KO (removes PPP entry)",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T026",
+      "gene": "Pgi_Zwf",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "PGI",
+        "ZWF"
+      ],
+      "gene_modifiers": {
+        "PGI": 0.0,
+        "ZWF": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PGI",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "ZWF",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Pgi+Zwf double KO (Alper 2005 classic)",
+      "evidence": [
+        {
+          "doi": "10.1128/AEM.02155-15",
+          "title": "Improving Product Yields on D-Glucose via pgi and zwf Knockout",
+          "authors": "Archer FS, Jerez BP, Prather KL",
+          "year": 2015,
+          "journal": "Applied and Environmental Microbiology",
+          "evidence_sentence": "Deletion of pgi and zwf was found to eliminate catabolite repression as well as the ability of E. coli to consume glucose for biomass formation",
+          "claim": "Î”pgi Î”zwf maximally redirects glucose carbon toward product (requires supplemental C source)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "Pgi+Zwf double KO (Alper 2005 classic)",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T027",
+      "gene": "PpsA",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "PPS"
+      ],
+      "gene_modifiers": {
+        "PPS": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PPS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "PpsA = PPS (phosphoenolpyruvate synthase)",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "overexpressing phosphoenolpyruvate (PEP) synthase (PPS)...achieved a 250% increase in lycopene production",
+          "claim": "ppsA OE gives 250% lycopene increase via pyruvate->PEP->G3P rebalancing",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "PpsA = PPS (phosphoenolpyruvate synthase)",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T028",
+      "gene": "PykA_PykF",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "PYKA",
+        "PYKF"
+      ],
+      "gene_modifiers": {
+        "PYKA": 0.0,
+        "PYKF": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PYKA",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "PYKF",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "PykA+PykF double KO",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "deleting pyruvate kinases-I and -II (Pyk-I and-II)...lycopene production was significantly increased",
+          "claim": "Î”pykA Î”pykF double KO increases lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "PykA+PykF double KO",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T029",
+      "gene": "AceE_GdhA",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ACEE",
+        "GDHA"
+      ],
+      "gene_modifiers": {
+        "ACEE": 0.0,
+        "GDHA": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ACEE",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "GDHA",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "AceE+GdhA double KO",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "knockout of the aceE and gdhA genes, resulting in enhanced carbon metabolic flux towards lycopene production",
+          "claim": "Î”aceE Î”gdhA gives 140.85% lycopene increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "AceE+GdhA double KO",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T030",
+      "gene": "GdhA_AceE_FdhF",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ACEE",
+        "GDHA"
+      ],
+      "gene_modifiers": {
+        "GDHA": 0.0,
+        "ACEE": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GDHA",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "ACEE",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "GdhA+AceE+FdhF triple KO; FdhF not in network, encoded 2/3",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "37% improvement in lycopene yield in a gdhA/aceE/fdhF triple-knockout construct",
+          "claim": "Î”gdhA Î”aceE Î”fdhF triple KO gives 37-40% lycopene increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "GdhA+AceE+FdhF triple KO; FdhF not in network, encoded 2/3",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T031",
+      "gene": "GdhA_AceE_YjiD",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ACEE",
+        "GDHA"
+      ],
+      "gene_modifiers": {
+        "GDHA": 0.0,
+        "ACEE": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GDHA",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "ACEE",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "GdhA+AceE+YjiD triple KO; YjiD not in network, encoded 2/3",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "a four-fold increase in lycopene yield following the deletion of gdhA, aceE, and yjiD",
+          "claim": "Î”gdhA Î”aceE Î”yjiD gives 4x lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "GdhA+AceE+YjiD triple KO; YjiD not in network, encoded 2/3",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T032",
+      "gene": "GdhA_AceE_FdhF_YjiD_YcgW",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ACEE",
+        "GDHA"
+      ],
+      "gene_modifiers": {
+        "GDHA": 0.0,
+        "ACEE": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GDHA",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "ACEE",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "GdhA/AceE KO + FdhF/YjiD/YcgW not in network; encoded the two modelled deletions",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "multi-dimensional search...3.7-fold increase in lycopene production...deletion of gdhA/aceE/fdhF and the overexpression of yjiD/ycgW",
+          "claim": "Combined 3KO+2OE gives 3.7x lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "GdhA/AceE KO + FdhF/YjiD/YcgW not in network; encoded the two modelled deletions",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T033",
+      "gene": "Alper2005_8.5fold_combinatorial",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ACEE",
+        "GDHA",
+        "PGI",
+        "ZWF"
+      ],
+      "gene_modifiers": {
+        "GDHA": 0.0,
+        "ACEE": 0.0,
+        "PGI": 0.0,
+        "ZWF": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GDHA",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "ACEE",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "PGI",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "ZWF",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Alper 2005 8.5x combinatorial strain: encoded the 4 dominant in-network deletions (gdhA/aceE/pgi/zwf) that characterise the winner",
+      "evidence": [
+        {
+          "doi": "10.1038/nbt1083",
+          "title": "Construction of lycopene-overproducing E. coli strains by combining systematic and combinatorial gene knockout targets",
+          "authors": "Alper H, Miyaoku K, Stephanopoulos G",
+          "year": 2005,
+          "journal": "Nature Biotechnology",
+          "evidence_sentence": "yielded a unique set of 64 knockout strains, which included a global maximum strain exhibiting an 8.5-fold product increase over recombinant K12 wild type",
+          "claim": "Alper 2005 combinatorial strain gives 8.5x lycopene",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "Alper 2005 8.5x combinatorial strain: encoded the 4 dominant in-network deletions (gdhA/aceE/pgi/zwf) that characterise the winner",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T034",
+      "gene": "CRP_engineered",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "CRP (cAMP receptor protein) not in network",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "A mutant strain with an engineered CRP produced approximately 25% more lycopene",
+          "claim": "Engineered CRP variant gives 25% more lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "CRP (cAMP receptor protein) not in network",
+      "expected_magnitude": "slight",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T035",
+      "gene": "RpoS",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RPOS"
+      ],
+      "gene_modifiers": {
+        "RPOS": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RPOS",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "RpoS KO",
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-015-0381-7",
+          "title": "Systems analysis of MEP pathway flux with oxidative stress",
+          "authors": "Bongers JG, et al.",
+          "year": 2015,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "MG1655* accumulates sevenfold more lycopene than...Seq+ after rpoS complementation",
+          "claim": "Î”rpoS gives 7-8x LOWER lycopene due to ROS accumulation and degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "RpoS KO",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T036",
+      "gene": "AppY_Dxs",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "DXS"
+      ],
+      "gene_modifiers": {
+        "DXS": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "DXS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "AppY+Dxs co-OE: AppY not in network, encoded DXS OE alone",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "co-expression of appY with dxs produced an eight-fold improvement in lycopene yield",
+          "claim": "AppY+Dxs co-OE gives 8x lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "AppY+Dxs co-OE: AppY not in network, encoded DXS OE alone",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T037",
+      "gene": "AppY_Crl_RpoS_Dxs",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "CRL",
+        "DXS",
+        "RPOS"
+      ],
+      "gene_modifiers": {
+        "DXS": 2.0,
+        "CRL": 2.0,
+        "RPOS": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "DXS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "CRL",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "RPOS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "AppY+Crl+RpoS+Dxs: AppY not in network, others encoded",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "co-expression of appY, crl, and rpoS with dxs",
+          "claim": "4-gene OE yields 4.7 mg/g DCW lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "AppY+Crl+RpoS+Dxs: AppY not in network, others encoded",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T038",
+      "gene": "Hnr_YliE",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "HNR"
+      ],
+      "gene_modifiers": {
+        "HNR": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "HNR",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Hnr+YliE double KO: YliE not in network, encoded HNR only",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "Î”hnr Î”yliE mutant...significantly improved lycopene production",
+          "claim": "Î”hnr Î”yliE increases lycopene via stabilised RpoS",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "Hnr+YliE double KO: YliE not in network, encoded HNR only",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T039",
+      "gene": "Ppc_Pck",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "PPC"
+      ],
+      "gene_modifiers": {
+        "PPC": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PPC",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Ppc+Pck combined OE: Pck not in network, encoded PPC OE",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "reconstruction of the metabolic pathways from G3P to pyruvate...lycopene production was significantly increased",
+          "claim": "Ppc+Pck OE reroutes PEP-pyruvate cycling, improving lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "Ppc+Pck combined OE: Pck not in network, encoded PPC OE",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T040",
+      "gene": "Plsb_Plsc_Almgs",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "MEMBRANE_STORAGE"
+      ],
+      "gene_modifiers": {
+        "MEMBRANE_STORAGE": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MEMBRANE_STORAGE",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "PlsB/PlsC/Almgs phospholipid-biosynthesis OE boosts membrane storage capacity for carotenoids",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "amount of the membrane component, glycerophospholipids, was increased...36.4 mg/g DCW of lycopene accumulated",
+          "claim": "Plsb+Plsc+Almgs OE gives 36.4 mg/g DCW lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "PlsB/PlsC/Almgs phospholipid-biosynthesis OE boosts membrane storage capacity for carotenoids",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T041",
+      "gene": "WaaC",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ENVELOPE_STRESS"
+      ],
+      "gene_modifiers": {
+        "ENVELOPE_STRESS": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ENVELOPE_STRESS",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "WaaC KO (deep-rough LPS) reduces envelope barrier -> ENVELOPE_STRESS composite goes to 0",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms23147783",
+          "title": "Effects of lipopolysaccharide structure on lycopene production in E. coli",
+          "authors": "Huang X, et al.",
+          "year": 2020,
+          "journal": "Enzyme and Microbial Technology",
+          "evidence_sentence": "deletion of the waaC and waaF genes greatly promoted lycopene production",
+          "claim": "Î”waaC LPS truncation enhances lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "WaaC KO (deep-rough LPS) reduces envelope barrier -> ENVELOPE_STRESS composite goes to 0",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T042",
+      "gene": "WaaF",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ENVELOPE_STRESS"
+      ],
+      "gene_modifiers": {
+        "ENVELOPE_STRESS": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ENVELOPE_STRESS",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "WaaF KO (LPS outer-core defect) reduces envelope barrier",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms23147783",
+          "title": "Effects of lipopolysaccharide structure on lycopene production in E. coli",
+          "authors": "Huang X, et al.",
+          "year": 2020,
+          "journal": "Enzyme and Microbial Technology",
+          "evidence_sentence": "deletion of the waaC and waaF genes greatly promoted lycopene production",
+          "claim": "Î”waaF LPS truncation enhances lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "WaaF KO (LPS outer-core defect) reduces envelope barrier",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T043",
+      "gene": "Lpp_NlpI_MlaE_TolA",
+      "perturbation_type": "quadruple_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ENVELOPE_STRESS"
+      ],
+      "gene_modifiers": {
+        "ENVELOPE_STRESS": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ENVELOPE_STRESS",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Lpp/NlpI/MlaE/TolA quadruple KO destabilises envelope -> reduced stress composite",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "deletion of the lpp, nlpI, mlaE, and tolA genes...59.34-fold improvement in extracellular lycopene production",
+          "claim": "Quadruple KO gives 59.34x EXTRACELLULAR lycopene (total titer moderate increase)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Lpp/NlpI/MlaE/TolA quadruple KO destabilises envelope -> reduced stress composite",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T044",
+      "gene": "AlphaKGDH_SDH_TalB",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "alphaKGDH + SDH + TalB engineering (NADPH/ATP rewiring) - none are explicit nodes",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "modulated to increase NADPH and ATP...significant increase in the lycopene yield...50.6 mg/g DCW",
+          "claim": "Î±-KGDH+SDH+TalB engineering gives 50.6 mg/g DCW lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "alphaKGDH + SDH + TalB engineering (NADPH/ATP rewiring) - none are explicit nodes",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T045",
+      "gene": "GdhA_EutD_TpiA_OmpE_OmpN",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "GDHA",
+        "MEMBRANE_STORAGE"
+      ],
+      "gene_modifiers": {
+        "GDHA": 0.0,
+        "MEMBRANE_STORAGE": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GDHA",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "MEMBRANE_STORAGE",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "GdhA/EutD KO + TpiA/OmpE/OmpN OE: GDHA modelled as KO, OmpE/OmpN -> MEMBRANE_STORAGE OE; EutD/TpiA not in network",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "Deletion of gdhA, eutD; overexpression of tpiA, ompE, and ompN...174% increase in lycopene titer",
+          "claim": "Combined 2KO+3OE gives 174% lycopene increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "GdhA/EutD KO + TpiA/OmpE/OmpN OE: GDHA modelled as KO, OmpE/OmpN -> MEMBRANE_STORAGE OE; EutD/TpiA not in network",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T046",
+      "gene": "Chassis_MG1655",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "MG1655 chassis reference; no Chassis_Strain node",
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2302.02003",
+          "title": "Evaluation of Various E. coli Strains for Enhanced Lycopene Production",
+          "authors": "Ren J, Shen J, Thai TD, Kim M, Lee SH, Lim W, Na D",
+          "year": 2023,
+          "journal": "Journal of Microbiology and Biotechnology",
+          "evidence_sentence": "MG1655 expressed lycopene production capacity 10 to 16 times higher than commonly used laboratory strains such as DH5Î± and BL21 (DE3)",
+          "claim": "MG1655 baseline chassis gives 10-16x lycopene vs DH5Î±/BL21",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "MG1655 chassis reference; no Chassis_Strain node",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T047",
+      "gene": "Chassis_BL21",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "BL21 chassis; no Chassis_Strain node",
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2302.02003",
+          "title": "Evaluation of Various E. coli Strains for Enhanced Lycopene Production",
+          "authors": "Ren J, Shen J, Thai TD, Kim M, Lee SH, Lim W, Na D",
+          "year": 2023,
+          "journal": "Journal of Microbiology and Biotechnology",
+          "evidence_sentence": "10 to 16 times higher than commonly used laboratory strains, such as DH5Î± and BL21 (DE3)",
+          "claim": "BL21(DE3) chassis gives 10-16x LESS lycopene than MG1655",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "BL21 chassis; no Chassis_Strain node",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T048",
+      "gene": "Chassis_W3110",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "W3110 chassis; no Chassis_Strain node",
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2302.02003",
+          "title": "Evaluation of Various E. coli Strains for Enhanced Lycopene Production",
+          "authors": "Ren J, Shen J, Thai TD, Kim M, Lee SH, Lim W, Na D",
+          "year": 2023,
+          "journal": "Journal of Microbiology and Biotechnology",
+          "evidence_sentence": "W3110 carries the rpoS396(Am) allele, while MG1655 has the pseudorevertant Q33 allele",
+          "claim": "W3110 chassis gives modestly less lycopene than MG1655 due to rpoS396(Am) allele",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "W3110 chassis; no Chassis_Strain node",
+      "expected_magnitude": "slight",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T049",
+      "gene": "Chassis_DH5alpha",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "DH5alpha chassis; no Chassis_Strain node",
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2302.02003",
+          "title": "Evaluation of Various E. coli Strains for Enhanced Lycopene Production",
+          "authors": "Ren J, Shen J, Thai TD, Kim M, Lee SH, Lim W, Na D",
+          "year": 2023,
+          "journal": "Journal of Microbiology and Biotechnology",
+          "evidence_sentence": "MG1655 expressed lycopene production capacity 10 to 16 times higher than commonly used laboratory strains such as DH5Î±",
+          "claim": "DH5Î± chassis gives ~10-16x less lycopene than MG1655",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "DH5alpha chassis; no Chassis_Strain node",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T050",
+      "gene": "Chassis_SURE",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "SURE chassis; no Chassis_Strain node",
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2302.02003",
+          "title": "Evaluation of Various E. coli Strains for Enhanced Lycopene Production",
+          "authors": "Ren J, Shen J, Thai TD, Kim M, Lee SH, Lim W, Na D",
+          "year": 2023,
+          "journal": "Journal of Microbiology and Biotechnology",
+          "evidence_sentence": "the SURE and W strains expressed the lowest (0 g/l) in an LB medium",
+          "claim": "SURE strain produces 0 lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "SURE chassis; no Chassis_Strain node",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T051",
+      "gene": "IPTG_high",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "IPTG"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "IPTG": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "IPTG",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "IPTG high (1 mM) -> IPTG exogenous_supply=1.0",
+      "evidence": [
+        {
+          "doi": "10.1007/s00253-006-0623-z",
+          "title": "Engineering the lycopene synthetic pathway: Pantoea comparison",
+          "authors": "Lee JH, Kim SW, Lee PC",
+          "year": 2007,
+          "journal": "Applied Microbiology and Biotechnology",
+          "evidence_sentence": "E. coli harboring the P. agglomerans crt genes produced 27 mg/l of lycopene in 2YT medium without IPTG induction, which was twofold higher than that produced by E. coli harboring the P. ananatis crt genes (12 mg/l lycopene) with 0.1 mM IPTG induction",
+          "claim": "IPTG at 0.1 mM induces crt cassette expression and supports lycopene production",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "IPTG high (1 mM) -> IPTG exogenous_supply=1.0",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T052",
+      "gene": "IPTG_absent",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "IPTG"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "IPTG": 0.0
+      },
+      "perturbations": [
+        {
+          "node": "IPTG",
+          "modifier_type": "exogenous_supply",
+          "value": 0.0
+        }
+      ],
+      "notes": "IPTG absent (no induction) -> IPTG exogenous_supply=0.0",
+      "evidence": [
+        {
+          "doi": "10.1007/s00253-006-0623-z",
+          "title": "Engineering the lycopene synthetic pathway: Pantoea comparison",
+          "authors": "Lee JH, Kim SW, Lee PC",
+          "year": 2007,
+          "journal": "Applied Microbiology and Biotechnology",
+          "evidence_sentence": "E. coli harboring the P. agglomerans crt genes produced 27 mg/l of lycopene in 2YT medium without IPTG induction",
+          "claim": "Without inducer, lac/T7-driven crt cassette expression is strongly reduced (leaky expression still occurs for Pantoea agglomerans crt genes)",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "IPTG absent (no induction) -> IPTG exogenous_supply=0.0",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T053",
+      "gene": "Arabinose_1pct",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Arabinose"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Arabinose": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Arabinose",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Arabinose 1% -> Arabinose exogenous_supply=1.0",
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2302.02003",
+          "title": "Evaluation of Various E. coli Strains for Enhanced Lycopene Production",
+          "authors": "Ren J, Shen J, Thai TD, Kim M, Lee SH, Lim W, Na D",
+          "year": 2023,
+          "journal": "Journal of Microbiology and Biotechnology",
+          "evidence_sentence": "Cells were inoculated into 50 ml of LB with 1% L-arabinose...incubation at 30Â°C and 200 rpm for 60 h",
+          "claim": "1% L-arabinose induces PBAD-driven dxs/idi/dxr/ispA and elevates MEP flux",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Arabinose 1% -> Arabinose exogenous_supply=1.0",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T054",
+      "gene": "Arabinose_absent",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "Arabinose"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Arabinose": 0.0
+      },
+      "perturbations": [
+        {
+          "node": "Arabinose",
+          "modifier_type": "exogenous_supply",
+          "value": 0.0
+        }
+      ],
+      "notes": "Arabinose absent -> Arabinose exogenous_supply=0.0",
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2302.02003",
+          "title": "Evaluation of Various E. coli Strains for Enhanced Lycopene Production",
+          "authors": "Ren J, Shen J, Thai TD, Kim M, Lee SH, Lim W, Na D",
+          "year": 2023,
+          "journal": "Journal of Microbiology and Biotechnology",
+          "evidence_sentence": "expressed under the PBAD promoter regulated by AraC protein and arabinose",
+          "claim": "Without arabinose, PBAD-driven MEP OE cassette is not expressed; lycopene reverts to native baseline",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Arabinose absent -> Arabinose exogenous_supply=0.0",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T055",
+      "gene": "Glucose_carbon",
+      "perturbation_type": "environmental",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "Glucose"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Glucose": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Glucose",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Glucose as sole C source (baseline) -> Glucose exogenous_supply=1.0",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "synergetic fermentation of glucose and glycerol",
+          "claim": "Glucose as sole carbon source is the standard baseline condition",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Glucose as sole C source (baseline) -> Glucose exogenous_supply=1.0",
+      "expected_magnitude": "",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T056",
+      "gene": "Glycerol_carbon",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Glucose",
+        "Glycerol"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Glycerol": 1.0,
+        "Glucose": 0.0
+      },
+      "perturbations": [
+        {
+          "node": "Glycerol",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        },
+        {
+          "node": "Glucose",
+          "modifier_type": "exogenous_supply",
+          "value": 0.0
+        }
+      ],
+      "notes": "Glycerol carbon source -> Glycerol=1.0, Glucose=0.0",
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2302.02003",
+          "title": "Evaluation of Various E. coli Strains for Enhanced Lycopene Production",
+          "authors": "Ren J, Shen J, Thai TD, Kim M, Lee SH, Lim W, Na D",
+          "year": 2023,
+          "journal": "Journal of Microbiology and Biotechnology",
+          "evidence_sentence": "cells grown in 2xYTg achieved 4.6, 4.1, and 4-fold higher lycopene titers (651 mg/l)",
+          "claim": "20% glycerol medium gives ~4x higher lycopene vs LB (glucose)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Glycerol carbon source -> Glycerol=1.0, Glucose=0.0",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T057",
+      "gene": "Xylose_carbon",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "Glucose",
+        "Xylose"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Xylose": 1.0,
+        "Glucose": 0.0
+      },
+      "perturbations": [
+        {
+          "node": "Xylose",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        },
+        {
+          "node": "Glucose",
+          "modifier_type": "exogenous_supply",
+          "value": 0.0
+        }
+      ],
+      "notes": "Xylose carbon source -> Xylose=1.0, Glucose=0.0",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "different carbon sources",
+          "claim": "Xylose as sole C source typically gives lower lycopene than glucose/glycerol unless XylR regulon is optimised",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Xylose carbon source -> Xylose=1.0, Glucose=0.0",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T058",
+      "gene": "Temperature_37",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "Temperature"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Temperature": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Temperature",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "37 C growth -> Temperature exogenous_supply=1.0",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "temperature-shift culture method (37â†’25 Â°C)...further augment lycopene production",
+          "claim": "Sustained 37 Â°C gives lower lycopene than cooler temperatures",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "37 C growth -> Temperature exogenous_supply=1.0",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T059",
+      "gene": "Temperature_28",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Temperature"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Temperature": 0.0
+      },
+      "perturbations": [
+        {
+          "node": "Temperature",
+          "modifier_type": "exogenous_supply",
+          "value": 0.0
+        }
+      ],
+      "notes": "28 C growth -> Temperature exogenous_supply=0.0",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "Switching biomass accumulation and production of lycopene in E. coli at a specific temperature (18Â°C) has shown effectiveness in precluding metabolic stress",
+          "claim": "Lower T (28 Â°C) improves lycopene via reduced metabolic stress",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "28 C growth -> Temperature exogenous_supply=0.0",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T060",
+      "gene": "Temperature_shift_37to25",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Temperature"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Temperature": 0.0
+      },
+      "perturbations": [
+        {
+          "node": "Temperature",
+          "modifier_type": "exogenous_supply",
+          "value": 0.0
+        }
+      ],
+      "notes": "37->25 C shift encoded at low-temperature state",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "temperature-shift culture method (37â†’25 Â°C)...further augment lycopene production",
+          "claim": "Temperature shift 37â†’25 Â°C further augments lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "37->25 C shift encoded at low-temperature state",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T061",
+      "gene": "Aeration_high",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "Oxygen_Level"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Oxygen_Level": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Oxygen_Level",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "High aeration -> Oxygen_Level exogenous_supply=1.0",
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-015-0381-7",
+          "title": "Systems analysis of MEP pathway with oxidative stress",
+          "authors": "Bongers JG, et al.",
+          "year": 2015,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "proteins involved in aerobic respiration and the TCA cycle were increased",
+          "claim": "High aeration increases ROS and chemically degrades lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "High aeration -> Oxygen_Level exogenous_supply=1.0",
+      "expected_magnitude": "slight",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T062",
+      "gene": "Microaerobic",
+      "perturbation_type": "environmental",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "Oxygen_Level"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Oxygen_Level": 0.3
+      },
+      "perturbations": [
+        {
+          "node": "Oxygen_Level",
+          "modifier_type": "exogenous_supply",
+          "value": 0.3
+        }
+      ],
+      "notes": "Microaerobic -> Oxygen_Level exogenous_supply=0.3",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "anaerobic energy metabolism",
+          "claim": "Microaerobic conditions balance growth and ROS stress; effect on lycopene depends on strain",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Microaerobic -> Oxygen_Level exogenous_supply=0.3",
+      "expected_magnitude": "",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T063",
+      "gene": "Menadione_treatment",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "ROS"
+      ],
+      "gene_modifiers": {
+        "ROS": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ROS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Menadione = superoxide generator -> ROS composite gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-015-0381-7",
+          "title": "Systems analysis of MEP pathway with oxidative stress",
+          "authors": "Bongers JG, et al.",
+          "year": 2015,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "measurable lycopene content decreased significantly in the presence of sublethal doses of menadione",
+          "claim": "Menadione (superoxide generator) decreases measurable lycopene via chemical oxidation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Menadione = superoxide generator -> ROS composite gm=2.0",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T064",
+      "gene": "RpoS_KatE",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "KATE",
+        "RPOS"
+      ],
+      "gene_modifiers": {
+        "RPOS": 0.0,
+        "KATE": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RPOS",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "KATE",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "KatE OE in rpoS-KO background",
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-015-0381-7",
+          "title": "Systems analysis of MEP pathway with oxidative stress",
+          "authors": "Bongers JG, et al.",
+          "year": 2015,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "overexpression of katE increased measurable lycopene in MG1655*, reducing the difference...to less than two-fold from previously eightfold",
+          "claim": "KatE OE in Î”rpoS background restores ~4x lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "KatE OE in rpoS-KO background",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T065",
+      "gene": "SoxR",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "SOXR"
+      ],
+      "gene_modifiers": {
+        "SOXR": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "SOXR",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SoxR KO",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "The SoxRS regulon is a response mechanism to O2- and to redox-cycling compounds",
+          "claim": "Î”soxR blocks soxS induction and zwf upregulation, moderate lycopene increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "SoxR KO",
+      "expected_magnitude": "slight",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T066",
+      "gene": "SoxS",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "SOXS"
+      ],
+      "gene_modifiers": {
+        "SOXS": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "SOXS",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SoxS KO",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "Expression of zwf gene that encodes the first key enzyme from the pentose phosphate pathway is among others controlled by the SoxRS regulon",
+          "claim": "Î”soxS prevents stress-induced zwf upregulation, slightly improves lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "SoxS KO",
+      "expected_magnitude": "slight",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T067",
+      "gene": "OxyR",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "OxyR not in network",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "The OxyR system (which responds to H2O2)",
+          "claim": "Î”oxyR reduces H2O2 defense (katG, ahpCF, gorA), accumulates ROS, degrades lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "OxyR not in network",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T068",
+      "gene": "FNR",
+      "perturbation_type": "knockout",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "FNR"
+      ],
+      "gene_modifiers": {
+        "FNR": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FNR",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "FNR KO",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "anaerobic energy metabolism",
+          "claim": "Î”fnR has minimal effect in standard aerobic lycopene fermentation (FNR active only at low O2)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "FNR KO",
+      "expected_magnitude": "",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T069",
+      "gene": "ArcA",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ARCA"
+      ],
+      "gene_modifiers": {
+        "ARCA": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ARCA",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ArcA KO",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "presumably improve carbon flux to pyruvate and formate",
+          "claim": "Î”arcA de-represses aceE/TCA genes; under microaerobic conditions may slightly increase lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "ArcA KO",
+      "expected_magnitude": "slight",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T070",
+      "gene": "Cra",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "CRA"
+      ],
+      "gene_modifiers": {
+        "CRA": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CRA",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Cra KO",
+      "evidence": [
+        {
+          "doi": "10.1038/75398",
+          "title": "Improving lycopene production by engineering metabolic control",
+          "authors": "Farmer WR, Liao JC",
+          "year": 2000,
+          "journal": "Nature Biotechnology",
+          "evidence_sentence": "recruited and altered the Ntr regulon (a global regulatory system in Escherichia coli) to control the engineered lycopene biosynthesis pathway",
+          "claim": "Î”fruR/cra reduces gluconeogenic flux (ppsA) and thus G3P rebalancing; lycopene slightly decreased",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "Cra KO",
+      "expected_magnitude": "slight",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T071",
+      "gene": "Crl",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "CRL"
+      ],
+      "gene_modifiers": {
+        "CRL": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CRL",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Crl KO",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "Crl (transcriptional regulator of csgBA for curli surface fiber formation) also enhanced lycopene production",
+          "claim": "Î”crl reduces RpoS activity, mildly decreasing lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "Crl KO",
+      "expected_magnitude": "slight",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T072",
+      "gene": "Hnr",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "HNR"
+      ],
+      "gene_modifiers": {
+        "HNR": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "HNR",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Hnr KO",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "Î”hnr Î”yliE mutant...significantly improved lycopene production",
+          "claim": "Î”hnr stabilises RpoS and increases lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "Hnr KO",
+      "expected_magnitude": "slight",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T073",
+      "gene": "YliE",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "YliE not in network",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "Î”hnr Î”yliE mutant...significantly improved lycopene production",
+          "claim": "Î”yliE contributes to lycopene increase in Î”hnr background",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "YliE not in network",
+      "expected_magnitude": "slight",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T074",
+      "gene": "YtjC",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "YtjC not in network",
+      "evidence": [
+        {
+          "doi": "10.1038/nbt1083",
+          "title": "Construction of lycopene-overproducing E. coli strains",
+          "authors": "Alper H, Miyaoku K, Stephanopoulos G",
+          "year": 2005,
+          "journal": "Nature Biotechnology",
+          "evidence_sentence": "The study identified two distinct gene sets affecting lycopene synthesis...one increasing precursor availability",
+          "claim": "Î”ytjC (gpmB) contributes to lycopene increase in Alper 2005 set",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "YtjC not in network",
+      "expected_magnitude": "slight",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T075",
+      "gene": "YjiD",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "YjiD not in network",
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "four-fold increase in lycopene yield following the deletion of gdhA, aceE, and yjiD",
+          "claim": "Î”yjiD contributes to lycopene increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "YjiD not in network",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T076",
+      "gene": "MVA_upper_only_mvaE_mvaS",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ATOB",
+        "HMGR",
+        "HMGS"
+      ],
+      "gene_modifiers": {
+        "ATOB": 2.0,
+        "HMGS": 2.0,
+        "HMGR": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ATOB",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "HMGS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "HMGR",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "MVA upper (mvaE=AtoB+HMGR; mvaS=HMGS) cassette OE",
+      "evidence": [
+        {
+          "doi": "10.1016/j.synbio.2021.04.001",
+          "title": "Rationally optimized integrated E. coli with MVA lycopene",
+          "authors": "Hussain MH, et al.",
+          "year": 2021,
+          "journal": "Synthetic and Systems Biotechnology",
+          "evidence_sentence": "ES (mvaE, mvaS) cassette...catalyzes the conversion from acetyl-CoA to mevalonic acid",
+          "claim": "MVA upper pathway OE alone gives moderate lycopene increase (requires mevalonate supplementation or full pathway for maximum)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "MVA upper (mvaE=AtoB+HMGR; mvaS=HMGS) cassette OE",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T077",
+      "gene": "MVA_lower_plus_mevalonate_feed",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "MVD",
+        "MVK"
+      ],
+      "gene_modifiers": {
+        "MVK": 2.0,
+        "MVD": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MVK",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "MVD",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "MVA lower (MVK, PMK, MVD) + exogenous mevalonate feed; PMK not in network, mevalonate not a source so feed not encoded",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "only the lower pathway was employed...mevalonate was supplied...significant increase in lycopene production",
+          "claim": "MVA lower pathway + exogenous mevalonate gives significant lycopene increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "MVA lower (MVK, PMK, MVD) + exogenous mevalonate feed; PMK not in network, mevalonate not a source so feed not encoded",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T078",
+      "gene": "MVA_plus_TypeII_IDI",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ATOB",
+        "HMGR",
+        "HMGS",
+        "IDI",
+        "MVD",
+        "MVK"
+      ],
+      "gene_modifiers": {
+        "ATOB": 2.0,
+        "HMGS": 2.0,
+        "HMGR": 2.0,
+        "MVK": 2.0,
+        "MVD": 2.0,
+        "IDI": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ATOB",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "HMGS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "HMGR",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "MVK",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "MVD",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "IDI",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "MVA cassette + Type-II IDI OE (PMK not in network)",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "heterologous MVA pathway...combined with the overexpression of a type 2 IDI...significantly elevating lycopene production",
+          "claim": "MVA + Type II IDI gives 198 mg/g DCW lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "MVA cassette + Type-II IDI OE (PMK not in network)",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T079",
+      "gene": "Fed_batch_glucose",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Glucose"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Glucose": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Glucose",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Fed-batch glucose -> sustained Glucose=1.0 (process encoded as standard C supply)",
+      "evidence": [
+        {
+          "doi": "10.1016/j.synbio.2021.04.001",
+          "title": "Rationally optimized integrated E. coli with MVA lycopene",
+          "authors": "Hussain MH, et al.",
+          "year": 2021,
+          "journal": "Synthetic and Systems Biotechnology",
+          "evidence_sentence": "reaching 1.22 g/L of lycopene...in a 5 L fermenter with mean productivity of 61.0 mg/L/h",
+          "claim": "Fed-batch 5 L fermentation gives 1.22 g/L lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Fed-batch glucose -> sustained Glucose=1.0 (process encoded as standard C supply)",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T080",
+      "gene": "Fructose_auxiliary",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Fructose auxiliary C source; no Fructose node",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "6 g/L fructose exhibited the highest lycopene yield...1050 mg/L",
+          "claim": "6 g/L fructose auxiliary gives 1050 mg/L lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "Fructose auxiliary C source; no Fructose node",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T081",
+      "gene": "mRNA_secondary_structure_optimization",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "mRNA SSS optimisation -- process, not a gene modifier",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "enhancement of mRNA stability by varying the mRNA secondary structures",
+          "claim": "mRNA stability optimisation increases lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "mRNA SSS optimisation -- process, not a gene modifier",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T082",
+      "gene": "Chromosomal_integration",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Chromosomal integration -- delivery method, not a gene modifier",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "Synthesis genes were integrated into chromosome...33.43 mg/g DCW",
+          "claim": "Chromosomal integration of pathway gives 33.43 mg/g DCW lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "Chromosomal integration -- delivery method, not a gene modifier",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T083",
+      "gene": "MAGE_Wang2009",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "MAGE (Wang 2009) RBS optimisation across 20 loci -- process",
+      "evidence": [
+        {
+          "doi": "10.1038/nature08187",
+          "title": "Programming cells by multiplex genome engineering and accelerated evolution",
+          "authors": "Wang HH, Isaacs FJ, Carr PA, Sun ZZ, Xu G, Forest CR, Church GM",
+          "year": 2009,
+          "journal": "Nature",
+          "evidence_sentence": "Large-scale programming...9 mg/g DCW",
+          "claim": "MAGE (multiplex automated genome engineering) gives 9 mg/g DCW lycopene across 20 ribosome-binding sites optimised",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "MAGE (Wang 2009) RBS optimisation across 20 loci -- process",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T084",
+      "gene": "SSA_GoldenGate_combinatorial",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Golden Gate / SSA combinatorial assembly -- process, not a gene modifier",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "new combinatorial multi-gene pathway assembly scheme...448 mg/g DCW",
+          "claim": "Golden Gate / SSA combinatorial assembly gives 448 mg/g DCW lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "Golden Gate / SSA combinatorial assembly -- process, not a gene modifier",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T085",
+      "gene": "CrtE_Pagglomerans_vs_Pananatis",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "CRTE"
+      ],
+      "gene_modifiers": {
+        "CRTE": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CRTE",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "CrtE ortholog P.agglomerans vs P.ananatis -- encoded as CrtE OE (ortholog identity not captured)",
+      "evidence": [
+        {
+          "doi": "10.1007/s00253-006-0623-z",
+          "title": "Pantoea agglomerans vs P. ananatis crt genes",
+          "authors": "Lee JH, Kim SW, Lee PC",
+          "year": 2007,
+          "journal": "Applied Microbiology and Biotechnology",
+          "evidence_sentence": "E. coli harboring the P. agglomerans crt genes produced 27 mg/l of lycopene...twofold higher than that produced by E. coli harboring the P. ananatis crt genes (12 mg/l lycopene)",
+          "claim": "P. agglomerans crtE variant gives 2x lycopene vs P. ananatis",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "CrtE ortholog P.agglomerans vs P.ananatis -- encoded as CrtE OE (ortholog identity not captured)",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T086",
+      "gene": "Plasmid_copy_high",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Plasmid_Copy_Number"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Plasmid_Copy_Number": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Plasmid_Copy_Number",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "High-copy plasmid -> Plasmid_Copy_Number exogenous_supply=1.0",
+      "evidence": [
+        {
+          "doi": "10.1016/j.synbio.2021.04.001",
+          "title": "Rationally optimized integrated E. coli with MVA lycopene",
+          "authors": "Hussain MH, et al.",
+          "year": 2021,
+          "journal": "Synthetic and Systems Biotechnology",
+          "evidence_sentence": "three copies of lycopene expression pathway was comprehended as the best performer",
+          "claim": "3 copies of crt cassette outperform 1 or 2 copies",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "High-copy plasmid -> Plasmid_Copy_Number exogenous_supply=1.0",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T087",
+      "gene": "Idi_Dxs_crt_RBS_tuning",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "CRTB",
+        "CRTE",
+        "CRTI",
+        "DXS",
+        "IDI"
+      ],
+      "gene_modifiers": {
+        "IDI": 2.0,
+        "DXS": 2.0,
+        "CRTE": 2.0,
+        "CRTB": 2.0,
+        "CRTI": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "IDI",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "DXS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "CRTE",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "CRTB",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "CRTI",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "RBS-tuned idi+dxs+crtEBI OE",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "RBS libraries...leading to an increase in lycopene yield by 32%",
+          "claim": "RBS optimisation of idi, dxs, and crt operon gives 32% lycopene increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "RBS-tuned idi+dxs+crtEBI OE",
+      "expected_magnitude": "slight",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T088",
+      "gene": "CrtE_Pagglomerans_OE_noIPTG",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "CRTE",
+        "IPTG"
+      ],
+      "gene_modifiers": {
+        "CRTE": 2.0
+      },
+      "exogenous_supply": {
+        "IPTG": 0.0
+      },
+      "perturbations": [
+        {
+          "node": "CRTE",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "IPTG",
+          "modifier_type": "exogenous_supply",
+          "value": 0.0
+        }
+      ],
+      "notes": "CrtE (P.agglomerans) OE under constitutive (non-IPTG) promoter",
+      "evidence": [
+        {
+          "doi": "10.1007/s00253-006-0623-z",
+          "title": "Pantoea agglomerans vs P. ananatis crt genes",
+          "authors": "Lee JH, Kim SW, Lee PC",
+          "year": 2007,
+          "journal": "Applied Microbiology and Biotechnology",
+          "evidence_sentence": "E. coli harboring the P. agglomerans crt genes produced 27 mg/l of lycopene in 2YT medium without IPTG induction",
+          "claim": "P. agglomerans crt cassette produces 27 mg/L without IPTG (constitutive leaky expression sufficient)",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "CrtE (P.agglomerans) OE under constitutive (non-IPTG) promoter",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T089",
+      "gene": "Control_WT",
+      "perturbation_type": "control",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "MG1655 + crtEBI wild-type baseline, no auxiliary interventions",
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2302.02003",
+          "title": "Evaluation of Various E. coli Strains for Enhanced Lycopene Production",
+          "authors": "Ren J, Shen J, Thai TD, Kim M, Lee SH, Lim W, Na D",
+          "year": 2023,
+          "journal": "Journal of Microbiology and Biotechnology",
+          "evidence_sentence": "The MG1655 strain (141 mg/L) expressed the highest lycopene titer",
+          "claim": "MG1655 + crtEBI + no auxiliary interventions is the WT baseline (141 mg/L)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "control",
+      "reconciliation_note": "MG1655 + crtEBI wild-type baseline, no auxiliary interventions",
+      "expected_magnitude": "",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T090",
+      "gene": "TalB",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "TalB (transaldolase B) not in network",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "transaldolase B...modulated to increase NADPH and ATP...significant increase in the lycopene yield...50.6 mg/g DCW",
+          "claim": "TalB OE contributes to 50.6 mg/g DCW lycopene in combinatorial engineering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "TalB (transaldolase B) not in network",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T091",
+      "gene": "Dxs_Dxr_IspA_Idi",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "DXR",
+        "DXS",
+        "IDI",
+        "ISPA"
+      ],
+      "gene_modifiers": {
+        "DXS": 2.0,
+        "DXR": 2.0,
+        "ISPA": 2.0,
+        "IDI": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "DXS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "DXR",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "ISPA",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "IDI",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "dxs+dxr+ispA+idi MEP cassette OE",
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2302.02003",
+          "title": "Evaluation of Various E. coli Strains for Enhanced Lycopene Production",
+          "authors": "Ren J, Shen J, Thai TD, Kim M, Lee SH, Lim W, Na D",
+          "year": 2023,
+          "journal": "Journal of Microbiology and Biotechnology",
+          "evidence_sentence": "four E. coli genes (dxs, dxr, ispA, and idi) were cloned into a mid-copy plasmid and overexpressed",
+          "claim": "dxs+dxr+ispA+idi quad-OE gives substantial lycopene boost with MG1655",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "dxs+dxr+ispA+idi MEP cassette OE",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T092",
+      "gene": "GdhA",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "GDHA"
+      ],
+      "gene_modifiers": {
+        "GDHA": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GDHA",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "GdhA KO",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "gdhA deletion could increase the availability of NADPH",
+          "claim": "Î”gdhA increases NADPH pool and lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "GdhA KO",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T093",
+      "gene": "Edd",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "EDD"
+      ],
+      "gene_modifiers": {
+        "EDD": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "EDD",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Edd OE",
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-015-0301-x",
+          "title": "Engineering the E. coli ribulose-5-phosphate pathway for carotenoid production via the Entner-Doudoroff shortcut",
+          "authors": "Li C, Ying L, Zhang S, Chen N, Liu W, Tao Y",
+          "year": 2015,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "zwf overexpression: +20% neurosporene; edd overexpression: -20% neurosporene; eda overexpression: +12% neurosporene; pgi deletion: +25% neurosporene; pfk_A deletion: +25%; pfk_AB deletion: +25%; final ED/PPP strain reached 17.8 mg/g DCW lycopene (3.6x non-ED/PP baseline)",
+          "claim": "ED/PPP engineering matrix: Eda OE increases, Edd OE decreases MEP output; Pgi/PfkA KOs increase; final strain 3.6x over baseline",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "Edd OE",
+      "expected_magnitude": "weak",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T094",
+      "gene": "Eda",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "EDA"
+      ],
+      "gene_modifiers": {
+        "EDA": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "EDA",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Eda OE",
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-015-0301-x",
+          "title": "Engineering the E. coli ribulose-5-phosphate pathway for carotenoid production via the Entner-Doudoroff shortcut",
+          "authors": "Li C, Ying L, Zhang S, Chen N, Liu W, Tao Y",
+          "year": 2015,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "zwf overexpression: +20% neurosporene; edd overexpression: -20% neurosporene; eda overexpression: +12% neurosporene; pgi deletion: +25% neurosporene; pfk_A deletion: +25%; pfk_AB deletion: +25%; final ED/PPP strain reached 17.8 mg/g DCW lycopene (3.6x non-ED/PP baseline)",
+          "claim": "ED/PPP engineering matrix: Eda OE increases, Edd OE decreases MEP output; Pgi/PfkA KOs increase; final strain 3.6x over baseline",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "Eda OE",
+      "expected_magnitude": "weak",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T095",
+      "gene": "PfkA",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "PfkA not in network (mechanism similar to Pgi KO but not encoded to avoid false analog)",
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-015-0301-x",
+          "title": "Engineering the E. coli ribulose-5-phosphate pathway for carotenoid production via the Entner-Doudoroff shortcut",
+          "authors": "Li C, Ying L, Zhang S, Chen N, Liu W, Tao Y",
+          "year": 2015,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "zwf overexpression: +20% neurosporene; edd overexpression: -20% neurosporene; eda overexpression: +12% neurosporene; pgi deletion: +25% neurosporene; pfk_A deletion: +25%; pfk_AB deletion: +25%; final ED/PPP strain reached 17.8 mg/g DCW lycopene (3.6x non-ED/PP baseline)",
+          "claim": "ED/PPP engineering matrix: Eda OE increases, Edd OE decreases MEP output; Pgi/PfkA KOs increase; final strain 3.6x over baseline",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "PfkA not in network (mechanism similar to Pgi KO but not encoded to avoid false analog)",
+      "expected_magnitude": "weak",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T096",
+      "gene": "PfkA_PfkB",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "PfkA+PfkB double KO -- neither in network",
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-015-0301-x",
+          "title": "Engineering the E. coli ribulose-5-phosphate pathway for carotenoid production via the Entner-Doudoroff shortcut",
+          "authors": "Li C, Ying L, Zhang S, Chen N, Liu W, Tao Y",
+          "year": 2015,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "zwf overexpression: +20% neurosporene; edd overexpression: -20% neurosporene; eda overexpression: +12% neurosporene; pgi deletion: +25% neurosporene; pfk_A deletion: +25%; pfk_AB deletion: +25%; final ED/PPP strain reached 17.8 mg/g DCW lycopene (3.6x non-ED/PP baseline)",
+          "claim": "ED/PPP engineering matrix: Eda OE increases, Edd OE decreases MEP output; Pgi/PfkA KOs increase; final strain 3.6x over baseline",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "PfkA+PfkB double KO -- neither in network",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T097",
+      "gene": "Gnd",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "GND"
+      ],
+      "gene_modifiers": {
+        "GND": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GND",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Gnd (6-phosphogluconate dehydrogenase) not in network",
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-015-0301-x",
+          "title": "Engineering the E. coli ribulose-5-phosphate pathway for carotenoid production via the Entner-Doudoroff shortcut",
+          "authors": "Li C, Ying L, Zhang S, Chen N, Liu W, Tao Y",
+          "year": 2015,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "zwf overexpression: +20% neurosporene; edd overexpression: -20% neurosporene; eda overexpression: +12% neurosporene; pgi deletion: +25% neurosporene; pfk_A deletion: +25%; pfk_AB deletion: +25%; final ED/PPP strain reached 17.8 mg/g DCW lycopene (3.6x non-ED/PP baseline)",
+          "claim": "ED/PPP engineering matrix: Eda OE increases, Edd OE decreases MEP output; Pgi/PfkA KOs increase; final strain 3.6x over baseline",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "Delta_pgi_background",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "Gnd -> GND (case fix, applied iteration 1 refinement)",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T098",
+      "gene": "ED_pathway_engineered_PTXIGK",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "EDA",
+        "EDD",
+        "PGI",
+        "ZWF"
+      ],
+      "gene_modifiers": {
+        "PGI": 0.0,
+        "ZWF": 2.0,
+        "EDA": 2.0,
+        "EDD": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PGI",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "ZWF",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "EDA",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "EDD",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Engineered ED-pathway strain: Δpgi + ZWF OE + EDA OE + EDD deletion (final strain 3.6x). PfkA/PfkB contributions not in network.",
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-015-0301-x",
+          "title": "Engineering the E. coli ribulose-5-phosphate pathway for carotenoid production via the Entner-Doudoroff shortcut",
+          "authors": "Li C, Ying L, Zhang S, Chen N, Liu W, Tao Y",
+          "year": 2015,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "zwf overexpression: +20% neurosporene; edd overexpression: -20% neurosporene; eda overexpression: +12% neurosporene; pgi deletion: +25% neurosporene; pfk_A deletion: +25%; pfk_AB deletion: +25%; final ED/PPP strain reached 17.8 mg/g DCW lycopene (3.6x non-ED/PP baseline)",
+          "claim": "ED/PPP engineering matrix: Eda OE increases, Edd OE decreases MEP output; Pgi/PfkA KOs increase; final strain 3.6x over baseline",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "Engineered ED-pathway strain: Δpgi + ZWF OE + EDA OE + EDD deletion (final strain 3.6x). PfkA/PfkB contributions not in network.",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T099",
+      "gene": "MVK_V13D_S148I_V301E_triple",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "MVK"
+      ],
+      "gene_modifiers": {
+        "MVK": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MVK",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "MVK V13D/S148I/V301E triple point mutant (higher specific activity) -> encoded as MVK OE",
+      "evidence": [
+        {
+          "doi": "10.1186/s13568-022-01418-6",
+          "title": "Directed evolution of mevalonate kinase in E. coli by random mutagenesis for improved lycopene",
+          "authors": "Chen H, Liu C, Li M, Zhang H, Xian M, Liu H",
+          "year": 2022,
+          "journal": "AMB Express",
+          "evidence_sentence": "the mutant MK increased 2.4-fold lycopene compared with wild-type MK; engineered strain reached 1.43 g/L and 19.83 mg/g DCW vs 0.72 g/L and 8.32 mg/g for wild-type",
+          "claim": "MVK V13D/S148I/V301E triple mutant: 2.4x lycopene vs wild-type MVK in fed-batch fermentation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "MVK V13D/S148I/V301E triple point mutant (higher specific activity) -> encoded as MVK OE",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T100",
+      "gene": "KatE",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "KATE"
+      ],
+      "gene_modifiers": {
+        "KATE": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "KATE",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "KatE OE",
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-015-0381-7",
+          "title": "Systems analysis of MEP pathway flux in E. coli: oxidative stress and lycopene as reporter",
+          "authors": "Bongers JG, Mol R, Mastrangelo N, de Kok JD, Stephanopoulos G, Vickers CE",
+          "year": 2015,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "overexpression of katE increased measurable lycopene in MG1655* and reduced the 8-fold difference to less than 2-fold",
+          "claim": "KatE OE reduces apparent strain-level lycopene variation by protecting pigment from H2O2-mediated degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "KatE OE",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T101",
+      "gene": "KatE_OE_Menadione",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "KATE",
+        "ROS"
+      ],
+      "gene_modifiers": {
+        "KATE": 2.0,
+        "ROS": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "KATE",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "ROS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "KatE OE under menadione oxidative stress; baseline = menadione treatment alone",
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-015-0381-7",
+          "title": "Systems analysis of MEP pathway flux in E. coli: oxidative stress and lycopene as reporter",
+          "authors": "Bongers JG, Mol R, Mastrangelo N, de Kok JD, Stephanopoulos G, Vickers CE",
+          "year": 2015,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "KatE overexpression mitigates the menadione-induced lycopene loss",
+          "claim": "KatE OE partially rescues menadione-driven oxidative stress suppression of lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "mutant",
+      "condition": "menadione_oxidative_stress",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "KatE OE under menadione oxidative stress; baseline = menadione treatment alone",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T102",
+      "gene": "Almgs_PlsB_PlsC",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "MEMBRANE_STORAGE"
+      ],
+      "gene_modifiers": {
+        "MEMBRANE_STORAGE": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MEMBRANE_STORAGE",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Almgs+PlsB+PlsC membrane engineering -> MEMBRANE_STORAGE OE",
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-018-0887-x",
+          "title": "Engineering membrane morphology and manipulating synthesis for increased lycopene accumulation in E. coli",
+          "authors": "Hu G, Chen X, Wu J, Liu L",
+          "year": 2018,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "The strain LYC101-37Almgs(pPlsb-plsc) reached 358.9 mg/L lycopene with 36.4 mg/g DCW at 96 h, 1.32-fold higher than parent",
+          "claim": "Almgs + PlsB + PlsC combined membrane engineering: 1.32x specific lycopene vs parent",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Almgs+PlsB+PlsC membrane engineering -> MEMBRANE_STORAGE OE",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T103",
+      "gene": "PlsB_PlsC_DgkA",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "MEMBRANE_STORAGE"
+      ],
+      "gene_modifiers": {
+        "MEMBRANE_STORAGE": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MEMBRANE_STORAGE",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "PlsB+PlsC+DgkA membrane engineering -> MEMBRANE_STORAGE OE",
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-018-0887-x",
+          "title": "Engineering membrane morphology and manipulating synthesis for increased lycopene accumulation in E. coli",
+          "authors": "Hu G, Chen X, Wu J, Liu L",
+          "year": 2018,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "PlsB + PlsC + DgkA reached 30.5 mg/g DCW, comparable to (slightly lower than) PlsB + PlsC alone",
+          "claim": "DgkA addition to Plsb/Plsc does not further improve, indicating Plsb/Plsc is the bottleneck",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "PlsB+PlsC+DgkA membrane engineering -> MEMBRANE_STORAGE OE",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T104",
+      "gene": "LM22_downstream_MVA_RBS_tuned",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "IDI",
+        "MVD",
+        "MVK"
+      ],
+      "gene_modifiers": {
+        "MVK": 2.0,
+        "MVD": 2.0,
+        "IDI": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MVK",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "MVD",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "IDI",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "LM22 downstream MVA RBS-tuned: MVK+PMK+MVD+IDI; PMK not in network",
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-022-01843-z",
+          "title": "Fine-tuning the downstream MVA pathway of Escherichia coli by systematic RBS engineering",
+          "authors": "Cheng T, Wang L, Sun C, Xie C",
+          "year": 2022,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "The shake flask culture of the selected high-yield strain resulted in a lycopene yield of 219.7 mg/g DCW, which was 4.6 times that of the reference strain",
+          "claim": "LM22 (Trc + pSC101 low copy + tuned RBS for MVK/PMK/MVD/Idi) achieves 4.6x baseline by preventing MVA midstream over-flux",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "LM22 downstream MVA RBS-tuned: MVK+PMK+MVD+IDI; PMK not in network",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T105",
+      "gene": "MVA_midstream_T7_strong_promoter",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "HMGR",
+        "HMGS",
+        "MVD",
+        "MVK"
+      ],
+      "gene_modifiers": {
+        "MVK": 2.0,
+        "MVD": 2.0,
+        "HMGS": 2.0,
+        "HMGR": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MVK",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "MVD",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "HMGS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "HMGR",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "MVA midstream T7-strong OE; known framework limitation (plasmid burden not modelled, so prediction will not capture the decreased outcome)",
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-022-01843-z",
+          "title": "Fine-tuning the downstream MVA pathway of Escherichia coli by systematic RBS engineering",
+          "authors": "Cheng T, Wang L, Sun C, Xie C",
+          "year": 2022,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "Lycopene accumulation increased correspondingly as the promoter of the midstream module changed from pT7 to pTrc with decreasing strength",
+          "claim": "Over-strong T7-driven midstream expression lowers titer vs medium-strength Trc; contradicts monotonic 'more OE = more titer'",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "MVA midstream T7-strong OE; known framework limitation (plasmid burden not modelled, so prediction will not capture the decreased outcome)",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T106",
+      "gene": "MVA_Esaccharolyticus_Scerevisiae_pSCS3",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ATOB",
+        "HMGR",
+        "HMGS",
+        "MVD",
+        "MVK"
+      ],
+      "gene_modifiers": {
+        "ATOB": 2.0,
+        "HMGS": 2.0,
+        "HMGR": 2.0,
+        "MVK": 2.0,
+        "MVD": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ATOB",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "HMGS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "HMGR",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "MVK",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "MVD",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "E.saccharolyticus+S.cerevisiae MVA cassette (pSCS3); ortholog identity not captured; PMK not in network",
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2408.08053",
+          "title": "Reconstitution of the MVA Pathway with BSL-1 Enzymes for Enhanced Lycopene Production",
+          "authors": "Kang MK, Lee S, Park Y, and colleagues",
+          "year": 2024,
+          "journal": "J Microbiol Biotechnol",
+          "evidence_sentence": "pSCS3-pLYC produced 77 mg/l lycopene (8.6-fold higher than control, 97% higher than pSNA); pSCS1-pLYC fed-batch: 1.32 g/L (76% improvement over pSNA)",
+          "claim": "E. saccharolyticus MVA top + S. cerevisiae MVA bottom (pSCS1) outperforms E. faecalis + S. pneumoniae MVA (pSNA) by 76% in fed-batch; ortholog sourcing matters",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "E.saccharolyticus+S.cerevisiae MVA cassette (pSCS3); ortholog identity not captured; PMK not in network",
+      "expected_magnitude": "strong",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T107",
+      "gene": "MVA_Efaecalis_Spneumoniae_pSNA",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ATOB",
+        "HMGR",
+        "HMGS",
+        "MVD",
+        "MVK"
+      ],
+      "gene_modifiers": {
+        "ATOB": 2.0,
+        "HMGS": 2.0,
+        "HMGR": 2.0,
+        "MVK": 2.0,
+        "MVD": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ATOB",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "HMGS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "HMGR",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "MVK",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "MVD",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "E.faecalis+S.pneumoniae MVA cassette (pSNA); same encoding as T106",
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2408.08053",
+          "title": "Reconstitution of the MVA Pathway with BSL-1 Enzymes for Enhanced Lycopene Production",
+          "authors": "Kang MK, Lee S, Park Y, and colleagues",
+          "year": 2024,
+          "journal": "J Microbiol Biotechnol",
+          "evidence_sentence": "pSCS3-pLYC produced 77 mg/l lycopene (8.6-fold higher than control, 97% higher than pSNA); pSCS1-pLYC fed-batch: 1.32 g/L (76% improvement over pSNA)",
+          "claim": "E. saccharolyticus MVA top + S. cerevisiae MVA bottom (pSCS1) outperforms E. faecalis + S. pneumoniae MVA (pSNA) by 76% in fed-batch; ortholog sourcing matters",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "E.faecalis+S.pneumoniae MVA cassette (pSNA); same encoding as T106",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    },
+    {
+      "test_id": "T108",
+      "gene": "Ppc",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PPC"
+      ],
+      "gene_modifiers": {
+        "PPC": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PPC",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Ppc KO",
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "Deletion of ppc removes the anaplerotic OAA branch; in lycopene production backgrounds this commonly decreases growth rate and lycopene titer",
+          "claim": "Ppc single KO typically decreases lycopene in aerobic batch due to loss of anaplerosis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lycopene_Titer",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "Ppc KO",
+      "expected_magnitude": "moderate",
+      "species": "Escherichia coli"
+    }
+  ]
+}

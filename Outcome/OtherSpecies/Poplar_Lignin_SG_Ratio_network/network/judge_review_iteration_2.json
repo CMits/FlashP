@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lignin_SG_Ratio",
+    "phenotype_node": "Lignin_SG_Ratio",
+    "species": "Populus trichocarpa",
+    "created": "2026-04-20",
+    "iteration": 2,
+    "judge_model": "Claude Opus 4.7 (1M context)"
+  },
+  "verdict": "approved",
+  "summary": "All three iteration-1 MEDIUM suggestions applied: CCR2 -> Lignin_SG_Ratio (+1) and PT4CL1 -> Lignin_SG_Ratio (+1) now capture the preferential-S-reduction biology that cascade-only geometric-mean propagation could not model; MYB74 -> CCOAOMT1 (+1) raises CCOAOMT1 from 47% to 53% key-player coverage. All 5 structural checks still pass, schema passes, no new topology hazards introduced. Network is approved for Step 3 PERTURBATION.",
+  "rubric_scores": {
+    "pathway_completeness":    {"score": 4, "justification": "Unchanged from iteration 1. Phenylpropanoid entry, shared monolignol middle, G-branch, S-branch, master-switch cascade, hormone input (Auxin/ARF2.1) and environment (Tension_Wood) all represented. Polymerization and monolignol-degradation arms intentionally excluded."},
+    "mechanistic_depth":       {"score": 4, "justification": "Six direct-phenotype edges now (F5H1, Sinapyl_Alcohol, MYB152, Tension_Wood, CCR2, PT4CL1 as activators; Coniferyl_Alcohol and C3H1 as inhibitors). The new CCR2/PT4CL1 direct edges are biologically justified flux-level bypasses rather than shortcuts. Cascade propagation through metabolites still present."},
+    "motif_coverage":          {"score": 3, "justification": "Unchanged from iteration 1. Motif 3 (Coherent Feed-Forward Loop) now strengthened: CCR2, PT4CL1, and F5H1 each feed the phenotype BOTH directly AND via the monomer-pool cascade. Motif 4 (Biosynthesis-Degradation Balance) still not applied (literature gap)."},
+    "cascade_balance":         {"score": 4, "justification": "Unchanged. Source % 25% (literature-gap justified). Lignin_SG_Ratio now at 6 activators + 2 inhibitors = 8 total inputs (within 7+ cap but above 5 ideal - acceptable trade-off for direction-correct perturbation predictions). CCOAOMT1 at 7 activators (at hard cap). No node exceeds limits."},
+    "composite_node_handling": {"score": 4, "justification": "Unchanged."},
+    "hub_completeness":        {"score": 5, "justification": "Improved from 4. CCOAOMT1 now 10 of 19 curated edges (53%) with MYB74 added. F5H1 coverage 82%. SND1 75%. All hubs have defensible exclusions documented."},
+    "topology_hazards":        {"score": 5, "justification": "Unchanged. New edges did not introduce positive feedback; CCR2 and PT4CL1 are terminal enzymes with no downstream regulators of their own in the curated repo."},
+    "evidence_quality":        {"score": 5, "justification": "Unchanged. All three new edges cite primary papers (Leple 2007, De Meester 2020, Wang 2020, Voelker 2010, Li 2018)."},
+    "phenotype_audit":         {"score": 5, "justification": "Improved from 4. Lignin_SG_Ratio now has 6 activators covering all major effector classes: branch-point enzyme F5H1, flux-gate enzymes CCR2 and PT4CL1, monomer pool Sinapyl_Alcohol, Layer-3 TF MYB152, environment Tension_Wood. Inhibitors: G-monomer pool Coniferyl_Alcohol and phenomenological C3H1 edge. Both promoting and repressing arms with enzyme, metabolite, TF, and environment inputs."},
+    "rejected_edges_review":   {"score": 5, "justification": "Improved from 4. MYB74 -> CCOAOMT1 re-added per iteration-1 S003. Remaining 47 rejected curated edges all have documented exclusion reasons (alt-splice variants, niche regulators, polymerization effects, MYB216 G002 exclusion, redundant Layer-2 MYBs)."},
+    "key_player_density":      {"score": 5, "justification": "Improved from 4. All key players >=0.50 now. Updated ratios: CCOAOMT1 0.53 (up from 0.47), Lignin_SG_Ratio 0.53 (up from 0.40), MYB74 1.00 (up from 0.83), CCR2 0.78 (up from 0.67), PT4CL1 0.67 (up from 0.56). No under-represented hubs remain.", "per_player_ratios": {"CCOAOMT1": 0.53, "F5H1": 0.82, "SND1": 0.75, "MYB221": 1.00, "MYB152": 1.00, "MYB92": 1.00, "MYB156": 0.78, "PT4CL1": 0.67, "CCR2": 0.78, "HCT1": 1.00, "MYB3": 1.00, "MYB74": 1.00, "C3H1": 0.88, "PAL1": 0.88, "CAD1": 0.62, "C4H1": 0.71, "COMT1": 0.71, "Lignin_SG_Ratio": 0.53}}
+  },
+  "per_node_audit": [
+    {"node": "Lignin_SG_Ratio", "inputs": ["F5H1(+)", "Sinapyl_Alcohol(+)", "MYB152(+)", "Tension_Wood(+)", "CCR2(+)", "PT4CL1(+)", "Coniferyl_Alcohol(-)", "C3H1(-)"], "outputs": [], "curated_regulators_excluded": ["CSE1 direct (E025, cascade suffices)", "KNAT7 direct (E071, modest effect)", "NF_YA11 direct (E100, routed via F5H1)"], "verdict": "appropriate", "comment": "6 activators + 2 inhibitors. Covers all major curated phenotype-level regulators that the cascade alone cannot capture. CCR2 and PT4CL1 flux-level preferential-S biology now modelable."},
+    {"node": "CCOAOMT1", "inputs": ["SND1(+)", "NAC156(+)", "MYB3(+)", "MYB21(+)", "MYB74(+)", "MYB92(+)", "MYB152(+)", "MYB156(-)", "MYB221(-)"], "outputs": ["Feruloyl_CoA"], "curated_regulators_excluded": ["MYB20 (redundant with MYB3)", "MYB128/MYB121 (parsimony, redundant)", "VND6 (vessel-specific)", "NAC157 (redundant with NAC156)", "BZIP44 (niche)", "miR166 (indirect)"], "verdict": "appropriate", "comment": "7 activators (at hard cap) + 2 inhibitors. MYB74 re-added per S003. Coverage now 53%."},
+    {"node": "CCR2", "inputs": ["KNAT7(+)", "MYB74(+)", "MYB92(+)", "MYB152(+)", "MYB221(-)"], "outputs": ["Coniferaldehyde(+)", "Lignin_SG_Ratio(+)"], "curated_regulators_excluded": ["MYB216 (G002)", "BZIP44 (niche)"], "verdict": "appropriate", "comment": "Now has 2 outgoing edges: metabolic (Coniferaldehyde) AND flux-level phenotype direct. Coverage 78%."},
+    {"node": "PT4CL1", "inputs": ["MYB21(+)", "MYB152(+)", "MYB156(-)", "MYB221(-)"], "outputs": ["P_Coumaroyl_CoA(+)", "Lignin_SG_Ratio(+)"], "curated_regulators_excluded": ["MYB216 (G002)", "LTF1 (specialised)"], "verdict": "appropriate", "comment": "Now has 2 outgoing edges. Preferential-S phenotype direct edge added per S002. Coverage 67%."},
+    {"node": "MYB74", "inputs": ["NAC156(+)"], "outputs": ["CCR2(+)", "C3H1(+)", "C4H1(+)", "F5H1(+)", "CCOAOMT1(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "All 5 Li 2018 primary-paper direct targets now included. Coverage 100%."}
+  ],
+  "per_pathway_audit": [
+    {"pathway": "Phenylpropanoid entry", "completeness": "high", "comment": "Unchanged.", "missing_pieces": []},
+    {"pathway": "Shared early monolignol pathway", "completeness": "high", "comment": "Unchanged.", "missing_pieces": []},
+    {"pathway": "G-branch + G -> phenotype link", "completeness": "high", "comment": "CCR2 now has both cascade (via Coniferaldehyde) and direct flux (via LSGR) representation of the preferential-S-reduction biology.", "missing_pieces": []},
+    {"pathway": "S-branch + S -> phenotype link", "completeness": "high", "comment": "F5H1, COMT1, CAD1 cascade + F5H1 direct + Sinapyl_Alcohol pool direct. Covers F5H OE and COMT KD perturbations.", "missing_pieces": []},
+    {"pathway": "Master-switch TF cascade", "completeness": "high", "comment": "MYB74 direct target expansion in iteration 2.", "missing_pieces": []},
+    {"pathway": "Hormone/environment input", "completeness": "medium", "comment": "Unchanged from iteration 1.", "missing_pieces": ["PLT5 intermediate", "Wounding/MPK6/LTF1 arm"]},
+    {"pathway": "Lignin polymerization + export", "completeness": "low", "comment": "Unchanged - intentionally excluded as not S/G-specific.", "missing_pieces": ["LAC3", "miR397a", "ABCG29"]},
+    {"pathway": "Monolignol degradation", "completeness": "low", "comment": "Unchanged - literature gap.", "missing_pieces": ["No curated degradation genes available"]}
+  ],
+  "suggestions": [
+    {
+      "id": "S007",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "Residual gaps carried from iteration 1: upstream regulators for peripheral Layer-3 TFs (MYB152/90/161/NF_YA11/WBLH2/MYB156), monolignol degradation enzymes, PLT5 intermediate, PtrMYB28 poplar-specific primary paper, single F5H paralog KD phenotype.",
+      "biological_justification": "All documented in literature_judge_report.json residual_gaps_for_builder. Not BUILDER-actionable.",
+      "curated_edge_ids": [],
+      "implementation": "No BUILDER action. Flag for future Step 1 re-run if perturbation-coverage issues surface."
+    }
+  ],
+  "literature_gaps": [
+    "Monolignol degradation enzymes (for Motif 4 Biosynthesis-Degradation Balance)",
+    "Upstream promoter-binding evidence for PtrMYB152, PtrMYB090, PtrMYB161, NF_YA11, WBLH2, MYB156 in poplar",
+    "PtrMYB28 poplar-specific primary paper (Layer-3 lignin-specific MYB58/63 ortholog)",
+    "PtrVNS11/12/13/14 VND/NST/SND paralog family - fibre-vs-vessel distinction",
+    "Single F5H paralog RNAi/CRISPR poplar phenotype"
+  ],
+  "stop_reason": null
+}

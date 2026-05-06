@@ -1,0 +1,263 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Hypocotyl_Length",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19"
+  },
+  "tests": {
+    "total": 161,
+    "tested": 116,
+    "skipped": 45
+  },
+  "algebraic": {
+    "accuracy": 0.871,
+    "correct": 101,
+    "total_tested": 116,
+    "kappa": 0.7608,
+    "mcc": 0.5448,
+    "convergence_rate": 0.914,
+    "failures": [
+      "T003",
+      "T004",
+      "T009",
+      "T010",
+      "T022",
+      "T046",
+      "T047",
+      "T049",
+      "T087",
+      "T099",
+      "T106",
+      "T112",
+      "T128",
+      "T129",
+      "T137"
+    ],
+    "ci_95": [
+      0.6567,
+      0.8649
+    ]
+  },
+  "ode": {
+    "accuracy": 0.853,
+    "correct": 99,
+    "total_tested": 116,
+    "kappa": 0.7344,
+    "mcc": 0.5381,
+    "convergence_rate": 1.0,
+    "failures": [
+      "T003",
+      "T004",
+      "T009",
+      "T010",
+      "T022",
+      "T046",
+      "T047",
+      "T049",
+      "T077",
+      "T087",
+      "T099",
+      "T104",
+      "T106",
+      "T112",
+      "T128",
+      "T129",
+      "T137"
+    ],
+    "ci_95": [
+      0.6294,
+      0.8394
+    ],
+    "best_K": 0.5,
+    "best_n": 1
+  },
+  "rwr": {
+    "accuracy": 0.914,
+    "correct": 106,
+    "total_tested": 116,
+    "kappa": 0.8285,
+    "mcc": 0.8443,
+    "convergence_rate": 1.0,
+    "failures": [
+      "T003",
+      "T004",
+      "T022",
+      "T046",
+      "T047",
+      "T049",
+      "T112",
+      "T128",
+      "T129",
+      "T137"
+    ],
+    "ci_95": [
+      0.7285,
+      0.9285
+    ],
+    "best_alpha": 0.5
+  },
+  "by_light_condition": {
+    "algebraic": {
+      "UV_B": {
+        "correct": 3,
+        "total": 3,
+        "accuracy_pct": 100.0
+      },
+      "any_other": {
+        "correct": 10,
+        "total": 14,
+        "accuracy_pct": 71.4
+      },
+      "blue": {
+        "correct": 8,
+        "total": 8,
+        "accuracy_pct": 100.0
+      },
+      "dark": {
+        "correct": 15,
+        "total": 22,
+        "accuracy_pct": 68.2
+      },
+      "far_red": {
+        "correct": 4,
+        "total": 4,
+        "accuracy_pct": 100.0
+      },
+      "red_continuous": {
+        "correct": 9,
+        "total": 10,
+        "accuracy_pct": 90.0
+      },
+      "shade_lowRFR": {
+        "correct": 6,
+        "total": 7,
+        "accuracy_pct": 85.7
+      },
+      "warm_temp": {
+        "correct": 8,
+        "total": 8,
+        "accuracy_pct": 100.0
+      },
+      "white_light": {
+        "correct": 38,
+        "total": 40,
+        "accuracy_pct": 95.0
+      }
+    },
+    "ode": {
+      "UV_B": {
+        "correct": 3,
+        "total": 3,
+        "accuracy_pct": 100.0
+      },
+      "any_other": {
+        "correct": 9,
+        "total": 14,
+        "accuracy_pct": 64.3
+      },
+      "blue": {
+        "correct": 8,
+        "total": 8,
+        "accuracy_pct": 100.0
+      },
+      "dark": {
+        "correct": 15,
+        "total": 22,
+        "accuracy_pct": 68.2
+      },
+      "far_red": {
+        "correct": 4,
+        "total": 4,
+        "accuracy_pct": 100.0
+      },
+      "red_continuous": {
+        "correct": 9,
+        "total": 10,
+        "accuracy_pct": 90.0
+      },
+      "shade_lowRFR": {
+        "correct": 6,
+        "total": 7,
+        "accuracy_pct": 85.7
+      },
+      "warm_temp": {
+        "correct": 7,
+        "total": 8,
+        "accuracy_pct": 87.5
+      },
+      "white_light": {
+        "correct": 38,
+        "total": 40,
+        "accuracy_pct": 95.0
+      }
+    },
+    "rwr": {
+      "UV_B": {
+        "correct": 3,
+        "total": 3,
+        "accuracy_pct": 100.0
+      },
+      "any_other": {
+        "correct": 10,
+        "total": 14,
+        "accuracy_pct": 71.4
+      },
+      "blue": {
+        "correct": 8,
+        "total": 8,
+        "accuracy_pct": 100.0
+      },
+      "dark": {
+        "correct": 17,
+        "total": 22,
+        "accuracy_pct": 77.3
+      },
+      "far_red": {
+        "correct": 4,
+        "total": 4,
+        "accuracy_pct": 100.0
+      },
+      "red_continuous": {
+        "correct": 10,
+        "total": 10,
+        "accuracy_pct": 100.0
+      },
+      "shade_lowRFR": {
+        "correct": 7,
+        "total": 7,
+        "accuracy_pct": 100.0
+      },
+      "warm_temp": {
+        "correct": 8,
+        "total": 8,
+        "accuracy_pct": 100.0
+      },
+      "white_light": {
+        "correct": 39,
+        "total": 40,
+        "accuracy_pct": 97.5
+      }
+    }
+  },
+  "rigor": {
+    "algebraic": {
+      "frs": 10.7672,
+      "frs_band": "large-scale strong",
+      "dars": 10.9255,
+      "dars_band": "large-scale strong"
+    },
+    "ode": {
+      "frs": 10.3933,
+      "frs_band": "large-scale strong",
+      "dars": 10.5461,
+      "dars_band": "large-scale strong"
+    },
+    "rwr": {
+      "frs": 11.7255,
+      "frs_band": "large-scale strong",
+      "dars": 11.8979,
+      "dars_band": "large-scale strong"
+    }
+  }
+}

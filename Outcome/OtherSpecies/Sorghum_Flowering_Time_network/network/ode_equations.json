@@ -1,0 +1,344 @@
+{
+  "metadata": {
+    "method": "ODE_Hill",
+    "K": 0.1,
+    "n": 2,
+    "accuracy": 84.4,
+    "hill_activation_formula": "f(x) = x^2 * (0.1^2 + 1) / (0.1^2 + x^2)",
+    "hill_inhibition_formula": "g(x) = (0.1^2 + 1) / (0.1^2 + x^2)",
+    "ode_dynamics": "dx/dt = production - x; at steady state x = production",
+    "dt": 0.1,
+    "max_time": 50.0,
+    "convergence_tolerance": 0.0001,
+    "direction_threshold": 0.05
+  },
+  "equations": [
+    {
+      "node": "Light",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Light = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Blue_Light",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Blue_Light = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Photoperiod_LD",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Photoperiod_LD = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Gibberellin",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Gibberellin = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PHYB",
+      "activators": [
+        "Light"
+      ],
+      "inhibitors": [],
+      "formula": "PHYB = prod(f(Light)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PHYC",
+      "activators": [
+        "Light"
+      ],
+      "inhibitors": [],
+      "formula": "PHYC = prod(f(Light)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CCA1",
+      "activators": [
+        "Light"
+      ],
+      "inhibitors": [
+        "TOC1"
+      ],
+      "formula": "CCA1 = prod(f(Light)) * prod(g(TOC1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "LHY",
+      "activators": [
+        "Light"
+      ],
+      "inhibitors": [],
+      "formula": "LHY = prod(f(Light)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TOC1",
+      "activators": [],
+      "inhibitors": [
+        "CCA1",
+        "LHY"
+      ],
+      "formula": "TOC1 = 1.0 * prod(g(CCA1, LHY)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "GI",
+      "activators": [],
+      "inhibitors": [
+        "CCA1"
+      ],
+      "formula": "GI = 1.0 * prod(g(CCA1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "FKF1",
+      "activators": [
+        "Blue_Light"
+      ],
+      "inhibitors": [
+        "GHD7"
+      ],
+      "formula": "FKF1 = prod(f(Blue_Light)) * prod(g(GHD7)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ELF3",
+      "activators": [
+        "ELF4"
+      ],
+      "inhibitors": [
+        "PHYB",
+        "GHD7"
+      ],
+      "formula": "ELF3 = prod(f(ELF4)) * prod(g(PHYB, GHD7)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ELF4",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ELF4 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LUX",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LUX = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PRR37",
+      "activators": [
+        "Photoperiod_LD",
+        "PHYB",
+        "PHYC",
+        "GI",
+        "MA2_SMYD",
+        "ID1"
+      ],
+      "inhibitors": [
+        "CCA1",
+        "ELF3",
+        "LUX"
+      ],
+      "formula": "PRR37 = prod(f(Photoperiod_LD, PHYB, PHYC, GI, MA2_SMYD, ID1)) * prod(g(CCA1, ELF3, LUX)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "GHD7",
+      "activators": [
+        "Photoperiod_LD",
+        "PHYB",
+        "PHYC",
+        "ID1"
+      ],
+      "inhibitors": [
+        "ELF3",
+        "LUX"
+      ],
+      "formula": "GHD7 = prod(f(Photoperiod_LD, PHYB, PHYC, ID1)) * prod(g(ELF3, LUX)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "MA2_SMYD",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MA2_SMYD = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ID1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ID1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CO",
+      "activators": [
+        "GI",
+        "FKF1",
+        "MA2_SMYD",
+        "ID1",
+        "PRR37"
+      ],
+      "inhibitors": [
+        "PHYB"
+      ],
+      "formula": "CO = prod(f(GI, FKF1, MA2_SMYD, ID1, PRR37)) * prod(g(PHYB)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "EHD1",
+      "activators": [
+        "GI",
+        "ID1",
+        "CO"
+      ],
+      "inhibitors": [
+        "PRR37",
+        "GHD7"
+      ],
+      "formula": "EHD1 = prod(f(GI, ID1, CO)) * prod(g(PRR37, GHD7)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "FT1",
+      "activators": [
+        "CO",
+        "EHD1"
+      ],
+      "inhibitors": [
+        "PHYB",
+        "PRR37",
+        "GHD7"
+      ],
+      "formula": "FT1 = prod(f(CO, EHD1)) * prod(g(PHYB, PRR37, GHD7)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "FT8",
+      "activators": [
+        "ID1",
+        "CO",
+        "EHD1"
+      ],
+      "inhibitors": [
+        "PRR37",
+        "GHD7",
+        "AP2"
+      ],
+      "formula": "FT8 = prod(f(ID1, CO, EHD1)) * prod(g(PRR37, GHD7, AP2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "FT10",
+      "activators": [
+        "ID1",
+        "CO",
+        "EHD1"
+      ],
+      "inhibitors": [
+        "PRR37",
+        "GHD7"
+      ],
+      "formula": "FT10 = prod(f(ID1, CO, EHD1)) * prod(g(PRR37, GHD7)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "FT12",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FT12 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FD1",
+      "activators": [
+        "FT1"
+      ],
+      "inhibitors": [],
+      "formula": "FD1 = prod(f(FT1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GF14",
+      "activators": [
+        "FT1",
+        "FT8",
+        "FT10"
+      ],
+      "inhibitors": [],
+      "formula": "GF14 = prod(f(FT1, FT8, FT10)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SOC1",
+      "activators": [
+        "FT1",
+        "FT8",
+        "FT10",
+        "SBP4"
+      ],
+      "inhibitors": [],
+      "formula": "SOC1 = prod(f(FT1, FT8, FT10, SBP4)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LFY",
+      "activators": [
+        "SOC1"
+      ],
+      "inhibitors": [],
+      "formula": "LFY = prod(f(SOC1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AP1",
+      "activators": [
+        "SOC1",
+        "LFY",
+        "FD1"
+      ],
+      "inhibitors": [],
+      "formula": "AP1 = prod(f(SOC1, LFY, FD1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AP2",
+      "activators": [],
+      "inhibitors": [
+        "miR172a"
+      ],
+      "formula": "AP2 = 1.0 * prod(g(miR172a)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "SBP19",
+      "activators": [],
+      "inhibitors": [
+        "miR156h"
+      ],
+      "formula": "SBP19 = 1.0 * prod(g(miR156h)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "SBP4",
+      "activators": [],
+      "inhibitors": [
+        "miR156h"
+      ],
+      "formula": "SBP4 = 1.0 * prod(g(miR156h)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "miR156h",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "miR156h = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "miR172a",
+      "activators": [
+        "SBP19"
+      ],
+      "inhibitors": [],
+      "formula": "miR172a = prod(f(SBP19)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Flowering_Time",
+      "activators": [
+        "FT12",
+        "AP2"
+      ],
+      "inhibitors": [
+        "FT1",
+        "FT8",
+        "FT10",
+        "SOC1",
+        "AP1",
+        "GF14",
+        "Gibberellin",
+        "ID1"
+      ],
+      "formula": "Flowering_Time = prod(f(FT12, AP2)) * prod(g(FT1, FT8, FT10, SOC1, AP1, GF14, Gibberellin, ID1)) * gene_modifier + exogenous"
+    }
+  ]
+}

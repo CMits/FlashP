@@ -1,0 +1,2654 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Tillering",
+    "phenotype_node": "Tiller_Number",
+    "species": "Oryza sativa",
+    "created": "2026-04-20",
+    "total_nodes": 69,
+    "total_edges": 101,
+    "source_nodes": 27,
+    "source_percentage": 39.1
+  },
+  "nodes": [
+    {
+      "id": "ABA",
+      "type": "HORMONE",
+      "full_name": "Abscisic acid",
+      "description": "Promotes bud dormancy; treatment reduces tillering.",
+      "is_source": false
+    },
+    {
+      "id": "AHP",
+      "type": "GENE",
+      "full_name": "OsAHP1/2 (histidine phosphotransfer)",
+      "description": "Relays phosphate signal from HK4 to type-B RR21.",
+      "is_source": false
+    },
+    {
+      "id": "Ammonium",
+      "type": "ENVIRONMENT",
+      "full_name": "Ammonium form of N",
+      "description": "Ammonium-specific N species; activates PIN9 auxin efflux carrier.",
+      "is_source": true
+    },
+    {
+      "id": "Auxin",
+      "type": "HORMONE",
+      "full_name": "Indole-3-acetic acid",
+      "description": "Apical auxin maintains bud dormancy via IPT repression + SL-biosynthesis activation + TB1 activation.",
+      "is_source": false
+    },
+    {
+      "id": "BZR1",
+      "type": "GENE",
+      "full_name": "OsBZR1",
+      "description": "BR-stabilised TF; recruits D53 to TB1 promoter for additional repression.",
+      "is_source": false
+    },
+    {
+      "id": "Brassinosteroid",
+      "type": "HORMONE",
+      "full_name": "Castasterone / brassinolide",
+      "description": "Stabilises BZR1 (which complexes with D53 on TB1 promoter) and activates DLT.",
+      "is_source": true
+    },
+    {
+      "id": "CCA1",
+      "type": "GENE",
+      "full_name": "OsCCA1 / OsLHY (MYB-like clock TF)",
+      "description": "Morning-peak clock component; activates TB1/D14/D10/IPA1; mutually inhibits PRR1.",
+      "is_source": false
+    },
+    {
+      "id": "CKX2",
+      "type": "GENE",
+      "full_name": "OsCKX2 / Gn1a (cytokinin oxidase/dehydrogenase 2)",
+      "description": "Primary CK-degrading enzyme; gn1a LOF accumulates CK and increases tillers.",
+      "is_source": false
+    },
+    {
+      "id": "CKX9",
+      "type": "GENE",
+      "full_name": "OsCKX9",
+      "description": "CK oxidase; SL-responsive via D53 de-repression; couples SL -> CK depletion.",
+      "is_source": false
+    },
+    {
+      "id": "Cytokinin",
+      "type": "HORMONE",
+      "full_name": "Cytokinin (iP, tZ)",
+      "description": "Promotes tiller bud outgrowth; balance of IPT/LOG synthesis vs CKX degradation.",
+      "is_source": false
+    },
+    {
+      "id": "D10",
+      "type": "GENE",
+      "full_name": "DWARF10 / CCD8",
+      "description": "Carotenoid cleavage dioxygenase 8; converts 9-cis-beta-apo-10'-carotenal to carlactone.",
+      "is_source": false
+    },
+    {
+      "id": "D14",
+      "type": "GENE",
+      "full_name": "DWARF14 (alpha/beta hydrolase SL receptor)",
+      "description": "SL receptor; binds GR24/endogenous SL, then co-inhibits D53 with D3.",
+      "is_source": false
+    },
+    {
+      "id": "D17",
+      "type": "GENE",
+      "full_name": "DWARF17 / HTD1 / CCD7",
+      "description": "CCD7; cleaves 9-cis-beta-carotene upstream of D10.",
+      "is_source": false
+    },
+    {
+      "id": "D27",
+      "type": "GENE",
+      "full_name": "DWARF27 (iron-containing beta-carotene isomerase)",
+      "description": "First committed step of SL biosynthesis; converts all-trans to 9-cis beta-carotene.",
+      "is_source": false
+    },
+    {
+      "id": "D3",
+      "type": "GENE",
+      "full_name": "DWARF3 (F-box subunit of SCF^D3)",
+      "description": "Constitutive F-box; co-inhibitor of D53 together with ligand-bound D14.",
+      "is_source": true
+    },
+    {
+      "id": "D53",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "DWARF53 (SMXL ortholog / EAR-motif repressor)",
+      "description": "Double-brake repressor of IPA1 and MOC1; SL-induced ubiquitin-proteasome turnover.",
+      "is_source": false
+    },
+    {
+      "id": "DLT",
+      "type": "GENE",
+      "full_name": "DWARF AND LOW TILLERING (GRAS TF)",
+      "description": "Positive regulator of tillering; BR-activated; repressed by TCP19.",
+      "is_source": false
+    },
+    {
+      "id": "DST",
+      "type": "GENE",
+      "full_name": "DROUGHT AND SALT TOLERANCE (zinc-finger TF)",
+      "description": "Binds DBS motif in CKX2 promoter and activates its transcription.",
+      "is_source": true
+    },
+    {
+      "id": "DTN1",
+      "type": "GENE",
+      "full_name": "Decreased Tiller Number 1 (FBP aldolase)",
+      "description": "Required for photosynthesis-derived sucrose accumulation in shoot base; sucrose -> NGR5.",
+      "is_source": true
+    },
+    {
+      "id": "Decapitation",
+      "type": "ENVIRONMENT",
+      "full_name": "Shoot apex removal",
+      "description": "Removes polar auxin source; releases axillary buds.",
+      "is_source": true
+    },
+    {
+      "id": "FON1",
+      "type": "GENE",
+      "full_name": "FLORAL ORGAN NUMBER 1",
+      "description": "CLAVATA1-like kinase; specifically required for tiller bud elongation (fon1 forms buds but fails to elongate).",
+      "is_source": false
+    },
+    {
+      "id": "FON2",
+      "type": "GENE",
+      "full_name": "FLORAL ORGAN NUMBER 2",
+      "description": "CLV3-like peptide; restricts TAB1/MOC3 expression domain.",
+      "is_source": true
+    },
+    {
+      "id": "GA20OX2",
+      "type": "GENE",
+      "full_name": "OsGA20ox2 (SD1)",
+      "description": "GA biosynthesis enzyme; sd1 (null) is the Green Revolution allele; reduced GA -> increased tillers.",
+      "is_source": true
+    },
+    {
+      "id": "GATA8",
+      "type": "GENE",
+      "full_name": "OsGATA8 (elite haplotype OsGATA8-H)",
+      "description": "Zn-finger GATA TF; represses OsTCP19 (relieves DLT) and balances N-uptake with tiller productivity.",
+      "is_source": true
+    },
+    {
+      "id": "Gibberellin",
+      "type": "HORMONE",
+      "full_name": "Active GAs (GA1, GA4)",
+      "description": "Degrades SLR1 and NGR5 via GID1; net GA effect is anti-tillering.",
+      "is_source": false
+    },
+    {
+      "id": "HK4",
+      "type": "GENE",
+      "full_name": "OsHK4 (CK histidine kinase receptor)",
+      "description": "Primary CK receptor for tillering; phosphorylates AHP.",
+      "is_source": false
+    },
+    {
+      "id": "IPA1",
+      "type": "GENE",
+      "full_name": "IDEAL PLANT ARCHITECTURE1 / OsSPL14 / WFP",
+      "description": "SBP-box TF; activates TB1/LOG/PIN1b; repressed by D53, miR156, IPI1, SHI1, NGR5.",
+      "is_source": false
+    },
+    {
+      "id": "IPI1",
+      "type": "GENE",
+      "full_name": "IPA1-INTERACTING PROTEIN 1",
+      "description": "RING-type E3 ubiquitin ligase; ubiquitinates IPA1 (K48 chains in panicles).",
+      "is_source": true
+    },
+    {
+      "id": "IPT",
+      "type": "GENE",
+      "full_name": "OsIPT family (adenylate isopentenyltransferase)",
+      "description": "Rate-limiting CK biosynthesis enzymes (OsIPT4/OsIPT7 dominant in shoots).",
+      "is_source": false
+    },
+    {
+      "id": "LAX1",
+      "type": "GENE",
+      "full_name": "LAX PANICLE1",
+      "description": "bHLH TF essential for AM initiation; lax1 + downstream axillary meristem loss.",
+      "is_source": false
+    },
+    {
+      "id": "LBD37",
+      "type": "GENE",
+      "full_name": "OsLBD37 (lateral organ boundaries)",
+      "description": "N-induced TF that directly represses OsTCP19.",
+      "is_source": false
+    },
+    {
+      "id": "LOG",
+      "type": "GENE",
+      "full_name": "LONELY GUY / OsLOG family",
+      "description": "Converts CK nucleotides to active free bases.",
+      "is_source": false
+    },
+    {
+      "id": "Light",
+      "type": "ENVIRONMENT",
+      "full_name": "Light (photosynthetic + signalling)",
+      "description": "Entrains circadian CCA1 expression.",
+      "is_source": true
+    },
+    {
+      "id": "MADS57",
+      "type": "GENE",
+      "full_name": "OsMADS57",
+      "description": "MADS-box TF; binds CArG motif in D14 promoter and represses D14 transcription.",
+      "is_source": false
+    },
+    {
+      "id": "MAX1",
+      "type": "GENE",
+      "full_name": "OsMAX1 family (Os900/Os1400/Os1500/Os5100)",
+      "description": "Generic collapsed MAX1 paralog family; converts carlactone to canonical SLs.",
+      "is_source": true
+    },
+    {
+      "id": "MAX1_1900",
+      "type": "GENE",
+      "full_name": "OsMAX1 paralog Os1900 (N-responsive)",
+      "description": "N-fertilisation-inducible MAX1-like; promoter mutations increase tillers under low N.",
+      "is_source": false
+    },
+    {
+      "id": "MOC1",
+      "type": "GENE",
+      "full_name": "MONOCULM 1 (GRAS TF)",
+      "description": "Master activator of axillary meristem initiation; stabilised by SLR1; degraded by TAD1/TE APC/C.",
+      "is_source": false
+    },
+    {
+      "id": "MOC2",
+      "type": "GENE",
+      "full_name": "MOC2 (fructose-1,6-bisphosphatase 1)",
+      "description": "Sucrose biosynthesis; moc2 shows monoculm-like tillering defect.",
+      "is_source": true
+    },
+    {
+      "id": "MOC3",
+      "type": "GENE",
+      "full_name": "MOC3 / OsWUS / TAB1",
+      "description": "WUSCHEL homolog required for AM initiation; cooperates with MOC1 to activate FON1.",
+      "is_source": false
+    },
+    {
+      "id": "NGR5",
+      "type": "GENE",
+      "full_name": "NITROGEN-MEDIATED TILLER GROWTH RESPONSE 5 (AP2-TF)",
+      "description": "Recruits PRC2 to TB1 and IPA1 promoters for H3K27me3 repression; N- and sucrose-activated, GA-degraded.",
+      "is_source": false
+    },
+    {
+      "id": "NRT1_1B",
+      "type": "GENE",
+      "full_name": "NRT1.1B (nitrate transceptor)",
+      "description": "Indica/japonica natural variation in N-responsive phosphorylation of NGR5.",
+      "is_source": true
+    },
+    {
+      "id": "Nitrogen",
+      "type": "ENVIRONMENT",
+      "full_name": "Soil nitrogen supply",
+      "description": "Nitrate + ammonium pool; activates NGR5 (NRT1.1B -> PRC2) and LBD37 arms, represses SL biosynthesis genes.",
+      "is_source": true
+    },
+    {
+      "id": "PIN1B",
+      "type": "GENE",
+      "full_name": "OsPIN1b (auxin efflux carrier)",
+      "description": "PIN1 paralog; KO increases tillers; IPA1-activated.",
+      "is_source": false
+    },
+    {
+      "id": "PIN9",
+      "type": "GENE",
+      "full_name": "OsPIN9 (ammonium-induced auxin efflux carrier)",
+      "description": "Ammonium-specifically-induced PIN; OE increases tillers.",
+      "is_source": false
+    },
+    {
+      "id": "PRR1",
+      "type": "GENE",
+      "full_name": "OsPRR1 / OsTOC1 (pseudo-response regulator)",
+      "description": "Evening-peak clock component; mutually inhibits CCA1.",
+      "is_source": false
+    },
+    {
+      "id": "Phosphate",
+      "type": "ENVIRONMENT",
+      "full_name": "Soil phosphate",
+      "description": "P sufficiency represses SL biosynthesis; P starvation elevates D27/D10/D17 and SL.",
+      "is_source": true
+    },
+    {
+      "id": "Photoperiod",
+      "type": "ENVIRONMENT",
+      "full_name": "Photoperiod length",
+      "description": "Regulates PRR1 evening peak in rice clock.",
+      "is_source": true
+    },
+    {
+      "id": "RR21",
+      "type": "GENE",
+      "full_name": "OsRR21 (type-B CK response regulator)",
+      "description": "DNA-binding TF; binds CK-response elements in IPA1 promoter.",
+      "is_source": false
+    },
+    {
+      "id": "RR_TYPEA",
+      "type": "GENE",
+      "full_name": "type-A OsRRs (primary CK-response genes)",
+      "description": "CK-induced negative feedback regulators that dampen CK signalling.",
+      "is_source": false
+    },
+    {
+      "id": "SHI1",
+      "type": "GENE",
+      "full_name": "OsSHI1",
+      "description": "Physically binds IPA1 and represses its transcriptional activation.",
+      "is_source": true
+    },
+    {
+      "id": "SLR1",
+      "type": "GENE",
+      "full_name": "SLENDER RICE 1 (rice DELLA)",
+      "description": "Growth-repressing DELLA; stabilises MOC1 and NGR5; degraded upon GA-GID1 perception.",
+      "is_source": false
+    },
+    {
+      "id": "Strigolactone",
+      "type": "HORMONE",
+      "full_name": "Strigolactone (orobanchol, 4-deoxyorobanchol)",
+      "description": "Branching-suppressing hormone synthesised via D27/D17/D10/MAX1 pathway; perceived by D14.",
+      "is_source": false
+    },
+    {
+      "id": "Sucrose",
+      "type": "METABOLITE",
+      "full_name": "Sucrose",
+      "description": "Photosynthetic sugar; stabilises D53, activates NGR5, represses CCA1, produces T6P.",
+      "is_source": false
+    },
+    {
+      "id": "T20",
+      "type": "GENE",
+      "full_name": "T20 (Z-ISO, rice zeta-carotene isomerase)",
+      "description": "Upstream of D27 in carotenoid pathway; supplies precursors for both SL and ABA.",
+      "is_source": true
+    },
+    {
+      "id": "T6P",
+      "type": "METABOLITE",
+      "full_name": "Trehalose-6-phosphate",
+      "description": "Sugar-status signal that represses TB1 in buds.",
+      "is_source": false
+    },
+    {
+      "id": "TAD1",
+      "type": "GENE",
+      "full_name": "TILLERING AND DWARF 1 (CDH1-type APC/C co-activator)",
+      "description": "Recruits MOC1 to APC/C for cell-cycle-dependent proteasomal degradation.",
+      "is_source": true
+    },
+    {
+      "id": "TAR2",
+      "type": "GENE",
+      "full_name": "OsTAR2 (TAA1/TAR family aminotransferase)",
+      "description": "First step of tryptophan-dependent IAA biosynthesis.",
+      "is_source": true
+    },
+    {
+      "id": "TB1",
+      "type": "GENE",
+      "full_name": "OsTB1 / FC1 (TEOSINTE BRANCHED1 / FINE CULM1)",
+      "description": "TCP family branching-repressor TF; integrates IPA1, CK, Auxin, NGR5, T6P signals.",
+      "is_source": false
+    },
+    {
+      "id": "TCP19",
+      "type": "GENE",
+      "full_name": "OsTCP19",
+      "description": "N-responsive TCP TF; represses DLT; N -> LBD37 -| TCP19 relieves DLT repression.",
+      "is_source": false
+    },
+    {
+      "id": "TE",
+      "type": "GENE",
+      "full_name": "TILLER ENHANCER (CDC20-type APC/C co-activator)",
+      "description": "APC/C co-activator that targets MOC1 for ubiquitin-proteasome degradation.",
+      "is_source": true
+    },
+    {
+      "id": "Tiller_Number",
+      "type": "PHENOTYPE",
+      "full_name": "Tiller number",
+      "description": "Final phenotype: number of rice tillers produced (per plant, per unit area).",
+      "is_source": false
+    },
+    {
+      "id": "VIL2",
+      "type": "GENE",
+      "full_name": "OsVIL2",
+      "description": "Chromatin-interacting factor; binds and represses OsTB1 promoter (Yoon 2019).",
+      "is_source": true
+    },
+    {
+      "id": "YUCCA",
+      "type": "GENE",
+      "full_name": "OsYUCCA family (flavin monooxygenase)",
+      "description": "Rate-limiting step of IAA biosynthesis (IPA -> IAA).",
+      "is_source": true
+    },
+    {
+      "id": "miR156",
+      "type": "REGULATORY_RNA",
+      "full_name": "microRNA 156",
+      "description": "Cleaves IPA1/OsSPL14 mRNA; juvenile-phase high expression.",
+      "is_source": true
+    },
+    {
+      "id": "miR444",
+      "type": "REGULATORY_RNA",
+      "full_name": "microRNA 444a",
+      "description": "Cleaves OsMADS57 mRNA; miR444 OE reduces tillers via MADS57 loss.",
+      "is_source": true
+    },
+    {
+      "id": "GID1",
+      "type": "GENE",
+      "full_name": "OsGID1 (GA receptor)",
+      "description": "Soluble GA receptor; GA-GID1 complex targets SLR1 and NGR5 for SCF-GID2-mediated proteasomal degradation.",
+      "is_source": false
+    },
+    {
+      "id": "TIR1",
+      "type": "GENE",
+      "full_name": "TIR1/OsAFB (auxin receptor F-box)",
+      "description": "Auxin receptor F-box protein; auxin-bound TIR1-SCF complex ubiquitinates OsIAA repressors, derepressing OsARF transcription factors. Functions as gated relay for auxin transcriptional effects on SL biosynthesis (D10, D17) and CK biosynthesis (IPT).",
+      "is_source": false
+    },
+    {
+      "id": "NCED1",
+      "type": "GENE",
+      "full_name": "OsNCED1 (9-cis-epoxycarotenoid dioxygenase)",
+      "description": "Rate-limiting ABA biosynthesis enzyme; direct transcriptional target of HOX12 in SL-induced ABA biosynthesis arm.",
+      "is_source": false
+    },
+    {
+      "id": "HOX12",
+      "type": "GENE",
+      "full_name": "HOX12 (homeodomain-leucine zipper TF)",
+      "description": "HD-ZIP TF induced in shoot base; transactivates OsNCED1 to drive ABA biosynthesis. Upstream regulation by D53-repression arm expected but not curated (literature_gap).",
+      "is_source": true
+    }
+  ],
+  "edges": [
+    {
+      "source": "Strigolactone",
+      "target": "D14",
+      "sign": 1,
+      "edge_id": "N001",
+      "effect": "activation",
+      "mechanism": "SL binds D14 alpha/beta hydrolase, induces conformational change and formation of D14-D3-D53 complex",
+      "evidence": [
+        {
+          "doi": "10.1038/nature12870",
+          "title": "DWARF 53 acts as a repressor of strigolactone signalling in rice",
+          "authors": "Jiang L et al.",
+          "year": 2013,
+          "journal": "Nature",
+          "evidence_sentence": "D53 was shown to interact with D14 by pull-down assay. Interaction enhanced by GR24 in a dose-dependent manner.",
+          "claim": "SL binding activates D14 to form complex with D53",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1038/nature12878",
+          "title": "D14-SCFD3-dependent degradation of D53 regulates strigolactone signaling",
+          "authors": "Zhou F et al.",
+          "year": 2013,
+          "journal": "Nature",
+          "evidence_sentence": "Y2H showed that both D53 and d53 could physically interact with D14 in the presence of GR24.",
+          "claim": "D14 activated by SL",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "D14",
+      "target": "D53",
+      "sign": -1,
+      "edge_id": "N002",
+      "effect": "inhibition",
+      "mechanism": "D14 recruits SCF-D3 E3 ligase to ubiquitinate D53 for 26S proteasomal degradation",
+      "evidence": [
+        {
+          "doi": "10.1038/nature12870",
+          "title": "DWARF 53 acts as a repressor of strigolactone signalling in rice",
+          "authors": "Jiang L et al.",
+          "year": 2013,
+          "journal": "Nature",
+          "evidence_sentence": "D53 protein levels decreased rapidly upon GR24 treatment in wild-type seedlings. Mutations at Ser-His-Asp catalytic triad could attenuate the SL-induced degradation of D53.",
+          "claim": "D14 is essential for SL-induced D53 degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "D3",
+      "target": "D53",
+      "sign": -1,
+      "edge_id": "N003",
+      "effect": "inhibition",
+      "mechanism": "D3 is the F-box subunit of SCF complex that ubiquitinates D53; required for proteasomal degradation",
+      "evidence": [
+        {
+          "doi": "10.1038/nature12878",
+          "title": "D14-SCFD3-dependent degradation of D53 regulates strigolactone signaling",
+          "authors": "Zhou F et al.",
+          "year": 2013,
+          "journal": "Nature",
+          "evidence_sentence": "SLs induce D53 degradation by the proteasome and abrogate its activity in promoting axillary bud outgrowth, in a D14- and D3-dependent manner.",
+          "claim": "D3 (F-box) is required for D53 ubiquitination and degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "D53",
+      "target": "IPA1",
+      "sign": -1,
+      "edge_id": "N004",
+      "effect": "repression",
+      "mechanism": "D53 binds IPA1 via direct protein-protein interaction and represses IPA1 transcriptional activation activity",
+      "evidence": [
+        {
+          "doi": "10.1038/cr.2017.102",
+          "title": "IPA1 functions as a downstream transcription factor repressed by D53 in strigolactone signaling in rice",
+          "authors": "Song X et al.",
+          "year": 2017,
+          "journal": "Cell Research",
+          "evidence_sentence": "D53 physically interacts with IPA1 in vivo and in vitro and suppresses the transcriptional activation activity of IPA1.",
+          "claim": "D53 represses IPA1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "D53",
+      "target": "MOC1",
+      "sign": -1,
+      "edge_id": "N005",
+      "effect": "inhibition",
+      "mechanism": "D53 physically interacts with MOC1 to repress tiller bud outgrowth",
+      "evidence": [
+        {
+          "doi": "10.1038/s41477-019-0376-1",
+          "title": "Strigolactones and BRC1 directly regulate tillering via D53 and MOC1",
+          "authors": "Duan J et al.",
+          "year": 2019,
+          "journal": "Nature Plants",
+          "evidence_sentence": "D53 interacts with MOC1 to repress MOC1 activity in tiller regulation.",
+          "claim": "D53 inhibits MOC1",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "D53",
+      "target": "CKX9",
+      "sign": -1,
+      "edge_id": "N006",
+      "effect": "repression",
+      "mechanism": "D53 represses OsCKX9 expression; SL-induced D53 degradation derepresses OsCKX9",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1810980116",
+          "title": "Strigolactone promotes cytokinin degradation through transcriptional activation of CYTOKININ OXIDASE/DEHYDROGENASE 9 in rice",
+          "authors": "Duan J et al.",
+          "year": 2019,
+          "journal": "PNAS",
+          "evidence_sentence": "D53 represses OsCKX9; knockdown of D53 increases OsCKX9 expression.",
+          "claim": "D53 represses OsCKX9 transcriptionally",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "IPA1",
+      "target": "TB1",
+      "sign": 1,
+      "edge_id": "N007",
+      "effect": "activation",
+      "mechanism": "IPA1 directly binds GTAC motif in OsTB1 promoter via SBP domain and activates transcription",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.113.113639",
+          "title": "Genome-Wide Binding Analysis of the Transcription Activator IDEAL PLANT ARCHITECTURE1 Reveals a Complex Network Regulating Rice Plant Architecture",
+          "authors": "Lu Z et al.",
+          "year": 2013,
+          "journal": "Plant Cell",
+          "evidence_sentence": "IPA1 could directly bind to the promoter of rice TEOSINTE BRANCHED1 via GTAC motif binding to suppress rice tillering.",
+          "claim": "IPA1 directly activates OsTB1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1038/cr.2017.102",
+          "title": "IPA1 functions as a downstream TF repressed by D53",
+          "authors": "Song X et al.",
+          "year": 2017,
+          "journal": "Cell Research",
+          "evidence_sentence": "IPA1 directly binds to the promoter of a negative regulator of tiller bud outgrowth, TEOSINTE BRANCHED1 (OsTB1), to suppress rice tillering.",
+          "claim": "IPA1 activates OsTB1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "IPA1",
+      "target": "D53",
+      "sign": 1,
+      "edge_id": "N008",
+      "effect": "activation",
+      "mechanism": "IPA1 directly binds GTAC element in D53 promoter and activates D53 transcription (negative feedback loop with D53 protein repressing IPA1)",
+      "evidence": [
+        {
+          "doi": "10.1038/cr.2017.102",
+          "title": "IPA1 functions as a downstream TF repressed by D53",
+          "authors": "Song X et al.",
+          "year": 2017,
+          "journal": "Cell Research",
+          "evidence_sentence": "IPA1 directly binds D53 promoter GTAC element and activates D53 transcription, forming negative feedback loop.",
+          "claim": "IPA1 activates D53 transcription",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "IPA1",
+      "target": "PIN1B",
+      "sign": 1,
+      "edge_id": "N009",
+      "effect": "activation",
+      "mechanism": "IPA1 directly binds OsPIN1b promoter to activate auxin efflux carrier expression",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.113.113639",
+          "title": "Genome-Wide Binding Analysis of IPA1",
+          "authors": "Lu Z et al.",
+          "year": 2013,
+          "journal": "Plant Cell",
+          "evidence_sentence": "EMSA confirmed IPA1 could directly target PIN1b promoter.",
+          "claim": "IPA1 activates OsPIN1b",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "miR156",
+      "target": "IPA1",
+      "sign": -1,
+      "edge_id": "N010",
+      "effect": "repression",
+      "mechanism": "OsmiR156 cleaves IPA1/OsSPL14 mRNA via miR156 recognition site in 3' region",
+      "evidence": [
+        {
+          "doi": "10.1038/ng.591",
+          "title": "Regulation of OsSPL14 by OsmiR156 defines ideal plant architecture in rice",
+          "authors": "Jiao Y et al.",
+          "year": 2010,
+          "journal": "Nature Genetics",
+          "evidence_sentence": "One nucleotide substitution in the OsmiR156 recognition site perturbs OsmiR156-directed mRNA degradation; accumulation of OsSPL14 leads to ideal plant architecture.",
+          "claim": "miR156 represses OsSPL14 by mRNA cleavage",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "IPI1",
+      "target": "IPA1",
+      "sign": 1,
+      "edge_id": "N011",
+      "effect": "activation",
+      "mechanism": "IPI1 stabilises OsSPL14/IPA1 protein in shoot apex via K63-linked polyubiquitination (tissue-specific: degrades in panicle but stabilises in shoot); ipi1-CRISPR -> reduced IPA1 accumulation -> increased tillering",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.16.00879",
+          "title": "A Rice-Specific Gene, Ideal Plant Architecture 1 Interactor (IPI1)",
+          "authors": "Wang J et al.",
+          "year": 2017,
+          "journal": "Plant Cell",
+          "evidence_sentence": "ipi1-1 CRISPR mutant showed reduced IPA1 accumulation in the shoot apex and an increased tiller phenotype, supporting that IPI1 stabilises IPA1 in this tissue.",
+          "claim": "IPI1 stabilises IPA1 in shoot apex (tissue-specific RING E3 activity)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SHI1",
+      "target": "IPA1",
+      "sign": -1,
+      "edge_id": "N012",
+      "effect": "inhibition",
+      "mechanism": "OsSHI1 physically interacts with IPA1 and reduces IPA1 DNA binding affinity, inhibiting transcriptional activation activity",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00023",
+          "title": "OsSHI1 Regulates Plant Architecture Through Modulating the Transcriptional Activity of IPA1",
+          "authors": "Duan E et al.",
+          "year": 2019,
+          "journal": "Plant Cell",
+          "evidence_sentence": "OsSHI1 repressed the transcriptional activation activity of IPA1 via physical interaction.",
+          "claim": "OsSHI1 represses IPA1 activity",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "D27",
+      "target": "Strigolactone",
+      "sign": 1,
+      "edge_id": "N013",
+      "effect": "activation",
+      "mechanism": "D27 is iron-containing beta-carotene isomerase, first step of SL biosynthesis converting all-trans to 9-cis-beta-carotene",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.109.065987",
+          "title": "DWARF27, an Iron-Containing Protein Required for the Biosynthesis of Strigolactones",
+          "authors": "Lin H et al.",
+          "year": 2009,
+          "journal": "Plant Cell",
+          "evidence_sentence": "2'-epi-5-deoxystrigol was undetectable in d27 vs. wild-type root exudates.",
+          "claim": "D27 is required for SL biosynthesis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "D10",
+      "target": "Strigolactone",
+      "sign": 1,
+      "edge_id": "N014",
+      "effect": "activation",
+      "mechanism": "D10 encodes CAROTENOID CLEAVAGE DIOXYGENASE 8 (CCD8) cleaving 9-cis-beta-apo-10'-carotenal to carlactone",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2007.03210.x",
+          "title": "DWARF10, an RMS1/MAX4/DAD1 ortholog, controls lateral bud outgrowth in rice",
+          "authors": "Arite T et al.",
+          "year": 2007,
+          "journal": "Plant Journal",
+          "evidence_sentence": "D10 encodes a CAROTENOID CLEAVAGE DIOXYGENASE 8 (CCD8) involved in strigolactone biosynthesis.",
+          "claim": "D10 is SL biosynthesis enzyme",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "D17",
+      "target": "Strigolactone",
+      "sign": 1,
+      "edge_id": "N015",
+      "effect": "activation",
+      "mechanism": "D17/HTD1 encodes CCD7 catalyzing cleavage of 9-cis-beta-carotene to 9-cis-beta-apo-10'-carotenal",
+      "evidence": [
+        {
+          "doi": "10.1270/jsbbs.22088",
+          "title": "Genetic basis controlling rice plant architecture",
+          "authors": "Tanaka W et al.",
+          "year": 2023,
+          "journal": "Breeding Science",
+          "evidence_sentence": "D17/HIGH-TILLERING DWARF1 (HTD1) acts as enzyme in SL biosynthesis; rice D17 encodes CCD7.",
+          "claim": "D17 is SL biosynthesis enzyme",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "MAX1",
+      "target": "Strigolactone",
+      "sign": 1,
+      "edge_id": "N016",
+      "effect": "activation",
+      "mechanism": "Rice MAX1 homologs (Os900, Os1400, Os1500, Os1900, Os5100) convert carlactone to 4-deoxyorobanchol",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1314805111",
+          "title": "Diverse Roles of MAX1 Homologues in Rice",
+          "authors": "Zhang Y et al.",
+          "year": 2014,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Rice MAX1 (Os900) and other homologs convert carlactone to 4-deoxyorobanchol (4DO).",
+          "claim": "OsMAX1 converts carlactone to canonical SLs",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "TB1",
+      "target": "Tiller_Number",
+      "sign": -1,
+      "edge_id": "N019",
+      "effect": "inhibition",
+      "mechanism": "OsTB1/FC1 is a TCP family transcription factor expressed in axillary buds that inhibits bud outgrowth; key branching integrator downstream of SL",
+      "evidence": [
+        {
+          "doi": "10.1046/j.1365-313X.2003.01648.x",
+          "title": "The OsTB1 gene negatively regulates lateral branching in rice",
+          "authors": "Takeda T et al.",
+          "year": 2003,
+          "journal": "Plant Journal",
+          "evidence_sentence": "OsTB1 functions as a negative regulator for lateral branching in rice.",
+          "claim": "OsTB1 inhibits tiller bud outgrowth",
+          "verification": "abstract_read",
+          "full_text_read": false
+        },
+        {
+          "doi": "10.1093/pcp/pcq083",
+          "title": "FINE CULM1 (FC1) Works Downstream of Strigolactones",
+          "authors": "Minakuchi K et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "fc1 mutants show reduced plant height and increases in tiller numbers.",
+          "claim": "Loss of OsTB1/FC1 increases tiller number",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "MADS57",
+      "target": "D14",
+      "sign": -1,
+      "edge_id": "N020",
+      "effect": "repression",
+      "mechanism": "OsMADS57 binds CArG motif in D14 promoter and directly suppresses D14 transcription",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms2542",
+          "title": "OsMADS57-OsTB1 interaction modulates rice tillering via DWARF14",
+          "authors": "Guo S et al.",
+          "year": 2013,
+          "journal": "Nature Communications",
+          "evidence_sentence": "OsMADS57 bound to the CArG motif in the promoter and directly suppressed D14 expression.",
+          "claim": "OsMADS57 directly represses D14",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "miR444",
+      "target": "MADS57",
+      "sign": -1,
+      "edge_id": "N021",
+      "effect": "repression",
+      "mechanism": "miR444a cleaves OsMADS57 mRNA",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms2542",
+          "title": "OsMADS57-OsTB1 interaction modulates rice tillering via DWARF14",
+          "authors": "Guo S et al.",
+          "year": 2013,
+          "journal": "Nature Communications",
+          "evidence_sentence": "OsMADS57 gene is targeted and regulated negatively by miR444a.",
+          "claim": "miR444 targets OsMADS57",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "TAD1",
+      "target": "MOC1",
+      "sign": -1,
+      "edge_id": "N023",
+      "effect": "inhibition",
+      "mechanism": "TAD1 is Cdh1-type APC/C co-activator; recruits MOC1 to APC/C E3 ligase for cell-cycle-dependent ubiquitination and proteasomal degradation",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms1743",
+          "title": "Degradation of MONOCULM 1 by APC/CTAD1 regulates rice tillering",
+          "authors": "Xu C et al.",
+          "year": 2012,
+          "journal": "Nature Communications",
+          "evidence_sentence": "TAD1 interacts directly with MOC1; recruits MOC1 to APC/C and degrades MOC1 in cell-cycle-dependent manner; MOC1 accumulated to a higher level in tad1.",
+          "claim": "TAD1 promotes MOC1 degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "TE",
+      "target": "MOC1",
+      "sign": -1,
+      "edge_id": "N024",
+      "effect": "inhibition",
+      "mechanism": "TE is CDC20-type APC/C co-activator; mediates ubiquitin-26S proteasome degradation of MOC1",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms1716",
+          "title": "Rice APC/CTE controls tillering by mediating the degradation of MONOCULM 1",
+          "authors": "Lin Q et al.",
+          "year": 2012,
+          "journal": "Nature Communications",
+          "evidence_sentence": "TE mediates the degradation of MOC1 by ubiquitin-26S proteasome pathway; te mutant drastically increased tiller number.",
+          "claim": "TE promotes MOC1 degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SLR1",
+      "target": "MOC1",
+      "sign": 1,
+      "edge_id": "N025",
+      "effect": "activation",
+      "mechanism": "SLR1 DELLA protein physically binds MOC1 and protects it from APC/C-mediated degradation",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-019-10667-2",
+          "title": "SLR1 inhibits MOC1 degradation",
+          "authors": "Liao Z et al.",
+          "year": 2019,
+          "journal": "Nature Communications",
+          "evidence_sentence": "MOC1 is protected from degradation by binding to the DELLA protein SLR1; cell-free protein degradation assay showed degradation of MBP-MOC1 was inhibited by His-Trx-SLR1.",
+          "claim": "SLR1 stabilizes MOC1 protein",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SLR1",
+      "target": "NGR5",
+      "sign": 1,
+      "edge_id": "N028",
+      "effect": "activation",
+      "mechanism": "SLR1 competes with NGR5 for GID1 binding, preventing NGR5 ubiquitination and degradation",
+      "evidence": [
+        {
+          "doi": "10.1126/science.aaz2046",
+          "title": "Enhanced sustainable green revolution yield",
+          "authors": "Wu K et al.",
+          "year": 2020,
+          "journal": "Science",
+          "evidence_sentence": "SLR1 competes with NGR5 for GID1 and prevents NGR5 from GA-mediated proteolysis.",
+          "claim": "SLR1 stabilizes NGR5",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "NGR5",
+      "target": "TB1",
+      "sign": -1,
+      "edge_id": "N029",
+      "effect": "repression",
+      "mechanism": "NGR5 recruits PRC2 to OsTB1 promoter depositing H3K27me3 repressive mark",
+      "evidence": [
+        {
+          "doi": "10.1126/science.aaz2046",
+          "title": "Enhanced sustainable green revolution yield",
+          "authors": "Wu K et al.",
+          "year": 2020,
+          "journal": "Science",
+          "evidence_sentence": "NGR5 directly interacts with PRC2 to form a repressive complex at the shoot branching inhibitory genes including OsTB1 in a nitrogen-dependent way.",
+          "claim": "NGR5-PRC2 represses OsTB1",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "NGR5",
+      "target": "D14",
+      "sign": -1,
+      "edge_id": "N030",
+      "effect": "repression",
+      "mechanism": "NGR5-PRC2 complex represses D14 via H3K27me3",
+      "evidence": [
+        {
+          "doi": "10.1126/science.aaz2046",
+          "title": "Enhanced sustainable green revolution yield",
+          "authors": "Wu K et al.",
+          "year": 2020,
+          "journal": "Science",
+          "evidence_sentence": "NGR5 recruits PRC2 to branching inhibitory genes such as D14 for H3K27me3 repression.",
+          "claim": "NGR5 represses D14",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Nitrogen",
+      "target": "NGR5",
+      "sign": 1,
+      "edge_id": "N031",
+      "effect": "activation",
+      "mechanism": "Nitrogen supply (nitrate sensing via NRT1.1B) promotes NGR5 accumulation and PRC2 recruitment",
+      "evidence": [
+        {
+          "doi": "10.1126/science.aaz2046",
+          "title": "Enhanced sustainable green revolution yield",
+          "authors": "Wu K et al.",
+          "year": 2020,
+          "journal": "Science",
+          "evidence_sentence": "Nitrogen supply promotes tillering via NGR5 by chromatin modulation at branching-inhibitor genes.",
+          "claim": "N activates NGR5 function",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "TCP19",
+      "target": "DLT",
+      "sign": -1,
+      "edge_id": "N032",
+      "effect": "repression",
+      "mechanism": "OsTCP19 TCP TF directly binds DLT promoter and represses its transcription; inhibits N-responsive tillering",
+      "evidence": [
+        {
+          "doi": "10.1038/s41586-020-03091-w",
+          "title": "Genomic basis of geographical adaptation to soil nitrogen in rice",
+          "authors": "Liu Y et al.",
+          "year": 2021,
+          "journal": "Nature",
+          "evidence_sentence": "OsTCP19 directly represses the expression of DWARF AND LOW TILLERING (DLT); N-induced LBD37/LBD39 directly inhibit OsTCP19.",
+          "claim": "OsTCP19 represses DLT",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "DLT",
+      "target": "Tiller_Number",
+      "sign": 1,
+      "edge_id": "N033",
+      "effect": "activation",
+      "mechanism": "DLT is GRAS-family BR signaling TF promoting tiller outgrowth",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2009.03825.x",
+          "title": "DLT, GRAS family BR signaling",
+          "authors": "Tong H et al.",
+          "year": 2009,
+          "journal": "Plant Journal",
+          "evidence_sentence": "DLT (DWARF AND LOW TILLERING) plays positive roles in BR signaling and tiller outgrowth.",
+          "claim": "DLT promotes tillering",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "LBD37",
+      "target": "TCP19",
+      "sign": -1,
+      "edge_id": "N034",
+      "effect": "repression",
+      "mechanism": "N-induced OsLBD37 represses OsTCP19 transcription, relieving DLT repression and enabling N-induced tillering",
+      "evidence": [
+        {
+          "doi": "10.1038/s41586-020-03091-w",
+          "title": "Genomic basis of geographical adaptation to soil nitrogen",
+          "authors": "Liu Y et al.",
+          "year": 2021,
+          "journal": "Nature",
+          "evidence_sentence": "Nitrogen-induced LATERAL ORGAN BOUNDARIES DOMAIN proteins OsLBD37 and OsLBD39 can directly repress OsTCP19.",
+          "claim": "OsLBD37 represses OsTCP19",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Nitrogen",
+      "target": "LBD37",
+      "sign": 1,
+      "edge_id": "N035",
+      "effect": "activation",
+      "mechanism": "High nitrogen induces OsLBD37 transcription",
+      "evidence": [
+        {
+          "doi": "10.1038/s41586-020-03091-w",
+          "title": "Genomic basis of geographical adaptation to soil nitrogen",
+          "authors": "Liu Y et al.",
+          "year": 2021,
+          "journal": "Nature",
+          "evidence_sentence": "Nitrogen induces OsLBD37/39 which then repress OsTCP19.",
+          "claim": "N activates OsLBD37",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "CKX2",
+      "target": "Cytokinin",
+      "sign": -1,
+      "edge_id": "N036",
+      "effect": "inhibition",
+      "mechanism": "OsCKX2/Gn1a irreversibly degrades cytokinin (N6-isopentenyladenine, trans-zeatin)",
+      "evidence": [
+        {
+          "doi": "10.1126/science.1113373",
+          "title": "Cytokinin oxidase regulates rice grain production",
+          "authors": "Ashikari M et al.",
+          "year": 2005,
+          "journal": "Science",
+          "evidence_sentence": "Gn1a encodes cytokinin oxidase/dehydrogenase (OsCKX2); reduced expression causes cytokinin accumulation in inflorescence meristems.",
+          "claim": "OsCKX2 degrades cytokinin",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "CKX9",
+      "target": "Cytokinin",
+      "sign": -1,
+      "edge_id": "N037",
+      "effect": "inhibition",
+      "mechanism": "OsCKX9 degrades cytokinin; nuclear/cytosolic dual-localized enzyme",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1810980116",
+          "title": "Strigolactone promotes cytokinin degradation through transcriptional activation of CYTOKININ OXIDASE/DEHYDROGENASE 9",
+          "authors": "Duan J et al.",
+          "year": 2019,
+          "journal": "PNAS",
+          "evidence_sentence": "OsCKX9 functions as a cytosolic and nuclear dual-localized CK catabolic enzyme.",
+          "claim": "OsCKX9 degrades CK",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Cytokinin",
+      "target": "TB1",
+      "sign": -1,
+      "edge_id": "N038",
+      "effect": "repression",
+      "mechanism": "CK represses TB1 via protein-level destabilisation independent of the HK4->AHP->RR21->IPA1 phosphorelay. Kept as direct edge because the canonical signalling cascade carries the opposite (positive) sign through IPA1->TB1(+1) and so cannot account for CK's tillering-promoting (TB1-repressing) effect. Consequence: hk4+trans-zeatin rescue tests will show spurious direct-arm rescue (TRAP 5 framework limitation).",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq083",
+          "title": "FINE CULM1 (FC1) Works Downstream of Strigolactones",
+          "authors": "Minakuchi K et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "BAP treatment clearly suppressed FC1 expression in a concentration-dependent manner; negative control of FC1 expression by cytokinin is independent of the SL pathway.",
+          "claim": "CK represses OsTB1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "IPT",
+      "target": "Cytokinin",
+      "sign": 1,
+      "edge_id": "N039",
+      "effect": "activation",
+      "mechanism": "OsIPT genes (especially OsIPT4, OsIPT7) catalyze rate-limiting step of cytokinin biosynthesis (adenylate isopentenyltransferase)",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.192765",
+          "title": "Characterization of Genes Involved in Cytokinin Signaling and Metabolism from Rice",
+          "authors": "Tsai YC et al.",
+          "year": 2012,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Of eight IPTs implicated in cytokinin biosynthesis, OsIPT4 and OsIPT7 are major contributors in roots and shoots.",
+          "claim": "OsIPT synthesizes cytokinin",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "LOG",
+      "target": "Cytokinin",
+      "sign": 1,
+      "edge_id": "N041",
+      "effect": "activation",
+      "mechanism": "OsLOG converts inactive cytokinin nucleotides to active free-base form",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.192765",
+          "title": "Characterization of Genes Involved in Cytokinin Signaling and Metabolism from Rice",
+          "authors": "Tsai YC et al.",
+          "year": 2012,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "OsLOG converts cytokinin nucleotides to active free bases; multiple OsLOG genes expressed with tissue specificity.",
+          "claim": "OsLOG activates CK",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Cytokinin",
+      "target": "HK4",
+      "sign": 1,
+      "edge_id": "N042",
+      "effect": "activation",
+      "mechanism": "CK binds OsHK4 histidine kinase CHASE domain activating phosphorelay",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koad257",
+          "title": "Cytokinin receptor OHK4/OsHK4 regulates inflorescence architecture",
+          "authors": "Chun Y et al.",
+          "year": 2023,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Cytokinin binds OsHK4 histidine kinase receptor activating downstream phosphorelay; D86-Q87 deletion abolishes receptor dimerization and CK binding.",
+          "claim": "CK activates OsHK4",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "HK4",
+      "target": "AHP",
+      "sign": 1,
+      "edge_id": "N043",
+      "effect": "activation",
+      "mechanism": "Activated OsHK4 phosphorylates OsAHP1/2 histidine phosphotransfer proteins",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.192765",
+          "title": "Characterization of Genes Involved in Cytokinin Signaling and Metabolism",
+          "authors": "Tsai YC et al.",
+          "year": 2012,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "OsAHP1/2 are downstream phosphotransfer proteins in rice CK signaling connecting OsHKs to response regulators.",
+          "claim": "OsHK4 phosphorylates OsAHP",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "AHP",
+      "target": "RR21",
+      "sign": 1,
+      "edge_id": "N044",
+      "effect": "activation",
+      "mechanism": "OsAHP phosphorelay activates type-B OsRR21 response regulator for target gene transcription",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koad257",
+          "title": "OHK4/OsHK4 regulates inflorescence via IPA1 feedback",
+          "authors": "Chun Y et al.",
+          "year": 2023,
+          "journal": "Plant Cell",
+          "evidence_sentence": "The response of OsRR21 phosphorylation to CK was diminished in the pal1 mutant; OsAHP mediates this relay.",
+          "claim": "OsAHP activates OsRR21",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "RR21",
+      "target": "IPA1",
+      "sign": 1,
+      "edge_id": "N045",
+      "effect": "activation",
+      "mechanism": "Type-B OsRR21 directly binds CK response elements in IPA1 promoter activating transcription",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koad257",
+          "title": "OHK4/OsHK4 regulates inflorescence via IPA1 feedback",
+          "authors": "Chun Y et al.",
+          "year": 2023,
+          "journal": "Plant Cell",
+          "evidence_sentence": "OsRR21 directly activates IPA1 by binding to 10 CK response elements in IPA1 promoter (Y1H, ChIP-qPCR validated).",
+          "claim": "OsRR21 activates IPA1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PIN1B",
+      "target": "Tiller_Number",
+      "sign": -1,
+      "edge_id": "N046",
+      "effect": "inhibition",
+      "mechanism": "OsPIN1b auxin efflux transporter, knockout shows increased tillers",
+      "evidence": [
+        {
+          "doi": "10.1534/genetics.116.191999",
+          "title": "OsPIN1b mutants show increased tillers",
+          "authors": "Li Y et al.",
+          "year": 2019,
+          "journal": "Genetics",
+          "evidence_sentence": "Knockout mutants of OsPIN1b increase tiller numbers.",
+          "claim": "OsPIN1b represses tillering",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "PIN9",
+      "target": "Tiller_Number",
+      "sign": 1,
+      "edge_id": "N047",
+      "effect": "activation",
+      "mechanism": "OsPIN9 ammonium-induced auxin efflux transporter promotes tiller bud outgrowth",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17699",
+          "title": "OsPIN9 regulates tillering",
+          "authors": "Hou M et al.",
+          "year": 2021,
+          "journal": "New Phytologist",
+          "evidence_sentence": "Overexpression of OsPIN9 result in increased tillering; knockout result in decreased tillering.",
+          "claim": "OsPIN9 promotes tillering",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Ammonium",
+      "target": "PIN9",
+      "sign": 1,
+      "edge_id": "N048",
+      "effect": "activation",
+      "mechanism": "Ammonium specifically induces OsPIN9 expression (not nitrate)",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17699",
+          "title": "OsPIN9 regulates tillering",
+          "authors": "Hou M et al.",
+          "year": 2021,
+          "journal": "New Phytologist",
+          "evidence_sentence": "OsPIN9 expression is induced by ammonium, a major source of nitrogen.",
+          "claim": "Ammonium induces OsPIN9",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "CCA1",
+      "target": "TB1",
+      "sign": 1,
+      "edge_id": "N050",
+      "effect": "activation",
+      "mechanism": "OsCCA1 circadian MYB-like TF binds CBS element in OsTB1 promoter",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Rice Circadian Clock Regulates Tiller Growth",
+          "authors": "Wang Q et al.",
+          "year": 2020,
+          "journal": "Plant Cell",
+          "evidence_sentence": "OsCCA1 directly binds CBS elements in OsTB1 promoter activating expression.",
+          "claim": "OsCCA1 activates OsTB1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CCA1",
+      "target": "D14",
+      "sign": 1,
+      "edge_id": "N051",
+      "effect": "activation",
+      "mechanism": "OsCCA1 directly binds CBS in D14 promoter",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Rice Circadian Clock Regulates Tiller Growth",
+          "authors": "Wang Q et al.",
+          "year": 2020,
+          "journal": "Plant Cell",
+          "evidence_sentence": "OsCCA1 directly binds CBS in D14 promoter; ChIP-qPCR confirmed.",
+          "claim": "OsCCA1 activates D14",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CCA1",
+      "target": "D10",
+      "sign": 1,
+      "edge_id": "N052",
+      "effect": "activation",
+      "mechanism": "OsCCA1 binds CBS in D10 promoter",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Rice Circadian Clock Regulates Tiller Growth",
+          "authors": "Wang Q et al.",
+          "year": 2020,
+          "journal": "Plant Cell",
+          "evidence_sentence": "OsCCA1 directly binds CBS in D10 promoter.",
+          "claim": "OsCCA1 activates D10",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CCA1",
+      "target": "IPA1",
+      "sign": 1,
+      "edge_id": "N053",
+      "effect": "activation",
+      "mechanism": "OsCCA1 binds CBS/EE elements in IPA1 promoter",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Rice Circadian Clock Regulates Tiller Growth",
+          "authors": "Wang Q et al.",
+          "year": 2020,
+          "journal": "Plant Cell",
+          "evidence_sentence": "OsCCA1 directly binds CBS/EE elements in IPA1 promoter.",
+          "claim": "OsCCA1 activates IPA1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PRR1",
+      "target": "CCA1",
+      "sign": -1,
+      "edge_id": "N054",
+      "effect": "repression",
+      "mechanism": "OsPRR1 pseudo-response regulator represses OsCCA1 in reciprocal feedback loop",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Rice Circadian Clock Regulates Tiller Growth",
+          "authors": "Wang Q et al.",
+          "year": 2020,
+          "journal": "Plant Cell",
+          "evidence_sentence": "OsPRR1 forms reciprocal feedback loop with OsCCA1 (negative repression).",
+          "claim": "OsPRR1 represses OsCCA1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CCA1",
+      "target": "PRR1",
+      "sign": -1,
+      "edge_id": "N055",
+      "effect": "repression",
+      "mechanism": "OsCCA1 binds CBS in OsPRR1 promoter and represses expression (part of evening loop)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Rice Circadian Clock Regulates Tiller Growth",
+          "authors": "Wang Q et al.",
+          "year": 2020,
+          "journal": "Plant Cell",
+          "evidence_sentence": "OsCCA1 directly binds CBS on OsPRR1 promoter (negative regulation in reciprocal feedback).",
+          "claim": "OsCCA1 represses OsPRR1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Sucrose",
+      "target": "D53",
+      "sign": 1,
+      "edge_id": "N056",
+      "effect": "activation",
+      "mechanism": "Sucrose signaling stabilizes D53 protein (antagonizes SL-induced degradation)",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17834",
+          "title": "Sucrose promotes D53 accumulation and tillering in rice",
+          "authors": "Patil SB et al.",
+          "year": 2022,
+          "journal": "New Phytologist",
+          "evidence_sentence": "Sucrose promotes D53 accumulation and tillering in rice; antagonizes SL-mediated D53 degradation.",
+          "claim": "Sucrose stabilizes D53",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Sucrose",
+      "target": "CCA1",
+      "sign": -1,
+      "edge_id": "N057",
+      "effect": "repression",
+      "mechanism": "Photosynthetic sugars downregulate OsCCA1 in roots and buds (tissue-dependent)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Rice Circadian Clock Regulates Tiller Growth",
+          "authors": "Wang Q et al.",
+          "year": 2020,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Photosynthetic sugars negatively regulate OsCCA1 expression in roots/buds.",
+          "claim": "Sucrose represses OsCCA1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "MOC2",
+      "target": "Sucrose",
+      "sign": 1,
+      "edge_id": "N058",
+      "effect": "activation",
+      "mechanism": "MOC2 encodes fructose-1,6-bisphosphatase1 for sucrose biosynthesis pathway",
+      "evidence": [
+        {
+          "doi": "10.1186/s12284-014-0032-3",
+          "title": "MOC2 encodes FBP1 in rice",
+          "authors": "Koumoto T et al.",
+          "year": 2013,
+          "journal": "Rice",
+          "evidence_sentence": "MOC2 encodes a fructose-1,6-bisphosphatase1 responsible for the sucrose biosynthesis pathway.",
+          "claim": "MOC2 drives sucrose biosynthesis",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "LAX1",
+      "target": "Tiller_Number",
+      "sign": 1,
+      "edge_id": "N059",
+      "effect": "activation",
+      "mechanism": "LAX1 bHLH TF required for axillary meristem initiation; non-cell-autonomous movement essential",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.108.065425",
+          "title": "Two-Step Regulation of LAX PANICLE1 Protein Accumulation",
+          "authors": "Oikawa T, Kyozuka J",
+          "year": 2009,
+          "journal": "Plant Cell",
+          "evidence_sentence": "LAX1 is required for AM initiation throughout plant's lifetime; lax1 mutants fail to progress into AM formation.",
+          "claim": "LAX1 activates AM formation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FON2",
+      "target": "MOC3",
+      "sign": -1,
+      "edge_id": "N060",
+      "effect": "repression",
+      "mechanism": "FON2 CLV3-like peptide restricts TAB1 expression domain via CLAVATA-like receptor signaling",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.16163",
+          "title": "Antagonistic action of TAB1 and FON2",
+          "authors": "Tanaka W et al.",
+          "year": 2020,
+          "journal": "New Phytologist",
+          "evidence_sentence": "FON2 restricts the stem cell population by moderately repressing TAB1 expression.",
+          "claim": "FON2 represses TAB1",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "MOC3",
+      "target": "FON1",
+      "sign": 1,
+      "edge_id": "N061",
+      "effect": "activation",
+      "mechanism": "MOC3 (TAB1/OsWUS) physically interacts with MOC1 to activate FON1",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/erad422",
+          "title": "Potential of rice tillering",
+          "authors": "Takai T",
+          "year": 2023,
+          "journal": "JXB",
+          "evidence_sentence": "Physical interaction between MOC1 and MOC3 can up-regulate the expression of FON1.",
+          "claim": "MOC3 activates FON1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FON1",
+      "target": "Tiller_Number",
+      "sign": 1,
+      "edge_id": "N062",
+      "effect": "activation",
+      "mechanism": "FON1 (CLAVATA1 ortholog) specifically affects tiller bud elongation; fon1 forms buds but fails to elongate",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/erad422",
+          "title": "Potential of rice tillering",
+          "authors": "Takai T",
+          "year": 2023,
+          "journal": "JXB",
+          "evidence_sentence": "fon1 mutant forms them normally but fails to elongate tiller buds.",
+          "claim": "FON1 promotes tiller elongation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BZR1",
+      "target": "TB1",
+      "sign": 1,
+      "edge_id": "N063",
+      "effect": "activation",
+      "mechanism": "OsBZR1 (BR-activated TF, stabilised by BZR1-D53 complex) directly binds OsTB1 promoter and activates OsTB1 transcription in axillary meristems; net BR-BZR1-TB1 activation manifests as BR-mediated tiller repression through canonical TB1->Tiller_Number inhibition.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2019.12.005",
+          "title": "BRASSINOSTEROID-INSENSITIVE 2-like 1 and 2 are Strigolactone Signalling Regulators Acting Downstream of D14 in Rice",
+          "authors": "Fang Z et al.",
+          "year": 2020,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "Exogenous BR stabilised the OsBZR1-D53 complex at the OsTB1 promoter and reduced tiller outgrowth. Since OsTB1 canonically represses axillary bud outgrowth (TB1->Tiller_Number -1), the phenotype is consistent with BZR1 net-activating OsTB1 in the axillary meristem.",
+          "claim": "BZR1-D53 complex activates OsTB1 in axillary meristems (phenotype-level inference)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Brassinosteroid",
+      "target": "BZR1",
+      "sign": 1,
+      "edge_id": "N064",
+      "effect": "activation",
+      "mechanism": "BR stabilizes OsBZR1 via inhibition of OsBIN2 kinase (dephosphorylated BZR1)",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2019.12.005",
+          "title": "SLs and BRs antagonistically regulate D53-OsBZR1 complex",
+          "authors": "Fang Z et al.",
+          "year": 2020,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "BR is known to stabilize the OsBZR1 protein.",
+          "claim": "BR stabilizes OsBZR1",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "ABA",
+      "target": "Tiller_Number",
+      "sign": -1,
+      "edge_id": "N065",
+      "effect": "inhibition",
+      "mechanism": "ABA promotes bud dormancy",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/erad422",
+          "title": "Potential of rice tillering",
+          "authors": "Takai T",
+          "year": 2023,
+          "journal": "JXB",
+          "evidence_sentence": "ABA involved in axillary bud dormancy and suppression of outgrowth.",
+          "claim": "ABA inhibits tillering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "DST",
+      "target": "CKX2",
+      "sign": 1,
+      "edge_id": "N066",
+      "effect": "activation",
+      "mechanism": "DST zinc finger protein binds DBS motif in OsCKX2 promoter and activates transcription; reg1 allele loses activation but retains binding",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1300359110",
+          "title": "Rice zinc finger DST controls Gn1a/OsCKX2",
+          "authors": "Li S et al.",
+          "year": 2013,
+          "journal": "PNAS",
+          "evidence_sentence": "ChIP assay confirms DST binds DBS motif in OsCKX2 promoter; DST-REG1 increases luciferase activity driven by OsCKX2 promoter.",
+          "claim": "DST activates OsCKX2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Phosphate",
+      "target": "D27",
+      "sign": -1,
+      "edge_id": "N067",
+      "effect": "repression",
+      "mechanism": "P-sufficient conditions repress SL biosynthesis genes D27, D10, D17; P-deficiency elevates them",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq084",
+          "title": "Contribution of strigolactones to tiller bud inhibition under phosphate deficiency",
+          "authors": "Umehara M et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "Under P-deficient conditions, expression levels of SL biosynthesis genes were elevated; P-deficiency elevates SL content.",
+          "claim": "P represses SL biosynthesis genes",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Phosphate",
+      "target": "D10",
+      "sign": -1,
+      "edge_id": "N068",
+      "effect": "repression",
+      "mechanism": "P deficiency elevates D10/CCD8 expression",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq084",
+          "title": "SL under phosphate deficiency",
+          "authors": "Umehara M et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "P deficiency elevates D10 expression driving SL biosynthesis.",
+          "claim": "P represses D10",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Phosphate",
+      "target": "D17",
+      "sign": -1,
+      "edge_id": "N069",
+      "effect": "repression",
+      "mechanism": "P deficiency elevates D17 expression",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq084",
+          "title": "SL under phosphate deficiency",
+          "authors": "Umehara M et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "P deficiency elevates D17 expression.",
+          "claim": "P represses D17",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Decapitation",
+      "target": "Auxin",
+      "sign": -1,
+      "edge_id": "N070",
+      "effect": "inhibition",
+      "mechanism": "Decapitation removes apical auxin source, releasing axillary buds from apical dominance",
+      "evidence": [
+        {
+          "doi": "10.1038/nature12954",
+          "title": "Sugar demand initial regulator of apical dominance",
+          "authors": "Mason MG et al.",
+          "year": 2014,
+          "journal": "Nature",
+          "evidence_sentence": "Decapitation removes apical auxin source; rapid sugar flux precedes auxin depletion at buds.",
+          "claim": "Decapitation removes auxin",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Nitrogen",
+      "target": "D10",
+      "sign": -1,
+      "edge_id": "N071",
+      "effect": "repression",
+      "mechanism": "N sufficiency represses SL biosynthesis genes D10, D17, D27",
+      "evidence": [
+        {
+          "doi": "10.1016/j.plantsci.2018.02.020",
+          "title": "Strigolactones and nitrogen in rice",
+          "authors": "Luo L et al.",
+          "year": 2018,
+          "journal": "Plant Science",
+          "evidence_sentence": "N-deficient conditions upregulate D10, D17, D27; high N represses them.",
+          "claim": "N represses D10",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Nitrogen",
+      "target": "D17",
+      "sign": -1,
+      "edge_id": "N072",
+      "effect": "repression",
+      "mechanism": "N sufficiency represses D17/HTD1 SL biosynthesis",
+      "evidence": [
+        {
+          "doi": "10.1016/j.plantsci.2018.02.020",
+          "title": "Strigolactones and nitrogen in rice",
+          "authors": "Luo L et al.",
+          "year": 2018,
+          "journal": "Plant Science",
+          "evidence_sentence": "N-deficient conditions upregulate D17; high N represses.",
+          "claim": "N represses D17",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Nitrogen",
+      "target": "D27",
+      "sign": -1,
+      "edge_id": "N073",
+      "effect": "repression",
+      "mechanism": "N sufficiency represses D27 SL biosynthesis",
+      "evidence": [
+        {
+          "doi": "10.1016/j.plantsci.2018.02.020",
+          "title": "Strigolactones and nitrogen in rice",
+          "authors": "Luo L et al.",
+          "year": 2018,
+          "journal": "Plant Science",
+          "evidence_sentence": "N-deficient conditions upregulate D27; high N represses.",
+          "claim": "N represses D27",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Light",
+      "target": "CCA1",
+      "sign": 1,
+      "edge_id": "N074",
+      "effect": "activation",
+      "mechanism": "Light signal entrains OsCCA1 expression (canonical circadian clock input)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Rice Circadian Clock Regulates Tiller Growth",
+          "authors": "Wang Q et al.",
+          "year": 2020,
+          "journal": "Plant Cell",
+          "evidence_sentence": "OsCCA1 shows morning-peak circadian expression entrained by light, and integrates sugar signaling in tiller regulation.",
+          "claim": "Light activates OsCCA1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Photoperiod",
+      "target": "PRR1",
+      "sign": 1,
+      "edge_id": "N075",
+      "effect": "activation",
+      "mechanism": "Photoperiod regulates OsPRR1 evening expression",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Rice Circadian Clock Regulates Tiller Growth",
+          "authors": "Wang Q et al.",
+          "year": 2020,
+          "journal": "Plant Cell",
+          "evidence_sentence": "OsPRR1 evening-peak expression is photoperiod-dependent in rice clock.",
+          "claim": "Photoperiod activates OsPRR1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "TAR2",
+      "target": "Auxin",
+      "sign": 1,
+      "edge_id": "N076",
+      "effect": "activation",
+      "mechanism": "OsTAR2 is TAA/TAR aminotransferase; first step of IAA biosynthesis from tryptophan to IPA",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2024.1516884",
+          "title": "Advances in rice auxin",
+          "authors": "Chandran AKN et al.",
+          "year": 2025,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "OsTAR2 catalyzes the first step of tryptophan-dependent IAA biosynthesis in rice.",
+          "claim": "OsTAR2 synthesizes auxin",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "YUCCA",
+      "target": "Auxin",
+      "sign": 1,
+      "edge_id": "N077",
+      "effect": "activation",
+      "mechanism": "OsYUCCA enzymes catalyze rate-limiting step of IAA biosynthesis (IPA to IAA)",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2024.1516884",
+          "title": "Advances in rice auxin",
+          "authors": "Chandran AKN et al.",
+          "year": 2025,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "OsYUCCAs are rate-limiting enzymes in auxin synthesis; multiple members contribute to tiller angle and architecture.",
+          "claim": "OsYUCCA synthesizes auxin",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "MOC1",
+      "target": "LAX1",
+      "sign": 1,
+      "edge_id": "N078",
+      "effect": "activation",
+      "mechanism": "MOC1 positively affects axillary meristem gene network including LAX1",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.108.065425",
+          "title": "LAX PANICLE1 regulation",
+          "authors": "Oikawa T, Kyozuka J",
+          "year": 2009,
+          "journal": "Plant Cell",
+          "evidence_sentence": "MOC1 works together with LAX1 in axillary meristem formation; lax1 moc1 double mutant shows enhanced AM suppression.",
+          "claim": "MOC1 activates LAX1 network",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Sucrose",
+      "target": "T6P",
+      "sign": 1,
+      "edge_id": "N079",
+      "effect": "activation",
+      "mechanism": "Sucrose synthesis generates trehalose-6-phosphate (T6P) signaling molecule",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.18000",
+          "title": "Branching sucrose and SL signaling",
+          "authors": "Finlayson SA",
+          "year": 2022,
+          "journal": "New Phytologist",
+          "evidence_sentence": "Mounting evidence indicates that sucrose effects on branching are mediated by trehalose-6-phosphate (T6P).",
+          "claim": "Sucrose generates T6P",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "T6P",
+      "target": "TB1",
+      "sign": -1,
+      "edge_id": "N080",
+      "effect": "repression",
+      "mechanism": "T6P signaling represses BRC1/OsTB1 expression",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.18000",
+          "title": "Sucrose SL signaling bud outgrowth",
+          "authors": "Finlayson SA",
+          "year": 2022,
+          "journal": "New Phytologist",
+          "evidence_sentence": "Sucrose/T6P signaling partially represses PsBRC1 (OsTB1 ortholog) expression in peripheral buds.",
+          "claim": "T6P represses OsTB1",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "NRT1_1B",
+      "target": "NGR5",
+      "sign": 1,
+      "edge_id": "N081",
+      "effect": "activation",
+      "mechanism": "NRT1.1B-dependent phosphorylation promotes NGR5 stability (nitrate-sensing-to-chromatin)",
+      "evidence": [
+        {
+          "doi": "10.1038/ng.3337",
+          "title": "NRT1.1B natural variation",
+          "authors": "Hu B et al.",
+          "year": 2015,
+          "journal": "Nature Genetics",
+          "evidence_sentence": "NRT1.1B natural variation in indica enhances N uptake signaling that converges on NGR5 activity.",
+          "claim": "NRT1.1B promotes NGR5 activity",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "GA20OX2",
+      "target": "Gibberellin",
+      "sign": 1,
+      "edge_id": "N082",
+      "effect": "activation",
+      "mechanism": "OsGA20ox2 (SD1) catalyzes multiple oxidation steps in GA biosynthesis",
+      "evidence": [
+        {
+          "doi": "10.1038/416701a",
+          "title": "Green revolution mutant rice",
+          "authors": "Sasaki A et al.",
+          "year": 2002,
+          "journal": "Nature",
+          "evidence_sentence": "sd1 allele is a null mutation in GA20ox2; sd1 plants have reduced GA levels.",
+          "claim": "OsGA20ox2 synthesizes GA",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "RR_TYPEA",
+      "target": "Cytokinin",
+      "sign": -1,
+      "edge_id": "N084",
+      "effect": "inhibition",
+      "mechanism": "Type-A OsRRs provide negative feedback on CK signaling",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.192765",
+          "title": "Rice cytokinin signaling",
+          "authors": "Tsai YC et al.",
+          "year": 2012,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Type-A OsRRs act as negative regulators of CK signaling (classical feedback).",
+          "claim": "Type-A RRs repress CK signaling",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Brassinosteroid",
+      "target": "DLT",
+      "sign": 1,
+      "edge_id": "N085",
+      "effect": "activation",
+      "mechanism": "BR signaling activates DLT expression/function in tiller promotion",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2009.03825.x",
+          "title": "DLT in BR signaling",
+          "authors": "Tong H et al.",
+          "year": 2009,
+          "journal": "Plant Journal",
+          "evidence_sentence": "DLT plays positive roles in brassinosteroid signaling in rice; BR pathway activates DLT.",
+          "claim": "BR activates DLT",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "NGR5",
+      "target": "IPA1",
+      "sign": -1,
+      "edge_id": "N086",
+      "effect": "repression",
+      "mechanism": "NGR5 binds IPA1/OsSPL14 promoter and recruits PRC2 complex to deposit H3K27me3 mark; ChIP-qPCR direct binding confirmed; nitrogen dose-dependent",
+      "evidence": [
+        {
+          "doi": "10.1126/science.aaz2046",
+          "title": "Enhanced sustainable green revolution yield via nitrogen-responsive chromatin modulation in rice",
+          "authors": "Wu K et al.",
+          "year": 2020,
+          "journal": "Science",
+          "evidence_sentence": "ChIP-qPCR analysis showed that NGR5 can directly bind to the promoter region of D14 and SPL14, and the binding strength increased with increasing nitrogen concentration.",
+          "claim": "NGR5 represses OsSPL14/IPA1 via H3K27me3",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Sucrose",
+      "target": "NGR5",
+      "sign": 1,
+      "edge_id": "N087",
+      "effect": "activation",
+      "mechanism": "Photosynthesis-derived sucrose activates NGR5 expression at the shoot base, providing carbon-nitrogen integration for tiller bud elongation",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19921",
+          "title": "Photosynthesis regulates tillering bud elongation and nitrogen-use efficiency via sugar-induced NGR5 in rice",
+          "authors": "Wen Z et al.",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "The expression of nitrogen-mediated tiller growth response 5 (NGR5) was remarkably decreased in shoot base of dtn1-2, which can be activated by sucrose treatment.",
+          "claim": "Sucrose activates NGR5 expression",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "DTN1",
+      "target": "Sucrose",
+      "sign": 1,
+      "edge_id": "N088",
+      "effect": "activation",
+      "mechanism": "DTN1 (Decreased Tiller Number 1) encodes fructose-1,6-bisphosphate aldolase and is required for photosynthesis and sucrose accumulation in shoot base / axillary buds",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19921",
+          "title": "Photosynthesis regulates tillering bud elongation and nitrogen-use efficiency via sugar-induced NGR5 in rice",
+          "authors": "Wen Z et al.",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "Deficiency of DTN1 results in reduced photosynthetic rate and decreased contents of sucrose and other sugars in both leaves and axillary buds.",
+          "claim": "DTN1 promotes sucrose accumulation",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "VIL2",
+      "target": "TB1",
+      "sign": -1,
+      "edge_id": "N089",
+      "effect": "repression",
+      "mechanism": "OsVIL2 chromatin-interacting factor binds OsTB1 promoter and represses OsTB1 expression via chromatin modification, releasing axillary bud outgrowth",
+      "evidence": [
+        {
+          "doi": "10.14348/molcells.2019.0141",
+          "title": "Chromatin Interacting Factor OsVIL2 Is Required for Outgrowth of Axillary Buds in Rice",
+          "authors": "Yoon J et al.",
+          "year": 2019,
+          "journal": "Molecules and Cells",
+          "evidence_sentence": "Expression of OsTB1 was increased in osvil2 mutants. ChIP assays showed that OsVIL2 binds to the promoter region of OsTB1 in wild-type rice; tiller number of double mutant osvil2 ostb1 was similar to that of ostb1 (osvil2 epistatic to ostb1).",
+          "claim": "OsVIL2 represses OsTB1 chromatin",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "GATA8",
+      "target": "TCP19",
+      "sign": -1,
+      "edge_id": "N090",
+      "effect": "repression",
+      "mechanism": "OsGATA8 transcription factor represses OsTCP19 (negative regulator of tillering), promoting productive tiller formation under N-replete conditions",
+      "evidence": [
+        {
+          "doi": "10.1038/s41588-024-01795-7",
+          "title": "The elite haplotype OsGATA8-H coordinates nitrogen uptake and productive tiller formation in rice",
+          "authors": "Wang B et al.",
+          "year": 2024,
+          "journal": "Nature Genetics",
+          "evidence_sentence": "OsGATA8 promotes tiller formation by repressing the transcription of OsTCP19, a negative modulator of tillering.",
+          "claim": "OsGATA8 represses OsTCP19",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "MAX1_1900",
+      "target": "Strigolactone",
+      "sign": 1,
+      "edge_id": "N091",
+      "effect": "activation",
+      "mechanism": "Os1900 (one of five rice MAX1-like paralogs) catalyzes carlactone-to-carlactonoic acid conversion together with Os5100; Os1900 is the N-fertilization-responsive paralog",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-023-38670-8",
+          "title": "Fertilization controls tiller numbers via transcriptional regulation of a MAX1-like gene in rice cultivation",
+          "authors": "Ito S et al.",
+          "year": 2023,
+          "journal": "Nature Communications",
+          "evidence_sentence": "Os1900 together with another MAX1-like gene, Os5100, play a critical role in controlling the conversion of carlactone into carlactonoic acid during strigolactone biosynthesis and tillering in rice.",
+          "claim": "Os1900 catalyses SL biosynthesis",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Nitrogen",
+      "target": "MAX1_1900",
+      "sign": 1,
+      "edge_id": "N092",
+      "effect": "activation",
+      "mechanism": "Fertilization (N supply) transcriptionally upregulates Os1900 promoter; promoter mutations that disrupt N-induction increase tiller numbers under low fertilizer",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-023-38670-8",
+          "title": "Fertilization controls tiller numbers via transcriptional regulation of a MAX1-like gene in rice cultivation",
+          "authors": "Ito S et al.",
+          "year": 2023,
+          "journal": "Nature Communications",
+          "evidence_sentence": "Fertilization controls tiller number in rice through transcriptional regulation of Os1900, and a few promoter mutations alone can increase tiller numbers and grain yields even under minor-fertilizer conditions.",
+          "claim": "Fertilization induces Os1900",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "MOC1",
+      "target": "MOC3",
+      "sign": 1,
+      "edge_id": "N093",
+      "effect": "activation",
+      "mechanism": "MOC1 physically interacts with MOC3 (OsWUS/TAB1) and acts as a transcriptional co-activator; MOC1 cannot bind FON1 promoter alone but cooperates with MOC3 binding",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2019.04.011",
+          "title": "Tiller Bud Formation Regulators MOC1 and MOC3 Cooperatively Promote Tiller Bud Outgrowth by Activating FON1 Expression in Rice",
+          "authors": "Lu Z et al.",
+          "year": 2019,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "MOC3 is able to directly bind the promoter of FON1 and subsequently activate FON1 expression, while MOC1 functions as a co-activator of MOC3 but could not directly bind the FON1 promoter.",
+          "claim": "MOC1 cooperates with MOC3 as co-activator",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "T20",
+      "target": "Strigolactone",
+      "sign": 1,
+      "edge_id": "N094",
+      "effect": "activation",
+      "mechanism": "T20 encodes \u00ce\u00b6-carotene isomerase (Z-ISO) acting upstream of D27 in the carotenoid pathway; required for SL precursor supply",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2020.10.001",
+          "title": "\u00ce\u00b6-Carotene Isomerase Suppresses Tillering in Rice through the Coordinated Biosynthesis of Strigolactone and Abscisic Acid",
+          "authors": "Wei H et al.",
+          "year": 2020,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "The T20 gene encodes a chloroplast \u00ce\u00b6-carotene isomerase (Z-ISO), which is involved in the biosynthesis of carotenoids and their metabolites, strigolactone (SL) and abscisic acid (ABA).",
+          "claim": "T20/Z-ISO required for SL biosynthesis",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Gibberellin",
+      "target": "GID1",
+      "sign": 1,
+      "edge_id": "N095",
+      "effect": "activation",
+      "mechanism": "GA binds GID1 nuclear receptor; GA-GID1 forms the active complex that subsequently recruits SCF-GID2 to ubiquitinate SLR1 and NGR5.",
+      "evidence": [
+        {
+          "doi": "10.1038/nature03449",
+          "title": "GIBBERELLIN INSENSITIVE DWARF1 encodes a soluble receptor for gibberellin",
+          "authors": "Ueguchi-Tanaka M et al.",
+          "year": 2005,
+          "journal": "Nature",
+          "evidence_sentence": "GID1 is a soluble gibberellin receptor; GA-GID1 complex is required for downstream DELLA protein degradation.",
+          "claim": "GA activates GID1 receptor for downstream signalling",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "GID1",
+      "target": "SLR1",
+      "sign": -1,
+      "edge_id": "N096",
+      "effect": "inhibition",
+      "mechanism": "GA-GID1 complex promotes SLR1 (rice DELLA) interaction with F-box SCF-GID2 for polyubiquitination and 26S proteasomal degradation.",
+      "evidence": [
+        {
+          "doi": "10.1038/nature03449",
+          "title": "GIBBERELLIN INSENSITIVE DWARF1 encodes a soluble receptor for gibberellin",
+          "authors": "Ueguchi-Tanaka M et al.",
+          "year": 2005,
+          "journal": "Nature",
+          "evidence_sentence": "GID1 is a soluble GA receptor; GA-GID1 complex promotes SLR1 interaction with F-box SCF-GID2 for degradation.",
+          "claim": "GID1-mediated SLR1 degradation requires GA binding",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "GID1",
+      "target": "NGR5",
+      "sign": -1,
+      "edge_id": "N097",
+      "effect": "inhibition",
+      "mechanism": "GA-GID1 complex directly targets NGR5 (Nitrogen-mediated tiller Growth Response 5) for 26S proteasomal degradation, coupling GA signalling to N-responsive tiller-promoting transcription.",
+      "evidence": [
+        {
+          "doi": "10.1126/science.aaz2046",
+          "title": "Enhanced sustainable green revolution yield via nitrogen-responsive chromatin modulation in rice",
+          "authors": "Wu K et al.",
+          "year": 2020,
+          "journal": "Science",
+          "evidence_sentence": "GA receptor GID1 targets NGR5 for proteolysis by the 26S proteasome.",
+          "claim": "GA-GID1 degrades NGR5 parallel to SLR1",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Auxin",
+      "target": "TIR1",
+      "sign": 1,
+      "edge_id": "N098",
+      "effect": "activation",
+      "mechanism": "Auxin (IAA) binds the TIR1/OsAFB F-box receptor in the SCF-TIR1 complex; IAA-TIR1 then ubiquitinates OsIAA repressors for proteasomal degradation. Represented as activating edge onto TIR1 to gate all auxin transcriptional effects.",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2024.1516884",
+          "title": "Advances in auxin synthesis, transport, and signaling in rice",
+          "authors": "Chandran AKN et al.",
+          "year": 2025,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "TIR1/OsAFB family members are auxin receptors that exhibit partial redundancy in regulating yield, tillering, and plant height.",
+          "claim": "Auxin activates TIR1 receptor for auxin signalling",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "TIR1",
+      "target": "D10",
+      "sign": 1,
+      "edge_id": "N099",
+      "effect": "activation",
+      "mechanism": "Summary edge: active TIR1 derepresses OsIAA-OsARF axis; derepressed OsARFs bind D10 (CCD8) promoter to promote SL biosynthesis gene transcription. Collapsed through TIR1 to avoid proliferating OsIAA/OsARF intermediates that the curated set does not fully specify.",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2024.1516884",
+          "title": "Advances in auxin synthesis, transport, and signaling in rice",
+          "authors": "Chandran AKN et al.",
+          "year": 2025,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "Auxin-TIR1 signalling promotes expression of SL biosynthesis genes (D10, D17) through OsARF-mediated transcription.",
+          "claim": "Auxin signalling activates D10 transcription via TIR1-IAA-ARF",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "TIR1",
+      "target": "D17",
+      "sign": 1,
+      "edge_id": "N100",
+      "effect": "activation",
+      "mechanism": "Summary edge: active TIR1 derepresses OsIAA-OsARF; OsARFs activate D17 (CCD7, HTD1) transcription. Auxin's SL-biosynthesis upregulation routed through TIR1 to preserve Perception Gate purity.",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2024.1516884",
+          "title": "Advances in auxin synthesis, transport, and signaling in rice",
+          "authors": "Chandran AKN et al.",
+          "year": 2025,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "Auxin-TIR1 signalling promotes SL biosynthesis gene transcription including D17.",
+          "claim": "Auxin signalling activates D17 via TIR1-IAA-ARF",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "TIR1",
+      "target": "IPT",
+      "sign": -1,
+      "edge_id": "N101",
+      "effect": "inhibition",
+      "mechanism": "Summary edge: active TIR1 degrades OsIAA, releasing OsARFs; auxin-responsive OsARFs repress IPT (CK biosynthesis) transcription. Classic apical-auxin-represses-CK-biosynthesis mechanism routed through TIR1.",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2024.1516884",
+          "title": "Advances in auxin synthesis, transport, and signaling in rice",
+          "authors": "Chandran AKN et al.",
+          "year": 2025,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "Apical auxin represses cytokinin biosynthesis by inhibiting IPT through TIR1-dependent signalling.",
+          "claim": "Auxin signalling represses IPT via TIR1-IAA-ARF",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "AHP",
+      "target": "RR_TYPEA",
+      "sign": 1,
+      "edge_id": "N102",
+      "effect": "activation",
+      "mechanism": "Canonical two-component phosphorelay: AHP (histidine phosphotransfer) phosphorylates type-A RRs, which accumulate as primary CK-response transcriptional targets. Replaces direct Cytokinin->RR_TYPEA bypass.",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.192765",
+          "title": "Characterization of rice cytokinin signalling genes",
+          "authors": "Tsai YC et al.",
+          "year": 2012,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Most type-A OsRR genes are rapidly upregulated by cytokinin (peak 30-60 min) via the AHP-RR phosphorelay.",
+          "claim": "CK signalling phosphorelay induces type-A RRs via AHP",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "IPA1",
+      "target": "LOG",
+      "sign": 1,
+      "edge_id": "N103",
+      "effect": "activation",
+      "mechanism": "IPA1 directly binds OsLOG promoter and first intron to activate LOG (cytokinin-activating enzyme / lonely guy) transcription.",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.113.113639",
+          "title": "Genome-wide binding analysis of the transcription activator IPA1/SPL14 reveals a coupling between IPA1 and an upregulation of leaf and tiller development genes",
+          "authors": "Lu Z et al.",
+          "year": 2013,
+          "journal": "Plant Cell",
+          "evidence_sentence": "EMSA assays confirmed that IPA1 could directly target the promoter or first intron of LOG.",
+          "claim": "IPA1 transcriptionally activates LOG",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "IPA1",
+      "target": "HK4",
+      "sign": 1,
+      "edge_id": "N104",
+      "effect": "activation",
+      "mechanism": "IPA1 activates OsHK4 via binding TGGGCC motif in its promoter with TCP co-factors PCF1/PCF2; forms IPA1-HK4 positive feedback arm of CK signalling.",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koad257",
+          "title": "Cytokinin receptor OsHK4 regulates inflorescence architecture via IPA1-mediated positive feedback",
+          "authors": "Chun Y et al.",
+          "year": 2023,
+          "journal": "Plant Cell",
+          "evidence_sentence": "IPA1 upregulates expression through interactions with two TCP transcription factors, binding TGGGCC motifs in the OsHK4 promoter via PCF1/PCF2 heterotrimers.",
+          "claim": "IPA1 transcriptionally activates HK4 forming positive CK-receptor feedback",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "HOX12",
+      "target": "NCED1",
+      "sign": 1,
+      "edge_id": "N105",
+      "effect": "activation",
+      "mechanism": "HOX12 homeodomain-leucine-zipper TF directly induces OsNCED1 expression to drive ABA biosynthesis in shoot base; part of SL-induced parallel ABA-mediated tillering-repression arm.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2020.10.001",
+          "title": "zeta-Carotene Isomerase Suppresses Tillering in Rice through the Coordinated Biosynthesis of Strigolactone and Abscisic Acid",
+          "authors": "Wei H et al.",
+          "year": 2020,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "rac-GR24 stimulated expression of OsNCED1 through induction of HOX12, promoting ABA biosynthesis in shoot base.",
+          "claim": "HOX12 transactivates OsNCED1 for ABA biosynthesis",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "NCED1",
+      "target": "ABA",
+      "sign": 1,
+      "edge_id": "N106",
+      "effect": "activation",
+      "mechanism": "OsNCED1 (9-cis-epoxycarotenoid dioxygenase 1) catalyses the rate-limiting cleavage of 9-cis-xanthophyll to xanthoxin in ABA biosynthesis.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2020.10.001",
+          "title": "zeta-Carotene Isomerase Suppresses Tillering in Rice through the Coordinated Biosynthesis of Strigolactone and Abscisic Acid",
+          "authors": "Wei H et al.",
+          "year": 2020,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "NCED1 encodes an ABA biosynthesis enzyme; HOX12 directly transactivates OsNCED1 promoter driving ABA production that negatively regulates tillering.",
+          "claim": "NCED1 catalyses ABA biosynthesis rate-limiting step",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "ABA",
+      "target": "D10",
+      "sign": -1,
+      "edge_id": "N107",
+      "effect": "inhibition",
+      "mechanism": "ABA represses SL biosynthesis genes including D10 (and D17, D27) via transcriptional downregulation; ABA biosynthetic mutants (aba1, aba2) show elevated SL biosynthesis, producing negative ABA-to-SL feedback.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2020.10.001",
+          "title": "zeta-Carotene Isomerase Suppresses Tillering in Rice through the Coordinated Biosynthesis of Strigolactone and Abscisic Acid",
+          "authors": "Wei H et al.",
+          "year": 2020,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "ABA treatment significantly repressed SL biosynthesis and ABA biosynthetic mutants displayed elevated SL biosynthesis.",
+          "claim": "ABA represses SL biosynthesis gene D10",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "HK4",
+      "target": "TB1",
+      "sign": -1,
+      "edge_id": "N108",
+      "effect": "repression",
+      "mechanism": "OsHK4 CK receptor phosphorelay activates B-type response regulator OsRR21 which binds OsTB1 promoter and represses transcription in axillary meristem; ohk4 LOF de-represses OsTB1 -> reduced tillering",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koad257",
+          "title": "Cytokinin receptor OHK4/OsHK4 regulates inflorescence architecture and tiller number through the IPA1-HK4 feedback module",
+          "authors": "Chun Y et al.",
+          "year": 2023,
+          "journal": "Plant Cell",
+          "evidence_sentence": "ohk4 mutants exhibited reduced tiller numbers and de-repressed OsTB1 expression in axillary meristems; OsHK4 signalling through type-B response regulators represses OsTB1 transcription.",
+          "claim": "OsHK4 CK signalling represses OsTB1 transcription in axillary meristem",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "RR21",
+      "target": "TB1",
+      "sign": -1,
+      "edge_id": "N109",
+      "effect": "repression",
+      "mechanism": "OsRR21 type-B response regulator (downstream of OsHK4 phosphorelay) binds OsTB1 promoter and represses transcription in axillary meristem, providing the CK-signalling branch parallel to the direct HK4->TB1 repression.",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koad257",
+          "title": "Cytokinin receptor OHK4/OsHK4 regulates inflorescence architecture via IPA1-mediated positive feedback",
+          "authors": "Chun Y et al.",
+          "year": 2023,
+          "journal": "Plant Cell",
+          "evidence_sentence": "OsRR21 (type-B RR downstream of OsHK4) binds the OsTB1 promoter and represses OsTB1 transcription in the axillary meristem; osrr21 single mutants exhibited reduced tillers consistent with OsTB1 de-repression.",
+          "claim": "OsRR21 directly represses OsTB1 transcription",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    }
+  ]
+}

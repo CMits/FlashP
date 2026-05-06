@@ -1,0 +1,2697 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Seed_Size",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "total_perturbations": 122,
+    "convention": "Direction refers to seed size change (increased/decreased/unchanged) compared to wild-type. Seed weight, seed area, seed length, 1000-seed weight all map to Seed_Size phenotype. Rescue experiments use mutant baseline."
+  },
+  "direction_threshold": 0.05,
+  "perturbations": [
+    {
+      "test_id": "T001",
+      "gene": "DA1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "da1-1 gain-of-function allele (dominant-negative)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.113.115063",
+          "title": "DA1-DA2",
+          "authors": "Xia T et al.",
+          "year": 2013,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "da1-1 mutant forms large seeds",
+          "claim": "da1 KO enlarges seeds",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T002",
+      "gene": "DA2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "da2-1 homozygous",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.113.115063",
+          "title": "DA1-DA2",
+          "authors": "Xia T et al.",
+          "year": 2013,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "Seeds produced by da2-1 were larger and heavier than wild-type seeds",
+          "claim": "da2 KO enlarges seeds",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T003",
+      "gene": "DA2",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "35S:DA2",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.113.115063",
+          "title": "DA1-DA2",
+          "authors": "Xia T et al.",
+          "year": 2013,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "overexpression of DA2 causes decreases in seed size and seed yield",
+          "claim": "DA2 OE smaller seeds",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T004",
+      "gene": "DA1 DA2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "da1-1 da2-1 synergistic",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.113.115063",
+          "title": "DA1-DA2",
+          "authors": "Xia T et al.",
+          "year": 2013,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "da2-1 mutation synergistically enhanced seed size and weight phenotypes of da1-1",
+          "claim": "da1 da2 synergy",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T005",
+      "gene": "EOD1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "eod1-2 (bb) enhanced by da1-1",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.113.115063",
+          "title": "DA1-DA2",
+          "authors": "Xia T et al.",
+          "year": 2013,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "eod1 mutations synergistically enhanced seed size phenotype of da1-1",
+          "claim": "eod1 KO larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T006",
+      "gene": "DA1 EOD1",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "da1-1 eod1-2 (Xia 2013)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.113.115063",
+          "title": "DA1-DA2",
+          "authors": "Xia T et al.",
+          "year": 2013,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "synergistic enhancement of seed size phenotype with da1-1 background",
+          "claim": "da1 eod1 synergy",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T007",
+      "gene": "UBP15",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "ubp15-1 / sod2-1",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.122663",
+          "title": "DA1-UBP15",
+          "authors": "Du L et al.",
+          "year": 2014,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "Seeds from ubp15-1 plants were significantly smaller and lighter than wild-type",
+          "claim": "ubp15 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T008",
+      "gene": "UBP15",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "35S:UBP15 / gUBP15",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.122663",
+          "title": "DA1-UBP15",
+          "authors": "Du L et al.",
+          "year": 2014,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "gUBP15 transgenic plants formed larger and heavier seeds",
+          "claim": "UBP15 OE larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T009",
+      "gene": "UBP15 DA1",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "ubp15-1 da1-1 (epistatic)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.122663",
+          "title": "DA1-UBP15",
+          "authors": "Du L et al.",
+          "year": 2014,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "ubp15-1 is epistatic to da1-1 with respect to seed size",
+          "claim": "ubp15 epistatic to da1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T010",
+      "gene": "KLUH",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "klu-2",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0907024106",
+          "title": "KLUH",
+          "authors": "Adamski NM et al.",
+          "year": 2009,
+          "journal": "PNAS",
+          "evidence_sentence": "Seeds from klu-2 mutants 13% lighter and 16% smaller than WT",
+          "claim": "klu KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T011",
+      "gene": "KLUH",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "pINO::KLU outer integument-driven",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0907024106",
+          "title": "KLUH",
+          "authors": "Adamski NM et al.",
+          "year": 2009,
+          "journal": "PNAS",
+          "evidence_sentence": "pINO::KLU caused strong increase in seed size and weight (30% and 44%)",
+          "claim": "KLU OE larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T012",
+      "gene": "CYP78A9",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "species": "Arabidopsis thaliana",
+      "condition": "cyp78a9",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0907024106",
+          "title": "KLUH",
+          "authors": "Adamski NM et al.",
+          "year": 2009,
+          "journal": "PNAS",
+          "evidence_sentence": "Loss of CYP78A9 function reduces seed size",
+          "claim": "cyp78a9 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T013",
+      "gene": "KLUH CYP78A9",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "klu-2 cyp78a9 (additive)",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0907024106",
+          "title": "KLUH",
+          "authors": "Adamski NM et al.",
+          "year": 2009,
+          "journal": "PNAS",
+          "evidence_sentence": "double mutant seeds showed a purely additive phenotype",
+          "claim": "klu cyp78a9 additive",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T014",
+      "gene": "CYP78A6",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "species": "Arabidopsis thaliana",
+      "condition": "eod3-1 / cyp78a6",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms241310666",
+          "title": "Seed size network review",
+          "authors": "Zhang J et al.",
+          "year": 2023,
+          "journal": "IJMS",
+          "evidence_sentence": "CYP78A6 (EOD3) and CYP78A9 redundantly regulate seed size",
+          "claim": "cyp78a6 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T015",
+      "gene": "CYP78A6 CYP78A9",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "eod3 cyp78a9",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms241310666",
+          "title": "Seed size network",
+          "authors": "Zhang J et al.",
+          "year": 2023,
+          "journal": "IJMS",
+          "evidence_sentence": "synergistic enhancement of cyp78a6 seed size phenotype in cyp78a9 background",
+          "claim": "eod3 cyp78a9 synergy",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T016",
+      "gene": "KLUH TTG2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "klu-2 ttg2-1",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0907024106",
+          "title": "KLUH",
+          "authors": "Adamski NM et al.",
+          "year": 2009,
+          "journal": "PNAS",
+          "evidence_sentence": "klu-2 ttg2-1 double mutants significantly smaller than either single mutant",
+          "claim": "klu ttg2 synergy",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T017",
+      "gene": "AP2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "ap2-7 (strong loss-of-function)",
+      "evidence": [
+        {
+          "doi": "10.1007/s00497-009-0116-1",
+          "title": "AP2 effects",
+          "authors": "Ohto MA et al.",
+          "year": 2009,
+          "journal": "Sex Plant Reprod",
+          "evidence_sentence": "ap2 mutants produce larger seeds than wild type",
+          "claim": "ap2 KO larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T018",
+      "gene": "ARF2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "arf2-6 or arf2-7",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.02331",
+          "title": "ARF2",
+          "authors": "Schruff MC et al.",
+          "year": 2006,
+          "journal": "Development",
+          "evidence_sentence": "arf2 mutants produced 31-44% bigger seeds than wild-type",
+          "claim": "arf2 KO larger",
+          "verification": "pubmed_crosschecked",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "test_id": "T019",
+      "gene": "TTG2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "ttg2-1 sporophytic",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0907024106",
+          "title": "KLUH",
+          "authors": "Adamski NM et al.",
+          "year": 2009,
+          "journal": "PNAS",
+          "evidence_sentence": "ttg2 acts maternally to promote cell expansion in integuments; mutant restricts integument elongation",
+          "claim": "ttg2 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T020",
+      "gene": "ANT",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "ant-1",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.161088",
+          "title": "ANT",
+          "authors": "Klucher KM et al.",
+          "year": 1996,
+          "journal": "Plant Cell",
+          "evidence_sentence": "ant mutants reduction in floral organ size, abnormal integument development",
+          "claim": "ant KO smaller",
+          "verification": "pubmed_crosschecked",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "test_id": "T021",
+      "gene": "ANT",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "35S:ANT",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms232113256",
+          "title": "Genetic engineering seed size",
+          "authors": "Tripathi RK et al.",
+          "year": 2022,
+          "journal": "IJMS",
+          "evidence_sentence": "Plants with higher expression of ANT produced larger seeds",
+          "claim": "ANT OE larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T022",
+      "gene": "GAI",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "gai-1 stable DELLA",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.201853",
+          "title": "DELLA",
+          "authors": "Gomez MD et al.",
+          "year": 2023,
+          "journal": "Development",
+          "evidence_sentence": "gai-1 ~25% larger seeds, ~42% increased weight",
+          "claim": "gai-1 larger seeds",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T023",
+      "gene": "RGA",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "rga-delta17",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.201853",
+          "title": "DELLA",
+          "authors": "Gomez MD et al.",
+          "year": 2023,
+          "journal": "Development",
+          "evidence_sentence": "rga-delta17 larger seeds",
+          "claim": "rga-delta17 larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T024",
+      "gene": "RGL1",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "species": "Arabidopsis thaliana",
+      "condition": "rgl1-delta17",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.201853",
+          "title": "DELLA",
+          "authors": "Gomez MD et al.",
+          "year": 2023,
+          "journal": "Development",
+          "evidence_sentence": "rgl1-delta17 slightly larger seeds",
+          "claim": "rgl1-delta17 larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T025",
+      "gene": "RGL2",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "rgl2-delta17",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.201853",
+          "title": "DELLA",
+          "authors": "Gomez MD et al.",
+          "year": 2023,
+          "journal": "Development",
+          "evidence_sentence": "rgl2-delta17 larger seeds",
+          "claim": "rgl2-delta17 larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T026",
+      "gene": "GAI",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "gaiT6 loss-of-function",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.201853",
+          "title": "DELLA",
+          "authors": "Gomez MD et al.",
+          "year": 2023,
+          "journal": "Development",
+          "evidence_sentence": "gaiT6 significantly smaller seeds",
+          "claim": "gaiT6 smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T027",
+      "gene": "RGL1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "species": "Arabidopsis thaliana",
+      "condition": "rgl1-1",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.201853",
+          "title": "DELLA",
+          "authors": "Gomez MD et al.",
+          "year": 2023,
+          "journal": "Development",
+          "evidence_sentence": "rgl1-1 smaller seeds",
+          "claim": "rgl1 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T028",
+      "gene": "RGL2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "rgl2-1",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.201853",
+          "title": "DELLA",
+          "authors": "Gomez MD et al.",
+          "year": 2023,
+          "journal": "Development",
+          "evidence_sentence": "rgl2-1 smaller seeds",
+          "claim": "rgl2 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T029",
+      "gene": "GID1A",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "gid1a (DELLA stabilized)",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.201853",
+          "title": "DELLA",
+          "authors": "Gomez MD et al.",
+          "year": 2023,
+          "journal": "Development",
+          "evidence_sentence": "gid1a seeds larger than wild-type",
+          "claim": "gid1a larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T030",
+      "gene": "GID1B",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "gid1b",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.201853",
+          "title": "DELLA",
+          "authors": "Gomez MD et al.",
+          "year": 2023,
+          "journal": "Development",
+          "evidence_sentence": "gid1b seeds larger than wild-type",
+          "claim": "gid1b larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T031",
+      "gene": "Paclobutrazol",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "PBZ inhibits GA biosynthesis, stabilizes DELLA",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.201853",
+          "title": "DELLA",
+          "authors": "Gomez MD et al.",
+          "year": 2023,
+          "journal": "Development",
+          "evidence_sentence": "Seeds of plants treated with PBZ were larger than any gain-of-function mutants",
+          "claim": "PBZ larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T032",
+      "gene": "SOD7",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "sod7-1",
+      "evidence": [
+        {
+          "doi": "10.1038/s41438-019-0187-6",
+          "title": "DPA4 SOD7",
+          "authors": "Fiume E et al.",
+          "year": 2019,
+          "journal": "Horticulture Research",
+          "evidence_sentence": "sod7 mutants produce larger seeds than wild-type",
+          "claim": "sod7 KO larger",
+          "verification": "pubmed_crosschecked",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "test_id": "T033",
+      "gene": "DPA4",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "species": "Arabidopsis thaliana",
+      "condition": "dpa4-1",
+      "evidence": [
+        {
+          "doi": "10.1038/s41438-019-0187-6",
+          "title": "DPA4 SOD7",
+          "authors": "Fiume E et al.",
+          "year": 2019,
+          "journal": "Horticulture Research",
+          "evidence_sentence": "dpa4 loss-of-function increases seed size redundantly with sod7",
+          "claim": "dpa4 KO larger",
+          "verification": "pubmed_crosschecked",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "test_id": "T034",
+      "gene": "SOD7 DPA4",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "sod7 dpa4",
+      "evidence": [
+        {
+          "doi": "10.1038/s41438-019-0187-6",
+          "title": "DPA4 SOD7",
+          "authors": "Fiume E et al.",
+          "year": 2019,
+          "journal": "Horticulture Research",
+          "evidence_sentence": "sod7 dpa4 double mutants show strongly increased seed size",
+          "claim": "sod7 dpa4 synergy",
+          "verification": "pubmed_crosschecked",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "test_id": "T035",
+      "gene": "SHB1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "shb1 loss-of-function",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.108.064972",
+          "title": "SHB1",
+          "authors": "Zhou Y et al.",
+          "year": 2009,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "shb1 loss-of-function reduces seed size by ~15%",
+          "claim": "shb1 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T036",
+      "gene": "SHB1",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "shb1-D dominant",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.108.064972",
+          "title": "SHB1",
+          "authors": "Zhou Y et al.",
+          "year": 2009,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "shb1-D enhanced MINI3 and IKU2 expression 10-fold; seed size 1.5-1.7 fold",
+          "claim": "shb1-D larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T037",
+      "gene": "MINI3",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "mini3-1",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0508418102",
+          "title": "MINI3 IKU2",
+          "authors": "Luo M et al.",
+          "year": 2005,
+          "journal": "PNAS",
+          "evidence_sentence": "mini3-1 seed weight 11.8 mg/1000 vs WT 20.25 mg/1000",
+          "claim": "mini3 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T038",
+      "gene": "IKU2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "iku2-3",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0508418102",
+          "title": "MINI3 IKU2",
+          "authors": "Luo M et al.",
+          "year": 2005,
+          "journal": "PNAS",
+          "evidence_sentence": "iku2-3 seed weight 10.08 mg/1000 vs WT 20.25 mg/1000",
+          "claim": "iku2 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T039",
+      "gene": "IKU2",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "35S:IKU2",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms241310666",
+          "title": "Seed size network",
+          "authors": "Zhang J et al.",
+          "year": 2023,
+          "journal": "IJMS",
+          "evidence_sentence": "overexpression of IKU2 led to increase in seed size",
+          "claim": "IKU2 OE larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T040",
+      "gene": "MINI3 IKU2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "mini3-1 iku2-3",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0508418102",
+          "title": "MINI3 IKU2",
+          "authors": "Luo M et al.",
+          "year": 2005,
+          "journal": "PNAS",
+          "evidence_sentence": "mini3-1/iku2-3 seed weight 10.58 mg/1000",
+          "claim": "mini3 iku2 small",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T041",
+      "gene": "IKU1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "iku1-1",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0508418102",
+          "title": "MINI3 IKU2",
+          "authors": "Luo M et al.",
+          "year": 2005,
+          "journal": "PNAS",
+          "evidence_sentence": "iku1-1 small seeds; MINI3 and IKU2 expression reduced",
+          "claim": "iku1 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T042",
+      "gene": "IKU1 IKU2 MINI3",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "iku1 iku2 mini3",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0508418102",
+          "title": "MINI3 IKU2",
+          "authors": "Luo M et al.",
+          "year": 2005,
+          "journal": "PNAS",
+          "evidence_sentence": "all three act in same pathway; triple mutant severely reduced seed size",
+          "claim": "triple KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T043",
+      "gene": "RAV1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "35S:RAV1 / RAV1OE",
+      "evidence": [
+        {
+          "doi": "10.14348/molcells.2018.0259",
+          "title": "RAV1",
+          "authors": "Shin HY, Nam KH",
+          "year": 2018,
+          "journal": "Mol Cells",
+          "evidence_sentence": "RAV1OE produces ~40% reduction in seed size; >45% malformed",
+          "claim": "RAV1 OE smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T044",
+      "gene": "RAV1",
+      "perturbation_type": "knockout",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "species": "Arabidopsis thaliana",
+      "condition": "rav1",
+      "evidence": [
+        {
+          "doi": "10.14348/molcells.2018.0259",
+          "title": "RAV1",
+          "authors": "Shin HY, Nam KH",
+          "year": 2018,
+          "journal": "Mol Cells",
+          "evidence_sentence": "rav1 mutant seed phenotype similar to wild-type",
+          "claim": "rav1 KO unchanged",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T045",
+      "gene": "LAC2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "species": "Arabidopsis thaliana",
+      "condition": "lac2",
+      "evidence": [
+        {
+          "doi": "10.3390/genes15081040",
+          "title": "WRKY10 LAC2",
+          "authors": "Guo W et al.",
+          "year": 2024,
+          "journal": "Genes",
+          "evidence_sentence": "lac2 mutants produce slightly larger seeds",
+          "claim": "lac2 KO larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T046",
+      "gene": "LAC2",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "species": "Arabidopsis thaliana",
+      "condition": "pFWA::LAC2",
+      "evidence": [
+        {
+          "doi": "10.3390/genes15081040",
+          "title": "WRKY10 LAC2",
+          "authors": "Guo W et al.",
+          "year": 2024,
+          "journal": "Genes",
+          "evidence_sentence": "pFWA::LAC2 slightly reduced seeds vs WT",
+          "claim": "LAC2 OE smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T047",
+      "gene": "MINI3 LAC2",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "mini3 lac2 rescue; baseline mini3",
+      "evidence": [
+        {
+          "doi": "10.3390/genes15081040",
+          "title": "WRKY10 LAC2",
+          "authors": "Guo W et al.",
+          "year": 2024,
+          "journal": "Genes",
+          "evidence_sentence": "mini3 lac2 partially rescued larger than mini3 alone",
+          "claim": "lac2 rescues mini3",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T048",
+      "gene": "AIF2",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "AIF2ox",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms241310666",
+          "title": "Seed size network",
+          "authors": "Zhang J et al.",
+          "year": 2023,
+          "journal": "IJMS",
+          "evidence_sentence": "SHB1/IKU1/MINI3 suppressed in AIF2ox; decreased seed number/size",
+          "claim": "AIF2 OE smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T049",
+      "gene": "MEA",
+      "perturbation_type": "heterozygous",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "mea/+ maternal (enlarged then abort)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.047266",
+          "title": "Endosperm seed coat",
+          "authors": "Ingouff M et al.",
+          "year": 2006,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "mea/+ produces autonomous/enlarged seeds",
+          "claim": "mea/+ larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T050",
+      "gene": "FIE",
+      "perturbation_type": "heterozygous",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "fie/+ maternal",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1305175110",
+          "title": "CK seed size",
+          "authors": "Li J et al.",
+          "year": 2013,
+          "journal": "PNAS",
+          "evidence_sentence": "FIEcos plants produced seeds larger than WT",
+          "claim": "fie/+ larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T051",
+      "gene": "FIS2",
+      "perturbation_type": "heterozygous",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "fis2/+ maternal",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.047266",
+          "title": "Endosperm seed coat",
+          "authors": "Ingouff M et al.",
+          "year": 2006,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "fis2 mutant autonomous endosperm; enlarged when viable",
+          "claim": "fis2/+ larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T052",
+      "gene": "MSI1",
+      "perturbation_type": "heterozygous",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "msi1/+ maternal",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.047266",
+          "title": "Endosperm seed coat",
+          "authors": "Ingouff M et al.",
+          "year": 2006,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "msi1 produces autonomous endosperm/enlarged seeds",
+          "claim": "msi1/+ larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T053",
+      "gene": "AHK2 AHK3 CRE1",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "ahk2 ahk3 cre1 cytokinin receptor triple",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1305175110",
+          "title": "CK seed size",
+          "authors": "Li J et al.",
+          "year": 2013,
+          "journal": "PNAS",
+          "evidence_sentence": "cre1 ahk2 ahk3 produces seeds larger than WT",
+          "claim": "CK receptor triple larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T054",
+      "gene": "CKX3 CKX5",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "ckx3 ckx5",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.079079",
+          "title": "CK meristems",
+          "authors": "Bartrina I et al.",
+          "year": 2011,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "ckx3 ckx5 seed yield increased 55%; siliques up to 110 seeds vs 65 WT",
+          "claim": "ckx3 ckx5 larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T055",
+      "gene": "CKX3 CKX5 AHP6",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "ckx3 ckx5 ahp6",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.079079",
+          "title": "CK",
+          "authors": "Bartrina I et al.",
+          "year": 2011,
+          "journal": "Plant Cell",
+          "evidence_sentence": "ckx3 ckx5 ahp6 triple mutants had 23% more siliques vs ckx3 ckx5",
+          "claim": "triple larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T056",
+      "gene": "YUC10",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "yuc10",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.20542",
+          "title": "Endosperm auxin",
+          "authors": "Figueiredo DD et al.",
+          "year": 2016,
+          "journal": "eLife",
+          "evidence_sentence": "YUC10 loss reduces endosperm auxin and seed coat development",
+          "claim": "yuc10 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T057",
+      "gene": "YUC10 YUC11",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "yuc10 yuc11",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.20542",
+          "title": "Endosperm auxin",
+          "authors": "Figueiredo DD et al.",
+          "year": 2016,
+          "journal": "eLife",
+          "evidence_sentence": "double yuc10 yuc11 compromises post-fertilization auxin production",
+          "claim": "yuc10 yuc11 smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T058",
+      "gene": "AGL62",
+      "perturbation_type": "heterozygous",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "agl62-2/+",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.20542",
+          "title": "Endosperm auxin seed coat",
+          "authors": "Figueiredo DD et al.",
+          "year": 2016,
+          "journal": "eLife",
+          "evidence_sentence": "agl62 shows seed abortion ~3-4 DAP; seed coat fails to develop",
+          "claim": "agl62 heterozygous smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T059",
+      "gene": "DET2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "det2 BR-deficient",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.113.217703",
+          "title": "BR seed size",
+          "authors": "Jiang WB et al.",
+          "year": 2013,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "det2 seeds 17% lighter than wild-type",
+          "claim": "det2 smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T060",
+      "gene": "DWF4",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "dwf4",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.113.217703",
+          "title": "BR seed size",
+          "authors": "Jiang WB et al.",
+          "year": 2013,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "dwf4 seeds 17% lighter than wild-type",
+          "claim": "dwf4 smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T061",
+      "gene": "BRI1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "bri1-5 weak allele",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.113.217703",
+          "title": "BR seed size",
+          "authors": "Jiang WB et al.",
+          "year": 2013,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "bri1-5 seeds ~10% lighter than wild-type",
+          "claim": "bri1-5 smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T062",
+      "gene": "BZR1",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "species": "Arabidopsis thaliana",
+      "condition": "bzr1-1D dominant",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.113.217703",
+          "title": "BR seed size",
+          "authors": "Jiang WB et al.",
+          "year": 2013,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "bzr1-1D seeds not bigger or heavier than wild type",
+          "claim": "bzr1-1D unchanged",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T063",
+      "gene": "AP2 DET2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "ap2 det2; baseline det2",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.113.217703",
+          "title": "BR seed size",
+          "authors": "Jiang WB et al.",
+          "year": 2013,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "ap2 suppressed small-seed phenotype of det2; ap2-6 dramatically heavier",
+          "claim": "ap2 suppresses det2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T064",
+      "gene": "ARF2 DET2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "arf2-8 det2",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.113.217703",
+          "title": "BR seed size",
+          "authors": "Jiang WB et al.",
+          "year": 2013,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "arf2-8 det2 notably larger like arf2-8 alone",
+          "claim": "arf2 suppresses det2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T065",
+      "gene": "MINI3 DET2",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "35S:MINI3 in det2 background",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.113.217703",
+          "title": "BR seed size",
+          "authors": "Jiang WB et al.",
+          "year": 2013,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "MINI3 overexpression in det2 resulted in obviously heavier seeds",
+          "claim": "MINI3 rescues det2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T066",
+      "gene": "BIN2",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "bin2-1 dominant active",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.172510499",
+          "title": "BIN2 BZR1",
+          "authors": "He JX et al.",
+          "year": 2002,
+          "journal": "PNAS",
+          "evidence_sentence": "bin2-1 constitutively phosphorylates BZR1/BES1; BR signaling impaired",
+          "claim": "bin2-1 smaller",
+          "verification": "pubmed_crosschecked",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "test_id": "T067",
+      "gene": "AXR1",
+      "perturbation_type": "knockout",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "species": "Arabidopsis thaliana",
+      "condition": "axr1-12 auxin signaling mutant",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.20542",
+          "title": "Endosperm auxin",
+          "authors": "Figueiredo DD et al.",
+          "year": 2016,
+          "journal": "eLife",
+          "evidence_sentence": "axr1-12/+ axl-1 seeds develop normal seed coat (auxin signaling not required in endosperm)",
+          "claim": "axr1 unchanged seed coat",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T068",
+      "gene": "YUC6",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "yuc6-2D gain-of-function",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.20542",
+          "title": "Endosperm auxin",
+          "authors": "Figueiredo DD et al.",
+          "year": 2016,
+          "journal": "eLife",
+          "evidence_sentence": "yuc6-2D 50% autonomous seed coat development",
+          "claim": "yuc6-2D larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T069",
+      "gene": "ABI5",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "abi5",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.113.121566",
+          "title": "ABA ABI5 SHB1",
+          "authors": "Cheng ZJ et al.",
+          "year": 2014,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "abi5 mutant exhibits larger seeds; seed size increase 10-15%",
+          "claim": "abi5 KO larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T070",
+      "gene": "ABA2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "aba2-1 ABA-deficient",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.113.121566",
+          "title": "ABA ABI5 SHB1",
+          "authors": "Cheng ZJ et al.",
+          "year": 2014,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "aba2 seed size increase 25-30%; delayed cellularization; upregulated SHB1 MINI3 IKU2",
+          "claim": "aba2 larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T071",
+      "gene": "ABCG17 ABCG18",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "mir17,18 double knockdown",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70096",
+          "title": "ABCG17 ABCG18",
+          "authors": "Zhang Y et al.",
+          "year": 2025,
+          "journal": "Plant Journal",
+          "evidence_sentence": "mir17,18 significantly larger seeds; increased width and length",
+          "claim": "ABCG17/18 KD larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T072",
+      "gene": "ABI3",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "abi3-4 strong loss-of-function",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.9.8.1265",
+          "title": "ABI3 FUS3 LEC1",
+          "authors": "Parcy F et al.",
+          "year": 1997,
+          "journal": "Plant Cell",
+          "evidence_sentence": "abi3 mutants show seed maturation defects and reduced storage protein accumulation",
+          "claim": "abi3 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T073",
+      "gene": "FUS3",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "fus3",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.9.8.1265",
+          "title": "ABI3 FUS3 LEC1",
+          "authors": "Parcy F et al.",
+          "year": 1997,
+          "journal": "Plant Cell",
+          "evidence_sentence": "fus3 mutants heterochronic development; altered storage protein accumulation",
+          "claim": "fus3 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T074",
+      "gene": "LEC1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "lec1",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.9.8.1265",
+          "title": "ABI3 FUS3 LEC1",
+          "authors": "Parcy F et al.",
+          "year": 1997,
+          "journal": "Plant Cell",
+          "evidence_sentence": "lec1 mutants lose cotyledon identity and late embryogenesis defects",
+          "claim": "lec1 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T075",
+      "gene": "LEC2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "lec2",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.00992",
+          "title": "Seed networks",
+          "authors": "Gutierrez L et al.",
+          "year": 2007,
+          "journal": "Plant Physiol",
+          "evidence_sentence": "lec2 dramatic decrease in ABI3/FUS3 expression; maturation defects",
+          "claim": "lec2 KO smaller",
+          "verification": "pubmed_crosschecked",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "test_id": "T076",
+      "gene": "WRI1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "wri1-1",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2019.01912",
+          "title": "WRI1",
+          "authors": "Kong Q et al.",
+          "year": 2019,
+          "journal": "Front Plant Sci",
+          "evidence_sentence": "wri1-1 mutant 80% reduced seed oil content; reduced filling",
+          "claim": "wri1 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T077",
+      "gene": "WRI1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "35S:WRI1",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2019.01912",
+          "title": "WRI1",
+          "authors": "Kong Q et al.",
+          "year": 2019,
+          "journal": "Front Plant Sci",
+          "evidence_sentence": "WRI1 overexpression enhances oil biosynthesis and seed weight",
+          "claim": "WRI1 OE larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T078",
+      "gene": "AGG3",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "agg3",
+      "evidence": [
+        {
+          "doi": "10.4161/psb.21620",
+          "title": "AGG3",
+          "authors": "Li S et al.",
+          "year": 2012,
+          "journal": "Plant Signal Behav",
+          "evidence_sentence": "agg3 mutants showed reduced seed/organ size",
+          "claim": "agg3 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T079",
+      "gene": "AGG3",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "35S:AGG3",
+      "evidence": [
+        {
+          "doi": "10.4161/psb.21620",
+          "title": "AGG3",
+          "authors": "Li S et al.",
+          "year": 2012,
+          "journal": "Plant Signal Behav",
+          "evidence_sentence": "overexpression of AGG3 significantly increased seed and organ size",
+          "claim": "AGG3 OE larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T080",
+      "gene": "AGB1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "agb1",
+      "evidence": [
+        {
+          "doi": "10.4161/psb.21620",
+          "title": "AGG3",
+          "authors": "Li S et al.",
+          "year": 2012,
+          "journal": "Plant Signal Behav",
+          "evidence_sentence": "agb1 mutants show growth/developmental defects; AGG3 function requires AGB1",
+          "claim": "agb1 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T081",
+      "gene": "GPA1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "gpa1",
+      "evidence": [
+        {
+          "doi": "10.4161/psb.21620",
+          "title": "AGG3",
+          "authors": "Li S et al.",
+          "year": 2012,
+          "journal": "Plant Signal Behav",
+          "evidence_sentence": "gpa1 mutants show growth/developmental defects; AGG3 function requires GPA1",
+          "claim": "gpa1 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T082",
+      "gene": "KIX8 KIX9",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "kix8-1 kix9-1",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-15603-3",
+          "title": "KIX-PPD-MYC",
+          "authors": "Liu Z et al.",
+          "year": 2020,
+          "journal": "Nat Commun",
+          "evidence_sentence": "kix8-1 kix9-1 larger seeds and heavier weight",
+          "claim": "kix8 kix9 larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T083",
+      "gene": "PPD1 PPD2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "ppd1-2 ppd2-cr",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-15603-3",
+          "title": "KIX-PPD-MYC",
+          "authors": "Liu Z et al.",
+          "year": 2020,
+          "journal": "Nat Commun",
+          "evidence_sentence": "ppd1 ppd2 mutants show larger seeds; GIF1 upregulated",
+          "claim": "ppd1 ppd2 larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T084",
+      "gene": "MYC3 MYC4",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "myc3 myc4",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-15603-3",
+          "title": "KIX-PPD-MYC",
+          "authors": "Liu Z et al.",
+          "year": 2020,
+          "journal": "Nat Commun",
+          "evidence_sentence": "myc3 myc4 large seeds; proliferation increased",
+          "claim": "myc3 myc4 larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T085",
+      "gene": "GIF1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "gif1",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-15603-3",
+          "title": "KIX-PPD-MYC",
+          "authors": "Liu Z et al.",
+          "year": 2020,
+          "journal": "Nat Commun",
+          "evidence_sentence": "gif1 mutants small light seeds; reduced proliferation in integuments",
+          "claim": "gif1 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T086",
+      "gene": "GIF1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "35S:GIF1",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-15603-3",
+          "title": "KIX-PPD-MYC",
+          "authors": "Liu Z et al.",
+          "year": 2020,
+          "journal": "Nat Commun",
+          "evidence_sentence": "35S:GIF1 produces larger, heavier seeds",
+          "claim": "GIF1 OE larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T087",
+      "gene": "GIF1 MYC3 MYC4",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "gif1 myc3 myc4 epistasis; baseline WT",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-15603-3",
+          "title": "KIX-PPD-MYC",
+          "authors": "Liu Z et al.",
+          "year": 2020,
+          "journal": "Nat Commun",
+          "evidence_sentence": "gif1 myc3 myc4 reverts to gif1 small-seed phenotype; GIF1 epistatic",
+          "claim": "GIF1 epistatic",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T088",
+      "gene": "SAP",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "35S:SAP",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-15603-3",
+          "title": "KIX-PPD-MYC",
+          "authors": "Liu Z et al.",
+          "year": 2020,
+          "journal": "Nat Commun",
+          "evidence_sentence": "35S:SAP plants produce larger seeds; GIF1 elevated",
+          "claim": "SAP OE larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T089",
+      "gene": "miR396",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "35S:MIR396",
+      "evidence": [
+        {
+          "doi": "10.5483/BMBRep.2019.52.4.051",
+          "title": "GRF-GIF",
+          "authors": "Kim JH",
+          "year": 2019,
+          "journal": "BMB Rep",
+          "evidence_sentence": "Up-regulating miR396 resulted in smaller fruit or seed size",
+          "claim": "miR396 OE smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T090",
+      "gene": "GRF1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "35S:GRF1",
+      "evidence": [
+        {
+          "doi": "10.5483/BMBRep.2019.52.4.051",
+          "title": "GRF-GIF",
+          "authors": "Kim JH",
+          "year": 2019,
+          "journal": "BMB Rep",
+          "evidence_sentence": "overexpression of GRF1 larger leaves and increased seed weight and size",
+          "claim": "GRF1 OE larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T091",
+      "gene": "GRF2",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "35S:GRF2",
+      "evidence": [
+        {
+          "doi": "10.5483/BMBRep.2019.52.4.051",
+          "title": "GRF-GIF",
+          "authors": "Kim JH",
+          "year": 2019,
+          "journal": "BMB Rep",
+          "evidence_sentence": "overexpression of GRF2 increases seed weight and seed size",
+          "claim": "GRF2 OE larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T092",
+      "gene": "TPS1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "tps1-1 arrested at torpedo stage",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00837",
+          "title": "TPS1",
+          "authors": "Fichtner F et al.",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "tps1-1 mutants show embryos failing to complete embryogenesis, arrested at torpedo stage",
+          "claim": "tps1 KO smaller/aborted",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T093",
+      "gene": "TOP1\u00ce\u00b1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "top1\u00ce\u00b1-10 maternal",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pbio.3000930",
+          "title": "TOP1\u00ce\u00b1 UPF1 TTG2",
+          "authors": "Li C et al.",
+          "year": 2020,
+          "journal": "PLoS Biology",
+          "evidence_sentence": "top1\u00ce\u00b1-10 produces large seeds due to ectopic TTG2; parental dosage-dependent",
+          "claim": "top1\u00ce\u00b1 KO larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T094",
+      "gene": "UPF1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "upf1-1 maternal",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pbio.3000930",
+          "title": "TOP1\u00ce\u00b1 UPF1 TTG2",
+          "authors": "Li C et al.",
+          "year": 2020,
+          "journal": "PLoS Biology",
+          "evidence_sentence": "upf1-1 produces large seeds maternally through ectopic antipodal TTG2",
+          "claim": "upf1 KO larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T095",
+      "gene": "MEE45",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "mee45 maternal",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00965",
+          "title": "MEE45",
+          "authors": "Sechet J et al.",
+          "year": 2021,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "MEE45 controls seed size maternally; loss reduces seed size via reduced ANT induction",
+          "claim": "mee45 KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T096",
+      "gene": "SEEDSTICK",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "stk",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.20.01267",
+          "title": "SEEDSTICK E2Fa",
+          "authors": "Mizzotti C et al.",
+          "year": 2021,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "stk mutants show reduced seed size due to loss of E2Fa activation",
+          "claim": "stk KO smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T097",
+      "gene": "SEEDSTICK TT16",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "stk tt16",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.20.01267",
+          "title": "SEEDSTICK",
+          "authors": "Mizzotti C et al.",
+          "year": 2021,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "stk tt16 ovules lack sub-dermal integument cell layers almost completely",
+          "claim": "stk tt16 smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T098",
+      "gene": "WT",
+      "perturbation_type": "control",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "species": "Arabidopsis thaliana",
+      "condition": "Columbia (Col-0) wild-type baseline",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0508418102",
+          "title": "Control",
+          "authors": "Luo M et al.",
+          "year": 2005,
+          "journal": "PNAS",
+          "evidence_sentence": "Col-0 wild type seeds baseline 1000-seed weight 20.25 mg",
+          "claim": "WT control baseline",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T099",
+      "gene": "BR_treatment",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "exogenous brassinolide on WT",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.113.217703",
+          "title": "BR seed size",
+          "authors": "Jiang WB et al.",
+          "year": 2013,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "BR treatment increases seed size by activating IKU pathway and BZR1 targets",
+          "claim": "BR treatment larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T100",
+      "gene": "GA_treatment",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "GA3 on WT ovules",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.20542",
+          "title": "Endosperm auxin",
+          "authors": "Figueiredo DD et al.",
+          "year": 2016,
+          "journal": "eLife",
+          "evidence_sentence": "Ovules treated with GA3 significantly larger than mock-treated",
+          "claim": "GA treatment larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T101",
+      "gene": "Brassinazole",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "Brz inhibits BR biosynthesis",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.113.217703",
+          "title": "BR seed size",
+          "authors": "Jiang WB et al.",
+          "year": 2013,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "brassinazole phenocopies det2 BR-deficient smaller seeds",
+          "claim": "Brz smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T102",
+      "gene": "2,4-D_treatment",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "2,4-D synthetic auxin on WT ovules",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.20542",
+          "title": "Endosperm auxin",
+          "authors": "Figueiredo DD et al.",
+          "year": 2016,
+          "journal": "eLife",
+          "evidence_sentence": "2,4-D treated ovules significantly larger; 30-40% show seed coat development without fertilization",
+          "claim": "2,4-D larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T103",
+      "gene": "DA1 UBP15",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "gUBP15-GFP in da1-1 background; baseline WT",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.122663",
+          "title": "DA1-UBP15",
+          "authors": "Du L et al.",
+          "year": 2014,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "Seed/organ size phenotypes of gUBP15-GFP strongly enhanced by da1-1",
+          "claim": "UBP15 OE enhances da1 large",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T104",
+      "gene": "DA1 DA2 EOD1",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "da1-1 da2-1 eod1-2",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.113.115063",
+          "title": "DA1-DA2",
+          "authors": "Xia T et al.",
+          "year": 2013,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "triple mutants show extreme seed size enhancement beyond doubles",
+          "claim": "triple larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T105",
+      "gene": "DA1 DAR1 DAR2",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "da1-ko1 dar1-1 dar2-1",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.113.115063",
+          "title": "DA1-DA2",
+          "authors": "Xia T et al.",
+          "year": 2013,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "size of triple mutant seeds comparable with da1-1 da2-1 double mutant",
+          "claim": "da1 family triple larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T106",
+      "gene": "MEA FIE",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "mea/+ fie/+ double maternal",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1305175110",
+          "title": "CK seed size",
+          "authors": "Li J et al.",
+          "year": 2013,
+          "journal": "PNAS",
+          "evidence_sentence": "PRC2 double heterozygous show enhanced large seed phenotype",
+          "claim": "mea fie larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T107",
+      "gene": "WEI8 TAR1 TAR2",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "wei8 tar1 tar2/+ compromises auxin biosynthesis",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.20542",
+          "title": "Endosperm auxin",
+          "authors": "Figueiredo DD et al.",
+          "year": 2016,
+          "journal": "eLife",
+          "evidence_sentence": "wei8 tar1 tar2/+ shows 20-30% seed abortion; ~2.5% seed coat failure",
+          "claim": "wei8 tar1 tar2 smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T108",
+      "gene": "DD25_IaaH",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "DD25::IaaH endosperm-specific bacterial auxin synthesis",
+      "evidence": [
+        {
+          "doi": "10.1101/gad.316554.118",
+          "title": "Auxin cellularization",
+          "authors": "Batista RA et al.",
+          "year": 2019,
+          "journal": "Genes & Development",
+          "evidence_sentence": "DD25::IaaH aborting seeds resembling paternal-excess 3x seeds; cellularization fails at 7 DAP",
+          "claim": "endosperm auxin OE abortion",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T109",
+      "gene": "ga1-3",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "ga1-3 GA biosynthesis block (DELLA stabilized)",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.201853",
+          "title": "DELLA",
+          "authors": "Gomez MD et al.",
+          "year": 2023,
+          "journal": "Development",
+          "evidence_sentence": "GA-deficient mutants have stabilized DELLA, increased seed size",
+          "claim": "ga1 KO larger",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T110",
+      "gene": "TTG2",
+      "perturbation_type": "heterozygous",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "species": "Arabidopsis thaliana",
+      "condition": "ttg2-6 antipodal gametophytic",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pbio.3000930",
+          "title": "TOP1\u00ce\u00b1 UPF1 TTG2",
+          "authors": "Li C et al.",
+          "year": 2020,
+          "journal": "PLoS Biology",
+          "evidence_sentence": "ttg2-6 produces small seeds; epistatic to top1\u00ce\u00b1-10 and upf1-1",
+          "claim": "ttg2 het smaller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T111",
+      "gene": "VAL1 VAL2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "val1 val2 maintains LAFL activation post-germination; seedling embryo-like traits; maturation genes remain high",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.113.220988",
+          "title": "val1 val2 mutant",
+          "authors": "Jia H, McCarty DR, Suzuki M",
+          "year": 2013,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "val1 val2 seedlings show derepression of LEC1, ABI3, LAFL network; persistent embryonic traits",
+          "claim": "val1 val2 maintains LAFL activation post-germination; seedling embryo-like traits; maturation genes remain high",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T112",
+      "gene": "PKL",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "species": "Arabidopsis thaliana",
+      "condition": "pkl maintains LAFL expression causing derepression of embryonic traits",
+      "evidence": [
+        {
+          "doi": "10.1038/s41477-022-01237-4",
+          "title": "pkl",
+          "authors": "Yuan W et al.",
+          "year": 2021,
+          "journal": "Nature Plants",
+          "evidence_sentence": "pkl mutants show derepression of LAFL target genes and embryonic traits in seedlings",
+          "claim": "pkl maintains LAFL expression causing derepression of embryonic traits",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T113",
+      "gene": "ARF2 GRF5",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "arf2 grf5 double shows grf5-like leaf phenotype",
+      "evidence": [
+        {
+          "doi": "10.1093/plphys/kiab014",
+          "title": "arf2 grf5",
+          "authors": "Beltramino M et al.",
+          "year": 2021,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "arf2 grf5 double mutants showed lanceolate leaves with cell number similar to grf5",
+          "claim": "arf2 grf5 double shows grf5-like leaf phenotype",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T114",
+      "gene": "TCP14 TCP15",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "tcp14 tcp15 decreases cell cycle gene expression",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.15.00587",
+          "title": "tcp14 tcp15",
+          "authors": "Peng Y et al.",
+          "year": 2015,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "tcp14 tcp15 double mutants show decreased expression of cell cycle genes; reduced proliferation",
+          "claim": "tcp14 tcp15 decreases cell cycle gene expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T115",
+      "gene": "DA1 DAR1 DAR2",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "da1-ko1 dar1-1 dar2-1 enhances TCP14/15 stability; elevates cell cycle genes",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.15.00587",
+          "title": "da1 dar1 dar2 triple",
+          "authors": "Peng Y et al.",
+          "year": 2015,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "triple mutant shows elevated TCP14/15 protein; dramatically elevated RBR and CYCA2;3; larger organs",
+          "claim": "da1-ko1 dar1-1 dar2-1 enhances TCP14/15 stability; elevates cell cycle genes",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T116",
+      "gene": "SEUSS ANT",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana",
+      "condition": "seu ant lacks ovules entirely",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.107.114751",
+          "title": "seu ant",
+          "authors": "Azhakanandam S et al.",
+          "year": 2008,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "seu ant double mutants lack ovules completely; no seed production",
+          "claim": "seu ant lacks ovules entirely",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T117",
+      "gene": "SEUSS",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "seu single mutant compromises ovule initiation",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.107.114751",
+          "title": "seu-3",
+          "authors": "Azhakanandam S et al.",
+          "year": 2008,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "seu mutants show reduced ovule initiation; fewer seeds",
+          "claim": "seu single mutant compromises ovule initiation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T118",
+      "gene": "ABI4",
+      "perturbation_type": "knockout",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "species": "Arabidopsis thaliana",
+      "condition": "abi4 alleles show mild ABA resistance; seed size minimally affected",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.124.4.1752",
+          "title": "abi4-1",
+          "authors": "Soderman EM et al.",
+          "year": 2000,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "abi4 seeds are desiccation tolerant and only slightly resistant to ABA; mild phenotype",
+          "claim": "abi4 alleles show mild ABA resistance; seed size minimally affected",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T119",
+      "gene": "miR396a miR396b",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "loss of miR396 releases GRF repression",
+      "evidence": [
+        {
+          "doi": "10.5483/BMBRep.2019.52.4.051",
+          "title": "mir396a mir396b",
+          "authors": "Kim JH",
+          "year": 2019,
+          "journal": "BMB Reports",
+          "evidence_sentence": "loss of miR396 phenocopies GRF overexpression; increased cell proliferation and organ/seed size",
+          "claim": "loss of miR396 releases GRF repression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T120",
+      "gene": "BPC1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "species": "Arabidopsis thaliana",
+      "condition": "bpc1 reduces STK expression",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.105.030551",
+          "title": "bpc1",
+          "authors": "Meister RJ et al.",
+          "year": 2004,
+          "journal": "Plant Cell",
+          "evidence_sentence": "bpc1 reduces STK regulatory activity; impaired ovule development",
+          "claim": "bpc1 reduces STK expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T121",
+      "gene": "6-BA_CK_treatment",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "cytokinin treatment reduces DA1 protein; larger SAM and organs",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-024-48361-7",
+          "title": "6-BA treatment on WT",
+          "authors": "Cui G et al.",
+          "year": 2024,
+          "journal": "Nature Communications",
+          "evidence_sentence": "6-BA (cytokinin) significantly reduced GFP-DA1 protein abundance",
+          "claim": "cytokinin treatment reduces DA1 protein; larger SAM and organs",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "test_id": "T122",
+      "gene": "ULT1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis thaliana",
+      "condition": "ult1 decreases TCP14/15 H3K4me3; reduced proliferation",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koae102",
+          "title": "ult1",
+          "authors": "Chen L et al.",
+          "year": 2024,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "ULT1 protects TCP14/15 from DA1 cleavage via H3K4me3; ult1 reduces organ size",
+          "claim": "ult1 decreases TCP14/15 H3K4me3; reduced proliferation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    }
+  ]
+}

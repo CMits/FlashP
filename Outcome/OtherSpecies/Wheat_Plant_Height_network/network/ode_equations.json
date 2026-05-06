@@ -1,0 +1,348 @@
+{
+  "metadata": {
+    "method": "ODE_Hill",
+    "K": 1.0,
+    "n": 2,
+    "accuracy": 94.0,
+    "hill_activation_formula": "f(x) = x^2 * (1.0^2 + 1) / (1.0^2 + x^2)",
+    "hill_inhibition_formula": "g(x) = (1.0^2 + 1) / (1.0^2 + x^2)",
+    "ode_dynamics": "dx/dt = production - x; at steady state x = production",
+    "dt": 0.1,
+    "max_time": 50.0,
+    "convergence_tolerance": 0.0001,
+    "direction_threshold": 0.05
+  },
+  "equations": [
+    {
+      "node": "Vernalization",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Vernalization = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Photoperiod",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Photoperiod = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Light",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Light = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Nitrogen",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Nitrogen = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Gibberellin",
+      "activators": [
+        "TAGA20OX",
+        "TAGA3OX",
+        "RHT8",
+        "Nitrogen"
+      ],
+      "inhibitors": [
+        "TAGA2OX",
+        "TAGA1OX1"
+      ],
+      "formula": "Gibberellin = prod(f(TAGA20OX, TAGA3OX, RHT8, Nitrogen)) * prod(g(TAGA2OX, TAGA1OX1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Brassinosteroid",
+      "activators": [
+        "TAD11",
+        "TADWF4"
+      ],
+      "inhibitors": [],
+      "formula": "Brassinosteroid = prod(f(TAD11, TADWF4)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Auxin",
+      "activators": [],
+      "inhibitors": [
+        "TAGH3"
+      ],
+      "formula": "Auxin = 1.0 * prod(g(TAGH3)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "TASLY1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TASLY1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAGA3OX",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TAGA3OX = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAGA1OX1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TAGA1OX1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TASERK",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TASERK = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAZNF",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TAZNF = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAARF4",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TAARF4 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAERF_A1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TAERF_A1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "RHT8",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RHT8 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "RHT13",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RHT13 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "RHT18",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RHT18 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "RHT24",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RHT24 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "RHT12",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RHT12 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAOSCA1_4",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TAOSCA1_4 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAD11",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TAD11 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TADWF4",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TADWF4 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAGID1",
+      "activators": [
+        "Gibberellin"
+      ],
+      "inhibitors": [],
+      "formula": "TAGID1 = prod(f(Gibberellin)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAGA20OX",
+      "activators": [
+        "VRN1",
+        "RHT_B1"
+      ],
+      "inhibitors": [],
+      "formula": "TAGA20OX = prod(f(VRN1, RHT_B1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAGA2OX",
+      "activators": [
+        "Gibberellin",
+        "RHT18",
+        "RHT24",
+        "RHT12"
+      ],
+      "inhibitors": [],
+      "formula": "TAGA2OX = prod(f(Gibberellin, RHT18, RHT24, RHT12)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "RHT_B1",
+      "activators": [
+        "TABIN2"
+      ],
+      "inhibitors": [
+        "TAGID1",
+        "TASLY1",
+        "Nitrogen",
+        "TABZR1"
+      ],
+      "formula": "RHT_B1 = prod(f(TABIN2)) * prod(g(TAGID1, TASLY1, Nitrogen, TABZR1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "RHT_D1",
+      "activators": [],
+      "inhibitors": [
+        "TAGID1",
+        "TASLY1"
+      ],
+      "formula": "RHT_D1 = 1.0 * prod(g(TAGID1, TASLY1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "PLATZ_A1",
+      "activators": [],
+      "inhibitors": [
+        "RHT_B1"
+      ],
+      "formula": "PLATZ_A1 = 1.0 * prod(g(RHT_B1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "PIF",
+      "activators": [
+        "TAERF_A1"
+      ],
+      "inhibitors": [
+        "RHT_B1",
+        "Light"
+      ],
+      "formula": "PIF = prod(f(TAERF_A1)) * prod(g(RHT_B1, Light)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "PPD_D1",
+      "activators": [
+        "Photoperiod"
+      ],
+      "inhibitors": [],
+      "formula": "PPD_D1 = prod(f(Photoperiod)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "VRN1",
+      "activators": [
+        "Vernalization"
+      ],
+      "inhibitors": [],
+      "formula": "VRN1 = prod(f(Vernalization)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TABRI1",
+      "activators": [
+        "Brassinosteroid",
+        "TASERK"
+      ],
+      "inhibitors": [
+        "TABKI1"
+      ],
+      "formula": "TABRI1 = prod(f(Brassinosteroid, TASERK)) * prod(g(TABKI1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "TABKI1",
+      "activators": [],
+      "inhibitors": [
+        "TABRI1",
+        "TAZNF"
+      ],
+      "formula": "TABKI1 = 1.0 * prod(g(TABRI1, TAZNF)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "TABIN2",
+      "activators": [],
+      "inhibitors": [
+        "TABRI1"
+      ],
+      "formula": "TABIN2 = 1.0 * prod(g(TABRI1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "TABZR1",
+      "activators": [],
+      "inhibitors": [
+        "TABIN2"
+      ],
+      "formula": "TABZR1 = 1.0 * prod(g(TABIN2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "TATIR1",
+      "activators": [
+        "Auxin"
+      ],
+      "inhibitors": [],
+      "formula": "TATIR1 = prod(f(Auxin)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAIAA",
+      "activators": [],
+      "inhibitors": [
+        "TATIR1"
+      ],
+      "formula": "TAIAA = 1.0 * prod(g(TATIR1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAARF",
+      "activators": [],
+      "inhibitors": [
+        "TAIAA"
+      ],
+      "formula": "TAARF = 1.0 * prod(g(TAIAA)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAHB33",
+      "activators": [
+        "TAARF4"
+      ],
+      "inhibitors": [],
+      "formula": "TAHB33 = prod(f(TAARF4)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAGH3",
+      "activators": [],
+      "inhibitors": [
+        "TAHB33"
+      ],
+      "formula": "TAGH3 = 1.0 * prod(g(TAHB33)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Pathogenesis_Related_Genes",
+      "activators": [
+        "RHT13"
+      ],
+      "inhibitors": [],
+      "formula": "Pathogenesis_Related_Genes = prod(f(RHT13)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Plant_Height",
+      "activators": [
+        "PLATZ_A1",
+        "PIF",
+        "TABZR1",
+        "TAARF",
+        "TAOSCA1_4"
+      ],
+      "inhibitors": [
+        "RHT_B1",
+        "RHT_D1",
+        "PPD_D1",
+        "Pathogenesis_Related_Genes"
+      ],
+      "formula": "Plant_Height = prod(f(PLATZ_A1, PIF, TABZR1, TAARF, TAOSCA1_4)) * prod(g(RHT_B1, RHT_D1, PPD_D1, Pathogenesis_Related_Genes)) * gene_modifier + exogenous"
+    }
+  ]
+}

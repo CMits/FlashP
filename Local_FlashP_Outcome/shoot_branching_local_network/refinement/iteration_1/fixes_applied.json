@@ -1,0 +1,40 @@
+{
+  "iteration": 1,
+  "diagnosis": "The failing tests cluster into three main mechanisms: (1) Strigolactone (SL) biosynthesis mutants (e.g., CCD7, CCD8, D27, MAX1, MAX3, MAX4) all incorrectly predict decreased branching upon KO, indicating a broken SL production cascade; (2) D53 KO tests show strong signal inversion (ratio=0.1001), suggesting a sign error in D53’s role; (3) MAX2 OE and SMXL6 perturbations indicate improper SL signaling logic, likely due to missing D14-mediated SMXL degradation. The core issue is a disconnected SL receptor (D14) from downstream effectors (SMXLs, BRC1), causing signal inversion and cascade failure.",
+  "predicted_gain_pct": 78.2,
+  "fixes": [
+    {
+      "action": "ADD_EDGE",
+      "curated_edge_id": "E121",
+      "rationale": "Strigolactones induce degradation of D53 (E121, 10.1038/nature12870); adding this edge corrects the D53 KO phenotype by allowing SLs to repress D53, fixing T053, T101, T131, T154 with ratio=0.1001",
+      "status": "skipped",
+      "reason": "edge Strigolactones->D53 already in network"
+    },
+    {
+      "action": "ADD_EDGE",
+      "curated_edge_id": "E122",
+      "rationale": "D14 mediates degradation of D53 (E122, 10.1038/nature12870); this closes the SL receptor-to-D53 link, ensuring proper signal transduction and fixing D14 KO tests (T011, T056, T110)",
+      "status": "applied"
+    },
+    {
+      "action": "ADD_EDGE",
+      "curated_edge_id": "E031",
+      "rationale": "SMXL678 inhibits BRC1 expression (E031, 10.1016/j.tplants.2018.12.001); this establishes the correct repressor complex downstream of SL signaling, fixing SMXL6 KO (T013, T121) and OE (T140) tests",
+      "status": "skipped",
+      "reason": "edge SMXL678->BRC1 already in network"
+    },
+    {
+      "action": "FLIP_SIGN",
+      "network_edge_id": "N025",
+      "rationale": "Current edge D53 -> Shoot_Branching likely has incorrect sign; literature (E124, E120) shows D53 represses tillering, so flipping to D53 -[-1]-> Shoot_Branching corrects KO phenotype from decreased to increased branching",
+      "status": "applied"
+    },
+    {
+      "action": "ADD_EDGE",
+      "curated_edge_id": "E030",
+      "rationale": "Strigolactone promotes BRC1 expression (E030, 10.1016/j.tplants.2018.12.001); this links SL signaling to BRC1 activation, correcting decapitation (T004) and biosynthesis mutant phenotypes by ensuring SLs upregulate BRC1",
+      "status": "skipped",
+      "reason": "edge Strigolactone->BRC1 already in network"
+    }
+  ]
+}

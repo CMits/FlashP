@@ -1,0 +1,200 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "seed_size",
+    "phenotype_node": "Seed_Size",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "iteration": 2,
+    "judge_model": "Claude Opus 4.7",
+    "previous_review": "judge_review_iteration_1.json"
+  },
+  "verdict": "iterate",
+  "summary": "BUILDER addressed all 6 HIGH-priority and 4 of 6 MEDIUM-priority suggestions, with documented rejections for the rest. Network is biologically much stronger: GA now flows GA\u22a3DELLA\u2192ANT\u2192Integument_Growth (proper Perception Gate), HAIKU pathway complete (SHB1\u2192MINI3\u2192IKU1/IKU2 fan-out), GRF\u2013GIF1 hub reconnected, BR signalling re-routed via BZR1 to preserve gate purity, and AGG3 wires directly to phenotype. Mean rubric rose from 3.18 to 4.05. Remaining concerns are mostly literature_gaps (WRI1 has no curated path, TTG2 upstream regulators absent from curated_edges) plus one MEDIUM (GIF1 still at 0.25 coverage with E149 deferred to honour phenotype-activator cap). Verdict iterate at MEDIUM intensity \u2014 a third pass to address GIF1 fan-out and the LEC2\u2194FUS3 maturation switch is warranted before approval.",
+  "iter1_response_audit": {
+    "applied_correctly": ["S001", "S003", "S004", "S005", "S006", "S007 (partial)", "S009", "S010"],
+    "rejected_with_documented_reason": [
+      {"id": "S002 WRI1", "reason": "No curated path to phenotype \u2014 would create floating sink. Literature gap filed. Defensible."},
+      {"id": "S007 partial GIF1\u2192Seed_Size (E149)", "reason": "Phenotype 5-activator hard cap. Defensible but means GIF1 coverage stays at 0.25; consider trimming a less-impactful phenotype activator instead."},
+      {"id": "S008", "reason": "Integument_Growth at 15 inputs already over the 7-cap. Defensible \u2014 process aggregator exception."},
+      {"id": "S011 AGG3\u2192AGB1", "reason": "Direction reversal orphaned AGB1 (no outgoing path). Reverted to network direction AGB1\u2192AGG3 with E133 evidence and Trap-1 rationale. Defensible."},
+      {"id": "S012, S013, S016", "reason": "LOW priority deferred for positive-feedback risk and minor benefit. Defensible."}
+    ],
+    "newly_introduced_issues": [
+      "Endosperm_Proliferation in-degree rose to 9 (was 8) after BZR1 add \u2014 above 7-cap but acceptable for major aggregator process",
+      "BZR1 fan-out rose to 9 outputs (was 6) after S009 \u2014 out-degree not capped per BUILDER \u00a710, but flag for review of signal dilution"
+    ]
+  },
+  "rubric_scores": {
+    "pathway_completeness": {
+      "score": 4,
+      "justification": "GA pathway now has proper Perception Gate via DELLA. HAIKU pathway complete with SHB1\u2192IKU2 and MINI3\u2192IKU2 added. GRF\u2013GIF1 cell-proliferation arm reconnected. Sugar/T6P/TOR/SnRK1 still entirely absent (literature_gap). WRI1 / seed-oil arc still absent (literature_gap). Score rises from 3 to 4."
+    },
+    "mechanistic_depth": {
+      "score": 5,
+      "justification": "GA cascade now has proper depth: GA\u22a3DELLA\u2192ANT\u2192Integument_Growth\u2192Seed_Size. BR cascade preserves depth: BR\u2192BRI1\u22a3BIN2\u22a3BZR1\u2192{multiple targets including new Endosperm_Proliferation, PRC2}. Auxin\u2192TIR1\u2192ARF2 cascade intact. LAFL\u2192maturation\u2192ABI cascade well-layered. No major cascade reduces to a flat shortcut. Score rises from 4 to 5."
+    },
+    "motif_coverage": {
+      "score": 5,
+      "justification": "Perception Gate now applied for both GA (clean: GA\u2192DELLA only outgoing) and BR (clean: BR\u2192BRI1 only outgoing). Auxin still has 4 outgoing edges (TIR1, Integument_Growth, Endosperm_Proliferation, PRC2) \u2014 Perception Gate partially violated but the bypass edges have direct curated mechanism. Multi-Output Scaffold properly applied (BZR1 has 9 targets, MAX2-equivalent role). Biosynthesis-Degradation Balance present for ABA, CK, GA. Coherent Feed-Forward present for ABI cascade and BR\u2192{multiple substrates}. Score rises from 3 to 5."
+    },
+    "cascade_balance": {
+      "score": 4,
+      "justification": "Source % dropped from 45.6% to 42.5% \u2014 well within softened 30\u201350% target. Most non-source nodes have 1\u20136 inputs. Notable hubs over the 7-cap: Integument_Growth (15 in), Endosperm_Proliferation (9 in), Seed_Size (7 in), PRC2 (6 in). These are major aggregator processes / phenotype \u2014 acceptable per BUILDER \u00a715. Single-input nodes (e.g., ABI4 with only ABI3) are sparse but defensible. Score rises from 3 to 4."
+    },
+    "composite_node_handling": {
+      "score": 4,
+      "justification": "DELLA correctly added as PROTEIN_COMPLEX composite (collapses GAI/RGA/RGL1/RGL2/RGL3). PRC2 composite intact. Other paralog families remain split where biology supports it (CKX2/3/5 different domains, GA20OX/3OX/2OX different reactions, VAL1/VAL2 separate). Score unchanged at 4."
+    },
+    "hub_completeness": {
+      "score": 4,
+      "justification": "Integument_Growth added 2 of 4 missing HIGH-conf inputs (ANT, SEEDSTICK), with E170/E074 deferred for documented hub-overload reason. Endosperm_Proliferation added BZR1 input (captures E101 effect). Seed_Size added AGG3 (+) and ABI5 (-). GIF1\u2192Seed_Size (E149) deferred for phenotype activator cap \u2014 weakest remaining gap. Score rises from 3 to 4."
+    },
+    "topology_hazards": {
+      "score": 4,
+      "justification": "GA Perception Gate now clean (single outgoing edge from Gibberellin to DELLA). BR Perception Gate intact (single outgoing edge from Brassinosteroid to BRI1). AGB1\u2194AGG3 mutual feedback avoided by retaining single direction with documented rationale. No new positive feedback loops introduced. Auxin still has 4 outgoing edges (partial Perception Gate violation but each is independently curated). DA1/DA2/EOD1 negative-feedback loops stable. Score unchanged at 4."
+    },
+    "evidence_quality": {
+      "score": 4,
+      "justification": "All 13 newly-added edges have specific mechanism strings citing curated DOIs (Gomez 2023 for DELLA module, Zhou 2009 for SHB1\u2192IKU2, Luo 2005 for MINI3\u2192IKU2, Mizzotti 2021 for SEEDSTICK, Cheng 2014 for ABI5, Kim 2019 for GRF-GIF, Liu 2020 for GIF1, Pankaj 2024 for BR\u2192endosperm/PRC2, Figueiredo 2016 for Auxin\u22a3PRC2, Li 2012 for AGG3, Gomez 2023 for ANT\u2192Integument_Growth). Authors and years populated. Score unchanged at 4."
+    },
+    "phenotype_audit": {
+      "score": 4,
+      "justification": "Seed_Size now has 5 activators (Integument_Growth, Endosperm_Proliferation, Ovule_size, Storage_reserves, AGG3) and 2 inhibitors (ABA, ABI5) \u2014 at the 5-activator hard cap, with both arms balanced. All major effector classes covered: maternal, filial, ovule, reserves, hormone (ABA), G-protein, ABA-effector TF (ABI5). GIF1 effect captured indirectly via Integument_Growth. Score rises from 3 to 4."
+    },
+    "rejected_edges_review": {
+      "score": 4,
+      "justification": "Of the 16 HIGH-conf inter-network rejections flagged in iter 1, BUILDER applied 11 and provided documented rejection reasons for 5 (E074, E101, E102 (routed differently), E106 (intentionally removed for Perception Gate), E120 (positive feedback), E133 (orphan risk), E149 (cap), E170 (hub overload), E212 (positive self-loop)). Each rejection has a defensible biological/structural reason in build_log_iteration_2.json. Score rises from 2 to 4."
+    },
+    "key_player_density": {
+      "score": 3,
+      "justification": "Substantial improvement: ANT 0.17\u21920.50, SEEDSTICK 0.38\u21920.50, GIF1 0.12\u21920.25, DELLA 0.00\u21920.40, IKU2/SHB1/MINI3 all 1.00. Remaining under-0.30 candidates: WRI1 (0.00, literature_gap \u2014 no curated path), TTG2 (0.20, literature_gap \u2014 only excluded edges target non-network nodes), GIF1 (0.25 \u2014 BUILDER-rejectable: E149 deferred for activator cap rather than literature_gap). Per Anti-Pattern 6, GIF1 has a documented exclusion rationale (phenotype-activator cap) but the rationale could be revisited by trimming a less-critical phenotype activator. Score rises from 2 to 3.",
+      "per_player_ratios": {
+        "WRI1": 0.00,
+        "TTG2": 0.20,
+        "GIF1": 0.25,
+        "DELLA": 0.40,
+        "ANT": 0.50,
+        "SEEDSTICK": 0.50,
+        "DA1": 0.54,
+        "ABA": 0.56,
+        "ARF2": 0.57,
+        "Cell_Proliferation": 0.57,
+        "Seed_Size": 0.64,
+        "Brassinosteroid": 0.67,
+        "ABI4": 0.67,
+        "LEC2": 0.71,
+        "Integument_Growth": 0.73,
+        "Cytokinin": 0.73,
+        "FUS3": 0.75,
+        "Endosperm_Proliferation": 0.77,
+        "Auxin": 0.80,
+        "Gibberellin": 0.80,
+        "AGG3": 0.80,
+        "ABI5": 0.83,
+        "Ovule_size": 1.00,
+        "SHB1": 1.00,
+        "MINI3": 1.00,
+        "IKU2": 1.00,
+        "PRC2": 1.00,
+        "ABI3": 1.00,
+        "BZR1": 1.29
+      }
+    }
+  },
+  "rubric_delta_vs_iter1": {
+    "pathway_completeness": "+1 (3\u21924)",
+    "mechanistic_depth": "+1 (4\u21925)",
+    "motif_coverage": "+2 (3\u21925)",
+    "cascade_balance": "+1 (3\u21924)",
+    "composite_node_handling": "0 (4\u21924)",
+    "hub_completeness": "+1 (3\u21924)",
+    "topology_hazards": "0 (4\u21924)",
+    "evidence_quality": "0 (4\u21924)",
+    "phenotype_audit": "+1 (3\u21924)",
+    "rejected_edges_review": "+2 (2\u21924)",
+    "key_player_density": "+1 (2\u21923)",
+    "mean_score": "3.18 \u2192 4.05 (+0.87)"
+  },
+  "per_node_audit_delta_only": [
+    {"node": "DELLA", "verdict": "appropriate_new", "comment": "Newly added. 1 inhibitor (Gibberellin), 1 outgoing (\u2192ANT). Composite represents GAI/RGA/RGL family. Reaches phenotype via DELLA\u2192ANT\u2192Integument_Growth\u2192Seed_Size."},
+    {"node": "GIF1", "verdict": "improved_but_under-represented", "comment": "Now has 1 input (GRF) and 1 output (Integument_Growth). Coverage 0.25 \u2014 still flagged. Could improve by adding GIF1\u2192Seed_Size (E149) IF a phenotype activator is trimmed."},
+    {"node": "ANT", "verdict": "now_appropriate", "comment": "Now has 1 input (DELLA) and 2 outputs (Ovule_size, Integument_Growth). Coverage rose to 0.50. Properly integrated."},
+    {"node": "SEEDSTICK", "verdict": "now_appropriate", "comment": "Now has 2 inputs and 2 outputs (E2FA, Integument_Growth). Coverage rose to 0.50."},
+    {"node": "IKU2", "verdict": "appropriate", "comment": "Now has 5 activators (BZR1, IKU1, SHB1, MINI3) and 1 inhibitor (RAV1). HAIKU pathway canonical fan-out."},
+    {"node": "Gibberellin", "verdict": "perception_gate_now_clean", "comment": "Single outgoing edge to DELLA. Bio/degradation balance preserved."},
+    {"node": "Brassinosteroid", "verdict": "perception_gate_intact", "comment": "Single outgoing edge to BRI1. Effects E101/E102 routed via BZR1 instead of direct."},
+    {"node": "BZR1", "verdict": "appropriate_high_fanout", "comment": "9 outputs (was 6). Fan-out high but biologically justified \u2014 BES1/BZR1 has hundreds of in vivo targets."},
+    {"node": "Endosperm_Proliferation", "verdict": "appropriate", "comment": "Now 9 inputs (added BZR1). Above 7-cap but acceptable for major aggregator process."},
+    {"node": "Integument_Growth", "verdict": "appropriate_aggregator", "comment": "Now 16 inputs (was 14, +ANT, +SEEDSTICK, -GA direct). Above 7-cap; documented exception."},
+    {"node": "Seed_Size", "verdict": "appropriate", "comment": "5 activators + 2 inhibitors. At hard cap. Both arms balanced."},
+    {"node": "PRC2", "verdict": "now_appropriate", "comment": "Now has 4 activators (subunits) + 2 inhibitors (Auxin, BZR1). Hormone integration captured."},
+    {"node": "AGB1", "verdict": "preserved", "comment": "Still has 0 inputs, 1 output (\u2192AGG3). is_source=true. E133 curated direction reverted to keep AGB1 reachable."}
+  ],
+  "per_pathway_audit_delta_only": [
+    {"pathway": "Gibberellin\u2013DELLA Perception Gate", "completeness": "high (was low)", "comment": "DELLA inserted, GA single-outgoing-edge gate established. Cascade: GA\u22a3DELLA\u2192ANT\u2192Integument_Growth\u2192Seed_Size. Major fix."},
+    {"pathway": "GRF\u2013GIF1 cell proliferation", "completeness": "medium (was low)", "comment": "GRF\u2192GIF1 added; chain miR396\u22a3GRF\u2192GIF1\u2192Integument_Growth now wired. Direct GIF1\u2192Seed_Size still missing (would push phenotype above activator cap)."},
+    {"pathway": "IKU/HAIKU endosperm", "completeness": "high (was medium)", "comment": "SHB1\u2192IKU2 and MINI3\u2192IKU2 added. Canonical fan-out complete."},
+    {"pathway": "Maternal integument (ANT/SEEDSTICK)", "completeness": "high (was medium)", "comment": "Both TFs now wire to Integument_Growth. ANT also receives DELLA input."},
+    {"pathway": "Brassinosteroid signalling", "completeness": "high (was high)", "comment": "Perception Gate preserved by routing E101/E102 effects via BZR1 rather than direct hormone edges. PRC2 now under BR control as intended."},
+    {"pathway": "Auxin\u2013PRC2 crosstalk", "completeness": "high (was missing)", "comment": "Auxin\u22a3PRC2 added. PRC2 hormone-integration arm complete."},
+    {"pathway": "Sugar / T6P / TOR / SnRK1", "completeness": "absent (unchanged)", "comment": "Still entirely missing \u2014 literature_gap stands."},
+    {"pathway": "Seed-oil / WRI1 maturation arc", "completeness": "absent (unchanged)", "comment": "WRI1 cannot be added without a curated downstream edge to a phenotype-reachable node. Literature_gap stands."}
+  ],
+  "suggestions": [
+    {
+      "id": "S101",
+      "type": "restructure_pathway",
+      "priority": "medium",
+      "description": "Reconsider GIF1\u2192Seed_Size by trimming a less-impactful phenotype activator (e.g., Storage_reserves only routes from FUS3+ABI3 with no direct WT-affecting perturbations)",
+      "biological_justification": "GIF1 coverage is 0.25 because direct phenotype edge E149 was deferred to honour the phenotype 5-activator cap. However, Storage_reserves currently aggregates only FUS3 and ABI3 (both already feed ABI3 and other phenotype effects), so its independent contribution may be redundant. Trimming Storage_reserves would free a slot for GIF1\u2192Seed_Size, giving the GRF\u2013GIF1 hub direct phenotype impact.",
+      "curated_edge_ids": ["E149"],
+      "implementation": "Option A: Drop Storage_reserves\u2192Seed_Size (kept as side-aggregator without phenotype edge), add GIF1\u2192Seed_Size (+1, E149). Phenotype activators: Integument_Growth, Endosperm_Proliferation, Ovule_size, AGG3, GIF1 = 5. Option B: Defer to refinement and accept 0.25 coverage. BUILDER's call."
+    },
+    {
+      "id": "S102",
+      "type": "add_edge",
+      "priority": "medium",
+      "description": "Reconsider LEC2\u2192FUS3 (E120) to capture canonical maturation TF mutual activation",
+      "biological_justification": "LEC1/LEC2/FUS3 mutual activation is the textbook architecture of the LAFL maturation network. Currently FUS3\u2192LEC2 is in network but LEC2\u2192FUS3 is rejected for positive-feedback risk. Damping=0.7 should stabilise the loop, and the absence of mutual activation means LEC2 single KO cannot fully model the LEC2-driven FUS3 reduction observed in mutants.",
+      "curated_edge_ids": ["E120"],
+      "implementation": "Add LEC2\u2192FUS3 (+1). Monitor in next BUILDER pass for runaway amplification on LEC2 OE perturbation; if present, accept as known limitation and document in mechanism."
+    },
+    {
+      "id": "S103",
+      "type": "literature_gap",
+      "priority": "medium",
+      "description": "Connect WRI1 to phenotype \u2014 needs at least one curated WRI1\u2192in-network-target edge",
+      "biological_justification": "WRI1 has 6 curated edges (3 incoming from LAFL TFs, 1 to Seed_oil_content, 2 to other non-network targets). Adding WRI1 would create a 3-input sink unless its downstream is curated. Step 1 LITERATURE REVIEW should search for 'WRI1 ABI3 transcriptional', 'WRI1 storage protein', 'WRI1 LEC1 seed maturation downstream' and add a curated edge from WRI1 to Storage_reserves, ABI3, or another in-network maturation node.",
+      "curated_edge_ids": [],
+      "implementation": "Step 1 backlog. Once one WRI1\u2192in-network edge is curated, BUILDER can add WRI1 as a node with 3 LAFL inputs and reach the phenotype."
+    },
+    {
+      "id": "S104",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "TTG2 upstream regulators (TOP1\u03b1, UPF1) and downstream targets (Tannin_synthesis, Seed_coat_structure) not in curated_edges as in-network candidates",
+      "biological_justification": "TTG2 coverage stays at 0.20 because all 4 excluded curated edges target/source non-network nodes. Adding TOP1\u03b1 and UPF1 as upstream regulators would give TTG2 a regulated context rather than appearing as a constitutive source.",
+      "curated_edge_ids": [],
+      "implementation": "Step 1 backlog. Acceptable as literature_gap \u2014 not actionable by BUILDER without new curated edges."
+    },
+    {
+      "id": "S105",
+      "type": "add_edge",
+      "priority": "low",
+      "description": "Consider E212 ABI4 self-loop \u2014 reconsidered now that ABA cascade is more layered",
+      "biological_justification": "ABI4 self-positive amplification is curated (Reeves 2011) but rejected in iter 1 for stability concern. Now that the ABA cascade has more inputs and feedback (ABA\u2192ABI5\u22a3SHB1, ABI5\u22a3Seed_Size), the ABI4 self-loop is one of several stabilising inputs and may be safe with damping. Optional.",
+      "curated_edge_ids": ["E212"],
+      "implementation": "Optional: add ABI4\u2192ABI4 (+1). Verify baseline simulation does not destabilise ABI cascade."
+    }
+  ],
+  "literature_gaps": [
+    "WRI1\u2192in-network-downstream edge (Storage_reserves / ABI3 / fatty-acid intermediate)",
+    "TTG2 upstream regulators (TOP1\u03b1, UPF1) need curation",
+    "TPS1 / T6P / TOR / SnRK1 sugar-energy axis still missing",
+    "GID1A/GID1B GA receptors not in curated_edges as candidate nodes",
+    "RGL2 (specific DELLA member) referenced in E131 but not curated as separate node",
+    "ABCG17/18 ABA transporters referenced but not curated"
+  ],
+  "stop_reason": null
+}

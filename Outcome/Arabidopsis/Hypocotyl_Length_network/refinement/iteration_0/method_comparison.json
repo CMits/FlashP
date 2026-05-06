@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Hypocotyl_Length",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19"
+  },
+  "summary": {
+    "best_method": "RWR",
+    "best_accuracy": 0.914,
+    "best_kappa": 0.8285,
+    "best_mcc": 0.8443,
+    "best_params": "alpha=0.5",
+    "recommendation": "Proceed to Step 5 (REFINEMENT) \u2014 focus on composite_collapse failures (T009/T010, T087, T106) and re-evaluate Trap-5 framework limitations."
+  },
+  "comparison": [
+    {
+      "method": "Algebraic",
+      "accuracy": 0.871,
+      "kappa": 0.7608,
+      "mcc": 0.5448,
+      "convergence_rate": 0.914,
+      "best_params": "epsilon=0.1, K=10.0, damping=0.7",
+      "strengths": "Deterministic, fast, transparent. Captures gene-modifier and exogenous_supply mechanics directly. Strong on white-light and warm-temperature stratums.",
+      "weaknesses": "Geometric-mean dilution causes sub-threshold ratios for single-paralog KOs (composite_member 0.997). Convergence rate 91.4% (some bistable feedback loops in BR/PIF arm).",
+      "failures": [
+        "T003",
+        "T004",
+        "T009",
+        "T010",
+        "T022",
+        "T046",
+        "T047",
+        "T049",
+        "T087",
+        "T099",
+        "T106",
+        "T112",
+        "T128",
+        "T129",
+        "T137"
+      ]
+    },
+    {
+      "method": "ODE",
+      "accuracy": 0.853,
+      "kappa": 0.7344,
+      "mcc": 0.5381,
+      "convergence_rate": 1.0,
+      "best_params": "K=0.5, n=1",
+      "strengths": "100% convergence rate. Hill kinetics smooth out borderline predictions. Best at K=0.5, n=1 (low-cooperativity regime).",
+      "weaknesses": "Same composite_member sub-threshold problem as algebraic plus two extra exogenous-treatment misses (T077 NAA, T104 picloram) where Hill saturation flattens the auxin signal.",
+      "failures": [
+        "T003",
+        "T004",
+        "T009",
+        "T010",
+        "T022",
+        "T046",
+        "T047",
+        "T049",
+        "T077",
+        "T087",
+        "T099",
+        "T104",
+        "T106",
+        "T112",
+        "T128",
+        "T129",
+        "T137"
+      ]
+    },
+    {
+      "method": "RWR",
+      "accuracy": 0.914,
+      "kappa": 0.8285,
+      "mcc": 0.8443,
+      "convergence_rate": 1.0,
+      "best_params": "alpha=0.5",
+      "strengths": "Best overall at 91.4% / kappa=0.83 / MCC=0.84. Topology-based propagation is robust to composite-collapse weakening: RWR catches ARF7/8, PIF1, RGA single-paralog phenotypes that algebraic and ODE miss. Identical accuracy across alpha=0.5..0.95 (signal stable).",
+      "weaknesses": "Cannot model exogenous_supply as an additive term; signaling-mutant rescue tests (T046/T047/T049 EIN-KO+ACC, T112 TIR1+IAA) flip to decreased instead of unchanged because ligand input still propagates through alternative paths. Class-imbalance-weak (unchanged F1=0.0).",
+      "failures": [
+        "T003",
+        "T004",
+        "T022",
+        "T046",
+        "T047",
+        "T049",
+        "T112",
+        "T128",
+        "T129",
+        "T137"
+      ]
+    }
+  ]
+}

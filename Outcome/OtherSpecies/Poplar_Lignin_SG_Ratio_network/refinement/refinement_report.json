@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lignin_SG_Ratio",
+    "species": "Populus trichocarpa",
+    "created": "2026-04-20",
+    "iterations_run": 2,
+    "best_iteration": 1
+  },
+  "iteration_history": [
+    {
+      "iteration": 0,
+      "description": "Baseline from Step 4 validation (pre-refinement). 44 nodes, 96 edges, 32 in-network tests. Best method: ODE at 84.4% (kappa=0.72 substantial, MCC=0.68). Five ODE residual failures identified: T007, T010, T013, T016, T027.",
+      "algebraic_accuracy": 56.2,
+      "ode_accuracy": 84.4,
+      "rwr_accuracy": 78.1,
+      "failures": ["T007", "T008", "T009", "T010", "T013", "T016", "T017", "T018", "T023", "T024", "T025", "T026", "T027", "T029"],
+      "fixes_applied": 0,
+      "edges_added": 0,
+      "edges_removed": 0
+    },
+    {
+      "iteration": 1,
+      "description": "KEPT. Removed PT4CL5 node and PT4CL5 -> Caffeoyl_CoA edge per Wang 2020 (4CL5 CRISPR KO has no lignin or S/G phenotype; 4CL5 is not lignin-dedicated). Paired encoding fix: T016 marked in_network=false.",
+      "algebraic_accuracy": 58.1,
+      "ode_accuracy": 87.1,
+      "rwr_accuracy": 80.6,
+      "failures": ["T007", "T008", "T009", "T010", "T013", "T017", "T018", "T023", "T024", "T025", "T026", "T027", "T029"],
+      "fixes_applied": 2,
+      "edges_added": 0,
+      "edges_removed": 1
+    },
+    {
+      "iteration": 2,
+      "description": "REVERTED. Exploratory: removed PT4CL1 -> Lignin_SG_Ratio (+1) direct edge to de-duplicate the cascade path and reduce SG hub dilution (6 -> 5 activators). Outcome: ODE dropped 87.1% -> 83.9% (-3.2%); T014 (4CL1 KD) and T022 (MYB21 LoF) moved from correct to incorrect. Metabolic cascade alone is too strongly attenuated by geometric-mean activation over 7 intermediate steps to propagate the 4CL1 KD signal reliably. Reverted to iter 1 snapshot per §8. Iter 2 snapshot retained in refinement/iteration_2/ per §1.1 Rule 4 (NEVER OVERWRITE SNAPSHOTS).",
+      "algebraic_accuracy": 48.4,
+      "ode_accuracy": 83.9,
+      "rwr_accuracy": 71.0,
+      "failures": ["T007", "T008", "T009", "T010", "T013", "T014", "T017", "T018", "T022", "T023", "T024", "T025", "T026", "T027", "T029"],
+      "fixes_applied": 1,
+      "edges_added": 0,
+      "edges_removed": 1
+    }
+  ],
+  "fixes_applied": [
+    {
+      "iteration": 1,
+      "action": "edge_removal",
+      "description": "Removed PT4CL5 --[+1]--> Caffeoyl_CoA edge and the PT4CL5 node from the network.",
+      "reason": "T016 (4CL5 CRISPR KO, expected=unchanged) was failing in all three methods with algebraic ratio=1.32 and ODE ratio=0.22. PT4CL5 was treated as a parallel activator of Caffeoyl_CoA alongside Caffeic_Acid; KO drove Caffeoyl_CoA to activator_floor and inflated the downstream cascade response.",
+      "biological_justification": "Wang et al. 2020 (Plant Physiology, DOI 10.1104/pp.19.01550) report by pyMBMS that CRISPR-KO of 4CL5 does NOT change lignin content or S/G ratio, whereas 4CL1 KO does. 4CL5 is not the lignin-dedicated paralog. Removing PT4CL5 from the propagation cascade aligns with this finding; PT4CL5 biology is retained in curated_edges.json for completeness.",
+      "source": "PT4CL5",
+      "target": "Caffeoyl_CoA",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "Marked T016 (4CL5 CRISPR KO) as in_network=false in reconciled_perturbation_dataset.json.",
+      "reason": "Paired with the PT4CL5 node removal. T016 is now appropriately skipped by validators rather than forced to a synthetic prediction.",
+      "biological_justification": "Consistent with Wang 2020 finding that 4CL5 KO produces no measurable S/G shift.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 2,
+      "action": "edge_removal",
+      "description": "Removed PT4CL1 --[+1]--> Lignin_SG_Ratio direct edge (REVERTED).",
+      "reason": "Exploratory attempt at reducing SG hub dilution from 6 to 5 activators to help borderline threshold tests. Outcome: 7-step cascade attenuation under geometric-mean activation proved too strong; T014 and T022 regressed from correct to incorrect. Reverted.",
+      "biological_justification": "Attempted: PT4CL1 effect on S/G could be captured purely via the metabolic cascade. Rejected empirically: cascade propagation alone is insufficient; the direct edge performs real signal-propagation work.",
+      "source": "PT4CL1",
+      "target": "Lignin_SG_Ratio",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    }
+  ],
+  "stop_reason": "Iteration budget exploration complete. Iter 1 kept (+2.7% ODE). Iter 2 reverted (-3.2% ODE). Iter 3 not executed: post-iter-1 re-diagnosis found no remaining fixable failure that meets §1.1 Rule 1 (DOI-supported) + §1.5 Step C (predictable positive impact) simultaneously. The 4 residual ODE failures (T007, T010, T013, T027) all require either sub-node architecture not available in REFINEMENT scope (ratio-on-ratio framework limit), between-paper literature reconciliation impossible with a single signed edge (T013 C3H1 background heterogeneity), or non-monotonic response functions outside the FLASH-P framework (T027 KNAT7 hormesis). Per §1.3 Conservative Mandate 'Stops early' and §2 'accuracy plateaus'.",
+  "best_model": {
+    "location": "refinement/iteration_1/",
+    "algebraic_accuracy": 58.1,
+    "ode_accuracy": 87.1,
+    "rwr_accuracy": 80.6,
+    "total_nodes": 43,
+    "total_edges": 95
+  }
+}

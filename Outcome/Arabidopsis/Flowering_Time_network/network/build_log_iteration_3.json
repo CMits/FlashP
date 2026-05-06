@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Flowering_Time",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-18",
+    "iteration": 3,
+    "responds_to": "judge_review_iteration_2.json",
+    "builder_model": "Claude Opus 4.7 (1M context)"
+  },
+  "before": {"nodes": 42, "edges": 83, "source_pct": 42.86},
+  "after":  {"nodes": 42, "edges": 87, "source_pct": 42.86},
+  "snapshot": "network/iteration_2/",
+  "applied_suggestions": [
+    {
+      "id": "S17",
+      "priority": "high",
+      "disposition": "applied",
+      "edges_added": [{"source": "TFL1", "target": "FUL", "sign": -1, "curated_edge_id": "E277"}],
+      "note": "TFL1 Multi-Output Scaffold now complete with 6 outputs (AP1, LFY, SOC1, FD, FUL, Flowering_Time). Pre-Edge check 4 (feedback): TFL1 -> FUL -> AP1 -| TFL1 closes a triple-hop positive loop; coherent with existing AP1<->TFL1 Motif-7 bistable switch, damped at 0.7."
+    },
+    {
+      "id": "S18",
+      "priority": "high",
+      "disposition": "applied",
+      "edges_added": [{"source": "SOC1", "target": "FUL", "sign": 1, "curated_edge_id": "E233"}],
+      "note": "FUL now has three canonical activators (FT, SPL9, SOC1). Motif 3 Coherent Feed-Forward on AP1 now has three parallel paths (SOC1 -> AP1 direct, SOC1 -> FUL -> AP1, SOC1 -> LFY -> AP1)."
+    },
+    {
+      "id": "S19",
+      "priority": "medium",
+      "disposition": "applied",
+      "edges_added": [{"source": "AP2", "target": "miR172", "sign": -1, "curated_edge_id": "E020"}],
+      "note": "Closes Motif 7 mutual inhibition AP2 <-> miR172 (double-negative bistable switch stabilising the juvenile/adult phase boundary)."
+    },
+    {
+      "id": "S20",
+      "priority": "medium",
+      "disposition": "applied",
+      "edges_added": [{"source": "TPS1", "target": "FT", "sign": 1, "curated_edge_id": "E291"}],
+      "note": "TPS1 now has two outputs (T6P, FT direct). FT activator count rises to 7 (at §10 hard cap — acceptable for central florigen hub). Motif 3 Coherent Feed-Forward on FT via TPS1 -> T6P -> FT and TPS1 -> FT direct captures tps1 hypomorph phenotypes beyond what T6P depletion alone predicts."
+    },
+    {
+      "id": "S21",
+      "priority": "medium",
+      "disposition": "applied_option_b",
+      "edges_added": [{"source": "FT", "target": "Flowering_Time", "sign": 1, "curated_edge_id": "E129"}],
+      "edges_removed": [{"source": "FUL", "target": "Flowering_Time", "curated_edge_id": "E134",
+                         "reason": "Swapped per Judge S21 option (b): FUL still connects to the phenotype via FUL -> AP1 -> Flowering_Time cascade; removing the direct edge keeps phenotype activators at 4 while adding a new effector class."}],
+      "note": "Phenotype activators now {AP1, LFY, SOC1, FT} — four activators across two effector classes (meristem MADS-box TFs + mobile florigen). Inhibitor TFL1 preserved. Canonical FT -> Flowering_Time direct edge (E129 HIGH) is the single most-cited flowering mechanism in the literature."
+    },
+    {
+      "id": "S22",
+      "priority": "low",
+      "disposition": "deferred",
+      "reason": "PIF4 -> GI (+1, E201 HIGH) would convert GI from source to non-source with single activator PIF4. Combined with existing GI -| PIF4 (E148) this creates a single-negative feedback loop (stabilising, not runaway). Deferred because GI as source is a load-bearing clock-simplification decision from iter 1 — promoting GI to non-source would cascade through CO/FKF1/CDF1/FT dynamics. If Step 5 REFINEMENT shows GI/PIF4 perturbation predictions failing, revisit then.",
+      "curated_edge_ids": ["E201"]
+    },
+    {
+      "id": "S23",
+      "priority": "low",
+      "disposition": "deferred",
+      "reason": "AUTONOMOUS composite restructure (collapsing FCA/FPA/FLD/FVE/LD). The FLC inhibitor hard-cap is only a constraint because we want to add Vernalization direct and VRN1. Both were rejected in iter 2 as redundant with VIN3-cascade. Composite would lose fca/fve/fld/ld single-mutant resolution — a substantial cost. Deferred indefinitely unless a specific perturbation failure in Step 5 requires the additional FLC inhibitors.",
+      "curated_edge_ids": ["E097", "E122", "E116", "E135", "E168"]
+    }
+  ],
+  "summary": {
+    "applied_high": 2,
+    "applied_medium": 3,
+    "applied_low": 0,
+    "deferred_low": 2,
+    "rejected": 0,
+    "new_nodes": [],
+    "edges_added": 5,
+    "edges_removed": 1,
+    "net_edge_delta": 4,
+    "qa_status": {
+      "structure_check": "all 5 checks PASS (exit 0)",
+      "schema_validation": "ALL PASS"
+    },
+    "notable_hubs_post_iter3": {
+      "FT_activators": 7,
+      "FT_inhibitors": 3,
+      "TFL1_outputs": 6,
+      "DELLA_outputs": 5,
+      "FUL_activators": 3,
+      "FUL_inhibitors": 1,
+      "Flowering_Time_activators": 4,
+      "Flowering_Time_inhibitors": 1
+    }
+  }
+}

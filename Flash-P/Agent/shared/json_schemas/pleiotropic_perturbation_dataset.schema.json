@@ -1,0 +1,300 @@
+{
+  "$defs": {
+    "Direction": {
+      "enum": [
+        "increased",
+        "decreased",
+        "unchanged"
+      ],
+      "title": "Direction",
+      "type": "string"
+    },
+    "EvidenceEntry": {
+      "description": "Flat evidence structure — used everywhere.\nNEVER nested (no 'source' sub-object).",
+      "properties": {
+        "doi": {
+          "description": "DOI of the source paper",
+          "title": "Doi",
+          "type": "string"
+        },
+        "title": {
+          "default": "",
+          "description": "Paper title",
+          "title": "Title",
+          "type": "string"
+        },
+        "authors": {
+          "default": "",
+          "description": "Author list",
+          "title": "Authors",
+          "type": "string"
+        },
+        "year": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Publication year",
+          "title": "Year"
+        },
+        "journal": {
+          "default": "",
+          "description": "Journal name",
+          "title": "Journal",
+          "type": "string"
+        },
+        "evidence_sentence": {
+          "default": "",
+          "description": "Exact quote from paper supporting this claim",
+          "title": "Evidence Sentence",
+          "type": "string"
+        },
+        "claim": {
+          "default": "",
+          "description": "What this evidence supports",
+          "title": "Claim",
+          "type": "string"
+        },
+        "verification": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Verification"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "How the paper was read"
+        },
+        "full_text_read": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Whether full text was read",
+          "title": "Full Text Read"
+        }
+      },
+      "required": [
+        "doi"
+      ],
+      "title": "EvidenceEntry",
+      "type": "object"
+    },
+    "ExpectedOutcome": {
+      "properties": {
+        "phenotype_node": {
+          "title": "Phenotype Node",
+          "type": "string"
+        },
+        "expected_direction": {
+          "$ref": "#/$defs/Direction"
+        }
+      },
+      "required": [
+        "phenotype_node",
+        "expected_direction"
+      ],
+      "title": "ExpectedOutcome",
+      "type": "object"
+    },
+    "PerturbationType": {
+      "enum": [
+        "knockout",
+        "overexpression",
+        "knockdown",
+        "gain_of_function",
+        "loss_of_function",
+        "heterozygous",
+        "knockout_CRISPR",
+        "phospho_dead_mutant",
+        "knockout_arp6",
+        "double_knockout",
+        "double_mutant",
+        "triple_knockout",
+        "quadruple_knockout",
+        "quintuple_knockout",
+        "knockout_plus_treatment",
+        "knockout_plus_GR24",
+        "gain_of_function_plus_treatment",
+        "gain_of_function_plus_GR24",
+        "loss_of_function_plus_GR24",
+        "miR156_OE_plus_GR24",
+        "rescue",
+        "rescue_experiment",
+        "knockdown_in_d3_background",
+        "knockdown_in_d14_background",
+        "FC1_OE_in_d3_background",
+        "combined",
+        "combined_transgenic",
+        "epistasis",
+        "treatment",
+        "exogenous_treatment",
+        "exogenous_SL",
+        "chemical_treatment",
+        "acc_treatment",
+        "high_nitrate_treatment",
+        "drought_stress",
+        "inhibitor_PBZ",
+        "environmental",
+        "control",
+        "negative_control"
+      ],
+      "title": "PerturbationType",
+      "type": "string"
+    },
+    "PleiotropicMetadata": {
+      "properties": {
+        "flash_p_version": {
+          "description": "Pipeline version, e.g. '2.0'",
+          "title": "Flash P Version",
+          "type": "string"
+        },
+        "phenotype": {
+          "description": "Target phenotype, e.g. 'flowering_time'",
+          "title": "Phenotype",
+          "type": "string"
+        },
+        "species": {
+          "description": "Species name, e.g. 'Arabidopsis thaliana'",
+          "title": "Species",
+          "type": "string"
+        },
+        "created": {
+          "description": "Creation date YYYY-MM-DD",
+          "title": "Created",
+          "type": "string"
+        },
+        "network_type": {
+          "default": "merged_pleiotropic",
+          "title": "Network Type",
+          "type": "string"
+        },
+        "description": {
+          "default": "",
+          "title": "Description",
+          "type": "string"
+        },
+        "total_pleiotropic_tests": {
+          "title": "Total Pleiotropic Tests",
+          "type": "integer"
+        },
+        "total_outcome_pairs": {
+          "title": "Total Outcome Pairs",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "flash_p_version",
+        "phenotype",
+        "species",
+        "created",
+        "total_pleiotropic_tests",
+        "total_outcome_pairs"
+      ],
+      "title": "PleiotropicMetadata",
+      "type": "object"
+    },
+    "PleiotropicPerturbation": {
+      "properties": {
+        "test_id": {
+          "description": "PLEIO_001, PLEIO_002, ...",
+          "title": "Test Id",
+          "type": "string"
+        },
+        "gene": {
+          "title": "Gene",
+          "type": "string"
+        },
+        "perturbation_type": {
+          "$ref": "#/$defs/PerturbationType"
+        },
+        "description": {
+          "default": "",
+          "title": "Description",
+          "type": "string"
+        },
+        "gene_modifiers": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Gene Modifiers",
+          "type": "object"
+        },
+        "exogenous_supply": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Exogenous Supply",
+          "type": "object"
+        },
+        "expected_outcomes": {
+          "items": {
+            "$ref": "#/$defs/ExpectedOutcome"
+          },
+          "title": "Expected Outcomes",
+          "type": "array"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceEntry"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "source_network": {
+          "default": "",
+          "description": "Which individual network this perturbation originated from",
+          "title": "Source Network",
+          "type": "string"
+        }
+      },
+      "required": [
+        "test_id",
+        "gene",
+        "perturbation_type",
+        "expected_outcomes"
+      ],
+      "title": "PleiotropicPerturbation",
+      "type": "object"
+    },
+    "Verification": {
+      "enum": [
+        "full_text_read",
+        "abstract_read",
+        "pubmed_crosschecked"
+      ],
+      "title": "Verification",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "metadata": {
+      "$ref": "#/$defs/PleiotropicMetadata"
+    },
+    "pleiotropic_tests": {
+      "items": {
+        "$ref": "#/$defs/PleiotropicPerturbation"
+      },
+      "title": "Pleiotropic Tests",
+      "type": "array"
+    }
+  },
+  "required": [
+    "metadata",
+    "pleiotropic_tests"
+  ],
+  "title": "PleiotropicPerturbationFile",
+  "type": "object"
+}

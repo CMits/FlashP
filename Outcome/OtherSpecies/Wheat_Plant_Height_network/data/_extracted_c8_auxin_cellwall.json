@@ -1,0 +1,149 @@
+{
+  "cluster": "C8_Auxin_CellWall",
+  "papers": [
+    {
+      "doi": "10.3389/fpls.2018.01395",
+      "title": "Characterization and Expression Patterns of Auxin Response Factors in Wheat",
+      "authors": "Qiao L, Zhang W, Li X, Zhang L, Zhang X, Li X, Guo H, Ren Y, Zheng J, Chang Z",
+      "year": 2018,
+      "journal": "Frontiers in Plant Science",
+      "status": "read",
+      "pmc_id": "PMC6157421"
+    },
+    {
+      "doi": "10.1093/aob/mcy218",
+      "title": "TaARF4 genes are linked to root growth and plant height in wheat",
+      "authors": "Wang J, Wang R, Mao X, Li L, Chang X, Zhang X, Jing R",
+      "year": 2019,
+      "journal": "Annals of Botany",
+      "status": "read"
+    },
+    {
+      "doi": "10.1007/s00299-016-1948-4",
+      "title": "Expansins: roles in plant growth and potential applications in crop improvement",
+      "authors": "Marowa P, Ding A, Kong Y",
+      "year": 2016,
+      "journal": "Plant Cell Reports",
+      "status": "read",
+      "pmc_id": "PMC4833835"
+    }
+  ],
+  "edges": [
+    {
+      "source": "Auxin",
+      "target": "TaTIR1",
+      "sign": 1,
+      "mechanism": "Auxin binds TIR1/AFB F-box; auxin-TIR1 recruits Aux/IAA for ubiquitination",
+      "evidence_doi": "10.3389/fpls.2018.01395",
+      "evidence_sentence": "When present, auxin promotes the TIR1/AFB-mediated ubiquitin-proteasome-dependent degradation of inhibitory Aux/IAA proteins"
+    },
+    {
+      "source": "TaTIR1",
+      "target": "TaIAA",
+      "sign": -1,
+      "mechanism": "TIR1-auxin targets Aux/IAA proteins for proteasomal degradation",
+      "evidence_doi": "10.3389/fpls.2018.01395",
+      "evidence_sentence": "TIR1/AFB-mediated ubiquitin-proteasome-dependent degradation of inhibitory Aux/IAA proteins"
+    },
+    {
+      "source": "TaIAA",
+      "target": "TaARF",
+      "sign": -1,
+      "mechanism": "Aux/IAA proteins bind and repress ARF transcription factors; removed upon auxin signaling",
+      "evidence_doi": "10.3389/fpls.2018.01395",
+      "evidence_sentence": "thereby activating ARF transcription factors"
+    },
+    {
+      "source": "TaARF",
+      "target": "Plant_Height",
+      "sign": 1,
+      "mechanism": "ARF transcription factors activate growth/elongation genes; TaARF4 associated with height QTL",
+      "evidence_doi": "10.1093/aob/mcy218",
+      "evidence_sentence": "TaARF4-B was strongly associated with PH and root depth at the tillering, jointing and grain fill stages"
+    },
+    {
+      "source": "TaARF4",
+      "target": "TaHB33",
+      "sign": 1,
+      "mechanism": "TaARF4-A regulates HB33 expression; HB33 represses GH3 genes and reduces plant height",
+      "evidence_doi": "10.1093/aob/mcy218",
+      "evidence_sentence": "TaARF4-A was shown to regulate HB33 expression which negatively responded to ABA, and reduced root length and plant height by repressing expression of Gretchen Hagen 3 (GH3) genes"
+    },
+    {
+      "source": "TaHB33",
+      "target": "TaGH3",
+      "sign": -1,
+      "mechanism": "HB33 represses GH3 gene expression; GH3 genes conjugate auxin to reduce active auxin",
+      "evidence_doi": "10.1093/aob/mcy218",
+      "evidence_sentence": "HB33 expression which negatively responded to ABA, and reduced root length and plant height by repressing expression of Gretchen Hagen 3 (GH3) genes"
+    },
+    {
+      "source": "Auxin",
+      "target": "TaEXP",
+      "sign": 1,
+      "mechanism": "Auxin promotes expansin expression to loosen cell walls",
+      "evidence_doi": "10.1007/s00299-016-1948-4",
+      "evidence_sentence": "Expansin expression is influenced by hormones like abscisic acid, indole-3-acetic acid (auxins), brassinosteroids, cytokinins and ethylene"
+    },
+    {
+      "source": "Gibberellin",
+      "target": "TaEXP",
+      "sign": 1,
+      "mechanism": "GA promotes expansin expression to drive cell elongation",
+      "evidence_doi": "10.1007/s00299-016-1948-4",
+      "evidence_sentence": "expansin expression is influenced by hormones like abscisic acid, indole-3-acetic acid (auxins), brassinosteroids, cytokinins and ethylene"
+    },
+    {
+      "source": "Brassinosteroid",
+      "target": "TaEXP",
+      "sign": 1,
+      "mechanism": "BR promotes expansin expression in growing tissues",
+      "evidence_doi": "10.1007/s00299-016-1948-4",
+      "evidence_sentence": "expansin expression is influenced by hormones like abscisic acid, indole-3-acetic acid (auxins), brassinosteroids, cytokinins and ethylene"
+    },
+    {
+      "source": "TaEXP",
+      "target": "Cell_Wall_Loosening",
+      "sign": 1,
+      "mechanism": "Expansins break H-bonds between cellulose microfibers and xyloglucan, allowing cell wall extension",
+      "evidence_doi": "10.1007/s00299-016-1948-4",
+      "evidence_sentence": "break the hydrogen bonds between cellulose microfibers and cross-linking matrix glycans, resulting in slippage between cell walls"
+    },
+    {
+      "source": "Cell_Wall_Loosening",
+      "target": "Plant_Height",
+      "sign": 1,
+      "mechanism": "Cell-wall loosening enables stem/internode elongation",
+      "evidence_doi": "10.1007/s00299-016-1948-4",
+      "evidence_sentence": "action enables cell wall polymers to slide and consequently allowing the cell to expand"
+    },
+    {
+      "source": "TaEXP",
+      "target": "Plant_Height",
+      "sign": 1,
+      "mechanism": "Expansin OE in rice increases height; analogous role in wheat",
+      "evidence_doi": "10.1007/s00299-016-1948-4",
+      "evidence_sentence": "plants carrying a single copy of the OsEXP4 gene grew taller than control plants and developed some additional leaves"
+    }
+  ],
+  "perturbations": [
+    {
+      "gene": "NAA_treatment",
+      "perturbation_type": "treatment",
+      "expected_direction": "increased",
+      "magnitude": "slight",
+      "evidence_doi": "10.3389/fpls.2018.01395",
+      "evidence_sentence": "Wheat seedlings treated with 10 μM α-naphthaleneacetic acid (synthetic auxin) showed differential upregulation and downregulation of specific TaARF members within 0.5-3 hours post-treatment",
+      "notes": "Auxin treatment"
+    },
+    {
+      "gene": "TaARF4-B_haplotype",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "magnitude": "slight",
+      "evidence_doi": "10.1093/aob/mcy218",
+      "evidence_sentence": "TaARF4-B was strongly associated with PH and root depth at the tillering, jointing and grain fill stages",
+      "notes": "Natural variation haplotype (T→A at 158); associated with shorter plants"
+    }
+  ]
+}

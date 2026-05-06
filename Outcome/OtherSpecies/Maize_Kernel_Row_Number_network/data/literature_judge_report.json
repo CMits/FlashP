@@ -1,0 +1,322 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "kernel_row_number",
+    "phenotype_node": "Kernel_Row_Number",
+    "species": "Zea mays",
+    "created": "2026-04-20",
+    "judge_model": "Claude Opus 4.7 (1M context)",
+    "step_1_snapshot_location": "OtherSpecies/Maize_Kernel_Row_Number_network/data/_step1_snapshot/"
+  },
+  "summary": {
+    "step_1_counts": {"papers": 45, "edges": 135, "perturbations": 72},
+    "step_1_5_additions": {"papers": 3, "edges": 11, "perturbations": 5},
+    "merged_totals": {"papers": 48, "edges": 146, "perturbations": 77},
+    "gaps_flagged": 15,
+    "gaps_closed": 8,
+    "gaps_partially_closed": 3,
+    "gaps_open": 4,
+    "duplicate_node_bugs_found": 0,
+    "alias_annotations_flagged": 2,
+    "verdict": "gaps_closed_with_residual"
+  },
+  "canonical_checklist": {
+    "pathways": [
+      "CLE-CLV meristem-size feedback (ZmCLE7->FEA2/CT2; ZmFCP1->FEA3; FEA4 bZIP; ZmCRN partner; TD1 CLV1-like)",
+      "WUS-KNOX meristem identity (ZmWUS1/ZmWUS2; KN1 KNOX)",
+      "Ramosa inflorescence branching (RA1 C2H2; RA2 LOB; RA3 TPP/T6P; REL2 TOPLESS)",
+      "AP2-like / spikelet-pair regulators (IDS1 = KRN1 = Ts6; SID1)",
+      "TB1 / GT1 / UB SBP-TF branching (ZmTB1; GT1; UB2; UB3 = KRN4; TSH4; TRU1)",
+      "Auxin biosynthesis + transport (VT2 TAA-like; SPI1 YUC-like; BIF1; BIF2 PINOID-like; BA1; BA2; ZmPIN1a/b)",
+      "Cytokinin (ABPH1 type-A ARR; ZmIPT biosynthesis; ZmCKX degradation; LOG1; Type-A/B ARR)",
+      "GA / BR hormone (d1; na1/na2) - secondary",
+      "ERECTA-EPFL signaling (ZmER1/2/L; ZmEPFL peptide ligands) - 2026 addition",
+      "Cloned KRN QTL genes (KRN1 = IDS1/Ts6; KRN2 = WD40; KRN4 = UB3 distal CRE; KNR6; KRN5b)",
+      "Sugar / T6P signalling to branching (RA3 TPP activity)",
+      "Domestication axis (tb1; UB3/KRN4; KRN2; FEA2)"
+    ],
+    "hubs": {
+      "meristem_size": ["FEA2", "FEA3", "FEA4", "CT2", "ZmCLE7", "ZmFCP1", "ZmCRN", "TD1"],
+      "meristem_identity": ["ZmWUS1", "ZmWUS2", "KN1"],
+      "branching_ramosa": ["RA1", "RA2", "RA3", "REL2"],
+      "ap2_like": ["IDS1", "SID1"],
+      "sbp_branching": ["ZmTB1", "GT1", "UB2", "UB3", "TSH4", "TRU1"],
+      "auxin": ["VT2", "SPI1", "BIF1", "BIF2", "BA1", "BA2", "ZmPIN1a", "ZmPIN1b"],
+      "cytokinin": ["ABPH1", "ZmIPT", "ZmCKX", "Type_B_ARR", "AHK", "AHP"],
+      "erecta": ["ZmER1", "ZmER2", "ZmERL", "ZmEPFL"],
+      "krn_qtl": ["KRN1=IDS1", "KRN2", "KRN4=UB3", "KNR6", "KRN5b"]
+    },
+    "canonical_mutants": [
+      "fea2, fea3, fea4, ct2, Zmcrn, td1, fea2;fea3, fea2;fea4 double; fea2/ct2/Zmcrn heterozygotes",
+      "ZmCLE7 CRISPR, ZmFCP1 CRISPR",
+      "Bif3 (ZmWUS1 tandem duplication), kn1, Kn1-N GOF; ZmWUS1/2 CRISPR",
+      "ra1, ra2, ra3, rel2; rel2;ra1, rel2;ra2, rel2;ra1;ra2",
+      "ids1 = krn1, sid1, ids1;sid1, Ts6 GOF, ts4",
+      "ub2, ub3, ub2;ub3, ub2;ub3;tsh4, UB3 OE",
+      "tb1, tru1, gt1",
+      "vt2, spi1, spi1;vt2, bif1, bif2, bif1;bif2, ba1, ba2, ZmPIN1 RNAi",
+      "abph1, Abphyl2 dominant, ZmCKX OE, ZmIPT OE",
+      "KRN2 CRISPR, KRN4 absence allele, KNR6 OE/RNAi, AGAP CRISPR, KRN5b KO",
+      "Zmer1, Zmer1;Zmer2, ZmEPFL quintuple",
+      "Treatments: exogenous ZmCLE7/ZmFCP1 peptide, IAA, NAA, TIBA, NPA, kinetin, BA (cytokinin)"
+    ],
+    "environmental_inputs": ["Light/Shade (FarRed)", "Nitrogen", "Temperature stress", "Planting density"],
+    "crosstalk": [
+      "FEA2/FEA3 ZmCLE pathway feedback onto ZmWUS1 organising center",
+      "RA2 -> RA1 linear cascade with RA3 T6P lateral input",
+      "UB2/UB3 regulate IDS1 and cytokinin biosynthesis",
+      "Auxin <-> Cytokinin antagonism in IM (ABPH1 feedback)",
+      "KN1 <-> auxin <-> GA: KN1 represses GA biosynthesis and promotes auxin/CK biosynthesis",
+      "ABPH1 <-> CK negative feedback (type-A ARR)",
+      "ZmER-EPFL signaling -> ZmWUS1 restriction"
+    ]
+  },
+  "gaps": [
+    {
+      "id": "G001",
+      "type": "extraction_shallow",
+      "severity": "high",
+      "description": "Du et al 2020 PLoS Genetics (10.1371/journal.pgen.1008764) was marked status:read but yielded 0 edges in Step 1. This paper is the canonical reference establishing the KRN4 distal enhancer -> UB3 chromatin-looping mechanism via UB2-centered complexes. Its omission is a large gap — the UB2->UB3 direct binding edge was not curated.",
+      "biological_justification": "Du 2020 provides ChIP-seq + EMSA evidence that UB2 directly binds both the KRN4 region (a distal enhancer) and the UB3 promoter. This is the mechanism behind the well-known KRN4 QTL (3-fold UB3 expression difference between KRN4 alleles; ~2 rows KRN difference in H21 background).",
+      "search_queries": ["Du 2020 PLoS Genetics KRN4 UB3 UB2 ChIP-seq"],
+      "papers_read": ["10.1371/journal.pgen.1008764 (re-read)"],
+      "edges_added": ["E136"],
+      "closed": true
+    },
+    {
+      "id": "G002",
+      "type": "alias_annotation_missing",
+      "severity": "high",
+      "node": "UB3 / KRN4",
+      "description": "KRN4 and UB3 are the SAME GENE (natural variation at UB3's distal cis-regulatory element, also known as KRN4, was cloned as the KRN4 QTL by Liu et al 2015). In the Step 1 repository, KRN4 appears only in perturbation T042 (KRN4_absence_allele) and is not annotated as an alias of UB3 at the node level. No duplicate node was created (KRN4 is NOT in any curated edge), but Builder-level node_annotations should record KRN4 as a synonym for UB3 so downstream reconciliation does not treat them as separate loci.",
+      "biological_justification": "Liu 2015 PLoS Gen and Du 2020 PLoS Gen both establish that KRN4 is the UB3 distal enhancer, not an independent gene. Without the alias, the PERTURBATION agent might re-invent a KRN4 node.",
+      "search_queries": ["KRN4 UB3 same gene maize"],
+      "papers_read": [],
+      "edges_added": [],
+      "alias_annotation_for_builder": {"UB3": ["KRN4"]},
+      "closed": true,
+      "resolution": "Alias flagged for BUILDER to add to node_annotations.json; no new edge/node needed because curated_edges already uses UB3 consistently and T042 references KRN4 with correct biology"
+    },
+    {
+      "id": "G003",
+      "type": "mutant_missing",
+      "severity": "high",
+      "node": "BA2",
+      "description": "BA2 (barren stalk2, bHLH heterodimer partner of BA1) is entirely missing as a node and has no ba2 perturbation test. BA1 is extracted but BA1's obligate partner and the BA1-BA2 heterodimer physical interaction were missing.",
+      "biological_justification": "Yao et al 2019 Molecular Plant established BA2 as a bHLH co-ortholog of LAX2 that heterodimerizes with BA1 in the nucleus and is required for reproductive axillary meristem development. ba2 mutants fail to produce ears, matching the canonical mutant checklist.",
+      "search_queries": ["maize BA1 BA2 bHLH heterodimer barren stalk axillary meristem"],
+      "papers_read": ["10.1016/j.molp.2018.12.024 (new)"],
+      "edges_added": ["E141", "E142"],
+      "perturbations_added": ["T073"],
+      "closed": true
+    },
+    {
+      "id": "G004",
+      "type": "bidirectional_one_sided",
+      "severity": "high",
+      "node": "SPI1",
+      "step_1_metrics": {"in_degree": 0, "out_degree": 3},
+      "description": "SPI1 was source-only — its targets were extracted but its upstream regulators (KN1 direct binding of YUC auxin biosynthesis genes) were not.",
+      "biological_justification": "Bolduc et al 2012 Genes & Development ChIP-seq + RNA-seq defined KN1 as a direct regulator of auxin biosynthesis, with KN1 binding YUC-family and TAA-family loci, as well as PIN efflux transporters and AFB auxin coreceptors. Step 1 extracted KN1->VT2 but missed the parallel KN1->SPI1, KN1->ZmPIN1a, KN1->TIR1/AFB, and KN1->ZmIPT edges from the same paper.",
+      "search_queries": ["KN1 ChIP-seq direct targets auxin biosynthesis SPI1 VT2 maize Bolduc Hake"],
+      "papers_read": ["10.1101/gad.193433.112 (re-read)"],
+      "edges_added": ["E137", "E138", "E140"],
+      "closed": true,
+      "resolution": "SPI1 no longer source-only (in=1 from KN1); also added KN1->ZmPIN1a and KN1->TIR1 from the same paper"
+    },
+    {
+      "id": "G005",
+      "type": "bidirectional_one_sided",
+      "severity": "high",
+      "node": "ZmFCP1",
+      "step_1_metrics": {"in_degree": 0, "out_degree": 3},
+      "description": "ZmFCP1 was source-only. Candidate upstream regulators explored: FEA4 ChIP-seq (Pautler 2015) and developmental repressors.",
+      "biological_justification": "Checked Pautler 2015 Plant Cell FEA4 ChIP-seq / RNA-seq. Authors explicitly state 'FEA4 does not appear to directly target any of the core CLV-WUS machinery' and no ChIP peaks on ZmCLE7/ZmFCP1 loci are reported. ZmFCP1 transcription appears to be spatially regulated in the organizing center (co-expressed with FEA4 and ZmLOG7) without a clearly curated TF regulator in Zea literature.",
+      "search_queries": ["FEA4 ChIP-seq direct targets maize meristem ZmCLE7 ZmFCP1 Pautler"],
+      "papers_read": ["10.1105/tpc.114.132506 (re-read for FCP1 targets)"],
+      "edges_added": [],
+      "closed": false,
+      "unclosable_reason": "No maize paper was found in the second round that assigns a direct transcriptional regulator to ZmFCP1. In Arabidopsis, CLE14/CLE20 (FCP1 orthologs) are regulated developmentally rather than by a single TF. Leave as biological source-node for BUILDER.",
+      "residual_for_builder": "Flag ZmFCP1 as a biological source node (is_source candidate)"
+    },
+    {
+      "id": "G006",
+      "type": "hub_underrepresented",
+      "severity": "medium",
+      "node": "TB1",
+      "step_1_metrics": {"in_degree": 1, "out_degree": 3},
+      "description": "TB1 is the founding domestication gene but had only 4 edges. Direct TB1 targets TRU1 and GT1 were already captured; also cross-checked for any additional targets.",
+      "biological_justification": "Dong 2017 PNAS established TB1 directly binds the tru1 first intron and last exon (ChIP + EMSA) and positively regulates tru1. TB1 also upregulates gt1 (Whipple 2011). Both edges were already present (TB1->TRU1 +, TB1->GT1 +). No new edges added but re-read confirmed sign and mechanism strength.",
+      "search_queries": ["TB1 teosinte branched1 direct targets TRU1 GT1 maize"],
+      "papers_read": ["10.1073/pnas.1714960114 (re-read confirmed existing edges)"],
+      "edges_added": [],
+      "closed": true,
+      "resolution": "Already captured; no new edges needed. TB1 coverage sufficient for domestication axis."
+    },
+    {
+      "id": "G007",
+      "type": "hub_underrepresented",
+      "severity": "medium",
+      "node": "UB3",
+      "step_1_metrics": {"in_degree": 1, "out_degree": 5},
+      "description": "UB3 had 6 edges but missed the UB2 upstream binding (now G001) and the UB3 -> cytokinin axis (now G008). After G001+G008 closure UB3 now has in=2, out=6.",
+      "biological_justification": "UB3 is the canonical KRN QTL gene. Du 2020 establishes UB2->UB3 direct binding via KRN4 enhancer (closed G001). Du 2017 establishes UB3 -> CK biosynthesis/signaling repression (closed G008).",
+      "search_queries": ["UB3 direct binding upstream regulators maize"],
+      "papers_read": ["10.1371/journal.pgen.1008764", "10.1111/nph.14391"],
+      "edges_added": ["E136", "E143"],
+      "closed": true
+    },
+    {
+      "id": "G008",
+      "type": "crosstalk_missing",
+      "severity": "medium",
+      "description": "UB3 -> Cytokinin repression loop (UB3 directly binds LOG1 and Type-A ARR promoters) was not captured. This is the mechanism linking SBP branching TFs to CK homeostasis.",
+      "biological_justification": "Du et al 2017 New Phytologist 214:721-733 shows UB3 binds promoters of LOG1 (CK-activating enzyme) and Type-A ARR (CK signaling attenuator). In ub3 mutants, CK biosynthesis genes are up and degradation genes are down, producing the increased-branching / altered-KRN phenotype.",
+      "search_queries": ["UB3 cytokinin biosynthesis signaling maize rice"],
+      "papers_read": ["10.1111/nph.14391 (new)"],
+      "edges_added": ["E143"],
+      "perturbations_added": ["T076"],
+      "closed": true
+    },
+    {
+      "id": "G009",
+      "type": "biosynthesis_missing",
+      "severity": "medium",
+      "node": "ZmIPT",
+      "step_1_metrics": {"in_degree": 0, "out_degree": 1},
+      "description": "Cytokinin biosynthesis node ZmIPT was underrepresented (1 edge) with no upstream regulator. Bolduc 2012 shows KN1 directly binds and positively regulates the rice LOG ortholog (CK-activating enzyme in the IPT/LOG pathway).",
+      "biological_justification": "KN1 maintains indeterminate meristem identity partly by up-regulating CK biosynthesis. In maize, KN1 binding of the LOG ortholog is evidence for the KN1->ZmIPT regulatory edge.",
+      "search_queries": ["KN1 LOG cytokinin biosynthesis ChIP-seq maize"],
+      "papers_read": ["10.1101/gad.193433.112 (re-read)"],
+      "edges_added": ["E139"],
+      "closed": true
+    },
+    {
+      "id": "G010",
+      "type": "degradation_missing",
+      "severity": "medium",
+      "node": "ZmCKX",
+      "description": "ZmCKX (CK degradation) had only 2 edges and no OE-in-ear experimental test. No new maize paper was surfaced in the second round that specifically reported ear-targeted ZmCKX overexpression with KRN quantification.",
+      "biological_justification": "Bartrina et al 2011 Arabidopsis work is canonical but not maize. Maize ZmCKX OE exists in leaf-senescence context (Gong 2022 Frontiers) but not clearly in ear meristem with KRN outcome.",
+      "search_queries": ["ZmCKX overexpression maize kernel row number ear meristem"],
+      "papers_read": [],
+      "edges_added": [],
+      "closed": false,
+      "unclosable_reason": "No maize-specific ear-targeted ZmCKX OE paper with KRN quantification found in OA sources. BUILDER should treat ZmCKX as a low-confidence degradation node.",
+      "residual_for_builder": "ZmCKX coverage remains thin; test cases limited"
+    },
+    {
+      "id": "G011",
+      "type": "pathway_missing",
+      "severity": "high",
+      "pathway": "ERECTA-EPFL signaling to IM size",
+      "description": "The ZmER1/2/L receptor-kinase pathway and its ZmEPFL peptide ligands are an entirely missing pathway in Step 1. This pathway was published 2026-01-12 in Nature Communications and restricts IM size via ZmWUS1.",
+      "biological_justification": "Liu et al 2026 Nature Communications (DOI 10.1038/s41467-025-67634-3) established three redundant ZmER receptor kinases that are activated by five redundant ZmEPFL peptide ligands. Loss-of-function produces enlarged IM and increased KRN, with ZmWUS1 identified as the downstream mediator. This adds a parallel arm to the CLE-CLV meristem-size feedback module.",
+      "search_queries": ["maize ERECTA ZmER inflorescence meristem ZmEPFL kernel row number CRISPR"],
+      "papers_read": ["10.1038/s41467-025-67634-3 (new)"],
+      "edges_added": ["E144", "E145", "E146"],
+      "perturbations_added": ["T074", "T075", "T077"],
+      "closed": true
+    },
+    {
+      "id": "G012",
+      "type": "alias_annotation_missing",
+      "severity": "medium",
+      "node": "IDS1 / KRN1 / Ts6",
+      "description": "The Wang 2019 New Phytologist paper cloned the krn1 QTL and mapped it to ids1/Ts6. KRN1 is NOT an independent gene — it IS IDS1. Step 1 has the IDS1 node with extensive edges and the Ts6 GOF test (T039) but does not annotate KRN1 as an IDS1 alias, which could mislead downstream agents.",
+      "biological_justification": "Wang et al 2019 nph.15890 map-based cloning of krn1 major QTL = ids1 AP2 domain gene. Ts6 is a dominant GOF IDS1 allele. Same gene across all three names.",
+      "search_queries": ["KRN1 maize LBD domain kernel row number Wang 2019 New Phytologist"],
+      "papers_read": ["10.1111/nph.15890 (re-checked)"],
+      "edges_added": [],
+      "alias_annotation_for_builder": {"IDS1": ["KRN1", "Ts6"]},
+      "closed": true,
+      "resolution": "Alias flagged for BUILDER. No duplicate node exists because KRN1 never appears as a separate node."
+    },
+    {
+      "id": "G013",
+      "type": "mutant_missing",
+      "severity": "medium",
+      "description": "Several canonical doubles/combinations missing: bif1;bif2 double, ba1;ba2 double, ZmPIN1a;ZmPIN1b RNAi double. These are named in primary literature but not as distinct tests in Step 1.",
+      "biological_justification": "Galli et al 2015 already reports Bif1;Bif4 double (T055) and bif2 single (T056) — bif1;bif2 might be equivalent or not separately reported. Second-round search did not surface a cleanly quantified bif1;bif2 double KRN phenotype.",
+      "search_queries": ["bif1 bif2 double maize inflorescence"],
+      "papers_read": [],
+      "edges_added": [],
+      "closed": false,
+      "unclosable_reason": "Bif1;Bif4 is documented (T055); bif1;bif2 independently is not clearly separable in Galli 2015. Leave as residual.",
+      "residual_for_builder": "bif1;bif2 not extracted; BUILDER need not create this test"
+    },
+    {
+      "id": "G014",
+      "type": "hub_underrepresented",
+      "severity": "medium",
+      "node": "KRN2",
+      "description": "KRN2 (WD40 protein, convergent maize-rice selection) had 2 edges. Chen 2022 Science shows KRN2 interacts with DUF1644 to negatively regulate grain number but does not provide direct binding to UB3 or other KRN QTL genes.",
+      "biological_justification": "KRN2-DUF1644 interaction is already captured in the Step 1 extraction. The mechanism by which this complex converges on UB3 / IM size is not resolved at promoter-binding level in Chen 2022. Leave as is.",
+      "search_queries": ["KRN2 WD40 maize UB3 KRN4 Chen 2022 Science mechanism"],
+      "papers_read": ["10.1126/science.abg7985 (re-checked)"],
+      "edges_added": [],
+      "closed": true,
+      "resolution": "KRN2-DUF1644 complex already captured; no further edges supported by current literature"
+    },
+    {
+      "id": "G015",
+      "type": "bidirectional_one_sided",
+      "severity": "low",
+      "nodes": ["KNR6", "miR156"],
+      "description": "KNR6 (out=3, in=0) and miR156 (out=3, in=0) remain source-only after merge.",
+      "biological_justification": "KNR6 is a serine/threonine kinase; its direct upstream transcriptional regulation is not curated in Jia 2020 Nat Comm. miR156 is developmentally regulated by sugar/phase-change signals but maize-specific regulators are not comprehensively published.",
+      "search_queries": ["KNR6 upstream regulation maize", "miR156 regulators maize"],
+      "papers_read": [],
+      "edges_added": [],
+      "closed": false,
+      "unclosable_reason": "No well-characterized maize transcriptional regulator for KNR6 or for miR156 was surfaced.",
+      "residual_for_builder": "Flag both as biological source-node candidates for BUILDER (is_source likely true)"
+    }
+  ],
+  "bidirectional_audit": {
+    "source_only_nodes_before": ["ZmFCP1", "KNR6", "SPI1", "miR156"],
+    "source_only_nodes_after": ["ZmFCP1", "KNR6", "miR156"],
+    "resolution": "1 of 4 source-only nodes resolved (SPI1 gained in-edge from KN1). ZmFCP1 appears to be a biological source node (no curated direct TF regulator in maize literature). KNR6 and miR156 also appear to be biological source nodes — flag for BUILDER is_source:true"
+  },
+  "extraction_density_audit": {
+    "step_1_full_text_papers": 37,
+    "step_1_mean_edges_per_full_text_paper": 3.65,
+    "step_1_papers_with_zero_edges_but_status_read": [
+      "10.1371/journal.pgen.1008764 (Du 2020 PLoS Gen - KRN4/UB3 enhancer)",
+      "10.1186/gb-2008-9-1-204 (Banks 2008 miR172 review - used in T040 but no edges)",
+      "10.1016/j.plantsci.2024.112366 (Wang 2024 KRN review)",
+      "10.3390/cells12141900 (Dong 2023 ear traits review)",
+      "10.1105/tpc.17.00477 (Strable 2017 YABBY DRL1/DRL2 Plant Cell)",
+      "10.3389/fpls.2022.1017983 (Li 2023 QTL Frontiers)",
+      "10.7717/peerj.19143 (Wang 2025 transcriptome)"
+    ],
+    "step_1_5_papers_re_read": ["10.1371/journal.pgen.1008764", "10.1101/gad.193433.112", "10.1105/tpc.114.132506", "10.1073/pnas.1407401112", "10.1073/pnas.1714960114"],
+    "step_1_5_edges_recovered_from_re_read": 5,
+    "comment": "The Du 2020 PLoS Gen paper flagged status:read in Step 1 yielded 0 edges despite being the canonical KRN4-UB3 enhancer reference. Re-read recovered 1 critical direct-binding edge. Bolduc 2012 (KN1 ChIP-seq) had 5 edges but a re-read recovered 4 additional edges for auxin biosynthesis / transport / receptor / CK biosynthesis that were in the Results but not extracted. The remaining 0-edge papers are reviews or transcriptome papers that contribute evidence to existing edges rather than mechanistic new edges."
+  },
+  "duplicate_node_consolidations": {
+    "consolidations_performed": [],
+    "alias_annotations_flagged_for_builder": {
+      "UB3": ["KRN4"],
+      "IDS1": ["KRN1", "Ts6"]
+    },
+    "comment": "No duplicate-node bug was present. KRN4 does not appear as a separate node in curated_edges.json — it only shows up in perturbation test T042 (KRN4_absence_allele) with correct biology. Similarly, KRN1 does not exist as a separate node — T039 (Ts6) correctly uses the IDS1 gene. No merge was needed; only BUILDER-level node_annotations should record the aliases so downstream reconciliation is unambiguous."
+  },
+  "residual_gaps_for_builder": [
+    "ZmFCP1 has no curated transcriptional regulator in maize literature. Treat as biological source node (is_source:true). Flag as literature_gap.",
+    "KNR6 has no curated transcriptional regulator. Treat as biological source node.",
+    "miR156 has no curated direct transcriptional regulator in maize. Treat as biological source node.",
+    "ZmCKX ear-targeted OE experiment with KRN quantification is not in maize literature. Degradation-enzyme coverage is thin.",
+    "Alias annotation: UB3 has alias KRN4 (add to node_annotations.json for downstream clarity).",
+    "Alias annotation: IDS1 has aliases KRN1 and Ts6 (add to node_annotations.json).",
+    "ZmWUS2 paralog has no curated edges (only Bif3 = ZmWUS1 tandem duplication is in network). May be absent due to lack of published direct-binding data."
+  ],
+  "anti_patterns_check": {
+    "rubber_stamped": false,
+    "renumbered_step1_ids": false,
+    "hallucinated_closures": false,
+    "duplicated_step1_searches": false,
+    "deleted_step1_edges": false,
+    "snapshot_created": true
+  }
+}

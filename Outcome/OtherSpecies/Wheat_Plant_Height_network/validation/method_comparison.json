@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Plant_Height",
+    "species": "Triticum aestivum",
+    "network": "Wheat_Plant_Height_network",
+    "created": "2026-04-20"
+  },
+  "summary": {
+    "best_method": "ODE (Hill)",
+    "best_accuracy": 0.94,
+    "best_kappa": 0.8682,
+    "best_mcc": 0.78,
+    "recommendation": "Proceed to Step 5 (REFINEMENT) — best accuracy is 80-95% band. Two of the four failing tests are Trap-3 framework limitations (Rht-B1b+GA3, Rht-B1c+GA3) which are not refinable without DELLA allele-specific modelling. Remaining failures (Rht-B1b+TaZnF-B double, VRN1 single, TaGRF4 OE, TaBRI1 triple+BL) are edge-of-resolution or composite-collapse issues. Refinement should focus on the TaGRF4 → DELLA edge strength and optionally the VRN1 composite factor.",
+    "frs_best": 10.5772,
+    "frs_band_best": "large-scale strong",
+    "dars_best": 10.7191,
+    "dars_band_best": "large-scale strong"
+  },
+  "comparison": [
+    {
+      "method": "Algebraic",
+      "accuracy": 0.92,
+      "kappa": 0.8288,
+      "mcc": 0.7084,
+      "convergence_rate": 0.96,
+      "best_params": "defaults",
+      "strengths": "Fastest (seconds to run), deterministic, transparent mechanism. Perfect on gain_of_function (Rht-B1/D1 dwarf alleles) and rescue_experiment categories. Strong kappa (substantial).",
+      "weaknesses": "Geometric-mean activation + bounded-inverse inhibition has low resolution on 'unchanged' outcomes (F1=0.29). Cannot encode Trap-3 (stabilised DELLA + GA3) or epistatic suppression.",
+      "failures": [
+        "T018",
+        "T029",
+        "T031",
+        "T040"
+      ]
+    },
+    {
+      "method": "ODE (Hill Functions)",
+      "accuracy": 0.94,
+      "kappa": 0.8682,
+      "mcc": 0.78,
+      "convergence_rate": 1.0,
+      "best_params": "K=1.0, n=2",
+      "strengths": "Highest accuracy (92.2%) and kappa (almost-perfect band). Hill kinetics at K=1.0, n=3 crystallise dwarf alleles more sharply than pure multiplicative rules; unchanged F1 rises to 0.33.",
+      "weaknesses": "Still fails the 2 Trap-3 tests and TaGRF4 OE. Adds Hill K,n hyperparameters that need sweeping. Slower than algebraic.",
+      "failures": [
+        "T018",
+        "T029",
+        "T040"
+      ]
+    },
+    {
+      "method": "RWR",
+      "accuracy": 0.92,
+      "kappa": 0.823,
+      "mcc": 0.9064,
+      "convergence_rate": 1.0,
+      "best_params": "alpha=0.5",
+      "strengths": "Highest MCC (0.888) — best-performing on multiclass balance. Converged on every test. Signed-graph propagation naturally handles long cascades without cascade-amplification traps.",
+      "weaknesses": "'Unchanged' recall is 0 (F1=0.00) — RWR's continuous signal rarely lands inside the 1e-5 threshold band; most 'unchanged' expected outcomes get mislabelled. Alpha sweep offers only modest gains (88.2% → 90.2% at alpha=0.9).",
+      "failures": [
+        "T018",
+        "T029",
+        "T040",
+        "T044"
+      ]
+    }
+  ]
+}

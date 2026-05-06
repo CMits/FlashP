@@ -1,0 +1,227 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Plant_Height",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "iteration": 2,
+    "builder_model": "Claude Opus 4.7",
+    "based_on_judge_review": "network/judge_review_iteration_1.json"
+  },
+  "before_state": {
+    "total_nodes": 52,
+    "total_edges": 64,
+    "source_nodes": 10,
+    "source_percentage": 19.2,
+    "snapshot_location": "network/iteration_1/"
+  },
+  "after_state": {
+    "total_nodes": 71,
+    "total_edges": 89,
+    "source_nodes": 20,
+    "source_percentage": 28.2
+  },
+  "applied_suggestions": [
+    {
+      "id": "S001",
+      "priority": "high",
+      "type": "restructure_pathway",
+      "status": "applied",
+      "summary": "Added photoperiod circuit (GI/FKF1/CO) feeding FT.",
+      "nodes_added": ["GI", "FKF1", "CO"],
+      "edges_added": [
+        "Light -> FKF1 (+1)",
+        "GI -> FKF1 (+1)",
+        "FKF1 -> CO (+1)",
+        "PHYB -> CO (-1)",
+        "GI -> FT (+1)",
+        "CO -> FT (+1)"
+      ],
+      "curated_edge_ids_used": ["E140", "E138", "E142", "E135", "E137", "E134"],
+      "notes": "GI kept as source node (no upstream curated regulator); circadian input implicit. FKF1 receives Light+GI and degrades CDF1 (CDF1 omitted for parsimony — handled as constant contribution). Photoperiod hub gives FT two activators balancing the FLC/SVP/FLM/AP2_TOE inhibition arms."
+    },
+    {
+      "id": "S002",
+      "priority": "high",
+      "type": "restructure_pathway",
+      "status": "applied",
+      "summary": "Added AUT_SYN composite (autonomous pathway) repressing FLC.",
+      "nodes_added": ["AUT_SYN"],
+      "edges_added": ["AUT_SYN -> FLC (-1)"],
+      "curated_edge_ids_used": ["E030", "E031", "E033", "E034", "E035", "E036"],
+      "notes": "Composite PROTEIN_COMPLEX collapsing FCA/FPA/FLD/FVE/LD/FY. All six paralogues act as constitutive FLC repressors with >70% functional redundancy - meets §9.3 composite criteria. Evidence drawn from FCA->FLC (E030) as representative; remaining edges (E031,E033,E034,E035,E036) noted as fallbacks."
+    },
+    {
+      "id": "S003",
+      "priority": "high",
+      "type": "restructure_pathway",
+      "status": "applied",
+      "summary": "Added PRC2 composite (VRN2/CLF/SWN/FIE) repressing FLC.",
+      "nodes_added": ["PRC2"],
+      "edges_added": ["PRC2 -> FLC (-1)"],
+      "curated_edge_ids_used": ["E154", "E155", "E156", "E157"],
+      "notes": "Composite PROTEIN_COMPLEX of Polycomb Repressive Complex 2 members that silence FLC chromatin after vernalization. COOLAIR lncRNA (E158) deferred to a future iteration to keep node count moderate - COOLAIR acts cotranscriptionally and the PRC2 composite already captures the silent-FLC end state."
+    },
+    {
+      "id": "S004",
+      "priority": "high",
+      "type": "restructure_pathway",
+      "status": "applied",
+      "summary": "Reinstated age-to-flowering miR172/AP2_TOE arm.",
+      "nodes_added": ["miR172", "AP2_TOE"],
+      "edges_added": [
+        "SPL9 -> miR172 (+1)",
+        "miR172 -> AP2_TOE (-1)",
+        "AP2_TOE -> FT (-1)"
+      ],
+      "curated_edge_ids_used": ["E015", "E021", "E017", "E018", "E019", "E020"],
+      "notes": "AP2_TOE composite collapses AP2/TOE1/TOE2/SMZ. miR172 (REGULATORY_RNA) restored. SPL9 -> Plant_Height direct edge retained in parallel to provide a coherent feed-forward loop with the new SPL9 -> miR172 -> AP2_TOE -> FT path."
+    },
+    {
+      "id": "S005",
+      "priority": "high",
+      "type": "restructure_pathway",
+      "status": "applied",
+      "summary": "Added ambient-temperature FT regulators SVP and FLM.",
+      "nodes_added": ["SVP", "FLM"],
+      "edges_added": ["SVP -> FT (-1)", "FLM -> FT (-1)"],
+      "curated_edge_ids_used": ["E146", "E147"],
+      "notes": "SVP and FLM kept as source nodes - curated has no explicit Temperature -> SVP/FLM edge in the current repository. ARP6->H2A_Z->FT chromatin arm (E148, E150) deferred as lower-priority and to avoid pushing FT input count past 7. Future literature-review expansion can add Temperature->SVP(-1) or ARP6->H2A_Z->FT."
+    },
+    {
+      "id": "S006",
+      "priority": "high",
+      "type": "add_edge",
+      "status": "applied",
+      "summary": "Added Evening Complex composite repressing PIF4_5_7.",
+      "nodes_added": ["EC"],
+      "edges_added": ["EC -> PIF4_5_7 (-1)"],
+      "curated_edge_ids_used": ["E219", "E220", "E221", "E222"],
+      "notes": "Composite PROTEIN_COMPLEX of ELF3/ELF4/LUX (Evening Complex). EC treated as constitutive source (no curated circadian upstream in the current edge pool). Raises PIF4_5_7 input count to 6 (1 activator + 5 inhibitors) - still within limits."
+    },
+    {
+      "id": "S007",
+      "priority": "high",
+      "type": "restructure_pathway",
+      "status": "partially_applied",
+      "summary": "Added minimal Strigolactone branch: SL_SYN -> Strigolactone -> Plant_Height.",
+      "nodes_added": ["SL_SYN", "Strigolactone"],
+      "edges_added": [
+        "SL_SYN -> Strigolactone (+1)",
+        "Strigolactone -> Plant_Height (+1)"
+      ],
+      "curated_edge_ids_used": ["E210", "E211"],
+      "notes": "Full Perception Gate (D14 + MAX2 + SMXL6_7_8) NOT applied this iteration because SMXL6_7_8 has no curated output to Plant_Height or any on-cascade node (SMXL6 -> BRC1 is curated but BRC1 is absent from this height network). Adding D14/MAX2/SMXL6 without a downstream terminal would leave SMXL6 floating and be rejected by check_network_structure.py check 1. Minimal direct route SL_SYN -> Strigolactone -> Plant_Height (+1) preserves curated sign. Full Perception Gate deferred to a future iteration once MAX2 -> BZR_BES (E127) is reconsidered; currently the sign conflict (SL positive on height vs MAX2 -| BES1 -| BZR_BES would give SL negative on height) argues against wiring through BZR_BES."
+    },
+    {
+      "id": "S008",
+      "priority": "medium",
+      "type": "add_edge",
+      "status": "applied",
+      "summary": "Added FLOWER_INT composite (SOC1/LFY/AP1) between FT and Plant_Height.",
+      "nodes_added": ["FLOWER_INT"],
+      "edges_added": [
+        "FT -> FLOWER_INT (+1)",
+        "FLOWER_INT -> Plant_Height (-1)"
+      ],
+      "edges_removed": ["FT -> Plant_Height (-1) - replaced by the FT -> FLOWER_INT -> Plant_Height chain"],
+      "curated_edge_ids_used": ["E176", "E170", "E171", "E172"],
+      "notes": "Composite PROTEIN_COMPLEX of the three canonical floral integrators. Replacing FT -> Plant_Height direct avoids adding a new inhibitor on the phenotype (slot kept). Preserves all documented FT downstream activity and adds mutant-level resolution for soc1/lfy/ap1."
+    },
+    {
+      "id": "S009",
+      "priority": "medium",
+      "type": "add_edge",
+      "status": "applied",
+      "summary": "Added HY5/COP1 light-growth-inhibition branch.",
+      "nodes_added": ["COP1", "HY5"],
+      "edges_added": [
+        "PHYB -> COP1 (-1)",
+        "COP1 -> HY5 (-1)",
+        "HY5 -> Plant_Height (-1)"
+      ],
+      "curated_edge_ids_used": ["E163", "E162", "E161"],
+      "notes": "Adds a PHYB-dependent photomorphogenesis arm parallel to PHYB -| PIF4_5_7. HY5 becomes the sixth Plant_Height inhibitor (within 7-cap). Raises PHYB outgoing edges to 3 (PIF4_5_7, COP1, CO) - PHYB coverage ratio improves from 0.25 to ~0.50."
+    },
+    {
+      "id": "S010",
+      "priority": "medium",
+      "type": "add_edge",
+      "status": "applied",
+      "summary": "Added T6P sugar-signalling arm (TPS1 -> T6P -> FT, T6P -| miR156).",
+      "nodes_added": ["TPS1", "T6P"],
+      "edges_added": [
+        "TPS1 -> T6P (+1)",
+        "T6P -> FT (+1)",
+        "T6P -> miR156 (-1)"
+      ],
+      "curated_edge_ids_used": ["E163", "E164", "E165"],
+      "notes": "Second sugar-to-flowering route (parallel to Sucrose -| miR156 -| SPL9). Brings FT to 7 inputs (3 activators + 4 inhibitors) - at the cap. miR156 gains a second inhibitor (Sucrose + T6P)."
+    },
+    {
+      "id": "S011",
+      "priority": "medium",
+      "type": "add_edge",
+      "status": "applied",
+      "summary": "Added PP2A -> BZR_BES (+1) activator.",
+      "nodes_added": ["PP2A"],
+      "edges_added": ["PP2A -> BZR_BES (+1)"],
+      "curated_edge_ids_used": ["E118"],
+      "notes": "Completes BR antagonism model: BIN2 (-1) vs PP2A (+1) on BZR_BES. PP2A kept as constitutive source - no upstream regulator in curated edges."
+    },
+    {
+      "id": "S012",
+      "priority": "medium",
+      "type": "add_edge",
+      "status": "applied",
+      "summary": "Added SPY -> DELLA (+1) activator.",
+      "nodes_added": ["SPY"],
+      "edges_added": ["SPY -> DELLA (+1)"],
+      "curated_edge_ids_used": ["E069"],
+      "notes": "SPY O-fucosylates DELLAs, enhancing repressor activity - a GA-independent DELLA activator. SPY kept as constitutive source. DELLA now has 2 inhibitors (GID1, SLY1) + 1 activator (SPY) = 3 inputs."
+    }
+  ],
+  "rejected_suggestions": [],
+  "deferred_suggestions": [
+    {
+      "id": "S013",
+      "priority": "medium",
+      "type": "mechanism_improvement",
+      "status": "deferred",
+      "reason": "Applied as an annotation update would require rewriting mechanism strings on 3 existing Gibberellin->GAox edges. Defer to next JUDGE iteration if still flagged; primary focus this round is structural additions."
+    },
+    {
+      "id": "S014",
+      "priority": "low",
+      "type": "mechanism_improvement",
+      "status": "deferred",
+      "reason": "Same as S013 — low priority, pending structural additions."
+    },
+    {
+      "id": "S015",
+      "priority": "low",
+      "type": "literature_gap",
+      "status": "forwarded_to_step_1",
+      "reason": "DELLA -> GA20OX/GA3OX/GA2OX edges require Step 1 literature search (Zentella 2007 Plant Cell; Hirano 2012). Flagged for next LITERATURE REVIEW extension."
+    },
+    {
+      "id": "S016",
+      "priority": "low",
+      "type": "literature_gap",
+      "status": "forwarded_to_step_1",
+      "reason": "BR catabolism (BAS1/CYP72C1) requires Step 1 extension. Not applicable this iteration."
+    }
+  ],
+  "phenotype_input_summary": {
+    "activators": ["PIF4_5_7", "BZR_BES", "ARF6_7_8", "ARR1", "Strigolactone"],
+    "inhibitors": ["SPL9", "FLOWER_INT", "DELLA", "EIN3", "ABI5", "HY5"],
+    "n_activators": 5,
+    "n_inhibitors": 6,
+    "note": "Activator count at §10 cap (5). Inhibitor count within 5-7 target. FT removed from direct phenotype inputs - now routes via FLOWER_INT (S008)."
+  },
+  "qa_results": {
+    "check_network_structure": "PASS (5/5 checks, exit 0)",
+    "validate_schema": "PASS (all 4 BUILDER outputs valid against Pydantic schemas)"
+  },
+  "next_step": "JUDGE iteration 2 (re-review with iteration-2 network)."
+}

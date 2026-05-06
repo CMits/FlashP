@@ -1,0 +1,1758 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Plant_Height",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "phenotype_node": "Plant_Height",
+    "total_nodes": 52,
+    "total_edges": 64,
+    "source_nodes": 10,
+    "source_percentage": 19.2
+  },
+  "nodes": [
+    {
+      "id": "Light",
+      "type": "ENVIRONMENT",
+      "full_name": "Light",
+      "description": "White/red light activating phytochromes and CRYs",
+      "is_source": true
+    },
+    {
+      "id": "Temperature",
+      "type": "ENVIRONMENT",
+      "full_name": "Ambient temperature",
+      "description": "Warm vs cool ambient temperature; warm stabilises PIF4",
+      "is_source": true
+    },
+    {
+      "id": "Cold_Vernalization",
+      "type": "ENVIRONMENT",
+      "full_name": "Prolonged cold exposure",
+      "description": "Vernalization signal inducing VIN3 to silence FLC",
+      "is_source": true
+    },
+    {
+      "id": "Sucrose",
+      "type": "METABOLITE",
+      "full_name": "Sucrose",
+      "description": "Photosynthetic sugar; represses miR156 to drive phase change",
+      "is_source": true
+    },
+    {
+      "id": "FRI",
+      "type": "GENE",
+      "full_name": "FRIGIDA",
+      "description": "Allelic activator of FLC; kept constitutive in this model",
+      "is_source": true
+    },
+    {
+      "id": "BAK1",
+      "type": "GENE",
+      "full_name": "BRI1-ASSOCIATED KINASE 1",
+      "description": "BR co-receptor; treated as constitutive scaffold",
+      "is_source": true
+    },
+    {
+      "id": "SLY1",
+      "type": "GENE",
+      "full_name": "SLEEPY1 F-box",
+      "description": "F-box of SCF complex that ubiquitinates DELLAs; constitutive",
+      "is_source": true
+    },
+    {
+      "id": "PAR1",
+      "type": "GENE",
+      "full_name": "PHYTOCHROME RAPIDLY REGULATED 1",
+      "description": "bHLH that heterodimerises with PIFs to block DNA binding",
+      "is_source": true
+    },
+    {
+      "id": "NCED3",
+      "type": "GENE",
+      "full_name": "9-cis-epoxycarotenoid dioxygenase 3",
+      "description": "Rate-limiting ABA biosynthesis enzyme",
+      "is_source": true
+    },
+    {
+      "id": "ACS_ACO",
+      "type": "GENE",
+      "full_name": "ACS + ACO (composite)",
+      "description": "Composite of ACS (ACC synthase) + ACO (ACC oxidase) producing ethylene",
+      "is_source": true
+    },
+    {
+      "id": "miR156",
+      "type": "REGULATORY_RNA",
+      "full_name": "microRNA 156",
+      "description": "Juvenile-phase miRNA targeting SPL TFs",
+      "is_source": false
+    },
+    {
+      "id": "Gibberellin",
+      "type": "HORMONE",
+      "full_name": "Gibberellin (bioactive)",
+      "description": "Bioactive GAs (GA1/GA4); trigger DELLA degradation via GID1",
+      "is_source": false
+    },
+    {
+      "id": "Brassinosteroid",
+      "type": "HORMONE",
+      "full_name": "Brassinosteroid",
+      "description": "Brassinolide; growth-promoting steroid hormone",
+      "is_source": false
+    },
+    {
+      "id": "Auxin",
+      "type": "HORMONE",
+      "full_name": "Indole-3-acetic acid (IAA)",
+      "description": "Principal natural auxin driving cell elongation",
+      "is_source": false
+    },
+    {
+      "id": "Cytokinin",
+      "type": "HORMONE",
+      "full_name": "Cytokinin (tZ/iP pool)",
+      "description": "Adenine-based cell-division-promoting hormone",
+      "is_source": false
+    },
+    {
+      "id": "Ethylene",
+      "type": "HORMONE",
+      "full_name": "Ethylene",
+      "description": "Gaseous hormone; inhibits cell elongation via EIN3",
+      "is_source": false
+    },
+    {
+      "id": "ABA",
+      "type": "HORMONE",
+      "full_name": "Abscisic acid",
+      "description": "Stress hormone; stabilises ABI5 and represses growth",
+      "is_source": false
+    },
+    {
+      "id": "GA20OX",
+      "type": "GENE",
+      "full_name": "GA20ox1/2/3 (composite)",
+      "description": "Composite of GA20ox1/2/3; late GA biosynthesis",
+      "is_source": false
+    },
+    {
+      "id": "GA3OX",
+      "type": "GENE",
+      "full_name": "GA3ox1/2 (composite)",
+      "description": "Composite of GA3ox1/2; final activation step to bioactive GA",
+      "is_source": false
+    },
+    {
+      "id": "GA2OX",
+      "type": "GENE",
+      "full_name": "GA2ox1/2 (composite)",
+      "description": "Composite of GA2ox1/2; GA inactivation / catabolism",
+      "is_source": false
+    },
+    {
+      "id": "BR_SYN",
+      "type": "GENE",
+      "full_name": "DWF4+DET2+CPD+CYP85A1 (composite)",
+      "description": "Composite of BR biosynthesis enzymes",
+      "is_source": false
+    },
+    {
+      "id": "YUC_TAA",
+      "type": "GENE",
+      "full_name": "YUC8+TAA1 (composite)",
+      "description": "Composite of auxin biosynthesis enzymes YUC8 and TAA1",
+      "is_source": false
+    },
+    {
+      "id": "IPT",
+      "type": "GENE",
+      "full_name": "IPT3/5/7 (composite)",
+      "description": "Composite of IPT3/5/7 isopentenyltransferases; CK biosynthesis",
+      "is_source": false
+    },
+    {
+      "id": "CKX3",
+      "type": "GENE",
+      "full_name": "Cytokinin oxidase 3",
+      "description": "Cytokinin degradation enzyme",
+      "is_source": false
+    },
+    {
+      "id": "GID1",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "GID1A/B/C (composite)",
+      "description": "Composite GA receptor (3 paralogs)",
+      "is_source": false
+    },
+    {
+      "id": "DELLA",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "DELLA (RGA/GAI/RGL1/RGL2)",
+      "description": "Composite DELLA repressor; master growth inhibitor",
+      "is_source": false
+    },
+    {
+      "id": "BRI1",
+      "type": "GENE",
+      "full_name": "Brassinosteroid insensitive 1",
+      "description": "Membrane receptor kinase for BR",
+      "is_source": false
+    },
+    {
+      "id": "BIN2",
+      "type": "GENE",
+      "full_name": "Brassinosteroid insensitive 2",
+      "description": "GSK3-like kinase that phosphorylates/inactivates BZR1/BES1",
+      "is_source": false
+    },
+    {
+      "id": "BSU1",
+      "type": "GENE",
+      "full_name": "BRI1 suppressor 1",
+      "description": "Phosphatase that dephosphorylates and inactivates BIN2",
+      "is_source": false
+    },
+    {
+      "id": "BZR_BES",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "BZR1 + BES1 (composite)",
+      "description": "Composite BR-regulated master TF",
+      "is_source": false
+    },
+    {
+      "id": "TIR1",
+      "type": "GENE",
+      "full_name": "TIR1 F-box auxin receptor",
+      "description": "Auxin co-receptor targeting Aux/IAAs for degradation",
+      "is_source": false
+    },
+    {
+      "id": "IAA19",
+      "type": "GENE",
+      "full_name": "Aux/IAA 19",
+      "description": "Aux/IAA repressor that binds and inhibits ARFs",
+      "is_source": false
+    },
+    {
+      "id": "ARF6_7_8",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "ARF6/7/8 (composite)",
+      "description": "Composite of growth-promoting auxin response factors",
+      "is_source": false
+    },
+    {
+      "id": "PHYB",
+      "type": "GENE",
+      "full_name": "Phytochrome B",
+      "description": "Red-light photoreceptor; inhibits PIFs and stabilises HY5",
+      "is_source": false
+    },
+    {
+      "id": "HFR1",
+      "type": "GENE",
+      "full_name": "LONG HYPOCOTYL IN FAR-RED 1",
+      "description": "bHLH that blocks PIF function in shade",
+      "is_source": false
+    },
+    {
+      "id": "PIF4_5_7",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "PIF4/5/7 (composite)",
+      "description": "Composite growth-promoting PIFs",
+      "is_source": false
+    },
+    {
+      "id": "AHK3",
+      "type": "GENE",
+      "full_name": "Histidine kinase AHK3",
+      "description": "Cytokinin receptor (representative of AHK2/3/4)",
+      "is_source": false
+    },
+    {
+      "id": "AHP1",
+      "type": "GENE",
+      "full_name": "AHP1 phosphotransfer",
+      "description": "Histidine phosphotransfer protein in CK signaling",
+      "is_source": false
+    },
+    {
+      "id": "ARR1",
+      "type": "GENE",
+      "full_name": "Type-B ARR1",
+      "description": "Type-B response regulator TF for cytokinin response",
+      "is_source": false
+    },
+    {
+      "id": "ETR1",
+      "type": "GENE",
+      "full_name": "Ethylene receptor 1",
+      "description": "Ethylene receptor; active (signalling) when ethylene absent",
+      "is_source": false
+    },
+    {
+      "id": "CTR1",
+      "type": "GENE",
+      "full_name": "CONSTITUTIVE TRIPLE RESPONSE 1",
+      "description": "Raf-like kinase; inhibits EIN2 in absence of ethylene",
+      "is_source": false
+    },
+    {
+      "id": "EIN2",
+      "type": "GENE",
+      "full_name": "Ethylene insensitive 2",
+      "description": "Central positive regulator of ethylene response",
+      "is_source": false
+    },
+    {
+      "id": "EIN3",
+      "type": "GENE",
+      "full_name": "Ethylene insensitive 3",
+      "description": "Master TF for ethylene response; limits growth",
+      "is_source": false
+    },
+    {
+      "id": "PYL",
+      "type": "GENE",
+      "full_name": "PYR/PYL/RCAR (composite)",
+      "description": "ABA receptors that bind ABA and inhibit PP2Cs",
+      "is_source": false
+    },
+    {
+      "id": "ABI1",
+      "type": "GENE",
+      "full_name": "ABA insensitive 1 (PP2C)",
+      "description": "PP2C phosphatase; inhibits SnRK2 in absence of ABA",
+      "is_source": false
+    },
+    {
+      "id": "SNRK2",
+      "type": "GENE",
+      "full_name": "SnRK2 kinase",
+      "description": "SNF1-related kinase activating ABA responses",
+      "is_source": false
+    },
+    {
+      "id": "ABI5",
+      "type": "GENE",
+      "full_name": "ABA insensitive 5",
+      "description": "bZIP TF; stabilised by SnRK2; growth-repressive",
+      "is_source": false
+    },
+    {
+      "id": "VIN3",
+      "type": "GENE",
+      "full_name": "VIN3 PHD finger",
+      "description": "Cold-induced chromatin factor; silences FLC",
+      "is_source": false
+    },
+    {
+      "id": "FLC",
+      "type": "GENE",
+      "full_name": "FLOWERING LOCUS C",
+      "description": "MADS-box flowering repressor that also delays growth transition",
+      "is_source": false
+    },
+    {
+      "id": "FT",
+      "type": "GENE",
+      "full_name": "FLOWERING LOCUS T (florigen)",
+      "description": "Florigen; promotes flowering transition",
+      "is_source": false
+    },
+    {
+      "id": "SPL9",
+      "type": "GENE",
+      "full_name": "SQUAMOSA PROMOTER BINDING PROTEIN-LIKE 9",
+      "description": "Adult-phase master TF in age pathway",
+      "is_source": false
+    },
+    {
+      "id": "Plant_Height",
+      "type": "PHENOTYPE",
+      "full_name": "Plant height",
+      "description": "Final aerial shoot height at bolting/flowering stage",
+      "is_source": false
+    }
+  ],
+  "edges": [
+    {
+      "source": "Sucrose",
+      "target": "miR156",
+      "sign": -1,
+      "edge_id": "N001",
+      "effect": "inhibition",
+      "mechanism": "Sucrose (and its hydrolytic hexose products glucose/fructose) represses MIR156A and MIR156C gene transcription, reducing mature miR156 levels to promote juvenile-to-adult transition",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.00260",
+          "title": "Sugar promotes vegetative phase change in Arabidopsis thaliana by repressing the expression of MIR156A and MIR156C",
+          "authors": "Li Yang, Mingli Xu, Yeonjong Koo, Jia He, R Scott Poethig",
+          "year": 2013,
+          "journal": "eLife",
+          "evidence_sentence": "Glucose and fructose repressed the accumulation of miR156 by about 50%; exogenous sucrose significantly accelerates abaxial trichome production in wild-type plants",
+          "claim": "Sucrose (and hexoses) directly repress MIR156A and MIR156C expression",
+          "verification": "abstract_read",
+          "full_text_read": false
+        },
+        {
+          "doi": "10.7554/eLife.00269",
+          "title": "Sugar is an endogenous cue for juvenile-to-adult phase transition in plants",
+          "authors": "Shuai Yu, Liang Cao, Chuan-Miao Zhou, Tian-Qi Zhang",
+          "year": 2013,
+          "journal": "eLife",
+          "evidence_sentence": "The abundance of pri-MIR156A and pri-MIR156C was greatly reduced after 1 day of treatment with 50 mM sucrose; mature miR156 was decreased after 1 day of sugar treatment",
+          "claim": "Sucrose represses MIR156A and MIR156C transcription",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "miR156",
+      "target": "SPL9",
+      "sign": -1,
+      "edge_id": "N002",
+      "effect": "inhibition",
+      "mechanism": "miR156 targets SPL9 mRNA for cleavage and translational repression; high miR156 in juvenile phase keeps SPL9 levels low",
+      "evidence": [
+        {
+          "doi": "10.1016/j.cell.2009.06.031",
+          "title": "The sequential action of miR156 and miR172 regulates developmental timing in Arabidopsis",
+          "authors": "Gang Wu, Mee Yeon Park, Susan R Conway, Jia-Wei Wang, Detlef Weigel, R Scott Poethig",
+          "year": 2009,
+          "journal": "Cell",
+          "evidence_sentence": "miR156 represses SPL2, SPL3, SPL4, SPL5, SPL6, SPL9, SPL10, SPL11, SPL13, SPL15 via microRNA cleavage/translational repression",
+          "claim": "miR156 represses SPL9 post-transcriptionally",
+          "verification": "abstract_read",
+          "full_text_read": false
+        },
+        {
+          "doi": "10.7554/eLife.00260",
+          "title": "Sugar promotes vegetative phase change in Arabidopsis thaliana by repressing the expression of MIR156A and MIR156C",
+          "authors": "Li Yang, Mingli Xu, Yeonjong Koo, Jia He, R Scott Poethig",
+          "year": 2013,
+          "journal": "eLife",
+          "evidence_sentence": "Sugar treatment with sucrose greatly reduced pri-MIR156A and pri-MIR156C abundance and mature miR156 levels, while transcript levels of miR156-targeted genes SPL9 and SPL15 were markedly increased",
+          "claim": "miR156 post-transcriptionally represses SPL9; when miR156 decreases, SPL9 increases",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "SPL9",
+      "target": "Plant_Height",
+      "sign": -1,
+      "edge_id": "N003",
+      "effect": "inhibition",
+      "mechanism": "SPL9 promotes floral transition and shoot maturation; higher SPL9 activity leads to earlier flowering and shorter inflorescence stems. spl9 spl15 double mutant showed significantly reduced inflorescence height (6.9 cm vs 12.1 cm in wild-type) demonstrating SPL9 shortens plant height via earlier reproductive transition",
+      "evidence": [
+        {
+          "doi": "10.1007/s11103-008-9310-z",
+          "title": "The microRNA regulated SBP-box genes SPL9 and SPL15 control shoot maturation in Arabidopsis",
+          "authors": "Stefan Schwarz, Arne V Grande, Nora Bujdoso, Heinz Saedler, Peter Huijser",
+          "year": 2008,
+          "journal": "Plant Molecular Biology",
+          "evidence_sentence": "Inflorescence height was measured between the rosette and the first flower; double mutant showed significantly reduced height (6.9 cm vs 12.1 cm in wild-type); double mutant bolted and flowered somewhat later than wild-type (bolting 18.5 DAS vs 16.3 DAS)",
+          "claim": "SPL9 promotes shoot maturation; loss of SPL9 and SPL15 reduces inflorescence height and delays flowering",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Cold_Vernalization",
+      "target": "VIN3",
+      "sign": 1,
+      "edge_id": "N004",
+      "effect": "activation",
+      "mechanism": "Extended cold exposure progressively induces VIN3 transcription via unknown cold sensors",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0606385103",
+          "title": "The Arabidopsis thaliana vernalization response requires a polycomb-like protein complex that also includes VERNALIZATION INSENSITIVE 3",
+          "authors": "Wood CC, Robertson M, Tanner G, Peacock WJ, Dennis ES, Helliwell CA",
+          "year": 2006,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "VIN3 mRNA is present at very low abundance during growth at warm temperatures, with expression increasing progressively during a vernalization treatment",
+          "claim": "Cold induces VIN3",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "VIN3",
+      "target": "FLC",
+      "sign": -1,
+      "edge_id": "N005",
+      "effect": "inhibition",
+      "mechanism": "VIN3 PHD protein joins PRC2-like complex to deposit H3K27me3 at FLC and silence it",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0606385103",
+          "title": "The Arabidopsis thaliana vernalization response requires a polycomb-like protein complex that also includes VERNALIZATION INSENSITIVE 3",
+          "authors": "Wood CC, Robertson M, Tanner G, Peacock WJ, Dennis ES, Helliwell CA",
+          "year": 2006,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "Loss of VIN3 function prevents loss of H3Ac and methylation of H3K9 and H3K27 in vernalized plants",
+          "claim": "VIN3 represses FLC post-vernalization",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FRI",
+      "target": "FLC",
+      "sign": 1,
+      "edge_id": "N006",
+      "effect": "activation",
+      "mechanism": "FRI (FRIGIDA) is a coiled-coil protein that recruits chromatin modifiers to activate FLC expression to high levels",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.12.6.885",
+          "title": "The FRIGIDA gene encodes a protein required for elevated FLC expression in Arabidopsis",
+          "authors": "Johanson U, West J, Lister C, Michaels S, Amasino R, Dean C",
+          "year": 2000,
+          "journal": "Science",
+          "evidence_sentence": "FRI is required for high levels of FLC expression and confers the late-flowering winter-annual habit",
+          "claim": "FRI activates FLC",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "FLC",
+      "target": "FT",
+      "sign": -1,
+      "edge_id": "N007",
+      "effect": "inhibition",
+      "mechanism": "FLC (MADS-box transcription factor) directly represses FT expression by binding to its promoter/regulatory regions, delaying flowering",
+      "evidence": [
+        {
+          "doi": "10.1007/s12298-017-0458-3",
+          "title": "Research progress on the autonomous flowering time pathway in Arabidopsis",
+          "authors": "Jing-Zhi Cheng, Yu-Ping Zhou, Tian-Xiao Lv, Chu-Ping Xie, Chang-En Tian",
+          "year": 2017,
+          "journal": "Physiology and Molecular Biology of Plants",
+          "evidence_sentence": "FLC encodes a MADS box protein that functions as a central repressor of flowering time in Arabidopsis; FLC directly represses FT and SOC1 expression",
+          "claim": "FLC represses FT transcription",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "FT",
+      "target": "Plant_Height",
+      "sign": -1,
+      "edge_id": "N008",
+      "effect": "inhibition",
+      "mechanism": "FT induces floral transition; early flowering curtails the vegetative phase and reduces final rosette/stem biomass, though bolting is triggered",
+      "evidence": [
+        {
+          "doi": "10.1016/S0092-8674(00)80637-1",
+          "title": "The CONSTANS gene of Arabidopsis promotes flowering and encodes a protein showing similarities to zinc finger transcription factors",
+          "authors": "Putterill J, Robson F, Lee K, Simon R, Coupland G",
+          "year": 1995,
+          "journal": "Cell",
+          "evidence_sentence": "CO-FT pathway promotes early flowering; 35S::FT causes extreme early flowering with few leaves and shorter rosette-to-inflorescence phase",
+          "claim": "FT overexpression shortens vegetative growth and reduces plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Light",
+      "target": "PHYB",
+      "sign": 1,
+      "edge_id": "N009",
+      "effect": "activation",
+      "mechanism": "Red light converts phyB to active Pfr form; far-red converts back to inactive Pr",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2019.00914",
+          "title": "Auxin-Dependent Cell Elongation During the Shade Avoidance Response",
+          "authors": "Ma L, Li G",
+          "year": 2019,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "High R:FR light activates phyB (Pfr form)",
+          "claim": "Light activates phyB",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Light",
+      "target": "HFR1",
+      "sign": 1,
+      "edge_id": "N010",
+      "effect": "activation",
+      "mechanism": "Low R:FR (shade) transcriptionally induces HFR1 via phytochromes as a negative-feedback brake",
+      "evidence": [
+        {
+          "doi": "10.1038/emboj.2009.306",
+          "title": "Inhibition of the shade avoidance response by formation of non-DNA binding bHLH heterodimers",
+          "authors": "Hornitschek P, Lorrain S, Zoete V, Michielin O, Fankhauser C",
+          "year": 2009,
+          "journal": "The EMBO Journal",
+          "evidence_sentence": "HFR1 (long hypocotyl in FR light) is transcriptionally induced by shade and inhibits this response; HFR1 is induced in a phytochrome-regulated manner",
+          "claim": "Shade induces HFR1",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "PHYB",
+      "target": "PIF4_5_7",
+      "sign": -1,
+      "edge_id": "N011",
+      "effect": "inhibition",
+      "mechanism": "Light-activated phyB binds PIF4 to promote its phosphorylation-dependent degradation",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-14905-w",
+          "title": "The epidermis coordinates thermoresponsive growth through the phyB-PIF4-auxin pathway",
+          "authors": "Kim S, Hwang G, Kim S, Thi TN, Kim H, Jeong J, Kim J, Kim J, Choi G, Oh E",
+          "year": 2020,
+          "journal": "Nature Communications",
+          "evidence_sentence": "phyB directly interacts with PIF4 to promote PIF4 phosphorylation and degradation, repressing thermoresponsive growth",
+          "claim": "phyB degrades PIF4",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "HFR1",
+      "target": "PIF4_5_7",
+      "sign": -1,
+      "edge_id": "N012",
+      "effect": "inhibition",
+      "mechanism": "HFR1 forms non-DNA-binding heterodimers with PIF4, blocking PIF4 DNA binding without degradation",
+      "evidence": [
+        {
+          "doi": "10.1038/emboj.2009.306",
+          "title": "Inhibition of the shade avoidance response by formation of non-DNA binding bHLH heterodimers",
+          "authors": "Hornitschek P, Lorrain S, Zoete V, Michielin O, Fankhauser C",
+          "year": 2009,
+          "journal": "The EMBO Journal",
+          "evidence_sentence": "HFR1 directly inhibits these PIFs by forming non-DNA-binding heterodimers with PIF4 and PIF5",
+          "claim": "HFR1 inhibits PIF4",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "PAR1",
+      "target": "PIF4_5_7",
+      "sign": -1,
+      "edge_id": "N013",
+      "effect": "inhibition",
+      "mechanism": "PAR1 small HLH prevents PIF4 from binding DNA",
+      "evidence": [
+        {
+          "doi": "10.1038/emboj.2009.306",
+          "title": "Inhibition of the shade avoidance response by formation of non-DNA binding bHLH heterodimers",
+          "authors": "Hornitschek P, Lorrain S, Zoete V, Michielin O, Fankhauser C",
+          "year": 2009,
+          "journal": "The EMBO Journal",
+          "evidence_sentence": "PAR1 and PAR2 are negative regulators of the shade avoidance response, which may also act by preventing other bHLH proteins from binding to DNA. The mechanism of action of PAR1 is apparently similar to that of HFR1",
+          "claim": "PAR1 inhibits PIF4",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Temperature",
+      "target": "PIF4_5_7",
+      "sign": 1,
+      "edge_id": "N014",
+      "effect": "activation",
+      "mechanism": "High ambient temperature increases PIF4 protein abundance and activity, independent of light",
+      "evidence": [
+        {
+          "doi": "10.1016/j.cub.2009.06.046",
+          "title": "High temperature-mediated adaptations in plant architecture require the bHLH transcription factor PIF4",
+          "authors": "Koini MA, Alvey L, Allen T, Tilley CA, Harberd NP, Whitelam GC, Franklin KA",
+          "year": 2009,
+          "journal": "Current Biology",
+          "evidence_sentence": "PIF4 is required for thermomorphogenic elongation of hypocotyls and petioles at elevated ambient temperature",
+          "claim": "High temperature activates PIF4",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "GA20OX",
+      "target": "Gibberellin",
+      "sign": 1,
+      "edge_id": "N015",
+      "effect": "activation",
+      "mechanism": "GA 20-oxidase 1 catalyzes the oxidation of GA53/GA12 through GA44/GA15 and GA19/GA24 to GA20/GA9, a key late step in bioactive GA synthesis",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "The GA20ox overexpression lines display early flowering and increased stem growth phenotypes, whereas GA2ox overexpression lines show late flowering and dwarf phenotypes",
+          "claim": "GA20ox1 is a rate-limiting enzyme in GA biosynthesis; its overexpression increases stem height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1073/pnas.95.15.9019",
+          "title": "Overexpression of a gibberellin 20-oxidase gene from Arabidopsis thaliana increases plant height and improves shoot fresh weight",
+          "authors": "Huang S, Raman AS, Ream JE, Fujiwara H, Cerny RE, Brown SM",
+          "year": 1998,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "Overexpression of Arabidopsis GA20ox1 in transgenic plants increases bioactive GA levels, stem height, and shoot fresh weight",
+          "claim": "GA20ox1 overexpression increases plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "GA3OX",
+      "target": "Gibberellin",
+      "sign": 1,
+      "edge_id": "N016",
+      "effect": "activation",
+      "mechanism": "GA 3-oxidase 1 (GA4) catalyzes the final step converting GA9/GA20 to bioactive GA4/GA1",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "GA3ox1 is expressed throughout all stages of plant development, and GA3ox2 is mainly expressed in germinating seeds and vegetative tissues",
+          "claim": "GA3ox1 produces bioactive GA; ga3ox1 mutants have reduced stem height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GA2OX",
+      "target": "Gibberellin",
+      "sign": -1,
+      "edge_id": "N017",
+      "effect": "inhibition",
+      "mechanism": "GA 2-oxidase 1 inactivates bioactive GAs by 2-beta hydroxylation; reduces GA pool",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "the GA catabolism genes GA2ox1 and GA2ox2 are up-regulated by GA treatment",
+          "claim": "GA2ox1 deactivates GAs; GA2ox1 OE produces dwarf plants",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Gibberellin",
+      "target": "GA20OX",
+      "sign": -1,
+      "edge_id": "N018",
+      "effect": "inhibition",
+      "mechanism": "Bioactive GA feedback-represses GA20ox1 transcription via DELLA degradation; loss of DELLA derepresses GA biosynthesis feedback",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "transcript levels of GA3ox1, GA20ox1, GA20ox2 and GA20ox3 are down-regulated by applied GA",
+          "claim": "GA represses GA20ox1 transcription as negative feedback",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Gibberellin",
+      "target": "GA3OX",
+      "sign": -1,
+      "edge_id": "N019",
+      "effect": "inhibition",
+      "mechanism": "Bioactive GA feedback-represses GA3ox1 transcription via DELLA degradation",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "transcript levels of GA3ox1, GA20ox1, GA20ox2 and GA20ox3 are down-regulated by applied GA",
+          "claim": "GA represses GA3ox1 transcription as feedback",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Gibberellin",
+      "target": "GA2OX",
+      "sign": 1,
+      "edge_id": "N020",
+      "effect": "activation",
+      "mechanism": "Bioactive GA upregulates GA2ox1 transcription, promoting its own catabolism (feedforward/homeostasis)",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "the GA catabolism genes GA2ox1 and GA2ox2 are up-regulated by GA treatment",
+          "claim": "GA upregulates GA2ox1 as homeostatic feedforward",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Gibberellin",
+      "target": "GID1",
+      "sign": 1,
+      "edge_id": "N021",
+      "effect": "activation",
+      "mechanism": "Bioactive GA binds the GID1A receptor, causing conformational change and recruitment of DELLA proteins",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "GID1s bind to bioactive GAs with high affinity, but not to inactive GA derivatives",
+          "claim": "GA binds GID1A as soluble receptor; activates downstream signaling",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GID1",
+      "target": "DELLA",
+      "sign": -1,
+      "edge_id": "N022",
+      "effect": "inhibition",
+      "mechanism": "GA-bound GID1A physically interacts with DELLA protein RGA, promoting its recognition by SCF-SLY1 and degradation via the 26S proteasome",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "GA induces rapid degradation of this GA signaling repressor through the ubiquitin-proteasome pathway; SLY1 and GID2 appear to activate GA signaling by targeting GA signaling repressors, DELLA proteins, for ubiquitination and degradation",
+          "claim": "GID1A binding promotes RGA degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SLY1",
+      "target": "DELLA",
+      "sign": -1,
+      "edge_id": "N023",
+      "effect": "inhibition",
+      "mechanism": "SLY1 is the F-box subunit of an SCF E3 ubiquitin ligase that polyubiquitinates DELLA proteins including RGA, targeting them for 26S proteasome degradation",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "SLY1 and GID2 appear to activate GA signaling by targeting GA signaling repressors, DELLA proteins, for ubiquitination and degradation",
+          "claim": "SLY1 F-box ubiquitinates RGA for proteasome degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "DELLA",
+      "target": "PIF4_5_7",
+      "sign": -1,
+      "edge_id": "N024",
+      "effect": "inhibition",
+      "mechanism": "DELLA RGA physically interacts with PIF4 and prevents it from binding target promoters, limiting PIF4-driven growth genes",
+      "evidence": [
+        {
+          "doi": "10.1038/nature03543",
+          "title": "Interactions between DELLA and growth-regulatory factors to control flowering time and stem elongation",
+          "authors": "de Lucas M, Daviere JM, Rodriguez-Falcon M, Pontin M, Iglesias-Pedraz JM, Lorrain S, Fankhauser C, Blazquez MA, Titarenko E, Prat S",
+          "year": 2008,
+          "journal": "Nature",
+          "evidence_sentence": "DELLA proteins directly bind to PIF4 and prevent its transcriptional activity; PIF4 overexpression partially rescues the dwarf phenotypes of ga1 and gai-1",
+          "claim": "RGA binds and inhibits PIF4 activity",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "DELLA",
+      "target": "BZR_BES",
+      "sign": -1,
+      "edge_id": "N025",
+      "effect": "inhibition",
+      "mechanism": "DELLA RGA binds BZR1 to prevent BZR1 DNA binding, integrating GA and BR signaling at target genes",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "Under low GA conditions, BES1, BZR1, PIF4, and ARF6 are inhibited by DELLAs",
+          "claim": "RGA inhibits BZR1 activity, integrating GA-BR signaling",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "DELLA",
+      "target": "ARF6_7_8",
+      "sign": -1,
+      "edge_id": "N026",
+      "effect": "inhibition",
+      "mechanism": "DELLA RGA binds ARF6, inhibiting auxin-driven elongation gene expression",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "Under low GA conditions, BES1, BZR1, PIF4, and ARF6 are inhibited by DELLAs",
+          "claim": "RGA represses ARF6 activity",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "DELLA",
+      "target": "Plant_Height",
+      "sign": -1,
+      "edge_id": "N027",
+      "effect": "inhibition",
+      "mechanism": "DELLA protein RGA represses cell elongation in stem; rga loss-of-function rescues ga1-3 dwarf phenotype; RGA is the principal DELLA limiting vegetative growth",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "Removing both RGA and GAI functions in the ga1-3 background completely rescues vegetative growth and floral initiation",
+          "claim": "RGA represses vegetative growth and stem height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BR_SYN",
+      "target": "Brassinosteroid",
+      "sign": 1,
+      "edge_id": "N028",
+      "effect": "activation",
+      "mechanism": "DWF4 (CYP90B1) C-22 hydroxylase catalyzes the rate-limiting step in BR biosynthesis",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "DWF4 encodes a C-22 hydroxylase that catalyzes a rate-determining step in BR biosynthesis",
+          "claim": "DWF4 is rate-limiting in BR biosynthesis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BZR_BES",
+      "target": "BR_SYN",
+      "sign": -1,
+      "edge_id": "N029",
+      "effect": "inhibition",
+      "mechanism": "Active BZR1 binds BRRE element in DWF4 promoter and represses BR biosynthesis (feedback homeostasis)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "In the transcriptional regulation of BR biosynthetic genes such as DWF4 and CPD, the activity of BZR1 is primarily responsible for the feedback regulation",
+          "claim": "BZR1 represses DWF4 as feedback",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Brassinosteroid",
+      "target": "BRI1",
+      "sign": 1,
+      "edge_id": "N030",
+      "effect": "activation",
+      "mechanism": "Brassinolide binds BRI1 leucine-rich repeat receptor kinase ectodomain as a molecular glue, triggering BRI1-BAK1 heterodimerization",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "BL acts as a molecular glue, promoting the association between BRI1 and BAK1",
+          "claim": "BR binds BRI1 receptor to initiate signaling",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BRI1",
+      "target": "BSU1",
+      "sign": 1,
+      "edge_id": "N031",
+      "effect": "activation",
+      "mechanism": "BRI1-BAK1 complex phosphorylates and activates BSK1 (BR signaling kinase)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "BR SIGNALING KINASES (BSKs) activate the phosphatase BRI1-SUPPRESSOR1 (BSU1)",
+          "claim": "BAK1 activates BSK1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BAK1",
+      "target": "BSU1",
+      "sign": 1,
+      "edge_id": "N032",
+      "effect": "activation",
+      "mechanism": "BRI1-BAK1 complex phosphorylates and activates BSK1 (BR signaling kinase)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "BR SIGNALING KINASES (BSKs) activate the phosphatase BRI1-SUPPRESSOR1 (BSU1)",
+          "claim": "BAK1 activates BSK1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BSU1",
+      "target": "BIN2",
+      "sign": -1,
+      "edge_id": "N033",
+      "effect": "inhibition",
+      "mechanism": "BSU1 dephosphorylates BIN2 at pTyr200, inactivating the kinase",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "BSU1 dephosphorylates BIN2",
+          "claim": "BSU1 inactivates BIN2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BIN2",
+      "target": "BZR_BES",
+      "sign": -1,
+      "edge_id": "N034",
+      "effect": "inhibition",
+      "mechanism": "BIN2 (a GSK3-like kinase) phosphorylates BZR1, promoting cytoplasmic retention by 14-3-3 proteins and inactivating its DNA binding",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "BIN2 phosphorylates numerous substrates including BES1 and BZR1",
+          "claim": "BIN2 phosphorylates and inactivates BZR1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BZR_BES",
+      "target": "Plant_Height",
+      "sign": 1,
+      "edge_id": "N035",
+      "effect": "activation",
+      "mechanism": "Dephosphorylated/active BZR1 in nucleus activates BR-responsive cell elongation genes; bzr1-D constitutively active mutant promotes growth",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "BRs play a dominant role in regulating cell elongation; BR signaling modulates the functions of cytoskeleton including microtubule and associated proteins as well as actin to control cell elongation",
+          "claim": "BZR1 promotes cell elongation and plant height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "YUC_TAA",
+      "target": "Auxin",
+      "sign": 1,
+      "edge_id": "N036",
+      "effect": "activation",
+      "mechanism": "YUC8 (flavin monooxygenase) converts indole-3-pyruvate to IAA (auxin) in the YUC-dependent tryptophan pathway",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2019.00914",
+          "title": "Auxin-Dependent Cell Elongation During the Shade Avoidance Response",
+          "authors": "Ma L, Li G",
+          "year": 2019,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "YUCCA enzymes convert indole-pyruvic acid to indole-3-acetic acid (IAA, auxin), the rate-limiting step in tryptophan-derived auxin biosynthesis",
+          "claim": "YUC8 produces IAA auxin",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PIF4_5_7",
+      "target": "YUC_TAA",
+      "sign": 1,
+      "edge_id": "N037",
+      "effect": "activation",
+      "mechanism": "PIF4 directly binds the YUC8 promoter and activates transcription to drive auxin biosynthesis",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2019.00914",
+          "title": "Auxin-Dependent Cell Elongation During the Shade Avoidance Response",
+          "authors": "Ma L, Li G",
+          "year": 2019,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "PIF4 and PIF5 directly bind to the promoters of auxin biosynthetic genes YUC8, TAA1, and CYP79B2",
+          "claim": "PIF4 directly activates YUC8 transcription",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PIF4_5_7",
+      "target": "GA20OX",
+      "sign": 1,
+      "edge_id": "N038",
+      "effect": "activation",
+      "mechanism": "PIF4 activates GA20ox1 transcription to raise GA levels in shade and high temperature",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "PIF4 controls expression of GA biosynthetic genes including GA20ox1 to promote elongation under thermomorphogenic conditions",
+          "claim": "PIF4 upregulates GA biosynthesis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Auxin",
+      "target": "TIR1",
+      "sign": 1,
+      "edge_id": "N039",
+      "effect": "activation",
+      "mechanism": "Auxin binds TIR1 F-box co-receptor, promoting TIR1 interaction with Aux/IAA repressors and their ubiquitination",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2019.00914",
+          "title": "Auxin-Dependent Cell Elongation During the Shade Avoidance Response",
+          "authors": "Ma L, Li G",
+          "year": 2019,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "Transcript levels of the genes encoding the auxin receptors TRANSPORT INHIBITOR RESPONSE1 (TIR1) and AUXIN SIGNALING F-BOX (AFB) proteins are significantly increased",
+          "claim": "Auxin binds TIR1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "TIR1",
+      "target": "IAA19",
+      "sign": -1,
+      "edge_id": "N040",
+      "effect": "inhibition",
+      "mechanism": "SCF-TIR1 ubiquitinates auxin-bound Aux/IAA19 for 26S proteasome degradation, releasing ARF6/7/8 to activate elongation genes",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2019.00914",
+          "title": "Auxin-Dependent Cell Elongation During the Shade Avoidance Response",
+          "authors": "Ma L, Li G",
+          "year": 2019,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "ARFs released from Aux/IAA repression activate growth genes",
+          "claim": "TIR1 targets IAA19 for degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "IAA19",
+      "target": "ARF6_7_8",
+      "sign": -1,
+      "edge_id": "N041",
+      "effect": "inhibition",
+      "mechanism": "Aux/IAA IAA19 binds ARF7 transcription factor and represses ARF activity",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2019.00914",
+          "title": "Auxin-Dependent Cell Elongation During the Shade Avoidance Response",
+          "authors": "Ma L, Li G",
+          "year": 2019,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "The arf6 arf7 arf8 triple mutant fails to respond to low R:FR treatment, indicating that ARF6, ARF7, and ARF8 are required for shade-induce cell elongation",
+          "claim": "IAA proteins sequester ARFs",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ARF6_7_8",
+      "target": "Plant_Height",
+      "sign": 1,
+      "edge_id": "N042",
+      "effect": "activation",
+      "mechanism": "ARF6 activates auxin-responsive elongation genes in hypocotyl and stem",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2019.00914",
+          "title": "Auxin-Dependent Cell Elongation During the Shade Avoidance Response",
+          "authors": "Ma L, Li G",
+          "year": 2019,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "The arf6 arf7 arf8 triple mutant fails to respond to low R:FR treatment, indicating that ARF6, ARF7, and ARF8 are required for shade-induce cell elongation",
+          "claim": "ARF6 promotes stem elongation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "IPT",
+      "target": "Cytokinin",
+      "sign": 1,
+      "edge_id": "N043",
+      "effect": "activation",
+      "mechanism": "IPT3 (ATP/ADP isopentenyltransferase 3) is a major CK biosynthesis enzyme producing isopentenyladenine riboside 5'-phosphate from DMAPP and AMP/ADP",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0168",
+          "title": "Cytokinins",
+          "authors": "Kieber JJ, Schaller GE",
+          "year": 2014,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "Cytokinin biosynthesis is controlled by the ATP/ADP isopentenyltransferase (IPT) genes, with seven IPT genes (AtIPT1 and AtIPT3 through AtIPT8) encoding enzymes that synthesize the cytokinin precursor, isopentenyladenine",
+          "claim": "IPT3 synthesizes cytokinin precursor",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "CKX3",
+      "target": "Cytokinin",
+      "sign": -1,
+      "edge_id": "N044",
+      "effect": "inhibition",
+      "mechanism": "CKX3 (cytokinin oxidase 3) degrades cytokinins; feedback-induced by CK itself",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0168",
+          "title": "Cytokinins",
+          "authors": "Kieber JJ, Schaller GE",
+          "year": 2014,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "Cytokinin degradation is mediated by the cytokinin oxidases, encoded by the CYTOKININ OXIDASE (CKX) gene family; the expression of several CKX genes is induced by cytokinin, providing a feedback mechanism to dampen cytokinin function",
+          "claim": "CKX3 catabolises cytokinins",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Auxin",
+      "target": "IPT",
+      "sign": -1,
+      "edge_id": "N045",
+      "effect": "inhibition",
+      "mechanism": "Auxin represses IPT3 transcription, linking auxin to CK depletion in axillary buds",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0168",
+          "title": "Cytokinins",
+          "authors": "Kieber JJ, Schaller GE",
+          "year": 2014,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "Auxin represses IPT expression in stem tissues leading to decreased CK biosynthesis",
+          "claim": "Auxin represses IPT3",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Cytokinin",
+      "target": "CKX3",
+      "sign": 1,
+      "edge_id": "N046",
+      "effect": "activation",
+      "mechanism": "Cytokinin induces CKX3 transcription as homeostatic feedback",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0168",
+          "title": "Cytokinins",
+          "authors": "Kieber JJ, Schaller GE",
+          "year": 2014,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "the expression of several CKX genes is induced by cytokinin, providing a feedback mechanism to dampen cytokinin function",
+          "claim": "CK induces CKX3 as feedback",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Cytokinin",
+      "target": "AHK3",
+      "sign": 1,
+      "edge_id": "N047",
+      "effect": "activation",
+      "mechanism": "CK binds AHK3 receptor",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0168",
+          "title": "Cytokinins",
+          "authors": "Kieber JJ, Schaller GE",
+          "year": 2014,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "[AHK2, AHK3, and AHK4] as cytokinin receptors",
+          "claim": "CK binds AHK3",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "AHK3",
+      "target": "AHP1",
+      "sign": 1,
+      "edge_id": "N048",
+      "effect": "activation",
+      "mechanism": "Activated AHK3 autophosphorylates and transfers phosphate to AHP1, which relays to nucleus",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0168",
+          "title": "Cytokinins",
+          "authors": "Kieber JJ, Schaller GE",
+          "year": 2014,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "There are four major steps in the cytokinin phosphorelay: (i) AHK sensing and signaling, (ii) AHP nuclear translocation, (iii) ARR-dependent transcriptional activation",
+          "claim": "AHK3 phosphorylates AHP1",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "AHP1",
+      "target": "ARR1",
+      "sign": 1,
+      "edge_id": "N049",
+      "effect": "activation",
+      "mechanism": "AHP1 phosphotransfer to ARR1 (type-B response regulator) activates its transcriptional activity in nucleus",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0168",
+          "title": "Cytokinins",
+          "authors": "Kieber JJ, Schaller GE",
+          "year": 2014,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "nuclear response regulators (ARRs) that serve as transcriptional regulators",
+          "claim": "AHP1 activates ARR1",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "ARR1",
+      "target": "Plant_Height",
+      "sign": 1,
+      "edge_id": "N050",
+      "effect": "activation",
+      "mechanism": "Type-B ARRs are positive regulators of cytokinin growth responses; arr1 arr10 arr12 triple mutants have severe growth defects",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0168",
+          "title": "Cytokinins",
+          "authors": "Kieber JJ, Schaller GE",
+          "year": 2014,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "Multiple type-B ARR mutants affect cytokinin responses including inhibition of root elongation, lateral root formation, and hypocotyl elongation",
+          "claim": "ARR1 required for CK-regulated growth",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "ACS_ACO",
+      "target": "Ethylene",
+      "sign": 1,
+      "edge_id": "N051",
+      "effect": "activation",
+      "mechanism": "ACS (ACC synthase) converts SAM to ACC, the rate-limiting step of ethylene biosynthesis",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1214848109",
+          "title": "CTR1 phosphorylates the central regulator EIN2 to control ethylene hormone signaling from the ER membrane to the nucleus in Arabidopsis",
+          "authors": "Ju C, Yoon GM, Shemansky JM, Lin DY, Ying ZI, Chang J, Garrett WM, Kessenbrock M, Groth G, Tucker ML, Cooper B, Kieber JJ, Chang C",
+          "year": 2012,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "Ethylene biosynthesis from SAM proceeds via ACC synthesized by ACS",
+          "claim": "ACS produces ACC for ethylene",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Ethylene",
+      "target": "ETR1",
+      "sign": -1,
+      "edge_id": "N052",
+      "effect": "inhibition",
+      "mechanism": "Ethylene binds ETR1 ER receptor and inactivates it; in the absence of ethylene, ETR1 is active and activates CTR1",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1214848109",
+          "title": "CTR1 phosphorylates the central regulator EIN2 to control ethylene hormone signaling from the ER membrane to the nucleus in Arabidopsis",
+          "authors": "Ju C, Yoon GM, Shemansky JM, Lin DY, Ying ZI, Chang J, Garrett WM, Kessenbrock M, Groth G, Tucker ML, Cooper B, Kieber JJ, Chang C",
+          "year": 2012,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "In the absence of ethylene, ER membrane-located ethylene receptors such as ETHYLENE RESPONSE 1 (ETR1) interact with and activate the Ser/Thr kinase CONSTITUTIVE RESPONSE 1 (CTR1); upon binding of ethylene to the receptors, the activities of both receptors and CTR1 are repressed",
+          "claim": "Ethylene inactivates ETR1",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "ETR1",
+      "target": "CTR1",
+      "sign": 1,
+      "edge_id": "N053",
+      "effect": "activation",
+      "mechanism": "ETR1 activates CTR1 kinase in the absence of ethylene, maintaining the off-state of ethylene signaling",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1214848109",
+          "title": "CTR1 phosphorylates the central regulator EIN2 to control ethylene hormone signaling from the ER membrane to the nucleus in Arabidopsis",
+          "authors": "Ju C, Yoon GM, Shemansky JM, Lin DY, Ying ZI, Chang J, Garrett WM, Kessenbrock M, Groth G, Tucker ML, Cooper B, Kieber JJ, Chang C",
+          "year": 2012,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "ER membrane-located ethylene receptors such as ETHYLENE RESPONSE 1 (ETR1) interact with and activate the Ser/Thr kinase CONSTITUTIVE RESPONSE 1 (CTR1)",
+          "claim": "ETR1 activates CTR1",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "CTR1",
+      "target": "EIN2",
+      "sign": -1,
+      "edge_id": "N054",
+      "effect": "inhibition",
+      "mechanism": "CTR1 phosphorylates EIN2 C-terminus, sequestering it at the ER and preventing EIN3/EIL1 activation",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1214848109",
+          "title": "CTR1 phosphorylates the central regulator EIN2 to control ethylene hormone signaling from the ER membrane to the nucleus in Arabidopsis",
+          "authors": "Ju C, Yoon GM, Shemansky JM, Lin DY, Ying ZI, Chang J, Garrett WM, Kessenbrock M, Groth G, Tucker ML, Cooper B, Kieber JJ, Chang C",
+          "year": 2012,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "CTR1 phosphorylates EIN2, a key positive component of ethylene signaling. The phosphorylated EIN2 is sequestered and inactivated at the ER membrane",
+          "claim": "CTR1 phosphorylates and inactivates EIN2",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "EIN2",
+      "target": "EIN3",
+      "sign": 1,
+      "edge_id": "N055",
+      "effect": "activation",
+      "mechanism": "Cleaved EIN2 C-terminus translocates to nucleus and stabilizes EIN3 by inhibiting EBF1/EBF2 F-box proteins that otherwise degrade EIN3",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1214848109",
+          "title": "CTR1 phosphorylates the central regulator EIN2 to control ethylene hormone signaling from the ER membrane to the nucleus in Arabidopsis",
+          "authors": "Ju C, Yoon GM, Shemansky JM, Lin DY, Ying ZI, Chang J, Garrett WM, Kessenbrock M, Groth G, Tucker ML, Cooper B, Kieber JJ, Chang C",
+          "year": 2012,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "EIN2 transmits the ethylene signal to the EIN3 family of DNA-binding transcription factors",
+          "claim": "EIN2 stabilizes/activates EIN3",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "EIN3",
+      "target": "Plant_Height",
+      "sign": -1,
+      "edge_id": "N056",
+      "effect": "inhibition",
+      "mechanism": "EIN3 propagates ethylene growth-inhibitory signal; EIN3 OE reduces stem elongation",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2017.00057",
+          "title": "Integration of Ethylene and Light Signaling Affects Hypocotyl Growth in Arabidopsis",
+          "authors": "Yu Y, Huang R",
+          "year": 2017,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "ein2 and ein3 mutants are ethylene-insensitive and have slightly shortened hypocotyls in light",
+          "claim": "EIN3 mediates ethylene-dependent growth inhibition",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "NCED3",
+      "target": "ABA",
+      "sign": 1,
+      "edge_id": "N057",
+      "effect": "activation",
+      "mechanism": "NCED3 is the rate-limiting 9-cis-epoxycarotenoid dioxygenase producing xanthoxin, the ABA precursor",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms22158394",
+          "title": "Updates on the Role of ABSCISIC ACID INSENSITIVE 5 (ABI5) and ABFs in ABA Signaling",
+          "authors": "Skubacz A, Daszkowska-Golec A, Szarejko I",
+          "year": 2021,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "NCED3 is the key rate-limiting ABA biosynthesis gene upregulated by drought",
+          "claim": "NCED3 produces ABA precursor",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "ABA",
+      "target": "PYL",
+      "sign": 1,
+      "edge_id": "N058",
+      "effect": "activation",
+      "mechanism": "ABA binds PYR/PYL/RCAR receptors, inducing conformational change that enables PP2C inhibition",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms23094523",
+          "title": "PYR/PYL/RCAR Receptors Play a Vital Role in the Abscisic-Acid-Dependent Responses of Plants",
+          "authors": "Li W, Shao Y, Xu P, Chen W, Wang J, Huang Y, Li Y, Yang S, Jiang C, Zhang X, Zhang W",
+          "year": 2022,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "ABA bound to PYR/PYL/RCAR receptors inhibits clade A PP2C protein phosphatases",
+          "claim": "ABA binds PYL",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "PYL",
+      "target": "ABI1",
+      "sign": -1,
+      "edge_id": "N059",
+      "effect": "inhibition",
+      "mechanism": "ABA-bound PYL physically blocks ABI1 (PP2C) phosphatase active site",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms23094523",
+          "title": "PYR/PYL/RCAR Receptors Play a Vital Role in the Abscisic-Acid-Dependent Responses of Plants",
+          "authors": "Li W, Shao Y, Xu P, Chen W, Wang J, Huang Y, Li Y, Yang S, Jiang C, Zhang X, Zhang W",
+          "year": 2022,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "ABA bound to PYR/PYL/RCAR receptors inhibits clade A PP2C protein phosphatases (ABI1, ABI2, HAB1, and PP2CA) and results in activation of SnRK2 protein kinases",
+          "claim": "ABA-PYL inhibits ABI1",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "ABI1",
+      "target": "SNRK2",
+      "sign": -1,
+      "edge_id": "N060",
+      "effect": "inhibition",
+      "mechanism": "ABI1 PP2C dephosphorylates and inactivates SnRK2 kinases in the absence of ABA",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms23094523",
+          "title": "PYR/PYL/RCAR Receptors Play a Vital Role in the Abscisic-Acid-Dependent Responses of Plants",
+          "authors": "Li W, Shao Y, Xu P, Chen W, Wang J, Huang Y, Li Y, Yang S, Jiang C, Zhang X, Zhang W",
+          "year": 2022,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "activation of SnRK2 protein kinases (2.2, 2.3 and OST1/2.6)",
+          "claim": "ABI1 inhibits SnRK2",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "SNRK2",
+      "target": "ABI5",
+      "sign": 1,
+      "edge_id": "N061",
+      "effect": "activation",
+      "mechanism": "Active SnRK2 kinases phosphorylate and activate ABI5 and ABF bZIP transcription factors",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms23094523",
+          "title": "PYR/PYL/RCAR Receptors Play a Vital Role in the Abscisic-Acid-Dependent Responses of Plants",
+          "authors": "Li W, Shao Y, Xu P, Chen W, Wang J, Huang Y, Li Y, Yang S, Jiang C, Zhang X, Zhang W",
+          "year": 2022,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "These kinases phosphorylate and activate bZIP transcription factors including ABI5 and ABFs/AREBs",
+          "claim": "SnRK2 activates ABI5",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "ABI5",
+      "target": "Plant_Height",
+      "sign": -1,
+      "edge_id": "N062",
+      "effect": "inhibition",
+      "mechanism": "ABI5 activates ABA-responsive growth-inhibitory genes; ABI5 OE reduces plant growth",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms22158394",
+          "title": "Updates on the Role of ABSCISIC ACID INSENSITIVE 5 (ABI5) and ABFs in ABA Signaling",
+          "authors": "Skubacz A, Daszkowska-Golec A, Szarejko I",
+          "year": 2021,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "ABI5 is an important regulator of ABA signaling pathway involved in regulating seed germination and postgerminative growth in Arabidopsis",
+          "claim": "ABI5 inhibits postgerminative growth",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "ABA",
+      "target": "GA20OX",
+      "sign": -1,
+      "edge_id": "N063",
+      "effect": "inhibition",
+      "mechanism": "ABA represses GA biosynthesis genes including GA20ox1 and GA3ox, contributing to ABA-GA antagonism in growth",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms22158394",
+          "title": "Updates on the Role of ABSCISIC ACID INSENSITIVE 5 (ABI5) and ABFs in ABA Signaling",
+          "authors": "Skubacz A, Daszkowska-Golec A, Szarejko I",
+          "year": 2021,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "ABA antagonizes GA signaling by repressing GA biosynthesis and promoting DELLA accumulation",
+          "claim": "ABA represses GA20ox1",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "PIF4_5_7",
+      "target": "Plant_Height",
+      "sign": 1,
+      "edge_id": "N064",
+      "effect": "activation",
+      "mechanism": "PIF4 activates YUCCA/auxin biosynthesis and cell wall remodeling genes to promote hypocotyl and stem elongation at warm temperature and in shade",
+      "evidence": [
+        {
+          "doi": "10.1016/j.cub.2009.06.046",
+          "title": "High temperature-mediated adaptations in plant architecture require the bHLH transcription factor PIF4",
+          "authors": "Koini MA, Alvey L, Allen T, Tilley CA, Harberd NP, Whitelam GC, Franklin KA",
+          "year": 2009,
+          "journal": "Current Biology",
+          "evidence_sentence": "PIF4 is required for the warm temperature-induced elongation of hypocotyls and petioles in Arabidopsis; pif4 mutants fail to respond to high temperature with elongation",
+          "claim": "PIF4 promotes stem and hypocotyl elongation",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    }
+  ]
+}

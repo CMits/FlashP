@@ -1,0 +1,3306 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lycopene_Titer",
+    "species": "Escherichia coli",
+    "created": "2026-04-20",
+    "total_edges": 124,
+    "high_confidence": 46,
+    "medium_confidence": 78,
+    "metabolite_strategy": "explicit_pool_nodes: G3P, Pyruvate, Acetyl_CoA, Mevalonate, IPP, DMAPP, GPP, FPP, GGPP, Phytoene are retained as METABOLITE pool nodes that enzymes activate. This mirrors the biosynthetic cascade and lets BUILDER choose whether to collapse to direct enzyme -> Lycopene_Titer edges or keep the pools.",
+    "aliasing": "dxr == ispC (single node, canonical name 'Dxr'); atoB == MvaE_upper (we keep atoB as canonical); HMGS alias MvaS; HMGR alias MvaE_lower / tHMGR; MVK alias MvaK1; PMK alias MvaK2; MVD alias MvaD; crtE is GGPP synthase from Pantoea/Erwinia; IspA is FPP synthase; IspB is octaprenyl-PP synthase (competing sink).",
+    "notes": "Lycopene biosynthesis is metabolic, not signalling. We model enzymes as activators of their product metabolite with sign=+1, competing sinks with sign=-1, and regulators of enzyme expression with sign inherited from the regulatory study. All edges flagged in_model=true by default; BUILDER prunes."
+  },
+  "edges": [
+    {
+      "edge_id": "E001",
+      "source": "Glucose",
+      "target": "G3P",
+      "source_type": "ENVIRONMENT",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "metabolic",
+      "confidence": "HIGH",
+      "mechanism": "Glucose enters glycolysis through Pgi-catalysed isomerisation to F6P, split by aldolase to DHAP and GAP (G3P). G3P is one of the two MEP pathway precursors.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "glyceraldehyde 3-phosphate (G3P) and pyruvate are condensed to form 1-deoxy-d-xylulose-5-phosphate (DXP) by DXP synthase (DXS)",
+          "claim": "G3P is a direct precursor feeding the MEP pathway via DXS",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E002",
+      "source": "Glucose",
+      "target": "Pyruvate",
+      "source_type": "ENVIRONMENT",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "metabolic",
+      "confidence": "HIGH",
+      "mechanism": "Glucose is catabolised through glycolysis (Embden-Meyerhof-Parnas pathway) to pyruvate, one of the two MEP pathway substrates.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "deletion of the zwf gene encoding glucose-6-phosphate dehydrogenase (G6PD)...resulted in the increased carbon fluxes in the Embden-Meyerhof-Parnas (EMP) pathway and indirectly led to an increase in lycopene production",
+          "claim": "Glucose flows through EMP glycolysis to pyruvate, a precursor of DXP via DXS",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E003",
+      "source": "Glycerol",
+      "target": "G3P",
+      "source_type": "ENVIRONMENT",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "metabolic",
+      "confidence": "HIGH",
+      "mechanism": "Glycerol is phosphorylated to glycerol-3-phosphate then oxidised to DHAP, which enters glycolysis and becomes G3P, elevating the G3P pool relative to pyruvate.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "Glycerol is a viable carbon source for beta-carotene and lycopene production, as it increases glyceraldehyde 3-phosphate and pyruvate, which are imperative intermediates in central carbon metabolism extension to the MEP pathway",
+          "claim": "Glycerol carbon source increases G3P availability relative to glucose",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E004",
+      "source": "Pgi",
+      "target": "G3P",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "MEDIUM",
+      "mechanism": "Pgi (phosphoglucose isomerase) directs G6P into glycolysis, feeding G3P. KO of pgi blocks glycolytic flux and redirects carbon through pentose phosphate pathway (6PG -> Ru5P -> G3P+E4P), altering the G3P/pyruvate balance.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1128/AEM.02155-15",
+          "title": "Improving Product Yields on D-Glucose in Escherichia coli via Knockout of pgi and zwf",
+          "authors": "Archer FS, Jerez BP, Prather KL",
+          "year": 2015,
+          "journal": "Applied and Environmental Microbiology",
+          "evidence_sentence": "Deletion of pgi and zwf was found to eliminate catabolite repression as well as the ability of E. coli to consume glucose for biomass formation, and the yield from glucose of the bioproduct D-glucaric acid was significantly increased in a delta-pgi delta-zwf strain",
+          "claim": "Pgi controls glucose entry into glycolysis; its deletion reroutes flux through PPP",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E005",
+      "source": "Zwf",
+      "target": "G3P",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "competing_sink",
+      "confidence": "HIGH",
+      "mechanism": "Zwf (G6P dehydrogenase) diverts G6P into the oxidative pentose phosphate pathway, away from glycolysis. Knockout of zwf redirects more G6P into EMP and raises G3P supply to DXS; zwf deletion has been shown to increase lycopene 130% and beta-carotene 32.5%.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "knockout of the zwf gene, significantly enhanced lycopene production by over 130%",
+          "claim": "Zwf competes with glycolysis for G6P; deletion increases MEP precursor flux",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1007/s10529-013-1317-0",
+          "title": "Lycopene production in recombinant strains of Escherichia coli is improved by knockout of the central carbon metabolism gene coding for glucose-6-phosphate dehydrogenase",
+          "authors": "Sung JH, Yoon SH, Lee JH, Kim SW",
+          "year": 2013,
+          "journal": "Biotechnology Letters",
+          "evidence_sentence": "deletion of the zwf gene encoding glucose-6-phosphate dehydrogenase...resulted in the increased carbon fluxes in the Embden-Meyerhof-Parnas pathway and indirectly led to an increase in lycopene production",
+          "claim": "Δzwf redirects carbon from PPP to glycolysis, enhancing lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E006",
+      "source": "GapA",
+      "target": "G3P",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "competing_sink",
+      "confidence": "MEDIUM",
+      "mechanism": "GapA (GAPDH) consumes G3P to 1,3-bisphosphoglycerate in lower glycolysis. Fine reduction of gapA expression raises the G3P pool available to DXS.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1038/75398",
+          "title": "Improving lycopene production in Escherichia coli by engineering metabolic control",
+          "authors": "Farmer WR, Liao JC",
+          "year": 2000,
+          "journal": "Nature Biotechnology",
+          "evidence_sentence": "the distribution between pyruvate and glyceraldehyde 3-phosphate (G3P), the originating precursors of the isoprenoid pathway, is a major factor that can limit isoprenoid production yields in E. coli, with alterations in the central metabolism that redirect flux from pyruvate back to G3P enhance lycopene production",
+          "claim": "Reducing G3P-consuming flux (via gapA) boosts isoprenoid precursor pool",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "E007",
+      "source": "PykA",
+      "target": "Pyruvate",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "MEDIUM",
+      "mechanism": "PykA (pyruvate kinase II) converts PEP to pyruvate. Deletion of pykA diverts PEP away from pyruvate (and acetate), potentially rebalancing G3P:pyruvate for MEP pathway.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "deleting pyruvate kinases-I and -II (Pyk-I and-II)...lycopene production was significantly increased",
+          "claim": "pykA knockout reroutes PEP away from excess pyruvate, improving precursor balance",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E008",
+      "source": "PykF",
+      "target": "Pyruvate",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "MEDIUM",
+      "mechanism": "PykF (pyruvate kinase I) is the major pyruvate kinase. Deletion of both pykA and pykF nearly eliminates PEP->pyruvate flux through this route, forcing rerouting through PPC/PPS/OAA.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "deleting pyruvate kinases-I and -II (Pyk-I and-II)...lycopene production was significantly increased",
+          "claim": "Combined pykA+pykF knockout improves lycopene titer",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E009",
+      "source": "Pps",
+      "target": "Pyruvate",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "competing_sink",
+      "confidence": "HIGH",
+      "mechanism": "Pps (PEP synthase, ppsA) converts pyruvate back to PEP, reducing excess pyruvate and rebalancing flux toward G3P. OE of ppsA produced a 250% increase in lycopene by diverting pyruvate to G3P via PEP.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "overexpressing phosphoenolpyruvate (PEP) synthase (PPS)...achieved a 250% increase in lycopene production by...diverting flow from pyruvate to G3P",
+          "claim": "Pps overexpression pulls pyruvate back to PEP, rebalancing toward G3P",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E010",
+      "source": "Pps",
+      "target": "G3P",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "metabolic_bypass",
+      "confidence": "HIGH",
+      "mechanism": "By converting pyruvate to PEP, Pps supports gluconeogenic flux that replenishes the G3P pool (PEP -> OAA -> ... or PEP -> F1,6BP -> G3P via reversible glycolytic steps).",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1038/75398",
+          "title": "Improving lycopene production in Escherichia coli by engineering metabolic control",
+          "authors": "Farmer WR, Liao JC",
+          "year": 2000,
+          "journal": "Nature Biotechnology",
+          "evidence_sentence": "alterations in the central metabolism that redirect flux from pyruvate back to G3P enhance lycopene production",
+          "claim": "Pps-mediated pyruvate-to-PEP shift supports G3P replenishment",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "E011",
+      "source": "Ppc",
+      "target": "Acetyl_CoA",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "metabolic_bypass",
+      "confidence": "MEDIUM",
+      "mechanism": "Ppc (PEP carboxylase) converts PEP to oxaloacetate, creating a bypass to the TCA cycle that reduces acetyl-CoA overflow and stabilises the PEP-pyruvate pool.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "overexpressing Ppc and Pck to introduce the bypass pathway between PEP and pyruvate via the oxaloacetate and TCA cycle",
+          "claim": "Ppc overexpression reroutes PEP through oxaloacetate, reducing acetyl-CoA overflow",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E012",
+      "source": "AceE",
+      "target": "Acetyl_CoA",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "HIGH",
+      "mechanism": "AceE is the E1 component of pyruvate dehydrogenase (PDH), converting pyruvate to acetyl-CoA. KO of aceE forces pyruvate accumulation and reroutes flux; paradoxically this can improve lycopene in MEP-dominant systems by restoring pyruvate-to-DXS flux.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "knockout of aceE would presumably improve carbon flux to pyruvate and formate, and further deletion of fdhF",
+          "claim": "aceE knockout preserves pyruvate pool for DXS",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E013",
+      "source": "FdhF",
+      "target": "Acetyl_CoA",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "competing_sink",
+      "confidence": "MEDIUM",
+      "mechanism": "FdhF (formate dehydrogenase H) consumes formate; deletion alters C1 and NADPH pools; combined aceE/fdhF/gdhA triple-KO gave ~40% lycopene improvement.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "seven mutants...identified...37% improvement in lycopene yield in a gdhA/aceE/fdhF triple-knockout construct",
+          "claim": "fdhF deletion contributes to triple-KO lycopene improvement",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E014",
+      "source": "GdhA",
+      "target": "NADPH",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "cofactor_drain",
+      "confidence": "HIGH",
+      "mechanism": "GdhA (glutamate dehydrogenase, NADPH-dependent) consumes NADPH to produce glutamate. KO of gdhA spares NADPH for MEP pathway reductions (IspC, IspG, IspH, HMGR) and downstream crtI desaturation.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "gdhA deletion could increase the availability of NADPH",
+          "claim": "gdhA knockout increases NADPH pool for isoprenoid biosynthesis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E015",
+      "source": "Pta",
+      "target": "Acetyl_CoA",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "competing_sink",
+      "confidence": "MEDIUM",
+      "mechanism": "Pta (phosphotransacetylase) converts acetyl-CoA to acetyl-phosphate, leading to acetate excretion. KO reduces acetate overflow but also affects acetyl-CoA availability for MVA pathway.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "deletion of the acetate and lactate production pathways...elimination of the acetate pathway",
+          "claim": "Pta/AckA deletion reduces acetate overflow",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E016",
+      "source": "Ldh",
+      "target": "Pyruvate",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "competing_sink",
+      "confidence": "LOW",
+      "mechanism": "Ldh (lactate dehydrogenase) consumes pyruvate to lactate under microaerobic conditions. KO reduces pyruvate drain.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "lactate production pathways",
+          "claim": "ldh contributes to pyruvate drain under fermentative conditions",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E017",
+      "source": "Acetyl_CoA",
+      "target": "Mevalonate",
+      "source_type": "METABOLITE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "metabolic_pool",
+      "confidence": "HIGH",
+      "mechanism": "The MVA pathway initiates with 3x acetyl-CoA, condensed by AtoB (thiolase) and HMGS (HMG-CoA synthase), then reduced by HMGR to mevalonate.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "MVA pathway initiates with acetyl-CoA, which is converted into MVA through three reactions, catalyzed by acetoacetyl-CoA thiolase (ACCT), 3-hydroxy-3-methylglutaryl-CoA (HMG-CoA) synthase (HMGS)",
+          "claim": "Acetyl-CoA is the upstream precursor for the MVA pathway",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E018",
+      "source": "AtoB",
+      "target": "Mevalonate",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic_heterologous",
+      "confidence": "HIGH",
+      "mechanism": "AtoB / MvaE (acetoacetyl-CoA thiolase) catalyses the first committed step of MVA (2 acetyl-CoA -> acetoacetyl-CoA). Heterologously expressed from E. faecalis (as mvaE bifunctional) or S. cerevisiae.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1016/j.synbio.2021.04.001",
+          "title": "Rationally optimized generation of integrated Escherichia coli with stable and high yield lycopene biosynthesis from heterologous mevalonate (MVA) and lycopene expression pathways",
+          "authors": "Hussain MH, et al.",
+          "year": 2021,
+          "journal": "Synthetic and Systems Biotechnology",
+          "evidence_sentence": "mvaE and mvaS...catalyzes the conversion from acetyl-CoA to mevalonic acid",
+          "claim": "mvaE (atoB+HMGR fusion) activity drives mevalonate production from acetyl-CoA",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E019",
+      "source": "HMGS",
+      "target": "Mevalonate",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic_heterologous",
+      "confidence": "HIGH",
+      "mechanism": "HMGS / MvaS (HMG-CoA synthase) condenses acetoacetyl-CoA + acetyl-CoA -> HMG-CoA. Heterologously expressed from E. faecalis or S. cerevisiae.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "catalyzed by acetoacetyl-CoA thiolase (ACCT), 3-hydroxy-3-methylglutaryl-CoA (HMG-CoA) synthase (HMGS) and HMG-CoA reductase (HMGR)",
+          "claim": "HMGS catalyses HMG-CoA formation on the MVA route to mevalonate",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E020",
+      "source": "HMGR",
+      "target": "Mevalonate",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic_heterologous",
+      "confidence": "HIGH",
+      "mechanism": "HMGR (HMG-CoA reductase) reduces HMG-CoA to mevalonate using 2x NADPH. Truncated form (tHMGR) lacking membrane anchor is commonly used and more active; heterologously from S. cerevisiae, E. faecalis, or X. dendrorhous.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "overexpressed tHMGR from X. dendrorhous, a truncated form of HMGR...2.2-fold enhancement in beta-carotene production",
+          "claim": "HMGR (tHMGR) overexpression is rate-limiting for MVA flux",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E021",
+      "source": "NADPH",
+      "target": "Mevalonate",
+      "source_type": "METABOLITE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "cofactor_supply",
+      "confidence": "HIGH",
+      "mechanism": "HMGR requires 2 NADPH per mevalonate. NADPH availability is rate-limiting; MVA pathway consumes 2 NADPH per IPP vs MEP which produces net NADH but consumes NADPH for IspG/IspH.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1016/j.synbio.2021.04.001",
+          "title": "Rationally optimized generation of integrated Escherichia coli with stable and high yield lycopene biosynthesis from heterologous mevalonate (MVA) and lycopene expression pathways",
+          "authors": "Hussain MH, et al.",
+          "year": 2021,
+          "journal": "Synthetic and Systems Biotechnology",
+          "evidence_sentence": "MVA pathway needs 2 NADPH for the production of mevalonate",
+          "claim": "NADPH is required cofactor for HMGR reduction step",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E022",
+      "source": "MVK",
+      "target": "IPP",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic_heterologous",
+      "confidence": "HIGH",
+      "mechanism": "MVK (mevalonate kinase) phosphorylates mevalonate to MVA-5-P; subsequent kinase (PMK/MvaK2) and decarboxylase (MVD/MvaD) yield IPP. MVK was identified as rate-limiting and improved by directed evolution.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1186/s13568-022-01418-6",
+          "title": "Directed evolution of mevalonate kinase in Escherichia coli by random mutagenesis for improved lycopene",
+          "authors": "Tan X, et al.",
+          "year": 2022,
+          "journal": "AMB Express",
+          "evidence_sentence": "Mevalonate kinase (MK) is one of the rate-limiting enzymes in the lycopene synthetic pathway",
+          "claim": "MVK catalyses the first downstream phosphorylation step in MVA; rate-limiting for lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E023",
+      "source": "PMK",
+      "target": "IPP",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic_heterologous",
+      "confidence": "HIGH",
+      "mechanism": "PMK (phosphomevalonate kinase, MvaK2) phosphorylates MVA-5-P to MVA-5-PP.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "two reactions successively catalyzed by MVAP kinase (PMK) and MVAPP decarboxylase (MDD)",
+          "claim": "PMK is essential in the lower MVA pathway",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E024",
+      "source": "MVD",
+      "target": "IPP",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic_heterologous",
+      "confidence": "HIGH",
+      "mechanism": "MVD (mevalonate diphosphate decarboxylase, MvaD) catalyses decarboxylation-dehydration of MVA-5-PP to IPP.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "MVAPP decarboxylase (MDD)",
+          "claim": "MVD/MDD finalises the lower MVA conversion to IPP",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E025",
+      "source": "Dxs",
+      "target": "IPP",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "HIGH",
+      "mechanism": "DXS (1-deoxy-D-xylulose-5-phosphate synthase) condenses G3P + pyruvate -> DXP, the first and main rate-limiting step of the MEP pathway. Overexpression gives 3.5x lycopene. Canonical dxs OE studies: Kim & Keasling 2001; Yuan 2006.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "the step that limits the rate of the MEP pathway...overexpression of dxs in E. coli carotenoid production was enhanced 3.5-fold",
+          "claim": "DXS is the main rate-limiting enzyme of the MEP pathway",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "Overexpression of dxs yielded 1.33 mg/g DCW",
+          "claim": "Quantitative DXS OE benefit for lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E026",
+      "source": "G3P",
+      "target": "IPP",
+      "source_type": "METABOLITE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "metabolic_pool",
+      "confidence": "HIGH",
+      "mechanism": "G3P is a direct substrate of DXS that enters the MEP pathway and becomes IPP via the 8-enzyme cascade.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "glyceraldehyde 3-phosphate (G3P) and pyruvate are condensed to form 1-deoxy-d-xylulose-5-phosphate (DXP) by DXP synthase (DXS)",
+          "claim": "G3P feeds MEP to IPP",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E027",
+      "source": "Pyruvate",
+      "target": "IPP",
+      "source_type": "METABOLITE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "metabolic_pool",
+      "confidence": "HIGH",
+      "mechanism": "Pyruvate is the second substrate of DXS, contributing one carbon to DXP and thereby to IPP.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "glyceraldehyde 3-phosphate (G3P) and pyruvate are condensed to form 1-deoxy-d-xylulose-5-phosphate (DXP) by DXP synthase (DXS)",
+          "claim": "Pyruvate feeds MEP to IPP",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E028",
+      "source": "Dxr",
+      "target": "IPP",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "HIGH",
+      "mechanism": "Dxr (= IspC, DXP reductoisomerase) reduces DXP to MEP using NADPH. Rate-limiting co-target with Dxs; combined dxs+dxr OE yielded 22 mg/L lycopene.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "highest lycopene yield (22 mg/L) was reached with the arabinose-inducible promoter on a medium-copy plasmid pBAD24 in the E. coli XL1-Blue strain",
+          "claim": "dxs+dxr co-overexpression markedly boosts lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "DXP reductoisomerase (DXR or IspC) facilitates the transformation of DXP into MEP",
+          "claim": "Dxr catalyses DXP->MEP; alias IspC",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E029",
+      "source": "IspD",
+      "target": "IPP",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "MEDIUM",
+      "mechanism": "IspD (MEP cytidylyltransferase, MCT) converts MEP to CDP-ME. Co-OE with IspF gave 71% astaxanthin increase, indicating MEP rate control at this step too.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "overabundance of the IspD (MCT) and IspF (MDS) enzymes in the MEP pathway led to a significant boost of 71% in the synthesis of astaxanthin",
+          "claim": "IspD is a secondary rate-controlling step in MEP",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E030",
+      "source": "IspE",
+      "target": "IPP",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "MEDIUM",
+      "mechanism": "IspE (CDP-ME kinase) phosphorylates CDP-ME to CDP-ME-2P in the MEP pathway.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "a series of enzymes...successively catalyzes the conversion of MEP into IPP",
+          "claim": "IspE is one of the 8 MEP pathway enzymes",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E031",
+      "source": "IspF",
+      "target": "IPP",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "MEDIUM",
+      "mechanism": "IspF (MECDP synthase, MDS) cyclises CDP-ME-2P to MEcDP. Co-OE with IspD is synergistic.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "overabundance of the IspD (MCT) and IspF (MDS) enzymes in the MEP pathway led to a significant boost of 71% in the synthesis of astaxanthin",
+          "claim": "IspF overexpression synergises with IspD to boost MEP flux",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E032",
+      "source": "IspG",
+      "target": "IPP",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "MEDIUM",
+      "mechanism": "IspG (HMB-PP synthase) converts MEcDP to HMB-PP using 2e- + 2H+ (Fe-S cluster; NADPH via flavodoxin).",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "a series of enzymes...successively catalyzes the conversion of MEP into IPP",
+          "claim": "IspG is an MEP pathway enzyme requiring reducing equivalents",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E033",
+      "source": "IspH",
+      "target": "IPP",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "MEDIUM",
+      "mechanism": "IspH (HMB-PP reductase) converts HMB-PP to IPP+DMAPP directly in an ~5:1 ratio.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "a series of enzymes...successively catalyzes the conversion of MEP into IPP",
+          "claim": "IspH is the final MEP enzyme generating IPP (and DMAPP directly)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E034",
+      "source": "IspH",
+      "target": "DMAPP",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "MEDIUM",
+      "mechanism": "IspH generates both IPP and DMAPP in ~5:1 ratio.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "a series of enzymes...successively catalyzes the conversion of MEP into IPP",
+          "claim": "IspH produces IPP and DMAPP directly from HMB-PP",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E035",
+      "source": "Idi",
+      "target": "DMAPP",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "HIGH",
+      "mechanism": "Idi (IPP isomerase) interconverts IPP and DMAPP, equilibrating the pools. Since CrtE requires DMAPP (as well as 3x IPP) to form GGPP, Idi is rate-limiting; OE gives ~1.8x lycopene; co-OE with Dxs is synergistic.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "IDI is a crucial enzyme...mutant IDI exhibited a 1.8-fold increase in lycopene production",
+          "claim": "Idi equilibrates IPP and DMAPP; directed-evolution variants boost lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E036",
+      "source": "IPP",
+      "target": "DMAPP",
+      "source_type": "METABOLITE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "metabolic_pool",
+      "confidence": "HIGH",
+      "mechanism": "IPP is isomerised to DMAPP by Idi (and also generated directly by IspH); DMAPP pool depends on IPP availability.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "isopentenyl-diphosphate isomerase (IDI) catalyzes the isomerization of IPP to DMAPP",
+          "claim": "Metabolite pool coupling: IPP <-> DMAPP",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E037",
+      "source": "IspA",
+      "target": "FPP",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "HIGH",
+      "mechanism": "IspA (FPP synthase) condenses DMAPP+IPP -> GPP and GPP+IPP -> FPP. Drains the IPP/DMAPP pool toward C15 FPP for essential cellular processes and as CrtE substrate.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "farnesyl pyrophosphate (FPP) is formed from GPP catalyzed by FPP synthase (IspA)",
+          "claim": "IspA is FPP synthase, the main E. coli prenyltransferase to FPP",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E038",
+      "source": "IspA",
+      "target": "GPP",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "MEDIUM",
+      "mechanism": "IspA catalyses DMAPP+IPP -> GPP as the first condensation before FPP.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "condensation reaction between the two intermediates occurs with the formation of geranyl diphosphate (GPP)",
+          "claim": "IspA forms GPP from DMAPP+IPP",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E039",
+      "source": "IPP",
+      "target": "FPP",
+      "source_type": "METABOLITE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "metabolic_pool",
+      "confidence": "HIGH",
+      "mechanism": "FPP synthesis requires 2x IPP + DMAPP via IspA-catalysed condensations.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "FPP is then catalyzed by geranylgeranyl diphosphate synthase (CrtE), phytoene synthase (CrtB), and phytoene desaturase (CrtI) to successively form GGPP, phytoene, and finally lycopene",
+          "claim": "FPP pool depends on IPP",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E040",
+      "source": "DMAPP",
+      "target": "FPP",
+      "source_type": "METABOLITE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "metabolic_pool",
+      "confidence": "HIGH",
+      "mechanism": "DMAPP is the starter unit for IspA-catalysed condensations forming FPP.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "isopentenyl pyrophosphate (IPP), dimethylallyl pyrophosphate (DMAPP) and farnesyl pyrophosphate (FPP) are synthesized by 8 sequential enzymes in the MEP pathway, after which they are converted to lycopene",
+          "claim": "DMAPP is required for FPP formation (CrtE/IspA lineage)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E041",
+      "source": "IspB",
+      "target": "FPP",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "competing_sink",
+      "confidence": "MEDIUM",
+      "mechanism": "IspB (octaprenyl-PP synthase) consumes FPP+IPP to produce octaprenyl-PP (C40 ubiquinone precursor), competing with CrtE for FPP. RBS-downregulation of ispB reduces this competing sink and increases carotenoid titer.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "FPP, in turn, is catalyzed by geranylgeranyl diphosphate (GGPP) synthase (CrtE)",
+          "claim": "IspB competes with CrtE for FPP; modulation of ispB affects carotenoid flux",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E042",
+      "source": "CrtE",
+      "target": "GGPP",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic_heterologous",
+      "confidence": "HIGH",
+      "mechanism": "CrtE (GGPP synthase) condenses FPP + IPP -> GGPP. Heterologously expressed from Pantoea ananatis / P. agglomerans / Erwinia uredovora. Rate-limiting step in carotenoid biosynthesis; OE gave 60% lycopene increase.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "transformation of DMAPP into GGPP...was recognized as the pivotal step that restricts the rate of carotenoid biosynthesis...enhanced the expression of CrtE...60% increase in lycopene production",
+          "claim": "CrtE/GGPP synthase is rate-limiting for carotenoid biosynthesis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1007/s00253-006-0623-z",
+          "title": "Engineering the lycopene synthetic pathway in E. coli by comparison of the carotenoid genes of Pantoea agglomerans and Pantoea ananatis",
+          "authors": "Lee JH, Kim SW, Lee PC",
+          "year": 2007,
+          "journal": "Applied Microbiology and Biotechnology",
+          "evidence_sentence": "The crtE gene was responsible for the observed difference in lycopene production and cell growth between E. coli harboring the crt genes of P. agglomerans and P. ananatis",
+          "claim": "CrtE enzymatic activity determines lycopene yield across source organisms",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "E043",
+      "source": "FPP",
+      "target": "GGPP",
+      "source_type": "METABOLITE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "metabolic_pool",
+      "confidence": "HIGH",
+      "mechanism": "FPP + IPP -> GGPP by CrtE.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "FPP, in turn, is catalyzed by geranylgeranyl diphosphate (GGPP) synthase (CrtE)",
+          "claim": "FPP is substrate for GGPP formation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E044",
+      "source": "CrtB",
+      "target": "Phytoene",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic_heterologous",
+      "confidence": "HIGH",
+      "mechanism": "CrtB (phytoene synthase) condenses 2x GGPP -> phytoene. Essential heterologous enzyme of the lycopene cassette.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "phytoene synthase (CrtB)...successively form...phytoene",
+          "claim": "CrtB catalyses GGPP->phytoene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E045",
+      "source": "GGPP",
+      "target": "Phytoene",
+      "source_type": "METABOLITE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "metabolic_pool",
+      "confidence": "HIGH",
+      "mechanism": "Phytoene formation requires 2x GGPP via CrtB.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "FPP is then catalyzed by geranylgeranyl diphosphate synthase (CrtE), phytoene synthase (CrtB), and phytoene desaturase (CrtI) to successively form GGPP, phytoene, and finally lycopene",
+          "claim": "GGPP is substrate for phytoene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E046",
+      "source": "CrtI",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic_heterologous",
+      "confidence": "HIGH",
+      "mechanism": "CrtI (phytoene desaturase) performs four desaturation steps on phytoene, forming lycopene. FAD-dependent enzyme; directed evolution (Y160F+N576S mutant) improved lycopene 60%.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "phytoene desaturase (CrtI) to successively form...finally lycopene",
+          "claim": "CrtI directly converts phytoene to lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "produced an engineered CrtI mutant (Y160F&N576S)...60% increase in lycopene production",
+          "claim": "CrtI variant improves lycopene titer via directed evolution",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E047",
+      "source": "Phytoene",
+      "target": "Lycopene_Titer",
+      "source_type": "METABOLITE",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "metabolic_pool",
+      "confidence": "HIGH",
+      "mechanism": "Phytoene is the direct substrate of CrtI to form lycopene via four desaturations.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "phytoene desaturase (CrtI) to successively form...finally lycopene",
+          "claim": "Phytoene->Lycopene by CrtI",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E048",
+      "source": "GGPP",
+      "target": "Lycopene_Titer",
+      "source_type": "METABOLITE",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "metabolic_pool",
+      "confidence": "MEDIUM",
+      "mechanism": "Shortcut edge: higher GGPP pool results in higher lycopene flux. Included to allow BUILDER to use a compact topology if metabolite pools are collapsed.",
+      "in_model": false,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "transformation of DMAPP into GGPP...was recognized as the pivotal step that restricts the rate of carotenoid biosynthesis",
+          "claim": "GGPP pool is rate-determining for lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E049",
+      "source": "FPP",
+      "target": "Lycopene_Titer",
+      "source_type": "METABOLITE",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "metabolic_pool",
+      "confidence": "LOW",
+      "mechanism": "Shortcut edge: FPP pool ultimately feeds lycopene. Included as optional BUILDER-selectable compact edge.",
+      "in_model": false,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "FPP is then catalyzed by geranylgeranyl diphosphate synthase (CrtE), phytoene synthase (CrtB), and phytoene desaturase (CrtI) to successively form GGPP, phytoene, and finally lycopene",
+          "claim": "FPP is upstream metabolic driver of lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E050",
+      "source": "IPTG",
+      "target": "Dxs",
+      "source_type": "ENVIRONMENT",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "transcriptional_induction",
+      "confidence": "HIGH",
+      "mechanism": "IPTG induces lac/trc/T7 promoters driving heterologous dxs expression when under lac-controlled expression system.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "highest lycopene yield (22 mg/L) was reached with the arabinose-inducible promoter on a medium-copy plasmid pBAD24 in the E. coli XL1-Blue strain",
+          "claim": "Inducer-controlled expression of dxs (IPTG or arabinose) modulates MEP flux",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E051",
+      "source": "IPTG",
+      "target": "Idi",
+      "source_type": "ENVIRONMENT",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "transcriptional_induction",
+      "confidence": "HIGH",
+      "mechanism": "IPTG induces lac/trc/T7 promoters controlling idi overexpression in standard plasmid systems.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "RBS libraries...leading to an increase in lycopene yield by 32%",
+          "claim": "Induction of idi via IPTG-responsive promoters is standard practice",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E052",
+      "source": "IPTG",
+      "target": "CrtE",
+      "source_type": "ENVIRONMENT",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "transcriptional_induction",
+      "confidence": "HIGH",
+      "mechanism": "IPTG induces the lac/T7 promoter driving heterologous crt cassette expression in standard vectors.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1007/s00253-006-0623-z",
+          "title": "Engineering the lycopene synthetic pathway in E. coli by comparison of the carotenoid genes of Pantoea agglomerans and Pantoea ananatis",
+          "authors": "Lee JH, Kim SW, Lee PC",
+          "year": 2007,
+          "journal": "Applied Microbiology and Biotechnology",
+          "evidence_sentence": "E. coli harboring the P. agglomerans crt genes produced 27 mg/l of lycopene in 2YT medium without IPTG induction, which was twofold higher than that produced by E. coli harboring the P. ananatis crt genes (12 mg/l lycopene) with 0.1 mM IPTG induction",
+          "claim": "IPTG controls crt cassette expression when cloned under lac-regulated promoters",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "E053",
+      "source": "IPTG",
+      "target": "CrtB",
+      "source_type": "ENVIRONMENT",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "transcriptional_induction",
+      "confidence": "HIGH",
+      "mechanism": "Same promoter system as CrtE; IPTG induces lac/T7-driven crtB expression.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1007/s00253-006-0623-z",
+          "title": "Engineering the lycopene synthetic pathway in E. coli by comparison of the carotenoid genes of Pantoea agglomerans and Pantoea ananatis",
+          "authors": "Lee JH, Kim SW, Lee PC",
+          "year": 2007,
+          "journal": "Applied Microbiology and Biotechnology",
+          "evidence_sentence": "E. coli harboring the P. agglomerans crt genes produced 27 mg/l of lycopene in 2YT medium without IPTG induction",
+          "claim": "Inducer drives crt cassette expression including crtB",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "E054",
+      "source": "IPTG",
+      "target": "CrtI",
+      "source_type": "ENVIRONMENT",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "transcriptional_induction",
+      "confidence": "HIGH",
+      "mechanism": "Same promoter system; IPTG induces crtI expression in lac/T7 cassettes.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1007/s00253-006-0623-z",
+          "title": "Engineering the lycopene synthetic pathway in E. coli by comparison of the carotenoid genes of Pantoea agglomerans and Pantoea ananatis",
+          "authors": "Lee JH, Kim SW, Lee PC",
+          "year": 2007,
+          "journal": "Applied Microbiology and Biotechnology",
+          "evidence_sentence": "0.1 mM IPTG induction",
+          "claim": "Inducer drives crt cassette expression including crtI",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "E055",
+      "source": "Arabinose",
+      "target": "Dxs",
+      "source_type": "ENVIRONMENT",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "transcriptional_induction",
+      "confidence": "HIGH",
+      "mechanism": "PBAD promoter (AraC regulator) induces dxs when cloned on pBAD24/pA-SRAI vectors; 1% L-arabinose gives strong induction.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2302.02003",
+          "title": "Evaluation of Various Escherichia coli Strains for Enhanced Lycopene Production",
+          "authors": "Ren J, Shen J, Thai TD, Kim M, Lee SH, Lim W, Na D",
+          "year": 2023,
+          "journal": "Journal of Microbiology and Biotechnology",
+          "evidence_sentence": "dxs, dxr, ispA, and idi from E. coli...expressed under the PBAD promoter regulated by AraC protein and arabinose",
+          "claim": "Arabinose induces PBAD-driven dxs OE plasmids",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E056",
+      "source": "Arabinose",
+      "target": "Idi",
+      "source_type": "ENVIRONMENT",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "transcriptional_induction",
+      "confidence": "HIGH",
+      "mechanism": "Same PBAD system; arabinose induces idi coexpressed in pBAD cassettes.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2302.02003",
+          "title": "Evaluation of Various Escherichia coli Strains for Enhanced Lycopene Production",
+          "authors": "Ren J, Shen J, Thai TD, Kim M, Lee SH, Lim W, Na D",
+          "year": 2023,
+          "journal": "Journal of Microbiology and Biotechnology",
+          "evidence_sentence": "dxs, dxr, ispA, and idi from E. coli...expressed under the PBAD promoter regulated by AraC protein and arabinose",
+          "claim": "Arabinose induces idi via PBAD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E057",
+      "source": "Arabinose",
+      "target": "Dxr",
+      "source_type": "ENVIRONMENT",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "transcriptional_induction",
+      "confidence": "HIGH",
+      "mechanism": "Arabinose induces PBAD-driven dxr OE cassettes.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2302.02003",
+          "title": "Evaluation of Various Escherichia coli Strains for Enhanced Lycopene Production",
+          "authors": "Ren J, Shen J, Thai TD, Kim M, Lee SH, Lim W, Na D",
+          "year": 2023,
+          "journal": "Journal of Microbiology and Biotechnology",
+          "evidence_sentence": "dxs, dxr, ispA, and idi from E. coli...expressed under the PBAD promoter regulated by AraC protein and arabinose",
+          "claim": "Arabinose induces dxr via PBAD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E058",
+      "source": "Arabinose",
+      "target": "IspA",
+      "source_type": "ENVIRONMENT",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "transcriptional_induction",
+      "confidence": "HIGH",
+      "mechanism": "Arabinose induces PBAD-driven ispA OE plasmids.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2302.02003",
+          "title": "Evaluation of Various Escherichia coli Strains for Enhanced Lycopene Production",
+          "authors": "Ren J, Shen J, Thai TD, Kim M, Lee SH, Lim W, Na D",
+          "year": 2023,
+          "journal": "Journal of Microbiology and Biotechnology",
+          "evidence_sentence": "dxs, dxr, ispA, and idi from E. coli...expressed under the PBAD promoter regulated by AraC protein and arabinose",
+          "claim": "Arabinose induces ispA via PBAD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E059",
+      "source": "Plasmid_Copy_Number",
+      "target": "CrtE",
+      "source_type": "ENVIRONMENT",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "dosage",
+      "confidence": "HIGH",
+      "mechanism": "Higher plasmid copy number (e.g., pACYC p15A ~15 copies, pBR322 ~20 copies, pBluescript ~500 copies) increases crtE gene dosage and protein abundance.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1016/j.synbio.2021.04.001",
+          "title": "Rationally optimized generation of integrated E. coli with stable MVA lycopene",
+          "authors": "Hussain MH, et al.",
+          "year": 2021,
+          "journal": "Synthetic and Systems Biotechnology",
+          "evidence_sentence": "one copy of MVA upper pathway, two copies of MVA lower pathway, and three copies of lycopene expression pathway was comprehended as the best performer",
+          "claim": "Gene dosage (copy number) tunes crt expression and titer",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E060",
+      "source": "Plasmid_Copy_Number",
+      "target": "CrtB",
+      "source_type": "ENVIRONMENT",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "dosage",
+      "confidence": "HIGH",
+      "mechanism": "Same mechanism; copy number tunes CrtB abundance.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1016/j.synbio.2021.04.001",
+          "title": "Rationally optimized generation of integrated E. coli with stable MVA lycopene",
+          "authors": "Hussain MH, et al.",
+          "year": 2021,
+          "journal": "Synthetic and Systems Biotechnology",
+          "evidence_sentence": "three copies of lycopene expression pathway was comprehended as the best performer",
+          "claim": "Copy number tunes crtB dosage",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E061",
+      "source": "Plasmid_Copy_Number",
+      "target": "CrtI",
+      "source_type": "ENVIRONMENT",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "dosage",
+      "confidence": "HIGH",
+      "mechanism": "Same mechanism; copy number tunes CrtI abundance.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1016/j.synbio.2021.04.001",
+          "title": "Rationally optimized generation of integrated E. coli with stable MVA lycopene",
+          "authors": "Hussain MH, et al.",
+          "year": 2021,
+          "journal": "Synthetic and Systems Biotechnology",
+          "evidence_sentence": "three copies of lycopene expression pathway was comprehended as the best performer",
+          "claim": "Copy number tunes crtI dosage",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E062",
+      "source": "CRP",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "global_regulator",
+      "confidence": "MEDIUM",
+      "mechanism": "CRP (cAMP receptor protein) is a global TF modulating hundreds of genes via cAMP-CRP complex. Engineered CRP variants (site-directed mutagenesis) gave ~25% more lycopene by fine-tuning central metabolism for precursor supply.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "global regulator cAMP receptor protein (CRP)...transcriptional engineering...ultimately leading to improved lycopene production...approximately 25% more lycopene",
+          "claim": "CRP engineering enhances lycopene via pleiotropic metabolic effects",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E063",
+      "source": "RpoS",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "global_regulator",
+      "confidence": "HIGH",
+      "mechanism": "RpoS (sigma-S) is the stationary-phase sigma factor regulating ~10% of E. coli genome including katE catalase. Δrpos strains accumulate ROS that chemically degrade lycopene, giving ~8-fold lower titer in stationary phase. Does not directly regulate MEP enzymes.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-015-0381-7",
+          "title": "Systems analysis of methylerythritol-phosphate pathway flux in E. coli: insights into the role of oxidative stress",
+          "authors": "Bongers JG, et al.",
+          "year": 2015,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "knockout of rpoS does not influence flux through the MEP pathway...increased accumulation of reactive oxygen species during late log and stationary phases",
+          "claim": "RpoS protects lycopene from ROS degradation via KatE induction",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "RpoS could help accumulate lycopene by decreasing oxidative stress in the growth stationary phase",
+          "claim": "RpoS supports lycopene accumulation via ROS defense",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E064",
+      "source": "RpoS",
+      "target": "KatE",
+      "source_type": "GENE",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "transcriptional",
+      "confidence": "HIGH",
+      "mechanism": "RpoS directly transcribes katE (stationary-phase catalase), which degrades H2O2 and limits ROS damage to lycopene.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-015-0381-7",
+          "title": "Systems analysis of methylerythritol-phosphate pathway flux in E. coli: insights into the role of oxidative stress",
+          "authors": "Bongers JG, et al.",
+          "year": 2015,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "concentration of the stationary phase-specific catalase KatE...was reduced >twofold in MG1655*",
+          "claim": "KatE is RpoS-dependent stationary-phase catalase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E065",
+      "source": "KatE",
+      "target": "ROS",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "enzymatic",
+      "confidence": "HIGH",
+      "mechanism": "KatE (catalase HP-II) degrades hydrogen peroxide, lowering ROS level.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-015-0381-7",
+          "title": "Systems analysis of methylerythritol-phosphate pathway flux in E. coli: insights into the role of oxidative stress",
+          "authors": "Bongers JG, et al.",
+          "year": 2015,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "overexpression of katE increased measurable lycopene in MG1655*, reducing the difference...to less than two-fold from previously eightfold",
+          "claim": "KatE decomposes H2O2 and protects lycopene from oxidative degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E066",
+      "source": "ROS",
+      "target": "Lycopene_Titer",
+      "source_type": "METABOLITE",
+      "target_type": "PHENOTYPE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "chemical_degradation",
+      "confidence": "HIGH",
+      "mechanism": "ROS (H2O2, superoxide, hydroxyl radical) chemically oxidise lycopene's conjugated double bonds, degrading it and lowering measurable titer.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-015-0381-7",
+          "title": "Systems analysis of methylerythritol-phosphate pathway flux in E. coli: insights into the role of oxidative stress",
+          "authors": "Bongers JG, et al.",
+          "year": 2015,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "measurable lycopene content decreased significantly in the presence of sublethal doses of menadione",
+          "claim": "ROS chemically degrade lycopene in vivo",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E067",
+      "source": "SoxS",
+      "target": "Zwf",
+      "source_type": "GENE",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "transcriptional",
+      "confidence": "HIGH",
+      "mechanism": "SoxS (activated by SoxR upon superoxide/redox-cycler exposure) transcriptionally activates zwf, fpr, fumC. This means oxidative stress raises Zwf, redirecting carbon into PPP and away from MEP precursors — secondary anti-lycopene route.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "Expression of zwf gene that encodes the first key enzyme from the pentose phosphate pathway is among others controlled by the SoxRS regulon in response to oxidative stress",
+          "claim": "SoxS transcriptionally activates zwf",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E068",
+      "source": "SoxR",
+      "target": "SoxS",
+      "source_type": "GENE",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "transcriptional",
+      "confidence": "HIGH",
+      "mechanism": "SoxR is a 2Fe-2S-cluster sensor of redox-cycling compounds (paraquat, menadione); oxidised SoxR activates soxS transcription.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "The SoxRS regulon is a response mechanism to O2- and to redox-cycling compounds, but not to H2O2",
+          "claim": "SoxR activates soxS in response to superoxide",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E069",
+      "source": "OxyR",
+      "target": "KatG",
+      "source_type": "GENE",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "transcriptional",
+      "confidence": "HIGH",
+      "mechanism": "OxyR senses H2O2 via disulfide bond formation; activates katG, ahpCF, gorA, dps genes for H2O2 defense.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "The OxyR system (which responds to H2O2)",
+          "claim": "OxyR responds to H2O2 and activates katG",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E070",
+      "source": "AppY",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "global_regulator",
+      "confidence": "HIGH",
+      "mechanism": "AppY (AraC-family TF for anaerobic energy metabolism genes) enhances lycopene when co-expressed with dxs — 8-fold improvement in one study.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "co-expression of appY with dxs produced an eight-fold improvement in lycopene yield",
+          "claim": "AppY co-expression with dxs enhances lycopene strongly",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E071",
+      "source": "Crl",
+      "target": "RpoS",
+      "source_type": "GENE",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "post_translational",
+      "confidence": "MEDIUM",
+      "mechanism": "Crl (sigma-S chaperone) increases RpoS association with core RNAP, stabilising stationary-phase transcription program and indirectly boosting lycopene via RpoS->KatE->ROS defense.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "Crl (transcriptional regulator of csgBA for curli surface fiber formation) also enhanced lycopene production",
+          "claim": "Crl promotes RpoS activity and enhances lycopene accumulation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E072",
+      "source": "Hnr",
+      "target": "RpoS",
+      "source_type": "GENE",
+      "target_type": "GENE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "post_translational",
+      "confidence": "MEDIUM",
+      "mechanism": "Hnr (RssB) adapter protein targets RpoS for ClpXP degradation. Δhnr stabilises RpoS, increasing lycopene; double KO with ΔyliE gives significant improvement.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "Δhnr ΔyliE mutant...significantly improved lycopene production",
+          "claim": "Δhnr stabilises RpoS and boosts lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E073",
+      "source": "YliE",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "poorly_characterized",
+      "confidence": "LOW",
+      "mechanism": "YliE is a c-di-GMP phosphodiesterase; ΔyliE enhances lycopene in a Δhnr background. Mechanism likely via biofilm/stress phenotypes modulating RpoS stability.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "Δhnr ΔyliE mutant...significantly improved lycopene production",
+          "claim": "YliE deletion contributes to lycopene improvement in Δhnr background",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E074",
+      "source": "ArcA",
+      "target": "AceE",
+      "source_type": "GENE",
+      "target_type": "GENE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "transcriptional",
+      "confidence": "MEDIUM",
+      "mechanism": "ArcA (anoxic redox control, two-component response regulator with ArcB) represses TCA and PDH genes including aceE under microaerobic conditions.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "knockout of aceE would presumably improve carbon flux to pyruvate and formate",
+          "claim": "ArcA represses aceE under microaerobic conditions (well established E. coli physiology)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E075",
+      "source": "FNR",
+      "target": "AceE",
+      "source_type": "GENE",
+      "target_type": "GENE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "transcriptional",
+      "confidence": "MEDIUM",
+      "mechanism": "FNR (4Fe-4S-cluster anaerobic regulator) represses aerobic metabolism genes (including aceE) in anaerobic conditions.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "knockout of aceE would presumably improve carbon flux to pyruvate",
+          "claim": "FNR represses aceE under anaerobic conditions (canonical E. coli physiology)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E076",
+      "source": "Oxygen_Level",
+      "target": "ArcA",
+      "source_type": "ENVIRONMENT",
+      "target_type": "GENE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "signal_transduction",
+      "confidence": "HIGH",
+      "mechanism": "ArcB kinase is autophosphorylated under reduced (low O2) conditions; high O2 deactivates ArcA; low O2 activates ArcA (we encode oxygen -> ArcA with sign -1, meaning higher O2 reduces ArcA activity).",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "presumably improve carbon flux to pyruvate and formate",
+          "claim": "Oxygen level modulates ArcA activity (canonical E. coli physiology)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E077",
+      "source": "Oxygen_Level",
+      "target": "FNR",
+      "source_type": "ENVIRONMENT",
+      "target_type": "GENE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "signal_transduction",
+      "confidence": "HIGH",
+      "mechanism": "FNR Fe-S cluster is O2-labile; FNR is active only under anaerobic conditions. Higher O2 -> lower FNR activity.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "anaerobic energy metabolism",
+          "claim": "FNR oxygen sensing: high O2 inactivates FNR",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E078",
+      "source": "Oxygen_Level",
+      "target": "ROS",
+      "source_type": "ENVIRONMENT",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "chemical",
+      "confidence": "HIGH",
+      "mechanism": "High dissolved O2 increases ROS generation by leaky electron transport chain; excessive aeration causes lycopene photoxidation/chemical oxidation.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1186/s12934-015-0381-7",
+          "title": "Systems analysis of MEP pathway flux in E. coli: insights into oxidative stress",
+          "authors": "Bongers JG, et al.",
+          "year": 2015,
+          "journal": "Microbial Cell Factories",
+          "evidence_sentence": "proteins involved in aerobic respiration and the TCA cycle were increased when compared to Seq+",
+          "claim": "Higher O2/aerobic metabolism increases ROS",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E079",
+      "source": "Temperature",
+      "target": "Lycopene_Titer",
+      "source_type": "ENVIRONMENT",
+      "target_type": "PHENOTYPE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "process",
+      "confidence": "MEDIUM",
+      "mechanism": "Elevated temperature (37 degC) causes soluble protein misfolding, T7 polymerase-driven metabolic burden, and faster lycopene degradation. Lower culture T (28-30 degC) yields higher lycopene.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "temperature-shift culture method (37 to 25 degC)...further augment lycopene production",
+          "claim": "Higher T reduces lycopene titer",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E080",
+      "source": "Medium_Richness",
+      "target": "Lycopene_Titer",
+      "source_type": "ENVIRONMENT",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "process",
+      "confidence": "HIGH",
+      "mechanism": "Rich media (e.g., 2xYTg with 20% glycerol, tryptone, yeast extract) support higher biomass and lycopene accumulation than minimal media; MG1655 titer 141 mg/L in LB scales to 1595 mg/L in 2xYTg.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2302.02003",
+          "title": "Evaluation of Various Escherichia coli Strains for Enhanced Lycopene Production",
+          "authors": "Ren J, Shen J, Thai TD, Kim M, Lee SH, Lim W, Na D",
+          "year": 2023,
+          "journal": "Journal of Microbiology and Biotechnology",
+          "evidence_sentence": "cells grown in 2xYTg achieved 4.6, 4.1, and 4-fold higher lycopene titers (651 mg/l)...2xYTg titer was 1,595 mg/l",
+          "claim": "Rich medium (2xYTg) substantially increases lycopene titer",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E081",
+      "source": "Chassis_K12",
+      "target": "Lycopene_Titer",
+      "source_type": "ENVIRONMENT",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "genetic_background",
+      "confidence": "HIGH",
+      "mechanism": "K-12 background (MG1655, W3110) has functional RpoS and complete TCA; outperforms B strains (BL21) and DH5a for lycopene 10-16x. Strain lineage is a source node affecting baseline lycopene capacity.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.4014/jmb.2302.02003",
+          "title": "Evaluation of Various Escherichia coli Strains for Enhanced Lycopene Production",
+          "authors": "Ren J, Shen J, Thai TD, Kim M, Lee SH, Lim W, Na D",
+          "year": 2023,
+          "journal": "Journal of Microbiology and Biotechnology",
+          "evidence_sentence": "MG1655 expressed lycopene production capacity 10 to 16 times higher than commonly used laboratory strains such as DH5a and BL21 (DE3)",
+          "claim": "K-12 MG1655 background gives highest baseline lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E082",
+      "source": "Plsb",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "membrane_engineering",
+      "confidence": "MEDIUM",
+      "mechanism": "Plsb (glycerol-3-phosphate acyltransferase) increases membrane lipid biosynthesis, creating hydrophobic compartments for lycopene storage. OE with Plsc and Almgs boosts lycopene to 36.4 mg/g DCW.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "Plsb (glycerol-3-phosphate acyltransferase) and Plsc...were overexpressed...cells produced sufficient intracellular membrane vesicles",
+          "claim": "Plsb OE expands membrane capacity for lycopene storage",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E083",
+      "source": "Plsc",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "membrane_engineering",
+      "confidence": "MEDIUM",
+      "mechanism": "Plsc (1-acylglycerol-3-phosphate acyltransferase) cooperates with Plsb in membrane lipid biosynthesis.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "1-acylglycerol-3-phosphate-acyltransferase), were overexpressed...cells produced sufficient intracellular membrane vesicles",
+          "claim": "Plsc OE expands membrane capacity",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E084",
+      "source": "Almgs",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "membrane_engineering",
+      "confidence": "MEDIUM",
+      "mechanism": "Almgs (monoglucosyl diacylglycerol synthase from Acholeplasma) increases glycerophospholipids, giving 36.4 mg/g DCW lycopene in combination with plsb/plsc.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "amount of the membrane component, glycerophospholipids, was increased...36.4 mg/g DCW of lycopene accumulated",
+          "claim": "Almgs OE increases glycerophospholipids and lycopene storage capacity",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E085",
+      "source": "WaaC",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "lipopolysaccharide",
+      "confidence": "MEDIUM",
+      "mechanism": "WaaC is an LPS heptosyltransferase. Deletion truncates LPS (deep-rough phenotype), altering outer membrane permeability and promoting lycopene production.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/ijms23147783",
+          "title": "Effects of lipopolysaccharide structure on lycopene production in Escherichia coli",
+          "authors": "Huang X, et al.",
+          "year": 2020,
+          "journal": "Enzyme and Microbial Technology",
+          "evidence_sentence": "deletion of the waaC and waaF genes greatly promoted lycopene production",
+          "claim": "ΔwaaC enhances lycopene via LPS truncation and outer-membrane remodelling",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E086",
+      "source": "WaaF",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "lipopolysaccharide",
+      "confidence": "MEDIUM",
+      "mechanism": "WaaF catalyses second LPS core heptose addition; ΔwaaF truncates LPS core, similar to ΔwaaC effect.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/ijms23147783",
+          "title": "Effects of lipopolysaccharide structure on lycopene production in Escherichia coli",
+          "authors": "Huang X, et al.",
+          "year": 2020,
+          "journal": "Enzyme and Microbial Technology",
+          "evidence_sentence": "deletion of the waaC and waaF genes greatly promoted lycopene production",
+          "claim": "ΔwaaF enhances lycopene via LPS truncation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E087",
+      "source": "Lpp",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "outer_membrane_integrity",
+      "confidence": "MEDIUM",
+      "mechanism": "Lpp (Braun's lipoprotein) tethers peptidoglycan to outer membrane; deletion plus nlpI, mlaE, tolA gave 59.34-fold extracellular lycopene increase.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "deletion of the lpp, nlpI, mlaE, and tolA genes...59.34-fold improvement in extracellular lycopene production",
+          "claim": "Δlpp enhances extracellular lycopene efflux",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E088",
+      "source": "NlpI",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "outer_membrane_integrity",
+      "confidence": "MEDIUM",
+      "mechanism": "NlpI (lipoprotein-mediated cell-division regulator) deletion destabilises OM; contributes to extracellular lycopene.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "deletion of the lpp, nlpI, mlaE, and tolA genes...59.34-fold improvement in extracellular lycopene production",
+          "claim": "ΔnlpI contributes to extracellular lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E089",
+      "source": "MlaE",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "outer_membrane_integrity",
+      "confidence": "MEDIUM",
+      "mechanism": "MlaE (phospholipid retrograde transport component) deletion disrupts OM lipid asymmetry and promotes product efflux.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "deletion of the lpp, nlpI, mlaE, and tolA genes...59.34-fold improvement in extracellular lycopene production",
+          "claim": "ΔmlaE contributes to extracellular lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E090",
+      "source": "TolA",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "outer_membrane_integrity",
+      "confidence": "MEDIUM",
+      "mechanism": "TolA (part of Tol-Pal system for OM-IM contact) deletion destabilises outer membrane.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "deletion of the lpp, nlpI, mlaE, and tolA genes...59.34-fold improvement in extracellular lycopene production",
+          "claim": "ΔtolA contributes to extracellular lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E091",
+      "source": "EutD",
+      "target": "Acetyl_CoA",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "competing_sink",
+      "confidence": "LOW",
+      "mechanism": "EutD (phosphotransacetylase-like in ethanolamine utilization) consumes acetyl-CoA; deletion preserves acetyl-CoA pool.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "Deletion of gdhA, eutD; overexpression of tpiA, ompE, and ompN...174% increase in lycopene titer",
+          "claim": "ΔeutD contributes to lycopene improvement",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E092",
+      "source": "TpiA",
+      "target": "G3P",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "LOW",
+      "mechanism": "TpiA (triose phosphate isomerase) interconverts DHAP and G3P; OE may increase G3P pool depending on flux direction.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "Deletion of gdhA, eutD; overexpression of tpiA, ompE, and ompN...174% increase in lycopene titer",
+          "claim": "TpiA OE contributes to lycopene improvement via G3P balance",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E093",
+      "source": "Idi",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "pathway_shortcut",
+      "confidence": "MEDIUM",
+      "mechanism": "Shortcut direct edge: Idi OE broadly increases lycopene via IPP-DMAPP pool equilibration feeding downstream cascade. Included for BUILDER option.",
+      "in_model": false,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "expressed the foreign MEP pathway genes dxs and idi simultaneously...an increase of 16.5 times in lycopene yield",
+          "claim": "Idi OE alone and with dxs gives large lycopene increases",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E094",
+      "source": "Dxs",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "pathway_shortcut",
+      "confidence": "MEDIUM",
+      "mechanism": "Shortcut direct edge: Dxs OE is the most studied single-gene intervention, giving 3.5x lycopene.",
+      "in_model": false,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in the Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis in Recombinant Strains",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "overexpression of dxs in E. coli carotenoid production was enhanced 3.5-fold",
+          "claim": "Dxs OE substantially increases lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E095",
+      "source": "NADPH",
+      "target": "Dxr",
+      "source_type": "METABOLITE",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "cofactor_supply",
+      "confidence": "HIGH",
+      "mechanism": "Dxr requires NADPH for the reductoisomerisation of DXP to MEP; low NADPH lowers effective Dxr activity.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "IPP and DMAPP...need NADPH and ATP...modulated to increase NADPH and ATP",
+          "claim": "NADPH required for MEP pathway reductions including Dxr",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E096",
+      "source": "NADPH",
+      "target": "HMGR",
+      "source_type": "METABOLITE",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "cofactor_supply",
+      "confidence": "HIGH",
+      "mechanism": "HMGR requires 2 NADPH for the reduction of HMG-CoA to mevalonate.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1016/j.synbio.2021.04.001",
+          "title": "Rationally optimized integrated E. coli MVA lycopene",
+          "authors": "Hussain MH, et al.",
+          "year": 2021,
+          "journal": "Synthetic and Systems Biotechnology",
+          "evidence_sentence": "MVA pathway needs 2 NADPH for the production of mevalonate",
+          "claim": "NADPH required for HMGR activity",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E097",
+      "source": "NADPH",
+      "target": "CrtI",
+      "source_type": "METABOLITE",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "cofactor_supply",
+      "confidence": "MEDIUM",
+      "mechanism": "CrtI is FAD-dependent; each desaturation requires reduction equivalents (FADH2 regenerated from NADPH).",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "IPP and DMAPP...need NADPH and ATP",
+          "claim": "NADPH supply supports CrtI desaturations",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E098",
+      "source": "ATP",
+      "target": "MVK",
+      "source_type": "METABOLITE",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "cofactor_supply",
+      "confidence": "HIGH",
+      "mechanism": "MVK, PMK, and MVD all consume ATP (3 ATP per IPP from mevalonate).",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "IPP and DMAPP...need NADPH and ATP",
+          "claim": "ATP required for lower MVA phosphorylation and decarboxylation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E099",
+      "source": "ATP",
+      "target": "IspE",
+      "source_type": "METABOLITE",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "cofactor_supply",
+      "confidence": "HIGH",
+      "mechanism": "IspE uses ATP for CDP-ME phosphorylation.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "IPP and DMAPP...need NADPH and ATP",
+          "claim": "ATP required for IspE kinase step",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E100",
+      "source": "CRP",
+      "target": "Pgi",
+      "source_type": "GENE",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "transcriptional",
+      "confidence": "LOW",
+      "mechanism": "CRP (cAMP-CRP complex) regulates hundreds of carbon metabolism genes including glycolytic enzymes.",
+      "in_model": false,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "global regulator cAMP receptor protein (CRP)...transcriptional engineering...subtle adjustments",
+          "claim": "CRP is a global carbon metabolism regulator (canonical E. coli physiology)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E101",
+      "source": "Cra",
+      "target": "Pps",
+      "source_type": "GENE",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "transcriptional",
+      "confidence": "MEDIUM",
+      "mechanism": "Cra (FruR, Catabolite Repressor Activator) activates gluconeogenic genes including ppsA and pckA. Cra is active when intracellular F1,6BP is low.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1038/75398",
+          "title": "Improving lycopene production in Escherichia coli by engineering metabolic control",
+          "authors": "Farmer WR, Liao JC",
+          "year": 2000,
+          "journal": "Nature Biotechnology",
+          "evidence_sentence": "designed a controller that monitors the overflow of acetyl phosphate in the glycolytic pathway by an Ntr regulation system controlled by the glnAp2 promoter, with the system activating the expression of pathway genes (pps and idi)",
+          "claim": "PPS expression is metabolically controlled; Cra also binds ppsA promoter",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "E102",
+      "source": "NRI",
+      "target": "Pps",
+      "source_type": "GENE",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "transcriptional",
+      "confidence": "MEDIUM",
+      "mechanism": "NRI (GlnG, engineered Ntr regulon) activates glnAp2 promoter, which in the Farmer & Liao 2000 system drives pps and idi in response to metabolic state (high acetyl-P).",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1038/75398",
+          "title": "Improving lycopene production in Escherichia coli by engineering metabolic control",
+          "authors": "Farmer WR, Liao JC",
+          "year": 2000,
+          "journal": "Nature Biotechnology",
+          "evidence_sentence": "recruited and altered the Ntr regulon (a global regulatory system in Escherichia coli) to control the engineered lycopene biosynthesis pathway",
+          "claim": "NRI (Ntr regulon) controls engineered glnAp2-driven pps and idi expression",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "E103",
+      "source": "NRI",
+      "target": "Idi",
+      "source_type": "GENE",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "transcriptional",
+      "confidence": "MEDIUM",
+      "mechanism": "Same Ntr-glnAp2 engineered circuit induces idi.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1038/75398",
+          "title": "Improving lycopene production in Escherichia coli by engineering metabolic control",
+          "authors": "Farmer WR, Liao JC",
+          "year": 2000,
+          "journal": "Nature Biotechnology",
+          "evidence_sentence": "activating the expression of pathway genes (pps and idi) upon high acetyl phosphate levels",
+          "claim": "NRI induces idi via glnAp2 in engineered circuit",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "E104",
+      "source": "Acetyl_P",
+      "target": "NRI",
+      "source_type": "METABOLITE",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "signal_transduction",
+      "confidence": "MEDIUM",
+      "mechanism": "Acetyl phosphate (glycolytic overflow indicator) activates the Ntr two-component system via NRII (GlnL) phosphorylating NRI.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "NRI...capable of sensing the level of acetyl phosphate (ACP), an indicator of glucose flux",
+          "claim": "Acetyl-P activates NRI via the Ntr TCS",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E105",
+      "source": "Glucose",
+      "target": "Acetyl_P",
+      "source_type": "ENVIRONMENT",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "metabolic",
+      "confidence": "MEDIUM",
+      "mechanism": "High glucose flux overfills glycolysis and generates acetyl-phosphate as an overflow signal.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "ACP, an indicator of glucose flux",
+          "claim": "Acetyl-P increases with glucose flux",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E106",
+      "source": "AlphaKGDH",
+      "target": "NADPH",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "cofactor_supply",
+      "confidence": "MEDIUM",
+      "mechanism": "Alpha-ketoglutarate dehydrogenase (sucA/B+lpd) supplies NADH; engineered variants shift to NADPH, which supports MEP and crt reductions.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "alpha-ketoglutarate dehydrogenase...modulated to increase NADPH and ATP",
+          "claim": "Alpha-KGDH engineering boosts NADPH supply for lycopene pathway",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E107",
+      "source": "TalB",
+      "target": "G3P",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "MEDIUM",
+      "mechanism": "Transaldolase B (talB) transfers C3 between F6P and E4P, regenerating G3P. OE raises G3P pool and lycopene titer.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "transaldolase B...modulated to increase NADPH and ATP...significant increase in the lycopene yield...50.6 mg/g DCW",
+          "claim": "TalB OE contributes to lycopene via G3P regeneration",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E108",
+      "source": "YjiD",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "knockout_target",
+      "confidence": "MEDIUM",
+      "mechanism": "YjiD is an uncharacterised hypothetical protein; identified by Alper 2005 transposon screen. Deletion contributes to improved lycopene in combinatorial knockout strains.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "transposon mutagenesis...resulted in a four-fold increase in lycopene yield following the deletion of gdhA, aceE, and yjiD",
+          "claim": "ΔyjiD contributes to triple-KO lycopene improvement",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E109",
+      "source": "YcgW",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "engineered_target",
+      "confidence": "LOW",
+      "mechanism": "YcgW is an uncharacterised protein; OE in combination with KO targets gives 3.7x lycopene.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "multi-dimensional search...3.7-fold increase in lycopene production...deletion of gdhA/aceE/fdhF and the overexpression of yjiD/ycgW",
+          "claim": "YcgW OE contributes to lycopene improvement in combinatorial strain",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E110",
+      "source": "YtjC",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "knockout_target",
+      "confidence": "LOW",
+      "mechanism": "YtjC (GpmB, phosphoglycerate mutase 2) was identified as a lycopene-enhancing KO by Alper et al. 2005.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1038/nbt1083",
+          "title": "Construction of lycopene-overproducing E. coli strains by combining systematic and combinatorial gene knockout targets",
+          "authors": "Alper H, Miyaoku K, Stephanopoulos G",
+          "year": 2005,
+          "journal": "Nature Biotechnology",
+          "evidence_sentence": "the study identified two distinct gene sets affecting lycopene synthesis through different mechanisms: one increasing precursor availability and another affecting kinetic or regulatory mechanisms...a global maximum strain exhibiting an 8.5-fold product increase",
+          "claim": "YtjC knockout contributes to precursor availability category in Alper 2005 set",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "E111",
+      "source": "YjfP",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "knockout_target",
+      "confidence": "LOW",
+      "mechanism": "YjfP is an esterase identified by Alper 2005 transposon screen; deletion contributes to lycopene improvement.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1038/nbt1083",
+          "title": "Construction of lycopene-overproducing E. coli strains by combining systematic and combinatorial gene knockout targets",
+          "authors": "Alper H, Miyaoku K, Stephanopoulos G",
+          "year": 2005,
+          "journal": "Nature Biotechnology",
+          "evidence_sentence": "two distinct gene sets affecting lycopene synthesis through different mechanisms",
+          "claim": "YjfP is an Alper 2005 lycopene-enhancing KO target",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "E112",
+      "source": "YjgA",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "knockout_target",
+      "confidence": "LOW",
+      "mechanism": "YjgA (ribosome-associated) KO contributes to lycopene improvement in the Alper 2005 combinatorial set.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1038/nbt1083",
+          "title": "Construction of lycopene-overproducing E. coli strains by combining systematic and combinatorial gene knockout targets",
+          "authors": "Alper H, Miyaoku K, Stephanopoulos G",
+          "year": 2005,
+          "journal": "Nature Biotechnology",
+          "evidence_sentence": "a global maximum strain exhibiting an 8.5-fold product increase",
+          "claim": "YjgA is one of the combinatorial KO targets in the 8.5-fold strain",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "E113",
+      "source": "Mevalonate",
+      "target": "IPP",
+      "source_type": "METABOLITE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "metabolic_pool",
+      "confidence": "HIGH",
+      "mechanism": "Mevalonate is phosphorylated (MVK) then phosphorylated again (PMK) then decarboxylated (MVD) to IPP.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering Escherichia coli for the Production of Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "MVA is converted to mevalonate-5-phosphate (MVAP) catalyzed by mevalonate kinase (MK)...two reactions successively catalyzed by MVAP kinase (PMK) and MVAPP decarboxylase (MDD)",
+          "claim": "Mevalonate feeds IPP via MVK/PMK/MVD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E114",
+      "source": "MVK",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "pathway_shortcut",
+      "confidence": "MEDIUM",
+      "mechanism": "Shortcut edge; MVK directed-evolution mutants give improved lycopene.",
+      "in_model": false,
+      "evidence": [
+        {
+          "doi": "10.1186/s13568-022-01418-6",
+          "title": "Directed evolution of mevalonate kinase in E. coli for improved lycopene",
+          "authors": "Tan X, et al.",
+          "year": 2022,
+          "journal": "AMB Express",
+          "evidence_sentence": "Mevalonate kinase (MK) is one of the rate-limiting enzymes in the lycopene synthetic pathway",
+          "claim": "MVK directly rate-limits lycopene when MVA pathway is used",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E115",
+      "source": "Pgi",
+      "target": "Pyruvate",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "MEDIUM",
+      "mechanism": "Pgi is required for glycolytic flux from G6P to F6P, eventually producing pyruvate. Δpgi reroutes carbon through PPP.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1128/AEM.02155-15",
+          "title": "Improving Product Yields on D-Glucose via pgi and zwf Knockout",
+          "authors": "Archer FS, Jerez BP, Prather KL",
+          "year": 2015,
+          "journal": "Applied and Environmental Microbiology",
+          "evidence_sentence": "Deletion of pgi and zwf was found to eliminate catabolite repression as well as the ability of E. coli to consume glucose for biomass formation",
+          "claim": "Pgi sustains glycolytic flux to pyruvate",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E116",
+      "source": "CrtE",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "pathway_shortcut",
+      "confidence": "MEDIUM",
+      "mechanism": "Shortcut edge retained for BUILDER compact-topology option.",
+      "in_model": false,
+      "evidence": [
+        {
+          "doi": "10.1007/s00253-006-0623-z",
+          "title": "Engineering the lycopene synthetic pathway by comparison of Pantoea crt genes",
+          "authors": "Lee JH, Kim SW, Lee PC",
+          "year": 2007,
+          "journal": "Applied Microbiology and Biotechnology",
+          "evidence_sentence": "The crtE gene was responsible for the observed difference in lycopene production",
+          "claim": "CrtE activity directly determines lycopene yield",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "E117",
+      "source": "CrtB",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "pathway_shortcut",
+      "confidence": "MEDIUM",
+      "mechanism": "Shortcut edge retained for BUILDER compact-topology option.",
+      "in_model": false,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "phytoene synthase (CrtB)",
+          "claim": "CrtB directly contributes to lycopene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E118",
+      "source": "IspA",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "pathway_shortcut",
+      "confidence": "LOW",
+      "mechanism": "Shortcut edge retained; IspA OE moderately increases lycopene via FPP supply but is less impactful than dxs/idi.",
+      "in_model": false,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "four E. coli genes (dxs, dxr, ispA, and idi) were cloned into a mid-copy plasmid and overexpressed",
+          "claim": "IspA OE contributes to lycopene when combined with MEP OE",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E119",
+      "source": "Idi",
+      "target": "IPP",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "enzymatic",
+      "confidence": "HIGH",
+      "mechanism": "Idi bidirectional isomerisation maintains IPP pool; effectively +1 on IPP whenever DMAPP>IPP.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.3390/molecules25143136",
+          "title": "Metabolic Engineering E. coli for Lycopene",
+          "authors": "Wang Z, Sun J, Yang Q, Yang J",
+          "year": 2020,
+          "journal": "Molecules",
+          "evidence_sentence": "isopentenyl-diphosphate isomerase (IDI) catalyzes the isomerization of IPP to DMAPP",
+          "claim": "Idi equilibrates IPP/DMAPP pools",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E120",
+      "source": "FabI_stress",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "competing_sink",
+      "confidence": "LOW",
+      "mechanism": "Fatty acid biosynthesis competes for acetyl-CoA; downregulation of fab genes preserves MVA substrate.",
+      "in_model": false,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "acetyl-CoA and MVA",
+          "claim": "Acetyl-CoA draining to fatty-acid synthesis reduces MVA substrate",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E121",
+      "source": "BamB",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "outer_membrane_integrity",
+      "confidence": "LOW",
+      "mechanism": "BamB is a BAM complex component; deletion destabilises OM and enhances carotenoid efflux.",
+      "in_model": false,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "Deletion of lpp, bamB, uspE, and yggE...82% higher astaxanthin yield",
+          "claim": "ΔbamB enhances carotenoid yield via OM destabilisation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E122",
+      "source": "AccABCD",
+      "target": "Acetyl_CoA",
+      "source_type": "GENE",
+      "target_type": "METABOLITE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "competing_sink",
+      "confidence": "LOW",
+      "mechanism": "Acetyl-CoA carboxylase (AccABCD) converts acetyl-CoA to malonyl-CoA for fatty-acid biosynthesis; OE competes with MVA upper pathway but paradoxically increases β-carotene in some membrane contexts.",
+      "in_model": false,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "Deletion of nlpI and tolR; overexpression of AccABCD and PlsBC...61% increase in β-carotene",
+          "claim": "AccABCD competes for acetyl-CoA but supports OM biogenesis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E123",
+      "source": "YggE",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "stress_response",
+      "confidence": "LOW",
+      "mechanism": "YggE (stress-induced protein) deletion improves carotenoid accumulation.",
+      "in_model": false,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "Deletion of lpp, bamB, uspE, and yggE...82% higher astaxanthin yield",
+          "claim": "ΔyggE enhances carotenoid yield",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "E124",
+      "source": "UspE",
+      "target": "Lycopene_Titer",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": -1,
+      "effect": "inhibition",
+      "edge_type": "stress_response",
+      "confidence": "LOW",
+      "mechanism": "UspE is a universal stress protein; deletion increases carotenoid yield.",
+      "in_model": false,
+      "evidence": [
+        {
+          "doi": "10.3390/biom13121747",
+          "title": "Advances in Discovery and Engineering of Gene Targets for Carotenoid Biosynthesis",
+          "authors": "Su B, Deng MR, Zhu H",
+          "year": 2023,
+          "journal": "Biomolecules",
+          "evidence_sentence": "Deletion of lpp, bamB, uspE, and yggE...82% higher astaxanthin yield",
+          "claim": "ΔuspE enhances carotenoid yield",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    }
+  ]
+}

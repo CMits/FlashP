@@ -1,0 +1,3665 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Flowering_Time",
+    "species": "Sorghum bicolor",
+    "created": "2026-04-21",
+    "total_tests": 83,
+    "in_network": 78,
+    "not_in_network": 5,
+    "phenotype_node": "Flowering_Time",
+    "by_reconciliation_type": {
+      "exact_match": 61,
+      "treatment_analog": 11,
+      "mechanism_mapping": 3,
+      "not_in_network": 5,
+      "case_insensitive": 1,
+      "family_member": 1,
+      "control": 1
+    },
+    "photoperiod_convention": "LD = exogenous_supply {Photoperiod_LD:1.0, Light:1.0}; SD = gene_modifier {Photoperiod_LD:0.0}; continuous_dark = gm {Light:0.0, Photoperiod_LD:0.0}; night_break = LD-like boost; far_red_supplementation = PHYB gm=0.5 (mechanism)."
+  },
+  "direction_threshold": 0.05,
+  "perturbations": [
+    {
+      "test_id": "T001",
+      "gene": "SbPhyB",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0105352",
+          "title": "Sorghum Phytochrome B Inhibits Flowering in Long Days",
+          "authors": "Yang S, Weers BD, Morishige DT, Mullet JE",
+          "year": 2014,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "Loss of PhyB (58M phyB-1 vs 100M PHYB)...Long Days (14h) 62 vs 126 days...EARLY (~60 days earlier).",
+          "claim": "ma3^R phyB null flowers ~60 days earlier than Ma3 WT under LD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PHYB"
+      ],
+      "gene_modifiers": {
+        "PHYB": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PHYB",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbPhyB → PHYB (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbPhyB → PHYB (species-prefix strip)."
+    },
+    {
+      "test_id": "T002",
+      "gene": "SbPhyB",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0105352",
+          "title": "Sorghum Phytochrome B Inhibits Flowering in Long Days",
+          "authors": "Yang S, Weers BD, Morishige DT, Mullet JE",
+          "year": 2014,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "Loss of PhyB...Short Days (10h) 48 vs 59 days...EARLY (~11 days earlier).",
+          "claim": "ma3^R flowers ~11 days earlier than Ma3 WT under SD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "SD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PHYB"
+      ],
+      "gene_modifiers": {
+        "PHYB": 0.0,
+        "Photoperiod_LD": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PHYB",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbPhyB → PHYB (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbPhyB → PHYB (species-prefix strip)."
+    },
+    {
+      "test_id": "T003",
+      "gene": "SbPRR37",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1106212108",
+          "title": "Coincident light and clock regulation of PRR37 controls photoperiodic flowering in sorghum",
+          "authors": "Murphy RL, Klein RR, Morishige DT, Brady JA, Rooney WL, Miller FR, Dugas DV, Klein PE, Mullet JE",
+          "year": 2011,
+          "journal": "Proceedings of the National Academy of Sciences",
+          "evidence_sentence": "SM100 Sbprr37-1 (frameshift)...Early flowering...Photoperiod-insensitive.",
+          "claim": "Sbprr37-1 frameshift mutant flowers early in LD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PRR37"
+      ],
+      "gene_modifiers": {
+        "PRR37": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PRR37",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbPRR37 → PRR37 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbPRR37 → PRR37 (species-prefix strip)."
+    },
+    {
+      "test_id": "T004",
+      "gene": "SbPRR37",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1106212108",
+          "title": "Coincident light and clock regulation of PRR37 controls photoperiodic flowering in sorghum",
+          "authors": "Murphy RL, Klein RR, Morishige DT, Brady JA, Rooney WL, Miller FR, Dugas DV, Klein PE, Mullet JE",
+          "year": 2011,
+          "journal": "Proceedings of the National Academy of Sciences",
+          "evidence_sentence": "BTx406 Sbprr37-1 (frameshift)...Early flowering.",
+          "claim": "BTx406 sbprr37-1 allele flowers early in LD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PRR37"
+      ],
+      "gene_modifiers": {
+        "PRR37": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PRR37",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbPRR37 → PRR37 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbPRR37 → PRR37 (species-prefix strip)."
+    },
+    {
+      "test_id": "T005",
+      "gene": "SbPRR37",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1106212108",
+          "title": "Coincident light and clock regulation of PRR37 controls photoperiodic flowering in sorghum",
+          "authors": "Murphy RL, Klein RR, Morishige DT, Brady JA, Rooney WL, Miller FR, Dugas DV, Klein PE, Mullet JE",
+          "year": 2011,
+          "journal": "Proceedings of the National Academy of Sciences",
+          "evidence_sentence": "Blackhull Kafir Sbprr37-2 (Lys162Asn)...Early flowering.",
+          "claim": "SbPRR37 K162N missense mutation confers early flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PRR37"
+      ],
+      "gene_modifiers": {
+        "PRR37": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PRR37",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbPRR37 → PRR37 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbPRR37 → PRR37 (species-prefix strip)."
+    },
+    {
+      "test_id": "T006",
+      "gene": "SbPRR37",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1106212108",
+          "title": "Coincident light and clock regulation of PRR37 controls photoperiodic flowering in sorghum",
+          "authors": "Murphy RL, Klein RR, Morishige DT, Brady JA, Rooney WL, Miller FR, Dugas DV, Klein PE, Mullet JE",
+          "year": 2011,
+          "journal": "Proceedings of the National Academy of Sciences",
+          "evidence_sentence": "ATx623 Sbprr37-3 (dual mutations)...Early flowering...Lys162Asn + Q270Stop.",
+          "claim": "ATx623 double SbPRR37 mutation flowers early",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PRR37"
+      ],
+      "gene_modifiers": {
+        "PRR37": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PRR37",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbPRR37 → PRR37 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbPRR37 → PRR37 (species-prefix strip)."
+    },
+    {
+      "test_id": "T007",
+      "gene": "SbGhd7",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.3835/plantgenome2013.11.0040",
+          "title": "Ghd7 (Ma6) Represses Sorghum Flowering in Long Days",
+          "authors": "Murphy RL, Morishige DT, Brady JA, Rooney WL, Yang S, Klein PE, Mullet JE",
+          "year": 2014,
+          "journal": "The Plant Genome",
+          "evidence_sentence": "The sequence of ghd7-1 from Tx623 (ma6) contained a five base insertion, creating a frameshift and premature termination of the protein...ma6 conferred earlier flowering in LDs.",
+          "claim": "ghd7-1 frameshift allele confers early LD flowering",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "GHD7"
+      ],
+      "gene_modifiers": {
+        "GHD7": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GHD7",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbGhd7 → GHD7 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbGhd7 → GHD7 (species-prefix strip)."
+    },
+    {
+      "test_id": "T008",
+      "gene": "SbGhd7",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19591",
+          "title": "Sorghum SbGhd7 is a major regulator of floral transition",
+          "authors": "Tadesse T, Lugassi N, Dragonas B, Shmuel YH, Gladman N, Yuan Y, Weers B, Mullet JE, Pasternak T, Leshkowitz D, Levy AA",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "SbGhd7 overexpression (OE) completely prevented sorghum flowering.",
+          "claim": "SbGhd7 OE completely prevents flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "both",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "GHD7"
+      ],
+      "gene_modifiers": {
+        "GHD7": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GHD7",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "SbGhd7 → GHD7 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbGhd7 → GHD7 (species-prefix strip)."
+    },
+    {
+      "test_id": "T009",
+      "gene": "SbPhyC",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0105352",
+          "title": "Sorghum Phytochrome B Inhibits Flowering in Long Days",
+          "authors": "Yang S, Weers BD, Morishige DT, Mullet JE",
+          "year": 2014,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "Loss of Ma5 (ma5) vs Ma5 Long Days...Reduced flowering delay...EARLY.",
+          "claim": "ma5 phyC loss confers earlier LD flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PHYC"
+      ],
+      "gene_modifiers": {
+        "PHYC": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PHYC",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbPhyC → PHYC (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbPhyC → PHYC (species-prefix strip)."
+    },
+    {
+      "test_id": "T010",
+      "gene": "SbPhyC",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "Ma5 is a photoperiod-dependent flowering repressor (LD-specific).",
+          "claim": "ma5 shows little effect under SD (SD already permissive)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "SD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PHYC"
+      ],
+      "gene_modifiers": {
+        "PHYC": 0.0,
+        "Photoperiod_LD": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PHYC",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbPhyC → PHYC (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbPhyC → PHYC (species-prefix strip)."
+    },
+    {
+      "test_id": "T011",
+      "gene": "Ma2_SMYD",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0212154",
+          "title": "Maturity2, a novel regulator of flowering time in Sorghum bicolor",
+          "authors": "Casto AL, McKinley BA, Yu KMJ, Rooney WL, Mullet JE",
+          "year": 2019,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "80M (ma2) flowers earlier than 100M (Ma2)...ma1ma2 genotypes flower earlier than ma1Ma2.",
+          "claim": "ma2 L141* mutant flowers ~100 days earlier than Ma2 under LD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "MA2_SMYD"
+      ],
+      "gene_modifiers": {
+        "MA2_SMYD": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MA2_SMYD",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Ma2_SMYD → MA2_SMYD (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Ma2_SMYD → MA2_SMYD (species-prefix strip)."
+    },
+    {
+      "test_id": "T012",
+      "gene": "SbEhd1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19591",
+          "title": "Sorghum SbGhd7 is a major regulator of floral transition",
+          "authors": "Tadesse T, Lugassi N, Dragonas B, Shmuel YH, Gladman N, Yuan Y, Weers B, Mullet JE, Pasternak T, Leshkowitz D, Levy AA",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "SbEhd1OE activated the promoters of three functional florigens (SbFT1, SbFT8 and SbFT10), dramatically accelerating flowering.",
+          "claim": "SbEhd1 OE dramatically accelerates flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "both",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "EHD1"
+      ],
+      "gene_modifiers": {
+        "EHD1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "EHD1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "SbEhd1 → EHD1 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbEhd1 → EHD1 (species-prefix strip)."
+    },
+    {
+      "test_id": "T013",
+      "gene": "SbFT8",
+      "perturbation_type": "knockout_CRISPR",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1111/pbi.13229",
+          "title": "An Agrobacterium-delivered CRISPR/Cas9 system for targeted mutagenesis in sorghum",
+          "authors": "Char SN, Wei J, Mu Q, Li X, Zhang ZJ, Yu J, Yang B",
+          "year": 2020,
+          "journal": "Plant Biotechnology Journal",
+          "evidence_sentence": "plants containing knockout mutations flowered 8 days later than wild-type plants on average, and the flowering time difference for the second planting date between edited plants and wild types was 10 days.",
+          "claim": "SbFT (Sobic.010G045100) CRISPR KO delays flowering by 8-10 days",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "FT8"
+      ],
+      "gene_modifiers": {
+        "FT8": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FT8",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbFT8 → FT8 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbFT8 → FT8 (species-prefix strip)."
+    },
+    {
+      "test_id": "T014",
+      "gene": "SbGI",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1002/pld3.281",
+          "title": "A sorghum gigantea mutant attenuates florigen gene expression and delays flowering time",
+          "authors": "Abdul-Awal SM, Chen J, Xin Z, Harmon FG",
+          "year": 2020,
+          "journal": "Plant Direct",
+          "evidence_sentence": "sbgi-ems1 homozygous plants averaged 30 days more than sbgi-ems1 heterozygous and SbGI WT siblings.",
+          "claim": "sbgi-ems1 EMS nonsense delays LD flowering by 30 days",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "GI"
+      ],
+      "gene_modifiers": {
+        "GI": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GI",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbGI → GI (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbGI → GI (species-prefix strip)."
+    },
+    {
+      "test_id": "T015",
+      "gene": "SbGI",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1002/pld3.281",
+          "title": "A sorghum gigantea mutant attenuates florigen gene expression and delays flowering time",
+          "authors": "Abdul-Awal SM, Chen J, Xin Z, Harmon FG",
+          "year": 2020,
+          "journal": "Plant Direct",
+          "evidence_sentence": "DTB and DTA both were increased in sbgi-ems1 plants by an average of 35 days.",
+          "claim": "sbgi-ems1 delays SD flowering by 35 days",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "SD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "GI"
+      ],
+      "gene_modifiers": {
+        "GI": 0.0,
+        "Photoperiod_LD": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GI",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbGI → GI (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbGI → GI (species-prefix strip)."
+    },
+    {
+      "test_id": "T016",
+      "gene": "SbID1",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2023.1304822",
+          "title": "Sorghum bicolor INDETERMINATE1 is a conserved primary regulator of flowering",
+          "authors": "Gladman N, Goodwin S, Chougule K, Richard McCombie W, Ware D",
+          "year": 2023,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "sbid1-1 (P155S, weak): 35-day delay (field); 6-day delay (greenhouse).",
+          "claim": "sbid1-1 weak allele delays flowering 35 days in field",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "both",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "ID1"
+      ],
+      "gene_modifiers": {
+        "ID1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ID1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbID1 → ID1 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbID1 → ID1 (species-prefix strip)."
+    },
+    {
+      "test_id": "T017",
+      "gene": "SbID1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2023.1304822",
+          "title": "Sorghum bicolor INDETERMINATE1 is a conserved primary regulator of flowering",
+          "authors": "Gladman N, Goodwin S, Chougule K, Richard McCombie W, Ware D",
+          "year": 2023,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "sbid1-2 (Q199*, strong nonsense): ~170-day delay; near-complete flowering block.",
+          "claim": "sbid1-2 strong nonsense delays flowering ~170 days",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "both",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "ID1"
+      ],
+      "gene_modifiers": {
+        "ID1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ID1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbID1 → ID1 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbID1 → ID1 (species-prefix strip)."
+    },
+    {
+      "test_id": "T018",
+      "gene": "SbID1",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2023.1304822",
+          "title": "Sorghum bicolor INDETERMINATE1 is a conserved primary regulator of flowering",
+          "authors": "Gladman N, Goodwin S, Chougule K, Richard McCombie W, Ware D",
+          "year": 2023,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "sbid1-1/sbid1-2 compound: Phenotype matches strong sbid1-2; confirms loss-of-function.",
+          "claim": "sbid1-1/sbid1-2 compound mutant delays flowering ~170 days",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "both",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "ID1"
+      ],
+      "gene_modifiers": {
+        "ID1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ID1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbID1 → ID1 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbID1 → ID1 (species-prefix strip)."
+    },
+    {
+      "test_id": "T019",
+      "gene": "SbCO",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-14-148",
+          "title": "CONSTANS is a photoperiod regulated activator of flowering in sorghum",
+          "authors": "Yang S, Murphy RL, Morishige DT, Klein PE, Rooney WL, Mullet JE",
+          "year": 2014,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "SbCO...functions as an activator of flowering in long and short days in sorghum genotypes using RILs with null versions of Sbprr37-1 and Sbghd7-1...Sbco-3 null.",
+          "claim": "SbCO null delays flowering when PRR37/Ghd7 are also null",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "both",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "CO"
+      ],
+      "gene_modifiers": {
+        "CO": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CO",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbCO → CO (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbCO → CO (species-prefix strip)."
+    },
+    {
+      "test_id": "T020",
+      "gene": "SbPRR37,SbPhyB",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "38M ma1 ma3_R: Early LD flowering; flowers earlier in LDs and has more florigen encoding transcripts than 44M.",
+          "claim": "38M ma1 ma3^R double mutant flowers very early in LD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PRR37",
+        "PHYB"
+      ],
+      "gene_modifiers": {
+        "PRR37": 0.0,
+        "PHYB": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PRR37",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "PHYB",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ma1 ma3^R double recessive = PRR37 null + PhyB null.",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "ma1 ma3^R double recessive = PRR37 null + PhyB null."
+    },
+    {
+      "test_id": "T021",
+      "gene": "SbPRR37,SbGhd7",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.3835/plantgenome2013.11.0040",
+          "title": "Ghd7 (Ma6) Represses Sorghum Flowering in Long Days",
+          "authors": "Murphy RL, Morishige DT, Brady JA, Rooney WL, Yang S, Klein PE, Mullet JE",
+          "year": 2014,
+          "journal": "The Plant Genome",
+          "evidence_sentence": "In sorghum grown in LD, PRR37 was found to reduce the expression of SbEhd1 and to act together with Ma6 to inhibit flowering...Ghd7 confers photoperiod sensitivity and delays flowering in LDs, even in genotypes that are null for PRR37.",
+          "claim": "ma1 ma6 double mutant loses both LD repressors, flowers earliest",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PRR37",
+        "GHD7"
+      ],
+      "gene_modifiers": {
+        "PRR37": 0.0,
+        "GHD7": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PRR37",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "GHD7",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ma1 ma6 double recessive = PRR37 null + GHD7 null. Both LD-repressors lost.",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "ma1 ma6 double recessive = PRR37 null + GHD7 null. Both LD-repressors lost."
+    },
+    {
+      "test_id": "T022",
+      "gene": "SbPhyB,SbPhyC",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0105352",
+          "title": "Sorghum Phytochrome B Inhibits Flowering in Long Days",
+          "authors": "Yang S, Weers BD, Morishige DT, Mullet JE",
+          "year": 2014,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "ma3Rma3R ma5ma5 double recessive PhyB and Ma5...Early, similar to single mutants.",
+          "claim": "phyB phyC double null flowers early in LD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PHYB",
+        "PHYC"
+      ],
+      "gene_modifiers": {
+        "PHYB": 0.0,
+        "PHYC": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PHYB",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "PHYC",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ma3^R ma5 double recessive = PhyB null + PhyC null.",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "ma3^R ma5 double recessive = PhyB null + PhyC null."
+    },
+    {
+      "test_id": "T023",
+      "gene": "SbPRR37,Ma2_SMYD",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0212154",
+          "title": "Maturity2, a novel regulator of flowering time in Sorghum bicolor",
+          "authors": "Casto AL, McKinley BA, Yu KMJ, Rooney WL, Mullet JE",
+          "year": 2019,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "ma1ma2 genotypes flower earlier than ma1Ma2.",
+          "claim": "ma1 ma2 double mutant flowers earlier than ma1 alone",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PRR37",
+        "MA2_SMYD"
+      ],
+      "gene_modifiers": {
+        "PRR37": 0.0,
+        "MA2_SMYD": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PRR37",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "MA2_SMYD",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ma1 ma2 double recessive; ma2 encodes SET/MYND domain protein MA2_SMYD.",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "ma1 ma2 double recessive; ma2 encodes SET/MYND domain protein MA2_SMYD."
+    },
+    {
+      "test_id": "T024",
+      "gene": "PHOTOPERIOD",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0105352",
+          "title": "Sorghum Phytochrome B Inhibits Flowering in Long Days",
+          "authors": "Yang S, Weers BD, Morishige DT, Mullet JE",
+          "year": 2014,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "100M PHYB Normal genotype Long Days vs Short Days: 126 vs 59 days; LD causes LATE flowering.",
+          "claim": "LD (14h) delays flowering by ~67 days vs SD (10h) in photoperiod-sensitive 100M",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD_vs_SD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Photoperiod_LD": 1.0,
+        "Light": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        },
+        {
+          "node": "Light",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "LD exposure in photoperiod-sensitive 100M WT; LD delays vs SD baseline.",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "LD exposure in photoperiod-sensitive 100M WT; LD delays vs SD baseline."
+    },
+    {
+      "test_id": "T025",
+      "gene": "PHOTOPERIOD",
+      "perturbation_type": "environmental",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "BTx623 (photoperiod-insensitive)...flowers in a comparable time under LD and SD conditions.",
+          "claim": "Photoperiod-insensitive BTx623 flowers at same time in LD vs SD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD_vs_SD",
+      "comparison_baseline": "mutant",
+      "in_network": true,
+      "network_gene": [
+        "PRR37"
+      ],
+      "gene_modifiers": {
+        "PRR37": 0.0,
+        "Photoperiod_LD": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PRR37",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "BTx623/ATx623 ma1 (prr37-null) + SD shift; photoperiod insensitivity test. comparison_baseline=mutant (BTx623 LD vs BTx623 SD).",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "BTx623/ATx623 ma1 (prr37-null) + SD shift; photoperiod insensitivity test. comparison_baseline=mutant (BTx623 LD vs BTx623 SD)."
+    },
+    {
+      "test_id": "T026",
+      "gene": "PHOTOPERIOD",
+      "perturbation_type": "environmental",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1106212108",
+          "title": "Coincident light and clock regulation of PRR37 controls photoperiodic flowering in sorghum",
+          "authors": "Murphy RL, Klein RR, Morishige DT, Brady JA, Rooney WL, Miller FR, Dugas DV, Klein PE, Mullet JE",
+          "year": 2011,
+          "journal": "Proceedings of the National Academy of Sciences",
+          "evidence_sentence": "In DD, neither peak of SbPRR37 expression was observed.",
+          "claim": "Continuous darkness eliminates SbPRR37 expression (no photoperiod regulation)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "continuous_dark",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [],
+      "gene_modifiers": {
+        "Light": 0.0,
+        "Photoperiod_LD": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "Light",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Continuous darkness removes Light and Photoperiod_LD sources; tests clock/photoperiod independence.",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Continuous darkness removes Light and Photoperiod_LD sources; tests clock/photoperiod independence."
+    },
+    {
+      "test_id": "T027",
+      "gene": "SbFT1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana (complementation)",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.13834",
+          "title": "Three FLOWERING LOCUS T-like genes function as potential florigens",
+          "authors": "Wolabu TW, Zhang F, Niu L, Kalve S, Bhatnagar-Mathur P, Muszynski MG, Tadege M",
+          "year": 2016,
+          "journal": "New Phytologist",
+          "evidence_sentence": "activate flowering in transgenic Arabidopsis plants, suggesting florigenic potential.",
+          "claim": "SbFT1 OE in Arabidopsis accelerates flowering",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "normal",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "FT1"
+      ],
+      "gene_modifiers": {
+        "FT1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FT1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "SbFT1 → FT1 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbFT1 → FT1 (species-prefix strip)."
+    },
+    {
+      "test_id": "T028",
+      "gene": "SbFT8",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana (complementation)",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.13834",
+          "title": "Three FLOWERING LOCUS T-like genes function as potential florigens",
+          "authors": "Wolabu TW, Zhang F, Niu L, Kalve S, Bhatnagar-Mathur P, Muszynski MG, Tadege M",
+          "year": 2016,
+          "journal": "New Phytologist",
+          "evidence_sentence": "activate flowering in transgenic Arabidopsis plants.",
+          "claim": "SbFT8 OE in Arabidopsis accelerates flowering",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "normal",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "FT8"
+      ],
+      "gene_modifiers": {
+        "FT8": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FT8",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "SbFT8 → FT8 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbFT8 → FT8 (species-prefix strip)."
+    },
+    {
+      "test_id": "T029",
+      "gene": "SbFT10",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Arabidopsis thaliana (complementation)",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.13834",
+          "title": "Three FLOWERING LOCUS T-like genes function as potential florigens",
+          "authors": "Wolabu TW, Zhang F, Niu L, Kalve S, Bhatnagar-Mathur P, Muszynski MG, Tadege M",
+          "year": 2016,
+          "journal": "New Phytologist",
+          "evidence_sentence": "activate flowering in transgenic Arabidopsis plants.",
+          "claim": "SbFT10 OE in Arabidopsis accelerates flowering",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "normal",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "FT10"
+      ],
+      "gene_modifiers": {
+        "FT10": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FT10",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "SbFT10 → FT10 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbFT10 → FT10 (species-prefix strip)."
+    },
+    {
+      "test_id": "T030",
+      "gene": "Gibberellin",
+      "perturbation_type": "treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.104.2.347",
+          "title": "Photoperiod Control of Gibberellin Levels and Flowering in Sorghum",
+          "authors": "Foster KR, Morgan PW",
+          "year": 1995,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "under inductive 10-h photoperiods, the peak of GA20 and GA1 levels was shifted to an early morning peak, and flowering was hastened.",
+          "claim": "Morning GA peaks correlate with accelerated flowering in sorghum",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "Gibberellin"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Gibberellin": 1.0,
+        "Photoperiod_LD": 1.0,
+        "Light": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Gibberellin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        },
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        },
+        {
+          "node": "Light",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Exogenous GA3 → Gibberellin source boost.",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Exogenous GA3 → Gibberellin source boost."
+    },
+    {
+      "test_id": "T031",
+      "gene": "SbPRR37",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1106212108",
+          "title": "Coincident light and clock regulation of PRR37 controls photoperiodic flowering in sorghum",
+          "authors": "Murphy RL, Klein RR, Morishige DT, Brady JA, Rooney WL, Miller FR, Dugas DV, Klein PE, Mullet JE",
+          "year": 2011,
+          "journal": "Proceedings of the National Academy of Sciences",
+          "evidence_sentence": "R.07007 (SbPRR37 functional + ma5 recessive) Early flowering ~68d...Altered evening SbPRR37 peak.",
+          "claim": "R.07007 Ma1 Ma5-null flowers early (~68 days) in LD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PRR37"
+      ],
+      "gene_modifiers": {
+        "PRR37": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PRR37",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbPRR37 → PRR37 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbPRR37 → PRR37 (species-prefix strip)."
+    },
+    {
+      "test_id": "T032",
+      "gene": "SbPhyB",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0105352",
+          "title": "Sorghum Phytochrome B Inhibits Flowering in Long Days",
+          "authors": "Yang S, Weers BD, Morishige DT, Mullet JE",
+          "year": 2014,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "100M (PHYB) Normal genotype...~126 days LD.",
+          "claim": "Ma3 wild-type flowers late in LD (~126 days)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Photoperiod_LD": 1.0,
+        "Light": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        },
+        {
+          "node": "Light",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "100M Ma3 WT under LD (~126 days); reference LD-delay phenotype. gene field misleads — no PhyB perturbation.",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "100M Ma3 WT under LD (~126 days); reference LD-delay phenotype. gene field misleads — no PhyB perturbation."
+    },
+    {
+      "test_id": "T033",
+      "gene": "SbFT1",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0105352",
+          "title": "Sorghum Phytochrome B Inhibits Flowering in Long Days",
+          "authors": "Yang S, Weers BD, Morishige DT, Mullet JE",
+          "year": 2014,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "SbCN15 low expression 100M (PHYB) LD or SD Delayed in LD...Associated with LATE.",
+          "claim": "SbCN15/SbFT1 low expression correlates with late LD flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "FT1"
+      ],
+      "gene_modifiers": {
+        "FT1": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FT1",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "SbCN15/SbFT1 low-expression correlate under LD in photoperiod-sensitive 100M; encoded as FT1 knockdown under LD.",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "SbCN15/SbFT1 low-expression correlate under LD in photoperiod-sensitive 100M; encoded as FT1 knockdown under LD."
+    },
+    {
+      "test_id": "T034",
+      "gene": "sbi-MIR172a",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "Chr09:62,620,720 minor allele (near mir172a): Earlier flowering (p=5.93×10⁻¹⁷ Nebraska, p=7.80×10⁻⁵ Alabama).",
+          "claim": "sbi-MIR172a high-expressing allele confers earlier flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "normal",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "miR172a"
+      ],
+      "gene_modifiers": {
+        "miR172a": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "miR172a",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "sbi-MIR172a → miR172a (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "sbi-MIR172a → miR172a (species-prefix strip)."
+    },
+    {
+      "test_id": "T035",
+      "gene": "SbSBP19",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "SbSBP19/SbSBP4 high expression: Earlier flowering (FDR = 4.37×10⁻⁹, validated Alabama p=5.38×10⁻⁵).",
+          "claim": "SbSBP19 high expression confers earlier flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "normal",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "SBP19"
+      ],
+      "gene_modifiers": {
+        "SBP19": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "SBP19",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "SbSBP19 → SBP19 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbSBP19 → SBP19 (species-prefix strip)."
+    },
+    {
+      "test_id": "T036",
+      "gene": "sbi-MIR156h",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "sbi-MIR156h high expression: Represses SBP factors → delayed flowering.",
+          "claim": "sbi-MIR156h high expression delays flowering (via SBP repression)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "normal",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "miR156h"
+      ],
+      "gene_modifiers": {
+        "miR156h": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "miR156h",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "sbi-MIR156h → miR156h (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "sbi-MIR156h → miR156h (species-prefix strip)."
+    },
+    {
+      "test_id": "T037",
+      "gene": "SbFT8",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "SbFT8 minor allele (G at Chr03:69,067,236): Earlier flowering (~3-5 day difference, p=2.53×10⁻⁹ Nebraska).",
+          "claim": "SbFT8 minor allele confers earlier flowering by 3-5 days",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "normal",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "FT8"
+      ],
+      "gene_modifiers": {
+        "FT8": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FT8",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "SbFT8 → FT8 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbFT8 → FT8 (species-prefix strip)."
+    },
+    {
+      "test_id": "T038",
+      "gene": "SbFT12",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1093/molbev/msw120",
+          "title": "The Evolution of Photoperiod-Insensitive Flowering in Sorghum",
+          "authors": "Cuevas HE, Zhou C, Tang H, Khadke PP, Das S, Lin YR, Ge Z, Clemente T, Upadhyaya HD, Hash CT, Paterson AH",
+          "year": 2016,
+          "journal": "Molecular Biology and Evolution",
+          "evidence_sentence": "Day-neutral allele: early, consistent flowering regardless of daylength; reduction-of-function from 3-bp CAAT-box deletion.",
+          "claim": "SbFT12 day-neutral (reduced function) allele confers early flowering in temperate conditions",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "FT12"
+      ],
+      "gene_modifiers": {
+        "FT12": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FT12",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbFT12 → FT12 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbFT12 → FT12 (species-prefix strip)."
+    },
+    {
+      "test_id": "T039",
+      "gene": "SbFT12",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1093/molbev/msw120",
+          "title": "The Evolution of Photoperiod-Insensitive Flowering in Sorghum",
+          "authors": "Cuevas HE, Zhou C, Tang H, Khadke PP, Das S, Lin YR, Ge Z, Clemente T, Upadhyaya HD, Hash CT, Paterson AH",
+          "year": 2016,
+          "journal": "Molecular Biology and Evolution",
+          "evidence_sentence": "two conferred statistically significant delays averaging 13.1 (P = 0.03) and 24.8 days (P = 0.09) when carrying short-day S. propinquum alleles.",
+          "claim": "SbFT12 tropical functional allele delays LD flowering 13-25 days",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "FT12"
+      ],
+      "gene_modifiers": {
+        "FT12": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FT12",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "SbFT12 → FT12 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbFT12 → FT12 (species-prefix strip)."
+    },
+    {
+      "test_id": "T040",
+      "gene": "SbPRR37,SbPhyB",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "44M ma2 ma3_R: Intermediate LD flowering; flowers earlier and has more transcripts than 100M.",
+          "claim": "44M ma2 ma3^R double mutant flowers moderately early in LD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "MA2_SMYD",
+        "PHYB"
+      ],
+      "gene_modifiers": {
+        "MA2_SMYD": 0.0,
+        "PHYB": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MA2_SMYD",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "PHYB",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "44M = ma2 ma3^R double recessive (not PRR37 as gene field suggests). Intermediate LD earliness.",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "44M = ma2 ma3^R double recessive (not PRR37 as gene field suggests). Intermediate LD earliness."
+    },
+    {
+      "test_id": "T041",
+      "gene": "WT",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "100M (Ma1 Ma2 Ma3 Ma6 dominant): Very Late LD flowering but rapidly in short days.",
+          "claim": "100M photoperiod-sensitive WT flowers very late in LD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Photoperiod_LD": 1.0,
+        "Light": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        },
+        {
+          "node": "Light",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "100M (dominant Ma1 Ma2 Ma3 Ma6) WT under LD — canonical late-flowering reference.",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "100M (dominant Ma1 Ma2 Ma3 Ma6) WT under LD — canonical late-flowering reference."
+    },
+    {
+      "test_id": "T042",
+      "gene": "WT",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "100M...flowers very late in LDs but rapidly in short days (SDs).",
+          "claim": "Photoperiod-sensitive WT flowers early in SD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "SD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [],
+      "gene_modifiers": {
+        "Photoperiod_LD": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Photoperiod-sensitive WT under SD; SD flowers rapid vs LD-default baseline.",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Photoperiod-sensitive WT under SD; SD flowers rapid vs LD-default baseline."
+    },
+    {
+      "test_id": "T043",
+      "gene": "Theis_sweet_sorghum",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "Theis (sweet sorghum, sensitive) Ma1: Very Late LD flowering; Leaf number: LD ~19 vs SD ≤9.",
+          "claim": "Theis sweet sorghum flowers very late in LD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Photoperiod_LD": 1.0,
+        "Light": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        },
+        {
+          "node": "Light",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Theis (photoperiod-sensitive Ma1 cultivar) under LD. Treated as WT+LD; cultivar-level genetics are WT-like.",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Theis (photoperiod-sensitive Ma1 cultivar) under LD. Treated as WT+LD; cultivar-level genetics are WT-like."
+    },
+    {
+      "test_id": "T044",
+      "gene": "SbPRR37",
+      "perturbation_type": "knockdown",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1106212108",
+          "title": "Coincident light and clock regulation of PRR37 controls photoperiodic flowering in sorghum",
+          "authors": "Murphy RL, Klein RR, Morishige DT, Brady JA, Rooney WL, Miller FR, Dugas DV, Klein PE, Mullet JE",
+          "year": 2011,
+          "journal": "Proceedings of the National Academy of Sciences",
+          "evidence_sentence": "SbPRR37 low evening expression (LD) associated with early flowering.",
+          "claim": "Reduced SbPRR37 expression (knockdown/null) confers early LD flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PRR37"
+      ],
+      "gene_modifiers": {
+        "PRR37": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PRR37",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "SbPRR37 → PRR37 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbPRR37 → PRR37 (species-prefix strip)."
+    },
+    {
+      "test_id": "T045",
+      "gene": "SbGhd7",
+      "perturbation_type": "knockdown",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.3835/plantgenome2013.11.0040",
+          "title": "Ghd7 (Ma6) Represses Sorghum Flowering in Long Days",
+          "authors": "Murphy RL, Morishige DT, Brady JA, Rooney WL, Yang S, Klein PE, Mullet JE",
+          "year": 2014,
+          "journal": "The Plant Genome",
+          "evidence_sentence": "Ghd7 suppression: Earlier flowering via loss of LD repression (breeding target).",
+          "claim": "SbGhd7 RNAi/knockdown confers earlier LD flowering",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "GHD7"
+      ],
+      "gene_modifiers": {
+        "GHD7": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GHD7",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "SbGhd7 → GHD7 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbGhd7 → GHD7 (species-prefix strip)."
+    },
+    {
+      "test_id": "T046",
+      "gene": "Ma4",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0212154",
+          "title": "Maturity2, a novel regulator of flowering time in Sorghum bicolor",
+          "authors": "Casto AL, McKinley BA, Yu KMJ, Rooney WL, Mullet JE",
+          "year": 2019,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "In a dominant Ma4 background, a dominant allele at Ma2 delays flowering, while in a recessive ma4 background, Ma2 has a minimal impact.",
+          "claim": "ma4 recessive reduces LD delay (independently and via Ma2 epistasis)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Photoperiod_LD": 1.0,
+        "Light": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        },
+        {
+          "node": "Light",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Ma4 locus not molecularly cloned; no corresponding network node.",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "Ma4 locus not molecularly cloned; no corresponding network node."
+    },
+    {
+      "test_id": "T047",
+      "gene": "SbPRR37",
+      "perturbation_type": "heterozygous",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1270/jsbbs.62.151",
+          "title": "Mapping of QTLs underlying flowering time in sorghum",
+          "authors": "Higgins RH, Thurber CS, Assaranurak I, Brown PJ",
+          "year": 2014,
+          "journal": "Breeding Science",
+          "evidence_sentence": "qFT6b → Likely corresponds to Ma1 (PRR37); effect size 5.3-7.1 days in kafir families.",
+          "claim": "Heterozygous Ma1 alleles show intermediate LD flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PRR37"
+      ],
+      "gene_modifiers": {
+        "PRR37": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PRR37",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "SbPRR37 → PRR37 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbPRR37 → PRR37 (species-prefix strip)."
+    },
+    {
+      "test_id": "T048",
+      "gene": "SbEhd1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19591",
+          "title": "Sorghum SbGhd7 is a major regulator of floral transition",
+          "authors": "Tadesse T, Lugassi N, Dragonas B, Shmuel YH, Gladman N, Yuan Y, Weers B, Mullet JE, Pasternak T, Leshkowitz D, Levy AA",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "SbEhd1 is a key flowering activator in sorghum, directly regulating florigen genes.",
+          "claim": "sbehd1 loss delays flowering by reducing florigen expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "both",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "EHD1"
+      ],
+      "gene_modifiers": {
+        "EHD1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "EHD1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbEhd1 → EHD1 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbEhd1 → EHD1 (species-prefix strip)."
+    },
+    {
+      "test_id": "T049",
+      "gene": "SbCCA1",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-12-32",
+          "title": "Association analysis of photoperiodic flowering time genes in west and central African sorghum",
+          "authors": "Bhosale SU, Stich B, Rattunde HFW, Weltzien E, Haussmann BIG, Hash CT, Melchinger AE, Parzies HK",
+          "year": 2012,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "Purifying selection has acted on genes involved in photoperiodic control (CCA1, LHY, TOC1, GI).",
+          "claim": "CCA1 allelic variation shows selection on flowering-time regulation",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "CCA1"
+      ],
+      "gene_modifiers": {
+        "CCA1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CCA1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "SbCCA1 → CCA1 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbCCA1 → CCA1 (species-prefix strip)."
+    },
+    {
+      "test_id": "T050",
+      "gene": "SbGI",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-12-32",
+          "title": "Association analysis of photoperiodic flowering time genes in west and central African sorghum",
+          "authors": "Bhosale SU, Stich B, Rattunde HFW, Weltzien E, Haussmann BIG, Hash CT, Melchinger AE, Parzies HK",
+          "year": 2012,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "GIGANTEA SNP888: +8 day effect on PRI (increases photoperiod sensitivity).",
+          "claim": "SbGI allelic variant SNP888 increases photoperiod response index by 8 days",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "GI"
+      ],
+      "gene_modifiers": {
+        "GI": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GI",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "SbGI → GI (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbGI → GI (species-prefix strip)."
+    },
+    {
+      "test_id": "T051",
+      "gene": "SbCRY1",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-12-32",
+          "title": "Association analysis of photoperiodic flowering time genes in west and central African sorghum",
+          "authors": "Bhosale SU, Stich B, Rattunde HFW, Weltzien E, Haussmann BIG, Hash CT, Melchinger AE, Parzies HK",
+          "year": 2012,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "CRY1-b1 SNP722 (T→A transition): -4.2 day effect on PRI (reduces photoperiod sensitivity).",
+          "claim": "SbCRY1 loss-of-function allele reduces photoperiod-dependent flowering delay by ~4 days",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Photoperiod_LD": 1.0,
+        "Light": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        },
+        {
+          "node": "Light",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "SbCRY1 (cryptochrome) not modelled in network; Blue_Light source represents blue-light input but does not map to CRY1 directly.",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "SbCRY1 (cryptochrome) not modelled in network; Blue_Light source represents blue-light input but does not map to CRY1 directly."
+    },
+    {
+      "test_id": "T052",
+      "gene": "WT",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "Sorghum is a short-day plant; night-break during SD reverses the induction to LD-like flowering delay.",
+          "claim": "Night-break treatment in SD delays flowering in sensitive sorghum (mimics LD)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "night_break",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Photoperiod_LD": 1.0,
+        "Light": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        },
+        {
+          "node": "Light",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Night-break during SD mimics LD photoperiodic signal; encoded as LD-like Photoperiod_LD boost.",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Night-break during SD mimics LD photoperiodic signal; encoded as LD-like Photoperiod_LD boost."
+    },
+    {
+      "test_id": "T053",
+      "gene": "Dw2",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1038/s41598-023-42306-8",
+          "title": "Deleterious mutations predicted in sorghum Maturity and Dwarf genes",
+          "authors": "Thurber CS, Ma JM, Higgins RH, Brown PJ",
+          "year": 2023,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "The dw2 mutation is tightly linked to a maturation gene, ma1; a strong QTL of flowering time overlaps this region.",
+          "claim": "dw2 linked to ma1 region; contributes to LD earliness",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Photoperiod_LD": 1.0,
+        "Light": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        },
+        {
+          "node": "Light",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "dw2 is a GA-biosynthesis dwarfing gene linked to the Ma1 region but not a flowering-time node in this network.",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "dw2 is a GA-biosynthesis dwarfing gene linked to the Ma1 region but not a flowering-time node in this network."
+    },
+    {
+      "test_id": "T054",
+      "gene": "SbPhyB",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.116.1.17",
+          "title": "Phytochrome B and the Regulation of Circadian Ethylene Production in Sorghum",
+          "authors": "Finlayson SA, Lee IJ, Morgan PW",
+          "year": 1998,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Dim, far-red-enriched light duplicates the mutant's shade-avoidance phenotype in wild-type plants.",
+          "claim": "Far-red supplementation mimics phyB loss (early flowering-like shade avoidance)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "far_red_supplementation",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PHYB"
+      ],
+      "gene_modifiers": {
+        "PHYB": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PHYB",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "Dim far-red supplementation converts phyB to inactive Pr form; modeled as PHYB knockdown (gm=0.5).",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Dim far-red supplementation converts phyB to inactive Pr form; modeled as PHYB knockdown (gm=0.5)."
+    },
+    {
+      "test_id": "T055",
+      "gene": "SbCO",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-14-148",
+          "title": "CONSTANS is a photoperiod regulated activator of flowering in sorghum",
+          "authors": "Yang S, Murphy RL, Morishige DT, Klein PE, Rooney WL, Mullet JE",
+          "year": 2014,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "CO has greater activity in SD compared to LD causing up to 10-fold higher expression of SbCN8/12 during the night.",
+          "claim": "SbCO OE under SD expected to further accelerate flowering via florigen activation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "SD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "CO"
+      ],
+      "gene_modifiers": {
+        "CO": 2.0,
+        "Photoperiod_LD": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CO",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbCO → CO (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbCO → CO (species-prefix strip)."
+    },
+    {
+      "test_id": "T056",
+      "gene": "SbFT10",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19591",
+          "title": "Sorghum SbGhd7 is a major regulator of floral transition",
+          "authors": "Tadesse T, Lugassi N, Dragonas B, Shmuel YH, Gladman N, Yuan Y, Weers B, Mullet JE, Pasternak T, Leshkowitz D, Levy AA",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "SbFT10...major florigen.",
+          "claim": "SbFT10 loss delays flowering; SbFT10 is the major florigen",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "SD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "FT10"
+      ],
+      "gene_modifiers": {
+        "FT10": 0.0,
+        "Photoperiod_LD": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FT10",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbFT10 → FT10 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbFT10 → FT10 (species-prefix strip)."
+    },
+    {
+      "test_id": "T057",
+      "gene": "SbFT1,SbFT8,SbFT10",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.13834",
+          "title": "Three FLOWERING LOCUS T-like genes function as potential florigens",
+          "authors": "Wolabu TW, Zhang F, Niu L, Kalve S, Bhatnagar-Mathur P, Muszynski MG, Tadege M",
+          "year": 2016,
+          "journal": "New Phytologist",
+          "evidence_sentence": "Three genes, designated as SbFT1, SbFT8 and SbFT10, behave as functional Hd3a/RFT1/ZCN8 orthologs.",
+          "claim": "Triple-florigen loss would abolish floral induction in sorghum",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "both",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "FT1",
+        "FT8",
+        "FT10"
+      ],
+      "gene_modifiers": {
+        "FT1": 0.0,
+        "FT8": 0.0,
+        "FT10": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FT1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "FT8",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "FT10",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Triple florigen knockout (SbFT1+SbFT8+SbFT10) — all three mapped to individual network paralogs.",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Triple florigen knockout (SbFT1+SbFT8+SbFT10) — all three mapped to individual network paralogs."
+    },
+    {
+      "test_id": "T058",
+      "gene": "SbMADS31_SOC1",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "SbMADS31 (Sobic.004G003434) encodes a SOC1 MADS-box...regulators of floral initiation.",
+          "claim": "SbMADS31/SOC1 loss delays floral meristem identity acquisition",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "normal",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "SOC1"
+      ],
+      "gene_modifiers": {
+        "SOC1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "SOC1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbMADS31_SOC1 → SOC1 (species-prefix strip).",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "SbMADS31_SOC1 → SOC1 (species-prefix strip)."
+    },
+    {
+      "test_id": "T059",
+      "gene": "SbAP2",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "ortholog of the maize gene rap2.7 which acts as a negative regulator of flowering time.",
+          "claim": "SbAP2 loss relieves flowering repression, advances flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "normal",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "AP2"
+      ],
+      "gene_modifiers": {
+        "AP2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "AP2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbAP2 → AP2 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbAP2 → AP2 (species-prefix strip)."
+    },
+    {
+      "test_id": "T060",
+      "gene": "SbFT2",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "SbFT2 (Sobic.003G017200) expression in mature leaf tissue was significantly associated with observed flowering time.",
+          "claim": "SbFT2 high expression confers earlier flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "normal",
+      "comparison_baseline": "WT",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "SbFT2 paralog not modelled; network contains FT1, FT8, FT10, FT12 florigen paralogs only.",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "SbFT2 paralog not modelled; network contains FT1, FT8, FT10, FT12 florigen paralogs only."
+    },
+    {
+      "test_id": "T061",
+      "gene": "BTx623",
+      "perturbation_type": "environmental",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1106212108",
+          "title": "Coincident light and clock regulation of PRR37 controls photoperiodic flowering in sorghum",
+          "authors": "Murphy RL, Klein RR, Morishige DT, Brady JA, Rooney WL, Miller FR, Dugas DV, Klein PE, Mullet JE",
+          "year": 2011,
+          "journal": "Proceedings of the National Academy of Sciences",
+          "evidence_sentence": "ATx623 Sbprr37-3 (dual mutations)...Early flowering...Insensitive under both LD and SD.",
+          "claim": "BTx623/ATx623 ma1 null flowers at similar time in LD vs SD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD_vs_SD",
+      "comparison_baseline": "mutant",
+      "in_network": true,
+      "network_gene": [
+        "PRR37"
+      ],
+      "gene_modifiers": {
+        "PRR37": 0.0,
+        "Photoperiod_LD": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PRR37",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "BTx623/ATx623 Sbprr37-3 dual-mutation background; photoperiod-insensitive. comparison_baseline=mutant.",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "BTx623/ATx623 Sbprr37-3 dual-mutation background; photoperiod-insensitive. comparison_baseline=mutant."
+    },
+    {
+      "test_id": "T062",
+      "gene": "SbPRR37",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1106212108",
+          "title": "Coincident light and clock regulation of PRR37 controls photoperiodic flowering in sorghum",
+          "authors": "Murphy RL, Klein RR, Morishige DT, Brady JA, Rooney WL, Miller FR, Dugas DV, Klein PE, Mullet JE",
+          "year": 2011,
+          "journal": "Proceedings of the National Academy of Sciences",
+          "evidence_sentence": "100M (SbPRR37 functional)...Late flowering (~120d) LD.",
+          "claim": "Dominant SbPRR37 (Ma1) delays LD flowering to ~120 days",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PRR37"
+      ],
+      "gene_modifiers": {
+        "PRR37": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PRR37",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "SbPRR37 → PRR37 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbPRR37 → PRR37 (species-prefix strip)."
+    },
+    {
+      "test_id": "T063",
+      "gene": "SbGhd7",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.3835/plantgenome2013.11.0040",
+          "title": "Ghd7 (Ma6) Represses Sorghum Flowering in Long Days",
+          "authors": "Murphy RL, Morishige DT, Brady JA, Rooney WL, Yang S, Klein PE, Mullet JE",
+          "year": 2014,
+          "journal": "The Plant Genome",
+          "evidence_sentence": "Ghd7 confers photoperiod sensitivity and delays flowering in LDs, even in genotypes that are null for PRR37.",
+          "claim": "Dominant SbGhd7 (Ma6) delays flowering in LD even in prr37-null",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "GHD7"
+      ],
+      "gene_modifiers": {
+        "GHD7": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GHD7",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "SbGhd7 → GHD7 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbGhd7 → GHD7 (species-prefix strip)."
+    },
+    {
+      "test_id": "T064",
+      "gene": "SbID1",
+      "perturbation_type": "rescue",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2023.1304822",
+          "title": "Sorghum bicolor INDETERMINATE1 is a conserved primary regulator of flowering",
+          "authors": "Gladman N, Goodwin S, Chougule K, Richard McCombie W, Ware D",
+          "year": 2023,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "sbid1-1/sbid1-2 compound: Phenotype matches sbid1-2, confirming loss-of-function.",
+          "claim": "Complementation with WT SbID1 restores flowering timing",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "normal",
+      "comparison_baseline": "mutant",
+      "in_network": true,
+      "network_gene": [
+        "ID1"
+      ],
+      "gene_modifiers": {
+        "ID1": 1.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ID1",
+          "modifier_type": "gene_modifier",
+          "value": 1.0
+        }
+      ],
+      "notes": "sbid1 mutant + WT SbID1 transgene rescue; ID1 restored to WT (gm=1.0 vs mutant baseline=0.0).",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "sbid1 mutant + WT SbID1 transgene rescue; ID1 restored to WT (gm=1.0 vs mutant baseline=0.0)."
+    },
+    {
+      "test_id": "T065",
+      "gene": "SbPhyB",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0124435",
+          "title": "Molecular Evolution of the Sorghum Maturity Gene Ma3",
+          "authors": "Wang Y, Tan L, Fu Y, Zhu Z, Liu F, Sun C, Cai H",
+          "year": 2015,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "Ma3 (wild-type): Normal photoperiod sensitivity; selected against loss-of-function.",
+          "claim": "Ma3 dominant allele confers LD flowering delay (sensitivity)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PHYB"
+      ],
+      "gene_modifiers": {
+        "PHYB": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PHYB",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "SbPhyB → PHYB (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbPhyB → PHYB (species-prefix strip)."
+    },
+    {
+      "test_id": "T066",
+      "gene": "SbPhyA",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-12-32",
+          "title": "Association analysis of photoperiodic flowering time genes in west and central African sorghum",
+          "authors": "Bhosale SU, Stich B, Rattunde HFW, Weltzien E, Haussmann BIG, Hash CT, Melchinger AE, Parzies HK",
+          "year": 2012,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "SBI-01 (where PHYA, PHYB and PHYC are located); limited evidence for PhyA specific effects in sorghum flowering.",
+          "claim": "SbPhyA loss shows minor/unclear effect on flowering (secondary photoreceptor)",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Photoperiod_LD": 1.0,
+        "Light": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        },
+        {
+          "node": "Light",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "PHYA not in network (only PHYB, PHYC).",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "PHYA not in network (only PHYB, PHYC)."
+    },
+    {
+      "test_id": "T067",
+      "gene": "SbFKF1",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19591",
+          "title": "Sorghum SbGhd7 is a major regulator of floral transition",
+          "authors": "Tadesse T, Lugassi N, Dragonas B, Shmuel YH, Gladman N, Yuan Y, Weers B, Mullet JE, Pasternak T, Leshkowitz D, Levy AA",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "repressing transcription of...SbFKF1...direct target of SbGhd7.",
+          "claim": "SbFKF1 loss impairs GI-FKF1-CO module → flowering delay",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "both",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "FKF1"
+      ],
+      "gene_modifiers": {
+        "FKF1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FKF1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbFKF1 → FKF1 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbFKF1 → FKF1 (species-prefix strip)."
+    },
+    {
+      "test_id": "T068",
+      "gene": "SbELF3",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19591",
+          "title": "Sorghum SbGhd7 is a major regulator of floral transition",
+          "authors": "Tadesse T, Lugassi N, Dragonas B, Shmuel YH, Gladman N, Yuan Y, Weers B, Mullet JE, Pasternak T, Leshkowitz D, Levy AA",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "repressing transcription of...SbELF3.",
+          "claim": "SbELF3 (repressed by Ghd7) — its loss in cereals typically advances flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "ELF3"
+      ],
+      "gene_modifiers": {
+        "ELF3": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ELF3",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbELF3 → ELF3 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbELF3 → ELF3 (species-prefix strip)."
+    },
+    {
+      "test_id": "T069",
+      "gene": "SbPRR37,SbGhd7,SbPhyB",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0105352",
+          "title": "Sorghum Phytochrome B Inhibits Flowering in Long Days",
+          "authors": "Yang S, Weers BD, Morishige DT, Mullet JE",
+          "year": 2014,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "PhyB absent + Ma6 ma3Rma3R Ma6_ 42-75 days (range) EARLY (variable).",
+          "claim": "ma3^R in various Ma1/Ma6 backgrounds flowers early (42-75 days LD)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PRR37",
+        "GHD7",
+        "PHYB"
+      ],
+      "gene_modifiers": {
+        "PRR37": 0.0,
+        "GHD7": 0.0,
+        "PHYB": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PRR37",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "GHD7",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "PHYB",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Triple null: prr37 + ghd7 + phyB (ma1 ma6 ma3^R). Variable early (42-75 days).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Triple null: prr37 + ghd7 + phyB (ma1 ma6 ma3^R). Variable early (42-75 days)."
+    },
+    {
+      "test_id": "T070",
+      "gene": "SbGI",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1002/pld3.281",
+          "title": "A sorghum gigantea mutant attenuates florigen gene expression and delays flowering time",
+          "authors": "Abdul-Awal SM, Chen J, Xin Z, Harmon FG",
+          "year": 2020,
+          "journal": "Plant Direct",
+          "evidence_sentence": "average DTB for sbgi-ems1 plants was greater than WT sibling plants by 28 (Berkeley) and 22 (Davis) days.",
+          "claim": "sbgi-ems1 delays field flowering by 22-28 days",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "normal",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "GI"
+      ],
+      "gene_modifiers": {
+        "GI": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GI",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbGI → GI (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbGI → GI (species-prefix strip)."
+    },
+    {
+      "test_id": "T071",
+      "gene": "SbGI",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1002/pld3.281",
+          "title": "A sorghum gigantea mutant attenuates florigen gene expression and delays flowering time",
+          "authors": "Abdul-Awal SM, Chen J, Xin Z, Harmon FG",
+          "year": 2020,
+          "journal": "Plant Direct",
+          "evidence_sentence": "sbgi-ems1 mutant plants made an average of 2.4 more nodes than WT.",
+          "claim": "sbgi extends vegetative phase (+2.4 nodes before flowering)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "normal",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "GI"
+      ],
+      "gene_modifiers": {
+        "GI": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GI",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbGI → GI (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbGI → GI (species-prefix strip)."
+    },
+    {
+      "test_id": "T072",
+      "gene": "SbPRR37,SbCO",
+      "perturbation_type": "epistasis",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-14-148",
+          "title": "CONSTANS is a photoperiod regulated activator of flowering in sorghum",
+          "authors": "Yang S, Murphy RL, Morishige DT, Klein PE, Rooney WL, Mullet JE",
+          "year": 2014,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "Ability of SbPRR37 to inhibit flowering is dependent on SbCO — PRR37 effects vanish in Sbco-3 backgrounds.",
+          "claim": "sbco-3 is epistatic to SbPRR37; combined genotype flowers early",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "CO"
+      ],
+      "gene_modifiers": {
+        "CO": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CO",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbPRR37-SbCO epistasis: dominant Ma1 (PRR37=WT, no modifier) + sbco-3 (CO gm=0.0). CO is epistatic — PRR37 effect masked, flowers early.",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbPRR37-SbCO epistasis: dominant Ma1 (PRR37=WT, no modifier) + sbco-3 (CO gm=0.0). CO is epistatic — PRR37 effect masked, flowers early."
+    },
+    {
+      "test_id": "T073",
+      "gene": "Paclobutrazol",
+      "perturbation_type": "inhibitor_PBZ",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.104.2.347",
+          "title": "Photoperiod Control of Gibberellin Levels and Flowering in Sorghum",
+          "authors": "Foster KR, Morgan PW",
+          "year": 1995,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "GA levels correlate with flowering; GA biosynthesis inhibitors that reduce GA1/GA20 would delay flowering.",
+          "claim": "Paclobutrazol (GA biosynthesis inhibitor) expected to delay sorghum flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "SD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "Gibberellin"
+      ],
+      "gene_modifiers": {
+        "Gibberellin": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "Gibberellin",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "Paclobutrazol (PBZ) inhibits GA biosynthesis → modeled as Gibberellin source knockdown (gm=0.1).",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Paclobutrazol (PBZ) inhibits GA biosynthesis → modeled as Gibberellin source knockdown (gm=0.1)."
+    },
+    {
+      "test_id": "T074",
+      "gene": "SbAP1",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "SbMADS7 (Sobic.002G010100)...regulators of floral initiation.",
+          "claim": "SbAP1 (MADS7) loss delays floral meristem identity",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "normal",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "AP1"
+      ],
+      "gene_modifiers": {
+        "AP1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "AP1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbAP1 → AP1 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbAP1 → AP1 (species-prefix strip)."
+    },
+    {
+      "test_id": "T075",
+      "gene": "SbPhyB",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0124435",
+          "title": "Molecular Evolution of the Sorghum Maturity Gene Ma3",
+          "authors": "Wang Y, Tan L, Fu Y, Zhu Z, Liu F, Sun C, Cai H",
+          "year": 2015,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "ma3R: Nearly complete photoperiod insensitivity caused by a single base-pair deletion in exon 3, resulting in early flowering regardless of day length.",
+          "claim": "ma3^R deletion mutant flowers early regardless of photoperiod",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PHYB"
+      ],
+      "gene_modifiers": {
+        "PHYB": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PHYB",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbPhyB → PHYB (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbPhyB → PHYB (species-prefix strip)."
+    },
+    {
+      "test_id": "T076",
+      "gene": "SbGhd7",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.3835/plantgenome2013.11.0040",
+          "title": "Ghd7 (Ma6) Represses Sorghum Flowering in Long Days",
+          "authors": "Murphy RL, Morishige DT, Brady JA, Rooney WL, Yang S, Klein PE, Mullet JE",
+          "year": 2014,
+          "journal": "The Plant Genome",
+          "evidence_sentence": "In sorghum grown in LD, PRR37...acts together with Ma6 to inhibit flowering...SD already permissive for flowering.",
+          "claim": "ma6 SD has minimal effect (SD already permissive)",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "SD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "GHD7"
+      ],
+      "gene_modifiers": {
+        "GHD7": 0.0,
+        "Photoperiod_LD": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GHD7",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbGhd7 → GHD7 (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbGhd7 → GHD7 (species-prefix strip)."
+    },
+    {
+      "test_id": "T077",
+      "gene": "Ma2_SMYD",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0212154",
+          "title": "Maturity2, a novel regulator of flowering time in Sorghum bicolor",
+          "authors": "Casto AL, McKinley BA, Yu KMJ, Rooney WL, Mullet JE",
+          "year": 2019,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "Ma2 acts downstream of circadian clock and phytochromes, increasing SbPRR37 and SbCO expression in long days.",
+          "claim": "ma2 has minimal SD effect (Ma2 LD-specific action)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "SD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "MA2_SMYD"
+      ],
+      "gene_modifiers": {
+        "MA2_SMYD": 0.0,
+        "Photoperiod_LD": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MA2_SMYD",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "Photoperiod_LD",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Ma2_SMYD → MA2_SMYD (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Ma2_SMYD → MA2_SMYD (species-prefix strip)."
+    },
+    {
+      "test_id": "T078",
+      "gene": "SbPhyB",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.113.2.611",
+          "title": "The sorghum photoperiod sensitivity gene, Ma3, encodes a phytochrome B",
+          "authors": "Childs KL, Miller FR, Cordonnier-Pratt MM, Pratt LH, Morgan PW, Mullet JE",
+          "year": 1997,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "ma3R (null)...Early/insensitive to photoperiod.",
+          "claim": "ma3^R phyB-null flowers early under LD, insensitive to photoperiod",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PHYB"
+      ],
+      "gene_modifiers": {
+        "PHYB": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PHYB",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbPhyB → PHYB (species-prefix strip).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbPhyB → PHYB (species-prefix strip)."
+    },
+    {
+      "test_id": "T079",
+      "gene": "SbELF3",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0043705",
+          "title": "OsELF3-1, an ortholog of Arabidopsis early flowering 3, regulates rice circadian rhythm and photoperiodic flowering",
+          "authors": "Zhao J, Huang X, Ouyang X, Chen W, Du A, Zhu L, Wang S, Deng XW, Li S",
+          "year": 2012,
+          "journal": "PLoS ONE",
+          "evidence_sentence": "oself3-1 mutant flowers earlier than wild-type...OsELF3-1 suppresses Ghd7 to indirectly accelerate flowering under LD.",
+          "claim": "Rice oself3 flowers early under LD; inferred behaviour for sorghum SbELF3 KO",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "ELF3"
+      ],
+      "gene_modifiers": {
+        "ELF3": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ELF3",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbELF3 KO inferred from rice oself3-1 ortholog (literature_judge addition, G002/G003).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbELF3 KO inferred from rice oself3-1 ortholog (literature_judge addition, G002/G003)."
+    },
+    {
+      "test_id": "T080",
+      "gene": "SbFD1",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "SbFT1 directly interacts with SbFD1...FAC assembly required for AP1/SOC1 activation.",
+          "claim": "SbFD1 loss would abolish FAC function and delay flowering (canonical FAC module inference)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "both",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "FD1"
+      ],
+      "gene_modifiers": {
+        "FD1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FD1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SbFD1 KO; canonical FAC bZIP partner of SbFT1 (literature_judge G007).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SbFD1 KO; canonical FAC bZIP partner of SbFT1 (literature_judge G007)."
+    },
+    {
+      "test_id": "T081",
+      "gene": "Sb14-3-3",
+      "perturbation_type": "knockdown",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "SbFT1/8/10 all directly interact with Sb14-3-3 proteins...florigen activation complex.",
+          "claim": "Sb14-3-3 knockdown would disrupt FAC scaffolding and delay floral transition",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "both",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "GF14"
+      ],
+      "gene_modifiers": {
+        "GF14": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GF14",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "Sb14-3-3 family -> GF14 (generic 14-3-3 FAC scaffold node). Knockdown gm=0.5 (literature_judge G007).",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "Sb14-3-3 family -> GF14 (generic 14-3-3 FAC scaffold node). Knockdown gm=0.5 (literature_judge G007)."
+    },
+    {
+      "test_id": "T082",
+      "gene": "SbPhyC,SbGhd7",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.3835/plantgenome2013.11.0040",
+          "title": "Ghd7 (Ma6) Represses Sorghum Flowering in Long Days",
+          "authors": "Murphy RL, Morishige DT, Brady JA, Rooney WL, Yang S, Klein PE, Mullet JE",
+          "year": 2014,
+          "journal": "The Plant Genome",
+          "evidence_sentence": "ma5 and ma6 double recessive produces thermosensitive early flowering in classical Quinby genetics; ma6 confers LD earliness.",
+          "claim": "ma5 ma6 double recessive flowers earlier than either single mutant under LD (thermosensitive background)",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "LD",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [
+        "PHYC",
+        "GHD7"
+      ],
+      "gene_modifiers": {
+        "PHYC": 0.0,
+        "GHD7": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PHYC",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "GHD7",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ma5 ma6 double recessive = PHYC null + GHD7 null; thermosensitive early LD flowering (literature_judge G010).",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "ma5 ma6 double recessive = PHYC null + GHD7 null; thermosensitive early LD flowering (literature_judge G010)."
+    },
+    {
+      "test_id": "T083",
+      "gene": "WT",
+      "perturbation_type": "control",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "species": "Sorghum bicolor",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "Flowering time in WT sorghum is stable across replicate experiments under fixed photoperiod.",
+          "claim": "WT baseline control: null perturbation yields no change in flowering time.",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Flowering_Time",
+      "condition": "normal",
+      "comparison_baseline": "WT",
+      "in_network": true,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Null WT baseline control — no perturbation; validator sanity check.",
+      "reconciliation_type": "control",
+      "reconciliation_note": "Null WT baseline control — no perturbation; validator sanity check."
+    }
+  ]
+}

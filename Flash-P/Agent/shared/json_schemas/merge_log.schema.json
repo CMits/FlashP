@@ -1,0 +1,111 @@
+{
+  "$defs": {
+    "MergeLogMetadata": {
+      "properties": {
+        "flash_p_version": {
+          "description": "Pipeline version, e.g. '2.0'",
+          "title": "Flash P Version",
+          "type": "string"
+        },
+        "phenotype": {
+          "description": "Target phenotype, e.g. 'flowering_time'",
+          "title": "Phenotype",
+          "type": "string"
+        },
+        "species": {
+          "description": "Species name, e.g. 'Arabidopsis thaliana'",
+          "title": "Species",
+          "type": "string"
+        },
+        "created": {
+          "description": "Creation date YYYY-MM-DD",
+          "title": "Created",
+          "type": "string"
+        }
+      },
+      "required": [
+        "flash_p_version",
+        "phenotype",
+        "species",
+        "created"
+      ],
+      "title": "MergeLogMetadata",
+      "type": "object"
+    },
+    "SourceNetworkEntry": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "phenotype_node": {
+          "title": "Phenotype Node",
+          "type": "string"
+        },
+        "nodes": {
+          "title": "Nodes",
+          "type": "integer"
+        },
+        "edges": {
+          "title": "Edges",
+          "type": "integer"
+        },
+        "tests": {
+          "title": "Tests",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "name",
+        "phenotype_node",
+        "nodes",
+        "edges",
+        "tests"
+      ],
+      "title": "SourceNetworkEntry",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "metadata": {
+      "$ref": "#/$defs/MergeLogMetadata"
+    },
+    "source_networks": {
+      "items": {
+        "$ref": "#/$defs/SourceNetworkEntry"
+      },
+      "title": "Source Networks",
+      "type": "array"
+    },
+    "normalization_map": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Map of source-specific node names to merged names",
+      "title": "Normalization Map",
+      "type": "object"
+    },
+    "merged_stats": {
+      "additionalProperties": true,
+      "title": "Merged Stats",
+      "type": "object"
+    },
+    "shared_nodes": {
+      "additionalProperties": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "description": "Map of node -> list of source networks containing it",
+      "title": "Shared Nodes",
+      "type": "object"
+    }
+  },
+  "required": [
+    "metadata",
+    "source_networks"
+  ],
+  "title": "MergeLogFile",
+  "type": "object"
+}

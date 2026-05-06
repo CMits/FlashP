@@ -1,0 +1,53 @@
+{
+  "iteration": 1,
+  "date": "2026-04-20",
+  "fixes": [
+    {
+      "iteration": 1,
+      "action": "edge_addition",
+      "description": "Added FEA4 -> Kernel_Row_Number with sign=-1",
+      "reason": "Cluster A (T004, T015, T072) showed ratio ~0.02 indicating cascade collapse on fea4 KO: the BA1/RA1/RA3 branch loses its FEA4 activation and Axillary_Meristem drops below the IM-size expansion gain. A direct FEA4 -> KRN (-1) shortcut re-routes the phenotypic dominance back to IM/row-number restriction.",
+      "biological_justification": "Pautler et al. (Plant Cell 2015, DOI 10.1105/tpc.114.132506) report fea4 ears with enlarged IM and increased kernel row number; the row-number gain exceeds what IM-size expansion alone predicts, implicating FEA4 as a direct row-number restrictor. Edge sign -1 reflects that loss of FEA4 increases KRN.",
+      "source": "FEA4",
+      "target": "Kernel_Row_Number",
+      "sign": -1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "T053 Bif1_het: BIF1 gene_modifier changed from 0.5 to 2.0",
+      "reason": "Predicted direction was inverted (increased) with expected decreased. Root cause: Bif1 is a semidominant GOF stabilised Aux/IAA allele, not a knockdown. Encoding with gm=0.5 (KD) inverted the repressor effect.",
+      "biological_justification": "Galli et al. (PNAS 2015, DOI 10.1073/pnas.1516473112) characterize Bif1 and Bif4 as semidominant point mutations in domain II of maize Aux/IAA proteins that stabilise the repressor against TIR1-mediated degradation, producing enhanced repressor activity.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 2.0
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "T055 Bif1;Bif4 double: BIF1 gene_modifier changed from 0.0 to 2.0 (Bif4 partner not in network; partial mapping)",
+      "reason": "Same semidominant GOF encoding issue as T053, compounded by the Bif4 component lacking a network node.",
+      "biological_justification": "Galli et al. (PNAS 2015, DOI 10.1073/pnas.1516473112) — stabilised Aux/IAA GOF.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 2.0
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 81.7,
+    "ode_accuracy": 78.9,
+    "rwr_accuracy": 78.9,
+    "kappa_algebraic": 0.6775,
+    "mcc_algebraic": 0.5981,
+    "kept": true,
+    "reason": "Best-method improved from 78.9% (RWR) to 81.7% (Algebraic) (+2.8%). KEEP.",
+    "edges_added": 1,
+    "edges_removed": 0
+  }
+}

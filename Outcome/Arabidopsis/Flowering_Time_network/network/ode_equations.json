@@ -1,0 +1,391 @@
+{
+  "metadata": {
+    "method": "ODE_Hill",
+    "K": 0.1,
+    "n": 1,
+    "accuracy": 93.5,
+    "hill_activation_formula": "f(x) = x^1 * (0.1^1 + 1) / (0.1^1 + x^1)",
+    "hill_inhibition_formula": "g(x) = (0.1^1 + 1) / (0.1^1 + x^1)",
+    "ode_dynamics": "dx/dt = production - x; at steady state x = production",
+    "dt": 0.1,
+    "max_time": 50.0,
+    "convergence_tolerance": 0.0001,
+    "direction_threshold": 0.05
+  },
+  "equations": [
+    {
+      "node": "Long_Day",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Long_Day = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Blue_Light",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Blue_Light = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Cold",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Cold = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Vernalization",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Vernalization = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Warm_Temperature",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Warm_Temperature = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FRI",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FRI = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PRC2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PRC2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SLY1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SLY1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GA20OX",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GA20OX = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GA2OX",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GA2OX = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FCA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FCA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FPA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FPA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FLD",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FLD = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FVE",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FVE = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LD",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LD = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GI",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GI = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Sucrose",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Sucrose = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TPS1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TPS1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "miR156",
+      "activators": [],
+      "inhibitors": [
+        "Sucrose"
+      ],
+      "formula": "miR156 = 1.0 * prod(g(Sucrose)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "T6P",
+      "activators": [
+        "Sucrose",
+        "TPS1"
+      ],
+      "inhibitors": [],
+      "formula": "T6P = prod(f(Sucrose, TPS1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FKF1",
+      "activators": [
+        "Blue_Light",
+        "GI"
+      ],
+      "inhibitors": [],
+      "formula": "FKF1 = prod(f(Blue_Light, GI)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CDF1",
+      "activators": [],
+      "inhibitors": [
+        "FKF1",
+        "GI"
+      ],
+      "formula": "CDF1 = 1.0 * prod(g(FKF1, GI)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "CO",
+      "activators": [
+        "Long_Day",
+        "GI",
+        "FKF1"
+      ],
+      "inhibitors": [
+        "CDF1",
+        "DELLA"
+      ],
+      "formula": "CO = prod(f(Long_Day, GI, FKF1)) * prod(g(CDF1, DELLA)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "VIN3",
+      "activators": [
+        "Cold",
+        "Vernalization"
+      ],
+      "inhibitors": [],
+      "formula": "VIN3 = prod(f(Cold, Vernalization)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FLC",
+      "activators": [
+        "FRI",
+        "SVP"
+      ],
+      "inhibitors": [
+        "VIN3",
+        "PRC2",
+        "FCA",
+        "FPA",
+        "FLD",
+        "FVE",
+        "LD"
+      ],
+      "formula": "FLC = prod(f(FRI, SVP)) * prod(g(VIN3, PRC2, FCA, FPA, FLD, FVE, LD)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "SVP",
+      "activators": [],
+      "inhibitors": [
+        "Warm_Temperature",
+        "FCA",
+        "FVE",
+        "SOC1"
+      ],
+      "formula": "SVP = 1.0 * prod(g(Warm_Temperature, FCA, FVE, SOC1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "PIF4",
+      "activators": [
+        "Warm_Temperature"
+      ],
+      "inhibitors": [
+        "DELLA",
+        "GI"
+      ],
+      "formula": "PIF4 = prod(f(Warm_Temperature)) * prod(g(DELLA, GI)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Gibberellin",
+      "activators": [
+        "GA20OX"
+      ],
+      "inhibitors": [
+        "GA2OX"
+      ],
+      "formula": "Gibberellin = prod(f(GA20OX)) * prod(g(GA2OX)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "GID1",
+      "activators": [
+        "Gibberellin"
+      ],
+      "inhibitors": [],
+      "formula": "GID1 = prod(f(Gibberellin)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DELLA",
+      "activators": [],
+      "inhibitors": [
+        "GID1",
+        "SLY1"
+      ],
+      "formula": "DELLA = 1.0 * prod(g(GID1, SLY1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "SPL9",
+      "activators": [],
+      "inhibitors": [
+        "DELLA",
+        "miR156"
+      ],
+      "formula": "SPL9 = 1.0 * prod(g(DELLA, miR156)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "miR172",
+      "activators": [
+        "SPL9"
+      ],
+      "inhibitors": [
+        "AP2"
+      ],
+      "formula": "miR172 = prod(f(SPL9)) * prod(g(AP2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "AP2",
+      "activators": [],
+      "inhibitors": [
+        "miR172",
+        "SOC1"
+      ],
+      "formula": "AP2 = 1.0 * prod(g(miR172, SOC1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "FT",
+      "activators": [
+        "CO",
+        "PIF4",
+        "FKF1",
+        "GI",
+        "Warm_Temperature",
+        "T6P",
+        "TPS1"
+      ],
+      "inhibitors": [
+        "FLC",
+        "SVP",
+        "CDF1"
+      ],
+      "formula": "FT = prod(f(CO, PIF4, FKF1, GI, Warm_Temperature, T6P, TPS1)) * prod(g(FLC, SVP, CDF1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "FUL",
+      "activators": [
+        "FT",
+        "SPL9",
+        "SOC1"
+      ],
+      "inhibitors": [
+        "TFL1"
+      ],
+      "formula": "FUL = prod(f(FT, SPL9, SOC1)) * prod(g(TFL1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "FD",
+      "activators": [
+        "FT",
+        "TFL1"
+      ],
+      "inhibitors": [],
+      "formula": "FD = prod(f(FT, TFL1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SOC1",
+      "activators": [
+        "FT",
+        "FD",
+        "SPL9"
+      ],
+      "inhibitors": [
+        "FLC",
+        "SVP",
+        "DELLA",
+        "AP2",
+        "TFL1"
+      ],
+      "formula": "SOC1 = prod(f(FT, FD, SPL9)) * prod(g(FLC, SVP, DELLA, AP2, TFL1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "AGL24",
+      "activators": [
+        "SOC1",
+        "Vernalization"
+      ],
+      "inhibitors": [],
+      "formula": "AGL24 = prod(f(SOC1, Vernalization)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AP1",
+      "activators": [
+        "FT",
+        "FD",
+        "SOC1",
+        "LFY",
+        "SPL9",
+        "FUL"
+      ],
+      "inhibitors": [
+        "AP2",
+        "TFL1"
+      ],
+      "formula": "AP1 = prod(f(FT, FD, SOC1, LFY, SPL9, FUL)) * prod(g(AP2, TFL1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "LFY",
+      "activators": [
+        "FT",
+        "SOC1",
+        "AGL24",
+        "SPL9"
+      ],
+      "inhibitors": [
+        "DELLA",
+        "TFL1"
+      ],
+      "formula": "LFY = prod(f(FT, SOC1, AGL24, SPL9)) * prod(g(DELLA, TFL1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "TFL1",
+      "activators": [],
+      "inhibitors": [
+        "AP1"
+      ],
+      "formula": "TFL1 = 1.0 * prod(g(AP1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Flowering_Time",
+      "activators": [
+        "AP1",
+        "LFY",
+        "SOC1",
+        "FT"
+      ],
+      "inhibitors": [
+        "TFL1"
+      ],
+      "formula": "Flowering_Time = prod(f(AP1, LFY, SOC1, FT)) * prod(g(TFL1)) * gene_modifier + exogenous"
+    }
+  ]
+}

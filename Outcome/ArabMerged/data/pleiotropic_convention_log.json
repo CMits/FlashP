@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "created": "2026-04-23",
+    "reason": "Pleiotropic dataset was copied verbatim from the v1 archive with Flowering_Time labels in DAYS-TO-FLOWER convention (decreased=early). The merged network phenotype equation 'Flowering_Time = (AP1*LFY*SOC1*FT)^0.25 / TFL1' uses PROPENSITY semantic (higher=earlier). Flipping Flowering_Time expected_direction normalizes the dataset to the network's convention without touching the equation (which is validated by the source Flowering_Time network's pooled tests).",
+    "convention_before": "days-to-flower (decreased = earlier flowering)",
+    "convention_after": "propensity (increased = more flowering = earlier)",
+    "total_flips": 5
+  },
+  "flips": [
+    {
+      "test_id": "PLEIO_001",
+      "phenotype": "Flowering_Time",
+      "from": "decreased",
+      "to": "increased"
+    },
+    {
+      "test_id": "PLEIO_002",
+      "phenotype": "Flowering_Time",
+      "from": "decreased",
+      "to": "increased"
+    },
+    {
+      "test_id": "PLEIO_005",
+      "phenotype": "Flowering_Time",
+      "from": "decreased",
+      "to": "increased"
+    },
+    {
+      "test_id": "PLEIO_007",
+      "phenotype": "Flowering_Time",
+      "from": "increased",
+      "to": "decreased"
+    },
+    {
+      "test_id": "PLEIO_012",
+      "phenotype": "Flowering_Time",
+      "from": "increased",
+      "to": "decreased"
+    }
+  ]
+}

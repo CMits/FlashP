@@ -1,0 +1,1298 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "shoot_branching",
+    "phenotype_node": "Shoot_Branching",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-18",
+    "total_nodes": 30,
+    "total_edges": 54,
+    "source_nodes": 9,
+    "source_percentage": 30.0
+  },
+  "nodes": [
+    {
+      "id": "Decapitation",
+      "type": "ENVIRONMENT",
+      "full_name": "Apical decapitation",
+      "description": "Surgical removal of shoot apex releasing axillary buds from apical dominance",
+      "is_source": true
+    },
+    {
+      "id": "Low_R_FR",
+      "type": "ENVIRONMENT",
+      "full_name": "Low red:far-red ratio",
+      "description": "Shade signal indicating neighbor competition; degrades phyB and FHY3, induces dormancy",
+      "is_source": true
+    },
+    {
+      "id": "Nitrogen",
+      "type": "ENVIRONMENT",
+      "full_name": "Nitrogen availability",
+      "description": "Soil nitrogen status; high N upregulates IPT-mediated cytokinin biosynthesis and represses SL",
+      "is_source": true
+    },
+    {
+      "id": "Photoperiod",
+      "type": "ENVIRONMENT",
+      "full_name": "Photoperiod (day length)",
+      "description": "Day length signal acting through CO-FT pathway",
+      "is_source": true
+    },
+    {
+      "id": "Sucrose",
+      "type": "METABOLITE",
+      "full_name": "Sucrose",
+      "description": "Primary carbon source and signaling metabolite; suppresses SL biosynthesis and BRC1, promotes T6P",
+      "is_source": true
+    },
+    {
+      "id": "GA",
+      "type": "HORMONE",
+      "full_name": "Gibberellic acid",
+      "description": "Promotes DELLA degradation via GID1-SCF-SLY1 pathway",
+      "is_source": true
+    },
+    {
+      "id": "miR156",
+      "type": "REGULATORY_RNA",
+      "full_name": "microRNA156",
+      "description": "Age-regulated microRNA silencing SPL9 mRNA in juvenile tissues",
+      "is_source": true
+    },
+    {
+      "id": "MAX2",
+      "type": "GENE",
+      "full_name": "MORE AXILLARY GROWTH 2",
+      "description": "Constitutive F-box protein in SCF E3 ligase; co-inhibits SMXL678 with D14 (Perception Gate); independently degrades BES1",
+      "is_source": true
+    },
+    {
+      "id": "ABA2",
+      "type": "GENE",
+      "full_name": "ABA DEFICIENT 2",
+      "description": "Short-chain alcohol dehydrogenase catalyzing xanthoxin to abscisic aldehyde; constitutively expressed in ABA biosynthesis",
+      "is_source": true
+    },
+    {
+      "id": "Auxin",
+      "type": "HORMONE",
+      "full_name": "Auxin (IAA)",
+      "description": "Indole-3-acetic acid; near-source hormone (only Decapitation as inhibitor) maintaining apical dominance and promoting SL biosynthesis",
+      "is_source": false
+    },
+    {
+      "id": "CCD7",
+      "type": "GENE",
+      "full_name": "CAROTENOID CLEAVAGE DIOXYGENASE 7 (MAX3)",
+      "description": "Carotenoid cleavage enzyme in strigolactone biosynthesis; max3 mutants overbranch",
+      "is_source": false
+    },
+    {
+      "id": "CCD8",
+      "type": "GENE",
+      "full_name": "CAROTENOID CLEAVAGE DIOXYGENASE 8 (MAX4)",
+      "description": "Carotenoid cleavage enzyme in strigolactone biosynthesis; max4 mutants overbranch",
+      "is_source": false
+    },
+    {
+      "id": "Strigolactone",
+      "type": "HORMONE",
+      "full_name": "Strigolactone",
+      "description": "Branching-inhibiting terpenoid lactone hormone; has only one outgoing edge (to D14) per Perception Gate motif",
+      "is_source": false
+    },
+    {
+      "id": "D14",
+      "type": "GENE",
+      "full_name": "DWARF14 (AtD14)",
+      "description": "Alpha/beta hydrolase SL receptor; co-inhibitor of SMXL678 with MAX2; self-degradation after SL perception (Motif 6)",
+      "is_source": false
+    },
+    {
+      "id": "SMXL678",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "SMXL6/SMXL7/SMXL8 complex",
+      "description": "Redundant SMAX1-LIKE transcriptional co-repressors degraded by D14-MAX2 SCF; central hub repressing BRC1 and SPL9, promoting PIN1",
+      "is_source": false
+    },
+    {
+      "id": "BES1",
+      "type": "GENE",
+      "full_name": "BRI1-EMS-SUPPRESSOR 1",
+      "description": "Brassinosteroid signaling TF targeted by MAX2-SCF (Motif 5 multi-output); represses BRC1 cooperatively with SMXL678",
+      "is_source": false
+    },
+    {
+      "id": "DELLA",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "DELLA proteins (GAI/RGA/RGL1-3)",
+      "description": "GRAS transcriptional repressors degraded by GA-GID1-SCF; sequester SPL9 from BRC1 promoter",
+      "is_source": false
+    },
+    {
+      "id": "SPL9",
+      "type": "GENE",
+      "full_name": "SQUAMOSA PROMOTER BINDING PROTEIN-LIKE 9",
+      "description": "SBP-domain TF activating BRC1; repressed by miR156, DELLA, SMXL678, FHY3 (no activators - all-inhibitor node)",
+      "is_source": false
+    },
+    {
+      "id": "BRC1",
+      "type": "GENE",
+      "full_name": "BRANCHED 1 (TCP18)",
+      "description": "TCP transcription factor; master integrator of branching signals - 3 activators (Auxin, SPL9, Low_R_FR) and 5 inhibitors (SMXL678, Cytokinin, BES1, FT, Sucrose)",
+      "is_source": false
+    },
+    {
+      "id": "IPT",
+      "type": "GENE",
+      "full_name": "ISOPENTENYLTRANSFERASE",
+      "description": "Rate-limiting cytokinin biosynthesis enzyme; activated by nitrogen and decapitation, repressed by auxin",
+      "is_source": false
+    },
+    {
+      "id": "Cytokinin",
+      "type": "HORMONE",
+      "full_name": "Cytokinin",
+      "description": "Bud outgrowth-promoting hormone; antagonizes SL/auxin via BRC1 repression and PIN1/PIN3 polarization",
+      "is_source": false
+    },
+    {
+      "id": "PIN1",
+      "type": "GENE",
+      "full_name": "PIN-FORMED 1",
+      "description": "Auxin efflux carrier; basal-membrane localization required for canalization-driven bud outgrowth",
+      "is_source": false
+    },
+    {
+      "id": "PIN3",
+      "type": "GENE",
+      "full_name": "PIN-FORMED 3",
+      "description": "Auxin efflux carrier mediating connective auxin transport between buds; repressed by BRC1, induced by CK and nitrogen",
+      "is_source": false
+    },
+    {
+      "id": "FHY3",
+      "type": "GENE",
+      "full_name": "FAR-RED ELONGATED HYPOCOTYL 3",
+      "description": "Transposase-derived TF; promotes SMXL6/7 transcription AND directly inhibits SPL9 (Motif 3 dual path); degraded under shade",
+      "is_source": false
+    },
+    {
+      "id": "T6P",
+      "type": "METABOLITE",
+      "full_name": "Trehalose-6-phosphate",
+      "description": "Sugar signaling metabolite; promotes FT and bud outgrowth; reflects sucrose status",
+      "is_source": false
+    },
+    {
+      "id": "FT",
+      "type": "GENE",
+      "full_name": "FLOWERING LOCUS T",
+      "description": "Florigen mobile signal; promotes flowering and modulates branching by repressing BRC1",
+      "is_source": false
+    },
+    {
+      "id": "HB21",
+      "type": "GENE",
+      "full_name": "HOMEOBOX PROTEIN 21",
+      "description": "HD-Zip I TF (representing HB21/40/53 redundant family); activates NCED3 downstream of BRC1",
+      "is_source": false
+    },
+    {
+      "id": "NCED3",
+      "type": "GENE",
+      "full_name": "9-CIS-EPOXYCAROTENOID DIOXYGENASE 3",
+      "description": "Rate-limiting ABA biosynthesis enzyme; activated by HB21 and shade",
+      "is_source": false
+    },
+    {
+      "id": "ABA",
+      "type": "HORMONE",
+      "full_name": "Abscisic acid",
+      "description": "Stress and dormancy hormone; inhibits bud outgrowth as second messenger downstream of BRC1",
+      "is_source": false
+    },
+    {
+      "id": "Shoot_Branching",
+      "type": "PHENOTYPE",
+      "full_name": "Shoot branching",
+      "description": "Number of axillary branches; integrative phenotype output",
+      "is_source": false
+    }
+  ],
+  "edges": [
+    {
+      "source": "Decapitation",
+      "target": "Auxin",
+      "sign": -1,
+      "edge_id": "N001",
+      "effect": "inhibition",
+      "mechanism": "Removes major source of auxin in the stem",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.109.135475",
+          "title": "Roles for Auxin, Cytokinin, and Strigolactone in Regulating Shoot Branching",
+          "authors": "Ferguson BJ, Beveridge CA",
+          "year": 2009,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Reducing the stem IAA content via decapitation results in a strong decrease in their expression",
+          "claim": "Decapitation reduces auxin"
+        }
+      ]
+    },
+    {
+      "source": "Auxin",
+      "target": "CCD7",
+      "sign": 1,
+      "edge_id": "N002",
+      "effect": "activation",
+      "mechanism": "Auxin upregulates MAX3/CCD7 expression in AXR1-dependent manner",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.109.137646",
+          "title": "Interactions between Auxin and Strigolactone in Shoot Branching Control",
+          "authors": "Hayward A et al.",
+          "year": 2009,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Auxin up-regulation of MAX3 and MAX4 transcripts in an AXR1-dependent manner",
+          "claim": "Auxin promotes SL biosynthesis via CCD7"
+        }
+      ]
+    },
+    {
+      "source": "Auxin",
+      "target": "CCD8",
+      "sign": 1,
+      "edge_id": "N003",
+      "effect": "activation",
+      "mechanism": "Auxin upregulates MAX4/CCD8 expression in AXR1-dependent manner",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.109.137646",
+          "title": "Interactions between Auxin and Strigolactone in Shoot Branching Control",
+          "authors": "Hayward A et al.",
+          "year": 2009,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "MAX3 and MAX4 transcripts are induced by auxin in an AXR1-dependent manner",
+          "claim": "Auxin promotes SL biosynthesis via CCD8"
+        }
+      ]
+    },
+    {
+      "source": "CCD7",
+      "target": "Strigolactone",
+      "sign": 1,
+      "edge_id": "N004",
+      "effect": "activation",
+      "mechanism": "CCD7/MAX3 catalyzes carotenoid cleavage in SL biosynthesis",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.109.137646",
+          "title": "Interactions between Auxin and Strigolactone in Shoot Branching Control",
+          "authors": "Hayward A et al.",
+          "year": 2009,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "MAX3 and MAX4 encode plastid-targeted carotenoid cleavage dioxygenases",
+          "claim": "CCD7 produces SL precursors"
+        }
+      ]
+    },
+    {
+      "source": "CCD8",
+      "target": "Strigolactone",
+      "sign": 1,
+      "edge_id": "N005",
+      "effect": "activation",
+      "mechanism": "CCD8/MAX4 catalyzes carotenoid cleavage in SL biosynthesis",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.109.137646",
+          "title": "Interactions between Auxin and Strigolactone in Shoot Branching Control",
+          "authors": "Hayward A et al.",
+          "year": 2009,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "MAX4 encodes plastid-targeted carotenoid cleavage dioxygenase",
+          "claim": "CCD8 produces carlactone"
+        }
+      ]
+    },
+    {
+      "source": "Decapitation",
+      "target": "Strigolactone",
+      "sign": -1,
+      "edge_id": "N006",
+      "effect": "inhibition",
+      "mechanism": "Decapitation causes up to 10,000-fold reduction in RMS1/CCD8 expression",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.109.135475",
+          "title": "Roles for Auxin, Cytokinin, and Strigolactone in Regulating Shoot Branching",
+          "authors": "Ferguson BJ, Beveridge CA",
+          "year": 2009,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "RMS1 expression was reduced as much as 10,000-fold",
+          "claim": "Decapitation reduces SL biosynthesis"
+        }
+      ]
+    },
+    {
+      "source": "Sucrose",
+      "target": "Strigolactone",
+      "sign": -1,
+      "edge_id": "N007",
+      "effect": "inhibition",
+      "mechanism": "Sugar availability suppresses the auxin-induced SL pathway",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.16201",
+          "title": "Sugar availability suppresses the auxin-induced strigolactone pathway to promote bud outgrowth",
+          "authors": "Bertheloot J et al.",
+          "year": 2020,
+          "journal": "New Phytologist",
+          "evidence_sentence": "Sucrose antagonises auxin effect on bud outgrowth dose-dependently, represses bud response to strigolactones",
+          "claim": "Sucrose suppresses SL pathway"
+        }
+      ]
+    },
+    {
+      "source": "Nitrogen",
+      "target": "Strigolactone",
+      "sign": -1,
+      "edge_id": "N008",
+      "effect": "inhibition",
+      "mechanism": "Low nitrogen increases SL biosynthetic gene expression; high nitrogen reduces SL",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.114.242388",
+          "title": "Auxin and Strigolactone Required for Branching by Nitrogen",
+          "authors": "de Jong M et al.",
+          "year": 2014,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Low N results in increased auxin export from active shoot apices",
+          "claim": "Low nitrogen promotes SL"
+        }
+      ]
+    },
+    {
+      "source": "Strigolactone",
+      "target": "D14",
+      "sign": 1,
+      "edge_id": "N009",
+      "effect": "activation",
+      "mechanism": "SL binds D14 receptor causing conformational change",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-018-08124-7",
+          "title": "Strigolactone perception and deactivation by a hydrolase receptor DWARF14",
+          "authors": "Seto Y et al.",
+          "year": 2019,
+          "journal": "Nature Communications",
+          "evidence_sentence": "Intact SL molecules induce the active signaling state of D14",
+          "claim": "SL activates D14 receptor"
+        }
+      ]
+    },
+    {
+      "source": "D14",
+      "target": "D14",
+      "sign": -1,
+      "edge_id": "N010",
+      "effect": "inhibition",
+      "mechanism": "D14 hydrolyzes SL and undergoes proteasome-mediated self-degradation after perception (Motif 6 self-limiting feedback)",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-018-08124-7",
+          "title": "Strigolactone perception and deactivation by a hydrolase receptor DWARF14",
+          "authors": "Seto Y et al.",
+          "year": 2019,
+          "journal": "Nature Communications",
+          "evidence_sentence": "D14 deactivates bioactive SLs by hydrolytic degradation",
+          "claim": "D14 deactivates SL"
+        }
+      ]
+    },
+    {
+      "source": "D14",
+      "target": "SMXL678",
+      "sign": -1,
+      "edge_id": "N011",
+      "effect": "inhibition",
+      "mechanism": "Activated D14 directly targets SMXL6/7/8 for ubiquitination via the D14-MAX2 SCF complex (Perception Gate co-inhibitor 1)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.15.00605",
+          "title": "SL targets D53-Like SMXL Repressor Proteins",
+          "authors": "Wang L et al.",
+          "year": 2015,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "D14-SMXL6 interaction was enhanced upon GR24 treatment",
+          "claim": "D14 targets SMXL6 for degradation"
+        },
+        {
+          "doi": "10.1105/tpc.15.00562",
+          "title": "SMAX1-LIKE/D53 Family Members Enable Distinct MAX2-Dependent Responses",
+          "authors": "Soundappan I et al.",
+          "year": 2015,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "SMXL7-YFP was not degraded after rac-GR24 treatment in d14 backgrounds",
+          "claim": "D14 targets SMXL7 for degradation"
+        }
+      ]
+    },
+    {
+      "source": "MAX2",
+      "target": "SMXL678",
+      "sign": -1,
+      "edge_id": "N012",
+      "effect": "inhibition",
+      "mechanism": "Constitutive MAX2 F-box scaffolds the SCF E3 ligase that ubiquitinates SMXL6/7/8 (Perception Gate co-inhibitor 2)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.15.00605",
+          "title": "Strigolactone Signaling in Arabidopsis Regulates Shoot Development by Targeting D53-Like SMXL Repressor Proteins",
+          "authors": "Wang L et al.",
+          "year": 2015,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "GR24 causes ubiquitination and degradation of SMXL6, 7, and 8; this requires D14 and MAX2",
+          "claim": "MAX2 degrades SMXL6"
+        },
+        {
+          "doi": "10.1105/tpc.15.00562",
+          "title": "SMAX1-LIKE/D53 Family Members Enable Distinct MAX2-Dependent Responses to Strigolactones and Karrikins",
+          "authors": "Soundappan I et al.",
+          "year": 2015,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "SMXL7-YFP was not degraded after rac-GR24 treatment in max2 backgrounds",
+          "claim": "MAX2 is required for SMXL7 degradation"
+        }
+      ]
+    },
+    {
+      "source": "MAX2",
+      "target": "BES1",
+      "sign": -1,
+      "edge_id": "N013",
+      "effect": "inhibition",
+      "mechanism": "MAX2-SCF independently ubiquitinates BES1 protein (Multi-Output Scaffold, Motif 5)",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2019.100014",
+          "title": "BES1 Functions as the Co-regulator of D53-like SMXLs to Inhibit BRC1 Expression",
+          "authors": "Hu J et al.",
+          "year": 2019,
+          "journal": "Plant Communications",
+          "evidence_sentence": "Both phosphorylated and dephosphorylated BES1s are induced to be degraded by MAX2",
+          "claim": "MAX2 degrades BES1"
+        }
+      ]
+    },
+    {
+      "source": "SMXL678",
+      "target": "BRC1",
+      "sign": -1,
+      "edge_id": "N014",
+      "effect": "inhibition",
+      "mechanism": "SMXL6/7/8 act as transcriptional co-repressors of BRC1 via TPR2 recruitment",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.15.00605",
+          "title": "Strigolactone Signaling targets D53-Like SMXL Repressor Proteins",
+          "authors": "Wang L et al.",
+          "year": 2015,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "BRC1 gene was induced in smxl6/7/8 triple mutant",
+          "claim": "SMXL6 represses BRC1"
+        },
+        {
+          "doi": "10.1038/s41467-020-15893-7",
+          "title": "FHY3 and FAR1 integrate light and strigolactone signaling",
+          "authors": "Xie Y et al.",
+          "year": 2020,
+          "journal": "Nature Communications",
+          "evidence_sentence": "Addition of SMXL6 protein significantly reduced activation activity of SPL9 on BRC1 promoter",
+          "claim": "SMXL6 inhibits SPL9-mediated BRC1 activation"
+        },
+        {
+          "doi": "10.1016/j.xplc.2019.100014",
+          "title": "BES1 Functions as the Co-regulator of D53-like SMXLs to Inhibit BRC1 Expression",
+          "authors": "Hu J et al.",
+          "year": 2019,
+          "journal": "Plant Communications",
+          "evidence_sentence": "SMXL7 and BES1 corporately inhibited the expression of BRC1:LUC",
+          "claim": "SMXL7 represses BRC1"
+        }
+      ]
+    },
+    {
+      "source": "SMXL678",
+      "target": "SPL9",
+      "sign": -1,
+      "edge_id": "N015",
+      "effect": "inhibition",
+      "mechanism": "SMXL6/7/8 physically interact with SPL9 to inhibit its DNA-binding and transactivation activity",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-15893-7",
+          "title": "FHY3 and FAR1 integrate light and strigolactone signaling to regulate branching",
+          "authors": "Xie Y et al.",
+          "year": 2020,
+          "journal": "Nature Communications",
+          "evidence_sentence": "Addition of SMXL6 protein significantly reduced activation activity of SPL9",
+          "claim": "SMXL6 inhibits SPL9 activity"
+        }
+      ]
+    },
+    {
+      "source": "SMXL678",
+      "target": "PIN1",
+      "sign": 1,
+      "edge_id": "N016",
+      "effect": "activation",
+      "mechanism": "SMXL6/7/8 promote PIN1 accumulation at the basal plasma membrane",
+      "evidence": [
+        {
+          "doi": "10.1242/bio.021402",
+          "title": "Strigolactone regulates shoot development through a core signalling pathway",
+          "authors": "Bennett T et al.",
+          "year": 2016,
+          "journal": "Biology Open",
+          "evidence_sentence": "Loss of smxl6, smxl7 and smxl8 causes dramatic reduction in PIN1",
+          "claim": "SMXL6 promotes PIN1 accumulation"
+        },
+        {
+          "doi": "10.1105/tpc.15.00562",
+          "title": "SMAX1-LIKE/D53 Family Members Enable Distinct MAX2-Dependent Responses",
+          "authors": "Soundappan I et al.",
+          "year": 2015,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "Reduced PIN1-GFP accumulation at basal membrane in smxl6,7,8 max2",
+          "claim": "SMXL8 promotes PIN1"
+        }
+      ]
+    },
+    {
+      "source": "GA",
+      "target": "DELLA",
+      "sign": -1,
+      "edge_id": "N017",
+      "effect": "inhibition",
+      "mechanism": "GA promotes DELLA protein degradation via ubiquitin-proteasome pathway",
+      "evidence": [
+        {
+          "doi": "10.1111/jipb.12818",
+          "title": "Gibberellin repression of axillary bud formation in Arabidopsis by modulation of DELLA-SPL9 complex activity",
+          "authors": "Zhang QQ et al.",
+          "year": 2020,
+          "journal": "JIPB",
+          "evidence_sentence": "High levels of GAs activate the APC/C complex and promote degradation",
+          "claim": "GA degrades DELLA proteins"
+        }
+      ]
+    },
+    {
+      "source": "DELLA",
+      "target": "SPL9",
+      "sign": -1,
+      "edge_id": "N018",
+      "effect": "inhibition",
+      "mechanism": "DELLA proteins sequester SPL9, preventing its activation of BRC1",
+      "evidence": [
+        {
+          "doi": "10.1111/jipb.12818",
+          "title": "Gibberellin repression of axillary bud formation in Arabidopsis by modulation of DELLA-SPL9 complex activity",
+          "authors": "Zhang QQ et al.",
+          "year": 2020,
+          "journal": "JIPB",
+          "evidence_sentence": "GA-DELLA-SPL9 pathway in axillary bud regulation",
+          "claim": "DELLA sequesters SPL9"
+        }
+      ]
+    },
+    {
+      "source": "miR156",
+      "target": "SPL9",
+      "sign": -1,
+      "edge_id": "N019",
+      "effect": "inhibition",
+      "mechanism": "miR156 post-transcriptionally silences SPL9 mRNA",
+      "evidence": [
+        {
+          "doi": "10.1007/s11103-008-9310-z",
+          "title": "The microRNA regulated SBP-box genes SPL9 and SPL15 control shoot maturation",
+          "authors": "Schwarz S et al.",
+          "year": 2008,
+          "journal": "Plant Molecular Biology",
+          "evidence_sentence": "SPL9 and SPL15 are post-transcriptionally regulated by miR156",
+          "claim": "miR156 silences SPL9"
+        }
+      ]
+    },
+    {
+      "source": "Low_R_FR",
+      "target": "FHY3",
+      "sign": -1,
+      "edge_id": "N020",
+      "effect": "inhibition",
+      "mechanism": "Shade (EOD-FR) triggers rapid FHY3 protein degradation via proteasome",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-15893-7",
+          "title": "FHY3 and FAR1 integrate light and strigolactone signaling",
+          "authors": "Xie Y et al.",
+          "year": 2020,
+          "journal": "Nature Communications",
+          "evidence_sentence": "Accumulation of FHY3 protein rapidly decreased after EOD-FR treatment",
+          "claim": "Shade degrades FHY3 protein"
+        }
+      ]
+    },
+    {
+      "source": "FHY3",
+      "target": "SMXL678",
+      "sign": 1,
+      "edge_id": "N021",
+      "effect": "activation",
+      "mechanism": "FHY3 directly binds SMXL6 first exon and SMXL7 promoter to activate transcription (Motif 3 path 1)",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-15893-7",
+          "title": "FHY3 and FAR1 integrate light and strigolactone signaling",
+          "authors": "Xie Y et al.",
+          "year": 2020,
+          "journal": "Nature Communications",
+          "evidence_sentence": "FHY3 could directly bind to first exon of SMXL6 and SMXL7; transcript levels upregulated in FHY3-OE",
+          "claim": "FHY3 activates SMXL6 transcription"
+        }
+      ]
+    },
+    {
+      "source": "FHY3",
+      "target": "SPL9",
+      "sign": -1,
+      "edge_id": "N022",
+      "effect": "inhibition",
+      "mechanism": "FHY3 physically interacts with SPL9 to inhibit DNA-binding (Motif 3 path 2 - both paths reduce BRC1 activation)",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-15893-7",
+          "title": "FHY3 and FAR1 integrate light and strigolactone signaling",
+          "authors": "Xie Y et al.",
+          "year": 2020,
+          "journal": "Nature Communications",
+          "evidence_sentence": "FHY3 can inhibit the DNA-binding activity of both SPL9 and SPL15",
+          "claim": "FHY3 inhibits SPL9"
+        }
+      ]
+    },
+    {
+      "source": "Low_R_FR",
+      "target": "BRC1",
+      "sign": 1,
+      "edge_id": "N023",
+      "effect": "activation",
+      "mechanism": "Shade (low R:FR) upregulates BRC1 via phyB inactivation",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.112.108480",
+          "title": "BRANCHED1 Promotes Axillary Bud Dormancy in Response to Shade",
+          "authors": "Gonzalez-Grandio E et al.",
+          "year": 2013,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "After 4 h, BRC1 mRNA levels were higher in W+FR-treated plants",
+          "claim": "Shade upregulates BRC1"
+        }
+      ]
+    },
+    {
+      "source": "SPL9",
+      "target": "BRC1",
+      "sign": 1,
+      "edge_id": "N024",
+      "effect": "activation",
+      "mechanism": "SPL9 directly binds BRC1 promoter to activate transcription",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-15893-7",
+          "title": "FHY3 and FAR1 integrate light and strigolactone signaling to regulate branching",
+          "authors": "Xie Y et al.",
+          "year": 2020,
+          "journal": "Nature Communications",
+          "evidence_sentence": "SPL9 and SPL15 could directly bind to the S1 fragment of BRC1 promoter",
+          "claim": "SPL9 activates BRC1 transcription"
+        }
+      ]
+    },
+    {
+      "source": "Auxin",
+      "target": "BRC1",
+      "sign": 1,
+      "edge_id": "N025",
+      "effect": "activation",
+      "mechanism": "Auxin indirectly maintains BRC1 expression via SL promotion and CK suppression",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.048934",
+          "title": "Arabidopsis BRANCHED1 Acts as an Integrator of Branching Signals",
+          "authors": "Aguilar-Martinez JA et al.",
+          "year": 2007,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "BRC1 activity is necessary for the auxin-induced control of apical dominance",
+          "claim": "Auxin promotes BRC1 expression"
+        }
+      ]
+    },
+    {
+      "source": "Cytokinin",
+      "target": "BRC1",
+      "sign": -1,
+      "edge_id": "N026",
+      "effect": "inhibition",
+      "mechanism": "CK rapidly downregulates BRC1 expression in axillary buds",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.145649",
+          "title": "BRC1 expression regulates bud activation potential",
+          "authors": "Seale M et al.",
+          "year": 2017,
+          "journal": "Development",
+          "evidence_sentence": "BRC1 transcripts decreased in buds within 1 h of basal CK treatment",
+          "claim": "CK represses BRC1"
+        }
+      ]
+    },
+    {
+      "source": "BES1",
+      "target": "BRC1",
+      "sign": -1,
+      "edge_id": "N027",
+      "effect": "inhibition",
+      "mechanism": "BES1 directly binds BRC1 promoter and cooperates with SMXLs to repress BRC1",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2019.100014",
+          "title": "BES1 Functions as the Co-regulator of D53-like SMXLs to Inhibit BRC1 Expression",
+          "authors": "Hu J et al.",
+          "year": 2019,
+          "journal": "Plant Communications",
+          "evidence_sentence": "BES1 directly bound to the BRC1 promoter fragments F2, F4, and F5",
+          "claim": "BES1 represses BRC1"
+        }
+      ]
+    },
+    {
+      "source": "FT",
+      "target": "BRC1",
+      "sign": -1,
+      "edge_id": "N028",
+      "effect": "inhibition",
+      "mechanism": "FT and BRC1 have reciprocal repressive interaction",
+      "evidence": [
+        {
+          "doi": "10.1093/plphys/kiab586",
+          "title": "Plasticity of bud outgrowth varies at cauline and rosette nodes",
+          "authors": "Fichtner F et al.",
+          "year": 2021,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "FT interact with reciprocal repressive effect between the two proteins",
+          "claim": "FT represses BRC1"
+        }
+      ]
+    },
+    {
+      "source": "Sucrose",
+      "target": "BRC1",
+      "sign": -1,
+      "edge_id": "N029",
+      "effect": "inhibition",
+      "mechanism": "Sugar/T6P signaling suppresses BRC1 expression",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1613199114",
+          "title": "Abscisic acid signaling is controlled by a BRANCHED1/HD-ZIP I cascade",
+          "authors": "Gonzalez-Grandio E et al.",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "Sucrose treatments caused down-regulation of BRC1",
+          "claim": "Sucrose represses BRC1"
+        }
+      ]
+    },
+    {
+      "source": "Nitrogen",
+      "target": "IPT",
+      "sign": 1,
+      "edge_id": "N030",
+      "effect": "activation",
+      "mechanism": "Nitrate upregulates IPT expression promoting CK biosynthesis",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.109.135475",
+          "title": "Roles for Auxin, Cytokinin, and Strigolactone in Regulating Shoot Branching",
+          "authors": "Ferguson BJ, Beveridge CA",
+          "year": 2009,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Nitrate can up-regulate IPT expression and is suggested to regulate bud outgrowth via CK",
+          "claim": "Nitrogen promotes IPT expression"
+        }
+      ]
+    },
+    {
+      "source": "Decapitation",
+      "target": "IPT",
+      "sign": 1,
+      "edge_id": "N031",
+      "effect": "activation",
+      "mechanism": "Auxin depletion after decapitation allows IPT gene expression",
+      "evidence": [
+        {
+          "doi": "10.1093/aob/mcr069",
+          "title": "Auxin, cytokinin and the control of shoot branching",
+          "authors": "Muller D, Leyser O",
+          "year": 2011,
+          "journal": "Annals of Botany",
+          "evidence_sentence": "PsIPT1 and PsIPT2 were transiently induced 3 h after decapitation",
+          "claim": "Decapitation induces IPT expression"
+        }
+      ]
+    },
+    {
+      "source": "Auxin",
+      "target": "IPT",
+      "sign": -1,
+      "edge_id": "N032",
+      "effect": "inhibition",
+      "mechanism": "Auxin represses IPT biosynthesis genes reducing CK production",
+      "evidence": [
+        {
+          "doi": "10.1093/aob/mcr069",
+          "title": "Auxin, cytokinin and the control of shoot branching",
+          "authors": "Muller D, Leyser O",
+          "year": 2011,
+          "journal": "Annals of Botany",
+          "evidence_sentence": "Auxin can negatively regulate the synthesis of CK dependent on AXR1-mediated signaling",
+          "claim": "Auxin represses CK biosynthesis via IPT"
+        }
+      ]
+    },
+    {
+      "source": "IPT",
+      "target": "Cytokinin",
+      "sign": 1,
+      "edge_id": "N033",
+      "effect": "activation",
+      "mechanism": "Isopentenyltransferase catalyzes rate-limiting step of CK biosynthesis",
+      "evidence": [
+        {
+          "doi": "10.1093/aob/mcr069",
+          "title": "Auxin, cytokinin and the control of shoot branching",
+          "authors": "Muller D, Leyser O",
+          "year": 2011,
+          "journal": "Annals of Botany",
+          "evidence_sentence": "Root expression of IPT leads to specific export of ZR in the xylem sap",
+          "claim": "IPT produces cytokinin"
+        }
+      ]
+    },
+    {
+      "source": "Auxin",
+      "target": "PIN1",
+      "sign": 1,
+      "edge_id": "N034",
+      "effect": "activation",
+      "mechanism": "Auxin promotes PIN1 transcription and polar localization (positive feedback)",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.114.242388",
+          "title": "Auxin and Strigolactone Signaling Required for Branching by Nitrogen",
+          "authors": "de Jong M et al.",
+          "year": 2014,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Auxin-induced increases in PIN1 transcription",
+          "claim": "Auxin promotes PIN1"
+        }
+      ]
+    },
+    {
+      "source": "Cytokinin",
+      "target": "PIN1",
+      "sign": 1,
+      "edge_id": "N035",
+      "effect": "activation",
+      "mechanism": "CK upregulates and polarizes PIN1",
+      "evidence": [
+        {
+          "doi": "10.1093/aob/mcr069",
+          "title": "Auxin, cytokinin and the control of shoot branching",
+          "authors": "Muller D, Leyser O",
+          "year": 2011,
+          "journal": "Annals of Botany",
+          "evidence_sentence": "CK treatment also results in the polarization of PIN1 24 h after the application",
+          "claim": "CK promotes PIN1 localization"
+        }
+      ]
+    },
+    {
+      "source": "Cytokinin",
+      "target": "PIN3",
+      "sign": 1,
+      "edge_id": "N036",
+      "effect": "activation",
+      "mechanism": "CK increases PIN3-GFP accumulation at basal plasma membrane by ~30%",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.17.01691",
+          "title": "Cytokinin Targets Auxin Transport to Promote Shoot Branching",
+          "authors": "Waldie T, Leyser O",
+          "year": 2018,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "BA treatment increased PIN3-GFP on basal plasma membrane by ~30%",
+          "claim": "CK promotes PIN3 accumulation"
+        }
+      ]
+    },
+    {
+      "source": "Nitrogen",
+      "target": "PIN3",
+      "sign": 1,
+      "edge_id": "N037",
+      "effect": "activation",
+      "mechanism": "High nitrate increases PIN3-GFP accumulation in stems",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.17.01691",
+          "title": "Cytokinin Targets Auxin Transport to Promote Shoot Branching",
+          "authors": "Waldie T, Leyser O",
+          "year": 2018,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Nitrate-sufficient conditions increased levels of PIN3-GFP",
+          "claim": "Nitrogen promotes PIN3"
+        }
+      ]
+    },
+    {
+      "source": "BRC1",
+      "target": "PIN3",
+      "sign": -1,
+      "edge_id": "N038",
+      "effect": "inhibition",
+      "mechanism": "BRC1 directly binds PIN3 promoter to repress transcription",
+      "evidence": [
+        {
+          "doi": "10.1093/plphys/kiab071",
+          "title": "The molecular and genetic regulation of shoot branching",
+          "authors": "Luo Z et al.",
+          "year": 2021,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "CsBRC1 directly binds to the CsPIN3 promoter to repress the transcription",
+          "claim": "BRC1 represses PIN3"
+        }
+      ]
+    },
+    {
+      "source": "Sucrose",
+      "target": "T6P",
+      "sign": 1,
+      "edge_id": "N039",
+      "effect": "activation",
+      "mechanism": "Sucrose rapidly increases T6P levels within 15-30 min",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.16.00417",
+          "title": "A Tale of Two Sugars: Trehalose 6-Phosphate and Sucrose",
+          "authors": "Figueroa CM, Lunn JE",
+          "year": 2016,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Within 15 to 30 min of supplying Suc exogenously, Tre6P began to rise rapidly",
+          "claim": "Sucrose increases T6P"
+        }
+      ]
+    },
+    {
+      "source": "T6P",
+      "target": "FT",
+      "sign": 1,
+      "edge_id": "N040",
+      "effect": "activation",
+      "mechanism": "T6P signaling promotes FT expression for systemic branching control",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17006",
+          "title": "Regulation of shoot branching in Arabidopsis by trehalose 6-phosphate",
+          "authors": "Fichtner F et al.",
+          "year": 2021,
+          "journal": "New Phytologist",
+          "evidence_sentence": "FT transcription is a target of Tre6P signaling",
+          "claim": "T6P activates FT"
+        }
+      ]
+    },
+    {
+      "source": "Photoperiod",
+      "target": "FT",
+      "sign": 1,
+      "edge_id": "N041",
+      "effect": "activation",
+      "mechanism": "Long day conditions promote FT expression",
+      "evidence": [
+        {
+          "doi": "10.1093/plphys/kiab586",
+          "title": "Plasticity of bud outgrowth varies at cauline and rosette nodes",
+          "authors": "Fichtner F et al.",
+          "year": 2021,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "FT-mediated flowering pathway influences branching",
+          "claim": "Long days promote FT"
+        }
+      ]
+    },
+    {
+      "source": "BRC1",
+      "target": "HB21",
+      "sign": 1,
+      "edge_id": "N042",
+      "effect": "activation",
+      "mechanism": "BRC1 directly binds and activates HB21/HB40/HB53 promoters (HB21 represents redundant HD-Zip I family)",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1613199114",
+          "title": "Abscisic acid signaling is controlled by a BRANCHED1/HD-ZIP I cascade",
+          "authors": "Gonzalez-Grandio E et al.",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "BRC1 directly activates a group of phylogenetically related genes, HB21",
+          "claim": "BRC1 activates HB21"
+        }
+      ]
+    },
+    {
+      "source": "Low_R_FR",
+      "target": "HB21",
+      "sign": 1,
+      "edge_id": "N043",
+      "effect": "activation",
+      "mechanism": "Shade upregulates HB21 in buds",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1613199114",
+          "title": "Abscisic acid signaling is controlled by a BRANCHED1/HD-ZIP I cascade",
+          "authors": "Gonzalez-Grandio E et al.",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "HB21 up-regulated in buds treated with W+FR light",
+          "claim": "Shade activates HB21"
+        }
+      ]
+    },
+    {
+      "source": "Sucrose",
+      "target": "HB21",
+      "sign": -1,
+      "edge_id": "N044",
+      "effect": "inhibition",
+      "mechanism": "Sugar treatment represses HB21 expression in buds",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1613199114",
+          "title": "Abscisic acid signaling is controlled by a BRANCHED1/HD-ZIP I cascade",
+          "authors": "Gonzalez-Grandio E et al.",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "HB21 mRNA levels decreased after sugar treatment",
+          "claim": "Sucrose represses HB21"
+        }
+      ]
+    },
+    {
+      "source": "HB21",
+      "target": "NCED3",
+      "sign": 1,
+      "edge_id": "N045",
+      "effect": "activation",
+      "mechanism": "HD-Zip I family TFs activate NCED3 expression (HB21 represents HB21/40/53)",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1613199114",
+          "title": "Abscisic acid signaling is controlled by a BRANCHED1/HD-ZIP I cascade",
+          "authors": "Gonzalez-Grandio E et al.",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "HB21, HB40, and HB53 enhance NCED3 expression",
+          "claim": "HB21 activates NCED3"
+        }
+      ]
+    },
+    {
+      "source": "Low_R_FR",
+      "target": "NCED3",
+      "sign": 1,
+      "edge_id": "N046",
+      "effect": "activation",
+      "mechanism": "Shade induces NCED3 expression in buds",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1613199114",
+          "title": "Abscisic acid signaling is controlled by a BRANCHED1/HD-ZIP I cascade",
+          "authors": "Gonzalez-Grandio E et al.",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "NCED3 induction in W+FR light",
+          "claim": "Shade upregulates NCED3"
+        }
+      ]
+    },
+    {
+      "source": "NCED3",
+      "target": "ABA",
+      "sign": 1,
+      "edge_id": "N047",
+      "effect": "activation",
+      "mechanism": "9-cis-epoxycarotenoid dioxygenase catalyzes key ABA biosynthetic step",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1613199114",
+          "title": "Abscisic acid signaling is controlled by a BRANCHED1/HD-ZIP I cascade",
+          "authors": "Gonzalez-Grandio E et al.",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "NCED3 encodes an enzyme that catalyzes xanthoxin production, a key regulatory step of ABA biosynthesis",
+          "claim": "NCED3 produces ABA"
+        }
+      ]
+    },
+    {
+      "source": "ABA2",
+      "target": "ABA",
+      "sign": 1,
+      "edge_id": "N048",
+      "effect": "activation",
+      "mechanism": "ABA2 catalyzes ABA biosynthetic step",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.113.221895",
+          "title": "ABA Regulates Axillary Bud Outgrowth Responses to R:FR Light",
+          "authors": "Reddy SK et al.",
+          "year": 2013,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Bud n and bud n-2 of aba2-1 had less than 25% of the ABA as the wild type",
+          "claim": "ABA2 is required for ABA biosynthesis"
+        }
+      ]
+    },
+    {
+      "source": "Cytokinin",
+      "target": "Shoot_Branching",
+      "sign": 1,
+      "edge_id": "N049",
+      "effect": "activation",
+      "mechanism": "CK promotes bud outgrowth independently and via BRC1 repression",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.109.135475",
+          "title": "Roles for Auxin, Cytokinin, and Strigolactone in Regulating Shoot Branching",
+          "authors": "Ferguson BJ, Beveridge CA",
+          "year": 2009,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Strigolactone inhibits bud outgrowth, whereas CK promotes it",
+          "claim": "CK promotes branching"
+        }
+      ]
+    },
+    {
+      "source": "PIN1",
+      "target": "Shoot_Branching",
+      "sign": 1,
+      "edge_id": "N050",
+      "effect": "activation",
+      "mechanism": "PIN1 enables auxin canalization from buds into stem PATS required for bud activation",
+      "evidence": [
+        {
+          "doi": "10.1242/bio.021402",
+          "title": "Strigolactone regulates shoot development through a core signalling pathway",
+          "authors": "Bennett T et al.",
+          "year": 2016,
+          "journal": "Biology Open",
+          "evidence_sentence": "pin1-613 d14-1 dramatically reduced shoot branching",
+          "claim": "PIN1 promotes branching"
+        }
+      ]
+    },
+    {
+      "source": "PIN3",
+      "target": "Shoot_Branching",
+      "sign": 1,
+      "edge_id": "N051",
+      "effect": "activation",
+      "mechanism": "PIN3 mediates connective auxin transport between buds",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pgen.1008023",
+          "title": "Connective auxin transport in SL-mediated branching control",
+          "authors": "van Rongen M et al.",
+          "year": 2019,
+          "journal": "PLoS Genetics",
+          "evidence_sentence": "pin3pin4pin7 mutant shoot apices show reduced ability to communicate",
+          "claim": "PIN3 promotes bud communication"
+        }
+      ]
+    },
+    {
+      "source": "T6P",
+      "target": "Shoot_Branching",
+      "sign": 1,
+      "edge_id": "N052",
+      "effect": "activation",
+      "mechanism": "T6P promotes branching via SnRK1 inhibition and FT promotion",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17006",
+          "title": "Regulation of shoot branching in Arabidopsis by trehalose 6-phosphate",
+          "authors": "Fichtner F et al.",
+          "year": 2021,
+          "journal": "New Phytologist",
+          "evidence_sentence": "Direct genetic evidence of a local role for T6P in axillary bud outgrowth regulation",
+          "claim": "T6P promotes branching"
+        }
+      ]
+    },
+    {
+      "source": "BRC1",
+      "target": "Shoot_Branching",
+      "sign": -1,
+      "edge_id": "N053",
+      "effect": "inhibition",
+      "mechanism": "TCP transcription factor that arrests axillary bud development",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.048934",
+          "title": "Arabidopsis BRANCHED1 Acts as an Integrator of Branching Signals",
+          "authors": "Aguilar-Martinez JA et al.",
+          "year": 2007,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "BRC1 prevents AM initiation and retards all stages of bud development",
+          "claim": "BRC1 inhibits shoot branching"
+        }
+      ]
+    },
+    {
+      "source": "ABA",
+      "target": "Shoot_Branching",
+      "sign": -1,
+      "edge_id": "N054",
+      "effect": "inhibition",
+      "mechanism": "ABA promotes bud dormancy downstream of BRC1",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.15.00065",
+          "title": "Abscisic Acid Is a General Negative Regulator of Arabidopsis Axillary Bud Growth",
+          "authors": "Yao C, Finlayson SA",
+          "year": 2015,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "ABA restricts bud outgrowth from lower buds in the rosette",
+          "claim": "ABA inhibits branching"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Hypocotyl_Length",
+    "phenotype_node": "Hypocotyl_Length",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "iteration": 2,
+    "judge_model": "Claude Opus 4.7 (1M context)",
+    "previous_review": "judge_review_iteration_1.json",
+    "builder_log": "build_log_iteration_2.json"
+  },
+  "verdict": "approved",
+  "summary": "BUILDER applied 10 of 10 actionable iteration-1 suggestions (2 HIGH + 6 MEDIUM + 2 LOW); 2 literature_gap items correctly deferred. Network grew from 46→54 nodes and 82→103 edges, with clock anchor (TOC1, GI), HSF thermo intermediate (HSFA1D), BBX family extension (BBX11, BBX25, HYH), phyA accessory (FHY1), and complete BIN2/SPA1/COP1 Multi-Output Scaffolds all added. Mean rubric score rose 3.82 → 4.45. Key_player_density improved materially: HY5 0.36→0.57, COP1 0.67→0.87, BIN2 0.44→0.78, BBX11 0.00→0.50 (new), HSFA1D 0.00→0.80 (new). No HIGH or MEDIUM suggestions remain; only 4 LOW items (expand clock with CCA1/LHY, add FHL redundancy, RUP1/RUP2 UV feedback, TCP17 as parallel thermo). Verdict: approved. Pipeline proceeds to Step 3 (PERTURBATION).",
+  "rubric_scores": {
+    "pathway_completeness": {
+      "score": 4,
+      "justification": "Previously 3. Clock oscillator arm now anchored by TOC1 and GI (HIGH iter-1 gap closed). HSF thermomorphogenesis arm now represented by HSFA1D (MEDIUM iter-1 gap closed). phyA accessory arm partially present via FHY1 (FHL still missing — LOW). BBX family richer with BBX11 partnering BBX21 and BBX25 as antagonist. The remaining holes (CCA1/LHY autoregulatory clock oscillator, PRR5/PRR7/PRR9, PAR1/ATHB2-4/HAT1-3 shade HD-ZIPs) are peripheral: their primary output routes (PIF4 repression at dawn, HFR1 antagonism of PIFs) are already captured by TOC1/GI/ELF3_EC and HFR1/PIF5 feedback. Not a 5 because the full clock oscillator is not modeled, but +1 well-earned."
+    },
+    "mechanistic_depth": {
+      "score": 5,
+      "justification": "Previously 4. Temperature → PIF4 is no longer a direct shortcut: it routes through HSFA1D (proper cascade step). Clock signal reaches PIF4 through ELF3_EC → GI → PIF4 AND directly through TOC1 → PIF4 (Coherent Feed-Forward, Motif 3). PIF4-GI negative feedback loop is biologically documented (Nohales 2019) and stabilizing. Every remaining direct-to-phenotype edge is a canonical TF→target link (PIFs, BZR1, ARF6, HY5, DELLA, EIN3, HYH) at the proper end-effector layer — no mechanistic shortcuts remain."
+    },
+    "motif_coverage": {
+      "score": 5,
+      "justification": "Previously 4. BIN2 Multi-Output Scaffold now has 3 targets (BZR1, PIF3, HSFA1D). SPA1 Multi-Output Scaffold complete (COP1+, HY5−, BIN2−). COP1 Multi-Output Scaffold extended to 7 targets (HY5, HFR1, BBX21, BIN2, HSFA1D+, HYH, BBX25 — the last three added iter 2). PIF4-GI negative feedback (Motif 2 Hormone/TF Crosstalk) correctly included as stabilizing loop. BBX11 joins BBX21 as parallel HY5-positive cofactor while BBX25 serves as antagonist — BBX family regulatory fine-tuning now realized. All 7 BUILDER motifs (Perception Gate ×4 for BR/GA/Auxin/Light, Biosynthesis-Degradation Balance ×2 for BR and GA, Multi-Output Scaffold ×3 for COP1/BIN2/SPA1/DELLA, Coherent Feed-Forward ×3 for PIF4-auxin-ARF6, Temperature-HSFA1D-PIF4 and ELF3_EC-clock integration, Hormone Crosstalk Negative Feedback for ABA-GA and PIF4-GI, Self-Limiting Feedback for BZR1-DWF4) are in use."
+    },
+    "cascade_balance": {
+      "score": 4,
+      "justification": "54 nodes, 103 edges, 12 sources (22.2%) — source % marginal up from 21.7% but still below 30-50% target. The reason remains biology-driven (deep light and BR cascades). Fan-in audit: PIF4 at the 7-inhibitor cap (PHYB, CRY1, HFR1, ELF3_EC, DELLA, TOC1, GI) is tight but defensible — these are 7 biologically independent regulators. Hypocotyl_Length at 5 activators + 4 inhibitors = 9 direct edges total, just above the 3-5 activator target but all at canonical end-effector class. HY5 at 3+4 = 7 inputs, at cap. No overloaded hubs exceeding 7. Score capped at 4 because source % remains <30%; raising would require dropping or simplifying deep cascades which would lose biology."
+    },
+    "composite_node_handling": {
+      "score": 5,
+      "justification": "Unchanged from iter 1. All composites remain defensible (DELLA, GID1, TIR1, AUX_IAA, ARF6, YUC8, ELF3_EC). HSFA1D named as single representative of HSFA1a/b/d + HSFA2 quartet — defensible since HSFA1d alone rescues most of the quartet function in published quadruple-KO studies. BBX11 kept separate from BBX21 (correct — distinct roles in photomorphogenesis). BBX25 kept separate from BBX24 (same family-antagonist role but BBX25 > BBX24 on the edge-count audit)."
+    },
+    "hub_completeness": {
+      "score": 4,
+      "justification": "Previously 3. PIF4 coverage 0.30 → 0.35 (still below 0.40 target; BIN2 → PIF4 deferred because fan-in cap). HY5 coverage 0.36 → 0.57 (BBX11, BBX25, SPA1 added as regulators). COP1 coverage 0.67 → 0.87 (HYH, BBX25, HSFA1D targets added). BIN2 coverage 0.44 → 0.78 (HSFA1D, PIF3 added as targets). Remaining gap: PIF4 still misses E035 (BIN2→PIF4), E265 (TCP17→PIF4), E125 (HMR→PIF4), E198 (RCB→PIF4), and the HSFA1a/b/HSFA2 members absorbed into HSFA1D. These are LOW-priority given HSFA1D represents the family and BIN2→PIF3 captures BR-PIF crosstalk at PIF3."
+    },
+    "topology_hazards": {
+      "score": 5,
+      "justification": "Unchanged from iter 1. Perception Gate purity verified for BR, GA4, Auxin, Ethylene (exactly 1 outgoing each, ABA remains free because not gated). No positive-feedback loops: PIF4 → GI (+) × GI → PIF4 (−) = negative feedback (stabilizing); BBX11 → HY5 (+) one-way (HY5 → BBX11 excluded as documented in build log); PHYA → FHY1 (+) one-way (reverse excluded). All 6 previously-broken loops (ARF6↔BZR1, ARF6↔PIF4, PIFs↔PHYB, PIF4→BAK1, PIF4→DWF4, BIN2→PIF4 which is still excluded) remain broken."
+    },
+    "evidence_quality": {
+      "score": 4,
+      "justification": "All 103 edges pass DOI-presence check. New iter-2 edges use curated evidence: TOC1→PIF4 E217, GI→PIF4 E118, HSFA1D→PIF4 E129, BBX11 edges E274/E276/E279/E280, SPA1 edges E209/E211, CPD→BR E061, FHY1→HFR1 E304. Two edges use sign-matched substitutions where exact (src,tgt,sign) is absent but the curated paper supports the direction: ELF3_EC → GI (−1) uses ELF3→GI (−1) E098; PHYA → FHY1 (+1) uses FHY1→phyA (+1) E292 — both documented in build_log_iteration_2.json. Score remains 4 (not 5) because of these substitutions; Step 1.5 could re-curate the exact-match evidence in a future pass."
+    },
+    "phenotype_audit": {
+      "score": 5,
+      "justification": "Previously 4. Phenotype now has 5 activators (PIF3, PIF4, PIF5, BZR1, ARF6 — at cap) + 4 inhibitors (HY5, HYH, DELLA, EIN3). HYH parallel to HY5 captures the HYH redundancy important for hyh single and hy5 hyh double mutants. Both arms balanced; all major TF effector classes represented (dark PIFs, BR-TF, auxin-TF, photomorph TF+homolog, GA-repressor, ethylene-TF). Biology complete at the integrator layer."
+    },
+    "rejected_edges_review": {
+      "score": 4,
+      "justification": "Previously 3. 47 silent cuts after iter 2 (vs 37 after iter 1) — the count went UP because new nodes (TOC1, GI, HSFA1D, BBX11, HYH, BBX25, FHY1, CPD) bring their own rejected-edge set. Inspection shows: (i) 15 direct-to-phenotype bypasses (defensible — TFs at the final layer already cover); (ii) 7 positive-feedback-breaking drops (documented); (iii) ~10 composite-collapse absorptions (HSFA1a/b, ARF7/8 etc.); (iv) 15 other peripheral edges. The only remaining non-defensible cut at MEDIUM priority is BIN2 → PIF4 (E035) which was deferred for fan-in cap reasons; everything else has a documented rationale in the build log or BIOLOGY_PROSE.md."
+    },
+    "key_player_density": {
+      "score": 4,
+      "justification": "Previously 3. Major improvements on PIF4 (0.30→0.35), HY5 (0.36→0.57), COP1 (0.67→0.87), BIN2 (0.44→0.78), PHYB (0.50→0.57). Newly added key players all land at or above 0.40: HSFA1D 0.80, BBX11 0.50, GI 0.50, HYH (rich-as-added) 0.xx, CPD (single-edge minimum viable). Remaining flags: TOC1 0.12 (single-edge minimum viable — adding TOC1→CCA1 E215 and CCA1→TOC1 E045 would complete the feedback but requires adding CCA1; LOW priority), FHY1 0.29 (single accessory; FHL could be added as parallel), AUX_IAA 0.29 (composite-absorption defensible). Completely-missing ≥5-edge curated nodes: CCA1 (8, clock — bridgable via TOC1 already), FHL (6, phyA accessory redundant with FHY1), PRE1 (5, downstream elongator captured by ARF6/BZR1 direct edges), PRR9 (5, clock), TCP17 (5, parallel thermo — LOW). No HIGH or MEDIUM under-representation remaining.",
+      "per_player_ratios": {
+        "PIF4": 0.35,
+        "HY5": 0.57,
+        "COP1": 0.87,
+        "PHYB": 0.57,
+        "PHYA": 0.43,
+        "CRY1": 0.71,
+        "UVR8": 0.50,
+        "BZR1": 0.64,
+        "DELLA": 0.50,
+        "ARF6": 0.45,
+        "AUX_IAA": 0.29,
+        "Auxin": 0.43,
+        "BR": 0.86,
+        "GA4": 0.67,
+        "BIN2": 0.78,
+        "EIN3": 0.33,
+        "HFR1": 0.67,
+        "PIF3": 0.86,
+        "PIF5": 0.60,
+        "PIF7": 0.40,
+        "TOC1": 0.12,
+        "GI": 0.50,
+        "HSFA1D": 0.80,
+        "BBX11": 0.50,
+        "FHY1": 0.29,
+        "Hypocotyl_Length_cascade_routed": 0.12
+      }
+    }
+  },
+  "per_pathway_audit": [
+    {"pathway": "Phytochrome signaling", "completeness": "high", "comment": "Unchanged from iter 1; FHY1 added brings phyA nuclear cofactor. FHL still missing (LOW priority, redundant with FHY1).", "missing_pieces": ["FHL (LOW)"]},
+    {"pathway": "Cryptochrome signaling", "completeness": "high", "comment": "Unchanged. CRY1, CRY2 -> COP1; CRY1 -> PIF4/PIF7 direct.", "missing_pieces": []},
+    {"pathway": "UV-B signaling (UVR8)", "completeness": "high", "comment": "UVR8 triple-assurance to HY5/COP1/PIF5 retained. UVR8→PIF4 direct edge removed to fit fan-in cap; UV-B signal still propagates via UVR8→HY5→elongation repression.", "missing_pieces": ["RUP1/2 UV-B negative feedback (LOW)"]},
+    {"pathway": "BR perception & transduction", "completeness": "high", "comment": "Unchanged perception gate. BIN2 Multi-Output extended to PIF3 and HSFA1D; BIN2→PIF4 still deferred.", "missing_pieces": ["BIN2→PIF4 E035 (LOW-MEDIUM)"]},
+    {"pathway": "BR biosynthesis & catabolism", "completeness": "high", "comment": "CPD added; BR biosynthesis now has 3 canonical enzymes (DET2, DWF4, CPD) vs 2 catabolism (BAS1, SOB7). Motif 4 balance cleaner.", "missing_pieces": []},
+    {"pathway": "GA perception & transduction", "completeness": "high", "comment": "Unchanged.", "missing_pieces": []},
+    {"pathway": "GA biosynthesis & catabolism", "completeness": "high", "comment": "Unchanged.", "missing_pieces": []},
+    {"pathway": "Auxin perception & transduction", "completeness": "high", "comment": "Unchanged.", "missing_pieces": []},
+    {"pathway": "Auxin biosynthesis (thermo/shade)", "completeness": "high", "comment": "Unchanged; still covered by PIF4/PIF7 → YUC8/TAA1.", "missing_pieces": []},
+    {"pathway": "Ethylene (dark triple response)", "completeness": "medium", "comment": "Unchanged from iter 1; ETR1/EBF1/EBF2 remain collapsed.", "missing_pieces": ["ETR1 intermediate (LOW)", "EBF1/EBF2 (LOW)"]},
+    {"pathway": "Temperature thermomorphogenesis", "completeness": "high", "comment": "HSFA1D added as intermediate; Temperature → HSFA1D → PIF4 now mechanistic. ELF3_EC gate on PIF4 also present.", "missing_pieces": ["TCP17 parallel thermo (LOW)", "HSFA1a/b/HSFA2 individually (absorbed into HSFA1D representative)", "Temperature → phyB thermal reversion (literature gap, Step 1)"]},
+    {"pathway": "Shade avoidance (low R:FR)", "completeness": "high", "comment": "PIF7 → YUC8 → Auxin → ARF6 intact. PIF5 → HFR1 (E283) negative feedback added iter 2. HFR1 now activated by both COP1 derepression and PIF5 (dual regulation).", "missing_pieces": ["PAR1 shade-specific brake (LOW)", "ATHB2/4, HAT1-3 HD-ZIPs (LOW)"]},
+    {"pathway": "Circadian clock gating of elongation", "completeness": "medium", "comment": "Previously LOW. TOC1 and GI now anchor clock→PIF4 repression. ELF3_EC → GI adds clock-EC coupling. CCA1/LHY/PRR5/PRR7/PRR9 still absent but their primary effect (TOC1 stabilization, PIF4 repression) is captured via TOC1→PIF4 and ELF3_EC→PIF4/PIF5 direct.", "missing_pieces": ["CCA1/LHY dawn-expressed arm (LOW-MEDIUM, bridgable in a future iteration)", "PRR5/7/9 daytime arm (LOW)"]},
+    {"pathway": "HY5-BBX antagonism", "completeness": "high", "comment": "Previously LOW. BBX11 (+) and BBX25 (−) both added; BBX21 already present. BBX family positive-negative balance captured.", "missing_pieces": ["BBX24 (LOW — redundant with BBX25)", "BBX22 (LOW — redundant with BBX21)"]},
+    {"pathway": "PIF-BZR1-DELLA-ARF integrator", "completeness": "high", "comment": "Unchanged — best-developed section.", "missing_pieces": []},
+    {"pathway": "Phototropin", "completeness": "not_applicable", "comment": "Per iter-1 literature_gap, not priority.", "missing_pieces": []}
+  ],
+  "suggestions": [
+    {
+      "id": "S013",
+      "type": "add_edge",
+      "priority": "low",
+      "description": "Add BIN2 -> PIF4 (-1) to complete BIN2 Multi-Output Scaffold",
+      "biological_justification": "BIN2 phosphorylates PIF4 and promotes its degradation (E035). Currently deferred because PIF4 is at the 7-inhibitor cap. Could be added by dropping one less-essential inhibitor — candidates: CRY1→PIF4 (CRY1 still reaches PIF4 via CRY1→COP1→HFR1 path). Not critical for iter-2 approval because BIN2→PIF3 already captures BR-PIF crosstalk at the PIF3 target and the PIF4 coverage is above 0.30.",
+      "curated_edge_ids": ["E035"],
+      "implementation": "Drop CRY1 → PIF4 (-1). Add BIN2 → PIF4 (-1, E035). Net fan-in unchanged. Verify no positive-feedback loop (BIN2 -> PIF4 -> TAA1/YUC8/ARF6 -> none loop back to BIN2)."
+    },
+    {
+      "id": "S014",
+      "type": "add_node",
+      "priority": "low",
+      "description": "Add CCA1 + TOC1<->CCA1 mutual inhibition to complete minimal clock",
+      "biological_justification": "CCA1 has 8 curated edges and forms the dawn-arm of the clock oscillator; TOC1 → CCA1 (-1, E215) and CCA1 → TOC1 (-1, E045) are mutual inhibition. Adding CCA1 as a node would raise TOC1 coverage from 0.12 and capture cca1 lhy tests. LOW priority because the primary clock→PIF4 output is already covered by TOC1/GI.",
+      "curated_edge_ids": ["E215", "E045", "E047"],
+      "implementation": "Add CCA1 as GENE (optionally source or with Light/photoperiod input). Add TOC1 -> CCA1 (-1, E215 - inside curated), CCA1 -> TOC1 (-1, E045). Mutual inhibition is bistable (Motif 7) — verify no convergence issues."
+    },
+    {
+      "id": "S015",
+      "type": "add_node",
+      "priority": "low",
+      "description": "Add FHL as FHY1-redundant phyA accessory",
+      "biological_justification": "FHL is functionally redundant with FHY1 for phyA nuclear import (fhy1 fhl double mutant is phyA-null-equivalent in far-red). Adding FHL as a parallel source to HFR1 would raise PHYA coverage. LOW priority since FHY1 alone captures the accessory function qualitatively.",
+      "curated_edge_ids": ["E294", "E306"],
+      "implementation": "Add FHL as GENE. Add FHY1 and FHL as parallel activators of HFR1 (i.e., HFR1 gets both FHY1 and FHL as activators, making HFR1 a 3-activator integrator with COP1 inhibition)."
+    },
+    {
+      "id": "S016",
+      "type": "add_node",
+      "priority": "low",
+      "description": "Add TCP17 as parallel thermo/auxin regulator",
+      "biological_justification": "TCP17 is a PIF4-parallel TF that induces YUC8 and IAA19. TCP17 → PIF4 (+1, E265), TCP17 → YUC8 (+1, E266). Adding would capture tcp14 tcp15 tcp17 triple-mutant tests. LOW priority because PIF4/PIF7 already cover the thermo/auxin output.",
+      "curated_edge_ids": ["E265", "E266"],
+      "implementation": "Add TCP17 as GENE (source or with HSFA1D+ input). Add TCP17 -> PIF4 (+1, E265) and TCP17 -> YUC8 (+1, E266)."
+    }
+  ],
+  "literature_gaps": [
+    "Temperature -> phyB thermal reversion (Jung/Legris 2016 Science) — still not in curated.",
+    "Low_R_FR environment node — still not in curated.",
+    "Auxin catabolism (GH3/DAO) — Biosynthesis-Degradation Balance still incomplete for Auxin."
+  ],
+  "stop_reason": null
+}

@@ -1,0 +1,394 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lycopene_Titer",
+    "species": "Escherichia coli",
+    "created": "2026-04-21"
+  },
+  "summary": {
+    "best_method": "Random Walk with Restart (RWR)",
+    "best_accuracy": 0.849,
+    "best_kappa": 0.6273,
+    "best_kappa_band": "substantial",
+    "best_mcc": 0.5445,
+    "best_convergence_rate": 1.0,
+    "tests_tested": 86,
+    "tests_skipped": 22,
+    "tests_total": 108,
+    "recommendation": "Random Walk with Restart (RWR) is the best method at acc=84.9% (kappa=0.627 substantial). Above 80% threshold; refinement plateau reached at iteration 3. Proceed to Step 6 Export using the refined network (refinement/refined_network.json).",
+    "stratified_accuracy": {
+      "by_perturbation_class": {
+        "algebraic": {
+          "MEP_OE": {
+            "correct": 4,
+            "total": 8,
+            "accuracy": 50.0
+          },
+          "MVA_OE": {
+            "correct": 7,
+            "total": 14,
+            "accuracy": 50.0
+          },
+          "carotenoid_OE": {
+            "correct": 10,
+            "total": 10,
+            "accuracy": 100.0
+          },
+          "central_metabolism_deletion": {
+            "correct": 7,
+            "total": 12,
+            "accuracy": 58.3
+          },
+          "engineering_input": {
+            "correct": 11,
+            "total": 14,
+            "accuracy": 78.6
+          },
+          "ispB_KD": {
+            "correct": 1,
+            "total": 1,
+            "accuracy": 100.0
+          },
+          "other": {
+            "correct": 15,
+            "total": 20,
+            "accuracy": 75.0
+          },
+          "regulator_deletion": {
+            "correct": 5,
+            "total": 7,
+            "accuracy": 71.4
+          }
+        },
+        "ode": {
+          "MEP_OE": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 100.0
+          },
+          "MVA_OE": {
+            "correct": 13,
+            "total": 14,
+            "accuracy": 92.9
+          },
+          "carotenoid_OE": {
+            "correct": 10,
+            "total": 10,
+            "accuracy": 100.0
+          },
+          "central_metabolism_deletion": {
+            "correct": 1,
+            "total": 12,
+            "accuracy": 8.3
+          },
+          "engineering_input": {
+            "correct": 14,
+            "total": 14,
+            "accuracy": 100.0
+          },
+          "ispB_KD": {
+            "correct": 1,
+            "total": 1,
+            "accuracy": 100.0
+          },
+          "other": {
+            "correct": 14,
+            "total": 20,
+            "accuracy": 70.0
+          },
+          "regulator_deletion": {
+            "correct": 4,
+            "total": 7,
+            "accuracy": 57.1
+          }
+        },
+        "rwr": {
+          "MEP_OE": {
+            "correct": 8,
+            "total": 8,
+            "accuracy": 100.0
+          },
+          "MVA_OE": {
+            "correct": 13,
+            "total": 14,
+            "accuracy": 92.9
+          },
+          "carotenoid_OE": {
+            "correct": 10,
+            "total": 10,
+            "accuracy": 100.0
+          },
+          "central_metabolism_deletion": {
+            "correct": 6,
+            "total": 12,
+            "accuracy": 50.0
+          },
+          "engineering_input": {
+            "correct": 13,
+            "total": 14,
+            "accuracy": 92.9
+          },
+          "ispB_KD": {
+            "correct": 1,
+            "total": 1,
+            "accuracy": 100.0
+          },
+          "other": {
+            "correct": 16,
+            "total": 20,
+            "accuracy": 80.0
+          },
+          "regulator_deletion": {
+            "correct": 6,
+            "total": 7,
+            "accuracy": 85.7
+          }
+        }
+      },
+      "by_chassis_best_method": {
+        "MG1655": {
+          "correct": 0,
+          "total": 3,
+          "accuracy": 0.0
+        },
+        "XL1": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 100.0
+        },
+        "unspecified": {
+          "correct": 64,
+          "total": 82,
+          "accuracy": 78.0
+        }
+      },
+      "by_chassis_algebraic": {
+        "MG1655": {
+          "correct": 2,
+          "total": 3,
+          "accuracy": 66.7
+        },
+        "XL1": {
+          "correct": 0,
+          "total": 1,
+          "accuracy": 0.0
+        },
+        "unspecified": {
+          "correct": 58,
+          "total": 82,
+          "accuracy": 70.7
+        }
+      },
+      "by_chassis_rwr": {
+        "MG1655": {
+          "correct": 3,
+          "total": 3,
+          "accuracy": 100.0
+        },
+        "XL1": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 100.0
+        },
+        "unspecified": {
+          "correct": 69,
+          "total": 82,
+          "accuracy": 84.1
+        }
+      },
+      "by_carbon_source_best_method": {
+        "glucose": {
+          "correct": 2,
+          "total": 4,
+          "accuracy": 50.0
+        },
+        "glucose|glycerol": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 100.0
+        },
+        "glucose|xylose": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 100.0
+        },
+        "unspecified": {
+          "correct": 61,
+          "total": 80,
+          "accuracy": 76.2
+        }
+      },
+      "by_temperature_best_method": {
+        "37C": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 100.0
+        },
+        "unspecified": {
+          "correct": 64,
+          "total": 85,
+          "accuracy": 75.3
+        }
+      },
+      "by_growth_mode_best_method": {
+        "fed-batch": {
+          "correct": 2,
+          "total": 2,
+          "accuracy": 100.0
+        },
+        "fed-batch|bioreactor": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 100.0
+        },
+        "shake-flask": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 100.0
+        },
+        "unspecified": {
+          "correct": 61,
+          "total": 82,
+          "accuracy": 74.4
+        }
+      },
+      "by_oxygen_best_method": {
+        "aerobic": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 100.0
+        },
+        "anaerobic": {
+          "correct": 0,
+          "total": 1,
+          "accuracy": 0.0
+        },
+        "microaerobic|anaerobic": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 100.0
+        },
+        "unspecified": {
+          "correct": 63,
+          "total": 83,
+          "accuracy": 75.9
+        }
+      },
+      "complex_strain_accuracy": {
+        "algebraic": {
+          "correct": 22,
+          "total": 30,
+          "accuracy": 73.3
+        },
+        "ode": {
+          "correct": 21,
+          "total": 30,
+          "accuracy": 70.0
+        },
+        "rwr": {
+          "correct": 26,
+          "total": 30,
+          "accuracy": 86.7
+        }
+      }
+    }
+  },
+  "comparison": [
+    {
+      "method": "Algebraic",
+      "accuracy": 0.698,
+      "kappa": 0.4213,
+      "mcc": 0.4181,
+      "convergence_rate": 0.4419,
+      "best_params": "epsilon=0.1, K=10.0, damping=0.7",
+      "strengths": "Runs fast; deterministic; good precision on 'increased' class.",
+      "weaknesses": "Low convergence (41.9%) — many feedback configurations don't reach steady state. Kappa only 0.20 ('fair'). Many OE tests collapse to decreased due to geometric-mean dilution at hubs.",
+      "failures": [
+        "T001",
+        "T004",
+        "T016",
+        "T017",
+        "T018",
+        "T019",
+        "T022",
+        "T024",
+        "T027",
+        "T028",
+        "T036",
+        "T039",
+        "T056",
+        "T062",
+        "T064",
+        "T069",
+        "T070",
+        "T076",
+        "T079",
+        "T093",
+        "T094",
+        "T098",
+        "T099",
+        "T101",
+        "T105",
+        "T108"
+      ]
+    },
+    {
+      "method": "ODE (Hill Functions)",
+      "accuracy": 0.756,
+      "kappa": 0.4586,
+      "mcc": 0.4163,
+      "convergence_rate": 1.0,
+      "best_params": "K=5.0, n=1",
+      "strengths": "Best overall — 66.3% acc, kappa 0.29 ('fair'), MCC 0.27. 100% convergence. Hill response with low n (=1) handles monotone activation without saturating.",
+      "weaknesses": "Still below 80% threshold. Many OE tests predict strong decrease (ratio < 0.02) — suggests a global sign issue on one or more dominant cascade nodes. Chassis / medium / inducer tests unwired.",
+      "failures": [
+        "T024",
+        "T026",
+        "T028",
+        "T029",
+        "T030",
+        "T031",
+        "T032",
+        "T033",
+        "T035",
+        "T038",
+        "T039",
+        "T064",
+        "T068",
+        "T071",
+        "T072",
+        "T093",
+        "T098",
+        "T100",
+        "T101",
+        "T105",
+        "T108"
+      ]
+    },
+    {
+      "method": "Random Walk with Restart (RWR)",
+      "accuracy": 0.849,
+      "kappa": 0.6273,
+      "mcc": 0.5445,
+      "convergence_rate": 1.0,
+      "best_params": "alpha=0.75",
+      "strengths": "100% convergence; no parameter-space pathology. Treats network as signed random walk so immune to cascade-length dilution.",
+      "weaknesses": "Lowest accuracy (51.2%) and kappa (0.19). Signed-RWR washes out any magnitude information — everything collapses to sign of net incoming influence, so tests depending on magnitude are lost.",
+      "failures": [
+        "T024",
+        "T026",
+        "T027",
+        "T028",
+        "T039",
+        "T062",
+        "T069",
+        "T070",
+        "T093",
+        "T098",
+        "T101",
+        "T105",
+        "T108"
+      ]
+    }
+  ]
+}

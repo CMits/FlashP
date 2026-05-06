@@ -1,0 +1,176 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lateral_Root_Density",
+    "phenotype_node": "Lateral_Root_Density",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "iteration": 2,
+    "judge_model": "Claude Opus 4.7",
+    "previous_review": "network/judge_review_iteration_1.json",
+    "builder_log": "network/build_log_iteration_2.json"
+  },
+  "verdict": "approved",
+  "summary": "Iteration 2 substantially closed the HIGH-priority gaps flagged in iteration 1. All three HIGH suggestions (S001 GATA23, S002 WOX11, S003 BR module) and both addressable MEDIUM suggestions (S004 HY5, S005 ABI4/5 composite) were applied. Net change: +7 nodes (48->55), +10 edges (58->68), coverage ratio improvements for ABA (0.17->0.50), BR-module (0.00->0.50-1.00 across 4 nodes), GATA23 (0.00->0.60), WOX11 (0.00->0.60), HY5 (0.00->0.40), ARF7 (0.57->0.64), ARF19 (0.86->1.00), IAA28 (0.75->1.00). The BUILDER's trade to drop PUCHI in exchange for BZR under the LR activator hard-cap is defensible - PUCHI's LR-morphogenesis role is captured by LBD composite, and the Step 3 reconciler can map puchi mutants as composite members. S007 (rejected as dependency on PUCHI) and S008 AFB3/NAC4 (rejected as hard-cap violation) are acceptable deferrals with documented literature-gap framing. No HIGH issues remain and only 1 MEDIUM (AFB3/NAC4 still worth tracking); §11 stop condition 'only LOW priority suggestions or no suggestions' is satisfied. Approved for Step 3 PERTURBATION.",
+  "previous_iteration_response_audit": {
+    "S001_GATA23_add_node": "applied_in_full - GATA23 present with ARF7(+), IAA28(-), ->LR(+) edges. Coverage 0.60.",
+    "S002_WOX11_add_node": "applied_partial - WOX11 present via Auxin->WOX11(+) + WOX11->LBD(+). WOX12 deferred - acceptable (WOX11 captures the majority role). Documented minor Auxin gate leak.",
+    "S003_BR_module": "applied_in_full - Brassinosteroid, BRI1, BIN2, BZR (composite) all present with gate-pure BR->BRI1 routing. BUILDER dropped PUCHI node to stay under LR activator hard-cap - justified trade.",
+    "S004_HY5": "applied_partial - HY5 + PHYB added with HY5->ARF19(-) routing. Far_Red/PHYA deferred, which is acceptable (PHYB alone gives constitutive HY5 source).",
+    "S005_ABI5_composite": "applied_with_restructure - ABI4 merged into ABI4_5 composite; preserves gate-pure SNRK2->ABI4_5 plus ABA->ABI4_5 bypass for ABI5 arm. Option (a) from S005 implementation, as JUDGE preferred.",
+    "S007_TOLS2_RLK7": "rejected_with_justification - depends on PUCHI which was dropped. Accepted as deferral.",
+    "S008_AFB3_NAC4": "rejected_with_justification - NAC4->LR would exceed hard cap. Accepted as deferral with literature_gap framing.",
+    "overall": "BUILDER addressed every HIGH and every addressable MEDIUM suggestion. Rejections are cap-constrained and documented. No suggestion was silently ignored."
+  },
+  "rubric_scores": {
+    "pathway_completeness": {
+      "score": 4,
+      "justification": "Significant upgrade from iter1 (3 -> 4). BR module now covered (gain of bzr1-1D, bes1-D, EBR treatment test-reconciliation capability). WOX11/GATA23 restore founder-cell specification and founder-to-organ transition pathways. HY5 restores shoot-root light integration. Remaining gaps are now second-tier: phosphate machinery (STOP1/ALMT1/LPR1/PDR2 endpoints still not reaching LR), AFB3/NAC4 nitrate-auxin amplifier (cap-blocked), SHY2/IAA3 for CK-auxin mutual inhibition (literature_gap), SMXL6/7/8 for full SL gate (literature_gap). PUCHI drop is mildly lossy but morphogenesis covered by LBD composite."
+    },
+    "mechanistic_depth": {
+      "score": 4,
+      "justification": "Multi-step cascades preserved throughout. New BR arm BR->BRI1->BIN2(-)->BZR(-)->LR correctly implements a four-step gated cascade (Perception Gate clean on BR). ABA arm ABA->PYL8->ABI1->SNRK2->ABI4_5 preserves gate purity for the SNRK2 route while ABI4_5 composite cleanly absorbs the ABI5 bypass. WOX11 gives a parallel TF route into LBD alongside ARF7/ARF19 (Coherent Feed-Forward). Score 4 unchanged from iter1 but quality reinforced."
+    },
+    "motif_coverage": {
+      "score": 5,
+      "justification": "Upgrade from iter1 (4 -> 5). Perception Gate strictly clean for Cytokinin, Ethylene, GA, Strigolactone, Brassinosteroid (sole outgoing edge). Auxin has intentional documented minor leak (TIR1 + WOX11) - WOX11 is a parallel TF and does not break the phenotype-proximal gate. ABA has intentional documented minor leak (PYL8 + ABI4_5) for ABI5 arm inclusion - consistent with JUDGE S005 recommendation. Biosynthesis-Degradation Balance applied to Auxin, Cytokinin, Ethylene, Strigolactone. Multi-Output Scaffold on TIR1 (IAA14 + IAA28) and BIN2 (via BZR composite covering BZR1 + BES1). Coherent Feed-Forward: ARF7+ARF19 -> LBD/PLT (parallel arms); WOX11 + ARF7/ARF19 -> LBD (parallel TF inputs). Self-Limiting Feedback via CLE->CLV1->LR(-)."
+    },
+    "cascade_balance": {
+      "score": 5,
+      "justification": "Source percentage now 38.2% (21/55), squarely in 30-50% target. LR at hard caps (7 activators, 7 inhibitors) - at cap, not over. All intermediate nodes within 1-7 regulator range. ARF19 now has 3 inhibitors (IAA14, IAA28, HY5) - well within cap. Every source node has outgoing edges. No dead-ends after PUCHI removal. Backward BFS from LR reaches all 55 nodes (check_network_structure.py confirmed)."
+    },
+    "composite_node_handling": {
+      "score": 4,
+      "justification": "Eight composites now: LBD, PLT, PIN, AHK, ARR_B, CLE, BZR (new), ABI4_5 (new). All follow §9.3 composition rules. BZR (BZR1+BES1) is clean - paralogs with same function. ABI4_5 is mildly unusual (ABI4 = AP2/ERF TF, ABI5 = bZIP TF, different families) but justified: both act as SnRK2-downstream ABA-responsive LR repressors with overlapping target biology. Document clearly in Step 3 reconciliation (abi4 single KO = composite member gm=0.99 not gm=0.5). PIN composite pin2 vs pin3 specificity caveat remains from iter1 but reconciliation handles it."
+    },
+    "hub_completeness": {
+      "score": 4,
+      "justification": "Upgrade from 3 to 4. ARF7 coverage 0.57 -> 0.64 (ARF7->GATA23 E033 added). ARF19 coverage 0.86 -> 1.00 (HY5->ARF19 E162 added). IAA28 coverage 0.75 -> 1.00 (IAA28->GATA23 E200 added). LBD coverage improved by WOX11 input. ABA coverage 0.17 -> 0.50 (ABI4_5 composite bypass). Remaining hub gaps: ARF7 still missing IAA3/SHY2 input (literature_gap), ARF7 still missing SRS5 input, ARF7 still missing MYB77 input, IAA14 still has single inhibitor (AFB2->IAA14 and AFB3->IAA14 not curated - literature_gap)."
+    },
+    "topology_hazards": {
+      "score": 4,
+      "justification": "Score reduced 5 -> 4 due to two new documented minor Perception Gate leaks: Auxin has 2 outgoing edges (TIR1 + WOX11) and ABA has 2 outgoing edges (PYL8 + ABI4_5). Both are trade-offs for canonical biology. Leak impact on signaling-mutant tests: tir1 afb2 afb3 + IAA would still show WOX11 response because Auxin->WOX11 is direct; acceptable because WOX11->LBD is a parallel TF activator and ARF7/19 + IAA14 chain still dominates LR initiation. Similarly abi1 + ABA: ABA->ABI4_5 direct could partially rescue through ABI5 arm. No positive feedback loops. No self-loops. No sole-activator collapses. Trap 1 still blocked. Trade-off is well-documented in BUILDER log."
+    },
+    "evidence_quality": {
+      "score": 4,
+      "justification": "New edges all carry curated evidence from Step 1/1.5 repository. Composite note pattern extended to new BZR and ABI4_5 composites. Mechanism strings specific throughout. S009 iter1 recommendation (enumerate member curated edge_ids in mechanism field for composites) not fully applied - this is a MEDIUM-to-LOW polish item for iter 3 optional. Core evidence quality unchanged from iter1."
+    },
+    "phenotype_audit": {
+      "score": 4,
+      "justification": "Upgrade from 3 to 4. LR now has 7 activators including GATA23 (founder-cell) and BZR (BR arm) - fills the iter1 gaps in founder-cell TF class and BR-effector class. 7 inhibitors cover CK (ARR_B), N-demand (CLV1), ethylene (EIN2), ABA (ABI4_5), GA (DELLA), SL (D14 + MAX2). At hard cap on both sides. Remaining absent activator class: AFB3/NAC4 nitrate-auxin amplifier (cap-blocked). Remaining absent inhibitor class: HY5 light-integration is routed through ARF19 rather than direct to LR - acceptable because keeps the inhibitor cap clear and captures the same net effect."
+    },
+    "rejected_edges_review": {
+      "score": 4,
+      "justification": "Upgrade from 3 to 4. Five previously-silently-rejected canonical hubs (GATA23, WOX11, BRI1, BIN2, BZR1/BES1) are now included. HY5 and ABI5 also restored. Remaining rejections are either gate-motivated (Auxin->LR direct, Cytokinin->PIN*, Ethylene->TAA1 etc.) or cap-motivated (AFB3/NAC4 arm, KAI2, AFB2 as AUX co-receptor) and all documented in build_log_iteration_2.json. No silent drops."
+    },
+    "key_player_density": {
+      "score": 4,
+      "justification": "Upgrade from 3 to 4. Remaining under-rep flags: PUCHI (0.00, OMITTED but with DOCUMENTED cap trade), AFB3 (0.00, documented cap trade), and PIN1 coverage 0.14 (structurally constrained by composite - individual PIN1 curated edges collapse into PIN composite edges). Auxin 0.30 and Cytokinin 0.38 and Ethylene 0.33 remain borderline - all three are documented Perception Gate enforcement, which is biology-correct design. LR_Density 0.29 coverage is expected (many curated edges are direct-to-LR bypasses intentionally routed through intermediates). Score 4 (not 5) because AFB3 remains a real missed arm that could be added in a future iteration if a cap-relieving restructure is found.",
+      "per_player_ratios": {
+        "ARF7": 0.64,
+        "ARF19": 1.00,
+        "IAA14": 1.00,
+        "IAA28": 1.00,
+        "LBD16_via_composite": 0.40,
+        "LBD29_via_composite": 1.00,
+        "PLT3_via_composite": 0.56,
+        "PIN1_via_composite": 0.14,
+        "AHK2_via_composite": 0.80,
+        "TIR1": 0.67,
+        "TAR2": 0.60,
+        "EIN2": 0.75,
+        "ABA": 0.50,
+        "ABI4_via_composite": 0.50,
+        "ABI5_via_composite": 0.67,
+        "Auxin": 0.30,
+        "Cytokinin": 0.38,
+        "Ethylene": 0.33,
+        "Strigolactone": 1.00,
+        "Brassinosteroid": 1.00,
+        "GATA23": 0.60,
+        "WOX11": 0.60,
+        "HY5": 0.40,
+        "BRI1": 0.67,
+        "BIN2": 1.00,
+        "BZR1_via_composite": 0.67,
+        "BES1_via_composite": 0.50,
+        "PUCHI": 0.00,
+        "AFB3": 0.00,
+        "Low_Nitrate": 0.60,
+        "Low_Phosphate": 0.33
+      }
+    }
+  },
+  "per_node_audit_delta": {
+    "comment": "Delta-only review vs iter1 per-node audit. Unchanged nodes from iter1 audit still hold (see judge_review_iteration_1.json). Nodes added/modified below.",
+    "added_or_modified": [
+      {"node": "GATA23", "inputs": ["ARF7(+)", "IAA28(-)"], "outputs": ["Lateral_Root_Density(+)"], "verdict": "appropriate", "comment": "Founder-cell marker correctly positioned between auxin-signalling (ARF7 activation, IAA28 repression) and LR. All 3 curated GATA23 edges represented."},
+      {"node": "WOX11", "inputs": ["Auxin(+)"], "outputs": ["LBD(+)"], "verdict": "appropriate", "comment": "Founder-to-organ transition TF. Auxin->WOX11 bypass acknowledged as minor Perception Gate leak; WOX11->LBD uses composite evidence E221. WOX12 paralog deferred - acceptable."},
+      {"node": "Brassinosteroid", "inputs": [], "outputs": ["BRI1(+)"], "verdict": "appropriate", "comment": "Source HORMONE. Perception Gate clean (sole outgoing edge)."},
+      {"node": "BRI1", "inputs": ["Brassinosteroid(+)"], "outputs": ["BIN2(-)"], "verdict": "appropriate", "comment": "BR receptor. BRI1->BIN2 inhibition correctly implements BAK1-BRI1 activation releasing BIN2 repression (standard BR signalling cascade)."},
+      {"node": "BIN2", "inputs": ["BRI1(-)"], "outputs": ["BZR(-)"], "verdict": "appropriate", "comment": "GSK3-like kinase. BIN2->BZR composite captures BIN2->BZR1 + BIN2->BES1 (E236 + E237)."},
+      {"node": "BZR", "inputs": ["BIN2(-)"], "outputs": ["Lateral_Root_Density(+)"], "verdict": "appropriate", "comment": "Composite BZR1+BES1. Single LR activator captures both paralogs. bzr1-1D and bes1-D reconcile as composite GoF."},
+      {"node": "HY5", "inputs": ["PHYB(+)"], "outputs": ["ARF19(-)"], "verdict": "appropriate", "comment": "Shoot-root light integrator. PHYB-only activation acceptable for iter 2 - Far_Red/PHYA can be added in future iterations if needed."},
+      {"node": "PHYB", "inputs": [], "outputs": ["HY5(+)"], "verdict": "appropriate", "comment": "Source photoreceptor. Single curated edge represented."},
+      {"node": "ABI4_5", "inputs": ["SNRK2(+)", "ABA(+)"], "outputs": ["Lateral_Root_Density(-)"], "verdict": "appropriate", "comment": "Composite ABI4+ABI5. Dual activation: SNRK2 (gate-pure ABA route via ABI1 repression) + ABA bypass (covers ABA->ABI5 E247). Single LR inhibitor preserves cap. Step 3 reconciles abi4 and abi5 singles as composite members (gm=0.99 triple-like)."},
+      {"node": "ARF19", "inputs": ["IAA14(-)", "IAA28(-)", "HY5(-)"], "outputs": ["LBD(+)", "PLT(+)"], "verdict": "appropriate_upgrade", "comment": "New HY5 inhibitor input integrates light status with LR-initiation TF activity. All 7 curated ARF19 edges now represented (coverage 1.00)."},
+      {"node": "Auxin", "inputs": ["TAA1(+)", "TAR2(+)", "YUC4(+)", "AUX1(+)", "GH3(-)", "DAO1(-)"], "outputs": ["TIR1(+)", "WOX11(+)"], "verdict": "gate_leak_documented", "comment": "Added Auxin->WOX11 edge. Leak is scoped (WOX11 is a TF, not a direct LR effector). Accepted trade-off per JUDGE S002 HIGH."},
+      {"node": "ABA", "inputs": [], "outputs": ["PYL8(+)", "ABI4_5(+)"], "verdict": "gate_leak_documented", "comment": "Added ABA->ABI4_5 bypass for ABI5 arm inclusion. Leak is scoped (ABI4_5 is terminal TF). Accepted trade-off per JUDGE S005 MEDIUM with restructure."}
+    ],
+    "nodes_removed_since_iter1": [
+      {"node": "PUCHI", "reason": "Dropped to free LR-activator slot for BZR->LR (S003 HIGH). LR-morphogenesis biology absorbed into LBD composite. puchi mutant maps as LBD composite member in Step 3. TOLS2/RLK7 upstream (S007) also deferred as dependency.", "severity_for_network": "acceptable_cap_trade"},
+      {"node": "ABI4", "reason": "Renamed/merged into ABI4_5 composite per S005 applied restructure. Behavior preserved via SNRK2->ABI4_5 and ABA->ABI4_5 edges.", "severity_for_network": "none_behavior_preserved"}
+    ]
+  },
+  "per_pathway_audit_delta": [
+    {"pathway": "LR founder cell specification", "completeness_iter1": "low", "completeness_iter2": "high", "change": "GATA23 added with ARF7 + IAA28 regulation. De Rybel 2010 module restored."},
+    {"pathway": "LR primordium organogenesis", "completeness_iter1": "medium", "completeness_iter2": "high", "change": "WOX11 added as parallel LBD activator alongside ARF7/ARF19. Hu 2014 founder-to-organ transition restored."},
+    {"pathway": "Brassinosteroid signalling", "completeness_iter1": "none", "completeness_iter2": "high", "change": "Entire BR module added per G006. BR->BRI1->BIN2(-)->BZR(+)->LR cascade with Perception Gate and BZR composite."},
+    {"pathway": "Shoot-to-root HY5 light integration", "completeness_iter1": "none", "completeness_iter2": "medium", "change": "HY5 + PHYB added with HY5->ARF19(-) route. Far_Red/PHYA path still deferred."},
+    {"pathway": "ABA signalling", "completeness_iter1": "medium", "completeness_iter2": "high", "change": "ABI4 merged with ABI5 into ABI4_5 composite. ABA->ABI4_5 + SNRK2->ABI4_5 dual-input captures both curated arms."},
+    {"pathway": "LR initiation asymmetric cell division", "completeness_iter1": "high", "completeness_iter2": "medium", "change": "PUCHI morphogenesis TF dropped. LBD composite covers the main mechanism but lbd16 lbd18 lbd29 triple + puchi quadruple tests lose specificity. Acceptable cap trade."},
+    {"pathway": "Nitrate signalling", "completeness_iter1": "medium", "completeness_iter2": "medium", "change": "No change. AFB3/NAC4 arm still absent - rejected for hard-cap. Remains as literature_gap / future-iteration candidate."}
+  ],
+  "suggestions": [
+    {
+      "id": "S101",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "AFB3 -> NAC4 -> LR nitrate-auxin amplifier arm remains absent due to LR hard-cap. Reconsider in future if LR-node activator restructure frees a slot.",
+      "biological_justification": "Vidal 2010/2013 AFB3-NAC4-OBP4 is a canonical Arabidopsis nitrate-responsive auxin amplifier. Currently only the NLP7-ANR1 and CLE-CLV1 arms capture nitrate signalling to LR. Adding the AFB3 arm would strengthen high-nitrate perturbation predictions. Rejection in iter 2 was justified (cap). Future mitigation: collapse ANR1 into an Nitrate-TF composite with NAC4, or re-introduce Nitrate metabolite node with AFB3->Nitrate->LR indirection.",
+      "curated_edge_ids": ["E010", "E007", "E108"],
+      "implementation": "Deferred. If a future iteration restructures LR activators, add Nitrate (METABOLITE, source) + AFB3 (GENE) + NAC4 (GENE) with NAC4->LR or via composite."
+    },
+    {
+      "id": "S102",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "PUCHI / TOLS2 / RLK7 prebranch-site-spacing module absent post-iter2 restructure",
+      "biological_justification": "S007 from iter1 could not be applied because PUCHI was dropped to accommodate BR module. The TOLS2-RLK7-PUCHI spacing module (Toyokura 2019) is canonical but would require cap relief to re-introduce. Current LBD composite partially captures PUCHI morphogenesis biology.",
+      "curated_edge_ids": ["E048", "E049", "E026", "E047"],
+      "implementation": "Deferred. Could be re-added by splitting LBD composite (exposing LBD29 with LAX3 output + LBD16 with PUCHI output), but that complicates reconciliation. Low-priority."
+    },
+    {
+      "id": "S103",
+      "type": "mechanism_improvement",
+      "priority": "low",
+      "description": "Optional: in network.json composite-edge mechanism strings, enumerate all member curated edge_ids",
+      "biological_justification": "S009 from iter 1, re-raised as a polish item. BZR composite edge mechanism currently cites E236 (BIN2->BZR1) but composite also represents E237 (BIN2->BES1). Same for BZR->LR (E238 + E239). Applying this across all 8 composites improves reviewer traceability.",
+      "curated_edge_ids": [],
+      "implementation": "Cosmetic string update; no structural change. Optional."
+    }
+  ],
+  "literature_gaps": [
+    "AFB3/NAC4 nitrate-auxin amplifier arm (cap-blocked) - 3 curated edges (E007, E010, E108)",
+    "ARR_B -> SHY2/IAA3 transcriptional induction (for CK-auxin mutual inhibition)",
+    "EIN3 -> TAA1/TAR2/WEI2/WEI7 direct targets (for gated ethylene-auxin amplification)",
+    "SMXL6/7/8 nodes (for full SL Perception Gate co-inhibitor motif)",
+    "GID1 -> DELLA destabilisation edge (for GA Perception Gate)",
+    "AFB2/AFB3 -> IAA14 co-receptor edges (for Auxin Perception Gate co-inhibitor motif)",
+    "Phosphate machinery STOP1/ALMT1/LPR1 mechanistic endpoints reaching LR",
+    "WOX12 as parallel to WOX11 (E223 single-edge; optional addition)",
+    "Far_Red -> PHYA -> HY5 shade-avoidance arm (for full light-integration; E159, E160)",
+    "TOLS2/RLK7/PUCHI prebranch-site spacing (S102 in this review)"
+  ],
+  "stop_reason": null
+}

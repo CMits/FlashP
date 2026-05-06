@@ -1,0 +1,5 @@
+method,accuracy,kappa,kappa_ci_lower,kappa_ci_upper,kappa_band,mcc,rigor_score,rigor_band,dars,dars_band,n_nodes,n_edges,n_tests,t_effective,mean_path_length,easy_n,easy_acc,easy_kappa,medium_n,medium_acc,medium_kappa,hard_n,hard_acc,hard_kappa,convergence_rate,parameters
+Algebraic,75.7,0.5984,0.486,0.7107,moderate,0.4916,8.5594,medium-scale solid,8.6104,medium-scale solid,78,98,115,122,2.89,108,77.8,0.629,7,42.9,0.2632,0,,,80.0,"epsilon=0.1, K=10.0, damping=0.7, activator_floor=0.01, direction_threshold=0.05"
+ODE,78.3,0.6399,0.5285,0.7514,substantial,0.5673,9.1544,large-scale strong,9.209,large-scale strong,78,98,115,122,2.89,108,80.6,0.6709,7,42.9,0.1765,0,,,90.4,"K=0.5, n=3 (Hill activation: f(x)=x^n*(K^n+1)/(K^n+x^n), inhibition: g(x)=(K^n+1)/(K^n+x^n))"
+RWR,93.0,0.8674,0.7831,0.9517,almost perfect,0.9176,12.408,exceptional,12.482,exceptional,78,98,115,122,2.89,108,97.2,0.9448,7,28.6,0.1667,0,,,100.0,alpha=0.9 (restart probability)
+BEST,93.0,0.8674,0.7831,0.9517,almost perfect,0.9176,12.408,exceptional,12.482,exceptional,78,98,115,122,2.89,108,97.2,0.9448,7,28.6,0.1667,0,,,,best method: RWR

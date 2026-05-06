@@ -1,0 +1,142 @@
+{
+  "cluster": "C7_Brassinosteroid",
+  "papers": [
+    {
+      "doi": "10.1038/s41586-023-06023-6",
+      "title": "Reducing brassinosteroid signalling enhances grain yield in semi-dwarf wheat",
+      "authors": "Song L, Liu J, Cao B, Liu B, Zhang X, Chen Z, Dong C, Liu X, Zhang Z, Wang W, Chai L, Liu J, Zhu J, Cui S, He F, Peng H, Hu Z, Su Z, Guo W, Xin M, Yao Y, Yan Y, Song Y, Bai G, Sun Q, Ni Z",
+      "year": 2023,
+      "journal": "Nature",
+      "status": "read",
+      "pmc_id": "PMC10156601"
+    },
+    {
+      "doi": "10.1186/s12870-025-06762-w",
+      "title": "Induced variation in BRASSINOSTEROID INSENSITIVE 1 (BRI1) confers a compact wheat architecture",
+      "authors": "Gill MS, Phillips AL, Tarkowská D, et al",
+      "year": 2025,
+      "journal": "BMC Plant Biology",
+      "status": "read"
+    }
+  ],
+  "edges": [
+    {
+      "source": "Brassinosteroid",
+      "target": "TaBRI1",
+      "sign": 1,
+      "mechanism": "BR ligand binding activates TaBRI1 receptor kinase; triggers BR signalling cascade",
+      "evidence_doi": "10.1186/s12870-025-06762-w",
+      "evidence_sentence": "BR hormones regulate critical developmental traits in wheat through the BRI1 receptor"
+    },
+    {
+      "source": "TaBRI1",
+      "target": "TaBKI1",
+      "sign": -1,
+      "mechanism": "Activated TaBRI1 facilitates ZnF-mediated ubiquitination of TaBKI1 (BRI1 kinase inhibitor), releasing receptor",
+      "evidence_doi": "10.1038/s41586-023-06023-6",
+      "evidence_sentence": "TaBRI1 facilitates the ZnF-TaBKI1 conjugation in response to BR signalling"
+    },
+    {
+      "source": "TaZnF",
+      "target": "TaBKI1",
+      "sign": -1,
+      "mechanism": "ZnF RING-type E3 ligase degrades TaBKI1 via proteasome at PM; activates BR signalling",
+      "evidence_doi": "10.1038/s41586-023-06023-6",
+      "evidence_sentence": "ZnF acts as a BR signalling activator to facilitate proteasomal destruction of the BR signalling repressor BRI1 kinase inhibitor 1 (TaBKI1)"
+    },
+    {
+      "source": "TaBKI1",
+      "target": "TaBRI1",
+      "sign": -1,
+      "mechanism": "TaBKI1 inhibits TaBRI1 kinase activity in absence of BR",
+      "evidence_doi": "10.1038/s41586-023-06023-6",
+      "evidence_sentence": "BR signalling repressor BRI1 kinase inhibitor 1 (TaBKI1)"
+    },
+    {
+      "source": "TaBRI1",
+      "target": "TaBIN2",
+      "sign": -1,
+      "mechanism": "Activated BRI1 signalling via BSK/CDG1/BSU1 inactivates BIN2 GSK3 kinase (negative regulator)",
+      "evidence_doi": "10.1186/s12870-025-06762-w",
+      "evidence_sentence": "In BR signaling, transphosphorylation events mediated through BSK1, CDG1 and BIN2 kinases lead to the activation of BSU1 phosphatase, which acts to dephosphorylate and inactivate BIN2, the negative regulator of BR signaling"
+    },
+    {
+      "source": "TaBIN2",
+      "target": "TaBZR1",
+      "sign": -1,
+      "mechanism": "BIN2 phosphorylates BZR1/BES1 inhibiting nuclear localization and DNA binding; active at low BR",
+      "evidence_doi": "10.1186/s12870-025-06762-w",
+      "evidence_sentence": "At low BR concentrations, BIN2 phosphorylates two homologous transcription factors, BZR1 and BES1/BZR2, and inhibits their nuclear localization and DNA-binding activity"
+    },
+    {
+      "source": "TaBZR1",
+      "target": "Plant_Height",
+      "sign": 1,
+      "mechanism": "Dephosphorylated nuclear BZR1/BES1 drives expression of growth and cell-elongation genes",
+      "evidence_doi": "10.1186/s12870-025-06762-w",
+      "evidence_sentence": "The dephosphorylated active transcription factors, BZR1 and BES1/BZR2, can then bind to specific sites on DNA and regulate expression of several genes"
+    },
+    {
+      "source": "TaBRI1",
+      "target": "Plant_Height",
+      "sign": 1,
+      "mechanism": "Functional TaBRI1 promotes stem elongation and growth; triple-mutant produces severe dwarfism",
+      "evidence_doi": "10.1186/s12870-025-06762-w",
+      "evidence_sentence": "Triple mutants (with premature stop codons in all three TaBRI1 homoeologues) produced severe dwarfism, malformed leaves and sterility"
+    },
+    {
+      "source": "TaBZR1",
+      "target": "Rht-B1",
+      "sign": -1,
+      "mechanism": "BZR1 directly interacts with DELLA proteins; BR-GA crosstalk; BZR1-DELLA antagonism",
+      "evidence_doi": "10.1186/s12870-025-06762-w",
+      "evidence_sentence": "BRs and GAs co-regulate a large number of common target genes and BZR1 directly interacts with DELLA proteins; Deletions of domains required for BZR1-DELLA interaction abolished the antagonistic effect between RGA and BZR1"
+    },
+    {
+      "source": "TaZnF",
+      "target": "Plant_Height",
+      "sign": 1,
+      "mechanism": "ZnF-B activates BR signalling; znf loss reduces height 8.4 cm without pleiotropy",
+      "evidence_doi": "10.1038/s41586-023-06023-6",
+      "evidence_sentence": "znf-bb (single): Shorter (8.4 cm); Slight reduction; no pleiotropy"
+    }
+  ],
+  "perturbations": [
+    {
+      "gene": "TaBRI1_triple",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "magnitude": "strong",
+      "evidence_doi": "10.1186/s12870-025-06762-w",
+      "evidence_sentence": "Triple mutants (with premature stop codons in all three TaBRI1 homoeologues) produced severe dwarfism, malformed leaves and sterility",
+      "notes": "Loss of BR perception"
+    },
+    {
+      "gene": "TaBRI1-A1_missense",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "magnitude": "moderate",
+      "evidence_doi": "10.1186/s12870-025-06762-w",
+      "evidence_sentence": "Missense mutants in TaBRI1-A1 proved most promising: the less severe variant was 35% shorter than the wild type",
+      "notes": "Single-homeolog missense; 35% shorter, 56% reduced flag leaf angle"
+    },
+    {
+      "gene": "znf-bb",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "magnitude": "slight",
+      "evidence_doi": "10.1038/s41586-023-06023-6",
+      "evidence_sentence": "znf-bb (single): Shorter (8.4 cm); Slight reduction; no pleiotropy",
+      "notes": "ZnF-B loss reduces height 8.4cm; no yield penalty"
+    },
+    {
+      "gene": "rht1-bb_znf-bb",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "unchanged",
+      "magnitude": "",
+      "evidence_doi": "10.1038/s41586-023-06023-6",
+      "evidence_sentence": "znf-bb rht1-bb (double): Similar to WT; Longer spikes, larger grains",
+      "notes": "Genetic linkage r-e-z deletion removes Rht-B1 and ZnF-B; height rescued but yield enhanced"
+    }
+  ]
+}

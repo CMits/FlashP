@@ -1,0 +1,25 @@
+{
+  "iteration": 1,
+  "date": "2026-04-19",
+  "fixes": [
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "Override BR_SYN composite_member single-KO modifier from 0.99 to 0.0 for DWF4 (T043), DET2 (T045), CPD (T046), and DET2+BL rescue (T090).",
+      "reason": "T043/T045/T046/T090 all failed with predicted='unchanged' because composite gm=0.99 produces ratio 0.999 (within direction_threshold=0.05) even though each mutant shows strong dwarf in literature.",
+      "biological_justification": "DWF4, DET2, and CPD each encode individually rate-limiting steps in brassinosteroid biosynthesis (DWF4 = C-22 hydroxylase; DET2 = 5-alpha reductase; CPD = C-23 hydroxylase). They are NOT functionally redundant (§9.3 composite criterion requires >=70% redundancy). Single dwf4, det2, or cpd mutants are all strong BR-biosynthesis dwarfs (Choe 1998 Plant Cell, Szekeres 1996 Cell, Li 1996 PNAS). Composite BR_SYN over-collapses these non-redundant enzymes; the perturbation encoding must override the Trap-2 rule for BR_SYN single-KOs specifically.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 0.0
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 75.7,
+    "ode_accuracy": 76.5,
+    "rwr_accuracy": 88.7,
+    "kept": true,
+    "reason": "Best-method (RWR) improved from 86.1% to 88.7% (+2.6%). Kappa 0.74 -> 0.78. All three methods improved by ~2.6%."
+  }
+}

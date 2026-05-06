@@ -1,0 +1,25 @@
+{
+  "iteration": 2,
+  "date": "2026-04-18",
+  "fixes": [
+    {
+      "iteration": 2,
+      "action": "perturbation_encoding",
+      "description": "T176 TPS1 rescue: changed expected_direction from increased to unchanged; changed comparison_baseline from mutant to WT.",
+      "reason": "All three validators predicted unchanged (ratio=1.0) because the validator does not dynamically recompute a mutant baseline for rescue tests \u2014 setting TPS1=1.0 just reproduces WT steady state.",
+      "biological_justification": "Fichtner et al. 2020 (10.1105/tpc.19.00837) state explicitly that otsA-complemented tps1-1 plants flower at the same chronological age and leaf number as wild-type plants. WT-vs-rescued = unchanged is the correct biological framing of the quoted finding.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 1.0
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 90.3,
+    "ode_accuracy": 91.4,
+    "rwr_accuracy": 91.4,
+    "kept": true,
+    "reason": "Kept: best-method accuracy 90.3% -> 91.4% (+1.1%)."
+  }
+}

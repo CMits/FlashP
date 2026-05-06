@@ -1,0 +1,93 @@
+{
+  "cluster": "C5_GA_perception",
+  "papers": [
+    {
+      "doi": "10.1016/j.jplph.2012.11.010",
+      "title": "Molecular characterization of three GIBBERELLIN-INSENSITIVE DWARF1 homologous genes in hexaploid wheat",
+      "authors": "Li A, Yang W, Li S, Liu D, Guo X, Sun J, Zhang A",
+      "year": 2013,
+      "journal": "Journal of Plant Physiology",
+      "status": "read"
+    },
+    {
+      "doi": "10.1104/pp.111.185272",
+      "title": "Dominant and Pleiotropic Effects of a GAI Gene in Wheat Results from a Lack of Interaction between DELLA and GID1",
+      "authors": "Wu J, Kong X, Wan J, Liu X, Zhang X, Guo X, Zhou R, Zhao G, Jing R, Fu X, Jia J",
+      "year": 2011,
+      "journal": "Plant Physiology",
+      "status": "read"
+    }
+  ],
+  "edges": [
+    {
+      "source": "Gibberellin",
+      "target": "TaGID1",
+      "sign": 1,
+      "mechanism": "GA3 binds TaGID1 homeologs; binding strengthens DELLA interaction (Y2H)",
+      "evidence_doi": "10.1016/j.jplph.2012.11.010",
+      "evidence_sentence": "Strong interactions between each putative TaGID1 and the wheat DELLA proteins RHT-A1, RHT-B1, and RHT-D1 in the presence of GA3, and weak interactions in the absence of GA3"
+    },
+    {
+      "source": "Gibberellin",
+      "target": "TaGID1",
+      "sign": -1,
+      "mechanism": "Negative feedback on TaGID1 expression: exogenous GA3 down-regulates TaGID1 transcripts",
+      "evidence_doi": "10.1016/j.jplph.2012.11.010",
+      "evidence_sentence": "down-regulated after treatment with exogenous gibberellic acid (GA3), indicating feedback control"
+    },
+    {
+      "source": "TaGID1",
+      "target": "Rht-B1",
+      "sign": -1,
+      "mechanism": "GA-bound TaGID1 targets DELLA for proteasomal degradation; Rht-B1c insertion blocks GID1 binding preventing degradation",
+      "evidence_doi": "10.1104/pp.111.185272",
+      "evidence_sentence": "30-amino acid insertion in the DELLAALGYKV motif physically blocks the GID1 recognition sequence"
+    },
+    {
+      "source": "TaGID1",
+      "target": "Plant_Height",
+      "sign": 1,
+      "mechanism": "TaGID1 promotes DELLA degradation, relieving growth repression; OE rescues gid1 dwarf in Arabidopsis",
+      "evidence_doi": "10.1016/j.jplph.2012.11.010",
+      "evidence_sentence": "Over-expression of each TaGID1 gene in the Arabidopsis double mutant gid1a/1c partially rescued the dwarf phenotype"
+    }
+  ],
+  "perturbations": [
+    {
+      "gene": "TaGID1_OE_in_gid1ac",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "increased",
+      "magnitude": "moderate",
+      "evidence_doi": "10.1016/j.jplph.2012.11.010",
+      "evidence_sentence": "Over-expression of each TaGID1 gene in the Arabidopsis double mutant gid1a/1c partially rescued the dwarf phenotype",
+      "notes": "Heterologous rescue demonstrating GA receptor function"
+    },
+    {
+      "gene": "Rht-B1c_transgenic_rice",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "magnitude": "strong",
+      "evidence_doi": "10.1104/pp.111.185272",
+      "evidence_sentence": "Transgenic rice expressing Rht-B1c showed extreme dwarf stature with 80.9% reduction in height versus 23.8% for the semidominant Rht-B1b allele",
+      "notes": "Dominant Rht-B1c blocks GID1 binding; extreme dwarf in rice"
+    },
+    {
+      "gene": "WT_plus_GA3",
+      "perturbation_type": "treatment",
+      "expected_direction": "increased",
+      "magnitude": "moderate",
+      "evidence_doi": "10.1104/pp.111.185272",
+      "evidence_sentence": "Wild-type seedlings increased 30% with GA3 treatment",
+      "notes": "GA3 treatment of WT wheat promotes elongation"
+    },
+    {
+      "gene": "Rht-B1c_plus_GA3",
+      "perturbation_type": "gain_of_function_plus_treatment",
+      "expected_direction": "unchanged",
+      "magnitude": "",
+      "evidence_doi": "10.1104/pp.111.185272",
+      "evidence_sentence": "Rht-B1c showed only 5% non-significant increase, confirming complete GA insensitivity",
+      "notes": "GA3 cannot rescue Rht-B1c dwarf (no GID1 interaction)"
+    }
+  ]
+}

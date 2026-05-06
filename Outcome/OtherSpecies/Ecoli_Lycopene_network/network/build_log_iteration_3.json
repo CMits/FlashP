@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lycopene_Titer",
+    "species": "Escherichia coli",
+    "iteration": 3,
+    "created": "2026-04-21",
+    "builder_model": "Claude Opus 4.7 (1M context)",
+    "input_judge_review": "network/judge_review_iteration_2.json",
+    "snapshot_location": "network/iteration_2/",
+    "note": "Iteration 3 is the final iteration per JUDGE §11 stop-condition. After this pass, the pipeline proceeds to Step 3 PERTURBATION regardless of verdict."
+  },
+  "summary": {
+    "nodes_before": 62,
+    "nodes_after": 62,
+    "nodes_added": ["ENVELOPE_STRESS", "MEMBRANE_STORAGE"],
+    "nodes_removed": ["ALMGS", "PLSB"],
+    "edges_before": 93,
+    "edges_after": 94,
+    "edges_added": ["N097", "N098", "N099"],
+    "edges_removed": ["N090", "N091"],
+    "source_nodes_before": 29,
+    "source_nodes_after": 30,
+    "source_percentage_before": 46.77,
+    "source_percentage_after": 48.39,
+    "lycopene_titer_inputs_before": 7,
+    "lycopene_titer_inputs_after": 8,
+    "lycopene_titer_activators_after": 3,
+    "lycopene_titer_inhibitors_after": 5,
+    "lycopene_titer_cap_status": "3 activators <= 5 phenotype-cap; 5 inhibitors <= 7 cap (per BUILDER_AGENT.md §10); composite-bundled coverage preferred over hard edge-count reduction.",
+    "lycopene_titer_curated_coverage_before": "8/43 = 0.19",
+    "lycopene_titer_curated_coverage_after": "17/43 = 0.40 (ENVELOPE_STRESS bundles E085-E090 = 6 curated edges; MEMBRANE_STORAGE bundles E082-E084+E134 = 4; retained 7 other direct edges)"
+  },
+  "edge_accounting": {
+    "edges_added_by_id": {
+      "N097": "ENVELOPE_STRESS -> Lycopene_Titer (-1). Composite edge bundling E085-E090 (WaaC, WaaF, Lpp, NlpI, MlaE, TolA). Evidence: Zhu 2022 (10.3390/ijms23147783), Bongers review (10.3390/biom13121747).",
+      "N098": "MEMBRANE_STORAGE -> Lycopene_Titer (+1). Composite edge bundling E082 (Plsb), E083 (Plsc), E084 (Almgs), E134 (DgkA). Evidence: Wang 2020 (10.3390/molecules25143136), Hu 2018 (10.1186/s12934-018-0887-x).",
+      "N099": "NADPH -> Mevalonate (+1) per curated E021. Captures HMGR substrate-flux dependence on NADPH pool."
+    },
+    "edges_removed_by_id": {
+      "N090": "ALMGS -> PLSB (+1) -- removed because both endpoint nodes are being collapsed into MEMBRANE_STORAGE composite.",
+      "N091": "PLSB -> Lycopene_Titer (+1) -- replaced by MEMBRANE_STORAGE -> Lycopene_Titer (N098) which bundles Plsb evidence with Plsc/Almgs/DgkA."
+    }
+  },
+  "suggestions_applied": [
+    {
+      "suggestion_id": "S014",
+      "priority": "high",
+      "decision": "APPLIED Option A (Envelope_Stress composite) + extension (Membrane_Storage composite)",
+      "rationale": "Envelope_Stress composite qualifies under BUILDER §9.3 Composite Node Rules: (1) functional redundancy -- all six members disrupt outer-membrane integrity, (2) same downstream target Lycopene_Titer, (3) same direction of effect (-1). Membrane_Storage composite qualifies similarly: all four members promote membrane phospholipid/glycolipid biogenesis that expands lycopene hydrophobic storage. Both composites use type PROTEIN_COMPLEX to signal the collapse, with multi-edge evidence bundle in the single network edge.",
+      "coverage_impact": "Lycopene_Titer §9.11 coverage 8/43 -> 17/43 = 0.40 (above 0.30 threshold, approaching 0.40 strong-coverage threshold)."
+    },
+    {
+      "suggestion_id": "S010",
+      "priority": "low",
+      "decision": "APPLIED",
+      "rationale": "E021 NADPH -> Mevalonate (+1) in_model=True, HIGH confidence. Mevalonate had 4 activators; addition takes count to 5 (within 5-7 target). Captures HMGR's NADPH substrate-flux dependence that complements the existing NADPH -> HMGR (enzyme-activity) edge."
+    }
+  ],
+  "suggestions_deferred": [
+    {
+      "suggestion_id": "S005_carryover",
+      "priority": "medium",
+      "decision": "DEFERRED",
+      "rationale": "Adding PMK would require restructuring IPP from parallel-activators (currently 7, at cap) to a chain topology, because adding a direct PMK -> IPP edge pushes IPP to 8 activators (hard-cap violation). Chain restructure (Mevalonate -> MVK -> implicit-intermediate -> PMK -> implicit-intermediate -> MVD -> IPP) would require creating intermediate metabolite nodes that are not in curated_edges.json, which would violate the 'every edge has a DOI' rule. BUILDER prefers the current parallel-activator arrangement (which correctly predicts direction of MVA perturbations) over a restructure that would introduce phantom nodes."
+    },
+    {
+      "suggestion_id": "S007_carryover",
+      "priority": "medium",
+      "decision": "REJECTED with literature_gap flag",
+      "rationale": "Only E069 OxyR -> KatG is curated for the OxyR/KatG pair. There is NO curated KatG -> ROS edge. If OxyR and KatG were added as nodes, KatG would have no outgoing edge and therefore no path to Lycopene_Titer, making KatG a floating node in violation of BUILDER §1.1 Rule 1. OxyR alone similarly dead-ends at KatG. Filed as literature_gap (KatG -> ROS needs a curated evidence sentence from Zhu 2022 or equivalent for Step 1 re-open)."
+    },
+    {
+      "suggestion_id": "S013",
+      "priority": "medium",
+      "decision": "DEFERRED",
+      "rationale": "Same cap complication as S005: IspG -> IPP and IspH -> IPP would push IPP to 8-9 activators, exceeding the hard 7-cap. Would require IPP chain restructure with phantom intermediate nodes not curated in literature. DXR addition (from iteration 2) already captures the most literature-prominent interior MEP step; IspG/IspH are MEDIUM confidence and rarely perturbed individually in the lycopene literature."
+    },
+    {
+      "suggestion_id": "S015",
+      "priority": "medium",
+      "decision": "NOT APPLIED",
+      "rationale": "Judge iter 2 flagged G3P and Pyruvate as cap violations, but re-reading BUILDER §10 shows the rule is 'Max activators per node 5-7' AND 'Max inhibitors per node 5-7' (per-side, not total). G3P has 7 activators + 3 inhibitors (at cap on activators, under on inhibitors). Pyruvate has 7 activators + 3 inhibitors (same). Neither violates the hard rule. ED_Pathway composite merge (EDD+EDA) would be a legitimate biology-preserving cleanup but is not required to satisfy BUILDER constraints. Deferred to REFINEMENT (Step 5) if validator shows signal dilution issues with 7 parallel activators."
+    },
+    {
+      "suggestion_id": "S009_carryover",
+      "priority": "low",
+      "decision": "APPLIED-BY-COMPOSITE",
+      "rationale": "Plsc (E083) is now captured inside the MEMBRANE_STORAGE composite bundled evidence. No separate edge needed."
+    }
+  ],
+  "hard_rule_checks": {
+    "no_floating_nodes": "PASS - BFS from Lycopene_Titer reaches all 62 nodes (script check 1/5)",
+    "every_edge_has_DOI": "PASS - all 94 edges have DOIs (script check 2/5)",
+    "node_naming": "PASS - all 62 node names match type-specific regex including new composites ENVELOPE_STRESS and MEMBRANE_STORAGE which are PROTEIN_COMPLEX-typed using ALL_CAPS_UNDERSCORE convention (script check 3/5)",
+    "is_source_flags": "PASS - auto-consistency after is_source reflow in this iteration (script check 4/5)",
+    "single_phenotype_node": "PASS - Lycopene_Titer is the unique PHENOTYPE node (script check 5/5)",
+    "no_fabricated_edges": "PASS - all 94 network edges trace to curated_edges.json entries (composites trace to multi-edge bundles)",
+    "equation_shape_fixed": "PASS - regenerated algebraic + ODE equations use the canonical formulas from BUILDER §13",
+    "wt_baseline_1.0": "PASS by construction (geometric mean of 1s = 1, bounded inverse of 1 = 1)"
+  },
+  "qa_script_results": {
+    "structural_check": "python Agent/shared/check_network_structure.py OtherSpecies/Ecoli_Lycopene_network --dry-run",
+    "structural_exit_code": 0,
+    "structural_checks_passed": "5/5",
+    "schema_validation": "python Agent/shared/validate_schema.py --network OtherSpecies/Ecoli_Lycopene_network/network",
+    "schema_validation_result": "ALL PASS"
+  }
+}

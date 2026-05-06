@@ -1,0 +1,13 @@
+node,node_type,activators,inhibitors,formula
+Auxin,,,,Auxin = gene_modifier + exogenous_supply
+BRC1,,"Auxin,Strigolactone,MAX2","Decapitation,Sucrose,Cytokinin,SMXL678,GA,FT,Auxin","BRC1 = (max(max(Auxin,0.01)*max(Strigolactone,0.01)*max(MAX2,0.01),0.01)^(1/3)) * (min(1/max(Decapitation*Sucrose*Cytokinin*SMXL678*GA*FT*Auxin,0.1),10.0)) * gene_modifier + exogenous_supply"
+Cytokinin,,,Auxin,"Cytokinin = (1.0) * (min(1/max(Auxin,0.1),10.0)) * gene_modifier + exogenous_supply"
+D53,,,,D53 = gene_modifier + exogenous_supply
+Decapitation,,,,Decapitation = gene_modifier + exogenous_supply
+FT,,,,FT = gene_modifier + exogenous_supply
+GA,,,,GA = gene_modifier + exogenous_supply
+MAX2,,,Sucrose,"MAX2 = (1.0) * (min(1/max(Sucrose,0.1),10.0)) * gene_modifier + exogenous_supply"
+SMXL678,,,MAX2,"SMXL678 = (1.0) * (min(1/max(MAX2,0.1),10.0)) * gene_modifier + exogenous_supply"
+Shoot_Branching,,"Cytokinin,FT","BRC1,Auxin,MAX2,Strigolactone,D53","Shoot_Branching = (max(max(Cytokinin,0.01)*max(FT,0.01),0.01)^(1/2)) * (min(1/max(BRC1*Auxin*MAX2*Strigolactone*D53,0.1),10.0)) * gene_modifier + exogenous_supply"
+Strigolactone,,,,Strigolactone = gene_modifier + exogenous_supply
+Sucrose,,,,Sucrose = gene_modifier + exogenous_supply

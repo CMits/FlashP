@@ -1,0 +1,35 @@
+source	target	sign	effect	mechanism	doi
+AP1	Flowering_Time	1	activation	AP1 is a floral meristem identity gene promoting flowering	10.1371/journal.pgen.1006263
+SOC1	Flowering_Time	1	activation	SOC1 integrates photoperiod/GA/vernalization signals to activate meristem identity genes	10.1093/jxb/eraa057
+FT	Flowering_Time	1	activation	FT florigen travels from leaves to shoot apex and forms FT-FD complex to initiate floral transition	10.1093/jxb/eraa057
+PIF4	FT	1	activation	PIF4 binds Block E region of FT promoter	10.1016/j.xplc.2023.100552
+BZR1	PIF4	1	activation	BZR1 and PIF4 form a positive regulatory module; BZR1 directly promotes PIF4 expression.	10.1016/j.pbi.2014.07.012
+HSFA1D	PIF4	1	activation	HSFA1d binds PIF4 and stabilizes the protein at warm temperature; canonical thermomorphogenesis intermediate (JUDGE S003).	10.1126/sciadv.adh1738
+BIN2	HSFA1D	-1	inhibition	BIN2 phosphorylates HSFA1d and promotes its degradation, coupling BR signaling to thermo response (JUDGE S003 / BIN2 Multi-Output).	10.1126/sciadv.adh1738
+BRI1	BIN2	-1	inhibition	Active BRI1 (via BSK/BSU1) dephosphorylates and inhibits BIN2.	10.1016/j.pbi.2014.07.012
+BIN2	BZR1	-1	inhibition	BIN2 phosphorylates BZR1 to exclude it from the nucleus and target it for degradation.	10.1016/j.pbi.2014.07.012
+AP2	SOC1	-1	repression	AP2 directly binds SOC1 upstream region to repress transcription	10.1105/tpc.110.075606
+BZR1	AP2	-1	repression	BZR1 represses AP2 (negative seed-size regulator)	10.1104/pp.113.217703
+AP2	AP1	-1	repression	AP2 binds AP1 regulatory regions (ChIP-seq direct targets)	10.1105/tpc.110.075606
+BZR1	Hypocotyl_Length	1	activation	Unphosphorylated BZR1 promotes hypocotyl cell elongation by activating cell-wall loosening genes.	10.1016/j.pbi.2014.07.012
+PIF3	Hypocotyl_Length	1	activation	PIF3 activates cell-elongation genes (expansins, XTR7) in the hypocotyl epidermis in darkness.	10.1105/tpc.107.052142
+BIN2	PIF3	-1	inhibition	BIN2 phosphorylates PIF3 and promotes its degradation; BR-mediated PIF3 destabilization (JUDGE S005).	10.1073/pnas.1700850114
+BRC1	Shoot_Branching	-1	inhibition	canar mutants show defects in vasculature regeneration after wounding (downstream of PIN1 polarization).	10.1126/science.aba3178
+Cytokinin	Shoot_Branching	1	activation	CK promotes bud outgrowth independently and via BRC1 repression	10.1104/pp.109.135475
+CKX2	Cytokinin	-1	inhibition	CKX2 degrades cytokinin	10.1101/cshperspect.a039941
+PRC2	CKX2	-1	repression	H3K27me3 deposition represses CKX2 transcription	10.1073/pnas.1305175110
+BZR1	PRC2	-1	inhibition	BZR1/BES1 recruits JMJ demethylases to remove H3K27me3 marks, antagonising sporophytic PRC2 activity (E102 routed via signaling)	10.1007/s00497-024-00516-8
+FT	BRC1	-1	inhibition	FT promotes rosette branching	10.1093/plphys/kiab586
+BZR_BES	Plant_Height	1	activation	Dephosphorylated/active BZR1 in nucleus activates BR-responsive cell elongation genes; bzr1-D constitutively active mutant promotes growth	10.1105/tpc.19.00335
+BIN2	BZR_BES	-1	inhibition	BIN2 (a GSK3-like kinase) phosphorylates BZR1, promoting cytoplasmic retention by 14-3-3 proteins and inactivating its DNA binding	10.1105/tpc.19.00335
+BZR	Lateral_Root_Density	1	activation	Constitutively active BZR1 (bzr1-1D) enhances LR number and length, especially under mild N deficiency [Edge represents composite family; evidence drawn from curated E238 (BZR1->Lateral_Root_Density).]	10.3389/fpls.2024.1387321
+BIN2	BZR	-1	inhibition	BIN2 GSK3 kinase phosphorylates BZR1 for proteasomal degradation [Edge represents composite family; evidence drawn from curated E236 (BIN2->BZR1).]	10.3389/fpls.2024.1387321
+Endosperm_Proliferation	Seed_Size	1	activation	endosperm cavity volume determines final seed size	10.3390/ijms241310666
+BZR1	Endosperm_Proliferation	1	activation	BR signaling via BZR1/BES1 promotes coenocytic endosperm growth dose-dependently (E101 effect routed via signaling output)	10.1007/s00497-024-00516-8
+Brassinosteroid	BRI1	1	activation	Brassinolide binds the BRI1 extracellular LRR domain, activating the receptor kinase.	10.1016/j.pbi.2014.07.012
+BAS1	Brassinosteroid	-1	inhibition	BAS1/CYP734A1 is a BR-26-hydroxylase that inactivates bioactive BRs.	10.1016/j.pbi.2014.07.012
+BR_SYN	Brassinosteroid	1	activation	DWF4 (CYP90B1) C-22 hydroxylase catalyzes the rate-limiting step in BR biosynthesis	10.1105/tpc.19.00335
+CPD	Brassinosteroid	1	activation	CPD (CYP90A1) catalyzes 23-alpha hydroxylation in BR biosynthesis; cpd null mutants are severe dwarfs (JUDGE S007).	10.1016/j.pbi.2014.07.012
+DET2	Brassinosteroid	1	activation	DET2 is a 5α-reductase required for BR biosynthesis.	10.1016/j.pbi.2014.07.012
+DWF4	Brassinosteroid	1	activation	DWF4/CYP90B1 catalyzes C-22 hydroxylation, a rate-limiting step in BR biosynthesis.	10.1016/j.pbi.2014.07.012
+SOB7	Brassinosteroid	-1	inhibition	SOB7/CYP72C1 redundantly inactivates BRs alongside BAS1.	10.1534/g3.112.004580

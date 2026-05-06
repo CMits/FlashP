@@ -1,0 +1,4008 @@
+{
+  "metadata": {
+    "flash_p_version": "1.0-YOLO",
+    "phenotype": "seed_size",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-02",
+    "total_equations": 443,
+    "parameters": {
+      "epsilon": 0.1,
+      "K": 10.0,
+      "activator_floor": 0.01,
+      "damping": 0.7,
+      "direction_threshold": 0.05,
+      "max_iterations": 50,
+      "convergence_tolerance": 0.0001
+    }
+  },
+  "equations": [
+    {
+      "node": "phytohormones",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "phytohormones = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Seed_Size",
+      "type": "PHENOTYPE",
+      "is_source": false,
+      "activators": [
+        "phytohormones",
+        "FAE1",
+        "Overexpression of mi",
+        "TASERK3",
+        "GmPSK\u03b31",
+        "PPD",
+        "Brassinosteroid",
+        "PSK",
+        "CHR7",
+        "transgenic A. thalia",
+        "A. thaliana mutants",
+        "parent-of-origin eff",
+        "TaZIP gene(s)",
+        "OES",
+        "KLU",
+        "Maternal and paterna",
+        "DDM2",
+        "DA1",
+        "nutrient sink effect",
+        "AP2",
+        "AN3",
+        "ARF2",
+        "life history",
+        "VVAGL12",
+        "Reduced expression o",
+        "EOD3",
+        "DA2",
+        "YUC4",
+        "CKX2",
+        "ABAP1",
+        "limitation in nutrie",
+        "AUXIN",
+        "EOD1",
+        "EMBRYO",
+        "T-6b",
+        "IMPRINTING",
+        "transition from sync",
+        "BZR1",
+        "DPA4",
+        "genome balance in en",
+        "ATFAX1",
+        "UBP15",
+        "P1W",
+        "paternal genome exce",
+        "CHD3",
+        "EMB71",
+        "truncated R domain",
+        "AGL63",
+        "reduced seed product",
+        "SHB1",
+        "loss of ULTRAPETALA1",
+        "Specific mutations",
+        "early expansion of c",
+        "growth conditions",
+        "AMI1",
+        "GMMYB73",
+        "APUM24",
+        "AGL",
+        "AGL62",
+        "Maternal excess hybr",
+        "STPL",
+        "soluble sugar accumu",
+        "GhDA1-1AR301K mutant",
+        "CYCD7",
+        "ATWRKY6",
+        "GAI",
+        "Defoliation during f",
+        "MEE45",
+        "Sibling abortion",
+        "Overexpression of Gh",
+        "TTG2",
+        "IKU1",
+        "parental genome dosa",
+        "HDG9",
+        "GhDA1-1AR301K",
+        "NODGTT5",
+        "TASERK1",
+        "altered expression",
+        "SOD7",
+        "TaNAK1.2",
+        "constitutive express",
+        "LPFC",
+        "lipopeptide treatmen",
+        "autotetraploidy",
+        "CLE8",
+        "low redox buffering ",
+        "BnLEA3 gene(s)",
+        "16 gene(s)",
+        "parental origin",
+        "TEMPERATURE",
+        "UMAMIT25",
+        "Lack of water",
+        "paternal inheritance",
+        "BSK3",
+        "RPT2",
+        "Endosperm developmen",
+        "NR",
+        "AGL11",
+        "Napin-BnGRF2a transg",
+        "GHNAC2",
+        "sibling lethality",
+        "Maternal temperature",
+        "growth of endosperm",
+        "CYP78A9",
+        "GA",
+        "OTP90",
+        "Increased expression",
+        "AA",
+        "DNA",
+        "Overexpression of ol",
+        "Organellar genomes",
+        "IAA",
+        "Auxin export defect",
+        "GIG1",
+        "DECREASE",
+        "C24",
+        "MAX2",
+        "Genome hybridization",
+        "increase in ovule si",
+        "severe nitrogen limi",
+        "Overexpression of At",
+        "Overexpression of Eg",
+        "Endosperm cellulariz",
+        "TASERK2",
+        "MINISEED3",
+        "TaSDIR1-4A-overexpre",
+        "HYBRIDITY",
+        "P4-SIRNAS",
+        "Endosperm growth",
+        "MNT",
+        "extra cell division ",
+        "TASERK4",
+        "maternal donors",
+        "S2LB",
+        "GLN1",
+        "TAP46",
+        "mitotic synchrony",
+        "overexpressed ginsen",
+        "F1",
+        "QTL",
+        "Hypomethylation in t",
+        "4 x Ler",
+        "ALLELE",
+        "timing of endosperm ",
+        "ARF3",
+        "DET2",
+        "USB1",
+        "ETFQO",
+        "FUS3",
+        "TASPL16",
+        "UGT76C2",
+        "Overexpression of an",
+        "DEFOLIATION",
+        "GMDREBL",
+        "UMAMIT24",
+        "YB12",
+        "epigenetic factors",
+        "Heterologous express",
+        "PLOIDY",
+        "ATGPAT9",
+        "AHA2",
+        "Circadian gene(s) ex",
+        "Natural variation",
+        "Reduction of auxin b",
+        "length and width",
+        "OTU1",
+        "Partial ovule aborti",
+        "ATBAK1",
+        "2 x Col x 4 x Col",
+        "maternal contributio",
+        "DA1R358K",
+        "growth of maternal o",
+        "environmental factor",
+        "ATGSR2",
+        "transgenic PfDGAT3-1",
+        "3-aminotriazole",
+        "genetic correlations",
+        "ATLEA3",
+        "BPE",
+        "JAZ",
+        "large flower mutants",
+        "ATVPS29",
+        "E2",
+        "Sizes of cells and c",
+        "KS",
+        "partial silencing of",
+        "JCFATB",
+        "GMPLD\u0393-OE",
+        "Overexpression of Bn",
+        "HDG3",
+        "CMV",
+        "cell number",
+        "DGAT",
+        "AHLPAAT2",
+        "AT3G01472.1",
+        "CU5",
+        "Overexpression of Ah",
+        "Transgenic seeds",
+        "RCA",
+        "ABX45",
+        "overexpression of Ta",
+        "Coordinated growth o",
+        "over-expression of C",
+        "Copper sulfate",
+        "EgWRI1-1",
+        "DAGT1",
+        "NPC6",
+        "HpDGAT1-overexpressi",
+        "JCFATA",
+        "ATGLK1",
+        "Seed oil content",
+        "Linnemannia elongata",
+        "GmDof4 transgenic pl",
+        "Delaying flowering",
+        "plant(s) photosynthe",
+        "CU20",
+        "Alteration of lipid ",
+        "transgenic PfDGAT2-2",
+        "Hybridization",
+        "SPECIES",
+        "HR02",
+        "EhDH domains",
+        "Severe water limitat",
+        "Ectopic expression o",
+        "CU60",
+        "PRWRI1",
+        "GmDof11 transgenic p",
+        "ATDGAT1",
+        "GENOTYPES",
+        "Severe water depriva",
+        "Reduced storage capa",
+        "PrLPAAT4-overexpress",
+        "overexpressed AhGPAT",
+        "BNGRF2A",
+        "NRPC3",
+        "ATBPC1",
+        "ATHD2A",
+        "plasma-seed treatmen",
+        "AIL5",
+        "ATLEC2",
+        "changed seed oil com",
+        "FIS",
+        "ATMDN1",
+        "Reproductive growth ",
+        "NaCl stress",
+        "basipetal auxin flow",
+        "ATHMP53",
+        "POLLINATION",
+        "ATMYB118",
+        "DIOXINS",
+        "ATC3H17",
+        "Growth Defects",
+        "ATLEC1",
+        "GENOTYPE",
+        "NRPC2",
+        "TPD1",
+        "CJBPC1",
+        "inter-ploidy cross d",
+        "down regulation of p",
+        "EDA3",
+        "triploid block",
+        "RGE1",
+        "LORELEI",
+        "low iron levels in c",
+        "ATTFIIB1",
+        "MIR159",
+        "RNAPIII",
+        "PCLEC1",
+        "ATUPF1",
+        "NRPABC1",
+        "EMF1",
+        "ATDOG1",
+        "FLOWERING",
+        "Vegetative developme",
+        "epigenetic variation",
+        "ABA",
+        "ABI5",
+        "higher fatty acid co",
+        "carbon starvation in",
+        "ATCSP2",
+        "LECOP1",
+        "ATHMP51",
+        "Autophagy in materna",
+        "analyzed peg mutants",
+        "changes in the ploid",
+        "overexpression of Pf",
+        "PheMYB4-1",
+        "BBM",
+        "ATSCO1",
+        "ATPPR2",
+        "genomic imprinting",
+        "Misbalanced expressi",
+        "soluble sugars",
+        "ATNPF8.3",
+        "SMC6A",
+        "parental cross direc",
+        "ATCBL3",
+        "fertilization with d",
+        "ABI3",
+        "ATSMC5",
+        "ABI4",
+        "ATMYB25",
+        "PGCRC",
+        "parental genome imba",
+        "VORICONAZOLE",
+        "NRPABC2",
+        "Decreased vesicular ",
+        "FOC",
+        "NRPC8",
+        "REM11",
+        "paternal genome",
+        "ATSR45",
+        "MEDEA",
+        "disruptions in valin",
+        "Maternal tissues",
+        "multiple processes/f",
+        "ATNDT1",
+        "short-term heat expo",
+        "integument of the ov",
+        "cellularization",
+        "NSE4A",
+        "E12A11",
+        "mitochondrial riboso",
+        "defects in endosperm",
+        "EMS",
+        "TCDD",
+        "NADP",
+        "altered flavonoid me",
+        "PCWRI1",
+        "ATTTG1",
+        "P5CS2",
+        "Fatty acid synthesis",
+        "11_11B",
+        "ATMYB56",
+        "PML3",
+        "MPC",
+        "ATCBL2",
+        "ATRAD18",
+        "LOCUS",
+        "ASK13",
+        "EMB1379",
+        "ATNADP-ME1",
+        "COSWEET10",
+        "FUSCA",
+        "MDKIN2",
+        "BPCS",
+        "PoWRI1 gene(s)",
+        "Fragmentation of out",
+        "ER",
+        "BL",
+        "GME",
+        "overexpression of Ps",
+        "SUS",
+        "ATMMS21",
+        "fertilization proces",
+        "EL20Y",
+        "ATGRP2",
+        "PGA6",
+        "paternal regulation",
+        "fis class",
+        "PEGS",
+        "reciprocal inter-plo",
+        "ATPRP4",
+        "NSE3",
+        "BFN1",
+        "ATEIN2"
+      ],
+      "inhibitors": [
+        "ENO2",
+        "AfAP2-2-overexpressi",
+        "MEE57",
+        "XsAP2 gene(s)",
+        "HAIKU",
+        "MINI3",
+        "ANT",
+        "AGC1",
+        "T540",
+        "PMEI6",
+        "ATMPK10",
+        "cytonuclear interact",
+        "IKU2",
+        "BRI1",
+        "TT15",
+        "MYCS",
+        "Overexpression of Gm",
+        "Overexpression of Xs",
+        "ATRAV1",
+        "PPD1",
+        "TaNAK1.1",
+        "LEA_1 subfamily",
+        "LPAT2",
+        "salt stress",
+        "SUB",
+        "TESTA2",
+        "PGI1-2",
+        "Over-expression of A",
+        "premature endosperm ",
+        "sense ZmRLK7 overexp",
+        "LuLEA1 gene(s)",
+        "iku mutations",
+        "IAM",
+        "Overexpression of Br",
+        "TRITERPENE",
+        "gfp gene(s)",
+        "ATMYB123",
+        "FAH12",
+        "Quadruple mutants",
+        "heterologous express",
+        "overexpression of Zm",
+        "PCF10SRDX",
+        "Overexpression of se",
+        "BRMYC2OE",
+        "OX40",
+        "OX26",
+        "Col-0 plant(s)",
+        "macro-element defici",
+        "AHL29",
+        "triple mutants",
+        "gln1;1-gln1;2-gln1;3",
+        "Co-silencing RNAi of",
+        "E1",
+        "Remaining genotypes",
+        "AIF2",
+        "PRS",
+        "ATWDR5A",
+        "ATTT8",
+        "FIS-PRC2",
+        "FIS_PRC2",
+        "oxygen concentration",
+        "GmZOU-2",
+        "Difference in satura",
+        "NTRC",
+        "Inactivating imprint",
+        "Fis mutants",
+        "BnGA2ox6 overexpress",
+        "H2B",
+        "ASH2R",
+        "ATCSP4",
+        "CESA6",
+        "EMF",
+        "ATCHS",
+        "GCN1",
+        "plant(s) homozygous ",
+        "RBL"
+      ],
+      "formula": "Seed_Size = (max(phytohormones, 0.01) * max(FAE1, 0.01) * max(Overexpression of mi, 0.01) * max(TASERK3, 0.01) * max(GmPSK\u03b31, 0.01) * max(PPD, 0.01) * max(Brassinosteroid, 0.01) * max(PSK, 0.01) * max(CHR7, 0.01) * max(transgenic A. thalia, 0.01) * max(A. thaliana mutants, 0.01) * max(parent-of-origin eff, 0.01) * max(TaZIP gene(s), 0.01) * max(OES, 0.01) * max(KLU, 0.01) * max(Maternal and paterna, 0.01) * max(DDM2, 0.01) * max(DA1, 0.01) * max(nutrient sink effect, 0.01) * max(AP2, 0.01) * max(AN3, 0.01) * max(ARF2, 0.01) * max(life history, 0.01) * max(VVAGL12, 0.01) * max(Reduced expression o, 0.01) * max(EOD3, 0.01) * max(DA2, 0.01) * max(YUC4, 0.01) * max(CKX2, 0.01) * max(ABAP1, 0.01) * max(limitation in nutrie, 0.01) * max(AUXIN, 0.01) * max(EOD1, 0.01) * max(EMBRYO, 0.01) * max(T-6b, 0.01) * max(IMPRINTING, 0.01) * max(transition from sync, 0.01) * max(BZR1, 0.01) * max(DPA4, 0.01) * max(genome balance in en, 0.01) * max(ATFAX1, 0.01) * max(UBP15, 0.01) * max(P1W, 0.01) * max(paternal genome exce, 0.01) * max(CHD3, 0.01) * max(EMB71, 0.01) * max(truncated R domain, 0.01) * max(AGL63, 0.01) * max(reduced seed product, 0.01) * max(SHB1, 0.01) * max(loss of ULTRAPETALA1, 0.01) * max(Specific mutations, 0.01) * max(early expansion of c, 0.01) * max(growth conditions, 0.01) * max(AMI1, 0.01) * max(GMMYB73, 0.01) * max(APUM24, 0.01) * max(AGL, 0.01) * max(AGL62, 0.01) * max(Maternal excess hybr, 0.01) * max(STPL, 0.01) * max(soluble sugar accumu, 0.01) * max(GhDA1-1AR301K mutant, 0.01) * max(CYCD7, 0.01) * max(ATWRKY6, 0.01) * max(GAI, 0.01) * max(Defoliation during f, 0.01) * max(MEE45, 0.01) * max(Sibling abortion, 0.01) * max(Overexpression of Gh, 0.01) * max(TTG2, 0.01) * max(IKU1, 0.01) * max(parental genome dosa, 0.01) * max(HDG9, 0.01) * max(GhDA1-1AR301K, 0.01) * max(NODGTT5, 0.01) * max(TASERK1, 0.01) * max(altered expression, 0.01) * max(SOD7, 0.01) * max(TaNAK1.2, 0.01) * max(constitutive express, 0.01) * max(LPFC, 0.01) * max(lipopeptide treatmen, 0.01) * max(autotetraploidy, 0.01) * max(CLE8, 0.01) * max(low redox buffering , 0.01) * max(BnLEA3 gene(s), 0.01) * max(16 gene(s), 0.01) * max(parental origin, 0.01) * max(TEMPERATURE, 0.01) * max(UMAMIT25, 0.01) * max(Lack of water, 0.01) * max(paternal inheritance, 0.01) * max(BSK3, 0.01) * max(RPT2, 0.01) * max(Endosperm developmen, 0.01) * max(NR, 0.01) * max(AGL11, 0.01) * max(Napin-BnGRF2a transg, 0.01) * max(GHNAC2, 0.01) * max(sibling lethality, 0.01) * max(Maternal temperature, 0.01) * max(growth of endosperm, 0.01) * max(CYP78A9, 0.01) * max(GA, 0.01) * max(OTP90, 0.01) * max(Increased expression, 0.01) * max(AA, 0.01) * max(DNA, 0.01) * max(Overexpression of ol, 0.01) * max(Organellar genomes, 0.01) * max(IAA, 0.01) * max(Auxin export defect, 0.01) * max(GIG1, 0.01) * max(DECREASE, 0.01) * max(C24, 0.01) * max(MAX2, 0.01) * max(Genome hybridization, 0.01) * max(increase in ovule si, 0.01) * max(severe nitrogen limi, 0.01) * max(Overexpression of At, 0.01) * max(Overexpression of Eg, 0.01) * max(Endosperm cellulariz, 0.01) * max(TASERK2, 0.01) * max(MINISEED3, 0.01) * max(TaSDIR1-4A-overexpre, 0.01) * max(HYBRIDITY, 0.01) * max(P4-SIRNAS, 0.01) * max(Endosperm growth, 0.01) * max(MNT, 0.01) * max(extra cell division , 0.01) * max(TASERK4, 0.01) * max(maternal donors, 0.01) * max(S2LB, 0.01) * max(GLN1, 0.01) * max(TAP46, 0.01) * max(mitotic synchrony, 0.01) * max(overexpressed ginsen, 0.01) * max(F1, 0.01) * max(QTL, 0.01) * max(Hypomethylation in t, 0.01) * max(4 x Ler, 0.01) * max(ALLELE, 0.01) * max(timing of endosperm , 0.01) * max(ARF3, 0.01) * max(DET2, 0.01) * max(USB1, 0.01) * max(ETFQO, 0.01) * max(FUS3, 0.01) * max(TASPL16, 0.01) * max(UGT76C2, 0.01) * max(Overexpression of an, 0.01) * max(DEFOLIATION, 0.01) * max(GMDREBL, 0.01) * max(UMAMIT24, 0.01) * max(YB12, 0.01) * max(epigenetic factors, 0.01) * max(Heterologous express, 0.01) * max(PLOIDY, 0.01) * max(ATGPAT9, 0.01) * max(AHA2, 0.01) * max(Circadian gene(s) ex, 0.01) * max(Natural variation, 0.01) * max(Reduction of auxin b, 0.01) * max(length and width, 0.01) * max(OTU1, 0.01) * max(Partial ovule aborti, 0.01) * max(ATBAK1, 0.01) * max(2 x Col x 4 x Col, 0.01) * max(maternal contributio, 0.01) * max(DA1R358K, 0.01) * max(growth of maternal o, 0.01) * max(environmental factor, 0.01) * max(ATGSR2, 0.01) * max(transgenic PfDGAT3-1, 0.01) * max(3-aminotriazole, 0.01) * max(genetic correlations, 0.01) * max(ATLEA3, 0.01) * max(BPE, 0.01) * max(JAZ, 0.01) * max(large flower mutants, 0.01) * max(ATVPS29, 0.01) * max(E2, 0.01) * max(Sizes of cells and c, 0.01) * max(KS, 0.01) * max(partial silencing of, 0.01) * max(JCFATB, 0.01) * max(GMPLD\u0393-OE, 0.01) * max(Overexpression of Bn, 0.01) * max(HDG3, 0.01) * max(CMV, 0.01) * max(cell number, 0.01) * max(DGAT, 0.01) * max(AHLPAAT2, 0.01) * max(AT3G01472.1, 0.01) * max(CU5, 0.01) * max(Overexpression of Ah, 0.01) * max(Transgenic seeds, 0.01) * max(RCA, 0.01) * max(ABX45, 0.01) * max(overexpression of Ta, 0.01) * max(Coordinated growth o, 0.01) * max(over-expression of C, 0.01) * max(Copper sulfate, 0.01) * max(EgWRI1-1, 0.01) * max(DAGT1, 0.01) * max(NPC6, 0.01) * max(HpDGAT1-overexpressi, 0.01) * max(JCFATA, 0.01) * max(ATGLK1, 0.01) * max(Seed oil content, 0.01) * max(Linnemannia elongata, 0.01) * max(GmDof4 transgenic pl, 0.01) * max(Delaying flowering, 0.01) * max(plant(s) photosynthe, 0.01) * max(CU20, 0.01) * max(Alteration of lipid , 0.01) * max(transgenic PfDGAT2-2, 0.01) * max(Hybridization, 0.01) * max(SPECIES, 0.01) * max(HR02, 0.01) * max(EhDH domains, 0.01) * max(Severe water limitat, 0.01) * max(Ectopic expression o, 0.01) * max(CU60, 0.01) * max(PRWRI1, 0.01) * max(GmDof11 transgenic p, 0.01) * max(ATDGAT1, 0.01) * max(GENOTYPES, 0.01) * max(Severe water depriva, 0.01) * max(Reduced storage capa, 0.01) * max(PrLPAAT4-overexpress, 0.01) * max(overexpressed AhGPAT, 0.01) * max(BNGRF2A, 0.01) * max(NRPC3, 0.01) * max(ATBPC1, 0.01) * max(ATHD2A, 0.01) * max(plasma-seed treatmen, 0.01) * max(AIL5, 0.01) * max(ATLEC2, 0.01) * max(changed seed oil com, 0.01) * max(FIS, 0.01) * max(ATMDN1, 0.01) * max(Reproductive growth , 0.01) * max(NaCl stress, 0.01) * max(basipetal auxin flow, 0.01) * max(ATHMP53, 0.01) * max(POLLINATION, 0.01) * max(ATMYB118, 0.01) * max(DIOXINS, 0.01) * max(ATC3H17, 0.01) * max(Growth Defects, 0.01) * max(ATLEC1, 0.01) * max(GENOTYPE, 0.01) * max(NRPC2, 0.01) * max(TPD1, 0.01) * max(CJBPC1, 0.01) * max(inter-ploidy cross d, 0.01) * max(down regulation of p, 0.01) * max(EDA3, 0.01) * max(triploid block, 0.01) * max(RGE1, 0.01) * max(LORELEI, 0.01) * max(low iron levels in c, 0.01) * max(ATTFIIB1, 0.01) * max(MIR159, 0.01) * max(RNAPIII, 0.01) * max(PCLEC1, 0.01) * max(ATUPF1, 0.01) * max(NRPABC1, 0.01) * max(EMF1, 0.01) * max(ATDOG1, 0.01) * max(FLOWERING, 0.01) * max(Vegetative developme, 0.01) * max(epigenetic variation, 0.01) * max(ABA, 0.01) * max(ABI5, 0.01) * max(higher fatty acid co, 0.01) * max(carbon starvation in, 0.01) * max(ATCSP2, 0.01) * max(LECOP1, 0.01) * max(ATHMP51, 0.01) * max(Autophagy in materna, 0.01) * max(analyzed peg mutants, 0.01) * max(changes in the ploid, 0.01) * max(overexpression of Pf, 0.01) * max(PheMYB4-1, 0.01) * max(BBM, 0.01) * max(ATSCO1, 0.01) * max(ATPPR2, 0.01) * max(genomic imprinting, 0.01) * max(Misbalanced expressi, 0.01) * max(soluble sugars, 0.01) * max(ATNPF8.3, 0.01) * max(SMC6A, 0.01) * max(parental cross direc, 0.01) * max(ATCBL3, 0.01) * max(fertilization with d, 0.01) * max(ABI3, 0.01) * max(ATSMC5, 0.01) * max(ABI4, 0.01) * max(ATMYB25, 0.01) * max(PGCRC, 0.01) * max(parental genome imba, 0.01) * max(VORICONAZOLE, 0.01) * max(NRPABC2, 0.01) * max(Decreased vesicular , 0.01) * max(FOC, 0.01) * max(NRPC8, 0.01) * max(REM11, 0.01) * max(paternal genome, 0.01) * max(ATSR45, 0.01) * max(MEDEA, 0.01) * max(disruptions in valin, 0.01) * max(Maternal tissues, 0.01) * max(multiple processes/f, 0.01) * max(ATNDT1, 0.01) * max(short-term heat expo, 0.01) * max(integument of the ov, 0.01) * max(cellularization, 0.01) * max(NSE4A, 0.01) * max(E12A11, 0.01) * max(mitochondrial riboso, 0.01) * max(defects in endosperm, 0.01) * max(EMS, 0.01) * max(TCDD, 0.01) * max(NADP, 0.01) * max(altered flavonoid me, 0.01) * max(PCWRI1, 0.01) * max(ATTTG1, 0.01) * max(P5CS2, 0.01) * max(Fatty acid synthesis, 0.01) * max(11_11B, 0.01) * max(ATMYB56, 0.01) * max(PML3, 0.01) * max(MPC, 0.01) * max(ATCBL2, 0.01) * max(ATRAD18, 0.01) * max(LOCUS, 0.01) * max(ASK13, 0.01) * max(EMB1379, 0.01) * max(ATNADP-ME1, 0.01) * max(COSWEET10, 0.01) * max(FUSCA, 0.01) * max(MDKIN2, 0.01) * max(BPCS, 0.01) * max(PoWRI1 gene(s), 0.01) * max(Fragmentation of out, 0.01) * max(ER, 0.01) * max(BL, 0.01) * max(GME, 0.01) * max(overexpression of Ps, 0.01) * max(SUS, 0.01) * max(ATMMS21, 0.01) * max(fertilization proces, 0.01) * max(EL20Y, 0.01) * max(ATGRP2, 0.01) * max(PGA6, 0.01) * max(paternal regulation, 0.01) * max(fis class, 0.01) * max(PEGS, 0.01) * max(reciprocal inter-plo, 0.01) * max(ATPRP4, 0.01) * max(NSE3, 0.01) * max(BFN1, 0.01) * max(ATEIN2, 0.01))^(1/366) * min(1/max(ENO2 * AfAP2-2-overexpressi * MEE57 * XsAP2 gene(s) * HAIKU * MINI3 * ANT * AGC1 * T540 * PMEI6 * ATMPK10 * cytonuclear interact * IKU2 * BRI1 * TT15 * MYCS * Overexpression of Gm * Overexpression of Xs * ATRAV1 * PPD1 * TaNAK1.1 * LEA_1 subfamily * LPAT2 * salt stress * SUB * TESTA2 * PGI1-2 * Over-expression of A * premature endosperm  * sense ZmRLK7 overexp * LuLEA1 gene(s) * iku mutations * IAM * Overexpression of Br * TRITERPENE * gfp gene(s) * ATMYB123 * FAH12 * Quadruple mutants * heterologous express * overexpression of Zm * PCF10SRDX * Overexpression of se * BRMYC2OE * OX40 * OX26 * Col-0 plant(s) * macro-element defici * AHL29 * triple mutants * gln1;1-gln1;2-gln1;3 * Co-silencing RNAi of * E1 * Remaining genotypes * AIF2 * PRS * ATWDR5A * ATTT8 * FIS-PRC2 * FIS_PRC2 * oxygen concentration * GmZOU-2 * Difference in satura * NTRC * Inactivating imprint * Fis mutants * BnGA2ox6 overexpress * H2B * ASH2R * ATCSP4 * CESA6 * EMF * ATCHS * GCN1 * plant(s) homozygous  * RBL, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FAE1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FAE1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ENO2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ENO2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Overexpression of mi",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of mi = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TASERK3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TASERK3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GmPSK\u03b31",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GmPSK\u03b31 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AfAP2-2-overexpressi",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AfAP2-2-overexpressi = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MEE57",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MEE57 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PPD",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PPD = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Brassinosteroid",
+      "type": "HORMONE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Brassinosteroid = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PSK",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PSK = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "XsAP2 gene(s)",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "XsAP2 gene(s) = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CHR7",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CHR7 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "transgenic A. thalia",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "transgenic A. thalia = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "A. thaliana mutants",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "A. thaliana mutants = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "parent-of-origin eff",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "parent-of-origin eff = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TaZIP gene(s)",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TaZIP gene(s) = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "HAIKU",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HAIKU = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "OES",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "OES = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MINI3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MINI3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "KLU",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "KLU = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Maternal and paterna",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Maternal and paterna = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DDM2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DDM2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DA1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DA1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "nutrient sink effect",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "nutrient sink effect = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AP2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AP2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ANT",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ANT = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AN3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AN3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ARF2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ARF2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "life history",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "life history = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "VVAGL12",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "VVAGL12 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Reduced expression o",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Reduced expression o = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "EOD3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EOD3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DA2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DA2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "YUC4",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "YUC4 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CKX2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CKX2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ABAP1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABAP1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "limitation in nutrie",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "limitation in nutrie = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AUXIN",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AUXIN = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "EOD1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EOD1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "EMBRYO",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EMBRYO = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "T-6b",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "T-6b = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "IMPRINTING",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "IMPRINTING = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "transition from sync",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "transition from sync = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BZR1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BZR1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DPA4",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DPA4 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "genome balance in en",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "genome balance in en = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AGC1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AGC1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATFAX1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATFAX1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "UBP15",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "UBP15 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "P1W",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "P1W = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "T540",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "T540 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "paternal genome exce",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "paternal genome exce = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CHD3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CHD3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "EMB71",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EMB71 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "truncated R domain",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "truncated R domain = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AGL63",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AGL63 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "reduced seed product",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "reduced seed product = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SHB1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SHB1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "loss of ULTRAPETALA1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "loss of ULTRAPETALA1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PMEI6",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PMEI6 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Specific mutations",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Specific mutations = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "early expansion of c",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "early expansion of c = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATMPK10",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMPK10 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "growth conditions",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "growth conditions = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AMI1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AMI1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GMMYB73",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GMMYB73 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "APUM24",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "APUM24 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "cytonuclear interact",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "cytonuclear interact = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AGL",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AGL = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AGL62",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AGL62 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Maternal excess hybr",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Maternal excess hybr = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "STPL",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "STPL = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "soluble sugar accumu",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "soluble sugar accumu = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GhDA1-1AR301K mutant",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GhDA1-1AR301K mutant = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CYCD7",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CYCD7 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATWRKY6",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATWRKY6 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GAI",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GAI = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Defoliation during f",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Defoliation during f = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MEE45",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MEE45 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "IKU2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "IKU2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BRI1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BRI1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Sibling abortion",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Sibling abortion = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Overexpression of Gh",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Gh = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TTG2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TTG2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "IKU1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "IKU1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "parental genome dosa",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "parental genome dosa = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "HDG9",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HDG9 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TT15",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TT15 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GhDA1-1AR301K",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GhDA1-1AR301K = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NODGTT5",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NODGTT5 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TASERK1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TASERK1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "altered expression",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "altered expression = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SOD7",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SOD7 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TaNAK1.2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TaNAK1.2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "constitutive express",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "constitutive express = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "LPFC",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LPFC = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MYCS",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MYCS = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "lipopeptide treatmen",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "lipopeptide treatmen = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "autotetraploidy",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "autotetraploidy = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CLE8",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CLE8 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "low redox buffering ",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "low redox buffering  = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BnLEA3 gene(s)",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BnLEA3 gene(s) = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "16 gene(s)",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "16 gene(s) = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "parental origin",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "parental origin = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TEMPERATURE",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TEMPERATURE = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Overexpression of Gm",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Gm = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "UMAMIT25",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "UMAMIT25 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Lack of water",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Lack of water = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "paternal inheritance",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "paternal inheritance = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BSK3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BSK3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "RPT2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RPT2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Endosperm developmen",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Endosperm developmen = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NR",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NR = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AGL11",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AGL11 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Napin-BnGRF2a transg",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Napin-BnGRF2a transg = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GHNAC2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GHNAC2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Overexpression of Xs",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Xs = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATRAV1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATRAV1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "sibling lethality",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "sibling lethality = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Maternal temperature",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Maternal temperature = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "growth of endosperm",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "growth of endosperm = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CYP78A9",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CYP78A9 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GA",
+      "type": "HORMONE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "OTP90",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "OTP90 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Increased expression",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Increased expression = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AA",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PPD1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PPD1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DNA",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DNA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Overexpression of ol",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of ol = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Organellar genomes",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Organellar genomes = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "IAA",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "IAA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TaNAK1.1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TaNAK1.1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Auxin export defect",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Auxin export defect = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GIG1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GIG1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DECREASE",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DECREASE = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "C24",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "C24 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MAX2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MAX2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Genome hybridization",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Genome hybridization = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "increase in ovule si",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "increase in ovule si = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "severe nitrogen limi",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "severe nitrogen limi = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Overexpression of At",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of At = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Overexpression of Eg",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Eg = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Endosperm cellulariz",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Endosperm cellulariz = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TASERK2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TASERK2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MINISEED3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MINISEED3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TaSDIR1-4A-overexpre",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TaSDIR1-4A-overexpre = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "HYBRIDITY",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HYBRIDITY = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "LEA_1 subfamily",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LEA_1 subfamily = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "P4-SIRNAS",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "P4-SIRNAS = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Endosperm growth",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Endosperm growth = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MNT",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MNT = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "extra cell division ",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "extra cell division  = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TASERK4",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TASERK4 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "maternal donors",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "maternal donors = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "S2LB",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "S2LB = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GLN1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GLN1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TAP46",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TAP46 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "mitotic synchrony",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "mitotic synchrony = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "overexpressed ginsen",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "overexpressed ginsen = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "F1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "F1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "LPAT2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LPAT2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "QTL",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "QTL = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "salt stress",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "salt stress = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SUB",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SUB = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Hypomethylation in t",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Hypomethylation in t = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "4 x Ler",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "4 x Ler = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TESTA2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TESTA2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ALLELE",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ALLELE = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "timing of endosperm ",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "timing of endosperm  = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ARF3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ARF3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DET2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DET2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "USB1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "USB1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ETFQO",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ETFQO = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FUS3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FUS3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TASPL16",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TASPL16 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PGI1-2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PGI1-2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Over-expression of A",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Over-expression of A = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "UGT76C2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "UGT76C2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Overexpression of an",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of an = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DEFOLIATION",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DEFOLIATION = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GMDREBL",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GMDREBL = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "UMAMIT24",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "UMAMIT24 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "YB12",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "YB12 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "premature endosperm ",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "premature endosperm  = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "epigenetic factors",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "epigenetic factors = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Heterologous express",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Heterologous express = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PLOIDY",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PLOIDY = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATGPAT9",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATGPAT9 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AHA2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AHA2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Circadian gene(s) ex",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Circadian gene(s) ex = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Natural variation",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Natural variation = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Reduction of auxin b",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Reduction of auxin b = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "sense ZmRLK7 overexp",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "sense ZmRLK7 overexp = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "length and width",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "length and width = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "OTU1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "OTU1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Partial ovule aborti",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Partial ovule aborti = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "LuLEA1 gene(s)",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LuLEA1 gene(s) = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATBAK1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATBAK1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "iku mutations",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "iku mutations = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "2 x Col x 4 x Col",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "2 x Col x 4 x Col = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "maternal contributio",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "maternal contributio = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DA1R358K",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DA1R358K = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "IAM",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "IAM = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "growth of maternal o",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "growth of maternal o = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "environmental factor",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "environmental factor = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATGSR2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATGSR2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Overexpression of Br",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Br = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "transgenic PfDGAT3-1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "transgenic PfDGAT3-1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TRITERPENE",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TRITERPENE = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "3-aminotriazole",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "3-aminotriazole = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "genetic correlations",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "genetic correlations = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "gfp gene(s)",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "gfp gene(s) = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATLEA3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATLEA3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BPE",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BPE = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "JAZ",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "JAZ = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "large flower mutants",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "large flower mutants = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATVPS29",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATVPS29 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "E2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "E2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATMYB123",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMYB123 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Sizes of cells and c",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Sizes of cells and c = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "KS",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "KS = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "partial silencing of",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "partial silencing of = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "JCFATB",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "JCFATB = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GMPLD\u0393-OE",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GMPLD\u0393-OE = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FAH12",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FAH12 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Overexpression of Bn",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Bn = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Quadruple mutants",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Quadruple mutants = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "heterologous express",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "heterologous express = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "HDG3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HDG3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CMV",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CMV = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "overexpression of Zm",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "overexpression of Zm = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PCF10SRDX",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PCF10SRDX = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "cell number",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "cell number = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DGAT",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DGAT = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Overexpression of se",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of se = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BRMYC2OE",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BRMYC2OE = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AHLPAAT2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AHLPAAT2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AT3G01472.1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AT3G01472.1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CU5",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CU5 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Overexpression of Ah",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Ah = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Transgenic seeds",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Transgenic seeds = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "RCA",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RCA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ABX45",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABX45 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "overexpression of Ta",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "overexpression of Ta = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Coordinated growth o",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Coordinated growth o = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "over-expression of C",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "over-expression of C = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Copper sulfate",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Copper sulfate = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "EgWRI1-1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EgWRI1-1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DAGT1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DAGT1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NPC6",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NPC6 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "OX40",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "OX40 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "HpDGAT1-overexpressi",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HpDGAT1-overexpressi = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "OX26",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "OX26 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "JCFATA",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "JCFATA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATGLK1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATGLK1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Seed oil content",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Seed oil content = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Linnemannia elongata",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Linnemannia elongata = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Col-0 plant(s)",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Col-0 plant(s) = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GmDof4 transgenic pl",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GmDof4 transgenic pl = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Delaying flowering",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Delaying flowering = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "plant(s) photosynthe",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "plant(s) photosynthe = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "macro-element defici",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "macro-element defici = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CU20",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CU20 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Alteration of lipid ",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Alteration of lipid  = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "transgenic PfDGAT2-2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "transgenic PfDGAT2-2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Hybridization",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Hybridization = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AHL29",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AHL29 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "triple mutants",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "triple mutants = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SPECIES",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SPECIES = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "gln1;1-gln1;2-gln1;3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "gln1;1-gln1;2-gln1;3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "HR02",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HR02 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "EhDH domains",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EhDH domains = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Severe water limitat",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Severe water limitat = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Co-silencing RNAi of",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Co-silencing RNAi of = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Ectopic expression o",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Ectopic expression o = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CU60",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CU60 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PRWRI1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PRWRI1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "E1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "E1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GmDof11 transgenic p",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GmDof11 transgenic p = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATDGAT1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATDGAT1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GENOTYPES",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GENOTYPES = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Remaining genotypes",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Remaining genotypes = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Severe water depriva",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Severe water depriva = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AIF2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AIF2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Reduced storage capa",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Reduced storage capa = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PrLPAAT4-overexpress",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PrLPAAT4-overexpress = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "overexpressed AhGPAT",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "overexpressed AhGPAT = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BNGRF2A",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BNGRF2A = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PRS",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PRS = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NRPC3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NRPC3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATBPC1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATBPC1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATWDR5A",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATWDR5A = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATHD2A",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATHD2A = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATTT8",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATTT8 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "plasma-seed treatmen",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "plasma-seed treatmen = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AIL5",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AIL5 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATLEC2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATLEC2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "changed seed oil com",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "changed seed oil com = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FIS",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FIS = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FIS-PRC2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FIS-PRC2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATMDN1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMDN1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Reproductive growth ",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Reproductive growth  = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NaCl stress",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NaCl stress = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "basipetal auxin flow",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "basipetal auxin flow = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATHMP53",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATHMP53 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FIS_PRC2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FIS_PRC2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "POLLINATION",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "POLLINATION = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATMYB118",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMYB118 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DIOXINS",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DIOXINS = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATC3H17",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATC3H17 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Growth Defects",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Growth Defects = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "oxygen concentration",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "oxygen concentration = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATLEC1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATLEC1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GENOTYPE",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GENOTYPE = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NRPC2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NRPC2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TPD1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TPD1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CJBPC1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CJBPC1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "inter-ploidy cross d",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "inter-ploidy cross d = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "down regulation of p",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "down regulation of p = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "EDA3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EDA3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "triploid block",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "triploid block = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GmZOU-2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GmZOU-2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "RGE1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RGE1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "LORELEI",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LORELEI = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "low iron levels in c",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "low iron levels in c = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATTFIIB1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATTFIIB1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MIR159",
+      "type": "REGULATORY_RNA",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MIR159 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "RNAPIII",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RNAPIII = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PCLEC1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PCLEC1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATUPF1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATUPF1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NRPABC1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NRPABC1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "EMF1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EMF1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATDOG1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATDOG1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FLOWERING",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FLOWERING = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Vegetative developme",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Vegetative developme = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "epigenetic variation",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "epigenetic variation = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ABA",
+      "type": "HORMONE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ABI5",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABI5 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "higher fatty acid co",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "higher fatty acid co = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Difference in satura",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Difference in satura = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "carbon starvation in",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "carbon starvation in = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NTRC",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NTRC = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Inactivating imprint",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Inactivating imprint = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATCSP2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATCSP2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "LECOP1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LECOP1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATHMP51",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATHMP51 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Fis mutants",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Fis mutants = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Autophagy in materna",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Autophagy in materna = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "analyzed peg mutants",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "analyzed peg mutants = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "changes in the ploid",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "changes in the ploid = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "overexpression of Pf",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "overexpression of Pf = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PheMYB4-1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PheMYB4-1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BBM",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BBM = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATSCO1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATSCO1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATPPR2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATPPR2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "genomic imprinting",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "genomic imprinting = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Misbalanced expressi",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Misbalanced expressi = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "soluble sugars",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "soluble sugars = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATNPF8.3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATNPF8.3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SMC6A",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SMC6A = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "parental cross direc",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "parental cross direc = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATCBL3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATCBL3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "fertilization with d",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "fertilization with d = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ABI3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABI3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATSMC5",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATSMC5 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ABI4",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABI4 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATMYB25",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMYB25 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PGCRC",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PGCRC = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "parental genome imba",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "parental genome imba = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "VORICONAZOLE",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "VORICONAZOLE = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NRPABC2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NRPABC2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Decreased vesicular ",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Decreased vesicular  = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FOC",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FOC = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NRPC8",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NRPC8 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "REM11",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "REM11 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "paternal genome",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "paternal genome = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATSR45",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATSR45 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MEDEA",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MEDEA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "disruptions in valin",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "disruptions in valin = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Maternal tissues",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Maternal tissues = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "multiple processes/f",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "multiple processes/f = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATNDT1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATNDT1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "short-term heat expo",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "short-term heat expo = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BnGA2ox6 overexpress",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BnGA2ox6 overexpress = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "integument of the ov",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "integument of the ov = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "cellularization",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "cellularization = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NSE4A",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NSE4A = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "E12A11",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "E12A11 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "mitochondrial riboso",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "mitochondrial riboso = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "defects in endosperm",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "defects in endosperm = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "EMS",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EMS = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TCDD",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TCDD = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NADP",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NADP = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "altered flavonoid me",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "altered flavonoid me = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PCWRI1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PCWRI1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATTTG1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATTTG1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "P5CS2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "P5CS2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Fatty acid synthesis",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Fatty acid synthesis = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "11_11B",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "11_11B = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATMYB56",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMYB56 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PML3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PML3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MPC",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MPC = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATCBL2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATCBL2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATRAD18",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATRAD18 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "H2B",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "H2B = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ASH2R",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ASH2R = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "LOCUS",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LOCUS = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ASK13",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ASK13 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "EMB1379",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EMB1379 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATCSP4",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATCSP4 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATNADP-ME1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATNADP-ME1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "COSWEET10",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "COSWEET10 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FUSCA",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FUSCA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MDKIN2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MDKIN2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BPCS",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BPCS = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PoWRI1 gene(s)",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PoWRI1 gene(s) = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Fragmentation of out",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Fragmentation of out = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CESA6",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CESA6 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ER",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ER = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BL",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BL = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GME",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GME = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "overexpression of Ps",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "overexpression of Ps = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SUS",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SUS = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "EMF",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EMF = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATMMS21",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMMS21 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "fertilization proces",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "fertilization proces = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "EL20Y",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EL20Y = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATCHS",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATCHS = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATGRP2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATGRP2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PGA6",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PGA6 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "paternal regulation",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "paternal regulation = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GCN1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GCN1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "fis class",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "fis class = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "plant(s) homozygous ",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "plant(s) homozygous  = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PEGS",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PEGS = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "reciprocal inter-plo",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "reciprocal inter-plo = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATPRP4",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATPRP4 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "RBL",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RBL = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NSE3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NSE3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BFN1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BFN1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATEIN2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATEIN2 = gene_modifier + exogenous_supply"
+    }
+  ]
+}

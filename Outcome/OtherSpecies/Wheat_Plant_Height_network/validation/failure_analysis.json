@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Plant_Height",
+    "species": "Triticum aestivum",
+    "network": "Wheat_Plant_Height_network",
+    "created": "2026-04-20"
+  },
+  "failures": [
+    {
+      "test_id": "T018",
+      "gene": "Rht-B1c_plus_GA3",
+      "perturbation_type": "gain_of_function_plus_treatment",
+      "expected_direction": "unchanged",
+      "predicted_direction": "increased",
+      "category": "framework_limitation",
+      "explanation": "Trap-3 framework limitation: stabilised DELLA allele (Rht-B1b/c or Rht-D1b) cannot be degraded by exogenous GA because TaGID1 perception requires DELLA to be a viable substrate. Expected=unchanged vs mutant baseline, but the algebraic model adds GA3 exogenous_supply at TaGID1 which then 'degrades' the DELLA composite regardless of allele state. Equivalent to the SL/GR24 + D14 rescue trap. Perception-gate purity is intact upstream, but DELLA itself is not 'gated' since stabilised DELLA is modelled via gm=2.0 (elevated baseline) rather than as an inhibition-resistant variant.",
+      "evidence": "10.1104/pp.111.185272",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T029",
+      "gene": "Rht-B1b+TaZnF-B_double",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "unchanged",
+      "predicted_direction": "decreased",
+      "category": "epistasis_complexity",
+      "explanation": "TaZnF-B suppressor of Rht-B1b: in the double mutant, phenotype is restored to near-WT (epistatic suppression). The additive algebraic framework with geometric-mean activation and bounded-inverse inhibition has no mechanism to encode 'mutation A cancels the effect of mutation B'. Multiplicative composite of gm=2.0 (RHT_B1) and gm=0.0 (TaZnF) does not produce the observed wild-type phenotype.",
+      "evidence": "10.1038/s41586-023-06023-6",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T031",
+      "gene": "VRN1_single_ko",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "unchanged",
+      "category": "composite_collapse",
+      "explanation": "VRN1 is encoded as a composite node. Single-homeolog KO uses gm=0.997 (composite convention for redundant homeologs) → near-WT predicted, but the paper reports a slight decrease vs WT. The composite encoding loses resolution: a single vrn1 homeolog KO in wheat does produce a modest height reduction in Fielder field trials, but the 0.003 deviation is below the 0.05 direction_threshold.",
+      "evidence": "10.1016/j.xplc.2025.101325",
+      "fixable": true,
+      "fix_strategy": "Either (a) loosen composite factor for VRN1 to 0.9 to reflect modest dosage sensitivity, or (b) accept edge_case and flag as framework limitation for composite nodes with weak partial-loss phenotypes."
+    },
+    {
+      "test_id": "T040",
+      "gene": "Rht-B1b_plus_GA3",
+      "perturbation_type": "gain_of_function_plus_treatment",
+      "expected_direction": "unchanged",
+      "predicted_direction": "increased",
+      "category": "framework_limitation",
+      "explanation": "Trap-3 framework limitation: stabilised DELLA allele (Rht-B1b/c or Rht-D1b) cannot be degraded by exogenous GA because TaGID1 perception requires DELLA to be a viable substrate. Expected=unchanged vs mutant baseline, but the algebraic model adds GA3 exogenous_supply at TaGID1 which then 'degrades' the DELLA composite regardless of allele state. Equivalent to the SL/GR24 + D14 rescue trap. Perception-gate purity is intact upstream, but DELLA itself is not 'gated' since stabilised DELLA is modelled via gm=2.0 (elevated baseline) rather than as an inhibition-resistant variant.",
+      "evidence": "10.1093/plphys/kiad636",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T044",
+      "gene": "TaBRI1_triple_plus_BL",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "unchanged",
+      "predicted_direction": "increased",
+      "category": "framework_limitation",
+      "explanation": "Trap-5-like signalling mutant rescue: TaBRI1 triple-KO with BL treatment. Expected=unchanged vs mutant baseline because BL cannot be perceived without BRI1. The algebraic model adds BL as exogenous_supply at Brassinosteroid source, and if there is any path from BL to Plant_Height that bypasses TaBRI1, the model predicts a change. Perception-gate purity required.",
+      "evidence": "10.1186/s12870-025-06762-w",
+      "fixable": false,
+      "fix_strategy": ""
+    }
+  ],
+  "summary": {
+    "total_failures": 5,
+    "by_category": {
+      "framework_limitation": 3,
+      "epistasis_complexity": 1,
+      "composite_collapse": 1
+    },
+    "fixable_count": 1,
+    "unfixable_count": 4,
+    "union_over_methods": true,
+    "note": "Union of failures across Algebraic, ODE, RWR. Per-method failure lists are in accuracy_metrics.json."
+  }
+}

@@ -1,0 +1,48 @@
+# Private — never push
+Manuscript/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*~
+
+# OneDrive / Office lock files
+~$*.*
+.~lock.*
+
+# Local scratch / Claude Code state
+.claude/
+*.log
+*.tmp
+
+# README HTML preview (regenerable from README.md via pandoc)
+README_preview.html
+.readme_preview.css
+
+# Quarto / RStudio render sidecars and cache
+README_files/
+*_files/
+.quarto/
+
+# Oversize validator dumps (>50 MB; GitHub blocks >100 MB).
+# These are intermediate artefacts of the KG-Cleaned merged-network validation
+# run; they are recomputable from the network + the smaller validation_results
+# files, and the published metrics live in Supplementary Data 6.
+Outcome/FLASH-P_VS_KG/KB_Cleaned/merged_arabidopsis_network/validation/ode_steady_state_dump.json
+Outcome/FLASH-P_VS_KG/KB_Cleaned/merged_arabidopsis_network/validation/rwr_steady_state_dump.json
+Outcome/FLASH-P_VS_KG/KB_Cleaned/merged_arabidopsis_network/validation/steady_state_dump.json

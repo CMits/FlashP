@@ -1,0 +1,2891 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Plant_Height",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "total_perturbations": 130,
+    "by_type": {
+      "overexpression": 24,
+      "double_knockout": 10,
+      "quintuple_knockout": 2,
+      "knockout": 58,
+      "knockdown": 1,
+      "triple_knockout": 8,
+      "exogenous_treatment": 9,
+      "gain_of_function": 5,
+      "knockout_plus_treatment": 3,
+      "inhibitor_PBZ": 1,
+      "quadruple_knockout": 2,
+      "environmental": 2,
+      "knockout_arp6": 1,
+      "rescue_experiment": 2,
+      "gain_of_function_plus_treatment": 1,
+      "chemical_treatment": 1
+    },
+    "convention": "expected_direction compares perturbation to WT baseline (or mutant alone for rescues); increased/decreased/unchanged at direction_threshold 0.05"
+  },
+  "direction_threshold": 0.05,
+  "perturbations": [
+    {
+      "gene": "miR156",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pgen.1006263",
+          "title": "Developmental Functions of miR156-Regulated SQUAMOSA PROMOTER BINDING PROTEIN-LIKE (SPL) Genes in Arabidopsis thaliana",
+          "authors": "Mingli Xu, Tieqiang Hu, Jianfei Zhao, Mee-Yeon Park, Keith W Earley, Gang Wu, Li Yang, R Scott Poethig",
+          "year": 2016,
+          "journal": "PLoS Genetics",
+          "evidence_sentence": "35S::MIR156A: LD flowering: 35.4 +/- 0.3 days vs Col 27.8 +/- 0.3 days (+7.6 days delay); juvenile leaves 26.4 +/- 0.5 vs Col 5.0 +/- 0.2 (+21.4 leaves)",
+          "claim": "miR156 overexpression significantly delays flowering and prolongs the juvenile phase, increasing plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T001"
+    },
+    {
+      "gene": "SPL9",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1007/s11103-008-9310-z",
+          "title": "The microRNA regulated SBP-box genes SPL9 and SPL15 control shoot maturation in Arabidopsis",
+          "authors": "Stefan Schwarz, Arne V Grande, Nora Bujdoso, Heinz Saedler, Peter Huijser",
+          "year": 2008,
+          "journal": "Plant Molecular Biology",
+          "evidence_sentence": "Inflorescence height was measured between the rosette and the first flower; double mutant showed significantly reduced height (6.9 cm vs 12.1 cm in wild-type); double mutant produced approximately six extra rosette leaves compared to wild-type (19.5 vs 13.1 leaves); bolted and flowered somewhat later than wild-type",
+          "claim": "spl9 spl15 double mutant delays flowering and alters inflorescence architecture",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T002"
+    },
+    {
+      "gene": "SPL2",
+      "perturbation_type": "quintuple_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pgen.1006263",
+          "title": "Developmental Functions of miR156-Regulated SQUAMOSA PROMOTER BINDING PROTEIN-LIKE (SPL) Genes in Arabidopsis thaliana",
+          "authors": "Mingli Xu, Tieqiang Hu, Jianfei Zhao, Mee-Yeon Park, Keith W Earley, Gang Wu, Li Yang, R Scott Poethig",
+          "year": 2016,
+          "journal": "PLoS Genetics",
+          "evidence_sentence": "spl2/9/11/13/15 in LD: days to flower 33.0 +/- 0.3 vs Col 27.8 +/- 0.3 (+5.2 days); LFY, AP1, FUL, SOC1 transcripts all reduced approximately 50%",
+          "claim": "spl2/9/11/13/15 quintuple mutant delays flowering significantly in long days",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T003"
+    },
+    {
+      "gene": "SPL9",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1016/j.cell.2009.06.031",
+          "title": "The sequential action of miR156 and miR172 regulates developmental timing in Arabidopsis",
+          "authors": "Gang Wu, Mee Yeon Park, Susan R Conway, Jia-Wei Wang, Detlef Weigel, R Scott Poethig",
+          "year": 2009,
+          "journal": "Cell",
+          "evidence_sentence": "pSPL9::rSPL9 accelerated the expression of all adult-specific leaf traits, producing leaves with an elongated leaf blade, serrated leaf margin, and abaxial trichomes; increased miR172 levels >4-fold",
+          "claim": "miR156-resistant SPL9 overexpression accelerates adult phase transition and promotes early flowering, decreasing plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T004"
+    },
+    {
+      "gene": "TOE1",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.016238",
+          "title": "Regulation of Flowering Time and Floral Organ Identity by a MicroRNA and Its APETALA2-Like Target Genes",
+          "authors": "Milo J Aukerman, Hajime Sakai",
+          "year": 2003,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "toe1-2 toe2-1 double mutant: 6.0 rosette leaves vs wild-type 11.4 (significantly earlier than single mutants); The early-flowering phenotype of toe1-2 toe2-1 is consistent with a model in which miR172 causes early flowering by downregulating several AP2-like floral repressors",
+          "claim": "toe1 toe2 double mutant causes early flowering and decreased plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T005"
+    },
+    {
+      "gene": "miR172",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.016238",
+          "title": "Regulation of Flowering Time and Floral Organ Identity by a MicroRNA and Its APETALA2-Like Target Genes",
+          "authors": "Milo J Aukerman, Hajime Sakai",
+          "year": 2003,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "35S-EAT (miR172 OE): 2.0 rosette leaves at flowering; EAT-D flowers extremely early with 3.1 rosette leaves vs wild-type 11.4; miR172 overexpression caused early flowering phenotype",
+          "claim": "miR172 overexpression causes early flowering and decreased plant height by repressing AP2-like floral repressors",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T006"
+    },
+    {
+      "gene": "FCA",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1093/emboj/cdg305",
+          "title": "Autoregulation of FCA pre-mRNA processing controls Arabidopsis flowering time",
+          "authors": "Victor Quesada, Richard Macknight, Caroline Dean, Gordon G Simpson",
+          "year": 2003,
+          "journal": "The EMBO Journal",
+          "evidence_sentence": "late flowering fca-1 mutant plants show delayed floral transition compared to wild-type; FCA functions in parallel to the vernalization pathway to down-regulate RNA levels of the floral repressor FLC",
+          "claim": "fca-1 mutant causes late flowering via FLC accumulation, leading to increased plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T007"
+    },
+    {
+      "gene": "FPA",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.13.6.1427",
+          "title": "FPA, a Gene Involved in Floral Induction in Arabidopsis, Encodes a Protein Containing RNA-Recognition Motifs",
+          "authors": "Fritz M Schomburg, David A Patton, David W Meinke, Richard M Amasino",
+          "year": 2001,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "fpa-2 mutant: 17.8 +/- 1.4 rosette leaves in long days vs wild-type 7.2 +/- 0.6; mutations in FPA result in extremely delayed flowering",
+          "claim": "fpa mutant causes late flowering via FLC accumulation, increasing plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T008"
+    },
+    {
+      "gene": "FLD",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1007/s12298-017-0458-3",
+          "title": "Research progress on the autonomous flowering time pathway in Arabidopsis",
+          "authors": "Jing-Zhi Cheng, Yu-Ping Zhou, Tian-Xiao Lv, Chu-Ping Xie, Chang-En Tian",
+          "year": 2017,
+          "journal": "Physiology and Molecular Biology of Plants",
+          "evidence_sentence": "FLD contains an amine oxidase domain and is a homolog of the human H3K4me demethylase LSD1; FLD demethylates H3K4me2 at the FLC gene body; most mutants for above genes are recessive and showed late-flowering phenotype under both long- and short-day conditions",
+          "claim": "fld mutant causes late flowering via FLC accumulation, leading to increased plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T009"
+    },
+    {
+      "gene": "FVE",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1007/s10059-011-1022-6",
+          "title": "FVE, an Arabidopsis Homologue of the Retinoblastoma-Associated Protein That Regulates Flowering Time and Cold Response, Binds to Chromatin as a Large Multiprotein Complex",
+          "authors": "Jin Jeon, Jungmook Kim",
+          "year": 2011,
+          "journal": "Molecules and Cells",
+          "evidence_sentence": "In the fve mutants, the FLC chromatin was enriched in acetylated histones H3 and H4, indicating FVE is required for histone deacetylation at FLC chromatin; late-flowering phenotype of acg1 was complemented by FVE overexpression",
+          "claim": "fve mutant causes FLC accumulation and late flowering via failure of histone deacetylation at FLC, increasing plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T010"
+    },
+    {
+      "gene": "FY",
+      "perturbation_type": "knockdown",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.110.167817",
+          "title": "Hypomorphic Alleles Reveal FCA-Independent Roles for FY in the Regulation of FLOWERING LOCUS C",
+          "authors": "Wei Feng, Yannick Jacob, Kira M Veley, Lei Ding, Xuhong Yu, Goh Choe, Scott D Michaels",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "fy-5 caused a 90% increase in FLC transcript and delayed flowering",
+          "claim": "fy-5 causes FLC accumulation and late flowering, increasing plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T011"
+    },
+    {
+      "gene": "TOE1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.016238",
+          "title": "Regulation of Flowering Time and Floral Organ Identity by a MicroRNA and Its APETALA2-Like Target Genes",
+          "authors": "Milo J Aukerman, Hajime Sakai",
+          "year": 2003,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "Transgenic 35S-TOE1 plants flowered much later than wild-type plants with average 28.6 rosette leaves; toe1-1D activation-tagged line showed late flowering with 22.5 rosette leaves vs 11.4 wild-type",
+          "claim": "TOE1 overexpression causes late flowering and increased plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T012"
+    },
+    {
+      "gene": "SMZ",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pbio.1000148",
+          "title": "Repression of Flowering by the miR172 Target SMZ",
+          "authors": "Johannes Mathieu, Levi J Yant, Felix Mürdter, Frank Küttner, Markus Schmid",
+          "year": 2009,
+          "journal": "PLoS Biology",
+          "evidence_sentence": "smz-D (LD): 45.1 +/- 1.7 leaves vs WT 15.5 +/- 0.6; 35S::rSMZ plants remained vegetative throughout their life",
+          "claim": "SMZ overexpression causes severe late flowering and increased plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T013"
+    },
+    {
+      "gene": "TOE1",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pbio.1000148",
+          "title": "Repression of Flowering by the miR172 Target SMZ",
+          "authors": "Johannes Mathieu, Levi J Yant, Felix Mürdter, Frank Küttner, Markus Schmid",
+          "year": 2009,
+          "journal": "PLoS Biology",
+          "evidence_sentence": "toe1 toe2 smz snz quadruple mutant: 7.7 +/- 0.7 leaves, flowers significantly earlier (p<0.001), confirming redundant repression of flowering by AP2-like genes",
+          "claim": "Loss of TOE1, TOE2, SMZ (and SNZ) causes early flowering and decreased plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T014"
+    },
+    {
+      "gene": "",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.00260",
+          "title": "Sugar promotes vegetative phase change in Arabidopsis thaliana by repressing the expression of MIR156A and MIR156C",
+          "authors": "Li Yang, Mingli Xu, Yeonjong Koo, Jia He, R Scott Poethig",
+          "year": 2013,
+          "journal": "eLife",
+          "evidence_sentence": "Exogenous sucrose significantly accelerates abaxial trichome production in wild-type plants; sugar treatment reduced pri-MIR156A and pri-MIR156C abundance and mature miR156 levels, while SPL9 and SPL15 transcripts were markedly increased",
+          "claim": "Sucrose treatment represses miR156, promotes adult phase transition, accelerates flowering, and decreases plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T015"
+    },
+    {
+      "gene": "LDL1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.107.052373",
+          "title": "Arabidopsis Relatives of the Human Lysine-Specific Demethylase1 Repress the Expression of FWA and FLOWERING LOCUS C and Thus Promote the Floral Transition",
+          "authors": "Danhua Jiang, Wannian Yang, Yuehui He, Richard M Amasino",
+          "year": 2007,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "ldl1 mutants flowered later than wild-type Columbia (Col) in long days; FLC was upregulated in ldl1 and ldl1 ldl2 mutants",
+          "claim": "ldl1 mutant causes late flowering via FLC accumulation, increasing plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T016"
+    },
+    {
+      "gene": "LDL1",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.107.052373",
+          "title": "Arabidopsis Relatives of the Human Lysine-Specific Demethylase1 Repress the Expression of FWA and FLOWERING LOCUS C and Thus Promote the Floral Transition",
+          "authors": "Danhua Jiang, Wannian Yang, Yuehui He, Richard M Amasino",
+          "year": 2007,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "ldl1-2 ldl2 double mutant flowered later than ldl1 single mutant; FLD, LDL1, and LDL2 act in partial redundancy to repress FLC expression",
+          "claim": "ldl1 ldl2 double mutant causes enhanced late flowering via FLC accumulation, increasing plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T017"
+    },
+    {
+      "gene": "FCA",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1093/emboj/cdg305",
+          "title": "Autoregulation of FCA pre-mRNA processing controls Arabidopsis flowering time",
+          "authors": "Victor Quesada, Richard Macknight, Caroline Dean, Gordon G Simpson",
+          "year": 2003,
+          "journal": "The EMBO Journal",
+          "evidence_sentence": "The presence of the FCA-gamma transgene overcomes FRI epistasis and plants flower earlier (21.8 +/- 0.3 leaves in FRI control vs 13.5 +/- 0.3 leaves with transgene)",
+          "claim": "FCA overexpression causes early flowering by repressing FLC, reducing plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T018"
+    },
+    {
+      "gene": "miR172",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pbio.3001043",
+          "title": "Systematic analyses of the MIR172 family members of Arabidopsis define their distinct roles in regulation of APETALA2 during floral transition",
+          "authors": "Ó'Maoiléidigh DS, van Driel AD, Singh A, Sang Q",
+          "year": 2021,
+          "journal": "PLoS Biology",
+          "evidence_sentence": "mir172abcde plants flowered much later than Col-0; mir172abd and mir172abcde plants initially flowering from axillary shoots when grown under short photoperiods (approximately 91% of 77 plants); FT mRNA levels were between 27% and 31% of Col-0 levels in mir172abcde quintuple mutants",
+          "claim": "Loss of miR172 causes late flowering via accumulation of AP2-like repressors, increasing plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T019"
+    },
+    {
+      "gene": "SPL9",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pgen.1006263",
+          "title": "Developmental Functions of miR156-Regulated SQUAMOSA PROMOTER BINDING PROTEIN-LIKE (SPL) Genes in Arabidopsis thaliana",
+          "authors": "Mingli Xu, Tieqiang Hu, Jianfei Zhao, Mee-Yeon Park, Keith W Earley, Gang Wu, Li Yang, R Scott Poethig",
+          "year": 2016,
+          "journal": "PLoS Genetics",
+          "evidence_sentence": "spl9/13/15 in SD: 31.5 +/- 0.8 juvenile leaves vs Col 7.0 +/- 0.2; 59.8 +/- 1.1 rosette leaves vs Col 42.7 +/- 0.7; spl9/13/15 produced 16-24 more juvenile leaves and 6-17 more rosette leaves than Col",
+          "claim": "spl9/13/15 triple mutant significantly extends the juvenile phase and increases rosette leaf number in short days",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Arabidopsis thaliana",
+      "test_id": "T020"
+    },
+    {
+      "gene": "CPS",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "ga1, ga2 and ga3 single mutants (defective in CPS, KS and KO, respectively) are extreme dwarfs with much reduced hypocotyl and root lengths and small rosette leaves",
+          "claim": "ga1 (cps) mutants are severe dwarfs",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T021"
+    },
+    {
+      "gene": "KS",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "ga1, ga2 and ga3 single mutants ... are extreme dwarfs",
+          "claim": "ga2 (ks) mutants are severe dwarfs",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T022"
+    },
+    {
+      "gene": "KO",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "ga3 single mutant ... is extreme dwarf",
+          "claim": "ga3 (ko) mutant is severe dwarf",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T023"
+    },
+    {
+      "gene": "GA20ox1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "GA20ox1 plays a more prominent role in elongation of internodes and stamen filaments",
+          "claim": "ga20ox1 has semi-dwarf stem",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T024"
+    },
+    {
+      "gene": "GA20ox1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.95.15.9019",
+          "title": "Overexpression of a gibberellin 20-oxidase gene from Arabidopsis thaliana increases plant height and improves shoot fresh weight",
+          "authors": "Huang S, Raman AS, Ream JE, Fujiwara H, Cerny RE, Brown SM",
+          "year": 1998,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "35S::GA20ox1 transgenic Arabidopsis shows increased plant height and shoot fresh weight",
+          "claim": "GA20ox1 OE increases stem height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T025"
+    },
+    {
+      "gene": "GA3ox1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "GA3ox1 is expressed throughout all stages of plant development",
+          "claim": "ga3ox1 has reduced stem height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T026"
+    },
+    {
+      "gene": "GA3ox1",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "the double homozygous mutant ga3ox1 ga3ox2 fail to germinate in the dark",
+          "claim": "ga3ox1 ga3ox2 double mutant is dwarf",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T027"
+    },
+    {
+      "gene": "GA2ox",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "GA2ox overexpression lines show late flowering and dwarf phenotypes",
+          "claim": "GA2ox OE is dwarf",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T028"
+    },
+    {
+      "gene": "GID1A",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "The triple mutant gid1a gid1b gid1c in Arabidopsis is a non-germinating extreme dwarf, whose phenotype is even more severe than the GA-deficient ga1-3 mutant",
+          "claim": "gid1abc triple mutant is extreme dwarf",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T029"
+    },
+    {
+      "gene": "GAI",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1101/gad.11.23.3194",
+          "title": "The Arabidopsis GAI gene defines a signaling pathway that negatively regulates gibberellin responses",
+          "authors": "Peng J, Carol P, Richards DE, King KE, Cowling RJ, Murphy GP, Harberd NP",
+          "year": 1997,
+          "journal": "Genes & Development",
+          "evidence_sentence": "gai-1 semidominant mutation causes severe GA-insensitive dwarf phenotype with short stem",
+          "claim": "gai-1 dominant dwarf",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T030"
+    },
+    {
+      "gene": "RGA",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "rga loss-of-function rescues stem elongation of ga1-3; single rga mutant in WT background has slightly taller bolt",
+          "claim": "rga single mutant has slightly increased stem elongation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T031"
+    },
+    {
+      "gene": "RGA",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "Removing both RGA and GAI functions in the ga1-3 background completely rescues vegetative growth and floral initiation",
+          "claim": "rga gai double mutant shows enhanced stem growth",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T032"
+    },
+    {
+      "gene": "CPS",
+      "perturbation_type": "knockout_plus_treatment",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "Exogenous GA3 application to ga1-3 mutants rescues stem elongation and floral initiation",
+          "claim": "ga1-3 + GA3 rescue has near-WT height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T033"
+    },
+    {
+      "gene": "DELLA",
+      "perturbation_type": "quintuple_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "Removing both RGA and GAI functions in the ga1-3 background completely rescues vegetative growth and floral initiation; the quintuple della mutant is constitutively GA-responsive",
+          "claim": "della quintuple mutant has constitutively tall stems",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T034"
+    },
+    {
+      "gene": "Gibberellin",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "Exogenous GA3 promotes stem elongation in WT plants",
+          "claim": "Exogenous GA increases stem height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T035"
+    },
+    {
+      "gene": "SPY",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "Loss-of-function spy mutations partially rescue all defects resulting from GA deficiency",
+          "claim": "spy mutant has enhanced stem growth",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T036"
+    },
+    {
+      "gene": "SLY1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1126/science.1080585",
+          "title": "The SLEEPY1 gene of Arabidopsis encodes a putative F-box subunit of an SCF E3 ubiquitin ligase",
+          "authors": "McGinnis KM, Thomas SG, Soule JD, Strader LC, Zale JM, Sun TP, Steber CM",
+          "year": 2003,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "sly1 mutant accumulates DELLA proteins and shows dwarfism",
+          "claim": "sly1 mutant is dwarf",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T037"
+    },
+    {
+      "gene": "BRI1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.4.671",
+          "title": "A brassinosteroid-insensitive mutant in Arabidopsis thaliana exhibits multiple defects in growth and development",
+          "authors": "Clouse SD, Langford M, McMorris TC",
+          "year": 1996,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "bri1 mutants show compact rosette, short petioles, short inflorescences",
+          "claim": "bri1 is dwarf",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T038"
+    },
+    {
+      "gene": "BIN2",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1016/S0092-8674(02)00812-7",
+          "title": "BIN2, a new brassinosteroid-insensitive locus in Arabidopsis",
+          "authors": "Li J, Nam KH",
+          "year": 2002,
+          "journal": "Science",
+          "evidence_sentence": "bin2-1 dominant gain-of-function is dwarf with compact rosette, phenocopying bri1 loss-of-function",
+          "claim": "bin2-1 is dwarf",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T039"
+    },
+    {
+      "gene": "BIN2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "bin2 loss-of-function mutants or triple bin2 bil1 bil2 mutants show elongated hypocotyls and enhanced BR responses",
+          "claim": "bin2 LOF has enhanced growth",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T040"
+    },
+    {
+      "gene": "BZR1",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1016/S0092-8674(02)00721-3",
+          "title": "BZR1 is a transcriptional repressor with dual roles in brassinosteroid homeostasis and growth responses",
+          "authors": "Wang ZY, Nakano T, Gendron J, He J, Chen M, Vafeados D, Yang Y, Fujioka S, Yoshida S, Asami T, Chory J",
+          "year": 2002,
+          "journal": "Developmental Cell",
+          "evidence_sentence": "bzr1-1D gain-of-function mutation causes constitutive BR response and taller plants",
+          "claim": "bzr1-D increases stem height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T041"
+    },
+    {
+      "gene": "BES1",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1016/S0092-8674(02)00814-0",
+          "title": "BES1 accumulates in the nucleus in response to brassinosteroids to regulate gene expression and promote stem elongation",
+          "authors": "Yin Y, Wang ZY, Mora-Garcia S, Li J, Yoshida S, Asami T, Chory J",
+          "year": 2002,
+          "journal": "Cell",
+          "evidence_sentence": "bes1-D is a dominant gain-of-function mutation causing constitutive BR response with elongated stems",
+          "claim": "bes1-D increases stem height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T042"
+    },
+    {
+      "gene": "DWF4",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.10.2.219",
+          "title": "An Arabidopsis brassinosteroid-dependent mutant is blocked in cell elongation",
+          "authors": "Azpiroz R, Wu Y, LoCascio JC, Feldmann KA",
+          "year": 1998,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "dwf4 is a BR biosynthetic mutant blocked in cell elongation; compact rosette and short stem",
+          "claim": "dwf4 is dwarf",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T043"
+    },
+    {
+      "gene": "DWF4",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "Overexpression of DWF4 was noted to increase inflorescence height",
+          "claim": "DWF4 OE increases height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T044"
+    },
+    {
+      "gene": "DET2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1016/0092-8674(96)80116-4",
+          "title": "A role for brassinosteroids in light-dependent development of Arabidopsis",
+          "authors": "Li J, Nagpal P, Vitart V, McMorris TC, Chory J",
+          "year": 1996,
+          "journal": "Science",
+          "evidence_sentence": "det2 mutants show dwarfism, short hypocotyl, and de-etiolated phenotype; rescued by brassinolide",
+          "claim": "det2 is BR-deficient dwarf",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T045"
+    },
+    {
+      "gene": "CPD",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "cpd mutant is BR-deficient dwarf with compact rosette and short stem",
+          "claim": "cpd is dwarf",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T046"
+    },
+    {
+      "gene": "Brassinosteroid",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "Exogenous brassinolide (BL) promotes cell elongation and increases stem height in wild-type Arabidopsis",
+          "claim": "BR treatment increases stem height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T047"
+    },
+    {
+      "gene": "Brassinosteroid",
+      "perturbation_type": "inhibitor_PBZ",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "Brassinazole (BRZ) inhibits BR biosynthesis and phenocopies BR-deficient dwarf mutants",
+          "claim": "BRZ treatment causes dwarfism",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T048"
+    },
+    {
+      "gene": "PIF4",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1016/j.cub.2009.06.046",
+          "title": "High temperature-mediated adaptations in plant architecture require the bHLH transcription factor PIF4",
+          "authors": "Koini MA, Alvey L, Allen T, Tilley CA, Harberd NP, Whitelam GC, Franklin KA",
+          "year": 2009,
+          "journal": "Current Biology",
+          "evidence_sentence": "pif4 mutants fail to elongate hypocotyls at warm temperature",
+          "claim": "pif4 reduces hypocotyl/stem elongation in warm conditions",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T049"
+    },
+    {
+      "gene": "PIF4",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2019.00914",
+          "title": "Auxin-Dependent Cell Elongation During the Shade Avoidance Response",
+          "authors": "Ma L, Li G",
+          "year": 2019,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "pif4 pif5 double mutants have reduced hypocotyl growth responses to low R:FR",
+          "claim": "pif4 pif5 reduces stem elongation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T050"
+    },
+    {
+      "gene": "PIF3",
+      "perturbation_type": "quadruple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.108.060996",
+          "title": "Multiple phytochrome-interacting bHLH transcription factors repress premature seedling photomorphogenesis in darkness",
+          "authors": "Leivar P, Monte E, Al-Sady B, Carle C, Storer A, Alonso JM, Ecker JR, Quail PH",
+          "year": 2008,
+          "journal": "Current Biology",
+          "evidence_sentence": "pif1 pif3 pif4 pif5 (pifq) quadruple mutants have short hypocotyls and constitutive photomorphogenic phenotype in darkness",
+          "claim": "pifq quadruple mutant has short hypocotyl",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T051"
+    },
+    {
+      "gene": "PIF4",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1038/nature03543",
+          "title": "Interactions between DELLA and growth-regulatory factors to control flowering time and stem elongation",
+          "authors": "de Lucas M, Daviere JM, Rodriguez-Falcon M, Pontin M, Iglesias-Pedraz JM, Lorrain S, Fankhauser C, Blazquez MA, Titarenko E, Prat S",
+          "year": 2008,
+          "journal": "Nature",
+          "evidence_sentence": "35S::PIF4 plants have elongated hypocotyls and partially rescue ga1 and gai-1 dwarf phenotypes",
+          "claim": "PIF4 OE increases height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T052"
+    },
+    {
+      "gene": "phyB",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.5.2.147",
+          "title": "Mutations in the gene for the red/far-red light receptor phytochrome B alter cell elongation and physiological responses throughout Arabidopsis development",
+          "authors": "Reed JW, Nagpal P, Poole DS, Furuya M, Chory J",
+          "year": 1993,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "phyB mutants have elongated hypocotyls, petioles, and inflorescence stems",
+          "claim": "phyB mutants are taller",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T053"
+    },
+    {
+      "gene": "CO",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "LD",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1016/S0092-8674(00)80637-1",
+          "title": "The CONSTANS gene of Arabidopsis promotes flowering and encodes a protein showing similarities to zinc finger transcription factors",
+          "authors": "Putterill J, Robson F, Lee K, Simon R, Coupland G",
+          "year": 1995,
+          "journal": "Cell",
+          "evidence_sentence": "co mutants flower late in long days with more rosette leaves and larger rosette",
+          "claim": "co mutant increases vegetative height in LD",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T054"
+    },
+    {
+      "gene": "CO",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "LD",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1038/35074138",
+          "title": "CONSTANS mediates between the circadian clock and the control of flowering in Arabidopsis",
+          "authors": "Suarez-Lopez P, Wheatley K, Robson F, Onouchi H, Valverde F, Coupland G",
+          "year": 2001,
+          "journal": "Nature",
+          "evidence_sentence": "35S::CO causes early flowering with few rosette leaves",
+          "claim": "CO OE reduces plant height via early flowering",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T055"
+    },
+    {
+      "gene": "GI",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "LD",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1415375111",
+          "title": "Distinct roles of FKF1, GIGANTEA, and ZEITLUPE proteins in the regulation of CONSTANS stability in Arabidopsis photoperiodic flowering",
+          "authors": "Song YH, Estrada DA, Johnson RS, Kim SK, Lee SY, MacCoss MJ, Imaizumi T",
+          "year": 2014,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "gi mutants flower late in long days",
+          "claim": "gi mutant has delayed flowering and increased vegetative height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T056"
+    },
+    {
+      "gene": "FKF1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "LD",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1415375111",
+          "title": "Distinct roles of FKF1, GIGANTEA, and ZEITLUPE proteins in the regulation of CONSTANS stability in Arabidopsis photoperiodic flowering",
+          "authors": "Song YH, Estrada DA, Johnson RS, Kim SK, Lee SY, MacCoss MJ, Imaizumi T",
+          "year": 2014,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "fkf1 mutants flower late in long days due to failure to degrade CDF repressors",
+          "claim": "fkf1 delays flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T057"
+    },
+    {
+      "gene": "ZTL",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "condition": "LD",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1415375111",
+          "title": "Distinct roles of FKF1, GIGANTEA, and ZEITLUPE proteins in the regulation of CONSTANS stability in Arabidopsis photoperiodic flowering",
+          "authors": "Song YH, Estrada DA, Johnson RS, Kim SK, Lee SY, MacCoss MJ, Imaizumi T",
+          "year": 2014,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "ztl loss-of-function stabilizes CO and slightly accelerates flowering",
+          "claim": "ztl mildly accelerates flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T058"
+    },
+    {
+      "gene": "CDF1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "LD",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1415375111",
+          "title": "Distinct roles of FKF1, GIGANTEA, and ZEITLUPE proteins in the regulation of CONSTANS stability in Arabidopsis photoperiodic flowering",
+          "authors": "Song YH, Estrada DA, Johnson RS, Kim SK, Lee SY, MacCoss MJ, Imaizumi T",
+          "year": 2014,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "CDF1 overexpression represses CO and delays flowering",
+          "claim": "CDF1 OE delays flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T059"
+    },
+    {
+      "gene": "FT",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "condition": "LD",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1126/science.286.5446.1962",
+          "title": "Activation tagging of the floral inducer FT",
+          "authors": "Kardailsky I, Shukla VK, Ahn JH, Dagenais N, Christensen SK, Nguyen JT, Chory J, Harrison MJ, Weigel D",
+          "year": 1999,
+          "journal": "Science",
+          "evidence_sentence": "ft-1 mutants flower late in long days with additional rosette leaves",
+          "claim": "ft mutant increases vegetative height in LD",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T060"
+    },
+    {
+      "gene": "FT",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1126/science.286.5446.1962",
+          "title": "Activation tagging of the floral inducer FT",
+          "authors": "Kardailsky I, Shukla VK, Ahn JH, Dagenais N, Christensen SK, Nguyen JT, Chory J, Harrison MJ, Weigel D",
+          "year": 1999,
+          "journal": "Science",
+          "evidence_sentence": "35S::FT causes extreme early flowering with very few leaves",
+          "claim": "FT OE dramatically reduces plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T061"
+    },
+    {
+      "gene": "FD",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "LD",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1126/science.1114358",
+          "title": "FD, a bZIP protein mediating signals from the floral pathway integrator FT at the shoot apex",
+          "authors": "Abe M, Kobayashi Y, Yamamoto S, Daimon Y, Yamaguchi A, Ikeda Y, Ichinoki H, Notaguchi M, Goto K, Araki T",
+          "year": 2005,
+          "journal": "Science",
+          "evidence_sentence": "fd mutants flower late and cannot respond to FT",
+          "claim": "fd mutant delays flowering",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T062"
+    },
+    {
+      "gene": "SOC1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/erq098",
+          "title": "Regulation and function of SOC1, a flowering pathway integrator",
+          "authors": "Lee J, Lee I",
+          "year": 2010,
+          "journal": "Journal of Experimental Botany",
+          "evidence_sentence": "soc1 mutants flower late with more rosette leaves",
+          "claim": "soc1 delays flowering and increases rosette/height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T063"
+    },
+    {
+      "gene": "LFY",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1016/S0092-8674(00)80290-7",
+          "title": "The LEAFY gene of Arabidopsis: a meristem identity gene and its role in the floral transition",
+          "authors": "Weigel D, Alvarez J, Smyth DR, Yanofsky MF, Meyerowitz EM",
+          "year": 1992,
+          "journal": "Cell",
+          "evidence_sentence": "lfy mutants show delayed flowering and produce shoots instead of flowers at early positions",
+          "claim": "lfy delays floral commitment",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T064"
+    },
+    {
+      "gene": "LFY",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1016/S0092-8674(00)80290-7",
+          "title": "The LEAFY gene of Arabidopsis: a meristem identity gene and its role in the floral transition",
+          "authors": "Weigel D, Alvarez J, Smyth DR, Yanofsky MF, Meyerowitz EM",
+          "year": 1992,
+          "journal": "Cell",
+          "evidence_sentence": "35S::LFY plants flower early with dramatically reduced biomass",
+          "claim": "LFY OE reduces plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T065"
+    },
+    {
+      "gene": "AP1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.6.11.1677",
+          "title": "APETALA1 and interacting genes control cortex cell division in the inflorescence meristem of Arabidopsis",
+          "authors": "Mandel MA, Gustafson-Brown C, Savidge B, Yanofsky MF",
+          "year": 1992,
+          "journal": "Nature",
+          "evidence_sentence": "ap1 mutants show delayed floral commitment and additional lateral shoots",
+          "claim": "ap1 delays flowering",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T066"
+    },
+    {
+      "gene": "SVP",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1046/j.1365-313x.2000.00758.x",
+          "title": "Molecular cloning of SVP: a negative regulator of the floral transition in Arabidopsis",
+          "authors": "Hartmann U, Hohmann S, Nettesheim K, Wisman E, Saedler H, Huijser P",
+          "year": 2000,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "svp-41 mutants flower early with reduced leaf number",
+          "claim": "svp mutant reduces vegetative growth",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T067"
+    },
+    {
+      "gene": "FLM",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.126.1.122",
+          "title": "Regulation of flowering in Arabidopsis by an FLC homologue",
+          "authors": "Ratcliffe OJ, Nadzan GC, Reuber TL, Riechmann JL",
+          "year": 2001,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "flm mutants flower early",
+          "claim": "flm mutant reduces vegetative growth",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T068"
+    },
+    {
+      "gene": "FRI",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.12.6.885",
+          "title": "The FRIGIDA gene encodes a protein required for elevated FLC expression in Arabidopsis",
+          "authors": "Johanson U, West J, Lister C, Michaels S, Amasino R, Dean C",
+          "year": 2000,
+          "journal": "Science",
+          "evidence_sentence": "FRI-containing lines flower very late with very high FLC levels and large rosettes",
+          "claim": "FRI increases FLC, delays flowering, and increases plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T069"
+    },
+    {
+      "gene": "FLC",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.11.5.949",
+          "title": "FLOWERING LOCUS C encodes a novel MADS domain protein that acts as a repressor of flowering",
+          "authors": "Michaels SD, Amasino RM",
+          "year": 1999,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "flc null mutants flower early with few rosette leaves",
+          "claim": "flc mutant reduces vegetative growth",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T070"
+    },
+    {
+      "gene": "VIN3",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0606385103",
+          "title": "The Arabidopsis thaliana vernalization response requires a polycomb-like protein complex that also includes VERNALIZATION INSENSITIVE 3",
+          "authors": "Wood CC, Robertson M, Tanner G, Peacock WJ, Dennis ES, Helliwell CA",
+          "year": 2006,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "vin3 mutants fail to down-regulate FLC after vernalization and remain late-flowering even after cold",
+          "claim": "vin3 causes vernalization insensitivity and increased vegetative height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T071"
+    },
+    {
+      "gene": "VRN2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0606385103",
+          "title": "The Arabidopsis thaliana vernalization response requires a polycomb-like protein complex that also includes VERNALIZATION INSENSITIVE 3",
+          "authors": "Wood CC, Robertson M, Tanner G, Peacock WJ, Dennis ES, Helliwell CA",
+          "year": 2006,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "vrn2 mutants fail to maintain FLC silencing after vernalization and reactivate FLC",
+          "claim": "vrn2 mutants cannot maintain vernalization",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T072"
+    },
+    {
+      "gene": "Vernalization",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0606385103",
+          "title": "The Arabidopsis thaliana vernalization response requires a polycomb-like protein complex that also includes VERNALIZATION INSENSITIVE 3",
+          "authors": "Wood CC, Robertson M, Tanner G, Peacock WJ, Dennis ES, Helliwell CA",
+          "year": 2006,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "Vernalization (prolonged cold) silences FLC and enables flowering in FRI FLC late-flowering accessions",
+          "claim": "Vernalization accelerates flowering, reducing vegetative height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T073"
+    },
+    {
+      "gene": "Temperature",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1016/j.cub.2009.06.046",
+          "title": "High temperature-mediated adaptations in plant architecture require the bHLH transcription factor PIF4",
+          "authors": "Koini MA, Alvey L, Allen T, Tilley CA, Harberd NP, Whitelam GC, Franklin KA",
+          "year": 2009,
+          "journal": "Current Biology",
+          "evidence_sentence": "Plants grown at 27 degrees C have elongated hypocotyls and petioles compared to 22 degrees C",
+          "claim": "Warm temperature increases plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T074"
+    },
+    {
+      "gene": "ARP6",
+      "perturbation_type": "knockout_arp6",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1038/nature06132",
+          "title": "H2A.Z-containing nucleosomes mediate the thermosensory response in Arabidopsis",
+          "authors": "Kumar SV, Wigge PA",
+          "year": 2010,
+          "journal": "Cell",
+          "evidence_sentence": "arp6 mutants phenocopy plants grown at high ambient temperature with elongated hypocotyls",
+          "claim": "arp6 mutants are tall with constitutive high-temperature phenotype",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T075"
+    },
+    {
+      "gene": "YUC8",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2019.00914",
+          "title": "Auxin-Dependent Cell Elongation During the Shade Avoidance Response",
+          "authors": "Ma L, Li G",
+          "year": 2019,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "YUC8 overexpression increases free IAA levels and causes hypocotyl and stem elongation",
+          "claim": "YUC8 OE increases plant height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T076"
+    },
+    {
+      "gene": "ARF6",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2019.00914",
+          "title": "Auxin-Dependent Cell Elongation During the Shade Avoidance Response",
+          "authors": "Ma L, Li G",
+          "year": 2019,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "arf6 arf7 arf8 triple mutant fails to respond to low R:FR treatment and has reduced elongation",
+          "claim": "arf6/7/8 triple mutant reduces stem elongation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T077"
+    },
+    {
+      "gene": "Auxin",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2019.00914",
+          "title": "Auxin-Dependent Cell Elongation During the Shade Avoidance Response",
+          "authors": "Ma L, Li G",
+          "year": 2019,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "Auxin treatment promotes hypocotyl and stem elongation by activating cell wall modification",
+          "claim": "Auxin treatment increases stem height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T078"
+    },
+    {
+      "gene": "HY5",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "hy5 mutants have elongated hypocotyls due to de-repression of growth genes",
+          "claim": "hy5 mutants are taller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T079"
+    },
+    {
+      "gene": "COP1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "cop1 mutants show constitutive photomorphogenesis with very short hypocotyls",
+          "claim": "cop1 is dwarf",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T080"
+    },
+    {
+      "gene": "TPS1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1126/science.1230406",
+          "title": "Regulation of flowering by trehalose-6-phosphate signaling in Arabidopsis thaliana",
+          "authors": "Wahl V, Ponnu J, Schlereth A, Arrivault S, Langenecker T, Franke A, Feil R, Lunn JE, Stitt M, Schmid M",
+          "year": 2013,
+          "journal": "Science",
+          "evidence_sentence": "Conditional tps1 mutants (induced by dexamethasone) show extreme delay in flowering and accumulate vegetative biomass",
+          "claim": "tps1 delays flowering, increases biomass/height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T081"
+    },
+    {
+      "gene": "TEM1",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms1810",
+          "title": "TEMPRANILLO genes link photoperiod and gibberellin pathways to control flowering in Arabidopsis",
+          "authors": "Osnato M, Castillejo C, Matias-Hernandez L, Pelaz S",
+          "year": 2012,
+          "journal": "Nature Communications",
+          "evidence_sentence": "tem1 tem2 double mutants flower very early with de-repressed FT and GA3ox",
+          "claim": "tem1 tem2 reduces plant height by early flowering",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T082"
+    },
+    {
+      "gene": "TEM1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms1810",
+          "title": "TEMPRANILLO genes link photoperiod and gibberellin pathways to control flowering in Arabidopsis",
+          "authors": "Osnato M, Castillejo C, Matias-Hernandez L, Pelaz S",
+          "year": 2012,
+          "journal": "Nature Communications",
+          "evidence_sentence": "TEM1 overexpression delays flowering by repressing FT and GA biosynthesis",
+          "claim": "TEM1 OE delays flowering, increases height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T083"
+    },
+    {
+      "gene": "BZR1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "bzr1 bes1 multiple mutants are dwarf with compact rosette",
+          "claim": "bzr1 mutant reduces height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T084"
+    },
+    {
+      "gene": "KIB1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "kib1 mutants accumulate active BIN2 and show BR-insensitive dwarf phenotype",
+          "claim": "kib1 is dwarf",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T085"
+    },
+    {
+      "gene": "BKI1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "BKI1 overexpression blocks BR signaling and causes dwarf phenotype",
+          "claim": "BKI1 OE is dwarf",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T086"
+    },
+    {
+      "gene": "PIF4",
+      "perturbation_type": "knockout_plus_treatment",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1016/j.cub.2009.06.046",
+          "title": "High temperature-mediated adaptations in plant architecture require the bHLH transcription factor PIF4",
+          "authors": "Koini MA, Alvey L, Allen T, Tilley CA, Harberd NP, Whitelam GC, Franklin KA",
+          "year": 2009,
+          "journal": "Current Biology",
+          "evidence_sentence": "pif4 mutants fail to elongate at 27 degrees C (pif4 blocks the warm-temperature elongation response)",
+          "claim": "pif4 plus 27C: no elongation response compared to WT 27C",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T087"
+    },
+    {
+      "gene": "phyB",
+      "perturbation_type": "knockout_plus_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.5.2.147",
+          "title": "Mutations in the gene for the red/far-red light receptor phytochrome B alter cell elongation and physiological responses throughout Arabidopsis development",
+          "authors": "Reed JW, Nagpal P, Poole DS, Furuya M, Chory J",
+          "year": 1993,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "phyB mutants show constitutive shade avoidance with elongated hypocotyls even in high R:FR",
+          "claim": "phyB phenocopies low R:FR light (shade) and is tall",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T088"
+    },
+    {
+      "gene": "BRI1",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.4.671",
+          "title": "A brassinosteroid-insensitive mutant in Arabidopsis thaliana exhibits multiple defects in growth and development",
+          "authors": "Clouse SD, Langford M",
+          "year": 1996,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "bri1 mutants cannot be rescued by exogenous BL because perception is abolished",
+          "claim": "bri1 + BL: still dwarf (no rescue)",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T089"
+    },
+    {
+      "gene": "DET2",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1016/0092-8674(96)80116-4",
+          "title": "A role for brassinosteroids in light-dependent development of Arabidopsis",
+          "authors": "Li J, Nagpal P, Vitart V, McMorris TC, Chory J",
+          "year": 1996,
+          "journal": "Science",
+          "evidence_sentence": "Exogenous brassinolide restores WT phenotype in det2 mutants",
+          "claim": "det2 + BL is rescued (near-WT height)",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T090"
+    },
+    {
+      "gene": "GAI",
+      "perturbation_type": "gain_of_function_plus_treatment",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1101/gad.11.23.3194",
+          "title": "The Arabidopsis GAI gene defines a signaling pathway that negatively regulates gibberellin responses",
+          "authors": "Peng J, Carol P, Richards DE, King KE, Cowling RJ, Murphy GP, Harberd NP",
+          "year": 1997,
+          "journal": "Genes & Development",
+          "evidence_sentence": "gai-1 is GA-insensitive; exogenous GA fails to rescue gai-1 dwarfism",
+          "claim": "gai-1 + GA3 no rescue (still dwarf)",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T091"
+    },
+    {
+      "gene": "CRY1",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1415375111",
+          "title": "Distinct roles of FKF1, GIGANTEA, and ZEITLUPE proteins in the regulation of CONSTANS stability in Arabidopsis photoperiodic flowering",
+          "authors": "Song YH, Estrada DA, Johnson RS, Kim SK, Lee SY, MacCoss MJ, Imaizumi T",
+          "year": 2014,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "cry1 cry2 double mutants flower late in long days and show elongated hypocotyls",
+          "claim": "cry1 cry2 mutants are taller with delayed flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T092"
+    },
+    {
+      "gene": "phyA",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "condition": "LD",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1415375111",
+          "title": "Distinct roles of FKF1, GIGANTEA, and ZEITLUPE proteins in the regulation of CONSTANS stability in Arabidopsis photoperiodic flowering",
+          "authors": "Song YH, Estrada DA, Johnson RS, Kim SK, Lee SY, MacCoss MJ, Imaizumi T",
+          "year": 2014,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "phyA mutants flower slightly later in long days",
+          "claim": "phyA mutants delay flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T093"
+    },
+    {
+      "gene": "FCA",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1093/emboj/cdg305",
+          "title": "Autoregulation of FCA pre-mRNA processing controls Arabidopsis flowering time",
+          "authors": "Quesada V, Macknight R, Dean C, Simpson GG",
+          "year": 2003,
+          "journal": "The EMBO Journal",
+          "evidence_sentence": "FCA-gamma transgene overcomes FRI epistasis and causes earlier flowering",
+          "claim": "FCA OE reduces plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T094"
+    },
+    {
+      "gene": "CCA1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1415375111",
+          "title": "Distinct roles of FKF1, GIGANTEA, and ZEITLUPE proteins in the regulation of CONSTANS stability in Arabidopsis photoperiodic flowering",
+          "authors": "Song YH, Estrada DA, Johnson RS, Kim SK, Lee SY, MacCoss MJ, Imaizumi T",
+          "year": 2014,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "CCA1 overexpression disrupts circadian rhythm and delays flowering",
+          "claim": "CCA1 OE increases plant height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T095"
+    },
+    {
+      "gene": "MAX2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00335",
+          "title": "Brassinosteroids: Multidimensional Regulators of Plant Growth, Development, and Stress Responses",
+          "authors": "Nolan TM, Vukasinovic N, Liu D, Russinova E, Yin Y",
+          "year": 2020,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "max2 mutants accumulate BES1 and show altered shoot branching",
+          "claim": "max2 mutants have altered growth",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T096"
+    },
+    {
+      "gene": "Gibberellin",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "Exogenous GA3 rescues the dwarf phenotype of ga1-3 to near-WT height",
+          "claim": "ga1-3 + GA3 rescue (near-WT)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T097"
+    },
+    {
+      "gene": "IPT3",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0168",
+          "title": "Cytokinins",
+          "authors": "Kieber JJ, Schaller GE",
+          "year": 2014,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "ipt3 ipt5 ipt7 triple mutants show CK-deficient phenotype with reduced shoot growth",
+          "claim": "ipt3/5/7 reduces plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T098"
+    },
+    {
+      "gene": "CKX3",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0168",
+          "title": "Cytokinins",
+          "authors": "Kieber JJ, Schaller GE",
+          "year": 2014,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "CKX overexpression reduces cytokinin levels and produces dwarfed plants with smaller rosettes",
+          "claim": "CKX3 OE is dwarf",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T099"
+    },
+    {
+      "gene": "AHK2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0168",
+          "title": "Cytokinins",
+          "authors": "Kieber JJ, Schaller GE",
+          "year": 2014,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "The ahk2 ahk3 double mutants exhibited a semidwarf phenotype with reduced leaf size and reduced inflorescence stem length",
+          "claim": "ahk2 ahk3 is semi-dwarf",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T100"
+    },
+    {
+      "gene": "AHK2",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0168",
+          "title": "Cytokinins",
+          "authors": "Kieber JJ, Schaller GE",
+          "year": 2014,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "the ahk2 ahk3 ahk4 triple mutant showed markedly inhibited growth and development in various tissues",
+          "claim": "ahk2/3/4 is severely dwarf",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T101"
+    },
+    {
+      "gene": "ARR1",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0168",
+          "title": "Cytokinins",
+          "authors": "Kieber JJ, Schaller GE",
+          "year": 2014,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "Multiple type-B ARR mutants affect cytokinin responses including inhibition of root elongation, lateral root formation, and hypocotyl elongation",
+          "claim": "arr1/10/12 reduces growth",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T102"
+    },
+    {
+      "gene": "Cytokinin",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0168",
+          "title": "Cytokinins",
+          "authors": "Kieber JJ, Schaller GE",
+          "year": 2014,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "High exogenous cytokinin inhibits primary stem elongation and hypocotyl growth",
+          "claim": "High CK treatment slightly reduces stem height (context-dependent)",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T103"
+    },
+    {
+      "gene": "CTR1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2017.00057",
+          "title": "Integration of Ethylene and Light Signaling Affects Hypocotyl Growth in Arabidopsis",
+          "authors": "Yu Y, Huang R",
+          "year": 2017,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "ctr1 mutants exhibit constitutive ethylene response with compact rosette and short stem in light",
+          "claim": "ctr1 is dwarf",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T104"
+    },
+    {
+      "gene": "EIN2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2017.00057",
+          "title": "Integration of Ethylene and Light Signaling Affects Hypocotyl Growth in Arabidopsis",
+          "authors": "Yu Y, Huang R",
+          "year": 2017,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "ein2 mutants are ethylene-insensitive with slightly longer stems under normal conditions",
+          "claim": "ein2 increases growth slightly",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T105"
+    },
+    {
+      "gene": "EIN3",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2017.00057",
+          "title": "Integration of Ethylene and Light Signaling Affects Hypocotyl Growth in Arabidopsis",
+          "authors": "Yu Y, Huang R",
+          "year": 2017,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "ein3 mutants are ethylene-insensitive",
+          "claim": "ein3 mildly increases plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T106"
+    },
+    {
+      "gene": "ETR1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2017.00057",
+          "title": "Integration of Ethylene and Light Signaling Affects Hypocotyl Growth in Arabidopsis",
+          "authors": "Yu Y, Huang R",
+          "year": 2017,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "etr1 mutants are ethylene-insensitive with marginally increased elongation",
+          "claim": "etr1 mild increase",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T107"
+    },
+    {
+      "gene": "Ethylene",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2017.00057",
+          "title": "Integration of Ethylene and Light Signaling Affects Hypocotyl Growth in Arabidopsis",
+          "authors": "Yu Y, Huang R",
+          "year": 2017,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "ACC or ethylene gas treatment causes triple response in the dark and reduces stem elongation in light",
+          "claim": "Ethylene treatment reduces plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T108"
+    },
+    {
+      "gene": "EBF1",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1214848109",
+          "title": "CTR1 phosphorylates the central regulator EIN2 to control ethylene hormone signaling from the ER membrane to the nucleus in Arabidopsis",
+          "authors": "Ju C, Yoon GM, Shemansky JM, Lin DY, Ying ZI, Chang J, Garrett WM, Kessenbrock M, Groth G, Tucker ML, Cooper B, Kieber JJ, Chang C",
+          "year": 2012,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "ebf1 ebf2 double mutants accumulate EIN3 and show constitutive ethylene phenotype with severe dwarfism",
+          "claim": "ebf1 ebf2 is severely dwarf",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T109"
+    },
+    {
+      "gene": "MAX1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.15.00605",
+          "title": "Strigolactone Signaling in Arabidopsis Regulates Shoot Development by Targeting D53-Like SMXL Repressor Proteins for Ubiquitination and Degradation",
+          "authors": "Wang L, Wang B, Jiang L, Liu X, Li X, Lu Z, Meng X, Wang Y, Smith SM, Li J",
+          "year": 2015,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "max1 mutants are SL-deficient with increased branching and shorter main stem",
+          "claim": "max1 reduces main stem height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T110"
+    },
+    {
+      "gene": "MAX3",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.15.00605",
+          "title": "Strigolactone Signaling in Arabidopsis Regulates Shoot Development by Targeting D53-Like SMXL Repressor Proteins for Ubiquitination and Degradation",
+          "authors": "Wang L, Wang B, Jiang L, Liu X, Li X, Lu Z, Meng X, Wang Y, Smith SM, Li J",
+          "year": 2015,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "max3-9 shows SL-deficient bushy phenotype with more branches and reduced main stem height",
+          "claim": "max3 reduces main stem height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T111"
+    },
+    {
+      "gene": "MAX4",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.15.00605",
+          "title": "Strigolactone Signaling in Arabidopsis Regulates Shoot Development by Targeting D53-Like SMXL Repressor Proteins for Ubiquitination and Degradation",
+          "authors": "Wang L, Wang B, Jiang L, Liu X, Li X, Lu Z, Meng X, Wang Y, Smith SM, Li J",
+          "year": 2015,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "max4 SL-deficient mutants show increased branching and reduced main stem elongation",
+          "claim": "max4 reduces main stem height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T112"
+    },
+    {
+      "gene": "D14",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.15.00605",
+          "title": "Strigolactone Signaling in Arabidopsis Regulates Shoot Development by Targeting D53-Like SMXL Repressor Proteins for Ubiquitination and Degradation",
+          "authors": "Wang L, Wang B, Jiang L, Liu X, Li X, Lu Z, Meng X, Wang Y, Smith SM, Li J",
+          "year": 2015,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "d14-1 mutant cannot perceive SL and shows increased branching with shorter main stem",
+          "claim": "d14 reduces main stem height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T113"
+    },
+    {
+      "gene": "SMXL6",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.15.00605",
+          "title": "Strigolactone Signaling in Arabidopsis Regulates Shoot Development by Targeting D53-Like SMXL Repressor Proteins for Ubiquitination and Degradation",
+          "authors": "Wang L, Wang B, Jiang L, Liu X, Li X, Lu Z, Meng X, Wang Y, Smith SM, Li J",
+          "year": 2015,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "The smxl6 smxl7 smxl8 triple mutant completely restored max3-9 and displayed a significant decrease in secondary cauline branch number",
+          "claim": "smxl6/7/8 restores SL-deficient height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T114"
+    },
+    {
+      "gene": "Strigolactone",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.15.00605",
+          "title": "Strigolactone Signaling in Arabidopsis Regulates Shoot Development by Targeting D53-Like SMXL Repressor Proteins for Ubiquitination and Degradation",
+          "authors": "Wang L, Wang B, Jiang L, Liu X, Li X, Lu Z, Meng X, Wang Y, Smith SM, Li J",
+          "year": 2015,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "GR24 treatment rescues max3/max4 branching phenotype and restores main stem dominance",
+          "claim": "SL (GR24) restores main stem height in SL-deficient mutants",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "test_id": "T115"
+    },
+    {
+      "gene": "ABA",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/eru466",
+          "title": "A mechanism of growth inhibition by abscisic acid in germinating seeds of Arabidopsis thaliana",
+          "authors": "Planes MD, Ninoles R, Rubio L, Bissoli G, Bueso E, Garcia-Sanchez MJ, Alejandro S, Gonzalez-Guzman M, Hedrich R, Rodriguez PL, Fernandez JA, Serrano R",
+          "year": 2015,
+          "journal": "Journal of Experimental Botany",
+          "evidence_sentence": "ABA application inhibits plant growth including stem elongation",
+          "claim": "ABA reduces plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T116"
+    },
+    {
+      "gene": "ABI5",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms22158394",
+          "title": "Updates on the Role of ABSCISIC ACID INSENSITIVE 5 (ABI5) and ABFs in ABA Signaling",
+          "authors": "Skubacz A, Daszkowska-Golec A, Szarejko I",
+          "year": 2021,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "ABI5 overexpression reduces seedling growth including hypocotyl and stem elongation",
+          "claim": "ABI5 OE reduces growth",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T117"
+    },
+    {
+      "gene": "ABI1",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms23094523",
+          "title": "PYR/PYL/RCAR Receptors Play a Vital Role in the Abscisic-Acid-Dependent Responses of Plants",
+          "authors": "Li W, Shao Y, Xu P, Chen W, Wang J, Huang Y, Li Y, Yang S, Jiang C, Zhang X, Zhang W",
+          "year": 2022,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "abi1-1 dominant mutant is ABA-insensitive with reduced ABA growth inhibition",
+          "claim": "abi1-1 relieves ABA growth inhibition",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T118"
+    },
+    {
+      "gene": "PYL",
+      "perturbation_type": "quadruple_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms23094523",
+          "title": "PYR/PYL/RCAR Receptors Play a Vital Role in the Abscisic-Acid-Dependent Responses of Plants",
+          "authors": "Li W, Shao Y, Xu P, Chen W, Wang J, Huang Y, Li Y, Yang S, Jiang C, Zhang X, Zhang W",
+          "year": 2022,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "pyr1 pyl1 pyl2 pyl4 quadruple mutants are ABA-insensitive in stomatal closure and growth inhibition",
+          "claim": "pyl quadruple relieves ABA growth inhibition",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T119"
+    },
+    {
+      "gene": "ELF3",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1038/nature10182",
+          "title": "The ELF4-ELF3-LUX complex links the circadian clock to diurnal control of hypocotyl growth",
+          "authors": "Nusinow DA, Helfer A, Hamilton EE, King JJ, Imaizumi T, Schultz TF, Farre EM, Kay SA",
+          "year": 2011,
+          "journal": "Nature",
+          "evidence_sentence": "elf3 mutants have elongated hypocotyls due to derepression of PIF4 and PIF5",
+          "claim": "elf3 is taller",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T120"
+    },
+    {
+      "gene": "ELF4",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1038/nature10182",
+          "title": "The ELF4-ELF3-LUX complex links the circadian clock to diurnal control of hypocotyl growth",
+          "authors": "Nusinow DA, Helfer A, Hamilton EE, King JJ, Imaizumi T, Schultz TF, Farre EM, Kay SA",
+          "year": 2011,
+          "journal": "Nature",
+          "evidence_sentence": "elf4 mutants have elongated hypocotyls",
+          "claim": "elf4 is taller",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T121"
+    },
+    {
+      "gene": "LUX",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1038/nature10182",
+          "title": "The ELF4-ELF3-LUX complex links the circadian clock to diurnal control of hypocotyl growth",
+          "authors": "Nusinow DA, Helfer A, Hamilton EE, King JJ, Imaizumi T, Schultz TF, Farre EM, Kay SA",
+          "year": 2011,
+          "journal": "Nature",
+          "evidence_sentence": "lux mutants are early flowering with elongated hypocotyls",
+          "claim": "lux is taller",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T122"
+    },
+    {
+      "gene": "BP",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.072626099",
+          "title": "The homeobox gene BREVIPEDICELLUS is a key regulator of inflorescence architecture in Arabidopsis",
+          "authors": "Venglat SP, Dumonceaux T, Rozwadowski K, Parnell L, Babic V, Keller W, Martienssen R, Selvaraj G, Datla R",
+          "year": 2002,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "bp mutants display compact inflorescence with short pedicels and internodes",
+          "claim": "bp is shorter",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T123"
+    },
+    {
+      "gene": "STM",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.072626099",
+          "title": "The homeobox gene BREVIPEDICELLUS is a key regulator of inflorescence architecture in Arabidopsis",
+          "authors": "Venglat SP, Dumonceaux T, Rozwadowski K, Parnell L, Babic V, Keller W, Martienssen R, Selvaraj G, Datla R",
+          "year": 2002,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "stm loss-of-function mutants fail to maintain shoot apical meristem and cannot form normal shoots",
+          "claim": "stm abolishes shoot growth",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T124"
+    },
+    {
+      "gene": "HFR1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1038/emboj.2009.306",
+          "title": "Inhibition of the shade avoidance response by formation of non-DNA binding bHLH heterodimers",
+          "authors": "Hornitschek P, Lorrain S, Zoete V, Michielin O, Fankhauser C",
+          "year": 2009,
+          "journal": "The EMBO Journal",
+          "evidence_sentence": "hypocotyl elongation of hfr1 mutants is more significantly promoted by low R:FR",
+          "claim": "hfr1 is taller in shade",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T125"
+    },
+    {
+      "gene": "HFR1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1038/emboj.2009.306",
+          "title": "Inhibition of the shade avoidance response by formation of non-DNA binding bHLH heterodimers",
+          "authors": "Hornitschek P, Lorrain S, Zoete V, Michielin O, Fankhauser C",
+          "year": 2009,
+          "journal": "The EMBO Journal",
+          "evidence_sentence": "transgenic seedlings overexpressing HFR1 display suppressed hypocotyl elongation",
+          "claim": "HFR1 OE is shorter",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T126"
+    },
+    {
+      "gene": "PAR1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1038/emboj.2009.306",
+          "title": "Inhibition of the shade avoidance response by formation of non-DNA binding bHLH heterodimers",
+          "authors": "Hornitschek P, Lorrain S, Zoete V, Michielin O, Fankhauser C",
+          "year": 2009,
+          "journal": "The EMBO Journal",
+          "evidence_sentence": "Overexpression of PAR1 or PAR2 reduces the hypocotyl-growth response to low R:FR",
+          "claim": "PAR1 OE reduces shade response",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T127"
+    },
+    {
+      "gene": "PIN1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.133496",
+          "title": "PIN-Dependent Auxin Transport: Action, Regulation, and Evolution",
+          "authors": "Adamowski M, Friml J",
+          "year": 2015,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "the pin1 mutant in Arabidopsis is characterized by a stem nearly devoid of organs; pin1 mutants showed reduced PAT",
+          "claim": "pin1 has pin-shaped inflorescence, reduced height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T128"
+    },
+    {
+      "gene": "PIN3",
+      "perturbation_type": "knockout",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "slight",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1038/415806a",
+          "title": "Lateral relocation of auxin efflux regulator PIN3 mediates tropism in Arabidopsis",
+          "authors": "Friml J, Wisniewska J, Benkova E, Mendgen K, Palme K",
+          "year": 2002,
+          "journal": "Nature",
+          "evidence_sentence": "pin3 single mutants have normal main stem but altered tropisms",
+          "claim": "pin3 has minimal main stem effect",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T129"
+    },
+    {
+      "gene": "Auxin_Transport",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "condition": "normal",
+      "species": "Arabidopsis thaliana",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.133496",
+          "title": "PIN-Dependent Auxin Transport: Action, Regulation, and Evolution",
+          "authors": "Adamowski M, Friml J",
+          "year": 2015,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "The morphological phenotype of pin1 could be phenocopied by treatment with PAT inhibitors",
+          "claim": "NPA (PAT inhibitor) reduces plant height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "test_id": "T130"
+    }
+  ]
+}

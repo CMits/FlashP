@@ -1,0 +1,524 @@
+{
+  "metadata": {
+    "method": "ODE (Hill Functions)",
+    "K": 1.0,
+    "n": 2,
+    "accuracy": null,
+    "hill_activation_formula": "f(x) = x^n * (K^n + 1) / (K^n + x^n)",
+    "hill_inhibition_formula": "g(x) = (K^n + 1) / (K^n + x^n)",
+    "dt": 0.01,
+    "max_time": 50.0,
+    "convergence_tolerance": 0.001,
+    "direction_threshold": 0.05,
+    "activator_floor": 0.01
+  },
+  "equations": [
+    {
+      "node": "Glucose",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Glucose = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Glycerol",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Glycerol = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Xylose",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Xylose = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "IPTG",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "IPTG = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Arabinose",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Arabinose = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Plasmid_Copy_Number",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Plasmid_Copy_Number = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Oxygen_Level",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Oxygen_Level = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Temperature",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Temperature = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "G3P",
+      "activators": [
+        "Glucose",
+        "Glycerol",
+        "Xylose",
+        "PGI",
+        "PPS",
+        "EDD",
+        "EDA"
+      ],
+      "inhibitors": [
+        "ZWF",
+        "GAPA",
+        "DXS"
+      ],
+      "formula": "G3P = prod(f(Glucose,Glycerol,Xylose,PGI,PPS,EDD,EDA)) * prod(g(ZWF,GAPA,DXS)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Pyruvate",
+      "activators": [
+        "Glucose",
+        "Xylose",
+        "PGI",
+        "PYKA",
+        "PYKF",
+        "EDD",
+        "EDA"
+      ],
+      "inhibitors": [
+        "PPS",
+        "LDH",
+        "DXS"
+      ],
+      "formula": "Pyruvate = prod(f(Glucose,Xylose,PGI,PYKA,PYKF,EDD,EDA)) * prod(g(PPS,LDH,DXS)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Acetyl_CoA",
+      "activators": [
+        "ACEE"
+      ],
+      "inhibitors": [
+        "PTA",
+        "PPC"
+      ],
+      "formula": "Acetyl_CoA = prod(f(ACEE)) * prod(g(PTA,PPC)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Acetyl_P",
+      "activators": [
+        "Glucose"
+      ],
+      "inhibitors": [],
+      "formula": "Acetyl_P = prod(f(Glucose)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NADPH",
+      "activators": [
+        "GND"
+      ],
+      "inhibitors": [
+        "GDHA"
+      ],
+      "formula": "NADPH = prod(f(GND)) * prod(g(GDHA)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATP",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATP = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Mevalonate",
+      "activators": [
+        "Acetyl_CoA",
+        "ATOB",
+        "HMGS",
+        "HMGR"
+      ],
+      "inhibitors": [],
+      "formula": "Mevalonate = prod(f(Acetyl_CoA,ATOB,HMGS,HMGR)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "IPP",
+      "activators": [
+        "DXS",
+        "DXR",
+        "G3P",
+        "Pyruvate",
+        "Mevalonate",
+        "MVK",
+        "MVD"
+      ],
+      "inhibitors": [],
+      "formula": "IPP = prod(f(DXS,DXR,G3P,Pyruvate,Mevalonate,MVK,MVD)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DMAPP",
+      "activators": [
+        "IDI",
+        "IPP"
+      ],
+      "inhibitors": [],
+      "formula": "DMAPP = prod(f(IDI,IPP)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GPP",
+      "activators": [
+        "ISPA"
+      ],
+      "inhibitors": [],
+      "formula": "GPP = prod(f(ISPA)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FPP",
+      "activators": [
+        "ISPA",
+        "IPP",
+        "DMAPP"
+      ],
+      "inhibitors": [
+        "ISPB"
+      ],
+      "formula": "FPP = prod(f(ISPA,IPP,DMAPP)) * prod(g(ISPB)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "GGPP",
+      "activators": [
+        "CRTE",
+        "FPP"
+      ],
+      "inhibitors": [],
+      "formula": "GGPP = prod(f(CRTE,FPP)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Phytoene",
+      "activators": [
+        "CRTB",
+        "GGPP"
+      ],
+      "inhibitors": [],
+      "formula": "Phytoene = prod(f(CRTB,GGPP)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ROS",
+      "activators": [
+        "Oxygen_Level"
+      ],
+      "inhibitors": [
+        "KATE",
+        "Lycopene_Titer"
+      ],
+      "formula": "ROS = prod(f(Oxygen_Level)) * prod(g(KATE,Lycopene_Titer)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "PGI",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PGI = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ZWF",
+      "activators": [
+        "SOXS"
+      ],
+      "inhibitors": [],
+      "formula": "ZWF = prod(f(SOXS)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GAPA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GAPA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PYKA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PYKA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PYKF",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PYKF = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PPC",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PPC = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PPS",
+      "activators": [
+        "NRI",
+        "CRA"
+      ],
+      "inhibitors": [],
+      "formula": "PPS = prod(f(NRI,CRA)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "EDD",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EDD = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "EDA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EDA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GND",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GND = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GDHA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GDHA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ACEE",
+      "activators": [],
+      "inhibitors": [
+        "ARCA",
+        "FNR"
+      ],
+      "formula": "ACEE = 1.0 * prod(g(ARCA,FNR)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "PTA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PTA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LDH",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LDH = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DXS",
+      "activators": [
+        "IPTG",
+        "Arabinose"
+      ],
+      "inhibitors": [],
+      "formula": "DXS = prod(f(IPTG,Arabinose)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DXR",
+      "activators": [
+        "Arabinose",
+        "NADPH"
+      ],
+      "inhibitors": [],
+      "formula": "DXR = prod(f(Arabinose,NADPH)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "IDI",
+      "activators": [
+        "NRI",
+        "IPTG",
+        "Arabinose",
+        "Plasmid_Copy_Number"
+      ],
+      "inhibitors": [],
+      "formula": "IDI = prod(f(NRI,IPTG,Arabinose,Plasmid_Copy_Number)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATOB",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATOB = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "HMGS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HMGS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "HMGR",
+      "activators": [
+        "NADPH"
+      ],
+      "inhibitors": [],
+      "formula": "HMGR = prod(f(NADPH)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MVK",
+      "activators": [
+        "Plasmid_Copy_Number",
+        "ATP"
+      ],
+      "inhibitors": [
+        "GPP",
+        "FPP",
+        "GGPP"
+      ],
+      "formula": "MVK = prod(f(Plasmid_Copy_Number,ATP)) * prod(g(GPP,FPP,GGPP)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "MVD",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MVD = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ISPA",
+      "activators": [
+        "Arabinose"
+      ],
+      "inhibitors": [],
+      "formula": "ISPA = prod(f(Arabinose)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ISPB",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ISPB = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CRTE",
+      "activators": [
+        "IPTG",
+        "Plasmid_Copy_Number"
+      ],
+      "inhibitors": [],
+      "formula": "CRTE = prod(f(IPTG,Plasmid_Copy_Number)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CRTB",
+      "activators": [
+        "IPTG",
+        "Plasmid_Copy_Number"
+      ],
+      "inhibitors": [],
+      "formula": "CRTB = prod(f(IPTG,Plasmid_Copy_Number)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CRTI",
+      "activators": [
+        "IPTG",
+        "Plasmid_Copy_Number",
+        "NADPH"
+      ],
+      "inhibitors": [],
+      "formula": "CRTI = prod(f(IPTG,Plasmid_Copy_Number,NADPH)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "RPOS",
+      "activators": [
+        "CRL"
+      ],
+      "inhibitors": [
+        "HNR"
+      ],
+      "formula": "RPOS = prod(f(CRL)) * prod(g(HNR)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "CRL",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CRL = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "HNR",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HNR = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ARCA",
+      "activators": [],
+      "inhibitors": [
+        "Oxygen_Level"
+      ],
+      "formula": "ARCA = 1.0 * prod(g(Oxygen_Level)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "FNR",
+      "activators": [],
+      "inhibitors": [
+        "Oxygen_Level"
+      ],
+      "formula": "FNR = 1.0 * prod(g(Oxygen_Level)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "SOXR",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SOXR = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SOXS",
+      "activators": [
+        "SOXR"
+      ],
+      "inhibitors": [],
+      "formula": "SOXS = prod(f(SOXR)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CRA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CRA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NRI",
+      "activators": [
+        "Acetyl_P"
+      ],
+      "inhibitors": [],
+      "formula": "NRI = prod(f(Acetyl_P)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "KATE",
+      "activators": [
+        "RPOS"
+      ],
+      "inhibitors": [],
+      "formula": "KATE = prod(f(RPOS)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PLSB",
+      "activators": [
+        "ALMGS"
+      ],
+      "inhibitors": [],
+      "formula": "PLSB = prod(f(ALMGS)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ALMGS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ALMGS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Lycopene_Titer",
+      "activators": [
+        "CRTI",
+        "Phytoene",
+        "PLSB"
+      ],
+      "inhibitors": [
+        "GPP",
+        "FPP",
+        "Temperature",
+        "ROS"
+      ],
+      "formula": "Lycopene_Titer = prod(f(CRTI,Phytoene,PLSB)) * prod(g(GPP,FPP,Temperature,ROS)) * gene_modifier + exogenous"
+    }
+  ]
+}

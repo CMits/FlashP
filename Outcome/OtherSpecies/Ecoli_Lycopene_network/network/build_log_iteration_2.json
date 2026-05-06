@@ -1,0 +1,192 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lycopene_Titer",
+    "species": "Escherichia coli",
+    "iteration": 2,
+    "created": "2026-04-21",
+    "builder_model": "Claude Opus 4.7 (1M context)",
+    "input_judge_review": "network/iteration_1/judge_review_iteration_1.json",
+    "input_curated_edges": "data/curated_edges.json",
+    "input_literature_judge_report": "data/literature_judge_report.json"
+  },
+  "summary": {
+    "nodes_before": 61,
+    "nodes_after": 62,
+    "nodes_added": ["DXR"],
+    "nodes_removed": [],
+    "edges_before": 91,
+    "edges_after": 93,
+    "edges_added": ["N092", "N093", "N094", "N095", "N096"],
+    "edges_removed": ["N042", "N080", "N086"],
+    "source_nodes_before": 29,
+    "source_nodes_after": 29,
+    "source_percentage_before": 47.54,
+    "source_percentage_after": 46.77,
+    "lycopene_titer_inputs_before": 9,
+    "lycopene_titer_inputs_after": 7,
+    "lycopene_titer_activators_before": 5,
+    "lycopene_titer_activators_after": 3,
+    "lycopene_titer_curated_coverage_before": "10/42 = 0.24 (below §9.11 0.30 threshold)",
+    "lycopene_titer_curated_coverage_after": "7/42 = 0.17 (further below threshold due to S004 removals; S003 coverage gain rejected under cap constraint)",
+    "ipp_activators_before": 7,
+    "ipp_activators_after": 7,
+    "ipp_activator_composition_before": ["DXS", "G3P", "Pyruvate", "IDI", "Mevalonate", "MVK", "MVD"],
+    "ipp_activator_composition_after": ["DXS", "DXR", "G3P", "Pyruvate", "Mevalonate", "MVK", "MVD"]
+  },
+  "edge_accounting": {
+    "net_edge_count_change": "+2 (from 91 to 93)",
+    "edges_added_count": 5,
+    "edges_removed_count": 3,
+    "edges_added_by_id": {
+      "N092": "DXS -> G3P (-1) per curated E143 [S001]",
+      "N093": "DXS -> Pyruvate (-1) per curated E144 [S001]",
+      "N094": "Arabinose -> DXR (+1) per curated E057 [S002]",
+      "N095": "NADPH -> DXR (+1) per curated E095 [S002]",
+      "N096": "DXR -> IPP (+1) per curated E028 [S002]"
+    },
+    "edges_removed_by_id": {
+      "N042": "IDI -> IPP (+1) -- dropped to stay under the 7-activator hard cap on IPP after DXR addition. IDI still reaches phenotype via IDI -> DMAPP (N046).",
+      "N080": "RPOS -> Lycopene_Titer (+1) -- removed per JUDGE S004. Effect fully captured by RPOS -> KATE -> ROS -> Lycopene_Titer.",
+      "N086": "KATE -> Lycopene_Titer (+1) -- removed per JUDGE S004. Effect fully captured by KATE -> ROS -> Lycopene_Titer."
+    }
+  },
+  "suggestions_applied": [
+    {
+      "suggestion_id": "S001",
+      "type": "add_edge",
+      "priority": "high",
+      "decision": "APPLIED",
+      "new_edge_ids": ["N092", "N093"],
+      "action": "Added DXS -> G3P (-1) [N092, curated E143] and DXS -> Pyruvate (-1) [N093, curated E144] per Wang 2009 MAGE substrate-depletion biology.",
+      "biological_justification": "Dxs consumes 1x G3P + 1x Pyruvate per DXP produced. At high OE, Dxs depletes both substrates, explaining the Wang 2009 MAGE non-monotonic RBS-tuning optimum. Without these edges, Dxs OE predictions are monotonically positive, which is biologically wrong for strong OE.",
+      "companion_edge_considerations": "Kept G3P -> IPP (N040) and Pyruvate -> IPP (N041) to preserve G3P/Pyruvate phenotype connectivity (removing them would make those nodes floating). The signal cancellation concern is mitigated by the fact that bounded-inverse inhibition (min(1/product, 10)) does not fully cancel the direct DXS -> IPP (+1) activator path because they act multiplicatively under different saturation regimes.",
+      "motif": "Biosynthesis-Degradation Balance (BUILDER_AGENT.md §12 Motif 4) applied to G3P and Pyruvate pools."
+    },
+    {
+      "suggestion_id": "S002",
+      "type": "add_node",
+      "priority": "high",
+      "decision": "APPLIED (minimum variant)",
+      "new_node_ids": ["DXR"],
+      "new_edge_ids": ["N094", "N095", "N096"],
+      "removed_edge_ids": ["N042"],
+      "action": "Added DXR GENE node with 3 curated edges: Arabinose -> DXR (+1) [N094, E057], NADPH -> DXR (+1) [N095, E095], DXR -> IPP (+1) [N096, E028]. Did NOT add IspG, IspH, IspD, IspE, IspF (preferred/full variants) to avoid further inflating the IPP activator list. Full MEP chain restructure deferred to REFINEMENT.",
+      "companion_edge_removal": "Dropped IDI -> IPP (N042) to keep IPP at the 7-activator hard cap after DXR addition. IDI still reaches the phenotype via IDI -> DMAPP (N046). The primary biological role of Idi is IPP<->DMAPP isomerisation, captured by IDI -> DMAPP; the direct IDI -> IPP (N042) was biologically minor (backward isomerisation from DMAPP).",
+      "biological_justification": "Dxr (= ispC) is the second rate-limiting MEP enzyme; combined dxs+dxr OE reaches ~16x lycopene (Wang 2020 review). Without DXR as a node, ispC perturbations cannot be mapped.",
+      "motif": "Standard linear cascade step with NADPH cofactor gating."
+    },
+    {
+      "suggestion_id": "S004",
+      "type": "remove_edge",
+      "priority": "high",
+      "decision": "APPLIED (full)",
+      "removed_edge_ids": ["N080", "N086"],
+      "action": "Removed N080 (RPOS -> Lycopene_Titer +1) and N086 (KATE -> Lycopene_Titer +1). Both effects are already fully captured by the indirect ROS route.",
+      "biological_justification": "Per Bongers 2015 explicit reinterpretation of Alper 2005: 'knockout of rpoS does not influence flux through the MEP pathway... RpoS has no effect on enzyme abundance'. The RpoS effect on lycopene is entirely ROS-mediated via KatE induction."
+    }
+  ],
+  "rejections": [
+    {
+      "suggestion_id": "S003",
+      "type": "restructure_pathway / add_nodes_and_edges",
+      "priority": "high",
+      "decision": "REJECTED under hard-constraint conflict",
+      "proposed_by_judge": "Add SodA, CRP, DgkA nodes with direct curated edges SodA->Lycopene_Titer (E131), CRP->Lycopene_Titer (E062), DgkA->Lycopene_Titer (E134). Raise Lycopene_Titer curated-edge coverage from 10/43 = 0.23 to ~13/43 = 0.30.",
+      "rejection_rationale": [
+        "HARD CONSTRAINT: user orchestrator message explicitly states 'Lycopene_Titer input cap is 7' and 'Net effect must leave Lycopene_Titer at <=7 inputs. The judge designed S003+S004 together to achieve this.'",
+        "ARITHMETIC: Lycopene_Titer had 9 inputs (5 act + 4 inh). S004 removes 2 direct edges (net -2). For total <=7, S003 can add at most 0 direct edges.",
+        "CURATED EVIDENCE: SodA, CRP, DgkA have ONLY direct-to-Lycopene_Titer curated edges (E131, E062, E134). No curated indirect routes exist.",
+        "SECONDARY EDGES CHECKED: CRP has E100 (CRP->Pgi) but marked LOW confidence and in_model=false -- the judge only suggested it optionally as CRP->DXS (a target that doesn't exist in E100 anyway). No secondary curated edges exist for SodA or DgkA.",
+        "NO-FLOATING-NODES RULE: Adding SodA/CRP/DgkA as nodes WITHOUT their only curated edges would violate the hard no-floating-nodes rule (BUILDER_AGENT.md §1.1 rule 1: 'every node in network.json must reach the PHENOTYPE via a directed edge path').",
+        "CONCLUSION: The two hard rules (7-input cap, no-floating-nodes) combined with the curated-evidence constraint make S003 impossible to apply as specified. The judge's own math (3 new direct edges adding +3, S004 removing 2, net +1, landing at 10 inputs) did not actually satisfy the cap; the user's instruction overrides the judge."
+      ],
+      "impact": "Lycopene_Titer §9.11 KEY PLAYER UNDER-REPRESENTATION flag is NOT closed in iteration 2. Coverage ratio moves from 10/42 (0.24) down to 7/42 (0.17) because of the S004 removals. This is a known regression in coverage, accepted as the cost of maintaining biological correctness (removing redundant double-count paths) and the 7-input cap.",
+      "remediation_paths": [
+        "OPTION A (for iteration 3): User may clarify the cap-vs-coverage tradeoff. If the 7-cap is softened to match the judge's review (which accepted 9 inputs), apply S003 as specified.",
+        "OPTION B: File Step 1.5 re-open requests for indirect curated edges (e.g., SodA -> ROS, CRP -> DXS, DgkA -> PLSB) with primary-source evidence sentences. If any become available, route the new nodes via intermediate edges so Lycopene_Titer direct-input count stays at 7.",
+        "OPTION C: REFINEMENT can revisit if perturbation tests specifically probe SodA/CRP/DgkA and fail (flags them for literature_gap rather than missing-node)."
+      ],
+      "curated_edges_retained_in_pool": ["E131 (SodA->Lycopene_Titer)", "E062 (CRP->Lycopene_Titer)", "E134 (DgkA->Lycopene_Titer)", "E100 (CRP->Pgi)"]
+    }
+  ],
+  "suggestions_deferred": [
+    {
+      "suggestion_id": "S005",
+      "priority": "medium",
+      "decision": "DEFERRED to iteration 3 or REFINEMENT",
+      "reason": "PMK addition would bring MVA activator count on IPP to 8, exceeding the 7 hard cap, unless MVA chain is simultaneously restructured (S008)."
+    },
+    {
+      "suggestion_id": "S006",
+      "priority": "medium",
+      "decision": "DEFERRED (literature_gap)",
+      "reason": "Curated_edges.json has ZWF only as ZWF -> G3P (-1) substrate-diverter; no explicit ZWF -> NADPH (+1) edge. BUILDER cannot fabricate."
+    },
+    {
+      "suggestion_id": "S007",
+      "priority": "medium",
+      "decision": "DEFERRED",
+      "reason": "Adding OxyR+KatG requires KatG -> ROS edge which is not curated; partial addition would leave KatG with no out-edge to ROS (floating)."
+    },
+    {
+      "suggestion_id": "S008",
+      "priority": "medium",
+      "decision": "DEFERRED",
+      "reason": "MVA chain restructure adds 4 intermediate METABOLITE nodes; judge said defer to REFINEMENT unless MVA mutant-chain coverage warrants it."
+    },
+    {
+      "suggestion_id": "S009",
+      "priority": "low",
+      "decision": "DEFERRED",
+      "reason": "Plsc single-edge peripheral (E083) would inflate Lycopene_Titer activator count; same cap conflict as S003."
+    },
+    {
+      "suggestion_id": "S010",
+      "priority": "low",
+      "decision": "DEFERRED",
+      "reason": "NADPH -> Mevalonate (E021) duplicates NADPH -> HMGR -> Mevalonate."
+    },
+    {
+      "suggestion_id": "S011",
+      "priority": "low",
+      "decision": "DEFERRED",
+      "reason": "Contingent on IspE being added; iteration 2 added only DXR."
+    },
+    {
+      "suggestion_id": "S012",
+      "priority": "low",
+      "decision": "NO ACTION REQUIRED",
+      "reason": "Paywall documentation carryover; reflected in network.json metadata."
+    }
+  ],
+  "hard_rule_checks": {
+    "no_floating_nodes": "VERIFIED (post-script): backward BFS from Lycopene_Titer reaches all 62 nodes. DXR reaches phenotype via DXR -> IPP -> ... -> Lycopene_Titer. IDI still reaches via IDI -> DMAPP -> FPP -> ... -> Lycopene_Titer.",
+    "doi_on_every_edge": "VERIFIED: all 5 new edges carry flat-format EvidenceEntry with doi/title/authors/year/journal/evidence_sentence/claim.",
+    "node_naming": "VERIFIED: DXR matches ^[A-Z][A-Z0-9_]*$ GENE regex.",
+    "is_source_flag_consistency": "VERIFIED: DXR has 2 incoming edges (Arabinose, NADPH) and is_source=false.",
+    "single_phenotype_node": "VERIFIED: single PHENOTYPE-typed node Lycopene_Titer matching metadata.phenotype_node.",
+    "ipp_activator_cap": "AT CAP: IPP has 7 activators (DXS, DXR, G3P, Pyruvate, Mevalonate, MVK, MVD) = at the 7 hard cap, not over.",
+    "lycopene_input_cap": "UNDER CAP: Lycopene_Titer has 7 inputs (3 activators + 4 inhibitors), exactly at the 7 cap, not over.",
+    "phenotype_activator_guideline": "WITHIN GUIDELINE: Lycopene_Titer has 3 activators, within BUILDER_AGENT.md §10 'Phenotype activators 3-5' target.",
+    "source_percentage": "46.77% - within softened 30-50% target, well under 60% hard cap."
+  },
+  "equation_check": {
+    "wt_baseline_1_0": "VERIFIED: all 62 equations produce node=1.0 when all inputs=1.0.",
+    "formula_field_present": "VERIFIED: every algebraic and ODE equation has a non-empty formula field.",
+    "new_equations_added": ["DXR"],
+    "equations_modified": [
+      "G3P (added DXS as third inhibitor; was ZWF, GAPA; now ZWF, GAPA, DXS)",
+      "Pyruvate (added DXS as third inhibitor; was PPS, LDH; now PPS, LDH, DXS)",
+      "IPP (removed IDI from activators; added DXR; activator set DXS, DXR, G3P, Pyruvate, Mevalonate, MVK, MVD)",
+      "Lycopene_Titer (removed RPOS and KATE from activators; activator set CRTI, Phytoene, PLSB; inhibitors unchanged: GPP, FPP, Temperature, ROS)"
+    ]
+  },
+  "qa_script_invariants_expected": {
+    "check_1_connectivity": "EXPECTED PASS",
+    "check_2_doi_on_every_edge": "EXPECTED PASS",
+    "check_3_naming": "EXPECTED PASS",
+    "check_4_is_source_flag": "EXPECTED PASS",
+    "check_5_phenotype_sanity": "EXPECTED PASS"
+  }
+}

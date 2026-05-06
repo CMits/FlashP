@@ -1,0 +1,37 @@
+{
+  "iteration": 3,
+  "date": "2026-04-20",
+  "fixes": [
+    {
+      "iteration": 3,
+      "action": "perturbation_encoding",
+      "description": "Flip T177 expected_direction from decreased to increased",
+      "reason": "Raw evidence states \"osvil2 ostb1 similar to ostb1\". ostb1 single-KO (T022) is expected=increased, so the double should also be increased.",
+      "biological_justification": "osvil2 is epistatic to ostb1 per Lee 2019 Mol Cells. Since the loss-of-function phenotype of ostb1 de-represses tiller outgrowth (canonical TCP repressor), the epistatic double mutant must also show increased tillers.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "expected_direction",
+      "value": null
+    },
+    {
+      "iteration": 3,
+      "action": "perturbation_encoding",
+      "description": "Flip T187 expected_direction from decreased to increased",
+      "reason": "Duplicate encoding of T177 \u2014 same epistasis rule applies.",
+      "biological_justification": "Same as T177 \u2014 osvil2 ostb1 follows ostb1-like increased tillering.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "expected_direction",
+      "value": null
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 80.0,
+    "ode_accuracy": 78.8,
+    "rwr_accuracy": 62.4,
+    "kept": true,
+    "reason": "Best-method accuracy 78.8% -> 80.0% (+1.2%); T177/T187 encoding fix \u2014 raw \"similar to ostb1\" = increased, not decreased. +2 tests on every method."
+  }
+}

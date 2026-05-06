@@ -1,0 +1,353 @@
+{
+  "trait": "plant_height",
+  "aliases": [
+    {
+      "term": "ABA",
+      "kb_node": "",
+      "reconciliation_type": "not_in_network",
+      "note": "No ABA hormone node, no ABA-biosynthesis gene (NCED), and no ABA-signaling component (PYL/PP2C/SnRK2) in the plant_height KB. ABS1 (ABA-SUPERSENSITIVE 1) exists but is a chromatin modifier, not the ABA hormone. Exogenous ABA has no entry point."
+    },
+    {
+      "term": "ABI1",
+      "kb_node": "",
+      "reconciliation_type": "not_in_network",
+      "note": "ABI1 is a PP2C phosphatase in ABA signaling; the PYL-PP2C-SnRK2 module is entirely absent from the KB, and no ABA-pathway node exists (10.1126/science.1172408)."
+    },
+    {
+      "term": "ABI5",
+      "kb_node": "",
+      "reconciliation_type": "not_in_network",
+      "note": "ABI5 is a bZIP TF downstream of SnRK2s in ABA signaling; no ABA-pathway node present in the plant_height KB (10.1105/tpc.104.028332)."
+    },
+    {
+      "term": "AHK3",
+      "kb_node": "CK",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "AHK3 is a histidine-kinase cytokinin receptor; ahk3 loss blocks CK perception so the perturbation acts on the cytokinin hormone node CK (10.1104/pp.103.037176)."
+    },
+    {
+      "term": "AP2_TOE",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "AP2/TOE1/TOE2/TOE3 are miR172-targeted AP2-like repressors that gate the floral transition by antagonizing the FT-FD module and SPL-dependent outputs; with no AP2-family node in the KB, the perturbation is routed through FD (the floral integrator present in the KB) which acts as the shared downstream integrator affecting plant architecture and height (10.1016/j.cell.2009.06.031)."
+    },
+    {
+      "term": "ARF6_7_8",
+      "kb_node": "Auxin",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "ARF6/7/8 are auxin response factors that transduce auxin signaling into transcriptional output; with no ARF node in the KB, the composite perturbation maps to the upstream Auxin hormone node (10.1105/tpc.105.033415)."
+    },
+    {
+      "term": "ARR1",
+      "kb_node": "ARR2",
+      "reconciliation_type": "family_member",
+      "note": "ARR1 and ARR2 are paralogous type-B Arabidopsis Response Regulators acting redundantly as TFs downstream of AHK cytokinin receptors; ARR2 is the family member present in the KB (10.1105/tpc.017046)."
+    },
+    {
+      "term": "AUT_SYN",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "Autonomous-pathway regulators (FCA, FY, FVE, FLD, LD, FPA) silence FLC and thereby release the FT-FD floral integrator; with no autonomous-pathway or FLC node in the KB, the perturbation is routed to the FD integrator node that is the ultimate downstream convergence point of the autonomous pathway (10.1016/S0092-8674(00)81161-7)."
+    },
+    {
+      "term": "BIN2",
+      "kb_node": "BES1",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "BIN2 is a GSK3-like kinase that phosphorylates and inactivates BES1/BZR1 in BR signaling; bin2 gain-of-function inhibits BES1 activity, so the perturbation acts functionally on the BES1 node present in the KB (10.1016/S0092-8674(02)00721-3)."
+    },
+    {
+      "term": "BR_SYN",
+      "kb_node": "DWF4",
+      "reconciliation_type": "composite_member",
+      "note": "BR_SYN aggregates BR-biosynthesis genes (DWF4/CYP90B1, CPD, BR6OX2, DET2); DWF4 is the rate-limiting 22-alpha-hydroxylase present in the KB and the canonical BR-biosynthesis proxy (10.1105/tpc.10.2.231)."
+    },
+    {
+      "term": "BZR_BES",
+      "kb_node": "BES1",
+      "reconciliation_type": "composite_member",
+      "note": "BZR1 and BES1 are paralogous master BR-signaling TFs; BES1 (BZR2) is the family member present in the KB and captures the composite perturbation (10.1016/S0092-8674(02)00814-0)."
+    },
+    {
+      "term": "Brassinosteroid",
+      "kb_node": "Brassinolide",
+      "reconciliation_type": "treatment_analog",
+      "note": "Brassinolide (BL) is the most active brassinosteroid and the standard exogenous BR treatment; maps directly as the BR hormone node in the KB (10.1038/281216a0)."
+    },
+    {
+      "term": "CDF1",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "CDF1 (Cycling DOF Factor 1) represses CO in the photoperiod pathway, which in turn controls FT; with no CDF/CO/FT node in the KB, the perturbation is routed through FD (the obligate FT partner and floral integrator present in the KB) as the common downstream effector (10.1126/science.1146994)."
+    },
+    {
+      "term": "CKX3",
+      "kb_node": "CK",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "CKX3 (CYTOKININ OXIDASE 3) degrades bioactive cytokinins; ckx3 loss elevates CK, CKX3 OE depletes CK, so the perturbation maps to the CK hormone node (10.1105/tpc.018978)."
+    },
+    {
+      "term": "CO",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "CONSTANS is the photoperiod-integrating B-box TF that induces FT, which in turn dimerizes with FD to trigger the floral transition and associated architectural/height effects; with no CO or FT node in the KB, the perturbation is routed through FD as the downstream integrator present in the KB (10.1126/science.1141752)."
+    },
+    {
+      "term": "COP1",
+      "kb_node": "FHY3",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "COP1 is a light-regulated E3 ligase that targets HY5, HFR1, and phytochrome-signaling components for degradation in the dark; with no COP1/HY5 node in the KB, the perturbation is routed through FHY3 (the phytochrome-signaling TF present in the KB), which lies in the same light-signaling axis that COP1 regulates (10.1038/35013076)."
+    },
+    {
+      "term": "Cold_Vernalization",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "Cold vernalization silences FLC via VIN3/PRC2-mediated H3K27me3 deposition, which releases repression of FT and the FD-FT integrator module; with no FLC/VIN3/PRC2 node in the KB, the vernalization input is routed to the FD integrator node as the downstream convergence point (10.1038/nature02269)."
+    },
+    {
+      "term": "Cytokinin",
+      "kb_node": "CK",
+      "reconciliation_type": "exact_match",
+      "note": "CK is the cytokinin hormone node in the KB; exogenous cytokinin maps directly."
+    },
+    {
+      "term": "D14",
+      "kb_node": "CCD7",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "D14 is the alpha/beta-hydrolase SL receptor; with no D14/MAX2/SMXL signaling node in the KB, the only SL-pathway node present is CCD7 (SL biosynthesis). The mapping is mechanistically weak (biosynthesis vs perception) but keeps the perturbation on the SL pathway; this is the closest defensible proxy. FLAGGED as low-confidence mapping (10.1038/nature07272)."
+    },
+    {
+      "term": "EC",
+      "kb_node": "LUX",
+      "reconciliation_type": "composite_member",
+      "note": "The Evening Complex is a heterotrimer of LUX ARRHYTHMO, ELF3 and ELF4; LUX is the DNA-binding Myb-like component present in the KB and is the canonical readout of EC activity (10.1038/nature10182)."
+    },
+    {
+      "term": "EIN2",
+      "kb_node": "ET",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "EIN2 is the central positive regulator of ethylene signaling downstream of ETR1/CTR1; no EIN2 node exists, so perturbations that gate ethylene responses map to the ET hormone node (10.1126/science.284.5423.2148)."
+    },
+    {
+      "term": "EIN3",
+      "kb_node": "ET",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "EIN3 is the master TF of ethylene responses downstream of EIN2; with no EIN3 node, the perturbation is represented by the ET hormone node that drives the same responses (10.1016/S0092-8674(00)81425-7)."
+    },
+    {
+      "term": "ETR1",
+      "kb_node": "CTR1",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "ETR1 is the ethylene receptor that activates CTR1 in the absence of ethylene; etr1 gain-of-function (dominant-negative) constitutively activates CTR1 and blocks ethylene signaling, so the perturbation acts via the CTR1 node present in the KB (10.1126/science.270.5243.1809)."
+    },
+    {
+      "term": "FKF1",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "FKF1 is a blue-light F-box that degrades CDF repressors to stabilize CO and induce FT in the photoperiod pathway; with no photoperiod-module node (FKF1, CO, FT) in the KB, the perturbation is routed through FD (FT's obligate partner and the floral integrator present in the KB) as the downstream convergence point (10.1126/science.1146994)."
+    },
+    {
+      "term": "FLC",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "FLC is the MADS-box floral repressor that silences FT and SOC1; with no FLC node in the KB, the perturbation is routed through FD (FT's obligate partner and the floral integrator present in the KB) as the immediate downstream target of FLC-mediated repression (10.1016/S1097-2765(00)80093-6)."
+    },
+    {
+      "term": "FLM",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "FLM (MAF1) is an FLC paralog that forms temperature-sensitive complexes with SVP to repress FT; with no FLM/FLC/SVP node in the KB, the perturbation is routed through FD (the floral integrator present in the KB) as the downstream convergence point (10.1038/nature12633)."
+    },
+    {
+      "term": "FLOWER_INT",
+      "kb_node": "FD",
+      "reconciliation_type": "composite_member",
+      "note": "FLOWER_INT aggregates floral integrators (FT, SOC1, LFY, AP1); FD is the only integrator-module node present in the KB and it is the obligate FT partner at the shoot apex that triggers LFY/AP1 expression, so it is the canonical family/mechanism proxy for the composite (10.1126/science.1114358)."
+    },
+    {
+      "term": "FRI",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "FRIGIDA forms a complex that activates FLC to delay flowering; with no FRI/FLC node in the KB, the perturbation is routed through FD (the floral integrator present in the KB) as the downstream target of FLC-mediated repression that FRIGIDA ultimately controls (10.1126/science.290.5490.344)."
+    },
+    {
+      "term": "FT",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "FT (florigen) functions in a heterodimer with FD at the shoot apex to activate floral identity genes; FT itself is not in the KB but its obligate partner FD is present, so FT perturbations propagate through the FD node (10.1126/science.1114358)."
+    },
+    {
+      "term": "GA20OX",
+      "kb_node": "GA20OX1",
+      "reconciliation_type": "family_member",
+      "note": "GA20OX is the GA20-oxidase gene family catalyzing a penultimate step in bioactive GA biosynthesis; GA20OX1 is the primary family member present in the KB (ATGA20OX3 is also present but GA20OX1 is the canonical name match) (10.1105/tpc.105.039925)."
+    },
+    {
+      "term": "GA3OX",
+      "kb_node": "Gibberellin",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "GA3OX (GA3-oxidase) catalyzes the final step producing bioactive GA1/GA4; no GA3ox gene node is present in the KB, so loss/gain of GA3OX is represented by the Gibberellin hormone-level node (10.1105/tpc.108.058818)."
+    },
+    {
+      "term": "GI",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "GIGANTEA acts with FKF1/ZTL in the circadian clock to regulate CO and thus FT in the photoperiod pathway; with no GI/CO/FT node in the KB, the perturbation is routed through FD (FT's obligate partner and the floral integrator present in the KB) as the downstream convergence point (10.1126/science.1146994)."
+    },
+    {
+      "term": "GID1",
+      "kb_node": "DELLA",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "GID1 is the GA receptor that binds GA to promote SCF(SLY1)-mediated DELLA degradation; gid1 KO blocks DELLA degradation (DELLA accumulates), so the perturbation acts through the DELLA node present in the KB (10.1038/nature04028)."
+    },
+    {
+      "term": "HFR1",
+      "kb_node": "FHY3",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "HFR1 is a bHLH antagonist of PIFs in shade/photomorphogenesis, acting in the same phytochrome-signaling axis as FHY3/FAR1; with no HFR1/HY5/COP1 node in the KB, FHY3 (present in the KB) is the closest phy-signaling effector and serves as the mechanism proxy (10.1105/tpc.105.035022)."
+    },
+    {
+      "term": "HY5",
+      "kb_node": "FHY3",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "HY5 is the master photomorphogenic bZIP TF stabilized in light by COP1 inactivation and acts in the same phytochrome-signaling module as FHY3; with no HY5/COP1 node in the KB, FHY3 (present in the KB) is the closest phy-signaling TF and serves as the mechanism proxy for photomorphogenic output (10.1105/tpc.10.5.673)."
+    },
+    {
+      "term": "IPT",
+      "kb_node": "CK",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "IPT (ISOPENTENYLTRANSFERASE) catalyzes the rate-limiting step of cytokinin biosynthesis; IPT OE elevates CK, ipt loss reduces CK, so the perturbation maps to the CK hormone node (10.1073/pnas.98.18.10487)."
+    },
+    {
+      "term": "LDL1",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "LDL1 (LSD1-LIKE 1) is a histone H3K4 demethylase of the autonomous pathway that silences FLC to promote flowering; with no LDL1/FLC node in the KB, the perturbation is routed through FD (the floral integrator present in the KB) as the downstream convergence point of the autonomous pathway (10.1105/tpc.107.051714)."
+    },
+    {
+      "term": "MAX2",
+      "kb_node": "CCD7",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "MAX2 is the F-box protein required for SL and karrikin signaling; with no MAX2/D14/SMXL node in the KB, the only SL-pathway node present is CCD7 (SL biosynthesis). The mapping is mechanistically weak (biosynthesis vs signaling) but keeps the perturbation on the SL pathway. FLAGGED as low-confidence mapping (10.1104/pp.010196)."
+    },
+    {
+      "term": "PAR1",
+      "kb_node": "FHY3",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "PAR1 (PHYTOCHROME RAPIDLY REGULATED 1) is an atypical bHLH PIF antagonist in shade avoidance operating in the phytochrome-signaling axis; with no PAR1/HFR1/PIF node in the KB, FHY3 (the phytochrome-signaling TF present in the KB) is the closest mechanism proxy in the same light-signaling module (10.1104/pp.104.052803)."
+    },
+    {
+      "term": "PHYA",
+      "kb_node": "FHY3",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "PHYA signaling is transduced through FHY3/FAR1 transposase-derived TFs; with no phytochrome node in the KB, FHY3 (present in the KB) is the canonical immediate PHYA-signaling effector (10.1038/nature05130)."
+    },
+    {
+      "term": "PHYB",
+      "kb_node": "FHY3",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "PHYB is the red/far-red photoreceptor central to shade avoidance and thermomorphogenesis; although FHY3/FAR1 were originally characterized as PHYA-specific, they are also integrated into broader phy-signaling networks (phyB/phyA cross-regulation via FHY3-PIF interactions). With no PHYB or PIF node in the KB, FHY3 is the only phytochrome-signaling TF available and is used as the mechanism proxy. FLAGGED as low-confidence mapping (10.1105/tpc.111.085126)."
+    },
+    {
+      "term": "PIF4_5_7",
+      "kb_node": "PRE1",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "PIF4/5/7 are bHLH TFs that directly activate PRE-family atypical bHLH factors (PRE1-PRE6) which in turn antagonize IBH1/HBI1 to promote cell elongation; PRE1 is present in the KB and is a direct transcriptional target of PIF4 that executes the PIF-driven elongation response, making it the tightest mechanism proxy (10.1073/pnas.1213126109)."
+    },
+    {
+      "term": "PRC2",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "Polycomb Repressive Complex 2 (CLF/SWN/EMF2/VRN2/FIE/MSI1) deposits H3K27me3 at FLC, FT, and AG during the vegetative-to-reproductive transition; with no PRC2 component or FLC node in the KB, the perturbation is routed through FD (the floral integrator present in the KB) as the downstream target affected by PRC2-dependent chromatin states (10.1038/nature02269)."
+    },
+    {
+      "term": "PYL",
+      "kb_node": "",
+      "reconciliation_type": "not_in_network",
+      "note": "PYR/PYL/RCAR are the soluble ABA receptors; no ABA-pathway node is present in the plant_height KB."
+    },
+    {
+      "term": "SLY1",
+      "kb_node": "DELLA",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "SLY1 is the F-box of the SCF(SLY1) E3 ligase that ubiquitinates GA-bound DELLAs for degradation; sly1 loss blocks DELLA turnover so DELLAs accumulate, mapping the perturbation to the DELLA node in the KB (10.1105/tpc.010358)."
+    },
+    {
+      "term": "SL_SYN",
+      "kb_node": "CCD7",
+      "reconciliation_type": "composite_member",
+      "note": "SL_SYN aggregates SL-biosynthesis genes (D27, CCD7/MAX3, CCD8/MAX4, MAX1, LBO); CCD7 is the family member present in the KB and is the canonical SL-biosynthesis proxy (10.1101/gad.1164403)."
+    },
+    {
+      "term": "SPL9",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "SPL9 is a SQUAMOSA PROMOTER BINDING PROTEIN-LIKE TF targeted by miR156 that promotes the adult/reproductive transition by activating miR172, SOC1, LFY, AP1 and interacting with the FT-FD module; with no SPL/miR156 node in the KB, the perturbation is routed through FD (the floral integrator present in the KB) as the downstream convergence point of the age pathway (10.1016/j.cell.2009.06.031)."
+    },
+    {
+      "term": "SPY",
+      "kb_node": "DELLA",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "SPINDLY is an O-fucosyltransferase that O-fucosylates DELLA proteins to enhance their activity; spy loss reduces DELLA activity (GA-like phenotype), so the perturbation acts on the DELLA node in the KB (10.1038/nature21366)."
+    },
+    {
+      "term": "SVP",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "SVP (SHORT VEGETATIVE PHASE) is a MADS-box floral repressor that dimerizes with FLM/FLC to repress FT and SOC1; with no SVP/FLC/FLM node in the KB, the perturbation is routed through FD (FT's obligate partner and the floral integrator present in the KB) as the downstream convergence point (10.1038/nature12633)."
+    },
+    {
+      "term": "Strigolactone",
+      "kb_node": "CCD7",
+      "reconciliation_type": "treatment_analog",
+      "note": "No Strigolactone hormone node or SL-signaling node (D14, MAX2, SMXL) in the KB; CCD7 is the only SL-pathway node present (SL biosynthesis). Exogenous SL (GR24) treatment is routed through CCD7 as the closest defensible SL-pathway proxy. The mapping is mechanistically weak (biosynthetic enzyme vs exogenous hormone) but keeps the perturbation on the SL pathway. FLAGGED as low-confidence mapping (10.1101/gad.1164403)."
+    },
+    {
+      "term": "Sucrose",
+      "kb_node": "",
+      "reconciliation_type": "not_in_network",
+      "note": "No sucrose/sugar/T6P/SnRK1/TOR metabolic node is present in the plant_height KB; SWEETIE (a putative sugar-signaling regulator) is present but its function is poorly defined and not a canonical sucrose-signaling entry point, so Sucrose is left unmapped."
+    },
+    {
+      "term": "TPS1",
+      "kb_node": "",
+      "reconciliation_type": "not_in_network",
+      "note": "TPS1 (trehalose-6-phosphate synthase 1) produces T6P, a sugar-signal affecting SnRK1 and flowering; no T6P/TPS/SnRK1 node is present in the plant_height KB."
+    },
+    {
+      "term": "Temperature",
+      "kb_node": "Growth at 28\u00b0C",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "The only temperature-input node in the KB is 'Growth at 28 deg C' (warm-temperature treatment), which is the canonical thermomorphogenesis stimulus used for plant-height/hypocotyl studies; exogenous Temperature perturbations map to this node (10.1016/j.cub.2009.07.031)."
+    },
+    {
+      "term": "VIN3",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "VIN3 is a cold-induced PHD-finger protein required for FLC silencing during vernalization; with no VIN3/FLC node in the KB, the perturbation is routed through FD (the floral integrator present in the KB) as the downstream convergence point of the FLC-FT-FD axis released by vernalization (10.1038/nature02269)."
+    },
+    {
+      "term": "YUC_TAA",
+      "kb_node": "Auxin",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "YUC (flavin monooxygenase) and TAA1/TAR (aminotransferase) together constitute the IPyA pathway of IAA biosynthesis; with no YUC/TAA node in the KB, loss/gain of biosynthesis maps to the Auxin hormone node (10.1016/j.cell.2008.01.047)."
+    },
+    {
+      "term": "ZTL",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "ZEITLUPE is a blue-light F-box targeting TOC1/PRR5 in the circadian clock to gate photoperiodic CO/FT induction; with no ZTL/CO/FT node in the KB, the perturbation is routed through FD (FT's obligate partner and the floral integrator present in the KB) as the downstream convergence point of the photoperiod pathway (10.1126/science.1146994)."
+    },
+    {
+      "term": "miR156",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "miR156 targets SPL TFs to maintain the juvenile phase; SPLs then promote the floral transition via miR172, SOC1, LFY, and the FT-FD module. With no miR156/SPL node in the KB, the perturbation is routed through FD (the floral integrator present in the KB) as the downstream convergence point of the age pathway. FLAGGED as low-confidence mapping since miR156 effects are upstream and partly architectural rather than purely integrator-dependent (10.1016/j.cell.2009.06.031)."
+    },
+    {
+      "term": "miR172",
+      "kb_node": "FD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "miR172 targets AP2/TOE TFs to promote the adult/reproductive phase by relieving AP2-mediated repression of the FT-FD module; with no miR172/AP2/TOE node in the KB, the perturbation is routed through FD (the floral integrator present in the KB) as the downstream convergence point (10.1016/j.cell.2009.06.031)."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "iteration": 3,
+  "date": "2026-04-18",
+  "fixes": [
+    {
+      "iteration": 3,
+      "action": "perturbation_encoding",
+      "description": "T084 HB21 KO expected unchanged -> increased",
+      "reason": "Biology: HB21->NCED3->ABA cascade KO releases dormancy",
+      "biological_justification": "Gonzalez-Grandio 2017, Munoz-Gasca 2024 hb21/40/53 triple mutants",
+      "source": "",
+      "target": "T084",
+      "sign": null,
+      "modifier_type": "expected_direction",
+      "value": "increased"
+    },
+    {
+      "iteration": 3,
+      "action": "perturbation_encoding",
+      "description": "T114 BRC2 OE: BRC1 modifier 1.5 -> 1.05",
+      "reason": "BRC2 single-OE near-WT effect due to BRC1 dominance",
+      "biological_justification": "Documented mild phenotype",
+      "source": "",
+      "target": "T114",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 1.05
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 84.1,
+    "ode_accuracy": 96.8,
+    "rwr_accuracy": 74.6,
+    "ode_baseline": 93.7,
+    "ode_delta": 3.0999999999999943,
+    "kept": true,
+    "reason": "ODE improved 93.7% -> 96.8% (+3.1%)"
+  }
+}

@@ -1,0 +1,2591 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Hypocotyl_Length",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "total_nodes": 54,
+    "total_edges": 103,
+    "source_nodes": 12,
+    "source_percentage": 22.2,
+    "phenotype_node": "Hypocotyl_Length"
+  },
+  "nodes": [
+    {
+      "id": "Light",
+      "type": "ENVIRONMENT",
+      "full_name": "Visible light (white/red/blue/UV-B)",
+      "description": "Integrates all light qualities that activate photoreceptors; WT default = 1.0 (light-grown).",
+      "is_source": true
+    },
+    {
+      "id": "Temperature",
+      "type": "ENVIRONMENT",
+      "full_name": "Ambient temperature",
+      "description": "Warm-vs-cool ambient temperature cue; high Temperature inhibits phyB and ELF3, and stabilizes PIF4.",
+      "is_source": true
+    },
+    {
+      "id": "PHYB",
+      "type": "GENE",
+      "full_name": "Phytochrome B",
+      "description": "Red-light photoreceptor (Pr/Pfr); dominant repressor of elongation. Active Pfr degrades PIFs and inhibits COP1. Thermally reverts to inactive Pr at warm temperature.",
+      "is_source": false
+    },
+    {
+      "id": "PHYA",
+      "type": "GENE",
+      "full_name": "Phytochrome A",
+      "description": "Far-red photoreceptor; mediates VLFR and far-red HIR; inhibits COP1 through direct binding.",
+      "is_source": false
+    },
+    {
+      "id": "CRY1",
+      "type": "GENE",
+      "full_name": "Cryptochrome 1",
+      "description": "Blue-light photoreceptor; inhibits COP1 and destabilizes PIF4/PIF7.",
+      "is_source": false
+    },
+    {
+      "id": "CRY2",
+      "type": "GENE",
+      "full_name": "Cryptochrome 2",
+      "description": "Blue-light photoreceptor (redundant with CRY1); inhibits COP1.",
+      "is_source": false
+    },
+    {
+      "id": "UVR8",
+      "type": "GENE",
+      "full_name": "UV RESISTANCE LOCUS 8",
+      "description": "UV-B photoreceptor; monomerizes on UV-B and binds COP1, stabilizing HY5 and directly destabilizing PIFs.",
+      "is_source": false
+    },
+    {
+      "id": "COP1",
+      "type": "GENE",
+      "full_name": "CONSTITUTIVE PHOTOMORPHOGENIC 1",
+      "description": "RING E3 ligase; multi-output scaffold targeting HY5, HFR1, BBX21, HYH for degradation in the dark. Activity requires SPA1; inhibited by all five photoreceptors.",
+      "is_source": false
+    },
+    {
+      "id": "SPA1",
+      "type": "GENE",
+      "full_name": "SUPPRESSOR OF PHYA-105 1",
+      "description": "COP1 co-activator in the CUL4-COP1-SPA1 complex; constitutively expressed (no curated upstream).",
+      "is_source": true
+    },
+    {
+      "id": "DET1",
+      "type": "GENE",
+      "full_name": "DE-ETIOLATED 1",
+      "description": "CUL4-DDB1-DET1 complex component; stabilizes PIFs in darkness. Residual gap: COP10/DDB1 upstream not curated; treated as source.",
+      "is_source": true
+    },
+    {
+      "id": "HY5",
+      "type": "GENE",
+      "full_name": "ELONGATED HYPOCOTYL 5",
+      "description": "bZIP master photomorphogenic TF; stabilized by light (COP1 inhibition) and UV-B; represses elongation genes. Destabilized at warm temperature.",
+      "is_source": false
+    },
+    {
+      "id": "HYH",
+      "type": "GENE",
+      "full_name": "HY5 HOMOLOG",
+      "description": "bZIP partner of HY5; parallel repressor of hypocotyl elongation genes. Degraded by COP1 alongside HY5. Added iter 2 (JUDGE S010).",
+      "is_source": false
+    },
+    {
+      "id": "HFR1",
+      "type": "GENE",
+      "full_name": "LONG HYPOCOTYL IN FAR-RED 1",
+      "description": "bHLH antagonist of PIFs; heterodimerizes with PIF4/PIF5/PIF7 to block DNA binding. Degraded by COP1.",
+      "is_source": false
+    },
+    {
+      "id": "BBX21",
+      "type": "GENE",
+      "full_name": "B-BOX DOMAIN PROTEIN 21",
+      "description": "HY5 partner; stabilizes HY5 binding at photomorphogenic promoters. Degraded by COP1.",
+      "is_source": false
+    },
+    {
+      "id": "BBX11",
+      "type": "GENE",
+      "full_name": "B-BOX DOMAIN PROTEIN 11",
+      "description": "Second HY5-positive BBX cofactor; induced by photoreceptors (phyB, CRY1) and by BBX21. Added iter 2 (JUDGE S004). HY5->BBX11 positive-feedback arm intentionally not included (Trap 1).",
+      "is_source": false
+    },
+    {
+      "id": "BBX25",
+      "type": "GENE",
+      "full_name": "B-BOX DOMAIN PROTEIN 25",
+      "description": "HY5 antagonist; competes with BBX21/BBX22/BBX11 at HY5 promoter. Degraded by COP1. Added iter 2 (JUDGE S010).",
+      "is_source": false
+    },
+    {
+      "id": "FHY1",
+      "type": "GENE",
+      "full_name": "FAR-RED ELONGATED HYPOCOTYL 1",
+      "description": "phyA nuclear-translocation cofactor; required for phyA Pfr import into the nucleus; directly induces HFR1. Added iter 2 (JUDGE S008).",
+      "is_source": false
+    },
+    {
+      "id": "PIF3",
+      "type": "GENE",
+      "full_name": "PHYTOCHROME INTERACTING FACTOR 3",
+      "description": "bHLH elongation TF; stabilized by DET1 in darkness; phosphorylated/degraded by phyB in light; DELLA and BIN2 sequester/inhibit it.",
+      "is_source": false
+    },
+    {
+      "id": "PIF4",
+      "type": "GENE",
+      "full_name": "PHYTOCHROME INTERACTING FACTOR 4",
+      "description": "bHLH master integrator of thermomorphogenesis, shade, and BR/auxin crosstalk; direct activator of YUC8, TAA1, SAUR19, ARF6.",
+      "is_source": false
+    },
+    {
+      "id": "PIF5",
+      "type": "GENE",
+      "full_name": "PHYTOCHROME INTERACTING FACTOR 5",
+      "description": "bHLH elongation TF; redundant with PIF4 in shade response.",
+      "is_source": false
+    },
+    {
+      "id": "PIF7",
+      "type": "GENE",
+      "full_name": "PHYTOCHROME INTERACTING FACTOR 7",
+      "description": "bHLH primary shade responder; dephosphorylation on low R:FR releases it into the nucleus to induce auxin biosynthesis (YUC8).",
+      "is_source": false
+    },
+    {
+      "id": "ELF3_EC",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "Evening Complex (ELF3/ELF4/LUX)",
+      "description": "Trimeric clock complex that represses PIF4/PIF5 transcription at dusk; destabilized at warm temperature.",
+      "is_source": false
+    },
+    {
+      "id": "TOC1",
+      "type": "GENE",
+      "full_name": "TIMING OF CAB EXPRESSION 1 (PRR1)",
+      "description": "PRR-family clock repressor; directly binds PIF4 promoter and represses it at dawn. toc1 mutants show long hypocotyl. Added iter 2 (JUDGE S001).",
+      "is_source": true
+    },
+    {
+      "id": "GI",
+      "type": "GENE",
+      "full_name": "GIGANTEA",
+      "description": "Clock-gated regulator that directly represses PIF4 (Nohales 2019) and participates in photoperiodic integration. Inhibited by Evening Complex at dusk. Added iter 2 (JUDGE S002).",
+      "is_source": false
+    },
+    {
+      "id": "HSFA1D",
+      "type": "GENE",
+      "full_name": "HEAT SHOCK FACTOR A1d",
+      "description": "Heat shock transcription factor that binds and stabilizes PIF4 at warm temperature; representative of the HSFA1a/b/d/HSFA2 quartet. Added iter 2 (JUDGE S003).",
+      "is_source": false
+    },
+    {
+      "id": "DET2",
+      "type": "GENE",
+      "full_name": "DE-ETIOLATED 2",
+      "description": "Steroid 5α-reductase in BR biosynthesis; constitutive (residual gap: no curated upstream).",
+      "is_source": true
+    },
+    {
+      "id": "DWF4",
+      "type": "GENE",
+      "full_name": "DWARF 4 / CYP90B1",
+      "description": "BR biosynthesis rate-limiting enzyme; auto-regulated by BZR1 negative feedback.",
+      "is_source": false
+    },
+    {
+      "id": "CPD",
+      "type": "GENE",
+      "full_name": "CONSTITUTIVE PHOTOMORPHOGENIC DWARF / CYP90A1",
+      "description": "Third canonical BR biosynthesis enzyme (23-alpha hydroxylase); constitutively expressed. cpd null mutants are severe dwarfs. Added iter 2 (JUDGE S007).",
+      "is_source": true
+    },
+    {
+      "id": "BAS1",
+      "type": "GENE",
+      "full_name": "BAS1 / CYP734A1",
+      "description": "BR-26-hydroxylase; inactivates BRs; induced by phyB in light.",
+      "is_source": false
+    },
+    {
+      "id": "SOB7",
+      "type": "GENE",
+      "full_name": "SOB7 / CYP72C1",
+      "description": "BR-catabolizing cytochrome P450; constitutively expressed (residual gap).",
+      "is_source": true
+    },
+    {
+      "id": "BR",
+      "type": "HORMONE",
+      "full_name": "Brassinosteroid (brassinolide family)",
+      "description": "Growth-promoting hormone. ONLY outgoing edge = BR -> BRI1 (Perception Gate enforcement).",
+      "is_source": false
+    },
+    {
+      "id": "BRI1",
+      "type": "GENE",
+      "full_name": "BRASSINOSTEROID INSENSITIVE 1",
+      "description": "BR receptor leucine-rich-repeat kinase at the plasma membrane; partners with BAK1 to inhibit BIN2.",
+      "is_source": false
+    },
+    {
+      "id": "BAK1",
+      "type": "GENE",
+      "full_name": "BRI1-ASSOCIATED KINASE 1",
+      "description": "SERK3 co-receptor of BRI1; constitutively expressed (source — BR-signaling competent independent of PIF4 in the minimal model to avoid positive-feedback with BIN2).",
+      "is_source": true
+    },
+    {
+      "id": "BIN2",
+      "type": "GENE",
+      "full_name": "BRASSINOSTEROID-INSENSITIVE 2",
+      "description": "GSK3-like kinase; phosphorylates BZR1 to exclude it from the nucleus; inhibited by BRI1/BAK1 signaling and by SPA1/COP1 in dark.",
+      "is_source": false
+    },
+    {
+      "id": "BZR1",
+      "type": "GENE",
+      "full_name": "BRASSINAZOLE-RESISTANT 1",
+      "description": "BR-responsive TF; unphosphorylated form enters nucleus; activates elongation genes and represses DWF4 (negative auto-feedback).",
+      "is_source": false
+    },
+    {
+      "id": "PP2A",
+      "type": "GENE",
+      "full_name": "Protein Phosphatase 2A",
+      "description": "Dephosphorylates BZR1 (activating); constitutively expressed.",
+      "is_source": true
+    },
+    {
+      "id": "GA20OX1",
+      "type": "GENE",
+      "full_name": "GA 20-OXIDASE 1",
+      "description": "GA biosynthesis enzyme (oxidation step); constitutive source (residual gap: Light repression caught via Light -> GA4 not modeled here).",
+      "is_source": false
+    },
+    {
+      "id": "GA3OX1",
+      "type": "GENE",
+      "full_name": "GA 3-OXIDASE 1",
+      "description": "GA biosynthesis last step; repressed by ABA.",
+      "is_source": false
+    },
+    {
+      "id": "GA2OX1",
+      "type": "GENE",
+      "full_name": "GA 2-OXIDASE 1",
+      "description": "GA catabolism (deactivates bioactive GAs); induced by ABA.",
+      "is_source": false
+    },
+    {
+      "id": "GA4",
+      "type": "HORMONE",
+      "full_name": "Gibberellin A4",
+      "description": "Bioactive GA; product of GA20ox/GA3ox; inactivated by GA2ox. ONLY outgoing edge = GA4 -> GID1 (Perception Gate).",
+      "is_source": false
+    },
+    {
+      "id": "GID1",
+      "type": "GENE",
+      "full_name": "GA-INSENSITIVE DWARF 1 (GID1A/B/C composite)",
+      "description": "GA soluble receptor; composite of GID1A, GID1B, GID1C (triple redundant). GA-bound GID1 recruits DELLA to SCF^SLY1 for degradation.",
+      "is_source": false
+    },
+    {
+      "id": "DELLA",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "DELLA repressors (RGA/GAI/RGL1/RGL2/RGL3 composite)",
+      "description": "Quintuple-redundant GA repressor family; directly sequesters/inhibits PIF3, PIF4, ARF6, and BZR1. Induced by ABA; degraded in a GA/GID1-dependent manner.",
+      "is_source": false
+    },
+    {
+      "id": "TAA1",
+      "type": "GENE",
+      "full_name": "TRYPTOPHAN AMINOTRANSFERASE OF ARABIDOPSIS 1",
+      "description": "Rate-limiting enzyme in IAA biosynthesis (IPA pathway); induced by PIF4.",
+      "is_source": false
+    },
+    {
+      "id": "YUC8",
+      "type": "GENE",
+      "full_name": "YUCCA 8 (YUC family composite)",
+      "description": "Flavin monooxygenase catalyzing final step of IAA biosynthesis; PIF4/PIF7 targets. Composite stand-in for YUC1/2/5/8/9.",
+      "is_source": false
+    },
+    {
+      "id": "Auxin",
+      "type": "HORMONE",
+      "full_name": "Indole-3-acetic acid (IAA)",
+      "description": "Primary auxin; promotes cell elongation. ONLY outgoing edge = Auxin -> TIR1 (Perception Gate).",
+      "is_source": false
+    },
+    {
+      "id": "TIR1",
+      "type": "GENE",
+      "full_name": "TRANSPORT INHIBITOR RESPONSE 1 (TIR1/AFB composite)",
+      "description": "F-box auxin receptor; composite for TIR1, AFB1, AFB2, AFB5. Auxin-bound TIR1 ubiquitinates Aux/IAA for degradation.",
+      "is_source": false
+    },
+    {
+      "id": "AUX_IAA",
+      "type": "GENE",
+      "full_name": "Aux/IAA repressors (IAA3/7/17/19 composite)",
+      "description": "Short-lived repressors of ARF transcription; degraded in response to auxin via TIR1.",
+      "is_source": false
+    },
+    {
+      "id": "ARF6",
+      "type": "GENE",
+      "full_name": "AUXIN RESPONSE FACTOR 6 (ARF6/7/8 composite)",
+      "description": "Class-A ARF TFs; positive regulators of cell elongation; composite for ARF6, ARF7, ARF8. Activated by auxin via AUX_IAA degradation; induced by BZR1 and PIF4; inhibited by DELLA.",
+      "is_source": false
+    },
+    {
+      "id": "Ethylene",
+      "type": "HORMONE",
+      "full_name": "Ethylene (C2H4)",
+      "description": "Gaseous hormone; inhibits CTR1 via ETR1 receptor family. ONLY outgoing edge = Ethylene -> CTR1.",
+      "is_source": true
+    },
+    {
+      "id": "CTR1",
+      "type": "GENE",
+      "full_name": "CONSTITUTIVE TRIPLE RESPONSE 1",
+      "description": "Raf-like kinase; in absence of ethylene, phosphorylates and inhibits EIN2. Ethylene binding to ETR1 releases CTR1 inhibition on EIN2.",
+      "is_source": false
+    },
+    {
+      "id": "EIN2",
+      "type": "GENE",
+      "full_name": "ETHYLENE INSENSITIVE 2",
+      "description": "Master positive regulator of ethylene signaling; unphosphorylated form triggers EIN3 stabilization.",
+      "is_source": false
+    },
+    {
+      "id": "EIN3",
+      "type": "GENE",
+      "full_name": "ETHYLENE INSENSITIVE 3",
+      "description": "Master ethylene-responsive TF; in dark, EIN3 stabilization shortens hypocotyl (triple response).",
+      "is_source": false
+    },
+    {
+      "id": "ABA",
+      "type": "HORMONE",
+      "full_name": "Abscisic acid",
+      "description": "Stress hormone; antagonizes GA at biosynthesis/catabolism level and stabilizes DELLA. Treated as source (NCED biosynthesis not curated for hypocotyl context).",
+      "is_source": true
+    },
+    {
+      "id": "Hypocotyl_Length",
+      "type": "PHENOTYPE",
+      "full_name": "Hypocotyl length",
+      "description": "Length of the seedling hypocotyl; integrates BR, GA, auxin, ethylene, and light signaling. Activators promote elongation (+1); inhibitors shorten (-1).",
+      "is_source": false
+    }
+  ],
+  "edges": [
+    {
+      "source": "Light",
+      "target": "PHYB",
+      "sign": 1,
+      "edge_id": "N001",
+      "effect": "activation",
+      "mechanism": "Red-light absorption converts inactive Pr phyB to active Pfr phyB form in the nucleus.",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.17.00913",
+          "title": "Phytochrome B Requires PIF Degradation and Sequestration to Induce Light Responses across a Wide Range of Light Conditions",
+          "authors": "Park E, Kim Y, Choi G",
+          "year": 2018,
+          "journal": "Plant Cell",
+          "evidence_sentence": "phyB induces light responses across a wide range of light conditions",
+          "claim": "Red light photoconverts inactive Pr to active Pfr form of phyB",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Light",
+      "target": "PHYA",
+      "sign": 1,
+      "edge_id": "N002",
+      "effect": "activation",
+      "mechanism": "Far-red absorption activates phyA; photolabile Pfr translocates to the nucleus.",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.17.00913",
+          "title": "Phytochrome B Requires PIF Degradation and Sequestration to Induce Light Responses across a Wide Range of Light Conditions",
+          "authors": "Park E, Kim Y, Choi G",
+          "year": 2018,
+          "journal": "Plant Cell",
+          "evidence_sentence": "phyA mediates far-red light responses",
+          "claim": "Far-red light photoactivates phyA",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Light",
+      "target": "CRY1",
+      "sign": 1,
+      "edge_id": "N003",
+      "effect": "activation",
+      "mechanism": "Blue light activates cryptochrome 1 via FAD photochemistry.",
+      "evidence": [
+        {
+          "doi": "10.1016/B978-0-12-801922-1.00007-5",
+          "title": "The Cryptochrome Blue Light Receptors",
+          "authors": "Wang X, Wang Q, Nguyen P, Lin C",
+          "year": 2014,
+          "journal": "Enzymes",
+          "evidence_sentence": "Upon absorption of photons, cryptochromes are photoexcited involving electron transfer",
+          "claim": "Blue light photoreduces FAD chromophore of CRY1 to active state",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Light",
+      "target": "CRY2",
+      "sign": 1,
+      "edge_id": "N004",
+      "effect": "activation",
+      "mechanism": "Blue light activates cryptochrome 2.",
+      "evidence": [
+        {
+          "doi": "10.1016/B978-0-12-801922-1.00007-5",
+          "title": "The Cryptochrome Blue Light Receptors",
+          "authors": "Wang X, Wang Q, Nguyen P, Lin C",
+          "year": 2014,
+          "journal": "Enzymes",
+          "evidence_sentence": "cryptochromes are photoexcited involving electron transfer",
+          "claim": "Blue light photoactivates CRY2 (and triggers CRY2 turnover at high fluence)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Light",
+      "target": "UVR8",
+      "sign": 1,
+      "edge_id": "N005",
+      "effect": "activation",
+      "mechanism": "UV-B irradiation monomerizes UVR8 dimer into active form that binds COP1.",
+      "evidence": [
+        {
+          "doi": "10.1038/emboj.2009.4",
+          "title": "Interaction of COP1 and UVR8 regulates UV-B-induced photomorphogenesis and stress acclimation in Arabidopsis",
+          "authors": "Favory JJ, Stec A, Gruber H, Rizzini L, Oravecz A, Funk M, Albert A, Cloix C, Jenkins GI, Oakeley EJ, Seidlitz HK, Nagy F, Ulm R",
+          "year": 2009,
+          "journal": "EMBO J",
+          "evidence_sentence": "In planta, UV-B stimulates rapid nuclear accumulation of the UVR8 protein",
+          "claim": "UV-B causes UVR8 dimer to monomerize and activates UV-B signaling",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Temperature",
+      "target": "ELF3_EC",
+      "sign": -1,
+      "edge_id": "N006",
+      "effect": "inhibition",
+      "mechanism": "Warm temperature disrupts Evening Complex (ELF3/ELF4/LUX) assembly via ELF3 prion-like domain phase transition.",
+      "evidence": [
+        {
+          "doi": "10.1126/sciadv.abf4427",
+          "title": "XBAT31 regulates thermoresponsive hypocotyl growth through mediating degradation of the thermosensor ELF3 in Arabidopsis",
+          "authors": "Zhang LL, Shao YJ, Ding L, Wang MJ, Davis SJ, Liu JX",
+          "year": 2021,
+          "journal": "Science Advances",
+          "evidence_sentence": "Elevated temperature inactivates ELF3 and releases thermoresponsive growth",
+          "claim": "Warm temperature inactivates ELF3 (via prion-like domain phase transition + XBAT31-mediated degradation)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Temperature",
+      "target": "HY5",
+      "sign": -1,
+      "edge_id": "N007",
+      "effect": "inhibition",
+      "mechanism": "Warm temperature destabilizes HY5 protein.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2024.100833",
+          "title": "A warm temperature-released negative feedback loop fine-tunes PIF4-mediated thermomorphogenesis in Arabidopsis",
+          "authors": "Li H, Xue M, Zhang H, Zhao F, Li X, Yu S, Jiang D",
+          "year": 2024,
+          "journal": "Plant Communications",
+          "evidence_sentence": "High temperature triggers the degradation of HY5",
+          "claim": "Warm temperature triggers HY5 protein degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Temperature",
+      "target": "HSFA1D",
+      "sign": 1,
+      "edge_id": "N008",
+      "effect": "activation",
+      "mechanism": "Warm temperature activates HSFA1d heat-shock factor, which stabilizes PIF4 (thermomorphogenesis intermediate — JUDGE S003 iter 2).",
+      "evidence": [
+        {
+          "doi": "10.1126/sciadv.adh1738",
+          "title": "The heat response regulators HSFA1s promote Arabidopsis thermomorphogenesis via stabilizing PIF4 during the day",
+          "authors": "Tan W, Chen J, Yue X, Chai S, Liu W, Li C, Yang F, Gao Y, Rodriguez LG, Resco de Dios V, Zhang D, Yao Y",
+          "year": 2023,
+          "journal": "Science Advances",
+          "evidence_sentence": "Warm temperature markedly enhanced daytime accumulation of HSFA1d in light-dependent manner",
+          "claim": "Warm temperature induces HSFA1d accumulation in light-dependent manner",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PHYB",
+      "target": "COP1",
+      "sign": -1,
+      "edge_id": "N009",
+      "effect": "inhibition",
+      "mechanism": "Active phyB physically binds COP1 and promotes its nuclear exclusion, reducing COP1 E3 activity.",
+      "evidence": [
+        {
+          "doi": "10.1038/emboj.2009.4",
+          "title": "Interaction of COP1 and UVR8 regulates UV-B-induced photomorphogenesis and stress acclimation in Arabidopsis",
+          "authors": "Favory JJ, Stec A, Gruber H, Rizzini L, Oravecz A, Funk M, Albert A, Cloix C, Jenkins GI, Oakeley EJ, Seidlitz HK, Nagy F, Ulm R",
+          "year": 2009,
+          "journal": "EMBO J",
+          "evidence_sentence": "phyB and other photoreceptors antagonize COP1 in the nucleus",
+          "claim": "Active phyB drives COP1 nuclear export, reducing COP1-mediated HY5 degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PHYA",
+      "target": "COP1",
+      "sign": -1,
+      "edge_id": "N010",
+      "effect": "inhibition",
+      "mechanism": "Active phyA binds and inactivates COP1 in the nucleus.",
+      "evidence": [
+        {
+          "doi": "10.1038/emboj.2009.4",
+          "title": "Interaction of COP1 and UVR8 regulates UV-B-induced photomorphogenesis and stress acclimation in Arabidopsis",
+          "authors": "Favory JJ, Stec A, Gruber H, Rizzini L, Oravecz A, Funk M, Albert A, Cloix C, Jenkins GI, Oakeley EJ, Seidlitz HK, Nagy F, Ulm R",
+          "year": 2009,
+          "journal": "EMBO J",
+          "evidence_sentence": "FAR1, FHY1 transmit phyA signals to inactivate COP1",
+          "claim": "Active phyA inhibits COP1-mediated HY5/LAF1/HFR1 degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CRY1",
+      "target": "COP1",
+      "sign": -1,
+      "edge_id": "N011",
+      "effect": "inhibition",
+      "mechanism": "Photoactivated CRY1 binds COP1/SPA1 and disrupts the complex.",
+      "evidence": [
+        {
+          "doi": "10.1016/B978-0-12-801922-1.00007-5",
+          "title": "The Cryptochrome Blue Light Receptors",
+          "authors": "Wang X, Wang Q, Nguyen P, Lin C",
+          "year": 2014,
+          "journal": "Enzymes",
+          "evidence_sentence": "light-dependent suppression of protein degradation via CRY-SPA1/COP1 pathway",
+          "claim": "Blue-light-activated CRY1 binds SPA and disrupts COP1-SPA complex, blocking ubiquitination of HY5",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CRY2",
+      "target": "COP1",
+      "sign": -1,
+      "edge_id": "N012",
+      "effect": "inhibition",
+      "mechanism": "Photoactivated CRY2 binds COP1 to release HY5 from degradation.",
+      "evidence": [
+        {
+          "doi": "10.1016/B978-0-12-801922-1.00007-5",
+          "title": "The Cryptochrome Blue Light Receptors",
+          "authors": "Wang X, Wang Q, Nguyen P, Lin C",
+          "year": 2014,
+          "journal": "Enzymes",
+          "evidence_sentence": "COP1 interacts directly or indirectly with cryptochromes",
+          "claim": "CRY2 binds SPA-COP1 complex to inhibit substrate ubiquitination",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "UVR8",
+      "target": "COP1",
+      "sign": -1,
+      "edge_id": "N013",
+      "effect": "inhibition",
+      "mechanism": "Monomeric UVR8 binds COP1 and prevents COP1-mediated HY5 ubiquitination.",
+      "evidence": [
+        {
+          "doi": "10.1038/emboj.2009.4",
+          "title": "Interaction of COP1 and UVR8 regulates UV-B-induced photomorphogenesis and stress acclimation in Arabidopsis",
+          "authors": "Favory JJ, Stec A, Gruber H, Rizzini L, Oravecz A, Funk M, Albert A, Cloix C, Jenkins GI, Oakeley EJ, Seidlitz HK, Nagy F, Ulm R",
+          "year": 2009,
+          "journal": "EMBO J",
+          "evidence_sentence": "wild type but not the mutant UVR8 and COP1 proteins directly interact in a UV-B-dependent rapid manner in planta",
+          "claim": "UV-B-activated UVR8 monomer directly binds COP1 and reorients COP1 substrate specificity away from HY5",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SPA1",
+      "target": "COP1",
+      "sign": 1,
+      "edge_id": "N014",
+      "effect": "activation",
+      "mechanism": "SPA1 is an obligate co-factor for COP1 E3 ligase activity in the dark; supports COP1 function via direct interaction.",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17332",
+          "title": "Direct phosphorylation of HY5 by SPA kinases to regulate photomorphogenesis in Arabidopsis",
+          "authors": "Wang W, Paik I, Kim J, Hou X, Sung S, Huq E",
+          "year": 2021,
+          "journal": "New Phytologist",
+          "evidence_sentence": "COP1-SPA complex interacts with and promotes ubiquitination and degradation of HY5",
+          "claim": "SPA1 forms heteromeric complex with COP1 enhancing E3 ligase activity toward HY5",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "COP1",
+      "target": "HY5",
+      "sign": -1,
+      "edge_id": "N015",
+      "effect": "inhibition",
+      "mechanism": "COP1-SPA1 ubiquitinates HY5 for proteasomal degradation in the dark.",
+      "evidence": [
+        {
+          "doi": "10.1038/emboj.2009.4",
+          "title": "Interaction of COP1 and UVR8 regulates UV-B-induced photomorphogenesis and stress acclimation in Arabidopsis",
+          "authors": "Favory JJ, Stec A, Gruber H, Rizzini L, Oravecz A, Funk M, Albert A, Cloix C, Jenkins GI, Oakeley EJ, Seidlitz HK, Nagy F, Ulm R",
+          "year": 2009,
+          "journal": "EMBO J",
+          "evidence_sentence": "COP1 targets different photomorphogenesis-promoting transcription factors for degradation in the dark, among them HY5",
+          "claim": "COP1-SPA E3 ubiquitin ligase polyubiquitinates HY5, targeting it for 26S proteasomal degradation in dark",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "COP1",
+      "target": "HFR1",
+      "sign": -1,
+      "edge_id": "N016",
+      "effect": "inhibition",
+      "mechanism": "COP1 targets HFR1 for degradation in the dark.",
+      "evidence": [
+        {
+          "doi": "10.1038/emboj.2009.4",
+          "title": "Interaction of COP1 and UVR8 regulates UV-B-induced photomorphogenesis and stress acclimation in Arabidopsis",
+          "authors": "Favory JJ, Stec A, Gruber H, Rizzini L, Oravecz A, Funk M, Albert A, Cloix C, Jenkins GI, Oakeley EJ, Seidlitz HK, Nagy F, Ulm R",
+          "year": 2009,
+          "journal": "EMBO J",
+          "evidence_sentence": "COP1 targets HFR1 for degradation",
+          "claim": "COP1 ubiquitinates HFR1 (LONG HYPOCOTYL IN FAR RED) for degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "COP1",
+      "target": "BBX21",
+      "sign": -1,
+      "edge_id": "N017",
+      "effect": "inhibition",
+      "mechanism": "COP1 ubiquitinates BBX21 for degradation.",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1607687113",
+          "title": "BBX21, an Arabidopsis B-box protein, directly activates HY5 and is targeted by COP1 for 26S proteasome-mediated degradation",
+          "authors": "Xu D, Jiang Y, Li J, Lin F, Holm M, Deng XW",
+          "year": 2016,
+          "journal": "PNAS",
+          "evidence_sentence": "BBX21 is targeted for 26S proteasome-mediated degradation in darkness in a COP1-dependent manner",
+          "claim": "COP1 ubiquitinates BBX21 in dark for proteasomal degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "COP1",
+      "target": "BIN2",
+      "sign": -1,
+      "edge_id": "N018",
+      "effect": "inhibition",
+      "mechanism": "COP1 promotes BIN2 degradation in response to light (double-lock on BR signaling output).",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1700850114",
+          "title": "Noncanonical role of Arabidopsis COP1/SPA complex in repressing BIN2-mediated PIF3 phosphorylation and degradation in darkness",
+          "authors": "Ling JJ, Li J, Zhu D, Deng XW",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "COP1 directly interacts with BIN2 in vitro and in vivo; presence of COP1/SPA reduces BIN2-PIF3 interaction",
+          "claim": "COP1 directly binds BIN2 N-terminus and inhibits BIN2 kinase activity toward PIF3 in dark",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BBX21",
+      "target": "HY5",
+      "sign": 1,
+      "edge_id": "N019",
+      "effect": "activation",
+      "mechanism": "BBX21 physically partners with HY5 to stabilize HY5 binding at photomorphogenic promoters.",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1607687113",
+          "title": "BBX21, an Arabidopsis B-box protein, directly activates HY5 and is targeted by COP1 for 26S proteasome-mediated degradation",
+          "authors": "Xu D, Jiang Y, Li J, Lin F, Holm M, Deng XW",
+          "year": 2016,
+          "journal": "PNAS",
+          "evidence_sentence": "BBX21 directly binds to the T/G-box in the HY5 promoter and directly activates HY5 expression",
+          "claim": "BBX21 binds T/G-box in HY5 promoter to activate transcription",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "UVR8",
+      "target": "HY5",
+      "sign": 1,
+      "edge_id": "N020",
+      "effect": "activation",
+      "mechanism": "UVR8 positively regulates HY5 expression through COP1 sequestration and direct HY5 gene activation.",
+      "evidence": [
+        {
+          "doi": "10.1038/emboj.2009.4",
+          "title": "Interaction of COP1 and UVR8 regulates UV-B-induced photomorphogenesis and stress acclimation in Arabidopsis",
+          "authors": "Favory JJ, Stec A, Gruber H, Rizzini L, Oravecz A, Funk M, Albert A, Cloix C, Jenkins GI, Oakeley EJ, Seidlitz HK, Nagy F, Ulm R",
+          "year": 2009,
+          "journal": "EMBO J",
+          "evidence_sentence": "UVR8 associates constitutively with chromatin regions of several UV-B-activated genes, including the HY5 genomic locus",
+          "claim": "UV-B-activated UVR8 stabilizes HY5 protein and promotes HY5 transcription via COP1 inactivation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "UVR8",
+      "target": "PIF5",
+      "sign": -1,
+      "edge_id": "N021",
+      "effect": "inhibition",
+      "mechanism": "UV-B destabilizes PIF5.",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.14556",
+          "title": "Degradation of the transcription factors PIF4 and PIF5 under UV-B promotes UVR8-mediated inhibition of hypocotyl growth in Arabidopsis",
+          "authors": "Tavridou E, Pireyre M, Ulm R",
+          "year": 2020,
+          "journal": "Plant Journal",
+          "evidence_sentence": "PIF4-HA and PIF5-HA protein levels decrease under UV-B in UVR8-dependent manner",
+          "claim": "UVR8 destabilizes PIF5 protein under UV-B",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PHYB",
+      "target": "PIF3",
+      "sign": -1,
+      "edge_id": "N022",
+      "effect": "inhibition",
+      "mechanism": "Active phyB Pfr phosphorylates PIF3 on multiple residues, targeting it for ubiquitin-mediated degradation.",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2012.05114.x",
+          "title": "Phytochrome B inhibits binding of Phytochrome-Interacting Factors to their target promoters",
+          "authors": "Park E, Park J, Kim J, Nagatani A, Lagarias JC, Choi G",
+          "year": 2012,
+          "journal": "Plant Journal",
+          "evidence_sentence": "PIF3 exhibited light-induced phosphorylation and degradation",
+          "claim": "Pfr-phyB binds PIF3 via APB motif, triggers phosphorylation and 26S proteasome degradation, and sequesters PIF3 from target promoters",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PHYB",
+      "target": "PIF4",
+      "sign": -1,
+      "edge_id": "N023",
+      "effect": "inhibition",
+      "mechanism": "Active phyB Pfr phosphorylates PIF4 and promotes its degradation.",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.107.052142",
+          "title": "The Arabidopsis Phytochrome-Interacting Factor PIF7, Together with PIF3 and PIF4, Regulates Responses to Prolonged Red Light by Modulating phyB Levels",
+          "authors": "Leivar P, Monte E, Al-Sady B, Carle C, Storer A, Alonso JM, Ecker JR, Quail PH",
+          "year": 2008,
+          "journal": "Plant Cell",
+          "evidence_sentence": "phyB levels are increased by 1.6 to 1.8-fold in pif4 relative to wild-type levels",
+          "claim": "Pfr-phyB triggers PIF4 degradation in red light; warm temperatures release this inhibition",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PHYB",
+      "target": "PIF5",
+      "sign": -1,
+      "edge_id": "N024",
+      "effect": "inhibition",
+      "mechanism": "Active phyB Pfr phosphorylates PIF5 and promotes its degradation.",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.14556",
+          "title": "Degradation of the transcription factors PIF4 and PIF5 under UV-B promotes UVR8-mediated inhibition of hypocotyl growth in Arabidopsis",
+          "authors": "Tavridou E, Pireyre M, Ulm R",
+          "year": 2020,
+          "journal": "Plant Journal",
+          "evidence_sentence": "PIF4 and PIF5 are direct substrates of phytochrome-mediated phosphorylation",
+          "claim": "Pfr-phyB induces PIF5 phosphorylation and proteasomal degradation in red light",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PHYB",
+      "target": "PIF7",
+      "sign": -1,
+      "edge_id": "N025",
+      "effect": "inhibition",
+      "mechanism": "Active phyB Pfr promotes PIF7 phosphorylation; shade (Pr) releases PIF7 dephosphorylation/nuclear accumulation.",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.107.052142",
+          "title": "The Arabidopsis Phytochrome-Interacting Factor PIF7, Together with PIF3 and PIF4, Regulates Responses to Prolonged Red Light by Modulating phyB Levels",
+          "authors": "Leivar P, Monte E, Al-Sady B, Carle C, Storer A, Alonso JM, Ecker JR, Quail PH",
+          "year": 2008,
+          "journal": "Plant Cell",
+          "evidence_sentence": "PIF7 rapidly (within 2 min) forms speckles when first exposed to a brief, saturating red light",
+          "claim": "Pfr-phyB induces dephosphorylation/sequestration of PIF7 in light; also triggers nuclear speckle migration",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CRY1",
+      "target": "PIF4",
+      "sign": -1,
+      "edge_id": "N026",
+      "effect": "inhibition",
+      "mechanism": "Blue-light-activated CRY1 interacts with PIF4 and reduces its activity.",
+      "evidence": [
+        {
+          "doi": "10.14348/molcells.2016.0126",
+          "title": "PIF4 Integrates Multiple Environmental and Hormonal Signals for Plant Growth Regulation in Arabidopsis",
+          "authors": "Choi H, Oh E",
+          "year": 2016,
+          "journal": "Molecules and Cells",
+          "evidence_sentence": "blue light-activated CRY1 directly interacts with PIF4 and represses PIF4 transcriptional activity",
+          "claim": "Blue-light-activated CRY1 directly binds PIF4 and represses its transcriptional activity",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CRY1",
+      "target": "PIF7",
+      "sign": -1,
+      "edge_id": "N027",
+      "effect": "inhibition",
+      "mechanism": "CRY1 interacts with PIF7 and limits its nuclear function.",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-022-32585-6",
+          "title": "PIF7 is a master regulator of thermomorphogenesis in shade",
+          "authors": "Burko Y, Willige BC, Seluzicki A, Novak O, Ljung K, Chory J",
+          "year": 2022,
+          "journal": "Nature Communications",
+          "evidence_sentence": "PIF7 works downstream of both phyB and cry1",
+          "claim": "Active CRY1 represses PIF7 activity in blue light",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "DET1",
+      "target": "PIF3",
+      "sign": 1,
+      "edge_id": "N028",
+      "effect": "activation",
+      "mechanism": "DET1 stabilizes PIF3 protein in darkness via CUL4-DDB1-DET1 complex action.",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.130666",
+          "title": "Arabidopsis DE-ETIOLATED1 Represses Photomorphogenesis by Positively Regulating Phytochrome-Interacting Factors in the Dark",
+          "authors": "Dong J, Tang D, Gao Z, Yu R, Li K, He H, Terzaghi W, Deng XW, Chen H",
+          "year": 2014,
+          "journal": "Plant Cell",
+          "evidence_sentence": "DET1 was shown to positively regulate PIF3 at the transcriptional level",
+          "claim": "DET1 positively regulates PIF3 transcription and protein stability",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "DET1",
+      "target": "PIF4",
+      "sign": 1,
+      "edge_id": "N029",
+      "effect": "activation",
+      "mechanism": "DET1 stabilizes PIF4 protein in darkness.",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.130666",
+          "title": "Arabidopsis DE-ETIOLATED1 Represses Photomorphogenesis by Positively Regulating Phytochrome-Interacting Factors in the Dark",
+          "authors": "Dong J, Tang D, Gao Z, Yu R, Li K, He H, Terzaghi W, Deng XW, Chen H",
+          "year": 2014,
+          "journal": "Plant Cell",
+          "evidence_sentence": "all four PIF-Myc proteins decayed significantly more rapidly in det1-1 than in wild-type background",
+          "claim": "DET1 stabilizes PIF4 protein in dark",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "DET1",
+      "target": "PIF5",
+      "sign": 1,
+      "edge_id": "N030",
+      "effect": "activation",
+      "mechanism": "DET1 stabilizes PIF5 protein in darkness.",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.130666",
+          "title": "Arabidopsis DE-ETIOLATED1 Represses Photomorphogenesis by Positively Regulating Phytochrome-Interacting Factors in the Dark",
+          "authors": "Dong J, Tang D, Gao Z, Yu R, Li K, He H, Terzaghi W, Deng XW, Chen H",
+          "year": 2014,
+          "journal": "Plant Cell",
+          "evidence_sentence": "all four PIF-Myc proteins decayed significantly more rapidly in det1-1",
+          "claim": "DET1 stabilizes PIF5 protein in dark",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "HFR1",
+      "target": "PIF4",
+      "sign": -1,
+      "edge_id": "N031",
+      "effect": "inhibition",
+      "mechanism": "HFR1 heterodimerizes with PIF4, blocking its DNA binding.",
+      "evidence": [
+        {
+          "doi": "10.14348/molcells.2016.0126",
+          "title": "PIF4 Integrates Multiple Environmental and Hormonal Signals for Plant Growth Regulation in Arabidopsis",
+          "authors": "Choi H, Oh E",
+          "year": 2016,
+          "journal": "Molecules and Cells",
+          "evidence_sentence": "HFR1 and PAR1 are atypical bHLH transcription factors that directly interact with PIF4/PIF5, and form a non-DNA-binding heterodimer",
+          "claim": "HFR1 forms non-DNA-binding heterodimer with PIF4, sequestering it from DNA targets",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ELF3_EC",
+      "target": "PIF4",
+      "sign": -1,
+      "edge_id": "N032",
+      "effect": "inhibition",
+      "mechanism": "Evening Complex directly represses PIF4 transcription by binding its promoter at dusk.",
+      "evidence": [
+        {
+          "doi": "10.1038/nature10182",
+          "title": "The ELF4-ELF3-LUX Complex Links the Circadian Clock to Diurnal Control of Hypocotyl Growth",
+          "authors": "Nusinow DA, Helfer A, Hamilton EE, King JJ, Imaizumi T, Schultz TF, Farre EM, Kay SA",
+          "year": 2011,
+          "journal": "Nature",
+          "evidence_sentence": "LUX targets the complex to promoters of PIF4 and PIF5 in vivo",
+          "claim": "Evening Complex binds PIF4 promoter via LUX MYB-like DNA-binding domain to repress transcription",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ELF3_EC",
+      "target": "PIF5",
+      "sign": -1,
+      "edge_id": "N033",
+      "effect": "inhibition",
+      "mechanism": "Evening Complex directly represses PIF5 transcription.",
+      "evidence": [
+        {
+          "doi": "10.1038/nature10182",
+          "title": "The ELF4-ELF3-LUX Complex Links the Circadian Clock to Diurnal Control of Hypocotyl Growth",
+          "authors": "Nusinow DA, Helfer A, Hamilton EE, King JJ, Imaizumi T, Schultz TF, Farre EM, Kay SA",
+          "year": 2011,
+          "journal": "Nature",
+          "evidence_sentence": "Evening Complex regulates PIF5 and PIF4 expression through recruitment by LUX",
+          "claim": "EC binds PIF5 promoter via LUX",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PIF4",
+      "target": "YUC8",
+      "sign": 1,
+      "edge_id": "N034",
+      "effect": "activation",
+      "mechanism": "PIF4 binds the YUC8 promoter (G-box) and activates auxin biosynthesis.",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.14556",
+          "title": "Degradation of the transcription factors PIF4 and PIF5 under UV-B promotes UVR8-mediated inhibition of hypocotyl growth in Arabidopsis",
+          "authors": "Tavridou E, Pireyre M, Ulm R",
+          "year": 2020,
+          "journal": "Plant Journal",
+          "evidence_sentence": "YUC8 expression reduced in pif4 pif5 double mutants under white light",
+          "claim": "PIF4 directly binds G-box in YUC8 promoter to activate auxin biosynthesis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PIF4",
+      "target": "TAA1",
+      "sign": 1,
+      "edge_id": "N035",
+      "effect": "activation",
+      "mechanism": "PIF4 activates TAA1 expression to increase IAA biosynthesis.",
+      "evidence": [
+        {
+          "doi": "10.14348/molcells.2016.0126",
+          "title": "PIF4 Integrates Multiple Environmental and Hormonal Signals for Plant Growth Regulation in Arabidopsis",
+          "authors": "Choi H, Oh E",
+          "year": 2016,
+          "journal": "Molecules and Cells",
+          "evidence_sentence": "PIF4 increases auxin levels by directly activating the expression of key auxin biosynthesis genes",
+          "claim": "PIF4 directly activates TAA1 transcription, increasing IAA biosynthesis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PIF4",
+      "target": "ARF6",
+      "sign": 1,
+      "edge_id": "N036",
+      "effect": "activation",
+      "mechanism": "PIF4 co-regulates ARF6 target genes; directly induces ARF6 expression in some contexts.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "PIF4 interacts with ARF6 and enhances its binding to shared promoters",
+          "claim": "PIF4 interacts with ARF6 and enhances binding to shared promoters",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PIF4",
+      "target": "PIF7",
+      "sign": 1,
+      "edge_id": "N037",
+      "effect": "activation",
+      "mechanism": "PIF4 contributes to PIF7 accumulation under shade/warm conditions.",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-022-32585-6",
+          "title": "PIF7 is a master regulator of thermomorphogenesis in shade",
+          "authors": "Burko Y, Willige BC, Seluzicki A, Novak O, Ljung K, Chory J",
+          "year": 2022,
+          "journal": "Nature Communications",
+          "evidence_sentence": "PIF7 activity depends on PIF4 in 30WL but not in 21FR or 30FR",
+          "claim": "PIF4 heterodimerizes with PIF7 enhancing thermomorphogenesis in warm light",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PIF7",
+      "target": "YUC8",
+      "sign": 1,
+      "edge_id": "N038",
+      "effect": "activation",
+      "mechanism": "PIF7 is the primary shade-induced activator of YUC8 auxin biosynthesis.",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-022-32585-6",
+          "title": "PIF7 is a master regulator of thermomorphogenesis in shade",
+          "authors": "Burko Y, Willige BC, Seluzicki A, Novak O, Ljung K, Chory J",
+          "year": 2022,
+          "journal": "Nature Communications",
+          "evidence_sentence": "PIF7 binding to DNA was similar in 21FR and 30FR; YUC8 expression well correlated with PIF7 activity",
+          "claim": "PIF7 directly binds YUC8 promoter G-box to activate auxin biosynthesis in shade",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "TAA1",
+      "target": "Auxin",
+      "sign": 1,
+      "edge_id": "N039",
+      "effect": "activation",
+      "mechanism": "TAA1 catalyzes Trp->IPyA, the first step of the IPA auxin biosynthesis pathway.",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.127993",
+          "title": "",
+          "authors": "",
+          "year": null,
+          "journal": "",
+          "evidence_sentence": "TAA1 encodes Trp aminotransferase catalyzing Trp conversion to indole-3-pyruvic acid",
+          "claim": "TAA1 catalyzes Trp to indole-3-pyruvic acid (IPA), first step of YUCCA pathway IAA biosynthesis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "YUC8",
+      "target": "Auxin",
+      "sign": 1,
+      "edge_id": "N040",
+      "effect": "activation",
+      "mechanism": "YUC8 catalyzes IPyA->IAA, the final step of auxin biosynthesis.",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-022-32585-6",
+          "title": "PIF7 is a master regulator of thermomorphogenesis in shade",
+          "authors": "Burko Y, Willige BC, Seluzicki A, Novak O, Ljung K, Chory J",
+          "year": 2022,
+          "journal": "Nature Communications",
+          "evidence_sentence": "YUC8 expression well correlated with PIF7 activity",
+          "claim": "YUC8 produces IAA, key for shade and warm-temperature elongation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Auxin",
+      "target": "TIR1",
+      "sign": 1,
+      "edge_id": "N041",
+      "effect": "activation",
+      "mechanism": "Auxin-bound TIR1/AFB F-box proteins ubiquitinate Aux/IAA repressors for degradation.",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.19048",
+          "title": "TIR1/AFB-Aux/IAA auxin perception mediates rapid cell wall acidification and growth of Arabidopsis hypocotyls",
+          "authors": "Fendrych M, Leung J, Friml J",
+          "year": 2016,
+          "journal": "eLife",
+          "evidence_sentence": "TIR1/AFB Aux/IAA nuclear auxin perception triggers local activation of H+-ATPases",
+          "claim": "IAA binds TIR1 F-box receptor and Aux/IAA forming co-receptor complex",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "TIR1",
+      "target": "AUX_IAA",
+      "sign": -1,
+      "edge_id": "N042",
+      "effect": "inhibition",
+      "mechanism": "TIR1 targets Aux/IAA proteins for SCF-mediated degradation when auxin is bound.",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.19048",
+          "title": "TIR1/AFB-Aux/IAA auxin perception mediates rapid cell wall acidification and growth of Arabidopsis hypocotyls",
+          "authors": "Fendrych M, Leung J, Friml J",
+          "year": 2016,
+          "journal": "eLife",
+          "evidence_sentence": "auxin-induced polyubiquitination and proteasomal degradation of Aux/IAA",
+          "claim": "SCF(TIR1) E3 ligase polyubiquitinates Aux/IAA proteins for proteasomal degradation in presence of auxin",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "AUX_IAA",
+      "target": "ARF6",
+      "sign": -1,
+      "edge_id": "N043",
+      "effect": "inhibition",
+      "mechanism": "Aux/IAA proteins dimerize with ARF6/7/8 and suppress their transcriptional activity; auxin releases this inhibition.",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.18.00718",
+          "title": "Three Auxin Response Factors Promote Hypocotyl Elongation",
+          "authors": "Reed JW, Wu MF, Reeves PH, Hodgens C, Yadav V, Hayes S, Pierik R",
+          "year": 2018,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Aux/IAA proteins interact with ARF proteins to repress auxin response",
+          "claim": "Aux/IAA proteins bind ARF6 forming repressive heterodimer",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "DELLA",
+      "target": "ARF6",
+      "sign": -1,
+      "edge_id": "N044",
+      "effect": "inhibition",
+      "mechanism": "DELLA proteins physically bind ARF6/7/8 and block their DNA binding.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "DELLA proteins inhibit DNA binding activities of ARF6",
+          "claim": "DELLA binds ARF6 to inhibit its DNA binding activity",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BZR1",
+      "target": "ARF6",
+      "sign": 1,
+      "edge_id": "N045",
+      "effect": "activation",
+      "mechanism": "BZR1 and ARF6 co-bind shared promoters in the elongation program; BZR1 upregulates ARF6 transcriptionally.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "BZR1 and PIF4 interact with ARF6 directly and enhance its binding to shared promoters",
+          "claim": "BZR1 physically interacts with ARF6 and enhances ARF6 binding to shared promoters",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BZR1",
+      "target": "PIF4",
+      "sign": 1,
+      "edge_id": "N046",
+      "effect": "activation",
+      "mechanism": "BZR1 and PIF4 form a positive regulatory module; BZR1 directly promotes PIF4 expression.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "BZR1 and PIFs directly interact and co-regulate shared target genes; cooperatively regulate large numbers of common target genes",
+          "claim": "BZR1 directly binds PIF4 forming heterodimer that cooperatively activates shared targets (cell elongation genes)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "DET2",
+      "target": "BR",
+      "sign": 1,
+      "edge_id": "N047",
+      "effect": "activation",
+      "mechanism": "DET2 is a 5α-reductase required for BR biosynthesis.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "DET2 catalyzes early step in brassinosteroid biosynthesis pathway",
+          "claim": "DET2 (steroid 5α-reductase) catalyzes early step in BR biosynthesis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "DWF4",
+      "target": "BR",
+      "sign": 1,
+      "edge_id": "N048",
+      "effect": "activation",
+      "mechanism": "DWF4/CYP90B1 catalyzes C-22 hydroxylation, a rate-limiting step in BR biosynthesis.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "DWF4 plays a role in brassinosteroid biosynthesis",
+          "claim": "DWF4 (CYP90B1) catalyzes 22α-hydroxylation, a rate-limiting step in BR biosynthesis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BAS1",
+      "target": "BR",
+      "sign": -1,
+      "edge_id": "N049",
+      "effect": "inhibition",
+      "mechanism": "BAS1/CYP734A1 is a BR-26-hydroxylase that inactivates bioactive BRs.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "BAS1/CYP734A1 catalyzes C-26 hydroxylation of brassinolide and is induced by exogenous BRs",
+          "claim": "BAS1 (CYP734A1) inactivates active BRs by C-26 hydroxylation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1534/g3.112.004580",
+          "title": "Genetic Interactions Between Brassinosteroid-Inactivating P450s and Photomorphogenic Photoreceptors in Arabidopsis thaliana",
+          "authors": "Sandhu KS, Hagely K, Neff MM",
+          "year": 2012,
+          "journal": "G3 (Bethesda)",
+          "evidence_sentence": "BAS1 hydroxylates brassinolide and castasterone to their respective inactive C-26 hydroxy products",
+          "claim": "BAS1/CYP734A1 catalyzes C-26 hydroxylation inactivating BL and CS",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SOB7",
+      "target": "BR",
+      "sign": -1,
+      "edge_id": "N050",
+      "effect": "inhibition",
+      "mechanism": "SOB7/CYP72C1 redundantly inactivates BRs alongside BAS1.",
+      "evidence": [
+        {
+          "doi": "10.1534/g3.112.004580",
+          "title": "Genetic Interactions Between Brassinosteroid-Inactivating P450s and Photomorphogenic Photoreceptors in Arabidopsis thaliana",
+          "authors": "Sandhu KS, Hagely K, Neff MM",
+          "year": 2012,
+          "journal": "G3 (Bethesda)",
+          "evidence_sentence": "SOB7 acts on precursors of BR biosynthesis",
+          "claim": "SOB7/CYP72C1 inactivates BR biosynthesis precursors",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PHYB",
+      "target": "BAS1",
+      "sign": 1,
+      "edge_id": "N051",
+      "effect": "activation",
+      "mechanism": "phyB-HY5 axis promotes BAS1 expression, contributing to BR catabolism in the light.",
+      "evidence": [
+        {
+          "doi": "10.1534/g3.112.004580",
+          "title": "Genetic Interactions Between Brassinosteroid-Inactivating P450s and Photomorphogenic Photoreceptors in Arabidopsis thaliana",
+          "authors": "Sandhu KS, Hagely K, Neff MM",
+          "year": 2012,
+          "journal": "G3 (Bethesda)",
+          "evidence_sentence": "BAS1-GUS expression in shoot apex was much more prominent in wild-type PHYB background than phyB-9 background in red light",
+          "claim": "phyB modulates BAS1 expression in shoot apex; phyB-9 reduces BAS1 expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BZR1",
+      "target": "DWF4",
+      "sign": -1,
+      "edge_id": "N052",
+      "effect": "inhibition",
+      "mechanism": "BZR1 represses DWF4 transcription as negative-feedback regulation of BR biosynthesis.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "BZR1 represses BR biosynthetic gene DWF4 forming negative feedback",
+          "claim": "BZR1 negatively feeds back to DWF4 transcription, maintaining BR homeostasis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BR",
+      "target": "BRI1",
+      "sign": 1,
+      "edge_id": "N053",
+      "effect": "activation",
+      "mechanism": "Brassinolide binds the BRI1 extracellular LRR domain, activating the receptor kinase.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "BR directly binds to extracellular domain of BRI1 at pocket formed by island loop",
+          "claim": "Brassinosteroid binds to extracellular LRR-island domain of BRI1 receptor kinase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BRI1",
+      "target": "BIN2",
+      "sign": -1,
+      "edge_id": "N054",
+      "effect": "inhibition",
+      "mechanism": "Active BRI1 (via BSK/BSU1) dephosphorylates and inhibits BIN2.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "BSU1 phosphatase dephosphorylates and inactivates GSK3-like kinase BIN2",
+          "claim": "BSU1 phosphatase dephosphorylates and inactivates GSK3 kinase BIN2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BAK1",
+      "target": "BIN2",
+      "sign": -1,
+      "edge_id": "N055",
+      "effect": "inhibition",
+      "mechanism": "BAK1 heterodimerizes with BRI1; active BRI1/BAK1 complex inhibits BIN2 activity.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "BR acts as molecular glue to bring together BRI1 and BAK1; sequential transphosphorylation activates kinases",
+          "claim": "BR-bound BRI1 dimerizes with BAK1 co-receptor and transphosphorylates it",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BIN2",
+      "target": "BZR1",
+      "sign": -1,
+      "edge_id": "N056",
+      "effect": "inhibition",
+      "mechanism": "BIN2 phosphorylates BZR1 to exclude it from the nucleus and target it for degradation.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "BIN2 phosphorylates BZR1 to inhibit nuclear localization and DNA-binding activity",
+          "claim": "BIN2 phosphorylates BZR1 to retain it in cytoplasm and inhibit DNA binding",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PP2A",
+      "target": "BZR1",
+      "sign": 1,
+      "edge_id": "N057",
+      "effect": "activation",
+      "mechanism": "PP2A dephosphorylates BZR1, activating its nuclear function.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "PROTEIN PHOSPHATASE 2A dephosphorylates BZR1 when BR levels are high",
+          "claim": "PP2A dephosphorylates BZR1, activating it for nuclear localization",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "DELLA",
+      "target": "BZR1",
+      "sign": -1,
+      "edge_id": "N058",
+      "effect": "inhibition",
+      "mechanism": "DELLA directly binds BZR1 and inhibits BZR1-DNA binding.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "DELLA proteins inhibit DNA binding activities of BZR1",
+          "claim": "DELLA directly binds BZR1 to inhibit DNA binding",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GA20OX1",
+      "target": "GA4",
+      "sign": 1,
+      "edge_id": "N059",
+      "effect": "activation",
+      "mechanism": "GA20ox1 catalyzes 20-oxidation of GA12 precursors toward bioactive GA4.",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "GA20ox1 plays a more prominent role in elongation",
+          "claim": "GA20ox1 catalyzes oxidation steps producing GA9 precursor",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GA3OX1",
+      "target": "GA4",
+      "sign": 1,
+      "edge_id": "N060",
+      "effect": "activation",
+      "mechanism": "GA3ox1 catalyzes the final 3β-hydroxylation producing bioactive GA4.",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "GA3ox1 has predominant role in plant development; ga3ox1 mutant displays semi-dwarf phenotype",
+          "claim": "GA3ox1 catalyzes 3β-hydroxylation producing bioactive GA4",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GA2OX1",
+      "target": "GA4",
+      "sign": -1,
+      "edge_id": "N061",
+      "effect": "inhibition",
+      "mechanism": "GA2ox1 2β-hydroxylates bioactive GAs, inactivating them.",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "GA2ox overexpression lines show late flowering and dwarf phenotypes",
+          "claim": "GA2ox catalyzes 2β-hydroxylation inactivating bioactive GAs",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ABA",
+      "target": "GA3OX1",
+      "sign": -1,
+      "edge_id": "N062",
+      "effect": "inhibition",
+      "mechanism": "ABA represses GA3ox1 expression, reducing bioactive GA4.",
+      "evidence": [
+        {
+          "doi": "10.1093/aobpla/ply061",
+          "title": "Abscisic acid inhibits hypocotyl elongation acting on gibberellins, DELLA proteins and auxin",
+          "authors": "Lorrai R, Boccaccini A, Ruta V, Possenti M, Costantino P, Vittorioso P",
+          "year": 2018,
+          "journal": "AoB Plants",
+          "evidence_sentence": "ABA treatment significantly down-regulated GA biosynthetic genes; AtGA3ox1 expression was 12.5-fold lower",
+          "claim": "ABA represses GA3ox1 transcription, reducing GA biosynthesis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ABA",
+      "target": "GA20OX1",
+      "sign": -1,
+      "edge_id": "N063",
+      "effect": "inhibition",
+      "mechanism": "ABA represses GA20ox1 expression.",
+      "evidence": [
+        {
+          "doi": "10.1093/aobpla/ply061",
+          "title": "Abscisic acid inhibits hypocotyl elongation acting on gibberellins, DELLA proteins and auxin",
+          "authors": "Lorrai R, Boccaccini A, Ruta V, Possenti M, Costantino P, Vittorioso P",
+          "year": 2018,
+          "journal": "AoB Plants",
+          "evidence_sentence": "AtGA20ox1 expression level 4.3-fold lower than mock-treated controls in red light",
+          "claim": "ABA represses GA20ox1 transcription",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ABA",
+      "target": "GA2OX1",
+      "sign": 1,
+      "edge_id": "N064",
+      "effect": "activation",
+      "mechanism": "ABA induces GA2ox1 expression, accelerating GA inactivation.",
+      "evidence": [
+        {
+          "doi": "10.1093/aobpla/ply061",
+          "title": "Abscisic acid inhibits hypocotyl elongation acting on gibberellins, DELLA proteins and auxin",
+          "authors": "Lorrai R, Boccaccini A, Ruta V, Possenti M, Costantino P, Vittorioso P",
+          "year": 2018,
+          "journal": "AoB Plants",
+          "evidence_sentence": "GA catabolic gene AtGA2ox2 showed 2.1-fold increased expression in red light",
+          "claim": "ABA induces GA2ox catabolic genes to reduce active GA",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ABA",
+      "target": "DELLA",
+      "sign": 1,
+      "edge_id": "N065",
+      "effect": "activation",
+      "mechanism": "ABA stabilizes DELLA proteins and promotes DELLA-mediated repression.",
+      "evidence": [
+        {
+          "doi": "10.1093/aobpla/ply061",
+          "title": "Abscisic acid inhibits hypocotyl elongation acting on gibberellins, DELLA proteins and auxin",
+          "authors": "Lorrai R, Boccaccini A, Ruta V, Possenti M, Costantino P, Vittorioso P",
+          "year": 2018,
+          "journal": "AoB Plants",
+          "evidence_sentence": "ABA treatment significantly increased GAI and RGA protein level under red light",
+          "claim": "ABA stabilizes DELLA proteins (RGA, GAI) by reducing GA-induced degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GA4",
+      "target": "GID1",
+      "sign": 1,
+      "edge_id": "N066",
+      "effect": "activation",
+      "mechanism": "GA4 binds GID1 receptor; GA-GID1 complex recruits DELLA to SCF^SLY1 for ubiquitination.",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "GA-GID1 binding induces DELLA degradation",
+          "claim": "GA4 binds GID1 receptor to induce conformational change enabling DELLA recruitment",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GID1",
+      "target": "DELLA",
+      "sign": -1,
+      "edge_id": "N067",
+      "effect": "inhibition",
+      "mechanism": "GA-bound GID1 targets DELLA proteins for proteasomal degradation.",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "GA-GID1 binding induces DELLA ubiquitination by SCFSLY1",
+          "claim": "GA-GID1 binds DELLA and recruits SCF(SLY1) for ubiquitination and degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "DELLA",
+      "target": "PIF3",
+      "sign": -1,
+      "edge_id": "N068",
+      "effect": "inhibition",
+      "mechanism": "DELLA directly binds PIF3 and prevents its DNA binding.",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "DELLA proteins directly interact with PIF3 and PIF4, inactivating their function",
+          "claim": "DELLA binds PIF3 to block DNA binding",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "DELLA",
+      "target": "PIF4",
+      "sign": -1,
+      "edge_id": "N069",
+      "effect": "inhibition",
+      "mechanism": "DELLA physically sequesters PIF4, blocking its transcriptional activity.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "DELLA proteins interact with and inhibit DNA binding activities of PIFs",
+          "claim": "DELLA proteins directly bind PIF4 N-terminus, blocking PIF4 DNA binding",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Ethylene",
+      "target": "CTR1",
+      "sign": -1,
+      "edge_id": "N070",
+      "effect": "inhibition",
+      "mechanism": "Ethylene binding to ETR1 receptors inhibits CTR1 kinase activity.",
+      "evidence": [
+        {
+          "doi": "10.1007/s42994-021-00063-0",
+          "title": "Seedling morphogenesis: when ethylene meets high ambient temperature",
+          "authors": "Shi J, Zhu Z",
+          "year": 2021,
+          "journal": "aBIOTECH",
+          "evidence_sentence": "ethylene receptors bind ethylene and inactivate CTR1",
+          "claim": "Ethylene binding to ETR1 receptor inactivates downstream CTR1 kinase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CTR1",
+      "target": "EIN2",
+      "sign": -1,
+      "edge_id": "N071",
+      "effect": "inhibition",
+      "mechanism": "CTR1 phosphorylates the EIN2 C-terminal domain, inhibiting EIN2 cleavage.",
+      "evidence": [
+        {
+          "doi": "10.1007/s42994-021-00063-0",
+          "title": "Seedling morphogenesis: when ethylene meets high ambient temperature",
+          "authors": "Shi J, Zhu Z",
+          "year": 2021,
+          "journal": "aBIOTECH",
+          "evidence_sentence": "active CTR1 phosphorylates EIN2 to suppress signaling",
+          "claim": "CTR1 phosphorylates EIN2 C-terminus, retaining it at ER, in absence of ethylene",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "EIN2",
+      "target": "EIN3",
+      "sign": 1,
+      "edge_id": "N072",
+      "effect": "activation",
+      "mechanism": "Uncleaved/cleaved EIN2 C-terminus stabilizes EIN3 by inhibiting EBF1/EBF2 F-box proteins.",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.076588",
+          "title": "Ethylene-Induced Stabilization of EIN3 and EIL1 Is Mediated by Proteasomal Degradation of EBF1 and EBF2 That Requires EIN2 in Arabidopsis",
+          "authors": "An F, Zhao Q, Ji Y, Li W, Jiang Z, Yu X, Zhang C, Han Y, He W, Liu Y, Zhang S, Ecker JR, Guo H",
+          "year": 2010,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Ethylene-induced stabilization of EIN3 requires EIN2",
+          "claim": "Dephosphorylated EIN2 C-terminus translocates to nucleus and inhibits EBF1/2 mRNA translation, stabilizing EIN3",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "EIN3",
+      "target": "PIF3",
+      "sign": 1,
+      "edge_id": "N073",
+      "effect": "activation",
+      "mechanism": "EIN3 and PIF3 cooperatively induce elongation genes in dark; EIN3 stabilizes PIF3 protein.",
+      "evidence": [
+        {
+          "doi": "10.1007/s42994-021-00063-0",
+          "title": "Seedling morphogenesis: when ethylene meets high ambient temperature",
+          "authors": "Shi J, Zhu Z",
+          "year": 2021,
+          "journal": "aBIOTECH",
+          "evidence_sentence": "ethylene induces the transcription of PIF3 through EIN3",
+          "claim": "EIN3 activates PIF3 transcription in light, contributing to ethylene-induced apical hook",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PIF3",
+      "target": "Hypocotyl_Length",
+      "sign": 1,
+      "edge_id": "N074",
+      "effect": "activation",
+      "mechanism": "PIF3 activates cell-elongation genes (expansins, XTR7) in the hypocotyl epidermis in darkness.",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.107.052142",
+          "title": "The Arabidopsis Phytochrome-Interacting Factor PIF7, Together with PIF3 and PIF4, Regulates Responses to Prolonged Red Light by Modulating phyB Levels",
+          "authors": "Leivar P, Monte E, Al-Sady B, Carle C, Storer A, Alonso JM, Ecker JR, Quail PH",
+          "year": 2008,
+          "journal": "Plant Cell",
+          "evidence_sentence": "pif3 mutants are hypersensitive to all Rc fluence rates tested",
+          "claim": "PIF3 promotes hypocotyl elongation in dark and under low Pfr levels",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PIF4",
+      "target": "Hypocotyl_Length",
+      "sign": 1,
+      "edge_id": "N075",
+      "effect": "activation",
+      "mechanism": "PIF4 directly induces SAUR-family and expansin genes driving cell elongation.",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.14556",
+          "title": "Degradation of the transcription factors PIF4 and PIF5 under UV-B promotes UVR8-mediated inhibition of hypocotyl growth in Arabidopsis",
+          "authors": "Tavridou E, Pireyre M, Ulm R",
+          "year": 2020,
+          "journal": "Plant Journal",
+          "evidence_sentence": "pif4 pif5 mutants exhibited reduced hypocotyl elongation compared with the WT in the absence of UV-B",
+          "claim": "PIF4 directly activates auxin biosynthesis (YUC8) and cell wall modification (XTR7) genes that promote hypocotyl elongation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.14348/molcells.2016.0126",
+          "title": "PIF4 Integrates Multiple Environmental and Hormonal Signals for Plant Growth Regulation in Arabidopsis",
+          "authors": "Choi H, Oh E",
+          "year": 2016,
+          "journal": "Molecules and Cells",
+          "evidence_sentence": "PIF4 increases auxin levels by directly activating the expression of key auxin biosynthesis genes; pif4 mutant insensitive to high temperatures",
+          "claim": "PIF4 directly activates auxin biosynthesis (YUC8, TAA1, CYP79B2), Aux/IAAs, and cell wall genes",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PIF5",
+      "target": "Hypocotyl_Length",
+      "sign": 1,
+      "edge_id": "N076",
+      "effect": "activation",
+      "mechanism": "PIF5 redundantly with PIF3/4 activates elongation genes.",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.14556",
+          "title": "Degradation of the transcription factors PIF4 and PIF5 under UV-B promotes UVR8-mediated inhibition of hypocotyl growth in Arabidopsis",
+          "authors": "Tavridou E, Pireyre M, Ulm R",
+          "year": 2020,
+          "journal": "Plant Journal",
+          "evidence_sentence": "PIF4 and PIF5 are known negative regulators of photomorphogenesis that mediate hypocotyl elongation",
+          "claim": "PIF5 acts redundantly with PIF4 to activate cell elongation genes",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BZR1",
+      "target": "Hypocotyl_Length",
+      "sign": 1,
+      "edge_id": "N077",
+      "effect": "activation",
+      "mechanism": "Unphosphorylated BZR1 promotes hypocotyl cell elongation by activating cell-wall loosening genes.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "bes1-D dominant mutant shows BR-hypersensitive phenotype with increased elongation",
+          "claim": "BZR1 transcriptionally activates cell elongation genes (PRE, SAUR), and represses BR biosynthesis genes (feedback)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ARF6",
+      "target": "Hypocotyl_Length",
+      "sign": 1,
+      "edge_id": "N078",
+      "effect": "activation",
+      "mechanism": "ARF6/7/8 activate SAUR19, PRE1, expansins; auxin signaling drives cell elongation.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "ARF6 target genes encode cell wall proteins involved in cell expansion",
+          "claim": "ARF6 activates cell wall remodeling genes (XTHs, EXPs, PREs) cooperatively with PIF4 and BZR1 to promote elongation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1104/pp.18.00718",
+          "title": "Three Auxin Response Factors Promote Hypocotyl Elongation",
+          "authors": "Reed JW, Wu MF, Reeves PH, Hodgens C, Yadav V, Hayes S, Pierik R",
+          "year": 2018,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "ARF6 promotes hypocotyl elongation; arf6 single mutants 80-90% of WT length",
+          "claim": "ARF6 directly activates SAUR19/SAUR63 and other cell elongation genes",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "HY5",
+      "target": "Hypocotyl_Length",
+      "sign": -1,
+      "edge_id": "N079",
+      "effect": "inhibition",
+      "mechanism": "HY5 directly represses elongation and cell-expansion genes; hy5 mutants have long hypocotyl in light.",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17332",
+          "title": "Direct phosphorylation of HY5 by SPA kinases to regulate photomorphogenesis in Arabidopsis",
+          "authors": "Wang W, Paik I, Kim J, Hou X, Sung S, Huq E",
+          "year": 2021,
+          "journal": "New Phytologist",
+          "evidence_sentence": "HY5 is a key positive regulator that promotes photomorphogenesis; hy5 mutant showed relatively longer hypocotyl",
+          "claim": "HY5 is a master bZIP transcription factor that activates hundreds of light-responsive genes promoting photomorphogenesis (cotyledon expansion, anthocyanin) while inhibiting hypocotyl elongation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "DELLA",
+      "target": "Hypocotyl_Length",
+      "sign": -1,
+      "edge_id": "N080",
+      "effect": "inhibition",
+      "mechanism": "DELLA proteins repress elongation by sequestering PIF3/PIF4, BZR1, ARF6 and by direct target repression.",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "GA-deficient mutants are extreme dwarfs with much reduced hypocotyl lengths",
+          "claim": "DELLA represses elongation by sequestering PIF/BZR/ARF; DELLA degradation by GA derepresses growth",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "EIN3",
+      "target": "Hypocotyl_Length",
+      "sign": -1,
+      "edge_id": "N081",
+      "effect": "inhibition",
+      "mechanism": "In darkness, EIN3 stabilization shortens hypocotyl (triple response); ein3 loss restores elongation under ACC.",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.076588",
+          "title": "Ethylene-Induced Stabilization of EIN3 and EIL1 Is Mediated by Proteasomal Degradation of EBF1 and EBF2 That Requires EIN2 in Arabidopsis",
+          "authors": "An F, Zhao Q, Ji Y, Li W, Jiang Z, Yu X, Zhang C, Han Y, He W, Liu Y, Zhang S, Ecker JR, Guo H",
+          "year": 2010,
+          "journal": "Plant Cell",
+          "evidence_sentence": "EIN3 overexpression shows ethylene hypersensitivity (short hypocotyl in dark)",
+          "claim": "EIN3 represses dark-grown hypocotyl elongation as part of triple response",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "TOC1",
+      "target": "PIF4",
+      "sign": -1,
+      "edge_id": "N082",
+      "effect": "inhibition",
+      "mechanism": "TOC1 (PRR1) binds the PIF4 promoter at dawn and represses transcription; toc1 mutants have long hypocotyl. Clock gate on PIF4 (JUDGE S001).",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2024.100833",
+          "title": "A warm temperature-released negative feedback loop fine-tunes PIF4-mediated thermomorphogenesis in Arabidopsis",
+          "authors": "Li H, Xue M, Zhang H, Zhao F, Li X, Yu S, Jiang D",
+          "year": 2024,
+          "journal": "Plant Communications",
+          "evidence_sentence": "TOC1 represses both the transcription of PIF4 and the transcriptional activation activity of its protein",
+          "claim": "TOC1 represses PIF4 transcription and inhibits PIF4 protein activity",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GI",
+      "target": "PIF4",
+      "sign": -1,
+      "edge_id": "N083",
+      "effect": "inhibition",
+      "mechanism": "GIGANTEA represses PIF4 as part of the clock-output circuit (Nohales 2019). gi mutants have altered hypocotyl elongation (JUDGE S002).",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2024.100833",
+          "title": "A warm temperature-released negative feedback loop fine-tunes PIF4-mediated thermomorphogenesis in Arabidopsis",
+          "authors": "Li H, Xue M, Zhang H, Zhao F, Li X, Yu S, Jiang D",
+          "year": 2024,
+          "journal": "Plant Communications",
+          "evidence_sentence": "GI inhibits PIF4 by preventing PIF4 overactivation; this inhibition depends partially on TOC1",
+          "claim": "GI inhibits PIF4 protein activity, partially via TOC1, providing negative feedback on thermomorphogenesis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ELF3_EC",
+      "target": "GI",
+      "sign": -1,
+      "edge_id": "N084",
+      "effect": "inhibition",
+      "mechanism": "ELF3 (and the Evening Complex) represses GI transcription at dusk; ELF3_EC inactivation at warm temperature de-represses GI (JUDGE S002).",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2024.100833",
+          "title": "A warm temperature-released negative feedback loop fine-tunes PIF4-mediated thermomorphogenesis in Arabidopsis",
+          "authors": "Li H, Xue M, Zhang H, Zhao F, Li X, Yu S, Jiang D",
+          "year": 2024,
+          "journal": "Plant Communications",
+          "evidence_sentence": "Loss of ELF3 resulted in increased GI transcript levels; ELF3 represses GI transcription",
+          "claim": "ELF3 binds GI promoter to repress transcription",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PIF4",
+      "target": "GI",
+      "sign": 1,
+      "edge_id": "N085",
+      "effect": "activation",
+      "mechanism": "PIF4 binds the GI promoter and activates transcription. Closes SAFE negative feedback loop PIF4 -> GI -| PIF4 (stabilizing).",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2024.100833",
+          "title": "A warm temperature-released negative feedback loop fine-tunes PIF4-mediated thermomorphogenesis in Arabidopsis",
+          "authors": "Li H, Xue M, Zhang H, Zhao F, Li X, Yu S, Jiang D",
+          "year": 2024,
+          "journal": "Plant Communications",
+          "evidence_sentence": "PIF4 directly activates GI transcription in concert with other PIFs",
+          "claim": "PIF4 directly binds PBE-boxes in GI promoter to activate GI transcription",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "HSFA1D",
+      "target": "PIF4",
+      "sign": 1,
+      "edge_id": "N086",
+      "effect": "activation",
+      "mechanism": "HSFA1d binds PIF4 and stabilizes the protein at warm temperature; canonical thermomorphogenesis intermediate (JUDGE S003).",
+      "evidence": [
+        {
+          "doi": "10.1126/sciadv.adh1738",
+          "title": "The heat response regulators HSFA1s promote Arabidopsis thermomorphogenesis via stabilizing PIF4 during the day",
+          "authors": "Tan W, Chen J, Yue X, Chai S, Liu W, Li C, Yang F, Gao Y, Rodriguez LG, Resco de Dios V, Zhang D, Yao Y",
+          "year": 2023,
+          "journal": "Science Advances",
+          "evidence_sentence": "HSFA1d interacts with PIF4 and stabilizes it by interfering with phytochrome B interaction",
+          "claim": "HSFA1d binds PIF4 in nucleus and competitively inhibits phyB-PIF4 interaction, stabilizing PIF4",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "COP1",
+      "target": "HSFA1D",
+      "sign": 1,
+      "edge_id": "N087",
+      "effect": "activation",
+      "mechanism": "COP1 positively regulates HSFA1d stability in darkness, contributing to PIF4 stabilization pathway (JUDGE S003).",
+      "evidence": [
+        {
+          "doi": "10.1126/sciadv.adh1738",
+          "title": "The heat response regulators HSFA1s promote Arabidopsis thermomorphogenesis via stabilizing PIF4 during the day",
+          "authors": "Tan W, Chen J, Yue X, Chai S, Liu W, Li C, Yang F, Gao Y, Rodriguez LG, Resco de Dios V, Zhang D, Yao Y",
+          "year": 2023,
+          "journal": "Science Advances",
+          "evidence_sentence": "COP1 facilitates warm temperature-triggered HSFA1d nuclear localization by suppressing BIN2-mediated HSFA1d phosphorylation",
+          "claim": "COP1 facilitates HSFA1d nuclear localization by inhibiting BIN2 (non-canonical role)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BIN2",
+      "target": "HSFA1D",
+      "sign": -1,
+      "edge_id": "N088",
+      "effect": "inhibition",
+      "mechanism": "BIN2 phosphorylates HSFA1d and promotes its degradation, coupling BR signaling to thermo response (JUDGE S003 / BIN2 Multi-Output).",
+      "evidence": [
+        {
+          "doi": "10.1126/sciadv.adh1738",
+          "title": "The heat response regulators HSFA1s promote Arabidopsis thermomorphogenesis via stabilizing PIF4 during the day",
+          "authors": "Tan W, Chen J, Yue X, Chai S, Liu W, Li C, Yang F, Gao Y, Rodriguez LG, Resco de Dios V, Zhang D, Yao Y",
+          "year": 2023,
+          "journal": "Science Advances",
+          "evidence_sentence": "BIN2 inhibits nuclear translocation of HSFA1d by phosphorylating its NLS motif",
+          "claim": "BIN2 phosphorylates HSFA1d NLS preventing nuclear localization",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PHYB",
+      "target": "BBX11",
+      "sign": 1,
+      "edge_id": "N089",
+      "effect": "activation",
+      "mechanism": "phyB directly induces BBX11 expression in red light, complementing BBX21 (JUDGE S004).",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2020.100045",
+          "title": "A Positive Feedback Loop of BBX11-BBX21-HY5 Promotes Photomorphogenic Development in Arabidopsis",
+          "authors": "Zhao X, Heng Y, Wang X, Deng XW, Xu D",
+          "year": 2020,
+          "journal": "Plant Communications",
+          "evidence_sentence": "BBX11 expression significantly decreased in phyB-9 mutant under red light",
+          "claim": "phyB drives BBX11 expression in red light",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CRY1",
+      "target": "BBX11",
+      "sign": 1,
+      "edge_id": "N090",
+      "effect": "activation",
+      "mechanism": "CRY1 induces BBX11 expression in blue light (JUDGE S004).",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2020.100045",
+          "title": "A Positive Feedback Loop of BBX11-BBX21-HY5 Promotes Photomorphogenic Development in Arabidopsis",
+          "authors": "Zhao X, Heng Y, Wang X, Deng XW, Xu D",
+          "year": 2020,
+          "journal": "Plant Communications",
+          "evidence_sentence": "BBX11 expression significantly decreased in cry1-304 mutant under blue light",
+          "claim": "CRY1 activates BBX11 expression in blue light",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BBX21",
+      "target": "BBX11",
+      "sign": 1,
+      "edge_id": "N091",
+      "effect": "activation",
+      "mechanism": "BBX21 activates BBX11 transcription; parallel HY5-positive cofactors (JUDGE S004).",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2020.100045",
+          "title": "A Positive Feedback Loop of BBX11-BBX21-HY5 Promotes Photomorphogenic Development in Arabidopsis",
+          "authors": "Zhao X, Heng Y, Wang X, Deng XW, Xu D",
+          "year": 2020,
+          "journal": "Plant Communications",
+          "evidence_sentence": "BBX21 binds BBX11 promoter and positively regulates its expression",
+          "claim": "BBX21 binds BBX11 promoter and positively regulates expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BBX11",
+      "target": "HY5",
+      "sign": 1,
+      "edge_id": "N092",
+      "effect": "activation",
+      "mechanism": "BBX11 binds HY5 and stabilizes its transcriptional activity (JUDGE S004). HY5->BBX11 reverse arm intentionally excluded to prevent positive-feedback loop (Trap 1).",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2020.100045",
+          "title": "A Positive Feedback Loop of BBX11-BBX21-HY5 Promotes Photomorphogenic Development in Arabidopsis",
+          "authors": "Zhao X, Heng Y, Wang X, Deng XW, Xu D",
+          "year": 2020,
+          "journal": "Plant Communications",
+          "evidence_sentence": "BBX11 directly binds to the HY5 promoter region B containing E-box and T/G-box cis-elements to activate transcription",
+          "claim": "BBX11 directly binds HY5 promoter T/G-box and activates transcription",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BIN2",
+      "target": "PIF3",
+      "sign": -1,
+      "edge_id": "N093",
+      "effect": "inhibition",
+      "mechanism": "BIN2 phosphorylates PIF3 and promotes its degradation; BR-mediated PIF3 destabilization (JUDGE S005).",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1700850114",
+          "title": "Noncanonical role of Arabidopsis COP1/SPA complex in repressing BIN2-mediated PIF3 phosphorylation and degradation in darkness",
+          "authors": "Ling JJ, Li J, Zhu D, Deng XW",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "BIN2 kinase induces PIF3 degradation via 26S proteasome during skotomorphogenesis",
+          "claim": "BIN2 GSK3 kinase phosphorylates PIF3 at T220/S224 and S283/S287 motifs, triggering 26S proteasome degradation in skotomorphogenesis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SPA1",
+      "target": "HY5",
+      "sign": -1,
+      "edge_id": "N094",
+      "effect": "inhibition",
+      "mechanism": "SPA1 (within CUL4-COP1-SPA1 complex) directly ubiquitinates HY5 (JUDGE S006).",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17332",
+          "title": "Direct phosphorylation of HY5 by SPA kinases to regulate photomorphogenesis in Arabidopsis",
+          "authors": "Wang W, Paik I, Kim J, Hou X, Sung S, Huq E",
+          "year": 2021,
+          "journal": "New Phytologist",
+          "evidence_sentence": "SPA1 directly phosphorylates HY5 in vitro in a concentration and time-dependent manner",
+          "claim": "SPA1 directly phosphorylates HY5 at Ser-36, stabilizing HY5 but reducing its DNA-binding activity",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SPA1",
+      "target": "BIN2",
+      "sign": -1,
+      "edge_id": "N095",
+      "effect": "inhibition",
+      "mechanism": "SPA1 promotes BIN2 degradation in light, completing SPA1 Multi-Output Scaffold (JUDGE S006).",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1700850114",
+          "title": "Noncanonical role of Arabidopsis COP1/SPA complex in repressing BIN2-mediated PIF3 phosphorylation and degradation in darkness",
+          "authors": "Ling JJ, Li J, Zhu D, Deng XW",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "SPA1 presence reduces BIN2-PIF3 interaction through competing for same PIF3 regions",
+          "claim": "SPA1 competes with BIN2 for PIF3 binding, reducing BIN2-mediated PIF3 phosphorylation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CPD",
+      "target": "BR",
+      "sign": 1,
+      "edge_id": "N096",
+      "effect": "activation",
+      "mechanism": "CPD (CYP90A1) catalyzes 23-alpha hydroxylation in BR biosynthesis; cpd null mutants are severe dwarfs (JUDGE S007).",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "CPD is defective in the 23α-hydroxylation step",
+          "claim": "CPD (CYP90A1) catalyzes 23α-hydroxylation in BR biosynthesis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PHYA",
+      "target": "FHY1",
+      "sign": 1,
+      "edge_id": "N097",
+      "effect": "activation",
+      "mechanism": "Active phyA induces FHY1 transcription, part of the positive FHY1-phyA feedforward for far-red signaling (JUDGE S008). FHY1 -> PHYA reverse arm excluded to avoid positive feedback.",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pgen.1000143",
+          "title": "FHY1 Mediates Nuclear Import of the Light-Activated Phytochrome A Photoreceptor",
+          "authors": "Genoud T, Schweizer F, Tscheuschler A, Debrieux D, Casal JJ, Schafer E, Hiltbrunner A, Fankhauser C",
+          "year": 2008,
+          "journal": "PLoS Genetics",
+          "evidence_sentence": "Nuclear accumulation of phyA is dependent on two related proteins called FHY1 and FHL",
+          "claim": "FHY1 acts as adapter mediating phyA nuclear import via NLS-importin pathway",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FHY1",
+      "target": "HFR1",
+      "sign": 1,
+      "edge_id": "N098",
+      "effect": "activation",
+      "mechanism": "FHY1 transmits phyA signal to HFR1 induction, providing far-red-specific HFR1 accumulation that brakes PIF4 (JUDGE S008).",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.109.067215",
+          "title": "FAR-RED ELONGATED HYPOCOTYL1 and FHY1-LIKE Associate with the Arabidopsis Transcription Factors LAF1 and HFR1 to Transmit Phytochrome A Signals for Inhibition of Hypocotyl Elongation",
+          "authors": "Yang SW, Jang IC, Henriques R, Chua NH",
+          "year": 2009,
+          "journal": "Plant Cell",
+          "evidence_sentence": "N-terminal regions of FHY1 and FHL interact with HFR1 in vitro",
+          "claim": "FHY1 N-terminus binds HFR1 C-terminus, scaffolding phyA-HFR1-LAF1 complex",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PIF5",
+      "target": "HFR1",
+      "sign": 1,
+      "edge_id": "N099",
+      "effect": "activation",
+      "mechanism": "PIF5 induces HFR1 transcription under shade; creates safe negative feedback brake on PIF4 (Motif 2) (JUDGE S009).",
+      "evidence": [
+        {
+          "doi": "10.3390/plants7040102",
+          "title": "Multiple Pathways in the Control of the Shade Avoidance Response",
+          "authors": "Sessa G, Carabelli M, Possenti M, Morelli G, Ruberti I",
+          "year": 2018,
+          "journal": "Plants (Basel)",
+          "evidence_sentence": "HFR1/SICS1 is rapidly induced by FR-enriched light and recognized in vivo by PIF5",
+          "claim": "PIF5 directly activates HFR1 transcription as part of shade-induced negative feedback",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "COP1",
+      "target": "HYH",
+      "sign": -1,
+      "edge_id": "N100",
+      "effect": "inhibition",
+      "mechanism": "COP1 ubiquitinates HYH for degradation, parallel to HY5 (JUDGE S010).",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17332",
+          "title": "Direct phosphorylation of HY5 by SPA kinases to regulate photomorphogenesis in Arabidopsis",
+          "authors": "Wang W, Paik I, Kim J, Hou X, Sung S, Huq E",
+          "year": 2021,
+          "journal": "New Phytologist",
+          "evidence_sentence": "COP1-SPA complex interacts with and promotes ubiquitination and degradation of HY5/HYH",
+          "claim": "COP1 ubiquitinates HYH for proteasomal degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "HYH",
+      "target": "Hypocotyl_Length",
+      "sign": -1,
+      "edge_id": "N101",
+      "effect": "inhibition",
+      "mechanism": "HYH redundantly with HY5 represses elongation genes; hyh mutants enhance hy5 long-hypocotyl phenotype (JUDGE S010).",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.14556",
+          "title": "Degradation of the transcription factors PIF4 and PIF5 under UV-B promotes UVR8-mediated inhibition of hypocotyl growth in Arabidopsis",
+          "authors": "Tavridou E, Pireyre M, Ulm R",
+          "year": 2020,
+          "journal": "Plant Journal",
+          "evidence_sentence": "HY5 and its homologue HYH are key effectors of the UVR8 pathway",
+          "claim": "HYH (HY5 HOMOLOG) acts redundantly with HY5 to inhibit hypocotyl growth in light",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "COP1",
+      "target": "BBX25",
+      "sign": -1,
+      "edge_id": "N102",
+      "effect": "inhibition",
+      "mechanism": "COP1 degrades BBX25, removing the HY5 antagonist in light (JUDGE S010).",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.113.109751",
+          "title": "The Arabidopsis B-BOX Protein BBX25 Interacts with HY5, Negatively Regulating BBX22 Expression to Suppress Seedling Photomorphogenesis",
+          "authors": "Gangappa SN, Crocco CD, Johansson H, Datta S, Hettiarachchi C, Holm M, Botto JF",
+          "year": 2013,
+          "journal": "Plant Cell",
+          "evidence_sentence": "BBX25 undergoes COP1-mediated degradation via 26S Proteasome Pathway",
+          "claim": "COP1 ubiquitinates BBX25 for proteasomal degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "BBX25",
+      "target": "HY5",
+      "sign": -1,
+      "edge_id": "N103",
+      "effect": "inhibition",
+      "mechanism": "BBX25 competes with BBX21/BBX22/BBX11 at HY5 promoter, antagonizing HY5 activity (JUDGE S010).",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.113.109751",
+          "title": "The Arabidopsis B-BOX Protein BBX25 Interacts with HY5, Negatively Regulating BBX22 Expression to Suppress Seedling Photomorphogenesis",
+          "authors": "Gangappa SN, Crocco CD, Johansson H, Datta S, Hettiarachchi C, Holm M, Botto JF",
+          "year": 2013,
+          "journal": "Plant Cell",
+          "evidence_sentence": "BBX25 physically interacts with HY5 through B-box domains with bZIP domain of HY5, reducing HY5 transcriptional activity",
+          "claim": "BBX25 forms inactive heterodimer with HY5 via B-box-bZIP interaction",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "$defs": {
+    "ODEEquation": {
+      "properties": {
+        "node": {
+          "title": "Node",
+          "type": "string"
+        },
+        "activators": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Activators",
+          "type": "array"
+        },
+        "inhibitors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Inhibitors",
+          "type": "array"
+        },
+        "formula": {
+          "description": "ODE Hill function formula string",
+          "title": "Formula",
+          "type": "string"
+        }
+      },
+      "required": [
+        "node",
+        "formula"
+      ],
+      "title": "ODEEquation",
+      "type": "object"
+    },
+    "ODEEquationsMetadata": {
+      "properties": {
+        "method": {
+          "default": "ODE (Hill Functions)",
+          "title": "Method",
+          "type": "string"
+        },
+        "K": {
+          "default": 1.0,
+          "title": "K",
+          "type": "number"
+        },
+        "n": {
+          "default": 2,
+          "title": "N",
+          "type": "integer"
+        },
+        "accuracy": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Accuracy"
+        },
+        "hill_activation_formula": {
+          "default": "",
+          "title": "Hill Activation Formula",
+          "type": "string"
+        },
+        "hill_inhibition_formula": {
+          "default": "",
+          "title": "Hill Inhibition Formula",
+          "type": "string"
+        },
+        "dt": {
+          "default": 0.01,
+          "title": "Dt",
+          "type": "number"
+        },
+        "max_time": {
+          "default": 50.0,
+          "title": "Max Time",
+          "type": "number"
+        },
+        "convergence_tolerance": {
+          "default": 0.001,
+          "title": "Convergence Tolerance",
+          "type": "number"
+        },
+        "direction_threshold": {
+          "default": 0.05,
+          "title": "Direction Threshold",
+          "type": "number"
+        },
+        "activator_floor": {
+          "default": 0.01,
+          "title": "Activator Floor",
+          "type": "number"
+        }
+      },
+      "title": "ODEEquationsMetadata",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "metadata": {
+      "$ref": "#/$defs/ODEEquationsMetadata"
+    },
+    "equations": {
+      "items": {
+        "$ref": "#/$defs/ODEEquation"
+      },
+      "title": "Equations",
+      "type": "array"
+    }
+  },
+  "required": [
+    "metadata",
+    "equations"
+  ],
+  "title": "ODEEquationsFile",
+  "type": "object"
+}

@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Plant_Height",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "iterations_run": 3,
+    "best_iteration": 3
+  },
+  "iteration_history": [
+    {
+      "iteration": 0,
+      "description": "Baseline (Step 4 validator output on JUDGE-approved iter-3 network with 78 nodes, 97 edges).",
+      "algebraic_accuracy": 73.0,
+      "ode_accuracy": 73.9,
+      "rwr_accuracy": 86.1,
+      "failures": ["T033","T043","T045","T046","T087","T089","T090","T091","T097","T103","T107","T110","T111","T112","T113","T115"],
+      "fixes_applied": 0,
+      "edges_added": 0,
+      "edges_removed": 0
+    },
+    {
+      "iteration": 1,
+      "description": "Encoding fix: BR_SYN composite over-collapses non-redundant rate-limiting enzymes (DWF4/DET2/CPD). Override single-KO modifier from 0.99 to 0.0 for T043/T045/T046/T090.",
+      "algebraic_accuracy": 75.7,
+      "ode_accuracy": 76.5,
+      "rwr_accuracy": 88.7,
+      "failures": ["T033","T087","T089","T090","T091","T097","T103","T107","T110","T111","T112","T113","T115"],
+      "fixes_applied": 1,
+      "edges_added": 0,
+      "edges_removed": 0
+    },
+    {
+      "iteration": 2,
+      "description": "Structural fix: re-added Strigolactone -> Plant_Height (+1) as parallel coherent feed-forward edge alongside the iter-3 Perception Gate (SL -> D14 -> MAX2 -| BZR_BES). Resolves sign conflicts for T110/T111/T112/T115.",
+      "algebraic_accuracy": 74.8,
+      "ode_accuracy": 77.4,
+      "rwr_accuracy": 92.2,
+      "failures": ["T033","T087","T089","T090","T091","T097","T103","T107","T113"],
+      "fixes_applied": 1,
+      "edges_added": 1,
+      "edges_removed": 0
+    },
+    {
+      "iteration": 3,
+      "description": "Encoding fix: T107 etr1-1 re-encoded from 'knockout' to 'gain_of_function' (gm=2.0) to match Chang 1993 dominant-active biology.",
+      "algebraic_accuracy": 75.7,
+      "ode_accuracy": 78.3,
+      "rwr_accuracy": 93.0,
+      "failures": ["T033","T087","T089","T090","T091","T097","T103","T113"],
+      "fixes_applied": 1,
+      "edges_added": 0,
+      "edges_removed": 0
+    }
+  ],
+  "fixes_applied": [
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "Override BR_SYN composite_member single-KO modifier from 0.99 to 0.0 for DWF4 (T043), DET2 (T045), CPD (T046), DET2+BL rescue (T090).",
+      "reason": "BR_SYN composite over-collapses non-redundant enzymes; each single KO is a strong dwarf but gm=0.99 produced near-WT predictions.",
+      "biological_justification": "DWF4, DET2, and CPD each encode individually rate-limiting BR biosynthesis steps (DWF4 C-22 hydroxylase; DET2 5-alpha reductase; CPD C-23 hydroxylase). Each single mutant is a strong BR-biosynthesis dwarf (Choe 1998; Szekeres 1996; Li 1996). §9.3 composite criterion requires >=70% redundancy; BR_SYN fails this criterion.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 0.0
+    },
+    {
+      "iteration": 2,
+      "action": "edge_addition",
+      "description": "Added Strigolactone -> Plant_Height (+1) parallel direct edge.",
+      "reason": "Iter-3 JUDGE loop removed this edge to enforce Motif 1 Perception Gate purity, which inverted predictions for max1/max3/max4 KO (T110-T112), d14 KO (T113), and SL exogenous treatment (T115). Restoring as parallel path preserves gate while fixing 4 of 5 sign conflicts.",
+      "biological_justification": "Curated edge E211 (Strigolactone -> Plant_Height +1) comes from Umehara 2008 Nature and Gomez-Roldan 2008 Nature. The Perception Gate (D14 + MAX2 -| BZR_BES) remains as the mechanistic signaling-mutant-specific layer; the direct edge is the coherent-feed-forward summary of SL -> SMXL678 -> growth outputs that are not individually curated. Motif 1 purity compromise documented.",
+      "source": "Strigolactone",
+      "target": "Plant_Height",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 3,
+      "action": "perturbation_encoding",
+      "description": "Re-encoded T107 ETR1 from knockout (gm=0.0) to gain_of_function (gm=2.0) to match etr1-1 dominant-active biology.",
+      "reason": "The evidence sentence 'etr1 mutants are ethylene-insensitive' refers to the canonical etr1-1 dominant mutant, not a loss-of-function. Inverse-receptor logic requires gm=2.0 (constitutively active) to predict 'increased' growth.",
+      "biological_justification": "Chang et al. 1993 Science 262:539 showed etr1-1 is a missense gain-of-function allele with constitutive CTR1 activation. Loss-of-function single-etr1 is masked by ETR1/ETR2/ERS1/ERS2/EIN4 redundancy (would give 'unchanged'). The network encodes ETR1 with inverse logic (Ethylene -| ETR1) so the dominant active form needs gm=2.0.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 2.0
+    }
+  ],
+  "best_model": {
+    "location": "refinement/iteration_3/",
+    "algebraic_accuracy": 75.7,
+    "ode_accuracy": 78.3,
+    "rwr_accuracy": 93.0,
+    "total_nodes": 78,
+    "total_edges": 98
+  }
+}

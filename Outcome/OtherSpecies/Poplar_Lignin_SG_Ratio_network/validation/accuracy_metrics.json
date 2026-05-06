@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lignin_SG_Ratio",
+    "species": "Populus trichocarpa",
+    "created": "2026-04-20",
+    "state": "post_refinement_iter1"
+  },
+  "tests": {
+    "total": 37,
+    "tested": 31,
+    "skipped": 6
+  },
+  "algebraic": {
+    "accuracy": 0.581,
+    "correct": 18,
+    "total_tested": 31,
+    "kappa": 0.3111,
+    "mcc": 0.3061,
+    "convergence_rate": 1.0,
+    "failures": ["T007", "T008", "T009", "T010", "T013", "T017", "T018", "T023", "T024", "T025", "T026", "T027", "T029"],
+    "ci_95": [0.387, 0.742]
+  },
+  "ode": {
+    "accuracy": 0.871,
+    "correct": 27,
+    "total_tested": 31,
+    "kappa": 0.7643,
+    "mcc": 0.7229,
+    "convergence_rate": 1.0,
+    "failures": ["T007", "T010", "T013", "T027"],
+    "ci_95": [0.742, 0.968],
+    "best_K": 2.0,
+    "best_n": 1
+  },
+  "rwr": {
+    "accuracy": 0.806,
+    "correct": 25,
+    "total_tested": 31,
+    "kappa": 0.6649,
+    "mcc": 0.7104,
+    "convergence_rate": 1.0,
+    "failures": ["T007", "T013", "T017", "T018", "T021", "T027"],
+    "ci_95": [0.677, 0.935],
+    "best_alpha": 0.5
+  }
+}

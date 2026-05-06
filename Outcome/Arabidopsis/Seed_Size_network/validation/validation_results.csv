@@ -1,0 +1,103 @@
+test_id,gene,perturbation_type,gene_modifier,exogenous_node,exogenous_value,wt_value,perturbed_value,comparison_baseline,comparison_baseline_value,ratio,log2_fold_change,direction_threshold,predicted_direction,expected_direction,correct,phenotype_node,complexity_score,complexity_label,path_length,converged,iterations,evidence_doi
+T001,DA1,knockout,0.0,,,1.0,1.678724,WT,1.0,1.678724,0.7474,0.05,increased,increased,True,Seed_Size,1,easy,2,True,49,10.1105/tpc.113.115063
+T002,DA2,knockout,0.0,,,1.0,1.646864,WT,1.0,1.646864,0.7197,0.05,increased,increased,True,Seed_Size,1,easy,2,True,42,10.1105/tpc.113.115063
+T003,DA2,overexpression,2.0,,,1.0,0.897412,WT,1.0,0.897412,-0.1562,0.05,decreased,decreased,True,Seed_Size,1,easy,2,True,28,10.1105/tpc.113.115063
+T004,DA1 DA2,double_knockout,0.0,,,1.0,1.678759,WT,1.0,1.678759,0.7474,0.05,increased,increased,True,Seed_Size,2,medium,2,True,39,10.1105/tpc.113.115063
+T005,EOD1,knockout,0.0,,,1.0,1.646864,WT,1.0,1.646864,0.7197,0.05,increased,increased,True,Seed_Size,1,easy,2,True,42,10.1105/tpc.113.115063
+T006,DA1 EOD1,double_knockout,0.0,,,1.0,1.678759,WT,1.0,1.678759,0.7474,0.05,increased,increased,True,Seed_Size,2,medium,2,True,39,10.1105/tpc.113.115063
+T007,UBP15,knockout,0.0,,,1.0,0.891489,WT,1.0,0.891489,-0.1657,0.05,decreased,decreased,True,Seed_Size,1,easy,2,True,33,10.1105/tpc.114.122663
+T008,UBP15,overexpression,2.0,,,1.0,1.01731,WT,1.0,1.01731,0.0248,0.05,unchanged,increased,False,Seed_Size,1,easy,2,True,24,10.1105/tpc.114.122663
+T009,UBP15 DA1,double_knockout,0.0,,,1.0,1.412409,WT,1.0,1.412409,0.4982,0.05,increased,decreased,False,Seed_Size,2,medium,2,True,47,10.1105/tpc.114.122663
+T010,KLUH,knockout,0.0,,,1.0,0.891458,WT,1.0,0.891458,-0.1658,0.05,decreased,decreased,True,Seed_Size,1,easy,2,True,25,10.1073/pnas.0907024106
+T011,KLUH,overexpression,2.0,,,1.0,1.017238,WT,1.0,1.017238,0.0247,0.05,unchanged,increased,False,Seed_Size,1,easy,2,True,18,10.1073/pnas.0907024106
+T012,CYP78A9,knockout,0.997,,,1.0,0.999993,WT,1.0,0.999993,-0.0,0.05,unchanged,decreased,False,Seed_Size,1,easy,2,True,2,10.1073/pnas.0907024106
+T013,KLUH CYP78A9,double_knockout,0.0,,,1.0,0.891458,WT,1.0,0.891458,-0.1658,0.05,decreased,decreased,True,Seed_Size,1,easy,2,True,25,10.1073/pnas.0907024106
+T014,CYP78A6,knockout,0.997,,,1.0,0.999993,WT,1.0,0.999993,-0.0,0.05,unchanged,decreased,False,Seed_Size,1,easy,2,True,2,10.3390/ijms241310666
+T015,CYP78A6 CYP78A9,double_knockout,0.5,,,1.0,0.983071,WT,1.0,0.983071,-0.0246,0.05,unchanged,decreased,False,Seed_Size,1,easy,2,True,18,10.3390/ijms241310666
+T016,KLUH TTG2,double_knockout,0.0,,,1.0,0.794586,WT,1.0,0.794586,-0.3317,0.05,decreased,decreased,True,Seed_Size,2,medium,2,True,27,10.1073/pnas.0907024106
+T017,AP2,knockout,0.0,,,1.0,2.511646,WT,1.0,2.511646,1.3286,0.05,increased,increased,True,Seed_Size,1,easy,2,True,36,10.1007/s00497-009-0116-1
+T018,ARF2,knockout,0.0,,,1.0,1.744329,WT,1.0,1.744329,0.8027,0.05,increased,increased,True,Seed_Size,1,easy,2,True,43,10.1242/dev.02331
+T019,TTG2,knockout,0.0,,,1.0,0.891458,WT,1.0,0.891458,-0.1658,0.05,decreased,decreased,True,Seed_Size,1,easy,2,True,25,10.1073/pnas.0907024106
+T020,ANT,knockout,0.0,,,1.0,0.708186,WT,1.0,0.708186,-0.4978,0.05,decreased,decreased,True,Seed_Size,1,easy,2,True,36,10.1105/tpc.161088
+T021,ANT,overexpression,2.0,,,1.0,1.053067,WT,1.0,1.053067,0.0746,0.05,increased,increased,True,Seed_Size,1,easy,2,True,26,10.3390/ijms232113256
+T022,GAI,gain_of_function,2.0,,,1.0,1.053063,WT,1.0,1.053063,0.0746,0.05,increased,increased,True,Seed_Size,1,easy,3,True,31,10.1242/dev.201853
+T023,RGA,gain_of_function,2.0,,,1.0,1.053063,WT,1.0,1.053063,0.0746,0.05,increased,increased,True,Seed_Size,1,easy,3,True,31,10.1242/dev.201853
+T024,RGL1,gain_of_function,2.0,,,1.0,1.053063,WT,1.0,1.053063,0.0746,0.05,increased,increased,True,Seed_Size,1,easy,3,True,31,10.1242/dev.201853
+T025,RGL2,gain_of_function,2.0,,,1.0,1.053063,WT,1.0,1.053063,0.0746,0.05,increased,increased,True,Seed_Size,1,easy,3,True,31,10.1242/dev.201853
+T026,GAI,knockout,0.997,,,1.0,0.999886,WT,1.0,0.999886,-0.0002,0.05,unchanged,decreased,False,Seed_Size,1,easy,3,True,12,10.1242/dev.201853
+T027,RGL1,knockout,0.997,,,1.0,0.999886,WT,1.0,0.999886,-0.0002,0.05,unchanged,decreased,False,Seed_Size,1,easy,3,True,12,10.1242/dev.201853
+T028,RGL2,knockout,0.997,,,1.0,0.999886,WT,1.0,0.999886,-0.0002,0.05,unchanged,decreased,False,Seed_Size,1,easy,3,True,12,10.1242/dev.201853
+T029,GID1A,knockout,2.0,,,1.0,1.053063,WT,1.0,1.053063,0.0746,0.05,increased,increased,True,Seed_Size,1,easy,3,True,31,10.1242/dev.201853
+T030,GID1B,knockout,2.0,,,1.0,1.053063,WT,1.0,1.053063,0.0746,0.05,increased,increased,True,Seed_Size,1,easy,3,True,31,10.1242/dev.201853
+T031,Paclobutrazol,chemical_treatment,0.1,,,1.0,1.188449,WT,1.0,1.188449,0.2491,0.05,increased,increased,True,Seed_Size,1,easy,4,True,51,10.1242/dev.201853
+T032,SOD7,knockout,0.0,,,1.0,1.584791,WT,1.0,1.584791,0.6643,0.05,increased,increased,True,Seed_Size,1,easy,2,True,30,10.1038/s41438-019-0187-6
+T033,DPA4,knockout,0.0,,,1.0,1.584791,WT,1.0,1.584791,0.6643,0.05,increased,increased,True,Seed_Size,1,easy,2,True,30,10.1038/s41438-019-0187-6
+T034,SOD7 DPA4,double_knockout,0.0,,,1.0,1.584791,WT,1.0,1.584791,0.6643,0.05,increased,increased,True,Seed_Size,2,medium,2,True,30,10.1038/s41438-019-0187-6
+T035,SHB1,knockout,0.0,,,1.0,0.409893,WT,1.0,0.409893,-1.2867,0.05,decreased,decreased,True,Seed_Size,1,easy,2,True,58,10.1105/tpc.108.064972
+T036,SHB1,gain_of_function,2.0,,,1.0,1.143438,WT,1.0,1.143438,0.1934,0.05,increased,increased,True,Seed_Size,1,easy,2,True,46,10.1105/tpc.108.064972
+T037,MINI3,knockout,0.0,,,1.0,0.459915,WT,1.0,0.459915,-1.1206,0.05,decreased,decreased,True,Seed_Size,1,easy,2,True,45,10.1073/pnas.0508418102
+T038,IKU2,knockout,0.0,,,1.0,0.831966,WT,1.0,0.831966,-0.2654,0.05,decreased,decreased,True,Seed_Size,1,easy,2,True,35,10.1073/pnas.0508418102
+T039,IKU2,overexpression,2.0,,,1.0,1.027842,WT,1.0,1.027842,0.0396,0.05,unchanged,increased,False,Seed_Size,1,easy,2,True,24,10.3390/ijms241310666
+T040,MINI3 IKU2,double_knockout,0.0,,,1.0,0.400654,WT,1.0,0.400654,-1.3196,0.05,decreased,decreased,True,Seed_Size,2,medium,2,True,44,10.1073/pnas.0508418102
+T041,IKU1,knockout,0.0,,,1.0,0.492799,WT,1.0,0.492799,-1.0209,0.05,decreased,decreased,True,Seed_Size,1,easy,3,True,58,10.1073/pnas.0508418102
+T042,IKU1 IKU2 MINI3,triple_knockout,0.0,,,1.0,0.400654,WT,1.0,0.400654,-1.3196,0.05,decreased,decreased,True,Seed_Size,3,hard,2,True,44,10.1073/pnas.0508418102
+T043,RAV1,overexpression,2.0,,,1.0,1.822521,WT,1.0,1.822521,0.8659,0.05,increased,decreased,False,Seed_Size,1,easy,2,True,56,10.14348/molcells.2018.0259
+T044,RAV1,knockout,0.0,,,1.0,0.136083,WT,1.0,0.136083,-2.8774,0.05,decreased,unchanged,False,Seed_Size,1,easy,2,True,64,10.14348/molcells.2018.0259
+T048,AIF2,overexpression,2.0,,,1.0,0.64423,WT,1.0,0.64423,-0.6344,0.05,decreased,decreased,True,Seed_Size,1,easy,3,True,50,10.3390/ijms241310666
+T049,MEA,heterozygous,0.0,,,1.0,1.410908,WT,1.0,1.410908,0.4966,0.05,increased,increased,True,Seed_Size,1,easy,3,False,100,10.1105/tpc.106.047266
+T050,FIE,heterozygous,0.0,,,1.0,1.410908,WT,1.0,1.410908,0.4966,0.05,increased,increased,True,Seed_Size,1,easy,3,False,100,10.1073/pnas.1305175110
+T051,FIS2,heterozygous,0.0,,,1.0,1.410908,WT,1.0,1.410908,0.4966,0.05,increased,increased,True,Seed_Size,1,easy,3,False,100,10.1105/tpc.106.047266
+T052,MSI1,heterozygous,0.0,,,1.0,1.410908,WT,1.0,1.410908,0.4966,0.05,increased,increased,True,Seed_Size,1,easy,3,False,100,10.1105/tpc.106.047266
+T054,CKX3 CKX5,double_knockout,0.0,,,1.0,0.578976,WT,1.0,0.578976,-0.7884,0.05,decreased,increased,False,Seed_Size,2,medium,3,True,36,10.1105/tpc.110.079079
+T055,CKX3 CKX5 AHP6,triple_knockout,0.0,,,1.0,0.578976,WT,1.0,0.578976,-0.7884,0.05,decreased,increased,False,Seed_Size,3,hard,3,True,36,10.1105/tpc.110.079079
+T056,YUC10,knockout,0.0,,,1.0,0.670094,WT,1.0,0.670094,-0.5776,0.05,decreased,decreased,True,Seed_Size,1,easy,3,True,99,10.7554/eLife.20542
+T057,YUC10 YUC11,double_knockout,0.0,,,1.0,0.665113,WT,1.0,0.665113,-0.5883,0.05,decreased,decreased,True,Seed_Size,2,medium,3,True,67,10.7554/eLife.20542
+T059,DET2,knockout,0.0,,,1.0,1.744231,WT,1.0,1.744231,0.8026,0.05,increased,decreased,False,Seed_Size,1,easy,6,True,76,10.1104/pp.113.217703
+T060,DWF4,knockout,0.0,,,1.0,1.744231,WT,1.0,1.744231,0.8026,0.05,increased,decreased,False,Seed_Size,1,easy,6,True,76,10.1104/pp.113.217703
+T061,BRI1,knockout,0.0,,,1.0,1.74426,WT,1.0,1.74426,0.8026,0.05,increased,decreased,False,Seed_Size,1,easy,4,True,71,10.1104/pp.113.217703
+T062,BZR1,gain_of_function,2.0,,,1.0,1.166309,WT,1.0,1.166309,0.2219,0.05,increased,unchanged,False,Seed_Size,1,easy,2,False,100,10.1104/pp.113.217703
+T063,AP2 DET2,double_knockout,0.0,,,1.0,17.145766,mutant,17.145766,1.0,0.0,0.05,unchanged,increased,False,Seed_Size,2,medium,2,True,86,10.1104/pp.113.217703
+T064,ARF2 DET2,double_knockout,0.0,,,1.0,7.79206,mutant,7.79206,1.0,0.0,0.05,unchanged,increased,False,Seed_Size,2,medium,2,True,74,10.1104/pp.113.217703
+T065,MINI3 DET2,rescue_experiment,2.0,,,1.0,1.744231,mutant,1.744231,1.0,0.0,0.05,unchanged,increased,False,Seed_Size,2,medium,2,True,76,10.1104/pp.113.217703
+T066,BIN2,gain_of_function,2.0,,,1.0,0.623946,WT,1.0,0.623946,-0.6805,0.05,decreased,decreased,True,Seed_Size,1,easy,3,False,100,10.1073/pnas.172510499
+T068,YUC6,gain_of_function,2.0,,,1.0,1.094153,WT,1.0,1.094153,0.1298,0.05,increased,increased,True,Seed_Size,1,easy,3,False,100,10.7554/eLife.20542
+T069,ABI5,knockout,0.0,,,1.0,15.622194,WT,1.0,15.622194,3.9655,0.05,increased,increased,True,Seed_Size,1,easy,1,True,64,10.1105/tpc.113.121566
+T070,ABA2,knockout,0.0,,,1.0,12.49864,WT,1.0,12.49864,3.6437,0.05,increased,increased,True,Seed_Size,1,easy,2,True,71,10.1105/tpc.113.121566
+T072,ABI3,knockout,0.0,,,1.0,7.832274,WT,1.0,7.832274,2.9694,0.05,increased,decreased,False,Seed_Size,1,easy,2,False,100,10.1105/tpc.9.8.1265
+T073,FUS3,knockout,0.0,,,1.0,3.381582,WT,1.0,3.381582,1.7577,0.05,increased,decreased,False,Seed_Size,1,easy,2,True,97,10.1105/tpc.9.8.1265
+T074,LEC1,knockout,0.0,,,1.0,4.438092,WT,1.0,4.438092,2.1499,0.05,increased,decreased,False,Seed_Size,1,easy,2,False,100,10.1105/tpc.9.8.1265
+T075,LEC2,knockout,0.0,,,1.0,2.993069,WT,1.0,2.993069,1.5816,0.05,increased,decreased,False,Seed_Size,1,easy,2,False,100,10.1242/dev.00992
+T078,AGG3,knockout,0.0,,,1.0,0.891509,WT,1.0,0.891509,-0.1657,0.05,decreased,decreased,True,Seed_Size,1,easy,3,True,42,10.4161/psb.21620
+T079,AGG3,overexpression,2.0,,,1.0,1.017383,WT,1.0,1.017383,0.0249,0.05,unchanged,increased,False,Seed_Size,1,easy,3,True,31,10.4161/psb.21620
+T080,AGB1,knockout,0.0,,,1.0,0.944371,WT,1.0,0.944371,-0.0826,0.05,decreased,decreased,True,Seed_Size,1,easy,4,True,36,10.4161/psb.21620
+T081,GPA1,knockout,0.0,,,1.0,0.944371,WT,1.0,0.944371,-0.0826,0.05,decreased,decreased,True,Seed_Size,1,easy,4,True,36,10.4161/psb.21620
+T085,GIF1,knockout,0.0,,,1.0,0.354995,WT,1.0,0.354995,-1.4941,0.05,decreased,decreased,True,Seed_Size,1,easy,1,True,33,10.1038/s41467-020-15603-3
+T086,GIF1,overexpression,2.0,,,1.0,1.168528,WT,1.0,1.168528,0.2247,0.05,increased,increased,True,Seed_Size,1,easy,1,True,26,10.1038/s41467-020-15603-3
+T087,GIF1 MYC3 MYC4,triple_knockout,0.0,,,1.0,0.354995,WT,1.0,0.354995,-1.4941,0.05,decreased,decreased,True,Seed_Size,1,easy,1,True,33,10.1038/s41467-020-15603-3
+T089,miR396,overexpression,2.0,,,1.0,0.846047,WT,1.0,0.846047,-0.2412,0.05,decreased,decreased,True,Seed_Size,1,easy,3,True,33,10.5483/BMBRep.2019.52.4.051
+T090,GRF1,overexpression,2.0,,,1.0,1.182072,WT,1.0,1.182072,0.2413,0.05,increased,increased,True,Seed_Size,1,easy,2,True,32,10.5483/BMBRep.2019.52.4.051
+T091,GRF2,overexpression,2.0,,,1.0,1.182072,WT,1.0,1.182072,0.2413,0.05,increased,increased,True,Seed_Size,1,easy,2,True,32,10.5483/BMBRep.2019.52.4.051
+T096,SEEDSTICK,knockout,0.0,,,1.0,0.825716,WT,1.0,0.825716,-0.2763,0.05,decreased,decreased,True,Seed_Size,1,easy,2,True,45,10.1104/pp.20.01267
+T097,SEEDSTICK TT16,double_knockout,0.0,,,1.0,0.825716,WT,1.0,0.825716,-0.2763,0.05,decreased,decreased,True,Seed_Size,1,easy,2,True,45,10.1104/pp.20.01267
+T099,BR_treatment,exogenous_treatment,1.0,Brassinosteroid,1.0,1.0,1.167793,WT,1.0,1.167793,0.2238,0.05,increased,increased,True,Seed_Size,1,easy,5,False,100,10.1104/pp.113.217703
+T100,GA_treatment,exogenous_treatment,1.0,Gibberellin,1.0,1.0,0.949689,WT,1.0,0.949689,-0.0745,0.05,decreased,increased,False,Seed_Size,1,easy,4,True,36,10.7554/eLife.20542
+T101,Brassinazole,chemical_treatment,0.1,,,1.0,1.744231,WT,1.0,1.744231,0.8026,0.05,increased,decreased,False,Seed_Size,1,easy,5,True,76,10.1104/pp.113.217703
+T102,"2,4-D_treatment",chemical_treatment,1.0,Auxin,1.0,1.0,1.285306,WT,1.0,1.285306,0.3621,0.05,increased,increased,True,Seed_Size,1,easy,2,False,100,10.7554/eLife.20542
+T103,DA1 UBP15,rescue_experiment,0.0,,,1.0,1.708067,mutant,1.708067,1.0,0.0,0.05,unchanged,increased,False,Seed_Size,2,medium,2,True,49,10.1105/tpc.114.122663
+T104,DA1 DA2 EOD1,triple_knockout,0.0,,,1.0,1.678748,WT,1.0,1.678748,0.7474,0.05,increased,increased,True,Seed_Size,3,hard,2,True,38,10.1105/tpc.113.115063
+T105,DA1 DAR1 DAR2,triple_knockout,0.0,,,1.0,1.678724,WT,1.0,1.678724,0.7474,0.05,increased,increased,True,Seed_Size,1,easy,2,True,49,10.1105/tpc.113.115063
+T106,MEA FIE,double_mutant,0.0,,,1.0,1.410184,WT,1.0,1.410184,0.4959,0.05,increased,increased,True,Seed_Size,2,medium,3,True,58,10.1073/pnas.1305175110
+T107,WEI8 TAR1 TAR2,triple_knockout,0.0,,,1.0,0.670094,WT,1.0,0.670094,-0.5776,0.05,decreased,decreased,True,Seed_Size,1,easy,3,True,99,10.7554/eLife.20542
+T109,ga1-3,knockout,0.0,,,1.0,1.188404,WT,1.0,1.188404,0.249,0.05,increased,increased,True,Seed_Size,1,easy,4,True,43,10.1242/dev.201853
+T110,TTG2,heterozygous,0.5,,,1.0,0.983071,WT,1.0,0.983071,-0.0246,0.05,unchanged,decreased,False,Seed_Size,1,easy,2,True,18,10.1371/journal.pbio.3000930
+T111,VAL1 VAL2,double_knockout,0.0,,,1.0,0.000138,WT,1.0,0.000138,-12.8244,0.05,decreased,increased,False,Seed_Size,2,medium,3,False,100,10.1104/pp.113.220988
+T112,PKL,knockout,0.0,,,1.0,0.003221,WT,1.0,0.003221,-8.2784,0.05,decreased,increased,False,Seed_Size,1,easy,3,False,100,10.1038/s41477-022-01237-4
+T113,ARF2 GRF5,double_knockout,0.0,,,1.0,1.743064,WT,1.0,1.743064,0.8016,0.05,increased,increased,True,Seed_Size,2,medium,2,True,43,10.1093/plphys/kiab014
+T114,TCP14 TCP15,double_knockout,0.0,,,1.0,0.926402,WT,1.0,0.926402,-0.1103,0.05,decreased,decreased,True,Seed_Size,1,easy,3,True,30,10.1105/tpc.15.00587
+T115,DA1 DAR1 DAR2,triple_knockout,0.0,,,1.0,1.678724,WT,1.0,1.678724,0.7474,0.05,increased,increased,True,Seed_Size,1,easy,2,True,49,10.1105/tpc.15.00587
+T116,SEUSS ANT,double_knockout,0.0,,,1.0,0.562557,WT,1.0,0.562557,-0.8299,0.05,decreased,decreased,True,Seed_Size,2,medium,2,True,36,10.1104/pp.107.114751
+T117,SEUSS,knockout,0.0,,,1.0,0.794586,WT,1.0,0.794586,-0.3317,0.05,decreased,decreased,True,Seed_Size,1,easy,2,True,27,10.1104/pp.107.114751
+T118,ABI4,knockout,0.0,,,1.0,11.220049,WT,1.0,11.220049,3.488,0.05,increased,unchanged,False,Seed_Size,1,easy,2,False,100,10.1104/pp.124.4.1752
+T119,miR396a miR396b,double_knockout,0.0,,,1.0,1.744339,WT,1.0,1.744339,0.8027,0.05,increased,increased,True,Seed_Size,1,easy,3,True,38,10.5483/BMBRep.2019.52.4.051
+T120,BPC1,knockout,0.0,,,1.0,0.825644,WT,1.0,0.825644,-0.2764,0.05,decreased,decreased,True,Seed_Size,1,easy,3,True,48,10.1105/tpc.105.030551
+T121,6-BA_CK_treatment,chemical_treatment,1.0,Cytokinin,1.0,1.0,0.848449,WT,1.0,0.848449,-0.2371,0.05,decreased,increased,False,Seed_Size,1,easy,2,True,33,10.1038/s41467-024-48361-7

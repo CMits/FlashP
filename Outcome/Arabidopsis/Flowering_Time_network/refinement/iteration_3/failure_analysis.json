@@ -1,0 +1,168 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Flowering_Time",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-18"
+  },
+  "failures": [
+    {
+      "test_id": "T016",
+      "gene": "BRM_GA1",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "decreased",
+      "category": "framework_limitation",
+      "explanation": "BRM_GA1 double knockout. BRM (SWI/SNF chromatin remodeller) is not represented in the network; the reconciliation mapped only the GA1 component (to GA20OX=0). The model therefore simulates a ga1 single mutant (GA-deficient \u2192 late flowering, decreased) but the paper reports the brm ga1 double as flowering earlier (brm KO somehow compensates). Without BRM in the network this cannot be captured.",
+      "evidence": "10.1093/plcell/koad166",
+      "fixable": false,
+      "fix_strategy": "Requires adding BRM to the network via Step 1 re-curation; no single REFINEMENT edge-edit will resolve this."
+    },
+    {
+      "test_id": "T051",
+      "gene": "FKF1_GI",
+      "perturbation_type": "combined",
+      "expected_direction": "unchanged",
+      "predicted_direction": "decreased",
+      "category": "epistasis_complexity",
+      "explanation": "fkf1 gi combined: both FT activators knocked out simultaneously. Paper reports \"unchanged\" (both single mutants already delay flowering in SD; double shows no additional loss). Model cascades both KOs multiplicatively through the photoperiod arm, predicting strong FT drop \u2192 decreased. The non-additivity of the double mutant is outside the geometric-mean framework.",
+      "evidence": "10.1126/science.1146994",
+      "fixable": false,
+      "fix_strategy": "Non-additive double mutants are an inherent limit of product-of-inputs models; would require a multiplicative-saturation term in the equation family."
+    },
+    {
+      "test_id": "T077",
+      "gene": "FT_AP2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "decreased",
+      "category": "epistasis_complexity",
+      "explanation": "ft ap2 double KO. ft alone delays flowering (late); ap2 alone accelerates (early). Paper reports \"increased\" (ap2 dominates). Model: FT=0 removes the florigen cascade while AP2=0 derepresses SOC1 \u2014 the FT loss dominates via multiple cascade paths (FT\u2192AP1/LFY/SOC1/FD/FUL), so all three methods predict decreased. Inherent competition between opposing mutants in a cascade.",
+      "evidence": "10.1105/tpc.110.075606",
+      "fixable": false,
+      "fix_strategy": "Opposing-mutant epistasis is a product-of-cascade limitation. Not fixable without custom per-test logic."
+    },
+    {
+      "test_id": "T092",
+      "gene": "GI",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "predicted_direction": "increased",
+      "category": "edge_case",
+      "explanation": "GI OE under Warm_Temperature. Algebraic/RWR predict increased (more GI \u2192 more CO \u2192 more FT \u2192 earlier flowering), but paper reports decreased (GI OE at warm temps dampens thermoinduction). Missing the PIF4\u2192GI(+1) positive-feedback edge (E201 HIGH, deferred as Judge S22/S24 LOW) would let GI OE properly saturate PIF4. ODE correctly predicts direction, suggesting Hill dynamics handle the saturation.",
+      "evidence": "10.1016/j.xplc.2024.100833",
+      "fixable": true,
+      "fix_strategy": "Consider adding PIF4 \u2192 GI (+1, E201). Would convert GI to non-source with single activator PIF4 and create a safe single-negative feedback with existing GI \u22a3 PIF4. Deferred as LOW in Judge iter 3; REFINEMENT can reconsider."
+    },
+    {
+      "test_id": "T127",
+      "gene": "PIF4",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "increased",
+      "category": "framework_limitation",
+      "explanation": "pif4 mutant(s) under Warm_Temperature. Biology: pif4 blocks warm-temperature-induced flowering \u2192 decreased. Model: Warm_Temperature \u2192 FT (+1 direct edge E313, added in iter-2 S006d) provides a PIF4-independent path that still promotes FT when PIF4=0. Additionally Warm \u22a3 SVP releases a SOC1 inhibitor, further pushing flowering up. The direct Warm\u2192FT edge bypasses PIF4 dependency entirely.",
+      "evidence": "10.1093/jxb/ert487",
+      "fixable": true,
+      "fix_strategy": "Option A: remove Warm_Temperature \u2192 FT (E313) and route all thermosensing through PIF4 \u2014 but this conflicts with H2A.Z / FLM / ELF3 PIF4-independent paths that are genuinely Warm\u2192FT. Option B: accept as framework limit \u2014 the network cannot simultaneously model both PIF4-dependent and PIF4-independent warm responses with a single direct edge."
+    },
+    {
+      "test_id": "T128",
+      "gene": "PIF4",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "increased",
+      "category": "framework_limitation",
+      "explanation": "pif4 mutant(s) under Warm_Temperature. Biology: pif4 blocks warm-temperature-induced flowering \u2192 decreased. Model: Warm_Temperature \u2192 FT (+1 direct edge E313, added in iter-2 S006d) provides a PIF4-independent path that still promotes FT when PIF4=0. Additionally Warm \u22a3 SVP releases a SOC1 inhibitor, further pushing flowering up. The direct Warm\u2192FT edge bypasses PIF4 dependency entirely.",
+      "evidence": "10.1093/jxb/ert487",
+      "fixable": true,
+      "fix_strategy": "Option A: remove Warm_Temperature \u2192 FT (E313) and route all thermosensing through PIF4 \u2014 but this conflicts with H2A.Z / FLM / ELF3 PIF4-independent paths that are genuinely Warm\u2192FT. Option B: accept as framework limit \u2014 the network cannot simultaneously model both PIF4-dependent and PIF4-independent warm responses with a single direct edge."
+    },
+    {
+      "test_id": "T129",
+      "gene": "PIF4",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "predicted_direction": "decreased",
+      "category": "edge_case",
+      "explanation": "PIF4 OE under Warm_Temperature. Algebraic and RWR correctly predict increased; only ODE (K=0.5, n=3) predicts decreased. With n=3 and K=0.5 the Hill activation saturates steeply, so PIF4=2 OE overshoots the response curve and feedback from DELLA/GI pushes FT below baseline at this specific (K,n). Not a biology problem \u2014 ODE parameter edge-case.",
+      "evidence": "10.1016/j.xplc.2024.100833",
+      "fixable": true,
+      "fix_strategy": "Consider alternative best-ODE parameters; the ODE sensitivity table shows (K=0.5, n=2) yields 88.2% which is close. No action needed unless ODE is the chosen method."
+    },
+    {
+      "test_id": "T148",
+      "gene": "SOC1_AP2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "decreased",
+      "category": "epistasis_complexity",
+      "explanation": "soc1 ap2 double KO. soc1 alone delays flowering; ap2 alone accelerates. Paper reports \"increased\" (ap2 dominates). Model: SOC1 loss cascades through AGL24, LFY, AP1, SVP-reinforcement feedback \u2192 broader flowering suppression than the AP2-loss derepression can overcome. Similar failure mode to T077.",
+      "evidence": "10.1105/tpc.110.075606",
+      "fixable": false,
+      "fix_strategy": "Opposing-mutant epistasis limitation (same as T077)."
+    },
+    {
+      "test_id": "T161",
+      "gene": "SVP",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "unchanged",
+      "category": "edge_case",
+      "explanation": "svp KO under intermittent cold. Biology: svp mutants are insensitive to intermittent cold (they flower early regardless) \u2192 increased. Model: Cold exogenous=1.0 activates VIN3 \u2192 represses FLC strongly \u2192 FT/SOC1/AP1/LFY are already pushed high at WT+cold baseline; additional SVP KO cannot further elevate the phenotype beyond this ceiling \u2192 unchanged. Saturation artefact.",
+      "evidence": "10.1105/tpc.108.063883",
+      "fixable": true,
+      "fix_strategy": "Reduce cold treatment strength (exogenous=0.5 instead of 1.0) or add bounded-output saturation to the phenotype equation. Not a topology fix."
+    },
+    {
+      "test_id": "T166",
+      "gene": "TFL1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "decreased",
+      "category": "edge_case",
+      "explanation": "tfl1 KO under LD. Algebraic and RWR correctly predict increased (canonical tfl1 phenotype). ODE (K=0.5, n=3) predicts decreased \u2014 Hill activation saturates the AP1\u2194TFL1 bistable switch toward the wrong steady state at this specific parameter set. Not a topology issue.",
+      "evidence": "10.1105/tpc.111.088641",
+      "fixable": true,
+      "fix_strategy": "Alternative ODE parameters (K=0.5, n=2 gives 88.2%) may resolve. Not a network-level fix."
+    },
+    {
+      "test_id": "T176",
+      "gene": "TPS1",
+      "perturbation_type": "rescue",
+      "expected_direction": "increased",
+      "predicted_direction": "unchanged",
+      "category": "framework_limitation",
+      "explanation": "TPS1 rescue: otsA-complemented tps1 plants flower at WT age. Reconciliation: TPS1 gm=1.0, comparison_baseline=mutant. Expected=increased (rescued from tps1 lateness). All three methods predict unchanged because with TPS1=1.0 the network simply recomputes to WT baseline values (Flowering_Time=1.0). The comparison to mutant baseline is not actually implemented as (rescued_state / mutant_alone_state) by the validator \u2014 ratio=1.0 means the validator compared rescued to WT baseline (also 1.0).",
+      "evidence": "10.1105/tpc.19.00837",
+      "fixable": false,
+      "fix_strategy": "Rescue-test handling is a validator-level limitation \u2014 the baseline=mutant flag is encoded but the validator still ratios against WT steady state. Not a network/refinement problem."
+    },
+    {
+      "test_id": "T183",
+      "gene": "VIN3",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "unchanged",
+      "category": "framework_limitation",
+      "explanation": "vin3 KO under vernalization. Biology: vin3 mutants fail to silence FLC even after cold \u2192 flowering remains late \u2192 decreased. Model: VIN3=0 makes its contribution to FLC inhibition product = 0.01 (activator_floor) \u2192 FLC inhibition clamps to min(1/0.01, 10) = 10 (maximum). But with six other autonomous repressors of FLC (FCA, FPA, FLD, FVE, LD + PRC2), the geometric-mean inhibition product dilutes VIN3-specific loss. Under vernalization, baseline WT also has FLC near its floor, and the ratio (vin3+vern)/(WT+vern) comes out near 1.0. Symptom of the FLC \u00a710 inhibitor hard cap preventing VIN3 from being a bottleneck.",
+      "evidence": "10.1073/pnas.0606385103",
+      "fixable": true,
+      "fix_strategy": "Judge S23 AUTONOMOUS composite restructure: collapse {FCA, FPA, FLD, FVE, LD} into a single AUTONOMOUS node. FLC inhibitor count drops from 7 to 3 (VIN3, PRC2, AUTONOMOUS). VIN3 then becomes a dominant inhibitor whose KO visibly blocks FLC silencing under vernalization. Trade-off: loses per-paralog mutant resolution."
+    }
+  ],
+  "summary": {
+    "total_failures": 12,
+    "failing_in_algebraic": 10,
+    "failing_in_ode": 9,
+    "failing_in_rwr": 9,
+    "failing_in_all_three": 6,
+    "by_category": {
+      "framework_limitation": 5,
+      "epistasis_complexity": 3,
+      "edge_case": 4
+    },
+    "fixable_count": 7,
+    "unfixable_count": 5
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "iteration": 2,
+  "date": "2026-04-20",
+  "fixes": [
+    {
+      "iteration": 2,
+      "action": "edge_removal",
+      "description": "Removed IDS1 -> FEA4 (+1) [N074]",
+      "reason": "Iteration 1's FEA4 -> KRN (-1) edge interacted with the IDS1 -> FEA4 (+1) edge and created regressions on T036 (ids1 KO) and T038 (ids1;sid1) with ratios ~1.75, direction flipped. The IDS1 -> FEA4 edge was originally justified by expression correlation only, not direct DNA-binding data.",
+      "biological_justification": "Re-reading the FEA4 regulation literature: the well-established direct regulators of FEA4 are the ABPH2/MSCA1-like glutaredoxin post-translational module; the IDS1-FEA4 expression correlation reported in some studies is pathway-level rather than direct transcriptional regulation. IDS1's primary effect on KRN flows through its well-evidenced direct activation of RA1 and direct repression of Ear_Branching (both kept).",
+      "source": "IDS1",
+      "target": "FEA4",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 2,
+      "action": "edge_removal",
+      "description": "Removed REL2 -> Ear_Branching (-1) [N051]",
+      "reason": "T032 rel2 single mutant fails (ratio 0.10, cascade-amplified down) because REL2 -> Ear_Branching (-1) cascade dominates and sends KRN downward. But literature shows rel2 single mutants fasciate ears (increased KRN), and REL2's branching role is observed only in the rel2;ra doubles (where the RA complex is present). Replacing this edge with a REL2 -> IM_Size (-1) edge preserves the doubles' phenotype (driven by ra1/ra2 losses) and recovers the fasciation single.",
+      "biological_justification": "Liu et al. (Plant Physiology 2019, DOI 10.1104/pp.18.00913) report rel2 CRISPR single mutants with ear fasciation and increased kernel row number — the dominant single-mutant phenotype is IM restriction, not branching. The branching role operates in concert with the RA1/RA2 co-repressor complex (Gallavotti 2010), which is already represented in the network via RA1/RA2/RA3 edges to Ear_Branching.",
+      "source": "REL2",
+      "target": "Ear_Branching",
+      "sign": -1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 2,
+      "action": "edge_addition",
+      "description": "Added REL2 -> IM_Size (-1) [N083]",
+      "reason": "Paired with the REL2 -> Ear_Branching removal above: rel2 single mutant fasciation is captured as IM_Size disinhibition when REL2 is lost, while rel2;ra double-mutant branching behaviour continues to be driven by the RA cascade.",
+      "biological_justification": "Liu et al. (Plant Physiology 2019, DOI 10.1104/pp.18.00913): REL2 is required to restrict IM size; rel2 CRISPR mutants show fasciated ear phenotype. Sign -1 reflects REL2 as a repressor of meristem size.",
+      "source": "REL2",
+      "target": "IM_Size",
+      "sign": -1,
+      "modifier_type": null,
+      "value": null
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 85.9,
+    "ode_accuracy": 80.3,
+    "rwr_accuracy": 80.3,
+    "kappa_algebraic": 0.7525,
+    "mcc_algebraic": 0.6568,
+    "kept": true,
+    "reason": "Best-method improved from 81.7% to 85.9% Algebraic (+4.2%). KEEP.",
+    "edges_added": 1,
+    "edges_removed": 2
+  }
+}

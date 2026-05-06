@@ -1,0 +1,41 @@
+{
+  "iteration": 2,
+  "diagnosis": "The failing tests cluster into three main mechanisms: (1) Strigolactone biosynthesis mutants (CCD7, CCD8, D27, MAX1, MAX3, MAX4) all show inverted predictions, indicating a broken SL synthesis cascade; (2) D53 and SMXL6 KO/OE tests show incorrect or unchanged responses, revealing a missing SL signaling core module; (3) Decapitation and sucrose-related tests indicate miswired feedback between sugar signaling and BRC1. The root cause is a disconnected SL receptor module (D14/MAX2) from downstream effectors (SMXLs, BRC1), and incorrect regulation of BRC1 by key hormones.",
+  "predicted_gain_pct": 8.7,
+  "fixes": [
+    {
+      "action": "ADD_EDGE",
+      "curated_edge_id": "E121",
+      "rationale": "Strigolactones induce degradation of D53 (E121, 10.1038/nature12870); this closes the core SL signaling loop and explains why D53 KO increases branching — without SL-induced degradation, D53 persists and represses branching. Fixes T053, T101, T131, T154.",
+      "status": "skipped",
+      "reason": "edge Strigolactones->D53 already in network"
+    },
+    {
+      "action": "ADD_EDGE",
+      "curated_edge_id": "E122",
+      "rationale": "D14 mediates degradation of D53 (E122, 10.1038/nature12870); this links receptor perception to D53 turnover, fixing the D14 KO cluster (T011, T056, T110) where current model fails to propagate signal.",
+      "status": "skipped",
+      "reason": "edge D14->D53 already in network"
+    },
+    {
+      "action": "ADD_EDGE",
+      "curated_edge_id": "E030",
+      "rationale": "Strigolactone promotes BRC1 expression (E030, 10.1016/j.tplants.2018.12.001); this corrects the direction of SL action upstream of BRC1, aligning with T004 (Decapitation KO) and biosynthesis mutants where SL loss should reduce BRC1 and increase branching.",
+      "status": "skipped",
+      "reason": "edge Strigolactone->BRC1 already in network"
+    },
+    {
+      "action": "ADD_EDGE",
+      "curated_edge_id": "E021",
+      "rationale": "Sucrose inhibits BRC1 expression (E021, 10.1093/jxb/erv047); this fixes sucrose-mediated promotion of branching (T153, T173) by ensuring sugar signals suppress BRC1, consistent with metabolic activation of buds.",
+      "status": "applied"
+    },
+    {
+      "action": "ADD_EDGE",
+      "curated_edge_id": "E145",
+      "rationale": "MAX2 promotes BRC1 expression (E145, 10.3390/plants3020223); this restores the canonical SL-MAX2-BRC1 axis, correcting MAX2 OE failures (T026, T175) and biosynthesis KO tests where MAX2 function is essential.",
+      "status": "skipped",
+      "reason": "edge MAX2->BRC1 already in network"
+    }
+  ]
+}

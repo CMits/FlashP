@@ -1,0 +1,97 @@
+{
+  "iteration": 1,
+  "date": "2026-04-19",
+  "fixes": [
+    {
+      "iteration": 1,
+      "action": "node_addition",
+      "description": "Restored Storage_reserves PROCESS node (had been trimmed in BUILDER iter 3)",
+      "reason": "Failures T072 (ABI3 KO), T073 (FUS3 KO), T074 (LEC1 KO), T075 (LEC2 KO), and T118 (ABI4 KO) all predicted INCREASED instead of DECREASED because removal of Storage_reserves left ABI5\u22a3Seed_Size as the dominant LAFL effector. Loss of any LAFL TF released ABI5 inhibition, predicting larger seeds. Biology: LAFL TF KOs cause maturation defects -> smaller seeds.",
+      "biological_justification": "Storage reserve accumulation (proteins, lipids, starch) determines final seed mass. Storage-deficient mutants (e.g., wri1) produce smaller, lighter seeds. Restoring this aggregate process node lets the LAFL\u2192maturation\u2192seed-size relationship propagate correctly.",
+      "source": "",
+      "target": "Storage_reserves",
+      "sign": null,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 1,
+      "action": "edge_removal",
+      "description": "Removed AGG3\u2192Seed_Size direct edge (N128) to free a phenotype-activator slot for Storage_reserves",
+      "reason": "Phenotype 5-activator hard cap (Trap 4). AGG3 still routes to phenotype indirectly via AGB1\u2192AGG3\u2192Cell_Proliferation_Duration\u2192Cell_Proliferation\u2192Ovule_size\u2192Seed_Size, so this preserves AGG3's effect while making room for Storage_reserves.",
+      "biological_justification": "AGG3 G-gamma subunit acts on seed size primarily by extending the cell-proliferation phase (Li et al. 2012); the indirect routing captures this mechanism without inflating phenotype activator count.",
+      "source": "AGG3",
+      "target": "Seed_Size",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 1,
+      "action": "edge_addition",
+      "description": "Added LEC1\u2192Storage_reserves (+1)",
+      "reason": "T074 lec1 KO predicts increased; biology decreased. Adding direct LAFL\u2192Storage_reserves\u2192Seed_Size cascade.",
+      "biological_justification": "LEC1 (LEAFY COTYLEDON 1) NF-YB subunit master TF activates seed storage protein (e.g., 2S albumins, 12S globulins) and oil biosynthesis genes during maturation. Verdier & Thompson 2008 review.",
+      "source": "LEC1",
+      "target": "Storage_reserves",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 1,
+      "action": "edge_addition",
+      "description": "Added LEC2\u2192Storage_reserves (+1)",
+      "reason": "Same root cause as T074; LEC2 is part of LAFL maturation core.",
+      "biological_justification": "LEC2 B3-domain TF activates seed-storage protein and oleosin gene expression, partially redundantly with LEC1/FUS3.",
+      "source": "LEC2",
+      "target": "Storage_reserves",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 1,
+      "action": "edge_addition",
+      "description": "Added FUS3\u2192Storage_reserves (+1)",
+      "reason": "T073 fus3 KO; FUS3 is canonical maturation TF.",
+      "biological_justification": "FUS3 B3-domain TF directly activates SSP and oil biosynthesis genes; fus3 mutants have severely reduced seed reserves.",
+      "source": "FUS3",
+      "target": "Storage_reserves",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 1,
+      "action": "edge_addition",
+      "description": "Added ABI3\u2192Storage_reserves (+1)",
+      "reason": "T072 abi3 KO; ABI3 binds RY motifs in seed maturation gene promoters.",
+      "biological_justification": "ABI3 (FUS3 paralog with ABA-responsive role) is required for seed-storage protein accumulation; abi3 mutants are storage-deficient.",
+      "source": "ABI3",
+      "target": "Storage_reserves",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 1,
+      "action": "edge_addition",
+      "description": "Added Storage_reserves\u2192Seed_Size (+1)",
+      "reason": "Connects the maturation cascade to phenotype, completing LAFL\u2192Storage_reserves\u2192Seed_Size path that was broken when Storage_reserves was trimmed.",
+      "biological_justification": "Reserve accumulation determines final seed mass and dry weight (Baud & Lepiniec 2008); storage-deficient mutants produce smaller, lighter seeds.",
+      "source": "Storage_reserves",
+      "target": "Seed_Size",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 65.4,
+    "ode_accuracy": 85.6,
+    "rwr_accuracy": 89.4,
+    "kept": true,
+    "reason": "Best-method (RWR) improved from 83.7% to 89.4% (+5.7%). \u03ba rose from 0.69 (substantial) to 0.80 (substantial, near-perfect). ODE also gained +5.8%. Algebraic dropped 0.9% but the BUILDER hard-rule decision uses best-method accuracy as the headline; the gain on the other two methods more than compensates."
+  }
+}

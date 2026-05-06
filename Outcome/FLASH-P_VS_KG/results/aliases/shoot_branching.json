@@ -1,0 +1,53 @@
+{
+  "trait": "shoot_branching",
+  "aliases": [
+    {
+      "term": "ABA2",
+      "kb_node": "ABA",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "ABA2 (ABA DEFICIENT 2) encodes a short-chain dehydrogenase/reductase in the ABA biosynthetic pathway; aba2 loss-of-function reduces bulk ABA, so perturbation maps to the ABA hormone node (10.1105/tpc.006007)."
+    },
+    {
+      "term": "CCD7",
+      "kb_node": "Strigolactone",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "CCD7 (MAX3) is a carotenoid cleavage dioxygenase that produces 9-cis-beta-apo-10'-carotenal upstream of CARLACTONE; max3 KO eliminates strigolactone, so the test maps to the Strigolactone hormone node (10.1101/gad.1164403)."
+    },
+    {
+      "term": "CCD8",
+      "kb_node": "Strigolactone",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "CCD8 (MAX4) converts the CCD7 product into CARLACTONE, the direct SL precursor; ccd8 KO abolishes strigolactone biosynthesis, so the perturbation maps to the Strigolactone node (10.1038/nature07271)."
+    },
+    {
+      "term": "D27",
+      "kb_node": "CARLACTONE",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "D27 is the beta-carotene isomerase that feeds CCD7/CCD8 to produce CARLACTONE; d27 loss reduces CARLACTONE (and downstream strigolactone), so the test maps to the CARLACTONE precursor node present in the KB (10.1073/pnas.1322673111)."
+    },
+    {
+      "term": "FT",
+      "kb_node": "",
+      "reconciliation_type": "not_in_network",
+      "note": "FLOWERING LOCUS T is a mobile florigen; its branching role acts through HB21/HB40/HB53 + BRC1 rather than a direct KB node, and no KB entry (e.g., 'production of long-d') is unambiguously FT. Mark not_in_network."
+    },
+    {
+      "term": "HB21",
+      "kb_node": "HB53",
+      "reconciliation_type": "family_member",
+      "note": "HB21, HB40 and HB53 are HD-Zip I paralogs acting redundantly downstream of BRC1 to arrest bud outgrowth via NCED3/ABA; HB53 is the family member present in the KB (10.1073/pnas.1704379114)."
+    },
+    {
+      "term": "NCED3",
+      "kb_node": "ABA",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "NCED3 (9-cis-epoxycarotenoid dioxygenase 3) catalyses the rate-limiting step of ABA biosynthesis; nced3 KO reduces ABA in buds, so the perturbation maps to the ABA hormone node (10.1105/tpc.010289)."
+    },
+    {
+      "term": "TIE1",
+      "kb_node": "BRC1",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "TIE1 (TCP INTERACTOR CONTAINING EAR MOTIF 1) recruits TPL/TPR co-repressors to class-II TCPs, dampening BRC1 activity; perturbation of TIE1 acts functionally on BRC1, the closest KB node (10.1105/tpc.113.117473)."
+    }
+  ]
+}

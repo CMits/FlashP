@@ -1,0 +1,451 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Kernel_Row_Number",
+    "species": "Zea mays",
+    "created": "2026-04-20",
+    "direction_threshold": 0.05,
+    "total_nodes": 50,
+    "total_edges": 80,
+    "refinement_iterations": 3,
+    "best_iteration": 2
+  },
+  "tests": {
+    "total": 78,
+    "tested": 71,
+    "skipped": 7,
+    "not_in_network": 6,
+    "control": 1
+  },
+  "algebraic": {
+    "accuracy": 0.859,
+    "correct": 61,
+    "total_tested": 71,
+    "kappa": 0.7525,
+    "mcc": 0.6568,
+    "convergence_rate": 1.0,
+    "failures": [
+      "T022",
+      "T023",
+      "T025",
+      "T026",
+      "T042",
+      "T045",
+      "T062",
+      "T063",
+      "T071",
+      "T076"
+    ],
+    "ci_95": [
+      0.619,
+      0.8861
+    ]
+  },
+  "ode": {
+    "accuracy": 0.803,
+    "correct": 57,
+    "total_tested": 71,
+    "kappa": 0.6585,
+    "mcc": 0.648,
+    "convergence_rate": 1.0,
+    "failures": [
+      "T004",
+      "T015",
+      "T023",
+      "T024",
+      "T025",
+      "T026",
+      "T042",
+      "T045",
+      "T046",
+      "T062",
+      "T063",
+      "T064",
+      "T071",
+      "T072"
+    ],
+    "ci_95": [
+      0.5072,
+      0.8099
+    ],
+    "best_K": 0.5,
+    "best_n": 2
+  },
+  "rwr": {
+    "accuracy": 0.803,
+    "correct": 57,
+    "total_tested": 71,
+    "kappa": 0.6288,
+    "mcc": 0.4402,
+    "convergence_rate": 1.0,
+    "failures": [
+      "T020",
+      "T021",
+      "T022",
+      "T023",
+      "T024",
+      "T026",
+      "T033",
+      "T034",
+      "T035",
+      "T042",
+      "T045",
+      "T071",
+      "T072",
+      "T076"
+    ],
+    "ci_95": [
+      0.4653,
+      0.7923
+    ],
+    "best_alpha": 0.5
+  },
+  "rigor_and_stratification": {
+    "tier2_scope": {
+      "n_nodes": 50,
+      "n_edges": 80,
+      "n_tests": 71,
+      "t_effective": 91,
+      "mean_path_length": 2.55
+    },
+    "algebraic": {
+      "frs": 9.9124,
+      "frs_band": "large-scale strong",
+      "dars": 10.1818,
+      "dars_band": "large-scale strong",
+      "kappa_band": "substantial",
+      "stratified_by_complexity": {
+        "easy": {
+          "n": 53,
+          "correct": 47,
+          "accuracy_pct": 88.7,
+          "cohens_kappa": 0.7893,
+          "kappa_note": null
+        },
+        "medium": {
+          "n": 16,
+          "correct": 12,
+          "accuracy_pct": 75.0,
+          "cohens_kappa": 0.619,
+          "kappa_note": null
+        },
+        "hard": {
+          "n": 2,
+          "correct": 2,
+          "accuracy_pct": 100.0,
+          "cohens_kappa": null,
+          "kappa_note": "stratum too small (n=2) for reliable kappa"
+        }
+      }
+    },
+    "ode": {
+      "frs": 8.6743,
+      "frs_band": "medium-scale solid",
+      "dars": 8.9101,
+      "dars_band": "medium-scale solid",
+      "kappa_band": "substantial",
+      "stratified_by_complexity": {
+        "easy": {
+          "n": 53,
+          "correct": 45,
+          "accuracy_pct": 84.9,
+          "cohens_kappa": 0.716,
+          "kappa_note": null
+        },
+        "medium": {
+          "n": 16,
+          "correct": 11,
+          "accuracy_pct": 68.8,
+          "cohens_kappa": 0.5455,
+          "kappa_note": null
+        },
+        "hard": {
+          "n": 2,
+          "correct": 1,
+          "accuracy_pct": 50.0,
+          "cohens_kappa": null,
+          "kappa_note": "stratum too small (n=2) for reliable kappa"
+        }
+      }
+    },
+    "rwr": {
+      "frs": 8.283,
+      "frs_band": "medium-scale solid",
+      "dars": 8.5081,
+      "dars_band": "medium-scale solid",
+      "kappa_band": "substantial",
+      "stratified_by_complexity": {
+        "easy": {
+          "n": 53,
+          "correct": 49,
+          "accuracy_pct": 92.5,
+          "cohens_kappa": 0.8486,
+          "kappa_note": null
+        },
+        "medium": {
+          "n": 16,
+          "correct": 7,
+          "accuracy_pct": 43.8,
+          "cohens_kappa": 0.122,
+          "kappa_note": null
+        },
+        "hard": {
+          "n": 2,
+          "correct": 1,
+          "accuracy_pct": 50.0,
+          "cohens_kappa": null,
+          "kappa_note": "stratum too small (n=2) for reliable kappa"
+        }
+      }
+    }
+  },
+  "by_condition": {
+    "algebraic": {
+      "standard": {
+        "n": 58,
+        "correct": 53,
+        "accuracy": 0.9138
+      },
+      "ex_vivo": {
+        "n": 7,
+        "correct": 4,
+        "accuracy": 0.5714
+      },
+      "treated": {
+        "n": 6,
+        "correct": 4,
+        "accuracy": 0.6667
+      }
+    },
+    "ode": {
+      "standard": {
+        "n": 58,
+        "correct": 48,
+        "accuracy": 0.8276
+      },
+      "ex_vivo": {
+        "n": 7,
+        "correct": 5,
+        "accuracy": 0.7143
+      },
+      "treated": {
+        "n": 6,
+        "correct": 4,
+        "accuracy": 0.6667
+      }
+    },
+    "rwr": {
+      "standard": {
+        "n": 58,
+        "correct": 49,
+        "accuracy": 0.8448
+      },
+      "ex_vivo": {
+        "n": 7,
+        "correct": 2,
+        "accuracy": 0.2857
+      },
+      "treated": {
+        "n": 6,
+        "correct": 6,
+        "accuracy": 1.0
+      }
+    }
+  },
+  "by_class": {
+    "algebraic": {
+      "CLE-CLV_receptor": {
+        "n": 17,
+        "correct": 17,
+        "accuracy": 1.0
+      },
+      "CLE-CLV_peptide": {
+        "n": 7,
+        "correct": 4,
+        "accuracy": 0.5714
+      },
+      "Cytokinin": {
+        "n": 4,
+        "correct": 1,
+        "accuracy": 0.25
+      },
+      "WUS-KNOX": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6667
+      },
+      "Ramosa": {
+        "n": 7,
+        "correct": 7,
+        "accuracy": 1.0
+      },
+      "AP2-like": {
+        "n": 5,
+        "correct": 5,
+        "accuracy": 1.0
+      },
+      "SBP-KRN": {
+        "n": 7,
+        "correct": 4,
+        "accuracy": 0.5714
+      },
+      "Auxin_biosynthesis": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      },
+      "Auxin_transport": {
+        "n": 7,
+        "correct": 7,
+        "accuracy": 1.0
+      },
+      "Auxin_treatment": {
+        "n": 2,
+        "correct": 2,
+        "accuracy": 1.0
+      },
+      "KRN-QTL_downstream": {
+        "n": 6,
+        "correct": 6,
+        "accuracy": 1.0
+      },
+      "ZmER-EPFL": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      }
+    },
+    "ode": {
+      "CLE-CLV_receptor": {
+        "n": 17,
+        "correct": 14,
+        "accuracy": 0.8235
+      },
+      "CLE-CLV_peptide": {
+        "n": 7,
+        "correct": 5,
+        "accuracy": 0.7143
+      },
+      "Cytokinin": {
+        "n": 4,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "WUS-KNOX": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6667
+      },
+      "Ramosa": {
+        "n": 7,
+        "correct": 7,
+        "accuracy": 1.0
+      },
+      "AP2-like": {
+        "n": 5,
+        "correct": 5,
+        "accuracy": 1.0
+      },
+      "SBP-KRN": {
+        "n": 7,
+        "correct": 4,
+        "accuracy": 0.5714
+      },
+      "Auxin_biosynthesis": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      },
+      "Auxin_transport": {
+        "n": 7,
+        "correct": 7,
+        "accuracy": 1.0
+      },
+      "Auxin_treatment": {
+        "n": 2,
+        "correct": 2,
+        "accuracy": 1.0
+      },
+      "KRN-QTL_downstream": {
+        "n": 6,
+        "correct": 5,
+        "accuracy": 0.8333
+      },
+      "ZmER-EPFL": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      }
+    },
+    "rwr": {
+      "CLE-CLV_receptor": {
+        "n": 17,
+        "correct": 16,
+        "accuracy": 0.9412
+      },
+      "CLE-CLV_peptide": {
+        "n": 7,
+        "correct": 2,
+        "accuracy": 0.2857
+      },
+      "Cytokinin": {
+        "n": 4,
+        "correct": 3,
+        "accuracy": 0.75
+      },
+      "WUS-KNOX": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6667
+      },
+      "Ramosa": {
+        "n": 7,
+        "correct": 4,
+        "accuracy": 0.5714
+      },
+      "AP2-like": {
+        "n": 5,
+        "correct": 5,
+        "accuracy": 1.0
+      },
+      "SBP-KRN": {
+        "n": 7,
+        "correct": 4,
+        "accuracy": 0.5714
+      },
+      "Auxin_biosynthesis": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      },
+      "Auxin_transport": {
+        "n": 7,
+        "correct": 7,
+        "accuracy": 1.0
+      },
+      "Auxin_treatment": {
+        "n": 2,
+        "correct": 2,
+        "accuracy": 1.0
+      },
+      "KRN-QTL_downstream": {
+        "n": 6,
+        "correct": 6,
+        "accuracy": 1.0
+      },
+      "ZmER-EPFL": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      }
+    }
+  },
+  "baseline_comparison": {
+    "algebraic_baseline": 0.775,
+    "ode_baseline": 0.7609999999999999,
+    "rwr_baseline": 0.789,
+    "algebraic_delta_pct": 8.4,
+    "ode_delta_pct": 4.2,
+    "rwr_delta_pct": 1.4
+  }
+}

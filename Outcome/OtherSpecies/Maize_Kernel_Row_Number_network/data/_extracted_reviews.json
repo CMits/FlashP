@@ -1,0 +1,47 @@
+{
+  "cluster": "C9_reviews_and_gap_fills",
+  "papers": [
+    {"doi":"10.1016/j.plantsci.2024.112366","title":"Recent advances in unraveling the genetic architecture of kernel row number in maize","authors":"Wang Y, Shaw RK, Fan X","year":2024,"journal":"Plant Science","status":"read","full_text_read":false},
+    {"doi":"10.3390/cells12141900","title":"The Genetic Structures and Molecular Mechanisms Underlying Ear Traits in Maize","authors":"Dong Z, Wang Y, Bao J, Li Y, Yin Z, Long Y, Wan X","year":2023,"journal":"Cells","status":"read","full_text_read":true},
+    {"doi":"10.1093/plcell/koac352","title":"UB2/UB3/TSH4-anchored transcriptional networks regulate early maize inflorescence development in response to simulated shade","authors":"Kong D, Wang B, Wang H","year":2022,"journal":"Plant Cell","status":"read","full_text_read":true},
+    {"doi":"10.1038/s41467-020-14746-7","title":"A serine/threonine protein kinase encoding gene KERNEL NUMBER PER ROW6 regulates maize grain yield","authors":"Jia H, Li M, Li W, Liu L, Jian Y, Yang Z, Shen X, Ning Q, Du Y, Zhao R, Jackson D, Yang X, Zhang Z","year":2020,"journal":"Nature Communications","status":"read","full_text_read":true},
+    {"doi":"10.1111/pbi.14463","title":"KRN5b regulates maize kernel row number through mediating phosphoinositol signalling","authors":"Shen X et al.","year":2024,"journal":"Plant Biotechnology Journal","status":"read","full_text_read":true},
+    {"doi":"10.1242/dev.01671","title":"thick tassel dwarf1 encodes a putative maize ortholog of the Arabidopsis CLAVATA1 leucine-rich repeat receptor-like kinase","authors":"Bommert P, Lunde C, Nardmann J, Vollbrecht E, Running M, Jackson D, Hake S, Werr W","year":2005,"journal":"Development","status":"read","full_text_read":false},
+    {"doi":"10.1105/tpc.17.00477","title":"Maize YABBY Genes drooping leaf1 and drooping leaf2 Regulate Plant Architecture","authors":"Strable J, Wallace JG, Unger-Wallace E, Briggs S, Bradbury PJ, Buckler ES, Vollbrecht E","year":2017,"journal":"Plant Cell","status":"read","full_text_read":false},
+    {"doi":"10.1242/dev.171181","title":"Maize YABBY genes drooping leaf1 and drooping leaf2 regulate floret development and floral meristem determinacy","authors":"Strable J, Vollbrecht E","year":2019,"journal":"Development","status":"read","full_text_read":false},
+    {"doi":"10.3389/fpls.2022.1017983","title":"QTL mapping identifies novel major loci for kernel row number-associated ear fasciation, ear prolificacy and tillering in maize","authors":"Li M et al.","year":2023,"journal":"Frontiers in Plant Science","status":"read","full_text_read":true},
+    {"doi":"10.7717/peerj.19143","title":"Comparative transcriptome analysis identified candidate genes associated with kernel row number in maize","authors":"Wang et al.","year":2025,"journal":"PeerJ","status":"read","full_text_read":true}
+  ],
+  "edges": [
+    {"source":"TD1","target":"IM_Size","sign":-1,"doi":"10.1242/dev.01671","ev":"td1 mutants show fasciated ears with extra rows of kernels; td1 is maize CLV1 ortholog limiting meristem size"},
+    {"source":"ZmCLE7","target":"TD1","sign":1,"doi":"10.1242/dev.01671","ev":"TD1 functions as CLV1 ortholog perceiving CLV3-like peptides including ZmCLE7"},
+    {"source":"TD1","target":"Kernel_Row_Number","sign":-1,"doi":"10.1242/dev.01671","ev":"td1 mutant female inflorescence is fasciated with extra rows of kernels"},
+    {"source":"KNR6","target":"AGAP","sign":1,"doi":"10.1038/s41467-020-14746-7","ev":"KNR6 phosphorylates AGAP in vitro"},
+    {"source":"KNR6","target":"Ear_Length","sign":1,"doi":"10.1038/s41467-020-14746-7","ev":"KNR6 OE lines produced longer ears by 1.1 cm"},
+    {"source":"AGAP","target":"IM_Size","sign":1,"doi":"10.1038/s41467-020-14746-7","ev":"AGAP CRISPR KO produced shorter IM by ~76 μm and fewer kernels per row"},
+    {"source":"KNR6","target":"Kernel_Row_Number","sign":1,"doi":"10.1038/s41467-020-14746-7","ev":"KNR6 OE more kernels per row by 2.5 KNR; KO shorter ears with fewer KNR"},
+    {"source":"KRN5b","target":"PI_Signaling","sign":-1,"doi":"10.1111/pbi.14463","ev":"KRN5b dephosphorylates PI(4,5)P2 and Ins(1,4,5)P3; KO causes accumulation"},
+    {"source":"KRN5b","target":"Kernel_Row_Number","sign":1,"doi":"10.1111/pbi.14463","ev":"Introgressing higher-expression allele increased ear weight 10-12% via increasing KRN"},
+    {"source":"PI_Signaling","target":"Kernel_Row_Number","sign":-1,"doi":"10.1111/pbi.14463","ev":"PI(4,5)P2/Ins(1,4,5)P3 accumulation in KRN5b KO disorders kernel rows"},
+    {"source":"UB2","target":"BIF2","sign":1,"doi":"10.1093/plcell/koac352","ev":"UB2/UB3/TSH4 directly bind BIF2 promoter and regulate expression"},
+    {"source":"UB3","target":"BIF2","sign":1,"doi":"10.1093/plcell/koac352","ev":"UB2/UB3/TSH4 directly regulate BIF2 expression"},
+    {"source":"TSH4","target":"BIF2","sign":1,"doi":"10.1093/plcell/koac352","ev":"UB2/UB3/TSH4 directly regulate BIF2 expression"},
+    {"source":"UB2","target":"ZmTCP30","sign":1,"doi":"10.1093/plcell/koac352","ev":"UB2/UB3/TSH4 could directly regulate the expression of ZmTCP30"},
+    {"source":"UB3","target":"ZmTCP30","sign":1,"doi":"10.1093/plcell/koac352","ev":"UB2/UB3/TSH4 directly bind ZmTCP30 promoter"},
+    {"source":"TSH4","target":"ZmTCP30","sign":1,"doi":"10.1093/plcell/koac352","ev":"UB2/UB3/TSH4 directly bind ZmTCP30 promoter"},
+    {"source":"ZmTCP30","target":"Kernel_Row_Number","sign":1,"doi":"10.1093/plcell/koac352","ev":"Zmtcp30 mutant exhibited significantly decreased tassel branch number and abnormal ear development with reduced grain number"},
+    {"source":"FarRed_Light","target":"UB2","sign":1,"doi":"10.1093/plcell/koac352","ev":"ub2 ub3 double mutant insensitive to simulated shade treatments"},
+    {"source":"DRL1","target":"Carpel_Fusion","sign":1,"doi":"10.1242/dev.171181","ev":"drl1 ears have unfused carpels that fail to enclose"},
+    {"source":"DRL1","target":"Plant_Architecture","sign":1,"doi":"10.1105/tpc.17.00477","ev":"drl1 mutations affect leaf length, angle, internode length; pleiotropic"}
+  ],
+  "perturbations": [
+    {"gene":"td1","type":"knockout","direction":"increased","mag":"strong","doi":"10.1242/dev.01671","ev":"td1 female inflorescence is fasciated with extra rows of kernels"},
+    {"gene":"KNR6_OE","type":"overexpression","direction":"increased","mag":"moderate","doi":"10.1038/s41467-020-14746-7","ev":"KNR6 OE increases KNR by 2.5 per row; ear length by 1.1 cm"},
+    {"gene":"KNR6_RNAi","type":"knockdown","direction":"decreased","mag":"moderate","doi":"10.1038/s41467-020-14746-7","ev":"RNAi lines shorter ears by 1.35 cm; fewer kernels per row by 2.85"},
+    {"gene":"AGAP_CRISPR","type":"knockout_CRISPR","direction":"decreased","mag":"moderate","doi":"10.1038/s41467-020-14746-7","ev":"AGAP CRISPR produced shorter IM by 76 μm and fewer kernels per row by 4.75"},
+    {"gene":"KRN5b_KO","type":"knockout","direction":"decreased","mag":"moderate","doi":"10.1111/pbi.14463","ev":"KRN5b KO causes disordered kernel rows and decrease in number of kernels and tassel branches"},
+    {"gene":"KRN5b_highExpr_allele","type":"gain_of_function","direction":"increased","mag":"moderate","doi":"10.1111/pbi.14463","ev":"Higher-expression allele increased ear weight 10-12% via increasing KRN"},
+    {"gene":"ZmTCP30","type":"knockout","direction":"decreased","mag":"moderate","doi":"10.1093/plcell/koac352","ev":"Zmtcp30 mutant showed decreased tassel branches and reduced grain number"},
+    {"gene":"drl1","type":"knockout","direction":"decreased","mag":"moderate","doi":"10.1242/dev.171181","ev":"drl1 ears are sterile with unfused carpels"}
+  ]
+}

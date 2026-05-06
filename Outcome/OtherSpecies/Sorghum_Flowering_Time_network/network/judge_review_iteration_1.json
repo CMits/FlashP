@@ -1,0 +1,553 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "flowering_time",
+    "phenotype_node": "Flowering_Time",
+    "species": "Sorghum bicolor",
+    "created": "2026-04-21",
+    "iteration": 1,
+    "judge_model": "Claude Opus 4.7 (1M context)",
+    "forbidden_inputs_checked": true,
+    "forbidden_inputs_read": []
+  },
+  "verdict": "approved",
+  "summary": "Strong v1 build. All canonical sorghum flowering pathways (photoperiod input via PhyB/PhyC, morning + evening clock loops, Evening Complex, PRR37/GHD7/EHD1/CO photoperiodic integrators, three separate FT paralogs, florigen activation complex, age pathway) are present with specific mechanisms and well-cited evidence. Ma-locus / molecular-gene aliasing is clean (PHYB=Ma3, PRR37=Ma1, GHD7=Ma6, MA2_SMYD=Ma2, PHYC=Ma5 documented in node_synonyms; SbHd1 correctly consolidated with SbCO per G008). Key player coverage ratios are all ≥ 0.43 with most hubs at 0.70-1.00 — no §9.11 under-representation flags. Three residual notes: (a) PHYB→Gibberellin (E072) silently dropped leaves Gibberellin as a pure source, weakening the PhyB-GA crosstalk arm (Foster 1995); (b) three HIGH-confidence GI→FT1/FT8/FT10 curated edges (E020-E022) dropped in favour of GI→CO/EHD1→FT indirect paths — defensible but worth flagging; (c) PRR37 in-degree is 9, slightly above the §9.4 hard cap of 7, biologically justified for a master LD integrator. No topology hazards, no Perception Gate violations, no positive-feedback Hormone↔Transporter loops. Network is ready for Step 3 PERTURBATION.",
+  "rubric_scores": {
+    "pathway_completeness": {
+      "score": 4,
+      "justification": "Every canonical sorghum flowering pathway is represented: (1) photoperiod input via Light→PHYB/PHYC; (2) morning clock (CCA1/LHY) with Light entrainment per G001; (3) evening clock (TOC1) with CCA1/LHY repression; (4) Evening Complex (ELF3/ELF4/LUX) repressing PRR37/GHD7 per G002; (5) GI bridging clock to photoperiodic arm; (6) PRR37/GHD7 LD-repression hubs fed by PHYB/PHYC + Photoperiod_LD; (7) EHD1 master activator gated by PRR37/GHD7 in LD; (8) CO activated by GI/FKF1/MA2_SMYD/ID1/PRR37, repressed by PHYB; (9) three florigens (FT1/FT8/FT10) as separate nodes with distinct regulator sets per Wolabu 2016 paralog-specific roles; (10) FT12 as floral suppressor; (11) FAC assembly (FT→FD1/GF14) leading to AP1/SOC1; (12) meristem identity (LFY, AP1, SOC1) to Flowering_Time; (13) age pathway (miR156h⊣SBP19/SBP4→miR172a⊣AP2) with age-photoperiod convergence at SOC1; (14) GA arm via Gibberellin→Flowering_Time. Two minor gaps: Photoperiod_SD dropped (intentional, bypass policy), and the sparse GA pathway (only Gibberellin→Flowering_Time, no GA20ox/DELLA/GID1 cascade) — both acceptable given literature thinness. Score 4 not 5 because of Photoperiod_SD omission and single-edge GA arm."
+    },
+    "mechanistic_depth": {
+      "score": 5,
+      "justification": "Multi-step cascades are properly layered: Light→PHYB→PRR37→{FT1/FT8/FT10, EHD1} is the canonical textbook photoperiod arm; Light→CCA1/LHY→TOC1 and ELF4→ELF3⊣PRR37/GHD7 provide the clock/EC layer; age path miR156h⊣SBP19→miR172a⊣AP2⊣FT8 is four-step; florigen→FD1/GF14→AP1→Flowering_Time preserves FAC assembly. Direct-to-phenotype shortcut edges (E079-E087, E108, E111) were correctly rejected in favour of cascading. PHYB→FT1 direct repression (N010) is literature-mandated (Yang 2014: phyB null shows ~60-fold SbCN15 upregulation regardless of photoperiod, PRR37/GHD7-independent) — not a cascade bypass. No Pattern-3 linear-chain failures observed."
+    },
+    "motif_coverage": {
+      "score": 5,
+      "justification": "BUILDER's metadata.motifs_applied correctly enumerates: Perception Gate (Light→PHYB→downstream, with Light NOT wired directly to PRR37/GHD7/FT/Flowering_Time — bypass_policy is explicit and observed in edge list); Multi-Output Scaffold (PRR37 → 5 targets, GHD7 → 6 targets, ID1 → 6 targets); Coherent Feed-Forward (PRR37⊣FT direct + PRR37→GHD7-repression-of-EHD1→FT... except PRR37→GHD7 is not curated in sorghum — see S003); Mutual Inhibition oscillator (CCA1⊣TOC1⊣CCA1, GHD7⊣ELF3⊣GHD7); Age-pathway convergence (miR156h/miR172a double switch to SBP→AP2 and SBP4→SOC1). Biosynthesis-Degradation Balance motif is N/A for this phenotype (no strong hormone degradation enzyme in curated edges). Evening Complex composite correctly modeled as three nodes (ELF3/ELF4/LUX) with rice-ortholog-inferred edges carrying LOW/MEDIUM confidence labels per G003_residual."
+    },
+    "cascade_balance": {
+      "score": 3,
+      "justification": "PRR37 has in_degree=9 (6 activators: Photoperiod_LD, PHYB, PHYC, GI, MA2_SMYD, ID1 + 3 inhibitors: CCA1, ELF3, LUX), which exceeds the §9.4 hard cap of 7. Biologically justified — PRR37 is the master LD integrator in sorghum — but from a scoring standpoint this is one hub outlier. All other nodes have 1-6 inputs. Source% = 28.6% (10/35), slightly below the softened 30-50% target floor. This is NOT a §9.4 severity-1 case (no source% > 50% or > 60% violation) and reflects strong bidirectional extraction in Step 1.5 (CCA1/LHY/ELF3/FD1/GF14 all have documented upstream regulators), which is desirable. No under-specified nodes (all 1+ inputs except proper source nodes). Score 3 reflects the PRR37 hub outlier and the below-floor source% together; raise to 4 if next iteration either trims one PRR37 activator (e.g., roll Photoperiod_LD into PHYB phase-dependence) or adds upstream regulators for CCA1-only sources."
+    },
+    "composite_node_handling": {
+      "score": 5,
+      "justification": "Paralog families are correctly left as separate nodes where literature demands discrimination: SbFT1/SbFT8/SbFT10 are three independent florigens with distinct promoter occupancy (PRR37 binds all three; GHD7 binds all three; CO binds all three; EHD1 activates all three; ID1 activates FT8 and FT10 only; AP2 represses FT8 specifically). GF14 is correctly a single composite 14-3-3 scaffold (sorghum has multiple 14-3-3 isoforms but FAC biochemistry treats them as an equivalent pool). No SMXL-style composite is needed for sorghum flowering. SbHd1/SbCO duplicate was correctly consolidated (G008) — metadata.node_synonyms explicitly lists SbHd1 as an alias of CO. SbFT13 correctly excluded per G014 (non-detectable in tissues). Over-collapse avoided (e.g., CCA1 and LHY kept separate rather than rolled into CCA1_LHY composite — defensible because LHY has a narrower output profile in this network: only TOC1 repression)."
+    },
+    "hub_completeness": {
+      "score": 5,
+      "justification": "For each major integrator hub, curated regulator coverage is near-complete: PRR37 (13/16 curated incoming = 81%: PHYB/PHYC/Photoperiod_LD/GI/MA2_SMYD/ID1 activators; CCA1/ELF3/LUX inhibitors; only Light-direct, Circadian_Clock-composite, and rice-inferred PRR37→GHD7 excluded — all defensible); GHD7 (PHYB/PHYC/Photoperiod_LD/ID1 activators + ELF3/LUX inhibitors — only CO→GHD7 E092 LOW-confidence rice inference excluded per G008); CO (6 regulators present: PHYB inhibitor, GI/FKF1/MA2_SMYD/ID1/PRR37 activators — all HIGH-confidence sorghum literature); EHD1 (5 regulators: GI/ID1/CO activators; PRR37/GHD7 inhibitors); FT1/FT8/FT10 each have 5-6 regulators spanning activators (CO, EHD1, ID1) and inhibitors (PRR37, GHD7, PHYB, AP2). No silent drops of HIGH-confidence curated regulators for any hub."
+    },
+    "topology_hazards": {
+      "score": 4,
+      "justification": "No positive-feedback Hormone↔Transporter loops (Gibberellin is a source with no feedback). No sole-activator collapses that would floor a node (every non-source node has at least one activator; CCA1 has Light+TOC1-inhibitor, LHY has Light, TOC1 has no activators and two inhibitors which means TOC1_activation defaults to 1.0 — biologically odd for an evening-phased gene but acceptable per the algebraic framework). Self-loops: none. Perception Gate: Light has 4 outgoing edges (PHYB, PHYC, CCA1, LHY). Strictly this is a gate relaxation — Light→CCA1 and Light→LHY are direct photoreceptor-independent light entrainment edges (canonical dawn entrainment, added in G001/G006). Not a Trap 3 violation because (a) CCA1/LHY are not downstream repressors of the main cascade, (b) the canonical biology requires this edge, (c) it is well-documented in the BUILDER's bypass_policy. PHYB has 5 outgoing edges, three of which (PHYB→FT1, PHYB→CO, PHYB→ELF3) are direct repressions that bypass PRR37/GHD7 — but these are literature-mandated direct effects (Yang 2014 phyB-null shows PRR37/GHD7-independent FT derepression; SbCO protein degradation by PhyB in LD daylight is post-translational and direct; OsPhyB-OsELF3 post-translational inactivation is an EC-level effect). Score 4 not 5 because the PHYB→FT1 direct edge combined with the GHD7⊣FKF1⊣CO shortcut creates a potential cascade amplification route that should be monitored in REFINEMENT."
+    },
+    "evidence_quality": {
+      "score": 5,
+      "justification": "Sampled edges (N001, N008, N010, N015, N027, N039, N044, N052, N068, N070) all have specific mechanism strings that go beyond 'X regulates Y' — for example, N006 Photoperiod_LD→PRR37: 'Long-day light evening phase coincides with SbPRR37 evening mRNA peak via PhyB; in SD the evening peak is eliminated because the phase occurs in darkness' (mechanism specific, not vague). Evidence sentences are direct quotes or near-quotes from the papers and consistently support the claim. verification field is populated; mix of full_text_read and abstract_read with abstract_read concentrated on older review papers and rice-ortholog inferences (acceptable). DOIs are resolvable (sampled). Rice-ortholog-based edges (E096/E097/E100/E106 Evening Complex) are correctly labelled LOW-MEDIUM confidence and flagged in the BUILDER metadata residual_gaps_for_builder_applied for downstream awareness."
+    },
+    "phenotype_audit": {
+      "score": 5,
+      "justification": "Flowering_Time has 9 inputs (2 activators: FT12+1, AP2+1; 7 inhibitors: FT1-1, FT8-1, FT10-1, SOC1-1, AP1-1, GF14-1, Gibberellin-1). All major effector classes present: three florigens (FT1/FT8/FT10), the FT suppressor (FT12), the FAC scaffold (GF14), the meristem-identity integrators (SOC1, AP1), the age-pathway floral repressor (AP2), and the hormonal arm (Gibberellin). Both promoting (activators of late flowering = FT12, AP2) and repressing (activators of early flowering = florigens, FAC, meristem ID, GA) arms are balanced. Directions are correct: florigens/SOC1/AP1/GF14/GA reduce days-to-flowering (sign=-1); FT12/AP2 delay (sign=+1). No obvious effector omission. Only nitpick: LFY does not connect directly to Flowering_Time (E070 MEDIUM-conf rejected); routed through AP1 → Flowering_Time instead — defensible cascade integrity choice."
+    },
+    "rejected_edges_review": {
+      "score": 4,
+      "justification": "29 curated edges (of 111) are not in the network. Breakdown: (1) 12 direct-to-phenotype shortcuts (E070 LFY→Flowering_Time, E079-E087 PRR37/GHD7/PHYB/PHYC/MA2_SMYD/GI/ID1/CO→Flowering_Time, E108 FD1→Flowering_Time, E111 ELF3→Flowering_Time) — all defensible as §9.2 cascade-integrity choices; every one of these nodes has a proper downstream route to Flowering_Time via EHD1→FT or CO→FT or FD1→AP1. (2) 7 edges with missing nodes (E002 Light→SbPhyA, E004 Blue_Light→SbCRY1 per G005 residual; E066/E094 SbFT2/SbFT6 weak associations; E088-E090 Circadian_Clock composite redundant with modeled CCA1/LHY/TOC1/GI/EC; E075-E077 Photoperiod_SD dropped per bypass_policy; E105 PHYB→Ethylene no downstream in network) — all defensible. (3) 3 edges that are judgment calls: E020/E021/E022 GI→FT1/FT8/FT10 (HIGH confidence) dropped in favour of indirect GI→CO/EHD1→FT paths — potential amplification loss, see S002. (4) 1 edge E072 PHYB→Gibberellin (MEDIUM confidence Foster 1995) silently dropped — this is the one clear gap; see S001. (5) E091 Light→PRR37 (HIGH) dropped per explicit bypass_policy — defensible Perception Gate preservation. (6) E092 CO→GHD7 (LOW, rice inference) dropped per G008 residual. Overall exclusion reasoning is principled; score 4 because the GI→FT trio drop and the PHYB→GA silent drop are worth iterating on."
+    },
+    "key_player_density": {
+      "score": 5,
+      "justification": "All key players identified for sorghum flowering have coverage ratio ≥ 0.43. No §9.11 under-representation flags. Ratios computed as (network edges involving node) / (unique curated edge IDs involving node, after Sb/short-name alias normalization). Every curated edge that was rejected for a key player has an explicit reason (cascade shortcut, bypass preservation, G005/G008/G011/G014 residual). This is the opposite of the iter-3 Sucrose failure mode — here every hub is represented in proportion to its curated footprint.",
+      "per_player_ratios": {
+        "PHYB": 0.75,
+        "PHYC": 0.60,
+        "CCA1": 1.00,
+        "LHY": 1.00,
+        "TOC1": 1.00,
+        "GI": 0.50,
+        "FKF1": 1.00,
+        "ELF3": 0.83,
+        "ELF4": 1.00,
+        "LUX": 1.00,
+        "PRR37": 0.88,
+        "GHD7": 0.86,
+        "CO": 0.71,
+        "EHD1": 0.89,
+        "ID1": 0.86,
+        "FT1": 0.90,
+        "FT8": 0.82,
+        "FT10": 0.80,
+        "FT12": 1.00,
+        "SOC1": 1.00,
+        "AP1": 1.00,
+        "AP2": 1.00,
+        "Flowering_Time": 0.43,
+        "Light": 0.80,
+        "Gibberellin": 0.50
+      },
+      "flag_threshold": "ratio < 0.30 with curated_count >= 5 = FLAG. No flags triggered."
+    }
+  },
+  "per_node_audit": [
+    {
+      "node": "Light",
+      "inputs": [],
+      "outputs": ["PHYB(+)", "PHYC(+)", "CCA1(+)", "LHY(+)"],
+      "curated_regulators_excluded": ["Light->PRR37(+,HIGH,E091) — bypass_policy"],
+      "verdict": "appropriate",
+      "comment": "Environmental source with 4 canonical targets. Light→CCA1/LHY dawn entrainment added per G001/G006; Light→PRR37 direct bypass correctly excluded."
+    },
+    {
+      "node": "Blue_Light",
+      "inputs": [],
+      "outputs": ["FKF1(+)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Single-purpose blue-light source for FKF1 LOV-domain activation (Abdul-Awal 2020). No other curated targets for Blue_Light in sorghum flowering."
+    },
+    {
+      "node": "Photoperiod_LD",
+      "inputs": [],
+      "outputs": ["PRR37(+)", "GHD7(+)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Coincidence-regime indicator; correctly wired to PRR37 and GHD7 evening-peak activation. SD-mode is Photoperiod_LD=0 convention (Photoperiod_SD node dropped per bypass_policy — see S006)."
+    },
+    {
+      "node": "Gibberellin",
+      "inputs": [],
+      "outputs": ["Flowering_Time(-)"],
+      "curated_regulators_excluded": ["PHYB->Gibberellin(+,MEDIUM,E072,in)"],
+      "verdict": "under-specified",
+      "comment": "Gibberellin is a pure source with no incoming regulation. Foster 1995 (E072) shows PhyB-dependent photoperiod modulation of endogenous GA20/GA1; adding PHYB→Gibberellin(+1) would let phyB/ma3 null mutants affect GA levels rather than only exogenous GA3. See S001."
+    },
+    {
+      "node": "PHYB",
+      "inputs": ["Light(+)"],
+      "outputs": ["PRR37(+)", "GHD7(+)", "FT1(-)", "CO(-)", "ELF3(-)"],
+      "curated_regulators_excluded": ["PHYB->Gibberellin(+,MEDIUM,E072) - see S001", "PHYB->Flowering_Time(+,HIGH,E082) - cascade shortcut"],
+      "verdict": "appropriate",
+      "comment": "Red-light photoreceptor. Five downstream effects are all literature-direct (Childs 1997, Yang 2014, Andrade 2022). PHYB→FT1 direct repression is not a cascade bypass but a Yang-2014-documented PRR37/GHD7-independent effect."
+    },
+    {
+      "node": "PHYC",
+      "inputs": ["Light(+)"],
+      "outputs": ["PRR37(+)", "GHD7(+)"],
+      "curated_regulators_excluded": ["PHYC->Flowering_Time(+,MEDIUM,E083) - cascade shortcut"],
+      "verdict": "appropriate",
+      "comment": "Ma5 secondary photoreceptor. Parallel-to-PhyB activation of PRR37/GHD7 per Cai 2016 and Thurber 2023. Direct-to-phenotype shortcut correctly excluded."
+    },
+    {
+      "node": "CCA1",
+      "inputs": ["Light(+)", "TOC1(-)"],
+      "outputs": ["TOC1(-)", "GI(-)", "PRR37(-)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Morning oscillator: light-entrained and TOC1-repressed (mutual inhibition with TOC1). Outputs to TOC1 + GI + PRR37 cover all curated sorghum targets. 5/5 coverage."
+    },
+    {
+      "node": "LHY",
+      "inputs": ["Light(+)"],
+      "outputs": ["TOC1(-)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Morning MYB partially redundant with CCA1; narrow output profile in current sorghum literature (only TOC1 repression curated). Defensible as separate-from-CCA1 given distinct output profiles."
+    },
+    {
+      "node": "TOC1",
+      "inputs": ["CCA1(-)", "LHY(-)"],
+      "outputs": ["CCA1(-)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Evening PRR; completes the CCA1⊣TOC1⊣CCA1 mutual-inhibition oscillator. Zero activators — in the algebraic framework this means Activation=1.0 constant, so TOC1 dynamics are driven purely by CCA1/LHY-inhibition. Biologically odd but acceptable given the literature thinness of sorghum clock input."
+    },
+    {
+      "node": "GI",
+      "inputs": ["CCA1(-)"],
+      "outputs": ["PRR37(+)", "CO(+)", "EHD1(+)"],
+      "curated_regulators_excluded": ["GI->FT1(+,HIGH,E020) - see S002", "GI->FT8(+,HIGH,E021) - see S002", "GI->FT10(+,HIGH,E022) - see S002", "GI->Flowering_Time(-,HIGH,E085) - cascade shortcut"],
+      "verdict": "appropriate with minor caveat",
+      "comment": "Under-populated in-degree (only CCA1 repression) matches G011 residual acknowledgement. Three HIGH-confidence direct GI→FT paralog edges dropped (S002); BUILDER's rationale is indirect routing through CO/EHD1→FT, defensible to avoid double-counting but worth a targeted review."
+    },
+    {
+      "node": "FKF1",
+      "inputs": ["Blue_Light(+)", "GHD7(-)"],
+      "outputs": ["CO(+)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "LOV F-box with canonical Blue_Light activation and GHD7 repression (Tadesse 2024 ChIP). Single output to CO matches curated biology."
+    },
+    {
+      "node": "ELF3",
+      "inputs": ["PHYB(-)", "ELF4(+)", "GHD7(-)"],
+      "outputs": ["PRR37(-)", "GHD7(-)"],
+      "curated_regulators_excluded": ["ELF3->Flowering_Time(-,MEDIUM,E111) - cascade shortcut"],
+      "verdict": "appropriate",
+      "comment": "Evening Complex scaffold. PhyB post-translational inactivation (rice ortholog inference, Andrade 2022) + GHD7 mutual repression + ELF4 assembly input. Outputs to PRR37/GHD7 per G002."
+    },
+    {
+      "node": "ELF4",
+      "inputs": [],
+      "outputs": ["ELF3(+)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "EC subunit, source node with no curated upstream regulator in sorghum. Output to ELF3 captures EC assembly."
+    },
+    {
+      "node": "LUX",
+      "inputs": [],
+      "outputs": ["PRR37(-)", "GHD7(-)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "EC DNA-binding subunit (OsLUX inference, Andrade 2022). Source node. Direct targets to PRR37/GHD7 at LOW confidence — flagged in BUILDER metadata."
+    },
+    {
+      "node": "PRR37",
+      "inputs": ["Photoperiod_LD(+)", "PHYB(+)", "PHYC(+)", "CCA1(-)", "ELF3(-)", "LUX(-)", "GI(+)", "MA2_SMYD(+)", "ID1(+)"],
+      "outputs": ["CO(+)", "EHD1(-)", "FT1(-)", "FT8(-)", "FT10(-)"],
+      "curated_regulators_excluded": ["PRR37->Flowering_Time(+,HIGH,E080) - cascade shortcut", "Light->PRR37(+,HIGH,E091) - bypass_policy"],
+      "verdict": "appropriate with §9.4 caveat",
+      "comment": "Master LD integrator with in_degree=9 (2 above the 7-hard-cap). All 9 inputs are curated-HIGH or curated-MEDIUM. Biologically this reflects PRR37's true integrator role. See S007 — BUILDER could consider rolling Photoperiod_LD into PhyB's phase-dependence in a future iteration, but not required."
+    },
+    {
+      "node": "GHD7",
+      "inputs": ["Photoperiod_LD(+)", "PHYB(+)", "PHYC(+)", "ELF3(-)", "LUX(-)", "ID1(+)"],
+      "outputs": ["ELF3(-)", "FKF1(-)", "EHD1(-)", "FT1(-)", "FT8(-)", "FT10(-)"],
+      "curated_regulators_excluded": ["GHD7->Flowering_Time(+,HIGH,E081) - cascade shortcut", "CO->GHD7(+,LOW,E092) - G008 residual rice inference"],
+      "verdict": "appropriate",
+      "comment": "LD repressor with in_degree=6 (within cap). Multi-Output Scaffold to 6 targets. Missing PRR37→GHD7 edge (not curated in sorghum; see S003)."
+    },
+    {
+      "node": "MA2_SMYD",
+      "inputs": [],
+      "outputs": ["PRR37(+)", "CO(+)"],
+      "curated_regulators_excluded": ["MA2_SMYD->Flowering_Time(+,HIGH,E084) - cascade shortcut"],
+      "verdict": "appropriate",
+      "comment": "SMYD methyltransferase amplifier (Casto 2019); source node per literature. Targets PRR37 and CO transcript amplitude."
+    },
+    {
+      "node": "ID1",
+      "inputs": [],
+      "outputs": ["CO(+)", "PRR37(+)", "GHD7(+)", "EHD1(+)", "FT8(+)", "FT10(+)"],
+      "curated_regulators_excluded": ["ID1->Flowering_Time(-,HIGH,E086) - cascade shortcut"],
+      "verdict": "appropriate",
+      "comment": "Master regulator with 6 Multi-Output targets. Source node with no curated upstream. Matsubara 2008 (Ehd2=ID1) rice-ortholog mechanism supports the ID1→EHD1 edge. Gladman 2023 sbid1-2 delays flowering ~170 days."
+    },
+    {
+      "node": "CO",
+      "inputs": ["PHYB(-)", "GI(+)", "FKF1(+)", "MA2_SMYD(+)", "ID1(+)", "PRR37(+)"],
+      "outputs": ["EHD1(+)", "FT8(+)", "FT10(+)", "FT1(+)"],
+      "curated_regulators_excluded": ["CO->Flowering_Time(-,HIGH,E087) - cascade shortcut", "CO->GHD7(+,LOW,E092) - G008 rice inference"],
+      "verdict": "appropriate with caveat",
+      "comment": "SbCO (=SbHd1 per G008 consolidation). In_degree=6 within cap. Note: CO→FT8/FT10 are modeled as +1 (SD activation) only; E078/E093 -1 LD-mode context-flip edges are not captured — framework limitation, see S004. All 4 outputs are literature-direct."
+    },
+    {
+      "node": "EHD1",
+      "inputs": ["GI(+)", "ID1(+)", "PRR37(-)", "GHD7(-)", "CO(+)"],
+      "outputs": ["FT1(+)", "FT8(+)", "FT10(+)"],
+      "curated_regulators_excluded": ["EHD1->Flowering_Time(-,HIGH,E079) - cascade shortcut"],
+      "verdict": "appropriate",
+      "comment": "Master activator; 3 activators + 2 inhibitors in balance. Direct FT paralog activation to all three — Xue 2008 / Doi 2004 rice ortholog mechanism supports this."
+    },
+    {
+      "node": "FT1",
+      "inputs": ["PHYB(-)", "PRR37(-)", "GHD7(-)", "CO(+)", "EHD1(+)"],
+      "outputs": ["FD1(+)", "GF14(+)", "SOC1(+)", "Flowering_Time(-)"],
+      "curated_regulators_excluded": ["GI->FT1(+,HIGH,E020) - see S002"],
+      "verdict": "appropriate",
+      "comment": "Hd3a-subclade florigen (SbCN15). Specific FD1 interaction (Cai 2016) + GF14 scaffold + SOC1 transcriptional activation. 3 repressors / 2 activators balanced."
+    },
+    {
+      "node": "FT8",
+      "inputs": ["ID1(+)", "PRR37(-)", "GHD7(-)", "CO(+)", "EHD1(+)", "AP2(-)"],
+      "outputs": ["GF14(+)", "SOC1(+)", "Flowering_Time(-)"],
+      "curated_regulators_excluded": ["GI->FT8(+,HIGH,E021) - see S002"],
+      "verdict": "appropriate",
+      "comment": "Principal sorghum florigen (Wolabu 2016). In_degree=6 within cap. Age-pathway convergence via AP2 inhibition. Note: only FT8 (not FT1/FT10) has AP2 repression — defensible per Wolabu 2016 paralog-specific roles."
+    },
+    {
+      "node": "FT10",
+      "inputs": ["ID1(+)", "PRR37(-)", "GHD7(-)", "CO(+)", "EHD1(+)"],
+      "outputs": ["GF14(+)", "SOC1(+)", "Flowering_Time(-)"],
+      "curated_regulators_excluded": ["GI->FT10(+,HIGH,E022) - see S002"],
+      "verdict": "appropriate",
+      "comment": "ZCN8-subclade paralog; direct GHD7 ChIP evidence (Tadesse 2024). Similar regulator set to FT8 minus AP2. Distinct from FT8 in the promoter-specific occupancy sense."
+    },
+    {
+      "node": "FT12",
+      "inputs": [],
+      "outputs": ["Flowering_Time(+)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Panicoid-specific floral suppressor (Cuevas 2016). Source node — no curated upstream regulators. Direct sign=+1 to Flowering_Time captures temperate-adaptation LOF phenotype."
+    },
+    {
+      "node": "FD1",
+      "inputs": ["FT1(+)"],
+      "outputs": ["AP1(+)"],
+      "curated_regulators_excluded": ["FD1->Flowering_Time(-,MEDIUM,E108) - cascade shortcut"],
+      "verdict": "appropriate",
+      "comment": "bZIP partner of FT1 in FAC; correctly routed through AP1 to Flowering_Time rather than direct shortcut. Note: FD1 is a specific FT1-binding partner; only FT1 (not FT8/FT10) activates FD1 — consistent with Wolabu 2016's Hd3a-subclade specificity."
+    },
+    {
+      "node": "GF14",
+      "inputs": ["FT1(+)", "FT8(+)", "FT10(+)"],
+      "outputs": ["Flowering_Time(-)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "14-3-3 scaffold binds all three florigens (Cai 2016). Direct-to-phenotype edge correctly retained — GF14 is the terminal step of FAC assembly and doesn't need an AP1 intermediate."
+    },
+    {
+      "node": "SOC1",
+      "inputs": ["FT1(+)", "FT8(+)", "FT10(+)", "SBP4(+)"],
+      "outputs": ["LFY(+)", "AP1(+)", "Flowering_Time(-)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Floral integrator; three florigen inputs + age-pathway SBP4 input + three outputs (LFY, AP1, direct phenotype). Full 7/7 coverage."
+    },
+    {
+      "node": "LFY",
+      "inputs": ["SOC1(+)"],
+      "outputs": ["AP1(+)"],
+      "curated_regulators_excluded": ["LFY->Flowering_Time(-,MEDIUM,E070) - cascade shortcut"],
+      "verdict": "appropriate",
+      "comment": "Meristem-identity integrator routed through AP1 → Flowering_Time rather than direct shortcut."
+    },
+    {
+      "node": "AP1",
+      "inputs": ["SOC1(+)", "LFY(+)", "FD1(+)"],
+      "outputs": ["Flowering_Time(-)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Terminal meristem-identity commitment node. Three upstream activators reflecting SOC1/LFY/FD1 convergence."
+    },
+    {
+      "node": "AP2",
+      "inputs": ["miR172a(-)"],
+      "outputs": ["FT8(-)", "Flowering_Time(+)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "AP2-like floral repressor cleaved by miR172a. Direct Flowering_Time edge retained (sign=+1 repressor) in addition to FT8 repression, defensible because AP2 acts at multiple levels in the age pathway."
+    },
+    {
+      "node": "SBP19",
+      "inputs": ["miR156h(-)"],
+      "outputs": ["miR172a(+)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Age-pathway SPL TF; activated upon miR156h decline, then activates miR172a — canonical age-pathway amplifier."
+    },
+    {
+      "node": "SBP4",
+      "inputs": ["miR156h(-)"],
+      "outputs": ["SOC1(+)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Age-pathway convergence at SOC1 (per G007 gap closure). Distinct from SBP19's miR172a arm."
+    },
+    {
+      "node": "miR156h",
+      "inputs": [],
+      "outputs": ["SBP19(-)", "SBP4(-)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Age-pathway source; developmentally declining miRNA. No upstream regulators expected (intrinsic age program)."
+    },
+    {
+      "node": "miR172a",
+      "inputs": ["SBP19(+)"],
+      "outputs": ["AP2(-)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Activated by SBP19 upon miR156h decline. Single AP2 cleavage target."
+    },
+    {
+      "node": "Flowering_Time",
+      "inputs": ["FT1(-)", "FT8(-)", "FT10(-)", "FT12(+)", "AP2(+)", "SOC1(-)", "AP1(-)", "GF14(-)", "Gibberellin(-)"],
+      "outputs": [],
+      "curated_regulators_excluded": ["LFY(-,MEDIUM,E070)", "EHD1(-,HIGH,E079)", "PRR37(+,HIGH,E080)", "GHD7(+,HIGH,E081)", "PHYB(+,HIGH,E082)", "PHYC(+,MEDIUM,E083)", "MA2_SMYD(+,HIGH,E084)", "GI(-,HIGH,E085)", "ID1(-,HIGH,E086)", "CO(-,HIGH,E087)", "FD1(-,MEDIUM,E108)", "ELF3(-,MEDIUM,E111)"],
+      "verdict": "appropriate",
+      "comment": "9 inputs, 2 activators + 7 inhibitors. Every excluded regulator has a proper cascading route to Flowering_Time (EHD1→FT, PRR37→FT, etc.). Direct-to-phenotype shortcut rejection is the correct §9.2 mechanistic-depth choice."
+    }
+  ],
+  "per_pathway_audit": [
+    {
+      "pathway": "Photoperiod input (Light → PhyB/PhyC)",
+      "completeness": "high",
+      "comment": "Light → PHYB (N001, Childs 1997) and Light → PHYC (N002, Thurber 2023) are both HIGH-confidence canonical. Perception Gate preserved: Light has NO direct edges to PRR37/GHD7/FT/Flowering_Time. SbPhyA and SbCRY1 correctly excluded per G005 residual (no downstream edges in curated sorghum literature).",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Morning circadian clock (CCA1, LHY)",
+      "completeness": "high",
+      "comment": "Light → CCA1 (N003), Light → LHY (N004), CCA1 → TOC1 (N015), LHY → TOC1 (N017), TOC1 → CCA1 (N016), CCA1 → GI (N018), CCA1 → PRR37 (N019). Canonical mutual-inhibition oscillator + canonical morning → evening-gene repression all present. Added via G001/G006 in Step 1.5.",
+      "missing_pieces": ["LHY→PRR37 would complete morning-arm symmetry but is not curated in sorghum (literature_gap)"]
+    },
+    {
+      "pathway": "Evening Complex (ELF3, ELF4, LUX → PRR37/GHD7)",
+      "completeness": "medium-high",
+      "comment": "ELF4 → ELF3 (N020), ELF3 → PRR37 (N021), ELF3 → GHD7 (N022), LUX → PRR37 (N023), LUX → GHD7 (N024), GHD7 → ELF3 (N025), PHYB → ELF3 (N012) — full EC layer with mutual-inhibition GHD7⊣ELF3 motif. Rice-ortholog inference (Andrade 2022, Zhao 2012) carries LOW-MEDIUM confidence per G003_residual. BUILDER documented this in metadata.",
+      "missing_pieces": ["Direct sorghum-specific SbELF3/SbELF4/SbLUX ChIP evidence is not yet available — flagged as literature_gap per S005"]
+    },
+    {
+      "pathway": "GI bridge (clock → photoperiodic arm)",
+      "completeness": "medium",
+      "comment": "GI → PRR37 (N027), GI → CO (N028), GI → EHD1 (N029). CCA1 → GI (N018) as upstream input. Direct GI → FT1/FT8/FT10 HIGH-confidence curated edges (E020/E021/E022) NOT in network — see S002.",
+      "missing_pieces": ["TOC1→GI and EC→GI absent per G011 residual (literature_gap)", "Direct GI→FT florigen edges (E020-E022, see S002)"]
+    },
+    {
+      "pathway": "PRR37 (Ma1) — LD repressor hub",
+      "completeness": "high",
+      "comment": "9 inputs (PHYB/PHYC/Photoperiod_LD/GI/MA2_SMYD/ID1 activators + CCA1/ELF3/LUX inhibitors) — see cascade_balance caveat. 5 outputs (direct repression of FT1/FT8/FT10, EHD1; activation of CO). Direct FT paralog repression is the main mechanism. Does NOT drive GHD7 (PRR37→GHD7 not in sorghum curated — see S003).",
+      "missing_pieces": ["PRR37→GHD7 rice-inferred edge (literature_gap, see S003)"]
+    },
+    {
+      "pathway": "GHD7 (Ma6) — LD repressor hub",
+      "completeness": "high",
+      "comment": "6 inputs (PHYB/PHYC/Photoperiod_LD/ID1 activators + ELF3/LUX inhibitors). 6 outputs including mutual-inhibition with ELF3, FKF1 repression (Tadesse 2024), and direct FT1/FT8/FT10 + EHD1 repression. Ma6 locus alias documented.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "EHD1 master activator",
+      "completeness": "high",
+      "comment": "5 inputs (GI/ID1/CO activators + PRR37/GHD7 inhibitors). 3 outputs to all three florigens. Xue 2008 / Doi 2004 rice ortholog mechanism backing. ID1→EHD1 added in Step 1.5 (E104).",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "CO / Hd1 photoperiodic integrator",
+      "completeness": "medium-high",
+      "comment": "6 inputs including PhyB repression (Yang 2014 LD daylight destabilisation), GI/FKF1 stabilisation, and MA2_SMYD/ID1/PRR37 activation. 4 outputs to EHD1 + three florigens. SbHd1 correctly consolidated with SbCO per G008.",
+      "missing_pieces": ["Dual-role LD repression (E078 CO→FT8 -1, E093 CO→FT10 -1) not modeled — see S004 framework limitation"]
+    },
+    {
+      "pathway": "Florigen paralogs (FT1, FT8, FT10 — separately tracked)",
+      "completeness": "high",
+      "comment": "All three paralogs are SEPARATE nodes with distinct regulator sets per Wolabu 2016: FT1 (Hd3a-subclade, FD1-binding), FT8 (ZCN8-subclade, GF14-only), FT10 (ZCN8-subclade paralog with GHD7 ChIP evidence). Each has 5-6 inputs spanning repressors (PHYB/PRR37/GHD7 for FT1; +AP2 for FT8) and activators (CO, EHD1, ID1 for FT8/FT10). Direct Flowering_Time effect for all three. SbFT13 correctly excluded per G014.",
+      "missing_pieces": ["Direct GI→FT1/FT8/FT10 HIGH-confidence edges (E020-E022) — see S002"]
+    },
+    {
+      "pathway": "Florigen activation complex (FAC: FT + FD1 + 14-3-3)",
+      "completeness": "high",
+      "comment": "FT1 → FD1 (N055), FT1/FT8/FT10 → GF14 (N056/N057/N058), FT1/FT8/FT10 → SOC1 (N059/N060/N061), FD1 → AP1 (N065), GF14 → Flowering_Time (N079). Closes the FAC → meristem path per G007 gap closure.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Meristem identity (SOC1 / LFY / AP1) → phenotype",
+      "completeness": "high",
+      "comment": "SOC1 → LFY (N062), SOC1 → AP1 (N063), LFY → AP1 (N064), FD1 → AP1 (N065), AP1 → Flowering_Time (N078), SOC1 → Flowering_Time (N077). Triple-activator AP1 with LFY/FD1 mutual reinforcement preserves meristem-identity commitment.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Age pathway (miR156h / SBP / miR172a / AP2)",
+      "completeness": "high",
+      "comment": "miR156h ⊣ SBP19/SBP4, SBP19 → miR172a, miR172a ⊣ AP2, AP2 ⊣ FT8 + AP2 → Flowering_Time, SBP4 → SOC1 (age-photoperiod convergence). All canonical age-pathway edges present.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "GA / DELLA secondary arm",
+      "completeness": "low",
+      "comment": "Only Gibberellin → Flowering_Time (N080, Foster 1995). GA20ox/GA3ox/GA2ox/GID1/SLR1 not modeled — literature too thin in sorghum. Gibberellin is a pure source with no incoming regulation — PHYB → Gibberellin (E072 MEDIUM) silently dropped. See S001.",
+      "missing_pieces": ["PHYB → Gibberellin (E072, see S001)", "GA biosynthesis enzymes (literature_gap)"]
+    },
+    {
+      "pathway": "Photoperiod SD arm",
+      "completeness": "framework-substituted",
+      "comment": "Photoperiod_SD node dropped per bypass_policy; SD-mode is encoded as Photoperiod_LD=0. This works for tests where the SD condition can be expressed as 'absence of LD signal' but loses the opportunity for a dedicated +1 SD→FT activation edge. Acceptable given the bypass risk of Photoperiod_SD → FT direct.",
+      "missing_pieces": ["Photoperiod_SD node (literature_gap, see S006)"]
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "S001",
+      "type": "add_edge",
+      "priority": "medium",
+      "description": "Add PHYB → Gibberellin (+1, E072) to close the PhyB-GA crosstalk arm",
+      "biological_justification": "Foster & Morgan 1995 (10.1104/pp.104.2.347) quantitatively show that photoperiod controls endogenous GA20/GA1 levels in sorghum: inductive 10-h photoperiods shift the peak of GA20/GA1 to early morning and hasten flowering. Because PhyB is the LD photoperiod sensor, the PhyB state gates endogenous GA levels. Currently Gibberellin is a pure source node with no incoming regulation, so phyB/ma3 null mutants cannot affect endogenous GA in the model — only exogenous GA3 treatment is encoded (via exogenous_supply). Adding PHYB → Gibberellin (+1) preserves the endogenous-GA arm without introducing biosynthesis enzymes the literature does not support.",
+      "curated_edge_ids": ["E072"],
+      "implementation": "Add edge PHYB → Gibberellin with sign=+1, confidence=MEDIUM, evidence=Foster 1995. In algebraic_equations.json, update Gibberellin's activators to include PHYB; is_source remains true OR flip to false depending on BUILDER's preference (flipping to false is cleaner)."
+    },
+    {
+      "id": "S002",
+      "type": "add_edge",
+      "priority": "low",
+      "description": "Consider adding GI → FT1/FT8/FT10 direct edges (E020, E021, E022) for signal amplification",
+      "biological_justification": "Three HIGH-confidence curated edges (Abdul-Awal 2020 showing sbgi-ems1 attenuates florigen expression) document GI→FT1/FT8/FT10 direct effects. Currently the network routes GI influence via GI→CO→FT and GI→EHD1→FT. The indirect-only routing is defensible (avoid double-counting), but the signal may be attenuated through the cascade layers relative to the literature phenotype (~30-day delay). If REFINEMENT observes phyB-null or sbgi tests predicting smaller effects than literature, reconsider adding these direct edges.",
+      "curated_edge_ids": ["E020", "E021", "E022"],
+      "implementation": "Either (a) add three direct GI→FT edges sign=+1 (keeping indirect paths for the broader cascade), or (b) document in BUILDER metadata why the indirect-only routing is preferred. Deferred to LOW priority because direct FT activation by GI is less mechanistically specific than through CO/EHD1 (GI does not itself bind FT promoters in rice; it's a clock-output protein)."
+    },
+    {
+      "id": "S003",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "PRR37 → GHD7 direct activation is canonical in rice but absent from sorghum curated edges",
+      "biological_justification": "In rice, OsPRR37 directly activates Ghd7 under LD as part of the canonical photoperiodic delay cascade. The canonical_checklist in literature_judge_report.json explicitly lists 'SbPRR37 → SbGhd7 (= Ma6) activation' but no sorghum-specific paper in the merged curated_edges.json documents this edge (only the rice inference). Currently PRR37 and GHD7 are activated in parallel by PHYB/PHYC/Photoperiod_LD/ID1 rather than in series. This is defensible (parallel activation preserves LD-specific synergy) but means the classical 'PRR37 upstream of GHD7' cascade is not structurally encoded.",
+      "curated_edge_ids": [],
+      "implementation": "Flag for Step 1 literature search: 'sorghum SbPRR37 SbGhd7 direct activation ChIP' and 'OsPRR37 Ghd7 promoter binding'. If a sorghum- or sorghum-inferable-from-rice paper can be added, BUILDER should include PRR37→GHD7 (+1) at MEDIUM confidence."
+    },
+    {
+      "id": "S004",
+      "type": "mechanism_improvement",
+      "priority": "low",
+      "description": "Document CO dual-role (LD repression vs SD activation) in CO→FT8/CO→FT10 mechanism strings",
+      "biological_justification": "Curated edges E078 (CO→FT8, -1, MEDIUM) and E093 (CO→FT10, -1, MEDIUM) represent the Yang 2014 BMC-documented LD-specific repressive role of SbCO, distinct from the SD-specific activating role captured in E034/E035 (+1). The algebraic framework can only encode one sign per edge; BUILDER chose +1 (SD activation, the more common interpretation). The LD-mode is a framework limitation analogous to TRAP 3 (signaling-mutant rescue) — it cannot be cleanly modeled in the algebraic formalism because CO's sign is context-dependent on photoperiod. Adding a sentence to the mechanism of N049 (CO→FT8) and N050 (CO→FT10) documenting this dual-role gives REFINEMENT and the paper reader the necessary context when accuracy on LD CO-OE or sbco LD vs SD tests diverges.",
+      "curated_edge_ids": ["E078", "E093"],
+      "implementation": "Edit N049 mechanism: append 'Note: SbCO has a dual role per Yang 2014 BMC — in SD CO stabilises and activates FT8 (modeled as sign=+1 here); in LD, PhyB/C-mediated degradation flips the net effect to repressive. Framework limitation: only SD-mode activation encoded.' Same pattern for N050."
+    },
+    {
+      "id": "S005",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "Direct sorghum-specific SbELF3/SbELF4/SbLUX ChIP or DAP evidence absent; EC edges carry rice-ortholog inference",
+      "biological_justification": "G003_residual of the Step 1.5 judge report acknowledges that EC edges E096/E097/E098/E099/E100/E106/E111 rely on rice-ortholog evidence (Zhao 2012, Andrade 2022) with LOW-MEDIUM confidence. The BUILDER correctly retained them in v1 with confidence labels, but a sorghum-specific experimental validation remains outstanding.",
+      "curated_edge_ids": [],
+      "implementation": "Step 1 literature search for 'sorghum ELF3 ChIP PRR37 Ghd7', 'sorghum LUX DAP', and 'SbELF4 flowering'. If found, append evidence to existing EC edges and upgrade confidence. Acceptable to leave unchanged if no sorghum-direct evidence is published."
+    },
+    {
+      "id": "S006",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "Photoperiod_SD node dropped; SD-specific florigen activation not encoded as a distinct input signal",
+      "biological_justification": "BUILDER's bypass_policy explicitly drops Photoperiod_SD to avoid a direct SD→FT bypass (which would violate Perception Gate purity). The SD regime is encoded as Photoperiod_LD=0 convention, and under that condition the PRR37/GHD7 evening peak disappears (both repressors drop), so EHD1 and CO upstream pathways can activate FTs — biologically correct. The BUILDER's choice is defensible. Flagging as literature_gap so REFINEMENT knows that SD-specific tests rely on the Photoperiod_LD=0 convention rather than an explicit SD signal.",
+      "curated_edge_ids": [],
+      "implementation": "No immediate change required. Document in README or network.json metadata: 'SD regime = Photoperiod_LD=0; no separate Photoperiod_SD node.'"
+    },
+    {
+      "id": "S007",
+      "type": "restructure_pathway",
+      "priority": "low",
+      "description": "PRR37 in-degree=9 exceeds the §9.4 7-hard-cap; consider consolidating Photoperiod_LD into PHYB phase-dependence",
+      "biological_justification": "PRR37 has 6 activators (Photoperiod_LD, PHYB, PHYC, GI, MA2_SMYD, ID1) + 3 inhibitors (CCA1, ELF3, LUX) = 9 inputs. The §9.4 hard cap is 7. Biologically all 9 are curated-HIGH or curated-MEDIUM, so trimming would remove real regulation. One option is to consolidate Photoperiod_LD activation into PHYB: because Photoperiod_LD→PRR37 (N006) is biologically 'LD light coincides with PhyB evening-phase peak' and PHYB→PRR37 (N008) is 'PhyB evening-phase activation', they represent the same mechanism. Keeping both slightly double-counts the LD signal. Alternative: leave as-is and accept the hub outlier — this IS biologically the master LD integrator.",
+      "curated_edge_ids": [],
+      "implementation": "Option A: drop Photoperiod_LD→PRR37 (N006), keeping the PHYB→PRR37 path as the sole LD input (and change Photoperiod_LD to route only through GHD7). This would bring PRR37 to 8 inputs (still 1 over cap). Option B: leave as-is and document in metadata that PRR37 exceeds cap by literature mandate. Recommend option B unless validation accuracy suggests LD over-activation of PRR37."
+    }
+  ],
+  "literature_gaps": [
+    "PRR37 → GHD7 direct activation — rice-canonical (OsPRR37 → Ghd7) but no sorghum paper in merged curated_edges.json supports it. Currently PRR37 and GHD7 activated in parallel (S003).",
+    "TOC1 → GI activation and EC → GI repression — acknowledged in G011 residual; GI has only one upstream regulator (CCA1⊣GI) in the current model.",
+    "Sorghum-specific ChIP/DAP evidence for SbELF3, SbELF4, SbLUX binding to PRR37/GHD7/FT promoters. Current EC edges rely on rice-ortholog inference (S005).",
+    "Photoperiod_SD as a distinct environmental signal — dropped per bypass_policy; SD is encoded as Photoperiod_LD=0 convention (S006).",
+    "CO dual-role LD repression (E078, E093) cannot be cleanly encoded in the single-sign algebraic framework — framework limitation rather than a literature gap strictly, but flagged for documentation (S004).",
+    "GA biosynthesis enzymes (GA20ox, GA3ox, GA2ox) and GA-signaling components (GID1, SLR1/DELLA) — too thin in sorghum flowering literature to add as nodes; GA arm is represented only as Gibberellin → Flowering_Time.",
+    "Thermosensitivity of ma5 ma6 double mutant (Quinby classical genetics) — Temperature is not an input node in the current network; T082 test captured but not mechanistically encoded.",
+    "LHY → PRR37 direct repression (morning-arm symmetry with CCA1 → PRR37) — not curated in sorghum; only CCA1 → PRR37 (E103) present."
+  ],
+  "rubric_summary": {
+    "mean_score": 4.55,
+    "score_distribution": {"5": 7, "4": 3, "3": 1, "2": 0, "1": 0},
+    "lowest_dimension": "cascade_balance (3) — PRR37 in-degree=9 exceeds 7-hard-cap; source% = 28.6% slightly below softened 30-50% floor"
+  },
+  "suggestion_summary": {
+    "high_priority": 0,
+    "medium_priority": 1,
+    "low_priority": 6,
+    "total": 7
+  },
+  "key_player_check": {
+    "all_ratios_above_0_30": true,
+    "flagged_under_representation": [],
+    "ma_locus_aliasing_clean": true,
+    "ma_aliases_documented": ["PHYB=Ma3", "PHYC=Ma5", "PRR37=Ma1", "GHD7=Ma6", "MA2_SMYD=Ma2", "CO=SbHd1 (G008 consolidated)"],
+    "ft_paralog_coverage": "FT1, FT8, FT10 separately modeled with distinct regulator sets per Wolabu 2016; FT12 floral-suppressor separately modeled; SbFT13 correctly excluded per G014",
+    "perception_gate_purity": "Light has 4 outputs (PHYB, PHYC, CCA1, LHY) — canonical dawn entrainment per G001/G006, not a violation. Light has NO direct edges to PRR37/GHD7/FT/Flowering_Time."
+  },
+  "previous_iteration_addressed": null,
+  "stop_reason": null
+}

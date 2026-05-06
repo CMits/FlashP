@@ -1,0 +1,78 @@
+{
+  "iteration": 4,
+  "date": "2026-04-19",
+  "fixes": [
+    {
+      "iteration": 4,
+      "action": "perturbation_encoding",
+      "description": "T004 (afb5 + picloram): comparison_baseline WT->mutant, expected_direction decreased->increased.",
+      "reason": "Combined KO+treatment test was encoded with baseline=WT but the validator auto-applies mutant-baseline for tests with both gene_modifier and exogenous_supply. The validator's ratio=1.15 previously read as a wrong-direction failure; under the correct mutant baseline, picloram still elicits residual elongation via the remaining TIR1/AFB paralogs in afb5 background, so relative to afb5 alone the phenotype is 'increased' (reduced-sensitivity, not absent).",
+      "biological_justification": "Prigge et al. 2020 (eLife) reports afb5-5 plants have decreased sensitivity to picloram-induced hypocotyl elongation, but not full insensitivity - picloram still causes significant elongation via residual TIR1/AFB1/2/3 receptors. Relative to the afb5 mutant alone (no picloram), the +picloram treatment gives an increased hypocotyl length.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "comparison_baseline+expected_direction",
+      "value": null,
+      "evidence_doi": "10.7554/eLife.19048"
+    },
+    {
+      "iteration": 4,
+      "action": "perturbation_encoding",
+      "description": "T046 (ein2 + ACC): comparison_baseline WT->mutant, expected_direction increased->unchanged (Trap 5 signaling mutant rescue).",
+      "reason": "§Trap 5 signaling-mutant rescue: ein2 is a signaling mutant; ACC is converted to ethylene but cannot be transduced because EIN2 is absent. Relative to ein2 alone (mutant baseline), ACC has no effect. Previous encoding produced validator ratio=1.0 with expected=increased, triggering a false failure.",
+      "biological_justification": "EIN2 is the central transducer of ethylene signaling between CTR1 and EIN3. ein2 null mutants are fully ethylene-insensitive; ACC (ethylene precursor) cannot rescue because there is no EIN2 to cleave. Canonical Trap 5 pattern: receptor/transducer mutant + hormone = 'unchanged' from mutant baseline.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "comparison_baseline+expected_direction",
+      "value": null,
+      "evidence_doi": "10.1073/pnas.1121244109"
+    },
+    {
+      "iteration": 4,
+      "action": "perturbation_encoding",
+      "description": "T047 (ein3 + ACC): comparison_baseline WT->mutant, expected_direction increased->unchanged (Trap 5).",
+      "reason": "Same Trap 5 pattern as T046: EIN3 is the master ethylene-responsive TF; without EIN3, ACC-induced ethylene cannot execute the triple response. Expected 'unchanged' from ein3 mutant baseline.",
+      "biological_justification": "EIN3 is the final TF in the ethylene signaling cascade. ein3 single mutants are largely ethylene-insensitive; ACC has no phenotypic effect without the downstream TF.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "comparison_baseline+expected_direction",
+      "value": null,
+      "evidence_doi": "10.1105/tpc.114.122903"
+    },
+    {
+      "iteration": 4,
+      "action": "perturbation_encoding",
+      "description": "T049 (ein3 eil1 double + ACC): comparison_baseline WT->mutant, expected_direction increased->unchanged (Trap 5).",
+      "reason": "Same Trap 5 pattern; ein3 eil1 double removes both redundant TFs completely, guaranteeing ACC cannot signal. Expected 'unchanged' from mutant baseline.",
+      "biological_justification": "EIN3 and EIL1 are redundant ethylene-responsive TFs. The double mutant is fully insensitive to ACC/ethylene. Rescue impossible = unchanged vs mutant baseline.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "comparison_baseline+expected_direction",
+      "value": null,
+      "evidence_doi": "10.1105/tpc.114.122903"
+    },
+    {
+      "iteration": 4,
+      "action": "perturbation_encoding",
+      "description": "T112 (tir1 + auxin treatment): comparison_baseline WT->mutant, expected_direction decreased->unchanged (Trap 5).",
+      "reason": "Classical Trap 5 auxin signaling-mutant rescue: TIR1 KO abolishes auxin perception; exogenous auxin cannot signal without its receptor. Expected 'unchanged' from tir1 mutant baseline. Previous encoding baseline=WT + expected=decreased gave ratio=1.0 false failure.",
+      "biological_justification": "TIR1 is the primary auxin receptor; tir1 null mutants show strongly reduced auxin response. Adding exogenous auxin to tir1 cannot rescue because the perception gate is closed.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "comparison_baseline+expected_direction",
+      "value": null,
+      "evidence_doi": "10.7554/eLife.19048"
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 95.7,
+    "ode_accuracy": 93.1,
+    "rwr_accuracy": 92.2,
+    "kept": true,
+    "reason": "Best-method (Algebraic) improved 91.4%->95.7% (+4.3%), well above 0.5% threshold. All three methods improved (ODE +3.4%, RWR +0.8%). Kappa rose from 0.84 to 0.92, MCC from 0.68 to 0.90. DARS 12.02->13.22 (both exceptional band)."
+  }
+}

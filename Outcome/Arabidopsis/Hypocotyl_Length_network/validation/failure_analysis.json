@@ -1,0 +1,182 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Hypocotyl_Length",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19"
+  },
+  "failures": [
+    {
+      "test_id": "T003",
+      "gene": "ACC_treatment",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "unchanged",
+      "predicted_direction": "decreased",
+      "category": "framework_limitation",
+      "explanation": "ACC treatment at warm temperature (28C): the ethylene-at-high-temperature uncoupling (thermo-induced EIN3 degradation / desensitisation) is not encoded. Network always propagates Ethylene->EIN3->inhibit hypocotyl, predicting 'decreased'; observed is 'unchanged'.",
+      "evidence": "10.1007/s42994-021-00063-0",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T004",
+      "gene": "AFB5",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "unchanged",
+      "category": "epistasis_complexity",
+      "explanation": "afb5 + picloram: AFB5-preferential auxin (picloram) interaction. afb5 KO is encoded as a weak (gm=0.997) perturbation on the TIR1 composite, then Auxin supply dominates the prediction (increased). Expected is decreased because AFB5 is the preferential receptor for picloram specifically.",
+      "evidence": "10.7554/eLife.19048",
+      "fixable": true,
+      "fix_strategy": "Split AFB5 out of TIR1 composite, or add a picloram-specific dummy-edge so AFB5 KO strengthens auxin response block."
+    },
+    {
+      "test_id": "T022",
+      "gene": "BIN2",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "predicted_direction": "decreased",
+      "category": "epistasis_complexity",
+      "explanation": "bin2-1 dominant gain-of-function in darkness: network encodes BIN2 gm=2.0 -> stronger BZR inhibition -> lower hypocotyl. Observed is increased. BIN2 has BR-signalling-independent effects on PIFs / other substrates (Li et al.) not captured as edges from BIN2 to PIF/AUXIN targets in this network.",
+      "evidence": "10.1073/pnas.1700850114",
+      "fixable": true,
+      "fix_strategy": "Add BIN2 -> PIF3/4/5 (inhibition of PIF degradation, net positive on PIF) and/or BIN2 -> ARF6 (negative) edges to reproduce non-BR BIN2 effects."
+    },
+    {
+      "test_id": "T046",
+      "gene": "EIN2",
+      "perturbation_type": "knockout",
+      "expected_direction": "unchanged",
+      "predicted_direction": "decreased",
+      "category": "framework_limitation",
+      "explanation": "ein2 + ACC: ratio=1.0 (no change from WT). The Ethylene hormone node has no direct activation edge into EIN2 (EIN2 activators=[]); the ethylene axis therefore cannot propagate supply into downstream EIN3/hypocotyl differences, so KO of EIN2 does not measurably change the baseline in the algebraic model. This is a perception-gate wiring gap.",
+      "evidence": "10.1105/tpc.110.076588",
+      "fixable": true,
+      "fix_strategy": "Add edge Ethylene->EIN2 (+1) so the ethylene signalling cascade actually propagates supply into EIN3."
+    },
+    {
+      "test_id": "T047",
+      "gene": "EIN3",
+      "perturbation_type": "knockout",
+      "expected_direction": "unchanged",
+      "predicted_direction": "decreased",
+      "category": "framework_limitation",
+      "explanation": "ein3 + ACC: same ethylene-axis wiring gap as T046. EIN3 changes alone do not propagate because the WT baseline already has EIN3 saturated or unaffected by Ethylene supply.",
+      "evidence": "10.1105/tpc.110.076588",
+      "fixable": true,
+      "fix_strategy": "Same fix as T046 (wire Ethylene->EIN2 so Ethylene supply has a downstream effect)."
+    },
+    {
+      "test_id": "T049",
+      "gene": "EIN3_EIL1",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "unchanged",
+      "predicted_direction": "decreased",
+      "category": "composite_collapse",
+      "explanation": "ein3 eil1 double + ACC: EIL1 is collapsed into EIN3. Combined with the same ethylene-axis wiring gap, the double KO cannot propagate its effect.",
+      "evidence": "10.1007/s42994-021-00063-0",
+      "fixable": true,
+      "fix_strategy": "Fix ethylene-axis wiring (Ethylene->EIN2) and keep EIN3 as composite representative for EIN3/EIL1."
+    },
+    {
+      "test_id": "T077",
+      "gene": "NAA_treatment",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "predicted_direction": "unchanged",
+      "category": "edge_case",
+      "explanation": "NAA exogenous auxin treatment: algebraic passes (+increased), but ODE gives ratio 1.026 just under the 5%% direction threshold. Signal dilution through cascade at K=0.5 n=1 makes the prediction borderline unchanged.",
+      "evidence": "10.7554/eLife.19048",
+      "fixable": true,
+      "fix_strategy": "Minor: add direct Auxin->Hypocotyl_Length edge OR tune ODE towards higher n so cooperativity amplifies a small auxin increase."
+    },
+    {
+      "test_id": "T099",
+      "gene": "PIF7",
+      "perturbation_type": "phospho_dead_mutant",
+      "expected_direction": "increased",
+      "predicted_direction": "unchanged",
+      "category": "framework_limitation",
+      "explanation": "PIF7 phospho-dead dominant form under shade: network ratio 1.035 -> classified as 'unchanged' (threshold 5%%). The PIF7 gm=2.0 perturbation is diluted by the geometric-mean activator structure at the Hypocotyl_Length node (5 activators -> 1/5 exponent).",
+      "evidence": "10.7554/eLife.31636",
+      "fixable": true,
+      "fix_strategy": "Shorten the PIF7->Hypocotyl_Length path or add a direct PIF7->Hypocotyl_Length activator edge to avoid geometric-mean dilution."
+    },
+    {
+      "test_id": "T104",
+      "gene": "Picloram_treatment",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "predicted_direction": "unchanged",
+      "category": "framework_limitation",
+      "explanation": "Picloram at 30C: thermomorphogenic hypocotyl elongation at 30C is not directly modelled as a source node; auxin supply alone fails to cross threshold in the ODE method at K=0.5, n=1.",
+      "evidence": "10.1038/s41467-022-32585-6",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T112",
+      "gene": "TIR1",
+      "perturbation_type": "knockout",
+      "expected_direction": "unchanged",
+      "predicted_direction": "increased",
+      "category": "framework_limitation",
+      "explanation": "tir1 + auxin treatment: classical Trap 5 (signalling-mutant rescue). Network adds Auxin exogenous=1.0 regardless of whether TIR1 is functional, so the prediction reverts to 'unchanged' rather than 'decreased'. Perception-gate motif on TIR1 not enforced.",
+      "evidence": "10.7554/eLife.19048",
+      "fixable": false,
+      "fix_strategy": "Framework limitation per \u00a7Trap 5. Can only be remedied by enforcing Perception Gate purity (remove Auxin bypass edges) and fully gating Auxin signalling through TIR1."
+    },
+    {
+      "test_id": "T128",
+      "gene": "GID1A_GID1B",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "decreased",
+      "category": "epistasis_complexity",
+      "explanation": "gid1a gid1b double KO: network encodes GID1 composite gm=0.5 -> DELLA accumulates -> shorter hypocotyl (decreased). Observed is increased in the specific double; this is a GID1-paralog-specific context that a single composite cannot resolve.",
+      "evidence": "10.1105/tpc.106.047415",
+      "fixable": true,
+      "fix_strategy": "Split GID1A/B/C into separate nodes to capture paralog-specific DELLA-preference."
+    },
+    {
+      "test_id": "T129",
+      "gene": "GID1B_GID1C",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "unchanged",
+      "predicted_direction": "decreased",
+      "category": "composite_collapse",
+      "explanation": "gid1b gid1c double KO: algebraic passes (unchanged), but RWR predicts decreased because the composite GID1 gm=0.99 still carries diffusive signal in the random-walk method. Resolution loss due to composite collapse.",
+      "evidence": "10.1105/tpc.106.047415",
+      "fixable": true,
+      "fix_strategy": "Split GID1 paralogs or tune RWR signal threshold."
+    },
+    {
+      "test_id": "T137",
+      "gene": "BAS1_SOB7",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "increased",
+      "category": "edge_case",
+      "explanation": "bas1 sob7 double KO in light: network predicts increased (matches broader BR-catabolism biology: more BR -> longer hypocotyl); test expected_direction 'decreased' may be incorrect in the encoded test (bas1 sob7 are BR-inactivating enzymes; KO produces elongated hypocotyls). Possible test-encoding edge case.",
+      "evidence": "10.1534/g3.112.004580",
+      "fixable": true,
+      "fix_strategy": "Re-check source paper: if direction should be 'increased', fix expected_direction in T137; otherwise add an unmodelled secondary path."
+    }
+  ],
+  "summary": {
+    "total_failures": 13,
+    "by_category": {
+      "framework_limitation": 6,
+      "epistasis_complexity": 3,
+      "composite_collapse": 2,
+      "edge_case": 2
+    },
+    "fixable_count": 10,
+    "unfixable_count": 3,
+    "per_method_failure_counts": {
+      "algebraic": 5,
+      "ode": 8,
+      "rwr": 9
+    }
+  }
+}

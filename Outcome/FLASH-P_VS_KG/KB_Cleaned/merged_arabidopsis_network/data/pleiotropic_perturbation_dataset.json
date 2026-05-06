@@ -1,0 +1,526 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "merged_arabidopsis",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-20",
+    "network_type": "merged_pleiotropic",
+    "description": "Pleiotropic perturbations: each test asserts outcomes across 2+ phenotype nodes.",
+    "total_pleiotropic_tests": 15,
+    "total_outcome_pairs": 35,
+    "source": "FLASH-P v2.0 pleiotropic tests remapped to KB merged nodes",
+    "total_tests": 15
+  },
+  "pleiotropic_tests": [
+    {
+      "test_id": "PLEIO_001",
+      "gene": "DELLA",
+      "perturbation_type": "knockout",
+      "description": "DELLA pentuple mutant (gai rga rgl1 rgl2 rgl3) removes all DELLA growth repressors",
+      "gene_modifiers": {
+        "DELLA": 0.0
+      },
+      "exogenous_supply": {},
+      "expected_outcomes": [
+        {
+          "phenotype_node": "Plant_Height",
+          "expected_direction": "increased"
+        },
+        {
+          "phenotype_node": "Hypocotyl_Length",
+          "expected_direction": "increased"
+        },
+        {
+          "phenotype_node": "Flowering_Time",
+          "expected_direction": "decreased"
+        }
+      ],
+      "evidence": [
+        {
+          "doi": "10.1038/s41477-017-0003-y",
+          "title": "DELLA genes restrict inflorescence meristem function independently of plant height",
+          "authors": "",
+          "year": 2017,
+          "journal": "Nature Plants",
+          "evidence_sentence": "Semi-dwarf DELLA mutants with improved harvest index and decreased lodging greatly improved global food security. DELLA genes restrict inflorescence meristem function independently of plant height.",
+          "claim": "DELLA mutants show pleiotropic effects: tall stature, elongated hypocotyls, early flowering"
+        }
+      ],
+      "source_network": ""
+    },
+    {
+      "test_id": "PLEIO_002",
+      "gene": "PHYB",
+      "perturbation_type": "knockout",
+      "description": "phyB mutant shows constitutive shade avoidance phenotype",
+      "gene_modifiers": {
+        "PHYB": 0.0
+      },
+      "exogenous_supply": {},
+      "expected_outcomes": [
+        {
+          "phenotype_node": "Hypocotyl_Length",
+          "expected_direction": "increased"
+        },
+        {
+          "phenotype_node": "Flowering_Time",
+          "expected_direction": "decreased"
+        },
+        {
+          "phenotype_node": "Shoot_Branching",
+          "expected_direction": "decreased"
+        }
+      ],
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2022.952214",
+          "title": "Functional analysis of PHYB polymorphisms in Arabidopsis thaliana collected in Patagonia",
+          "authors": "",
+          "year": 2022,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "Flowering was accelerated in phyB mutants. Like phyB mutants, elf3 mutants have elongated hypocotyls and petioles, flower early. Several phytochrome mutants had many fewer branches consistent with constitutive shade avoidance phenotype.",
+          "claim": "phyB mutants have elongated hypocotyls, flower early, and show reduced branching"
+        }
+      ],
+      "source_network": ""
+    },
+    {
+      "test_id": "PLEIO_003",
+      "gene": "BRI1",
+      "perturbation_type": "knockout",
+      "description": "bri1 brassinosteroid-insensitive mutant has multiple growth defects",
+      "gene_modifiers": {
+        "BRI1": 0.0
+      },
+      "exogenous_supply": {},
+      "expected_outcomes": [
+        {
+          "phenotype_node": "Plant_Height",
+          "expected_direction": "decreased"
+        },
+        {
+          "phenotype_node": "Hypocotyl_Length",
+          "expected_direction": "decreased"
+        },
+        {
+          "phenotype_node": "Seed_Size",
+          "expected_direction": "decreased"
+        }
+      ],
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.4.671",
+          "title": "A brassinosteroid-insensitive mutant in Arabidopsis thaliana exhibits multiple defects in growth and development",
+          "authors": "",
+          "year": 1996,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "The bri1 mutant exhibited a severely dwarfed stature, dark green thickened leaves, male sterility, reduced apical dominance, and de-etiolation of dark-grown seedlings.",
+          "claim": "bri1 mutant shows severely dwarfed stature, reduced apical dominance, and smaller seeds"
+        },
+        {
+          "doi": "10.1104/pp.113.217703",
+          "title": "Brassinosteroid Regulates Seed Size and Shape in Arabidopsis",
+          "authors": "",
+          "year": 2013,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "The bri1-116 seeds were 18% lighter than those of the wild type.",
+          "claim": "bri1-116 seeds were 18% lighter than wild type"
+        }
+      ],
+      "source_network": ""
+    },
+    {
+      "test_id": "PLEIO_004",
+      "gene": "DET2",
+      "perturbation_type": "knockout",
+      "description": "det2 brassinosteroid biosynthesis mutant",
+      "gene_modifiers": {
+        "DET2": 0.0
+      },
+      "exogenous_supply": {},
+      "expected_outcomes": [
+        {
+          "phenotype_node": "Plant_Height",
+          "expected_direction": "decreased"
+        },
+        {
+          "phenotype_node": "Hypocotyl_Length",
+          "expected_direction": "decreased"
+        },
+        {
+          "phenotype_node": "Seed_Size",
+          "expected_direction": "decreased"
+        }
+      ],
+      "evidence": [
+        {
+          "doi": "10.1104/pp.113.217703",
+          "title": "Brassinosteroid Regulates Seed Size and Shape in Arabidopsis",
+          "authors": "",
+          "year": 2013,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "BR-deficient mutants display a dwarf phenotype. The det2 seeds were 17% lighter than the wild type. The embryos from mature det2 seeds were significantly smaller than those of the wild type.",
+          "claim": "det2 mutant is dwarf with short hypocotyls and smaller seeds"
+        }
+      ],
+      "source_network": ""
+    },
+    {
+      "test_id": "PLEIO_005",
+      "gene": "SPY",
+      "perturbation_type": "knockout",
+      "description": "spy mutant mimics constitutive GA signaling",
+      "gene_modifiers": {
+        "SPY": 0.0
+      },
+      "exogenous_supply": {},
+      "expected_outcomes": [
+        {
+          "phenotype_node": "Flowering_Time",
+          "expected_direction": "decreased"
+        },
+        {
+          "phenotype_node": "Hypocotyl_Length",
+          "expected_direction": "increased"
+        },
+        {
+          "phenotype_node": "Plant_Height",
+          "expected_direction": "increased"
+        }
+      ],
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.5.8.887",
+          "title": "Mutations at the SPINDLY locus of Arabidopsis alter gibberellin signal transduction",
+          "authors": "",
+          "year": 1993,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "Relative to wild type, spy mutants exhibit longer hypocotyls, increased stem elongation, early flowering, parthenocarpy, and partial male sterility. All of these phenotypes are also observed when wild-type plants are repeatedly treated with GA3.",
+          "claim": "spy mutants show early flowering, longer hypocotyls, and increased stem elongation"
+        }
+      ],
+      "source_network": ""
+    },
+    {
+      "test_id": "PLEIO_006",
+      "gene": "Gibberellin",
+      "perturbation_type": "knockout",
+      "description": "ga1 gibberellin biosynthesis mutant is GA-deficient",
+      "gene_modifiers": {
+        "Gibberellin": 0.0
+      },
+      "exogenous_supply": {},
+      "expected_outcomes": [
+        {
+          "phenotype_node": "Plant_Height",
+          "expected_direction": "decreased"
+        },
+        {
+          "phenotype_node": "Hypocotyl_Length",
+          "expected_direction": "decreased"
+        }
+      ],
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/50.337.1351",
+          "title": "Gibberellins control Arabidopsis hypocotyl growth via regulation of cellular elongation",
+          "authors": "",
+          "year": 1999,
+          "journal": "Journal of Experimental Botany",
+          "evidence_sentence": "Severely GA-deficient mutants such as ga1 are extreme dwarfs with much reduced hypocotyl and root lengths and small rosette leaves.",
+          "claim": "ga1 mutant is an extreme dwarf with reduced hypocotyl length"
+        }
+      ],
+      "source_network": ""
+    },
+    {
+      "test_id": "PLEIO_007",
+      "gene": "PIF4",
+      "perturbation_type": "knockout",
+      "description": "pif4 mutant shows reduced thermomorphogenesis",
+      "gene_modifiers": {
+        "PIF4": 0.0
+      },
+      "exogenous_supply": {},
+      "expected_outcomes": [
+        {
+          "phenotype_node": "Hypocotyl_Length",
+          "expected_direction": "decreased"
+        },
+        {
+          "phenotype_node": "Flowering_Time",
+          "expected_direction": "increased"
+        }
+      ],
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2021.102111",
+          "title": "PIF4: Integrator of light and temperature cues in plant growth",
+          "authors": "",
+          "year": 2021,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "PIF4 was identified as a central role in promoting plant hypocotyl growth via the activation of auxin synthesis genes. PIF4 regulates hypocotyl elongation, flowering, and various light and temperature responses.",
+          "claim": "pif4 mutants display short hypocotyls and delayed flowering under warm temperature"
+        }
+      ],
+      "source_network": ""
+    },
+    {
+      "test_id": "PLEIO_008",
+      "gene": "HY5",
+      "perturbation_type": "knockout",
+      "description": "hy5 mutant shows elongated hypocotyl and increased lateral root initiation",
+      "gene_modifiers": {
+        "HY5": 0.0
+      },
+      "exogenous_supply": {},
+      "expected_outcomes": [
+        {
+          "phenotype_node": "Hypocotyl_Length",
+          "expected_direction": "increased"
+        },
+        {
+          "phenotype_node": "Lateral_Root_Density",
+          "expected_direction": "increased"
+        }
+      ],
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koac358",
+          "title": "HY5 inhibits lateral root initiation in Arabidopsis through negative regulation of the microtubule-stabilizing protein TPXL5",
+          "authors": "",
+          "year": 2023,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "HY5 inhibits lateral root initiation in Arabidopsis through negative regulation of TPXL5. The hy5 mutant exhibits higher lateral root density.",
+          "claim": "hy5 has elongated hypocotyl and increased lateral root density"
+        }
+      ],
+      "source_network": ""
+    },
+    {
+      "test_id": "PLEIO_009",
+      "gene": "MAX2",
+      "perturbation_type": "knockout",
+      "description": "max2 strigolactone signaling mutant shows increased branching and altered root architecture",
+      "gene_modifiers": {
+        "MAX2": 0.0
+      },
+      "exogenous_supply": {},
+      "expected_outcomes": [
+        {
+          "phenotype_node": "Shoot_Branching",
+          "expected_direction": "increased"
+        },
+        {
+          "phenotype_node": "Lateral_Root_Density",
+          "expected_direction": "increased"
+        }
+      ],
+      "evidence": [
+        {
+          "doi": "10.1007/s00425-010-1310-y",
+          "title": "Strigolactones affect lateral root formation and root-hair elongation in Arabidopsis",
+          "authors": "",
+          "year": 2011,
+          "journal": "Planta",
+          "evidence_sentence": "The max2 mutant exhibits increased branching. Strigolactones affect lateral root formation and root-hair elongation in Arabidopsis.",
+          "claim": "max2 mutant shows increased shoot branching and altered lateral root development"
+        }
+      ],
+      "source_network": ""
+    },
+    {
+      "test_id": "PLEIO_010",
+      "gene": "AHK2,AHK3",
+      "perturbation_type": "double_knockout",
+      "description": "ahk2 ahk3 cytokinin receptor double mutant",
+      "gene_modifiers": {
+        "AHK": 0.0
+      },
+      "exogenous_supply": {},
+      "expected_outcomes": [
+        {
+          "phenotype_node": "Plant_Height",
+          "expected_direction": "decreased"
+        },
+        {
+          "phenotype_node": "Lateral_Root_Density",
+          "expected_direction": "increased"
+        }
+      ],
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.105.035691",
+          "title": "Arabidopsis Cytokinin Receptor Mutants Reveal Functions in Shoot Growth, Leaf Senescence, Seed Size, Germination, Root Development, and Cytokinin Metabolism",
+          "authors": "",
+          "year": 2006,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "The ahk2 ahk3 double mutants exhibited a semidwarf phenotype with final height about two-thirds of wild type. More than twice the number of side roots compared with wild type.",
+          "claim": "ahk2 ahk3 double mutant shows reduced height and increased lateral root number"
+        }
+      ],
+      "source_network": ""
+    },
+    {
+      "test_id": "PLEIO_011",
+      "gene": "DWF4",
+      "perturbation_type": "knockout",
+      "description": "dwf4 brassinosteroid biosynthesis mutant",
+      "gene_modifiers": {
+        "DWF4": 0.0
+      },
+      "exogenous_supply": {},
+      "expected_outcomes": [
+        {
+          "phenotype_node": "Plant_Height",
+          "expected_direction": "decreased"
+        },
+        {
+          "phenotype_node": "Seed_Size",
+          "expected_direction": "decreased"
+        }
+      ],
+      "evidence": [
+        {
+          "doi": "10.1104/pp.113.217703",
+          "title": "Brassinosteroid Regulates Seed Size and Shape in Arabidopsis",
+          "authors": "",
+          "year": 2013,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "dwf4 seeds were 17% lighter than those of the wild type. BR biosynthetic mutants display a dwarf phenotype.",
+          "claim": "dwf4 mutant shows dwarfism and reduced seed weight"
+        }
+      ],
+      "source_network": ""
+    },
+    {
+      "test_id": "PLEIO_012",
+      "gene": "EIN2",
+      "perturbation_type": "knockout",
+      "description": "ein2 ethylene insensitive mutant affects root development and flowering",
+      "gene_modifiers": {
+        "EIN2": 0.0
+      },
+      "exogenous_supply": {},
+      "expected_outcomes": [
+        {
+          "phenotype_node": "Lateral_Root_Density",
+          "expected_direction": "increased"
+        },
+        {
+          "phenotype_node": "Flowering_Time",
+          "expected_direction": "increased"
+        }
+      ],
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/erm338",
+          "title": "Ethylene regulates lateral root formation and auxin transport in Arabidopsis thaliana",
+          "authors": "",
+          "year": 2008,
+          "journal": "Journal of Experimental Botany",
+          "evidence_sentence": "Mutations that block ethylene responses, like ein2-5, enhance root formation. ein2-5 suppresses the phenotypes of early flowering.",
+          "claim": "ein2 mutants show enhanced root formation and delayed flowering"
+        }
+      ],
+      "source_network": ""
+    },
+    {
+      "test_id": "PLEIO_013",
+      "gene": "TAA1,TAR2",
+      "perturbation_type": "double_knockout",
+      "description": "taa1 tar2 auxin biosynthesis double mutant",
+      "gene_modifiers": {
+        "TAA1": 0.0,
+        "ATTAR2": 0.0
+      },
+      "exogenous_supply": {},
+      "expected_outcomes": [
+        {
+          "phenotype_node": "Plant_Height",
+          "expected_direction": "decreased"
+        },
+        {
+          "phenotype_node": "Lateral_Root_Density",
+          "expected_direction": "decreased"
+        }
+      ],
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1108434108",
+          "title": "The main auxin biosynthesis pathway in Arabidopsis",
+          "authors": "",
+          "year": 2011,
+          "journal": "PNAS",
+          "evidence_sentence": "The taa1 tar2 double mutants display pleiotropic phenotypes in both roots and shoots. The Arabidopsis double mutant of TAA1 and TAR2 produces dwarf, bushy plants with agravitropic roots, reduced vasculature, and sterile flowers.",
+          "claim": "taa1 tar2 double mutants produce dwarf bushy plants with reduced root development"
+        }
+      ],
+      "source_network": ""
+    },
+    {
+      "test_id": "PLEIO_014",
+      "gene": "BZR1",
+      "perturbation_type": "overexpression",
+      "description": "BZR1 overexpression enhances BR signaling",
+      "gene_modifiers": {
+        "BZR1": 2.0
+      },
+      "exogenous_supply": {},
+      "expected_outcomes": [
+        {
+          "phenotype_node": "Plant_Height",
+          "expected_direction": "increased"
+        },
+        {
+          "phenotype_node": "Hypocotyl_Length",
+          "expected_direction": "increased"
+        }
+      ],
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.152342599",
+          "title": "The GSK3-like kinase BIN2 phosphorylates and destabilizes BZR1, a positive regulator of the brassinosteroid signaling pathway in Arabidopsis",
+          "authors": "",
+          "year": 2002,
+          "journal": "PNAS",
+          "evidence_sentence": "BZR1 is a positive regulator of the brassinosteroid signaling pathway. BZR1 directly targets growth-promoting genes including those controlling hypocotyl elongation and stem growth.",
+          "claim": "BZR1 overexpression promotes cell elongation in hypocotyls and stems"
+        }
+      ],
+      "source_network": ""
+    },
+    {
+      "test_id": "PLEIO_015",
+      "gene": "BIN2",
+      "perturbation_type": "overexpression",
+      "description": "BIN2 gain-of-function mimics BR deficiency",
+      "gene_modifiers": {
+        "BIN2": 2.0
+      },
+      "exogenous_supply": {},
+      "expected_outcomes": [
+        {
+          "phenotype_node": "Plant_Height",
+          "expected_direction": "decreased"
+        },
+        {
+          "phenotype_node": "Hypocotyl_Length",
+          "expected_direction": "decreased"
+        }
+      ],
+      "evidence": [
+        {
+          "doi": "10.1104/pp.109.138099",
+          "title": "BIN2 Functions Redundantly with Other Arabidopsis GSK3-Like Kinases to Regulate Brassinosteroid Signaling",
+          "authors": "",
+          "year": 2009,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "BIN2 gain-of-function mutants are BR-insensitive dwarfs with dark-green downward-curled leaves. Growth of bin2-1 mutants rescued their short hypocotyl phenotype.",
+          "claim": "BIN2 gain-of-function mutants are BR-insensitive dwarfs with short hypocotyls"
+        }
+      ],
+      "source_network": ""
+    }
+  ]
+}

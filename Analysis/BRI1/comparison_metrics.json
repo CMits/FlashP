@@ -1,0 +1,501 @@
+{
+  "generated": "2026-04-20",
+  "flashp_merged": {
+    "structure": {
+      "nodes": 237,
+      "edges": 497,
+      "source_nodes": 76,
+      "source_pct": 32.1,
+      "direct_to_phenotype_edges": 54,
+      "direct_to_phenotype_pct": 10.9
+    },
+    "della_reachability": {
+      "reachable": [
+        "Flowering_Time",
+        "Hypocotyl_Length",
+        "Lateral_Root_Density",
+        "Plant_Height",
+        "Seed_Size",
+        "Shoot_Branching"
+      ],
+      "hops": {
+        "Seed_Size": 3,
+        "Lateral_Root_Density": 1,
+        "Hypocotyl_Length": 1,
+        "Flowering_Time": 2,
+        "Shoot_Branching": 3,
+        "Plant_Height": 1
+      },
+      "reachable_count": 6
+    },
+    "accuracy": {
+      "single_trait": {
+        "algebraic": {
+          "accuracy": 69.6,
+          "correct": 423,
+          "total": 608,
+          "kappa": 0.4432
+        },
+        "ode": {
+          "accuracy": 81.4,
+          "correct": 495,
+          "total": 608,
+          "kappa": 0.6713
+        },
+        "rwr": {
+          "accuracy": 88.5,
+          "correct": 538,
+          "total": 608,
+          "kappa": 0.7882
+        }
+      },
+      "pleiotropic": {
+        "algebraic": {
+          "accuracy": 57.1,
+          "correct": 20,
+          "total": 35,
+          "kappa": 0.2164
+        },
+        "ode": {
+          "accuracy": 74.3,
+          "correct": 26,
+          "total": 35,
+          "kappa": 0.5154
+        },
+        "rwr": {
+          "accuracy": 77.1,
+          "correct": 27,
+          "total": 35,
+          "kappa": 0.5659
+        }
+      }
+    }
+  },
+  "kg_merged": {
+    "structure": {
+      "nodes": 3193,
+      "edges": 3698,
+      "source_nodes": 0,
+      "source_pct": 0.0,
+      "direct_to_phenotype_edges": 3419,
+      "direct_to_phenotype_pct": 92.5
+    },
+    "della_reachability": {
+      "reachable": [
+        "Flowering_Time",
+        "Hypocotyl_Length",
+        "Lateral_Root_Density",
+        "Plant_Height",
+        "Shoot_Branching"
+      ],
+      "hops": {
+        "Lateral_Root_Density": 2,
+        "Hypocotyl_Length": 1,
+        "Flowering_Time": 1,
+        "Shoot_Branching": 2,
+        "Plant_Height": 1
+      },
+      "reachable_count": 5
+    },
+    "accuracy": {
+      "single_trait": {
+        "algebraic": {
+          "accuracy": 20.1,
+          "correct": 125,
+          "total": 622,
+          "kappa": 0.0588
+        },
+        "ode": {
+          "accuracy": 42.9,
+          "correct": 267,
+          "total": 622,
+          "kappa": 0.1079
+        },
+        "rwr": {
+          "accuracy": 42.8,
+          "correct": 266,
+          "total": 622,
+          "kappa": 0.1286
+        }
+      },
+      "pleiotropic": {
+        "algebraic": {
+          "accuracy": 20.0,
+          "correct": 7,
+          "total": 35,
+          "kappa": 0.0531
+        },
+        "ode": {
+          "accuracy": 37.1,
+          "correct": 13,
+          "total": 35,
+          "kappa": -0.0476
+        },
+        "rwr": {
+          "accuracy": 48.6,
+          "correct": 17,
+          "total": 35,
+          "kappa": 0.125
+        }
+      }
+    }
+  },
+  "flashp_individual": {
+    "per_phenotype_accuracy": {
+      "Flowering_Time": {
+        "algebraic": {
+          "accuracy": 89.2,
+          "correct": 83,
+          "total": 93,
+          "kappa": 0.783
+        },
+        "ode": {
+          "accuracy": 90.3,
+          "correct": 84,
+          "total": 93,
+          "kappa": 0.8
+        },
+        "rwr": {
+          "accuracy": 90.3,
+          "correct": 84,
+          "total": 93,
+          "kappa": 0.8015
+        }
+      },
+      "Hypocotyl_Length": {
+        "algebraic": {
+          "accuracy": 95.7,
+          "correct": 111,
+          "total": 116,
+          "kappa": 0.9205
+        },
+        "ode": {
+          "accuracy": 93.1,
+          "correct": 108,
+          "total": 116,
+          "kappa": 0.8751
+        },
+        "rwr": {
+          "accuracy": 92.2,
+          "correct": 107,
+          "total": 116,
+          "kappa": 0.8508
+        }
+      },
+      "Lateral_Root_Density": {
+        "algebraic": {
+          "accuracy": 86.6,
+          "correct": 103,
+          "total": 119,
+          "kappa": 0.7575
+        },
+        "ode": {
+          "accuracy": 86.6,
+          "correct": 103,
+          "total": 119,
+          "kappa": 0.7471
+        },
+        "rwr": {
+          "accuracy": 86.6,
+          "correct": 103,
+          "total": 119,
+          "kappa": 0.7457
+        }
+      },
+      "Plant_Height": {
+        "algebraic": {
+          "accuracy": 73.0,
+          "correct": 84,
+          "total": 115,
+          "kappa": 0.558
+        },
+        "ode": {
+          "accuracy": 73.9,
+          "correct": 85,
+          "total": 115,
+          "kappa": 0.578
+        },
+        "rwr": {
+          "accuracy": 86.1,
+          "correct": 99,
+          "total": 115,
+          "kappa": 0.74
+        }
+      },
+      "Seed_Size": {
+        "algebraic": {
+          "accuracy": 66.3,
+          "correct": 69,
+          "total": 104,
+          "kappa": 0.4166
+        },
+        "ode": {
+          "accuracy": 79.8,
+          "correct": 83,
+          "total": 104,
+          "kappa": 0.6365
+        },
+        "rwr": {
+          "accuracy": 83.7,
+          "correct": 87,
+          "total": 104,
+          "kappa": 0.6943
+        }
+      },
+      "Shoot_Branching": {
+        "algebraic": {
+          "accuracy": 69.8,
+          "correct": 44,
+          "total": 63,
+          "kappa": 0.5043
+        },
+        "ode": {
+          "accuracy": 76.2,
+          "correct": 48,
+          "total": 63,
+          "kappa": 0.6151
+        },
+        "rwr": {
+          "accuracy": 69.8,
+          "correct": 44,
+          "total": 63,
+          "kappa": 0.5043
+        }
+      }
+    },
+    "per_phenotype_structure": {
+      "Flowering_Time": {
+        "nodes": 42,
+        "edges": 87,
+        "source_nodes": 18,
+        "source_pct": 42.9,
+        "direct_to_phenotype_edges": 5,
+        "direct_to_phenotype_pct": 5.7
+      },
+      "Hypocotyl_Length": {
+        "nodes": 54,
+        "edges": 103,
+        "source_nodes": 12,
+        "source_pct": 22.2,
+        "direct_to_phenotype_edges": 9,
+        "direct_to_phenotype_pct": 8.7
+      },
+      "Lateral_Root_Density": {
+        "nodes": 55,
+        "edges": 68,
+        "source_nodes": 21,
+        "source_pct": 38.2,
+        "direct_to_phenotype_edges": 14,
+        "direct_to_phenotype_pct": 20.6
+      },
+      "Plant_Height": {
+        "nodes": 78,
+        "edges": 98,
+        "source_nodes": 24,
+        "source_pct": 30.8,
+        "direct_to_phenotype_edges": 11,
+        "direct_to_phenotype_pct": 11.2
+      },
+      "Seed_Size": {
+        "nodes": 80,
+        "edges": 134,
+        "source_nodes": 34,
+        "source_pct": 42.5,
+        "direct_to_phenotype_edges": 7,
+        "direct_to_phenotype_pct": 5.2
+      },
+      "Shoot_Branching": {
+        "nodes": 38,
+        "edges": 75,
+        "source_nodes": 8,
+        "source_pct": 21.1,
+        "direct_to_phenotype_edges": 8,
+        "direct_to_phenotype_pct": 10.7
+      }
+    },
+    "best_method_accuracy_min": 76.2,
+    "best_method_accuracy_max": 95.7,
+    "direct_to_phenotype_pct_min": 5.2,
+    "direct_to_phenotype_pct_max": 20.6,
+    "direct_to_phenotype_pct_mean": 10.3
+  },
+  "kg_individual": {
+    "per_phenotype_accuracy": {
+      "Flowering_Time": {
+        "algebraic": {
+          "accuracy": 13.9,
+          "correct": 16,
+          "total": 115,
+          "kappa": 0.0422
+        },
+        "ode": {
+          "accuracy": 59.1,
+          "correct": 68,
+          "total": 115,
+          "kappa": 0.2549
+        },
+        "rwr": {
+          "accuracy": 61.7,
+          "correct": 71,
+          "total": 115,
+          "kappa": 0.2887
+        }
+      },
+      "Hypocotyl_Length": {
+        "algebraic": {
+          "accuracy": 37.1,
+          "correct": 43,
+          "total": 116,
+          "kappa": 0.1847
+        },
+        "ode": {
+          "accuracy": 60.3,
+          "correct": 70,
+          "total": 116,
+          "kappa": 0.3513
+        },
+        "rwr": {
+          "accuracy": 67.2,
+          "correct": 78,
+          "total": 116,
+          "kappa": 0.4043
+        }
+      },
+      "Lateral_Root_Density": {
+        "algebraic": {
+          "accuracy": 19.7,
+          "correct": 23,
+          "total": 117,
+          "kappa": 0.0286
+        },
+        "ode": {
+          "accuracy": 69.2,
+          "correct": 81,
+          "total": 117,
+          "kappa": 0.4352
+        },
+        "rwr": {
+          "accuracy": 67.5,
+          "correct": 79,
+          "total": 117,
+          "kappa": 0.3851
+        }
+      },
+      "Plant_Height": {
+        "algebraic": {
+          "accuracy": 10.1,
+          "correct": 11,
+          "total": 109,
+          "kappa": -0.0045
+        },
+        "ode": {
+          "accuracy": 40.4,
+          "correct": 44,
+          "total": 109,
+          "kappa": 0.0337
+        },
+        "rwr": {
+          "accuracy": 43.1,
+          "correct": 47,
+          "total": 109,
+          "kappa": -0.0754
+        }
+      },
+      "Seed_Size": {
+        "algebraic": {
+          "accuracy": 8.5,
+          "correct": 8,
+          "total": 94,
+          "kappa": -0.0303
+        },
+        "ode": {
+          "accuracy": 52.1,
+          "correct": 49,
+          "total": 94,
+          "kappa": 0.1612
+        },
+        "rwr": {
+          "accuracy": 50.0,
+          "correct": 47,
+          "total": 94,
+          "kappa": 0.1361
+        }
+      },
+      "Shoot_Branching": {
+        "algebraic": {
+          "accuracy": 70.5,
+          "correct": 43,
+          "total": 61,
+          "kappa": 0.558
+        },
+        "ode": {
+          "accuracy": 73.8,
+          "correct": 45,
+          "total": 61,
+          "kappa": 0.5818
+        },
+        "rwr": {
+          "accuracy": 63.9,
+          "correct": 39,
+          "total": 61,
+          "kappa": 0.416
+        }
+      }
+    },
+    "per_phenotype_structure": {
+      "Flowering_Time": {
+        "nodes": 750,
+        "edges": 749,
+        "source_nodes": 0,
+        "source_pct": 0.0,
+        "direct_to_phenotype_edges": 749,
+        "direct_to_phenotype_pct": 100.0
+      },
+      "Hypocotyl_Length": {
+        "nodes": 917,
+        "edges": 1025,
+        "source_nodes": 0,
+        "source_pct": 0.0,
+        "direct_to_phenotype_edges": 750,
+        "direct_to_phenotype_pct": 73.2
+      },
+      "Lateral_Root_Density": {
+        "nodes": 1170,
+        "edges": 1170,
+        "source_nodes": 0,
+        "source_pct": 0.0,
+        "direct_to_phenotype_edges": 1166,
+        "direct_to_phenotype_pct": 99.7
+      },
+      "Plant_Height": {
+        "nodes": 206,
+        "edges": 205,
+        "source_nodes": 0,
+        "source_pct": 0.0,
+        "direct_to_phenotype_edges": 205,
+        "direct_to_phenotype_pct": 100.0
+      },
+      "Seed_Size": {
+        "nodes": 443,
+        "edges": 442,
+        "source_nodes": 0,
+        "source_pct": 0.0,
+        "direct_to_phenotype_edges": 442,
+        "direct_to_phenotype_pct": 100.0
+      },
+      "Shoot_Branching": {
+        "nodes": 108,
+        "edges": 107,
+        "source_nodes": 0,
+        "source_pct": 0.0,
+        "direct_to_phenotype_edges": 107,
+        "direct_to_phenotype_pct": 100.0
+      }
+    },
+    "best_method_accuracy_min": 43.1,
+    "best_method_accuracy_max": 73.8,
+    "direct_to_phenotype_pct_min": 73.2,
+    "direct_to_phenotype_pct_max": 100.0,
+    "direct_to_phenotype_pct_mean": 95.5
+  }
+}

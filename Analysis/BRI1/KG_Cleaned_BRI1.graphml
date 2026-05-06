@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/graphml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/graphml http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="type" for="node" attr.name="type" attr.type="string" />
+  <key id="label" for="node" attr.name="label" attr.type="string" />
+  <key id="full_name" for="node" attr.name="full_name" attr.type="string" />
+  <key id="sign" for="edge" attr.name="sign" attr.type="string" />
+  <key id="interaction" for="edge" attr.name="interaction" attr.type="string" />
+  <graph id="G" edgedefault="directed">
+    <node id="BRI1">
+      <data key="type">GENE</data>
+      <data key="label">BRI1</data>
+      <data key="full_name">BRI1</data>
+    </node>
+    <node id="Hypocotyl_Length">
+      <data key="type">PHENOTYPE</data>
+      <data key="label">Hypocotyl_Length</data>
+      <data key="full_name">Hypocotyl_Length</data>
+    </node>
+    <node id="Lateral_Root_Density">
+      <data key="type">PHENOTYPE</data>
+      <data key="label">Lateral_Root_Density</data>
+      <data key="full_name">Lateral_Root_Density</data>
+    </node>
+    <node id="Plant_Height">
+      <data key="type">PHENOTYPE</data>
+      <data key="label">Plant_Height</data>
+      <data key="full_name">Plant_Height</data>
+    </node>
+    <node id="Seed_Size">
+      <data key="type">PHENOTYPE</data>
+      <data key="label">Seed_Size</data>
+      <data key="full_name">Seed_Size</data>
+    </node>
+    <edge id="e1" source="BRI1" target="Hypocotyl_Length">
+      <data key="sign">negative</data>
+      <data key="interaction">inhibits</data>
+    </edge>
+    <edge id="e2" source="BRI1" target="Lateral_Root_Density">
+      <data key="sign">positive</data>
+      <data key="interaction">activates</data>
+    </edge>
+    <edge id="e3" source="BRI1" target="Seed_Size">
+      <data key="sign">negative</data>
+      <data key="interaction">inhibits</data>
+    </edge>
+    <edge id="e4" source="BRI1" target="Plant_Height">
+      <data key="sign">positive</data>
+      <data key="interaction">activates</data>
+    </edge>
+  </graph>
+</graphml>

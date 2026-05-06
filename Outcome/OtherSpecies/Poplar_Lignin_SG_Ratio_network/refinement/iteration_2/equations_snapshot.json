@@ -1,0 +1,502 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lignin_SG_Ratio",
+    "species": "Populus trichocarpa",
+    "created": "2026-04-20",
+    "total_equations": 44
+  },
+  "parameters": {
+    "epsilon": 0.1,
+    "K": 10.0,
+    "activator_floor": 0.01,
+    "damping": 0.7,
+    "direction_threshold": 0.05,
+    "max_iterations": 100,
+    "convergence_tolerance": 0.0001
+  },
+  "equations": [
+    {
+      "node": "Tension_Wood",
+      "type": "ENVIRONMENT",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Tension_Wood = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Auxin",
+      "type": "HORMONE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Auxin = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ARF2_1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ARF2_1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CSE1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CSE1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MYB152",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MYB152 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MYB90",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MYB90 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MYB161",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MYB161 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MYB156",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MYB156 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NF_YA11",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NF_YA11 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "WBLH2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "WBLH2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SND1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "Auxin",
+        "ARF2_1",
+        "MYB221"
+      ],
+      "formula": "SND1 = 1.0 * min(1/max(Auxin * ARF2_1 * MYB221, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NAC156",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "SND1"
+      ],
+      "inhibitors": [],
+      "formula": "NAC156 = max(SND1, 0.01)^(1/1) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MYB3",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "SND1"
+      ],
+      "inhibitors": [],
+      "formula": "MYB3 = max(SND1, 0.01)^(1/1) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MYB20",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "SND1"
+      ],
+      "inhibitors": [],
+      "formula": "MYB20 = max(SND1, 0.01)^(1/1) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MYB21",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "SND1"
+      ],
+      "inhibitors": [],
+      "formula": "MYB21 = max(SND1, 0.01)^(1/1) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MYB74",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "NAC156"
+      ],
+      "inhibitors": [],
+      "formula": "MYB74 = max(NAC156, 0.01)^(1/1) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MYB92",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "ARF2_1"
+      ],
+      "formula": "MYB92 = 1.0 * min(1/max(ARF2_1, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MYB221",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "MYB3"
+      ],
+      "inhibitors": [],
+      "formula": "MYB221 = max(MYB3, 0.01)^(1/1) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "KNAT7",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "SND1"
+      ],
+      "inhibitors": [],
+      "formula": "KNAT7 = max(SND1, 0.01)^(1/1) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PAL1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "MYB3",
+        "MYB20",
+        "MYB92",
+        "KNAT7"
+      ],
+      "inhibitors": [
+        "MYB156",
+        "MYB221"
+      ],
+      "formula": "PAL1 = (max(MYB3, 0.01) * max(MYB20, 0.01) * max(MYB92, 0.01) * max(KNAT7, 0.01))^(1/4) * min(1/max(MYB156 * MYB221, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "C4H1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "MYB74",
+        "MYB92"
+      ],
+      "inhibitors": [
+        "MYB156",
+        "MYB221"
+      ],
+      "formula": "C4H1 = (max(MYB74, 0.01) * max(MYB92, 0.01))^(1/2) * min(1/max(MYB156 * MYB221, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PT4CL1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "MYB21",
+        "MYB152"
+      ],
+      "inhibitors": [
+        "MYB156",
+        "MYB221"
+      ],
+      "formula": "PT4CL1 = (max(MYB21, 0.01) * max(MYB152, 0.01))^(1/2) * min(1/max(MYB156 * MYB221, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "HCT1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "MYB92",
+        "MYB152",
+        "WBLH2"
+      ],
+      "inhibitors": [
+        "MYB156",
+        "MYB221"
+      ],
+      "formula": "HCT1 = (max(MYB92, 0.01) * max(MYB152, 0.01) * max(WBLH2, 0.01))^(1/3) * min(1/max(MYB156 * MYB221, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "C3H1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "MYB74",
+        "MYB92",
+        "MYB152"
+      ],
+      "inhibitors": [
+        "MYB156",
+        "MYB221"
+      ],
+      "formula": "C3H1 = (max(MYB74, 0.01) * max(MYB92, 0.01) * max(MYB152, 0.01))^(1/3) * min(1/max(MYB156 * MYB221, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CCOAOMT1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "SND1",
+        "NAC156",
+        "MYB3",
+        "MYB21",
+        "MYB74",
+        "MYB92",
+        "MYB152"
+      ],
+      "inhibitors": [
+        "MYB156",
+        "MYB221"
+      ],
+      "formula": "CCOAOMT1 = (max(SND1, 0.01) * max(NAC156, 0.01) * max(MYB3, 0.01) * max(MYB21, 0.01) * max(MYB74, 0.01) * max(MYB92, 0.01) * max(MYB152, 0.01))^(1/7) * min(1/max(MYB156 * MYB221, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CCR2",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "KNAT7",
+        "MYB74",
+        "MYB92",
+        "MYB152"
+      ],
+      "inhibitors": [
+        "MYB221"
+      ],
+      "formula": "CCR2 = (max(KNAT7, 0.01) * max(MYB74, 0.01) * max(MYB92, 0.01) * max(MYB152, 0.01))^(1/4) * min(1/max(MYB221, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "F5H1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "MYB74",
+        "MYB90",
+        "MYB152",
+        "MYB161",
+        "NF_YA11",
+        "WBLH2"
+      ],
+      "inhibitors": [
+        "MYB156"
+      ],
+      "formula": "F5H1 = (max(MYB74, 0.01) * max(MYB90, 0.01) * max(MYB152, 0.01) * max(MYB161, 0.01) * max(NF_YA11, 0.01) * max(WBLH2, 0.01))^(1/6) * min(1/max(MYB156, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "COMT1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "MYB3",
+        "MYB90",
+        "MYB92"
+      ],
+      "inhibitors": [
+        "MYB221"
+      ],
+      "formula": "COMT1 = (max(MYB3, 0.01) * max(MYB90, 0.01) * max(MYB92, 0.01))^(1/3) * min(1/max(MYB221, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CAD1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "MYB92",
+        "MYB152"
+      ],
+      "inhibitors": [
+        "MYB221"
+      ],
+      "formula": "CAD1 = (max(MYB92, 0.01) * max(MYB152, 0.01))^(1/2) * min(1/max(MYB221, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Cinnamate",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "PAL1"
+      ],
+      "inhibitors": [],
+      "formula": "Cinnamate = max(PAL1, 0.01)^(1/1) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "P_Coumarate",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "C4H1",
+        "Cinnamate"
+      ],
+      "inhibitors": [],
+      "formula": "P_Coumarate = (max(C4H1, 0.01) * max(Cinnamate, 0.01))^(1/2) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "P_Coumaroyl_CoA",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "PT4CL1",
+        "P_Coumarate"
+      ],
+      "inhibitors": [],
+      "formula": "P_Coumaroyl_CoA = (max(PT4CL1, 0.01) * max(P_Coumarate, 0.01))^(1/2) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "P_Coumaroyl_Shikimate",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "HCT1",
+        "P_Coumaroyl_CoA"
+      ],
+      "inhibitors": [],
+      "formula": "P_Coumaroyl_Shikimate = (max(HCT1, 0.01) * max(P_Coumaroyl_CoA, 0.01))^(1/2) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Caffeoyl_Shikimate",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "C3H1",
+        "P_Coumaroyl_Shikimate"
+      ],
+      "inhibitors": [],
+      "formula": "Caffeoyl_Shikimate = (max(C3H1, 0.01) * max(P_Coumaroyl_Shikimate, 0.01))^(1/2) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Caffeic_Acid",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "CSE1",
+        "Caffeoyl_Shikimate"
+      ],
+      "inhibitors": [],
+      "formula": "Caffeic_Acid = (max(CSE1, 0.01) * max(Caffeoyl_Shikimate, 0.01))^(1/2) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Caffeoyl_CoA",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "Caffeic_Acid"
+      ],
+      "inhibitors": [],
+      "formula": "Caffeoyl_CoA = max(Caffeic_Acid, 0.01) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Feruloyl_CoA",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "CCOAOMT1",
+        "Caffeoyl_CoA"
+      ],
+      "inhibitors": [],
+      "formula": "Feruloyl_CoA = (max(CCOAOMT1, 0.01) * max(Caffeoyl_CoA, 0.01))^(1/2) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Coniferaldehyde",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "CCR2",
+        "Feruloyl_CoA"
+      ],
+      "inhibitors": [],
+      "formula": "Coniferaldehyde = (max(CCR2, 0.01) * max(Feruloyl_CoA, 0.01))^(1/2) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Hydroxyconiferaldehyde",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "F5H1",
+        "Coniferaldehyde"
+      ],
+      "inhibitors": [],
+      "formula": "Hydroxyconiferaldehyde = (max(F5H1, 0.01) * max(Coniferaldehyde, 0.01))^(1/2) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Sinapaldehyde",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "COMT1",
+        "Hydroxyconiferaldehyde"
+      ],
+      "inhibitors": [],
+      "formula": "Sinapaldehyde = (max(COMT1, 0.01) * max(Hydroxyconiferaldehyde, 0.01))^(1/2) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Coniferyl_Alcohol",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "CAD1",
+        "Coniferaldehyde"
+      ],
+      "inhibitors": [],
+      "formula": "Coniferyl_Alcohol = (max(CAD1, 0.01) * max(Coniferaldehyde, 0.01))^(1/2) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Sinapyl_Alcohol",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "CAD1",
+        "Sinapaldehyde"
+      ],
+      "inhibitors": [],
+      "formula": "Sinapyl_Alcohol = (max(CAD1, 0.01) * max(Sinapaldehyde, 0.01))^(1/2) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Lignin_SG_Ratio",
+      "type": "PHENOTYPE",
+      "is_source": false,
+      "activators": [
+        "F5H1",
+        "Sinapyl_Alcohol",
+        "MYB152",
+        "Tension_Wood",
+        "CCR2"
+      ],
+      "inhibitors": [
+        "Coniferyl_Alcohol",
+        "C3H1"
+      ],
+      "formula": "Lignin_SG_Ratio = (max(F5H1, 0.01) * max(Sinapyl_Alcohol, 0.01) * max(MYB152, 0.01) * max(Tension_Wood, 0.01) * max(CCR2, 0.01))^(1/5) * min(1/max(max(Coniferyl_Alcohol, 0.01) * max(C3H1, 0.01), 0.1), 10.0) * gene_modifier + exogenous_supply"
+    }
+  ]
+}

@@ -1,0 +1,2071 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "kernel_row_number",
+    "phenotype_node": "Kernel_Row_Number",
+    "species": "Zea mays",
+    "created": "2026-04-20",
+    "iteration": 2,
+    "curated_edges_source": "146-edge repository (Step 1 + Step 1.5 merged)",
+    "total_nodes": 50,
+    "total_edges": 80,
+    "source_nodes": 13,
+    "source_percentage": 26.0,
+    "build_summary": "Iteration 2 applies Judge iteration 1 verdict (iterate). Changes: (S001) IDS1->FEA4 activator added [E129]; (S002) FEA4->BA1 cross-module activation added [E016]; (S003) RA1->Axillary_Meristem(-) determinacy crosstalk added [E134]; (S004) UB2 restructured as multi-output SBP scaffold with direct edges to KN1/BIF2/ZMTCP30 [E066/E068/E070]; (S005) Cytokinin->ZmCKX homeostatic negative-feedback added [E119], ZMCKX now non-source; (S006) FEA4->RA3 direct transcriptional activation added [E017], RA3 now non-source; (S007) removed FEA2->IM_Size (N007) to resolve 9-input hub overload - FEA2 signal still reaches IM_Size via CT2 and ZmCRN complex partners. IM_Size now at 8 inputs. Coverage ratios improved: FEA4 0.25->0.58, IDS1 0.38->0.50, UB2 0.38->0.75."
+  },
+  "nodes": [
+    {
+      "id": "ZMCLE7",
+      "type": "GENE",
+      "full_name": "ZmCLE7 (maize CLV3 ortholog peptide)",
+      "description": "CLE peptide ligand signaling through FEA2 and TD1 receptors to restrict inflorescence meristem size. Aliased in literature as ZmCLE7. Canonical CLV3-like ligand.",
+      "is_source": true
+    },
+    {
+      "id": "ZMFCP1",
+      "type": "GENE",
+      "full_name": "ZmFCP1 (maize CLE14-like peptide)",
+      "description": "CLE14-like peptide ligand activating FEA2 and FEA3 receptors to repress ZmWUS1 in the rib zone. Parallel arm to ZmCLE7. Literature-gap: no curated maize upstream transcriptional regulator (per literature_judge G005); treated as biological source node.",
+      "is_source": true
+    },
+    {
+      "id": "ZMEPFL",
+      "type": "GENE",
+      "full_name": "ZmEPFL peptide family (EPIDERMAL PATTERNING FACTOR-LIKE)",
+      "description": "Five redundant ZmEPFL peptide ligands bind the ZmER receptor kinase family to restrict IM size. Composite node (ZmEPFL1-5) reflecting redundancy reported by Liu 2026.",
+      "is_source": true
+    },
+    {
+      "id": "ABPH2",
+      "type": "GENE",
+      "full_name": "ABERRANT PHYLLOTAXY 2 (MSCA1 glutaredoxin)",
+      "description": "CC-type glutaredoxin (aka MSCA1) that post-translationally inhibits FEA4 activity; Abphyl2 dominant GOF enlarges meristem by blocking FEA4-mediated IM restriction.",
+      "is_source": true
+    },
+    {
+      "id": "ZMCKX",
+      "type": "GENE",
+      "full_name": "ZmCKX (cytokinin oxidase/dehydrogenase family)",
+      "description": "CK-degrading oxidase/dehydrogenase family activated transcriptionally by CK signalling (homeostatic negative feedback). Provides the degradation arm of CK homeostasis alongside ZMIPT synthesis. Family composite reflecting ZmCKX1/3/5 redundancy.",
+      "is_source": false
+    },
+    {
+      "id": "ARF6",
+      "type": "GENE",
+      "full_name": "AUXIN RESPONSE FACTOR 6 (maize ortholog)",
+      "description": "Activating ARF that binds AuxRE motifs in BA1 regulatory region; ARF-driven BA1 transcription is gated by BIF1/BIF4 Aux/IAA repression until auxin-TIR1 degrades them. Modelled as source because no curated upstream transcriptional regulator resolved in current extraction.",
+      "is_source": true
+    },
+    {
+      "id": "RA2",
+      "type": "GENE",
+      "full_name": "RAMOSA2 (LOB-domain TF)",
+      "description": "LOB-domain TF acting upstream of RA1 in the ramosa branching-suppression pathway; ra2 ears show enhanced branching.",
+      "is_source": true
+    },
+    {
+      "id": "RA3",
+      "type": "GENE",
+      "full_name": "RAMOSA3 (trehalose-6-phosphate phosphatase)",
+      "description": "TPP trehalose-6-phosphate phosphatase dephosphorylating T6P; direct transcriptional target of FEA4 bZIP. Provides metabolic-signalling gate of the ramosa pathway feeding RA1 and T6P nodes.",
+      "is_source": false
+    },
+    {
+      "id": "REL2",
+      "type": "GENE",
+      "full_name": "RAMOSA1 ENHANCER LOCUS2 (TOPLESS-family co-repressor)",
+      "description": "TOPLESS-family co-repressor recruited by RA1 and other EAR-motif TFs to repress target genes; rel2 ears have increased KRN with ~16% enlarged IM.",
+      "is_source": true
+    },
+    {
+      "id": "miR172",
+      "type": "REGULATORY_RNA",
+      "full_name": "microRNA172 (ts4)",
+      "description": "tasselseed4 encodes miR172 which represses the AP2-like SPM regulators IDS1 and SID1 by mRNA cleavage.",
+      "is_source": true
+    },
+    {
+      "id": "miR156",
+      "type": "REGULATORY_RNA",
+      "full_name": "microRNA156",
+      "description": "Age-regulated miRNA targeting SBP-box mRNAs (UB2, UB3, TSH4). Literature-gap: no curated maize TF regulator (per literature_judge G015); source node.",
+      "is_source": true
+    },
+    {
+      "id": "KRN2",
+      "type": "GENE",
+      "full_name": "KERNEL ROW NUMBER 2 (WD40 protein)",
+      "description": "WD40 repeat protein that interacts with DUF1644 to negatively regulate grain number; cloned KRN QTL under convergent selection in maize and rice.",
+      "is_source": true
+    },
+    {
+      "id": "KRN5B",
+      "type": "GENE",
+      "full_name": "KRN5b (5-phosphatase PI-signaling component)",
+      "description": "5-phosphatase regulating phosphoinositol signaling; higher-expression allele increases ear weight 10-12% via increased KRN. Literature alias: KRN5b (lowercase b).",
+      "is_source": true
+    },
+    {
+      "id": "KNR6",
+      "type": "GENE",
+      "full_name": "KERNEL NUMBER PER ROW 6 (Ser/Thr protein kinase)",
+      "description": "Serine/threonine kinase phosphorylating AGAP; KNR6 OE increases kernels-per-row and KRN. Literature-gap: no curated upstream transcriptional regulator (per literature_judge G015); source node.",
+      "is_source": true
+    },
+    {
+      "id": "FarRed_Light",
+      "type": "ENVIRONMENT",
+      "full_name": "Far-red enriched light (shade signal)",
+      "description": "Low R:FR shade signal; End-of-day FR and WL+FR activate UB2 to accelerate SAM-to-IM transition.",
+      "is_source": true
+    },
+    {
+      "id": "FEA2",
+      "type": "GENE",
+      "full_name": "FASCIATED EAR2 (LRR receptor-like protein)",
+      "description": "LRR-RLP receptor for both ZmCLE7 and ZmFCP1 peptides; partners with CT2 (Galpha) and ZmCRN pseudokinase; fea2 enlarges meristem and increases KRN.",
+      "is_source": false
+    },
+    {
+      "id": "FEA3",
+      "type": "GENE",
+      "full_name": "FASCIATED EAR3 (LRR receptor-like protein)",
+      "description": "LRR-RLP receptor dedicated to ZmFCP1 peptide; restricts ZmWUS1 expression in the rib zone. Second arm of CLE-CLV Perception Gate.",
+      "is_source": false
+    },
+    {
+      "id": "TD1",
+      "type": "GENE",
+      "full_name": "THICK TASSEL DWARF1 (CLV1-like LRR-RLK)",
+      "description": "LRR-receptor kinase, maize CLV1 ortholog, perceives CLV3-like CLE peptides including ZmCLE7; td1 ears are fasciated with extra rows.",
+      "is_source": false
+    },
+    {
+      "id": "CT2",
+      "type": "GENE",
+      "full_name": "COMPACT PLANT2 (G-alpha subunit)",
+      "description": "Heterotrimeric G-alpha subunit that couples FEA2 to downstream meristem-restricting signals; ct2 has enlarged SAMs and fasciated ears.",
+      "is_source": false
+    },
+    {
+      "id": "ZMCRN",
+      "type": "GENE",
+      "full_name": "ZmCORYNE (pseudokinase)",
+      "description": "Pseudokinase partnering with FEA2; Zmcrn mutants have larger vegetative shoot meristems. Component of FEA2 receptor complex.",
+      "is_source": false
+    },
+    {
+      "id": "FEA4",
+      "type": "GENE",
+      "full_name": "FASCIATED EAR4 (bZIP transcription factor)",
+      "description": "bZIP TF that promotes peripheral differentiation and limits IM size; fea4 ears have enlarged SAM and increased KRN. Also directly activates RA1 to impose SPM determinacy.",
+      "is_source": false
+    },
+    {
+      "id": "ZMER1",
+      "type": "GENE",
+      "full_name": "ZmERECTA1 (LRR receptor kinase)",
+      "description": "ERECTA-family LRR-RLK activated by ZmEPFL peptides; restricts IM size via ZmWUS1. Zmer1 CRISPR yields enlarged IMs and increased KRN (Liu 2026).",
+      "is_source": false
+    },
+    {
+      "id": "ZMWUS1",
+      "type": "GENE",
+      "full_name": "ZmWUSCHEL1 (homeodomain TF)",
+      "description": "Homeodomain TF, central organizing-center stem-cell maintainer of the IM; spatially integrates repression by FEA3/ZmER1/ABPH1 and activation by Type_B_ARR cytokinin signaling.",
+      "is_source": false
+    },
+    {
+      "id": "KN1",
+      "type": "GENE",
+      "full_name": "KNOTTED1 (class-I KNOX homeodomain TF)",
+      "description": "Class-I KNOX TF maintaining indeterminate meristem identity; directly activates auxin biosynthesis/transport/perception (VT2, SPI1, ZMPIN1A, TIR1) and cytokinin biosynthesis (ZMIPT).",
+      "is_source": false
+    },
+    {
+      "id": "ZMIPT",
+      "type": "GENE",
+      "full_name": "ZmIPT (isopentenyltransferase family)",
+      "description": "Rate-limiting enzyme of cytokinin biosynthesis (composite over IPT/LOG-family CK-activating enzymes); KN1-regulated in the meristem.",
+      "is_source": false
+    },
+    {
+      "id": "Cytokinin",
+      "type": "HORMONE",
+      "full_name": "Cytokinin (trans-zeatin, iPA)",
+      "description": "Composite hormone node representing active CK forms that maintain IM organizing center. Biosynth-degrad balance: ZMIPT synthesizes, ZMCKX degrades, UB3 represses CK biosynthesis/signaling.",
+      "is_source": false
+    },
+    {
+      "id": "TYPE_B_ARR",
+      "type": "GENE",
+      "full_name": "Type-B ARR (maize Type-B response regulator family)",
+      "description": "Composite Type-B ARR TF activated by cytokinin (via AHK-AHP phosphorelay, collapsed here); directly binds AGATAT motifs in ZmWUS1 promoter and induces ABPH1 (feedback type-A ARR).",
+      "is_source": false
+    },
+    {
+      "id": "ABPH1",
+      "type": "GENE",
+      "full_name": "ABERRANT PHYLLOTAXY 1 (Type-A ARR)",
+      "description": "CK-inducible type-A response regulator providing negative feedback; dampens ZmWUS1 and promotes ZMPIN1A expression / auxin transport.",
+      "is_source": false
+    },
+    {
+      "id": "VT2",
+      "type": "GENE",
+      "full_name": "VANISHING TASSEL2 (TAA-like tryptophan aminotransferase)",
+      "description": "TAA1 co-ortholog that converts Trp to IPyA, the precursor of IAA biosynthesis; vt2 tassels lack branches/spikelets and ears have severe kernel reduction.",
+      "is_source": false
+    },
+    {
+      "id": "SPI1",
+      "type": "GENE",
+      "full_name": "SPARSE INFLORESCENCE1 (YUCCA flavin monooxygenase)",
+      "description": "YUCCA-family flavin monooxygenase for local auxin biosynthesis; spi1 ears have fewer kernels and AM-initiation defects.",
+      "is_source": false
+    },
+    {
+      "id": "Auxin",
+      "type": "HORMONE",
+      "full_name": "Auxin (IAA)",
+      "description": "Indole-3-acetic acid, the primary auxin. Perception Gate: ligand for TIR1/AFB receptors. Biosynth from VT2+SPI1.",
+      "is_source": false
+    },
+    {
+      "id": "TIR1",
+      "type": "GENE",
+      "full_name": "TRANSPORT INHIBITOR RESPONSE 1 (F-box auxin coreceptor)",
+      "description": "Composite F-box auxin coreceptor (TIR1/AFB family) forming SCF complex that ubiquitinates Aux/IAA repressors in response to auxin; KN1-regulated.",
+      "is_source": false
+    },
+    {
+      "id": "BIF1",
+      "type": "GENE",
+      "full_name": "BARREN INFLORESCENCE 1 (Aux/IAA repressor; composite with BIF4)",
+      "description": "Aux/IAA transcriptional repressor; composite representative of the BIF1/BIF4 functional pair that directly represses ARF-mediated BA1 transcription. Auxin-induced TIR1 degrades BIF1/BIF4.",
+      "is_source": false
+    },
+    {
+      "id": "BIF2",
+      "type": "GENE",
+      "full_name": "BARREN INFLORESCENCE 2 (PINOID-like Ser/Thr kinase)",
+      "description": "PINOID-family kinase that phosphorylates ZMPIN1A to set polarity and co-localizes with BA1 in the nucleus to promote AM initiation. UB3-regulated.",
+      "is_source": false
+    },
+    {
+      "id": "ZMPIN1A",
+      "type": "GENE",
+      "full_name": "ZmPIN1a (PIN-FORMED auxin efflux carrier)",
+      "description": "Auxin efflux carrier establishing basipetal PAT; polarity set by BIF2 phosphorylation. Paralog ZmPIN1b not included separately (redundant).",
+      "is_source": false
+    },
+    {
+      "id": "BA1",
+      "type": "GENE",
+      "full_name": "BARREN STALK1 (bHLH TF)",
+      "description": "bHLH TF required for axillary meristem initiation; activated by ARF6 and BIF2, repressed by BIF1 Aux/IAA. ba1 mutants lack all axillary meristems.",
+      "is_source": false
+    },
+    {
+      "id": "BA2",
+      "type": "GENE",
+      "full_name": "BARREN STALK2 (bHLH heterodimer partner of BA1)",
+      "description": "bHLH co-ortholog of LAX2 that heterodimerizes with BA1 in the nucleus; required for reproductive axillary meristem development. ba2 mutants fail to produce ears.",
+      "is_source": false
+    },
+    {
+      "id": "RA1",
+      "type": "GENE",
+      "full_name": "RAMOSA1 (C2H2 zinc-finger TF)",
+      "description": "C2H2 zinc-finger TF imposing SPM determinacy and suppressing indeterminate ear branching; integrates RA2, RA3, FEA4, and IDS1 inputs.",
+      "is_source": false
+    },
+    {
+      "id": "T6P",
+      "type": "METABOLITE",
+      "full_name": "Trehalose-6-phosphate",
+      "description": "Sugar-signaling metabolite dephosphorylated by RA3 TPP activity. Elevated T6P (ra3 KO) promotes Ear_Branching by disrupting SPM determinacy.",
+      "is_source": false
+    },
+    {
+      "id": "IDS1",
+      "type": "GENE",
+      "full_name": "INDETERMINATE SPIKELET 1 (AP2-domain TF; KRN1; Ts6 locus)",
+      "description": "AP2-domain TF repressing indeterminate lateral branch meristem fates and promoting SPM-to-spikelet determinacy; Wang 2019 cloned this as the KRN1 major QTL. Aliases: KRN1, Ts6.",
+      "is_source": false
+    },
+    {
+      "id": "SID1",
+      "type": "GENE",
+      "full_name": "SISTER OF INDETERMINATE SPIKELET 1 (AP2-domain TF)",
+      "description": "AP2-domain paralog of IDS1; redundantly controls SPM determinacy; ids1;sid1 doubles are the most severe extra-branching phenotype.",
+      "is_source": false
+    },
+    {
+      "id": "UB2",
+      "type": "GENE",
+      "full_name": "UNBRANCHED2 (SBP-box TF)",
+      "description": "SBP-box TF that directly binds and activates UB3 via the KRN4 distal enhancer (Du 2020); shade-induced via FarRed_Light; miR156 target.",
+      "is_source": false
+    },
+    {
+      "id": "UB3",
+      "type": "GENE",
+      "full_name": "UNBRANCHED3 (SBP-box TF; cloned KRN4 QTL)",
+      "description": "SBP-box TF restricting lateral-primordium initiation rate; cis-regulatory variation at its distal enhancer (known as KRN4) is the cloned KRN4 QTL. Alias: KRN4. Directly activates BIF2 and ZMTCP30; represses cytokinin biosynthesis/signaling via LOG1/Type-A ARR; maintains KN1 in central meristem.",
+      "is_source": false
+    },
+    {
+      "id": "TSH4",
+      "type": "GENE",
+      "full_name": "TASSEL SHEATH 4 (SBP-box TF)",
+      "description": "SBP-box TF redundant with UB2/UB3 in restricting SPM-initiation rate; miR156 target.",
+      "is_source": false
+    },
+    {
+      "id": "ZMTCP30",
+      "type": "GENE",
+      "full_name": "ZmTCP30 (TCP transcription factor)",
+      "description": "TCP-family TF directly activated by UB3 (Kong 2022); Zmtcp30 has decreased tassel branch number, reduced grain number and abnormal ear development.",
+      "is_source": false
+    },
+    {
+      "id": "AGAP",
+      "type": "GENE",
+      "full_name": "ARF-GAP (ARF-GTPase Activating Protein)",
+      "description": "ARF-GAP phosphorylated by KNR6; AGAP CRISPR produces shorter IM and fewer kernels per row.",
+      "is_source": false
+    },
+    {
+      "id": "IM_Size",
+      "type": "PROCESS",
+      "full_name": "Inflorescence meristem size",
+      "description": "Quantitative size of the ear inflorescence meristem. Integrator process aggregating CLV-CLE restriction (FEA2/TD1/CT2/ZMCRN/FEA4), ERECTA-EPFL restriction (via ZmWUS1), organizing-center maintenance (ZmWUS1/KN1), AGAP kinase signaling, and SBP/TOPLESS repression (UB3/REL2). Directly scales with the number of SPM tiers and hence KRN.",
+      "is_source": false
+    },
+    {
+      "id": "Axillary_Meristem",
+      "type": "PROCESS",
+      "full_name": "Axillary meristem initiation",
+      "description": "Process of AM formation at IM flanks driven by BA1/BA2 bHLH heterodimer and local auxin maxima (ZMPIN1A transport); prerequisite to SPM formation.",
+      "is_source": false
+    },
+    {
+      "id": "Ear_Branching",
+      "type": "PROCESS",
+      "full_name": "Ear branching (indeterminate SPM fate)",
+      "description": "Aberrant conversion of SPMs to indeterminate branches. Suppressed by RA1/REL2/IDS1/SID1 SPM-determinacy module; promoted by elevated T6P (ra3 KO). Negatively affects KRN by disrupting ordered row formation.",
+      "is_source": false
+    },
+    {
+      "id": "Kernel_Row_Number",
+      "type": "PHENOTYPE",
+      "full_name": "Kernel row number",
+      "description": "Final trait: number of kernel rows per ear. Proximal output of IM size (determining number of SPMs per tier), axillary-meristem density, ZMTCP30 and KRN5b QTL modifiers, with negative contributions from ear branching, KRN2 WD40 repression, and TSH4 SBP peripheral restriction.",
+      "is_source": false
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "N001",
+      "source": "ZMCLE7",
+      "target": "FEA2",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "CLE peptide ligand binds LRR-RLP receptor FEA2",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides by signaling through two downstream effectors",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "FEA2 transmits signaling from two distinct CLE peptides, the maize CLV3 ortholog ZmCLE7 and ZmFCP1",
+          "claim": "ZmCLE7 peptide signals through FEA2 receptor",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N002",
+      "source": "ZMCLE7",
+      "target": "TD1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "CLV3-like peptide perceived by TD1 (CLV1 ortholog) LRR receptor kinase",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.01671",
+          "title": "thick tassel dwarf1 encodes a putative maize ortholog of the Arabidopsis CLAVATA1 leucine-rich repeat receptor-like kinase",
+          "authors": "Bommert P, Lunde C, Nardmann J, Vollbrecht E, Running M, Jackson D, Hake S, Werr W",
+          "year": 2005,
+          "journal": "Development",
+          "evidence_sentence": "TD1 functions as maize CLV1 ortholog perceiving CLV3-like peptides; td1 fasciated ears phenocopy CLV-pathway loss",
+          "claim": "ZmCLE7 signal requires TD1 receptor kinase",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "N003",
+      "source": "ZMFCP1",
+      "target": "FEA2",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "ZmFCP1 also signals through FEA2 (shared receptor with ZmCLE7)",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides by signaling through two downstream effectors",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "FEA2 also participates in ZmFCP1 signaling, in addition to controlling responses to the maize CLV3 ortholog",
+          "claim": "ZmFCP1 signals through FEA2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N004",
+      "source": "ZMFCP1",
+      "target": "FEA3",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "ZmFCP1 peptide ligand binds FEA3 LRR-RLP receptor in the rib zone (parallel arm)",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides by signaling through two downstream effectors",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "Both fea3 and fea2 mutants are resistant to the ZmFCP1 peptide",
+          "claim": "ZmFCP1 signal requires FEA3",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N005",
+      "source": "FEA2",
+      "target": "CT2",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "FEA2 receptor couples to heterotrimeric G-alpha subunit CT2 in complex",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides by signaling through two downstream effectors",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "FEA2 interacted with CT2 in co-immunoprecipitation (co-IP) experiments",
+          "claim": "FEA2-CT2 complex formation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N006",
+      "source": "FEA2",
+      "target": "ZMCRN",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "FEA2 receptor partners with ZmCRN pseudokinase in the signaling complex",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides by signaling through two downstream effectors",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "ZmCRN-mCherry was able to pull down FEA2-Myc",
+          "claim": "FEA2-ZmCRN complex formation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N008",
+      "source": "TD1",
+      "target": "IM_Size",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "TD1 LRR-RLK relays CLV3-like CLE signal to restrict meristem proliferation",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.01671",
+          "title": "thick tassel dwarf1 encodes a putative maize ortholog of the Arabidopsis CLAVATA1 leucine-rich repeat receptor-like kinase",
+          "authors": "Bommert P, Lunde C, Nardmann J, Vollbrecht E, Running M, Jackson D, Hake S, Werr W",
+          "year": 2005,
+          "journal": "Development",
+          "evidence_sentence": "td1 female inflorescence is fasciated, with extra rows of kernels",
+          "claim": "TD1 restricts meristem size",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "N009",
+      "source": "CT2",
+      "target": "IM_Size",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "G-alpha CT2 relays CLV signal from FEA2 complex to restrict stem-cell proliferation",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides by signaling through two downstream effectors",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "ct2 mutants had larger SAMs (157.1 +/- 11.8 micrometer)",
+          "claim": "CT2 restricts inflorescence meristem size",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N010",
+      "source": "ZMCRN",
+      "target": "IM_Size",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "ZmCRN pseudokinase in FEA2 complex restricts meristem proliferation",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides by signaling through two downstream effectors",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "Zmcrn mutants had larger vegetative shoot meristems (130.0 +/- 4.1 micrometer, compared to 109.2 +/- 4.6 micrometer for normal sibs)",
+          "claim": "ZmCRN restricts meristem size",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N011",
+      "source": "FEA3",
+      "target": "ZMWUS1",
+      "sign": -1,
+      "effect": "repression",
+      "mechanism": "FEA3-ZmFCP1 signaling directly represses ZmWUS1 expression in the rib zone (canonical CLE-WUS repression)",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-021-22699-8",
+          "title": "Structural variation at the maize WUSCHEL1 locus alters stem cell organization in inflorescences",
+          "authors": "Chen Z, Li W, Gaines C, Buck A, Galli M, Gallavotti A",
+          "year": 2021,
+          "journal": "Nature Communications",
+          "evidence_sentence": "A distinct ZmFCP1-FEA3 ligand-receptor combination prevents WUS gene expression in the rib zone",
+          "claim": "FEA3 represses ZmWUS1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N012",
+      "source": "FEA4",
+      "target": "IM_Size",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "bZIP TF FEA4 promotes peripheral differentiation and limits meristem",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.132506",
+          "title": "FASCIATED EAR4 Encodes a bZIP Transcription Factor That Regulates Shoot Meristem Size in Maize",
+          "authors": "Pautler M, Eveland AL, LaRue T, Yang F, Weeks R, Lunde C, Je BI, Meeley R, Komatsu M, Vollbrecht E, Sakai H, Jackson D",
+          "year": 2015,
+          "journal": "Plant Cell",
+          "evidence_sentence": "fea4 mutants were also characterized by a larger than normal SAM diameter",
+          "claim": "FEA4 restricts meristem size",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N013",
+      "source": "ABPH2",
+      "target": "FEA4",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "MSCA1/ABPH2 glutaredoxin post-translationally inhibits FEA4 activity (dominant Abphyl2 allele derepresses meristem)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.130393",
+          "title": "A Maize Glutaredoxin Gene, Abphyl2, Regulates Shoot Meristem Size and Phyllotaxy",
+          "authors": "Yang F, Bui HT, Pautler M, Llaca V, Johnston R, Lee BH, Kolbe A, Sakai H, Jackson D",
+          "year": 2015,
+          "journal": "Plant Cell",
+          "evidence_sentence": "FEA4 activity is negatively regulated by MSCA1 based on opposing meristem phenotypes and epistasis analysis",
+          "claim": "ABPH2 inhibits FEA4 function",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N014",
+      "source": "ZMEPFL",
+      "target": "ZMER1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "Five ZmEPFL peptide ligands bind and activate ZmER1 LRR-RLK (redundant composite ligand)",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-025-67634-3",
+          "title": "ERECTA genes and their ligands regulate shoot and inflorescence architecture in maize",
+          "authors": "Liu X, Wang J, Li J, Kang L, Wang M, Huang Z, Man J, Huang X, Zhang Z, Yang F, Bartlett M, Wu L, Dong Z, Jackson D, Xu F",
+          "year": 2026,
+          "journal": "Nature Communications",
+          "evidence_sentence": "ZmER1 specifically binds to five EPFL peptides, which act redundantly in ear development regulation",
+          "claim": "ZmEPFL peptides bind and activate ZmER1 receptor kinase",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "N015",
+      "source": "ZMER1",
+      "target": "ZMWUS1",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "ZmER-EPFL signaling restricts ZmWUS1 activity; Zmwus1 partially suppresses Zmer1 enlarged-IM phenotype",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-025-67634-3",
+          "title": "ERECTA genes and their ligands regulate shoot and inflorescence architecture in maize",
+          "authors": "Liu X, Wang J, Li J, Kang L, Wang M, Huang Z, Man J, Huang X, Zhang Z, Yang F, Bartlett M, Wu L, Dong Z, Jackson D, Xu F",
+          "year": 2026,
+          "journal": "Nature Communications",
+          "evidence_sentence": "ZmWUS1 mediates the pathway's effects; mutation in Zmwus1 partially suppresses the enlarged IM of Zmer1 mutants",
+          "claim": "ZmER signaling acts through ZmWUS1 to restrict meristem proliferation",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "N016",
+      "source": "Cytokinin",
+      "target": "TYPE_B_ARR",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "Cytokinin signaling activates Type-B ARRs (AHK-AHP phosphorelay collapsed into this single gate)",
+      "evidence": [
+        {
+          "doi": "10.1093/plphys/kiad652",
+          "title": "Genetic dissection of cis-regulatory control of ZmWUSCHEL1 expression by type B RESPONSE REGULATORS",
+          "authors": "Chen Z, Cortes L, Gallavotti A",
+          "year": 2023,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Cytokinin signaling activates type-B ARRs, which then regulate ZmWUS1",
+          "claim": "CK activates type-B ARRs",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N017",
+      "source": "TYPE_B_ARR",
+      "target": "ZMWUS1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "Type-B ARRs directly bind AGATAT motifs in the ZmWUS1 proximal promoter and activate transcription",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-021-22699-8",
+          "title": "Structural variation at the maize WUSCHEL1 locus alters stem cell organization in inflorescences",
+          "authors": "Chen Z, Li W, Gaines C, Buck A, Galli M, Gallavotti A",
+          "year": 2021,
+          "journal": "Nature Communications",
+          "evidence_sentence": "type-B ARRs directly bind to the WUS proximal promoter region and activate its expression",
+          "claim": "Type-B ARRs activate ZmWUS1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N018",
+      "source": "TYPE_B_ARR",
+      "target": "ABPH1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "Type-B ARRs induce CK-responsive type-A response regulator ABPH1 (self-limiting feedback)",
+      "evidence": [
+        {
+          "doi": "10.1038/nature02778",
+          "title": "Control of phyllotaxy by the cytokinin-inducible response regulator homologue ABPHYL1",
+          "authors": "Giulini A, Wang J, Jackson D",
+          "year": 2004,
+          "journal": "Nature",
+          "evidence_sentence": "ABPH1 transcription is CK-inducible, downstream of type-B ARRs",
+          "claim": "Type-B ARR activates ABPH1",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "N019",
+      "source": "ABPH1",
+      "target": "ZMWUS1",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "Type-A ARR ABPH1 provides negative feedback by damping CK -> ZmWUS1 activation (closes the canonical CK/WUS loop)",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-021-22699-8",
+          "title": "Structural variation at the maize WUSCHEL1 locus alters stem cell organization in inflorescences",
+          "authors": "Chen Z, Li W, Gaines C, Buck A, Galli M, Gallavotti A",
+          "year": 2021,
+          "journal": "Nature Communications",
+          "evidence_sentence": "Type-A ARR feedback negatively modulates CK->WUS activation",
+          "claim": "ABPH1 dampens ZmWUS1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N020",
+      "source": "ZMWUS1",
+      "target": "IM_Size",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "ZmWUS1 homeoprotein is transported via plasmodesmata to the apical domain to maintain the stem-cell pool",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-021-22699-8",
+          "title": "Structural variation at the maize WUSCHEL1 locus alters stem cell organization in inflorescences",
+          "authors": "Chen Z, Li W, Gaines C, Buck A, Galli M, Gallavotti A",
+          "year": 2021,
+          "journal": "Nature Communications",
+          "evidence_sentence": "WUS is transported via plasmodesmata into the apical domain to promote proliferation of stem cells",
+          "claim": "ZmWUS1 promotes meristem",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N021",
+      "source": "ZMIPT",
+      "target": "Cytokinin",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "ZmIPT catalyzes rate-limiting CK biosynthesis (composite with LOG-family CK-activating enzymes)",
+      "evidence": [
+        {
+          "doi": "10.1007/s00497-024-00510-0",
+          "title": "Hormonal influence on maize inflorescence development and reproduction",
+          "authors": "Chaudhry A, Chen Z, Gallavotti A",
+          "year": 2024,
+          "journal": "Plant Reproduction",
+          "evidence_sentence": "IPT is the rate-limiting enzyme for cytokinin biosynthesis",
+          "claim": "ZmIPT synthesizes CK",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N022",
+      "source": "ZMCKX",
+      "target": "Cytokinin",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "ZmCKX cytokinin oxidase irreversibly degrades cytokinins (degradation arm of CK homeostasis)",
+      "evidence": [
+        {
+          "doi": "10.1007/s00497-024-00510-0",
+          "title": "Hormonal influence on maize inflorescence development and reproduction",
+          "authors": "Chaudhry A, Chen Z, Gallavotti A",
+          "year": 2024,
+          "journal": "Plant Reproduction",
+          "evidence_sentence": "Cytokinin oxidases catalyse irreversible degradation of cytokinins",
+          "claim": "ZmCKX degrades CK",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N023",
+      "source": "UB3",
+      "target": "Cytokinin",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "UB3 directly binds LOG1 and Type-A ARR promoters, repressing CK biosynthesis and signaling (net CK down when UB3 up)",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.14391",
+          "title": "UNBRANCHED3 regulates branching by modulating cytokinin biosynthesis and signaling in maize and rice",
+          "authors": "Du Y, Liu L, Li M, Fang S, Shen X, Chu J, Zhang Z",
+          "year": 2017,
+          "journal": "New Phytologist",
+          "evidence_sentence": "UB3 could bind and regulate the promoters of LONELY GUY1 (LOG1) and Type-A response regulators (ARRs), which participate in cytokinin biosynthesis and signaling; in maize mutants lacking functional UB3 cytokinin biosynthesis-related genes were up-regulated and degradation-related genes were down-regulated",
+          "claim": "UB3 represses cytokinin biosynthesis and signaling",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "N024",
+      "source": "VT2",
+      "target": "Auxin",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "VT2 tryptophan aminotransferase (TAA1 co-ortholog) converts Trp to IPyA in IAA biosynthesis",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.075267",
+          "title": "vanishing tassel2 encodes a grass-specific tryptophan aminotransferase required for vegetative and reproductive development in maize",
+          "authors": "Phillips KA, Skirpan AL, Liu X, Christensen A, Slewinski TL, Hudson C, Barazesh S, Cohen JD, Malcomber S, McSteen P",
+          "year": 2011,
+          "journal": "Plant Cell",
+          "evidence_sentence": "vt2 encodes a co-ortholog of TAA1 which converts Trp to indole-3-pyruvic acid",
+          "claim": "VT2 synthesizes Auxin",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N025",
+      "source": "SPI1",
+      "target": "Auxin",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "SPI1 YUCCA-like flavin monooxygenase converts IPyA to IAA (local auxin biosynthesis)",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0805596105",
+          "title": "sparse inflorescence1 encodes a monocot-specific YUCCA-like gene required for vegetative and reproductive development in maize",
+          "authors": "Gallavotti A, Barazesh S, Malcomber S, Hall D, Jackson D, Schmidt RJ, McSteen P",
+          "year": 2008,
+          "journal": "PNAS",
+          "evidence_sentence": "spi1 encodes a flavin monooxygenase similar to the YUCCA genes involved in local auxin biosynthesis",
+          "claim": "SPI1 synthesizes Auxin",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N026",
+      "source": "Auxin",
+      "target": "TIR1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "Auxin is the TIR1/AFB F-box coreceptor ligand (Perception Gate; Auxin's only outgoing edge)",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1516473112",
+          "title": "Auxin signaling modules regulate maize inflorescence architecture",
+          "authors": "Galli M, Liu Q, Moss BL, Malcomber S, Li W, Gaines C, Federici S, Roshkovan J, Meeley R, Nemhauser JL, Gallavotti A",
+          "year": 2015,
+          "journal": "PNAS",
+          "evidence_sentence": "BIF1/BIF4 are auxin-responsive Aux/IAAs; TIR1-dependent degradation removes repression",
+          "claim": "Auxin activates TIR1 coreceptor",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N027",
+      "source": "TIR1",
+      "target": "BIF1",
+      "sign": -1,
+      "effect": "repression",
+      "mechanism": "TIR1 SCF complex ubiquitinates BIF1 (and BIF4) Aux/IAA repressors for proteasomal degradation",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1516473112",
+          "title": "Auxin signaling modules regulate maize inflorescence architecture",
+          "authors": "Galli M, Liu Q, Moss BL, Malcomber S, Li W, Gaines C, Federici S, Roshkovan J, Meeley R, Nemhauser JL, Gallavotti A",
+          "year": 2015,
+          "journal": "PNAS",
+          "evidence_sentence": "TIR1-dependent degradation of BIF1/BIF4 Aux/IAAs removes repression",
+          "claim": "TIR1 degrades BIF1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N028",
+      "source": "BIF1",
+      "target": "BA1",
+      "sign": -1,
+      "effect": "repression",
+      "mechanism": "Aux/IAA BIF1/BIF4 directly represses ARF-driven BA1 transcription until auxin-induced degradation removes them",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1516473112",
+          "title": "Auxin signaling modules regulate maize inflorescence architecture",
+          "authors": "Galli M, Liu Q, Moss BL, Malcomber S, Li W, Gaines C, Federici S, Roshkovan J, Meeley R, Nemhauser JL, Gallavotti A",
+          "year": 2015,
+          "journal": "PNAS",
+          "evidence_sentence": "BIF1 and BIF4 are integral parts of functionally redundant signaling modules that directly control the transcription of BA1; double mutant shows no BA1 expression",
+          "claim": "BIF1 represses BA1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N029",
+      "source": "ARF6",
+      "target": "BA1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "ARF TFs bind AuxRE motifs in BA1 regulatory region and activate transcription when released from BIF1/BIF4",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1516473112",
+          "title": "Auxin signaling modules regulate maize inflorescence architecture",
+          "authors": "Galli M, Liu Q, Moss BL, Malcomber S, Li W, Gaines C, Federici S, Roshkovan J, Meeley R, Nemhauser JL, Gallavotti A",
+          "year": 2015,
+          "journal": "PNAS",
+          "evidence_sentence": "ARF4, ARF16, ARF27, ARF29, and ARF34 strongly bound to all four probes of BA1 regulatory region",
+          "claim": "ARF activates BA1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N030",
+      "source": "BIF2",
+      "target": "ZMPIN1A",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "BIF2 PINOID-like kinase phosphorylates ZmPIN1a, regulating efflux carrier polarity in vivo",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.106.080119",
+          "title": "ZmPIN1a and ZmPIN1b Encode Two Novel Putative Candidates for Polar Auxin Transport",
+          "authors": "Carraro N, Forestan C, Canova S, Traas J, Varotto S",
+          "year": 2006,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "BIF2 phosphorylates ZmPIN1a and regulates ZmPIN1a subcellular localization in vivo",
+          "claim": "BIF2 activates ZmPIN1a polarity",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N031",
+      "source": "BIF2",
+      "target": "BA1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "BIF2 kinase and BA1 co-localize in the nucleus; BIF2 functions by direct interaction with BA1 to promote AM initiation",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.108.121541",
+          "title": "The Relationship between Auxin Transport and Maize Branching",
+          "authors": "Gallavotti A, Yang Y, Schmidt RJ, Jackson D",
+          "year": 2008,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "BIF2 and BA1 co-localize in the nucleus; BIF2 functions by interacting with BA1 to promote axillary meristem initiation",
+          "claim": "BIF2 activates BA1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N032",
+      "source": "ZMPIN1A",
+      "target": "Axillary_Meristem",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "Basipetal PAT by ZmPIN1a establishes auxin maxima at IM flanks that position axillary meristems; NPA inhibition abolishes AM formation",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.108.121541",
+          "title": "The Relationship between Auxin Transport and Maize Branching",
+          "authors": "Gallavotti A, Yang Y, Schmidt RJ, Jackson D",
+          "year": 2008,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "NPA treatment (PAT inhibition) completely abolished ability of IM to form any axillary meristem",
+          "claim": "Polar auxin transport (via ZmPIN1a) required for AM initiation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N033",
+      "source": "BA1",
+      "target": "Axillary_Meristem",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "bHLH TF BA1 is required cell-autonomously for AM initiation; ba1 mutants completely lack axillary meristems",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.108.121541",
+          "title": "The Relationship between Auxin Transport and Maize Branching",
+          "authors": "Gallavotti A, Yang Y, Schmidt RJ, Jackson D",
+          "year": 2008,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "ba1 mutants completely lack all axillary meristems, resulting in a sterile plant",
+          "claim": "BA1 initiates axillary meristems",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N034",
+      "source": "BA1",
+      "target": "BA2",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "BA1 and BA2 cooperate as bHLH heterodimer partners; BA1 dosage affects ba2 phenotype indicating same-pathway action",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2018.12.024",
+          "title": "The barren stalk2 Gene Is Required for Axillary Meristem Development in Maize",
+          "authors": "Yao H, Skirpan A, Wardell B, Matthes MS, Best NB, McCubbin T, Durbak A, Smith T, Malcomber S, McSteen P",
+          "year": 2019,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "ba1 shows a gene dosage effect in ba2 mutants, providing further evidence that BA1 and BA2 act together in the same pathway",
+          "claim": "BA1 acts together with BA2 in the same pathway for AM formation",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "N035",
+      "source": "BA2",
+      "target": "Axillary_Meristem",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "BA2 bHLH protein heterodimerizes with BA1 and is required for AM initiation; ba2 fails to produce ears",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2018.12.024",
+          "title": "The barren stalk2 Gene Is Required for Axillary Meristem Development in Maize",
+          "authors": "Yao H, Skirpan A, Wardell B, Matthes MS, Best NB, McCubbin T, Durbak A, Smith T, Malcomber S, McSteen P",
+          "year": 2019,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "The ba2 gene encodes a protein that co-localizes and heterodimerizes with BA1 in the nucleus; ba2 mutant fails to produce ears and has fewer branches and spikelets in the tassel",
+          "claim": "BA2 is required for AM initiation and reproductive development",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "N036",
+      "source": "ABPH1",
+      "target": "ZMPIN1A",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "ABPH1 positively regulates auxin levels and PIN1 signaling (CK-auxin crosstalk at IM periphery)",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.109.137034",
+          "title": "Studies of aberrant phyllotaxy1 Mutants of Maize Indicate Complex Interactions between Auxin and Cytokinin Signaling",
+          "authors": "Lee BH, Johnston R, Yang Y, Gallavotti A, Kojima M, Travencolo BA, Costa LF, Sakakibara H, Jackson D",
+          "year": 2009,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "ABPH1 acts both as a positive regulator of auxin levels and PIN1 signaling",
+          "claim": "ABPH1 promotes ZmPIN1a",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N037",
+      "source": "KN1",
+      "target": "VT2",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "KN1 binds and upregulates tryptophan aminotransferase VT2 (auxin biosynthesis arm of the KNOX regulatory network)",
+      "evidence": [
+        {
+          "doi": "10.1101/gad.193433.112",
+          "title": "Unraveling the KNOTTED1 regulatory network in maize meristems",
+          "authors": "Bolduc N, Yilmaz A, Mejia-Guerra MK, Morohashi K, O'Connor D, Grotewold E, Hake S",
+          "year": 2012,
+          "journal": "Genes & Development",
+          "evidence_sentence": "vt2 tryptophan aminotransferase shows significant up-regulation in Kn1-N leaves",
+          "claim": "KN1 activates VT2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N038",
+      "source": "KN1",
+      "target": "SPI1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "KN1 ChIP-seq peaks near YUCCA-family auxin biosynthesis loci including SPI1, with up-regulation in Kn1-N",
+      "evidence": [
+        {
+          "doi": "10.1101/gad.193433.112",
+          "title": "Unraveling the KNOTTED1 regulatory network in maize meristems",
+          "authors": "Bolduc N, Yilmaz A, Mejia-Guerra MK, Morohashi K, O'Connor D, Grotewold E, Hake S",
+          "year": 2012,
+          "journal": "Genes & Development",
+          "evidence_sentence": "KN1 binds near genes coding for enzymes that synthesize auxin and maintain its homeostasis; KN1-bound genes involved in the synthesis of auxin and its precursor tryptophan are also up-regulated",
+          "claim": "KN1 directly binds and positively regulates auxin biosynthesis enzymes including SPI1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N039",
+      "source": "KN1",
+      "target": "ZMPIN1A",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "KN1 ChIP-seq peaks near PIN efflux transporter loci; Kn1-N GOF up-regulates PIN family (including ZmPIN1a)",
+      "evidence": [
+        {
+          "doi": "10.1101/gad.193433.112",
+          "title": "Unraveling the KNOTTED1 regulatory network in maize meristems",
+          "authors": "Bolduc N, Yilmaz A, Mejia-Guerra MK, Morohashi K, O'Connor D, Grotewold E, Hake S",
+          "year": 2012,
+          "journal": "Genes & Development",
+          "evidence_sentence": "auxin efflux transporters of the PIN and ABCB families up-regulated in Kn1-N leaves, with ChIP-seq peaks identified near these loci",
+          "claim": "KN1 directly up-regulates PIN auxin efflux transporters",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N040",
+      "source": "KN1",
+      "target": "ZMIPT",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "KN1 positively regulates CK biosynthesis-related genes including the rice LONELY GUY ortholog (CK-activating enzyme, included in ZMIPT composite)",
+      "evidence": [
+        {
+          "doi": "10.1101/gad.193433.112",
+          "title": "Unraveling the KNOTTED1 regulatory network in maize meristems",
+          "authors": "Bolduc N, Yilmaz A, Mejia-Guerra MK, Morohashi K, O'Connor D, Grotewold E, Hake S",
+          "year": 2012,
+          "journal": "Genes & Development",
+          "evidence_sentence": "KN1 likely positively regulates a gene similar to the rice CK synthesis gene LONELY GUY",
+          "claim": "KN1 positively regulates cytokinin biosynthesis (LOG/IPT family)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N041",
+      "source": "KN1",
+      "target": "TIR1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "KN1 ChIP-seq peaks near AFB-like F-box auxin coreceptor genes (TIR1/AFB family)",
+      "evidence": [
+        {
+          "doi": "10.1101/gad.193433.112",
+          "title": "Unraveling the KNOTTED1 regulatory network in maize meristems",
+          "authors": "Bolduc N, Yilmaz A, Mejia-Guerra MK, Morohashi K, O'Connor D, Grotewold E, Hake S",
+          "year": 2012,
+          "journal": "Genes & Development",
+          "evidence_sentence": "KN1 binds near genes coding for AFB-like genes that are characterized as F-box auxin coreceptors in Arabidopsis",
+          "claim": "KN1 binds TIR1/AFB auxin coreceptor loci",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N042",
+      "source": "KN1",
+      "target": "IM_Size",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "KN1 class-I KNOX TF maintains indeterminate meristem identity; kn1 null produces a small cob with poor kernel yield",
+      "evidence": [
+        {
+          "doi": "10.1101/gad.193433.112",
+          "title": "Unraveling the KNOTTED1 regulatory network in maize meristems",
+          "authors": "Bolduc N, Yilmaz A, Mejia-Guerra MK, Morohashi K, O'Connor D, Grotewold E, Hake S",
+          "year": 2012,
+          "journal": "Genes & Development",
+          "evidence_sentence": "kn1 loss-of-function plants occasionally lack shoots; null allele kn1-e1 produces a small cob with poor kernel yield",
+          "claim": "KN1 maintains meristem for KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N043",
+      "source": "RA2",
+      "target": "RA1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "RA2 LOB-domain TF acts upstream of RA1 in ramosa pathway; ra1 expression is reduced in ra2 mutants",
+      "evidence": [
+        {
+          "doi": "10.1038/nature03892",
+          "title": "Architecture of floral branch systems in maize and related grasses",
+          "authors": "Vollbrecht E, Springer PS, Goh L, Buckler ES, Martienssen R",
+          "year": 2005,
+          "journal": "Nature",
+          "evidence_sentence": "ra1 expression is reduced in ra2 mutants; ra2 acts upstream of ra1",
+          "claim": "RA2 activates RA1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N044",
+      "source": "RA3",
+      "target": "RA1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "RA3 TPP enzyme acts upstream of RA1 via T6P/trehalose sugar-signaling input to SPM-determinacy program",
+      "evidence": [
+        {
+          "doi": "10.1038/nature04725",
+          "title": "A trehalose metabolic enzyme controls inflorescence architecture in maize",
+          "authors": "Satoh-Nagasawa N, Nagasawa N, Malcomber S, Sakai H, Jackson D",
+          "year": 2006,
+          "journal": "Nature",
+          "evidence_sentence": "RA3 functions through the predicted transcriptional regulator RAMOSA1 (RA1)",
+          "claim": "RA3 regulates RA1",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "N045",
+      "source": "FEA4",
+      "target": "RA1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "FEA4 bZIP directly binds RA1 promoter and activates transcription (coherent FFL with RA2/RA3)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.132506",
+          "title": "FASCIATED EAR4 Encodes a bZIP Transcription Factor That Regulates Shoot Meristem Size in Maize",
+          "authors": "Pautler M, Eveland AL, LaRue T, Yang F, Weeks R, Lunde C, Je BI, Meeley R, Komatsu M, Vollbrecht E, Sakai H, Jackson D",
+          "year": 2015,
+          "journal": "Plant Cell",
+          "evidence_sentence": "FEA4 binds and activates RA1 which imposes determinacy on axillary branches",
+          "claim": "FEA4 activates RA1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N046",
+      "source": "IDS1",
+      "target": "RA1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "IDS1/Ts6 acts through multiple SPM-regulatory pathways including RA1 (coherent feed-forward with direct Ear_Branching effect)",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.15890",
+          "title": "krn1, a major quantitative trait locus for kernel row number in maize",
+          "authors": "Wang J, Lin Z, Zhang X, Liu H, Zhou L, Zhong S, Li Y, Zhu C, Lin Z",
+          "year": 2019,
+          "journal": "New Phytologist",
+          "evidence_sentence": "ids1/Ts6 is involved in multiple pathways regulating SPM development",
+          "claim": "IDS1 regulates RA1",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "N047",
+      "source": "RA1",
+      "target": "KN1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "RA1 binds the KN1 regulatory intron; RA1 and KN1 share ~189 overlapping target peaks",
+      "evidence": [
+        {
+          "doi": "10.1101/gr.166397.113",
+          "title": "Regulatory modules controlling maize inflorescence architecture",
+          "authors": "Eveland AL, Goldshmidt A, Pautler M, Morohashi K, Liseron-Monfils C, Lewis MW, Kumari S, Hiraga S, Yang F, Unger-Wallace E, Olson A, Hake S, Vollbrecht E, Grotewold E, Ware D, Jackson D",
+          "year": 2014,
+          "journal": "Genome Research",
+          "evidence_sentence": "RA1 binds KN1's regulatory intron; RA1 and KN1 share 189 overlapping target peaks",
+          "claim": "RA1 regulates KN1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N048",
+      "source": "RA1",
+      "target": "Ear_Branching",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "RA1 C2H2 zinc-finger TF imposes SPM determinacy and suppresses indeterminate ear branching",
+      "evidence": [
+        {
+          "doi": "10.1038/nature03892",
+          "title": "Architecture of floral branch systems in maize and related grasses",
+          "authors": "Vollbrecht E, Springer PS, Goh L, Buckler ES, Martienssen R",
+          "year": 2005,
+          "journal": "Nature",
+          "evidence_sentence": "The ear, which is usually unbranched, is highly branched in ra1 mutants, resulting in reduced fertility",
+          "claim": "RA1 suppresses ear branching",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N049",
+      "source": "RA3",
+      "target": "T6P",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "RA3 trehalose-6-phosphate phosphatase dephosphorylates T6P to trehalose, reducing the T6P sugar-signaling pool in SPMs",
+      "evidence": [
+        {
+          "doi": "10.1038/nature04725",
+          "title": "A trehalose metabolic enzyme controls inflorescence architecture in maize",
+          "authors": "Satoh-Nagasawa N, Nagasawa N, Malcomber S, Sakai H, Jackson D",
+          "year": 2006,
+          "journal": "Nature",
+          "evidence_sentence": "RA3 encodes a trehalose-6-phosphate phosphatase expressed in discrete domains subtending axillary inflorescence meristems",
+          "claim": "RA3 dephosphorylates T6P",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "N050",
+      "source": "T6P",
+      "target": "Ear_Branching",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "T6P sugar signal disrupts SPM determinacy and promotes indeterminate branching (inverse of the canonical SPM-determinacy axis); ra3 KO elevates T6P and yields branched ears",
+      "evidence": [
+        {
+          "doi": "10.1038/nature04725",
+          "title": "A trehalose metabolic enzyme controls inflorescence architecture in maize",
+          "authors": "Satoh-Nagasawa N, Nagasawa N, Malcomber S, Sakai H, Jackson D",
+          "year": 2006,
+          "journal": "Nature",
+          "evidence_sentence": "RA3 regulates inflorescence branching by modification of a sugar signal that moves into axillary meristems",
+          "claim": "T6P promotes ear branching (inverse of SPM determinacy)",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "N051",
+      "source": "REL2",
+      "target": "Ear_Branching",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "REL2 TOPLESS-family co-repressor cooperates with RA1/RA2 to suppress ear branching; rel2;ra1 double shows highly branched ears",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.051748",
+          "title": "The control of axillary meristem fate in the maize ramosa pathway",
+          "authors": "Gallavotti A, Long JA, Stanfield S, Yang X, Jackson D, Vollbrecht E, Schmidt RJ",
+          "year": 2010,
+          "journal": "Development",
+          "evidence_sentence": "rel2;ra1-RS double mutants had highly branched ears",
+          "claim": "REL2 suppresses ear branching",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N052",
+      "source": "miR172",
+      "target": "IDS1",
+      "sign": -1,
+      "effect": "repression",
+      "mechanism": "miR172 (encoded by ts4) directs cleavage of IDS1 AP2 mRNA",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.024273",
+          "title": "Floral meristem initiation and meristem cell fate are regulated by the maize AP2 genes ids1 and sid1",
+          "authors": "Chuck G, Meeley R, Hake S",
+          "year": 2008,
+          "journal": "Development",
+          "evidence_sentence": "IDS1 is targeted by the MIR172 microRNA encoded by the tasselseed4 (ts4) gene",
+          "claim": "miR172 represses IDS1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N053",
+      "source": "miR172",
+      "target": "SID1",
+      "sign": -1,
+      "effect": "repression",
+      "mechanism": "miR172 family members direct cleavage of SID1 AP2 mRNA",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.024273",
+          "title": "Floral meristem initiation and meristem cell fate are regulated by the maize AP2 genes ids1 and sid1",
+          "authors": "Chuck G, Meeley R, Hake S",
+          "year": 2008,
+          "journal": "Development",
+          "evidence_sentence": "SID1 is also targeted by other members of the MIR172 family",
+          "claim": "miR172 represses SID1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N054",
+      "source": "IDS1",
+      "target": "Ear_Branching",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "IDS1 AP2-domain TF represses indeterminate lateral branch meristem fates and promotes SPM determinacy (inverse of Ear_Branching)",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.024273",
+          "title": "Floral meristem initiation and meristem cell fate are regulated by the maize AP2 genes ids1 and sid1",
+          "authors": "Chuck G, Meeley R, Hake S",
+          "year": 2008,
+          "journal": "Development",
+          "evidence_sentence": "IDS1 and SID1 function to repress indeterminate lateral branch meristem fates and control spikelet meristem determinacy",
+          "claim": "IDS1 represses indeterminate ear branching",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N055",
+      "source": "SID1",
+      "target": "Ear_Branching",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "SID1 AP2-domain TF (paralog of IDS1) redundantly represses indeterminate branching and promotes SPM determinacy",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.024273",
+          "title": "Floral meristem initiation and meristem cell fate are regulated by the maize AP2 genes ids1 and sid1",
+          "authors": "Chuck G, Meeley R, Hake S",
+          "year": 2008,
+          "journal": "Development",
+          "evidence_sentence": "IDS1 and SID1 both function to control spikelet meristem determinacy",
+          "claim": "SID1 represses indeterminate ear branching",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N056",
+      "source": "miR156",
+      "target": "UB2",
+      "sign": -1,
+      "effect": "repression",
+      "mechanism": "miR156 targets UB2 SBP-box mRNA for post-transcriptional silencing",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1407401112",
+          "title": "Maize SBP-box transcription factors unbranched2 and unbranched3 affect yield traits by regulating the rate of lateral primordia initiation",
+          "authors": "Chuck GS, Brown PJ, Meeley R, Hake S",
+          "year": 2014,
+          "journal": "PNAS",
+          "evidence_sentence": "All three SBP genes are targets of miR156",
+          "claim": "miR156 represses UB2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N057",
+      "source": "miR156",
+      "target": "UB3",
+      "sign": -1,
+      "effect": "repression",
+      "mechanism": "miR156 targets UB3 SBP-box mRNA for post-transcriptional silencing",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1407401112",
+          "title": "Maize SBP-box transcription factors unbranched2 and unbranched3 affect yield traits by regulating the rate of lateral primordia initiation",
+          "authors": "Chuck GS, Brown PJ, Meeley R, Hake S",
+          "year": 2014,
+          "journal": "PNAS",
+          "evidence_sentence": "All three SBP genes are targets of miR156",
+          "claim": "miR156 represses UB3",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N058",
+      "source": "miR156",
+      "target": "TSH4",
+      "sign": -1,
+      "effect": "repression",
+      "mechanism": "miR156 targets TSH4 SBP-box mRNA for post-transcriptional silencing",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1407401112",
+          "title": "Maize SBP-box transcription factors unbranched2 and unbranched3 affect yield traits by regulating the rate of lateral primordia initiation",
+          "authors": "Chuck GS, Brown PJ, Meeley R, Hake S",
+          "year": 2014,
+          "journal": "PNAS",
+          "evidence_sentence": "All three SBP genes are targets of miR156",
+          "claim": "miR156 represses TSH4",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N059",
+      "source": "FarRed_Light",
+      "target": "UB2",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "End-of-day far-red and WL+FR shade signals upregulate UB2 to drive the early SAM-to-IM transition (ub2;ub3 is insensitive to FR)",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koac352",
+          "title": "UB2/UB3/TSH4-anchored transcriptional networks regulate early maize inflorescence development in response to simulated shade",
+          "authors": "Kong D, Wang B, Wang H",
+          "year": 2022,
+          "journal": "Plant Cell",
+          "evidence_sentence": "EOD-FR and WL+FR treatments caused precocious SAM-to-IM transition; ub2 ub3 double mutant insensitive to shade",
+          "claim": "FR signal works via UB2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N060",
+      "source": "UB2",
+      "target": "UB3",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "UB2 directly binds the UB3 promoter and the KRN4 distal enhancer via chromatin looping to positively regulate UB3 transcription (Du 2020; KRN4 QTL mechanism)",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pgen.1008764",
+          "title": "UNBRANCHED3 Expression and Inflorescence Development is Mediated by UNBRANCHED2 and the Distal Enhancer, KRN4, in Maize",
+          "authors": "Du Y, Liu L, Peng Y, Li M, Li Y, Liu D, Li X, Zhang Z",
+          "year": 2020,
+          "journal": "PLoS Genetics",
+          "evidence_sentence": "UB2 can directly bind to both KRN4 and the UB3 promoter to positively regulate UB3 expression; KRN4 is bound by UB2-centered transcription complexes and interacts with the UB3 promoter by three duplex interactions to affect UB3 expression",
+          "claim": "UB2 directly activates UB3 via the KRN4 distal enhancer and UB3 promoter",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N061",
+      "source": "UB3",
+      "target": "KN1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "UB3 maintains KN1 expression in the central meristem; loss of KN1 in residual IM meristems in ub2;ub3",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1407401112",
+          "title": "Maize SBP-box transcription factors unbranched2 and unbranched3 affect yield traits",
+          "authors": "Chuck GS, Brown PJ, Meeley R, Hake S",
+          "year": 2014,
+          "journal": "PNAS",
+          "evidence_sentence": "Loss of KN1 expression in ub2 ub3 mutant meristems",
+          "claim": "UB3 maintains KN1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N062",
+      "source": "UB3",
+      "target": "BIF2",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "UB2/UB3/TSH4 directly bind BIF2 promoter and positively regulate transcription",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koac352",
+          "title": "UB2/UB3/TSH4-anchored transcriptional networks regulate early maize inflorescence development in response to simulated shade",
+          "authors": "Kong D, Wang B, Wang H",
+          "year": 2022,
+          "journal": "Plant Cell",
+          "evidence_sentence": "UB2/UB3/TSH4 directly bind BIF2 promoter",
+          "claim": "UB3 activates BIF2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N063",
+      "source": "UB3",
+      "target": "ZMTCP30",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "UB2/UB3/TSH4 directly regulate ZmTCP30 promoter",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koac352",
+          "title": "UB2/UB3/TSH4-anchored transcriptional networks regulate early maize inflorescence development in response to simulated shade",
+          "authors": "Kong D, Wang B, Wang H",
+          "year": 2022,
+          "journal": "Plant Cell",
+          "evidence_sentence": "UB2/UB3/TSH4 directly bind ZmTCP30 promoter",
+          "claim": "UB3 activates ZmTCP30",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N064",
+      "source": "UB3",
+      "target": "IM_Size",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "UB3 restricts the rate of lateral-primordia initiation, limiting apparent IM expansion; ub3 KO yields enlarged IM and increased KRN",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1407401112",
+          "title": "Maize SBP-box transcription factors unbranched2 and unbranched3 affect yield traits",
+          "authors": "Chuck GS, Brown PJ, Meeley R, Hake S",
+          "year": 2014,
+          "journal": "PNAS",
+          "evidence_sentence": "UB2 and UB3 function to restrict initiation of lateral primordia, allowing cell renewal in the central domain",
+          "claim": "UB3 restricts IM expansion",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N065",
+      "source": "ZMTCP30",
+      "target": "Kernel_Row_Number",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "ZmTCP30 TCP-family TF supports normal ear development and grain number; Zmtcp30 mutants show reduced tassel branches and abnormal ears with reduced kernels",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koac352",
+          "title": "UB2/UB3/TSH4-anchored transcriptional networks regulate early maize inflorescence development",
+          "authors": "Kong D, Wang B, Wang H",
+          "year": 2022,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Zmtcp30 mutant exhibited significantly decreased tassel branch number and abnormal ear development with reduced grain number",
+          "claim": "ZmTCP30 promotes KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N066",
+      "source": "TSH4",
+      "target": "Kernel_Row_Number",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "TSH4 SBP-box TF redundantly restricts SPM-initiation rate with UB2/UB3 (acts independently on KRN)",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1407401112",
+          "title": "Maize SBP-box transcription factors unbranched2 and unbranched3 affect yield traits by regulating the rate of lateral primordia initiation",
+          "authors": "Chuck GS, Brown PJ, Meeley R, Hake S",
+          "year": 2014,
+          "journal": "PNAS",
+          "evidence_sentence": "UB2, UB3, and TSH4 function as redundant factors that limit the rate of cell differentiation",
+          "claim": "TSH4 restricts KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N067",
+      "source": "KRN2",
+      "target": "Kernel_Row_Number",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "KRN2 WD40 protein interacts with DUF1644 in a complex that negatively regulates grain number; KRN2 CRISPR KO increased yield by ~10%",
+      "evidence": [
+        {
+          "doi": "10.1126/science.abg7985",
+          "title": "Convergent selection of a WD40 protein that enhances grain yield in maize and rice",
+          "authors": "Chen W, Chen L, Zhang X, Yang N, Guo J, Wang M, Ji S, Zhao X, Yin P, Cai L, Xu J, Zhang L, Han Y, Xiao Y, Xu G, Wang Y, Wang S, Wu S, Yang F, Jackson D, Cheng J, Chen S, Sun C, Qin F, Tian F, Fernie AR, Li J, Yan J, Yang X",
+          "year": 2022,
+          "journal": "Science",
+          "evidence_sentence": "Knockout of KRN2 in maize increased grain yield by ~10%",
+          "claim": "KRN2 restricts KRN",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "N068",
+      "source": "KRN5B",
+      "target": "Kernel_Row_Number",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "KRN5b 5-phosphatase mediates phosphoinositol signaling; higher-expression allele increases ear weight 10-12% via KRN",
+      "evidence": [
+        {
+          "doi": "10.1111/pbi.14463",
+          "title": "KRN5b regulates maize kernel row number through mediating phosphoinositol signalling",
+          "authors": "Shen X et al.",
+          "year": 2024,
+          "journal": "Plant Biotechnology Journal",
+          "evidence_sentence": "Introgressing higher-expression allele increased ear weight 10-12% via increasing KRN",
+          "claim": "KRN5b promotes KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N069",
+      "source": "KNR6",
+      "target": "AGAP",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "KNR6 Ser/Thr kinase phosphorylates AGAP in vitro; KNR6 OE increases kernels per row",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-14746-7",
+          "title": "A serine/threonine protein kinase encoding gene KERNEL NUMBER PER ROW6 regulates maize grain yield",
+          "authors": "Jia H, Li M, Li W, Liu L, Jian Y, Yang Z, Shen X, Ning Q, Du Y, Zhao R, Jackson D, Yang X, Zhang Z",
+          "year": 2020,
+          "journal": "Nature Communications",
+          "evidence_sentence": "KNR6 phosphorylated itself and myelin basic protein (MBP) and AGAP in vitro",
+          "claim": "KNR6 phosphorylates AGAP",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N070",
+      "source": "AGAP",
+      "target": "IM_Size",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "AGAP ARF-GAP sustains IM proliferation; AGAP CRISPR KO produced shorter IMs by ~76 micrometer",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-14746-7",
+          "title": "A serine/threonine protein kinase encoding gene KERNEL NUMBER PER ROW6 regulates maize grain yield",
+          "authors": "Jia H, Li M, Li W, Liu L, Jian Y, Yang Z, Shen X, Ning Q, Du Y, Zhao R, Jackson D, Yang X, Zhang Z",
+          "year": 2020,
+          "journal": "Nature Communications",
+          "evidence_sentence": "AGAP CRISPR KO produced shorter IM by ~76 micrometer and fewer kernels per row",
+          "claim": "AGAP promotes IM",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N071",
+      "source": "Axillary_Meristem",
+      "target": "Kernel_Row_Number",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "Successful AM initiation is prerequisite to SPM formation and kernel row establishment",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.108.121541",
+          "title": "The Relationship between Auxin Transport and Maize Branching",
+          "authors": "Gallavotti A, Yang Y, Schmidt RJ, Jackson D",
+          "year": 2008,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "AM initiation is prerequisite to SPM formation and kernel row establishment",
+          "claim": "AM initiation promotes KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N072",
+      "source": "IM_Size",
+      "target": "Kernel_Row_Number",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "Larger IM produces more spikelet-pair meristems per tier, hence more kernel rows (E022 canonical mapping)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.132506",
+          "title": "FASCIATED EAR4 Encodes a bZIP Transcription Factor That Regulates Shoot Meristem Size in Maize",
+          "authors": "Pautler M, Eveland AL, LaRue T, Yang F, Weeks R, Lunde C, Je BI, Meeley R, Komatsu M, Vollbrecht E, Sakai H, Jackson D",
+          "year": 2015,
+          "journal": "Plant Cell",
+          "evidence_sentence": "B73 SAM width: wild-type 179.83 vs fea4 226.16 micrometer; kernel row number: wild-type 17.14 vs fea4 28",
+          "claim": "Larger IM -> more kernel rows",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N073",
+      "source": "Ear_Branching",
+      "target": "Kernel_Row_Number",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "Indeterminate branching converts SPMs to branches and disrupts ordered rows, reducing kernel-row counts per ear",
+      "evidence": [
+        {
+          "doi": "10.1038/nature03892",
+          "title": "Architecture of floral branch systems in maize and related grasses",
+          "authors": "Vollbrecht E, Springer PS, Goh L, Buckler ES, Martienssen R",
+          "year": 2005,
+          "journal": "Nature",
+          "evidence_sentence": "The ear, which is usually unbranched, is highly branched in ra1 mutants, resulting in reduced fertility",
+          "claim": "Ear branching disrupts ordered rows",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N074",
+      "source": "IDS1",
+      "target": "FEA4",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "IDS1/Ts6 (KRN1) regulates the FEA4 pathway; IDS1 loss impacts the fea4 module through genetic epistasis",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.15890",
+          "title": "krn1, a major quantitative trait locus for kernel row number in maize",
+          "authors": "Wang J, Lin Z, Zhang X, Liu H, Zhou L, Zhong S, Li Y, Zhu C, Lin Z",
+          "year": 2019,
+          "journal": "New Phytologist",
+          "evidence_sentence": "ids1/Ts6 is involved in multiple pathways involving fea3, fea4 and ra3",
+          "claim": "IDS1 regulates FEA4",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "edge_id": "N075",
+      "source": "FEA4",
+      "target": "BA1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "FEA4 bZIP TF directly upregulates BA1 transcription; BA1 is significantly downregulated in fea4 mutant ears",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.132506",
+          "title": "FASCIATED EAR4 Encodes a bZIP Transcription Factor That Regulates Shoot Meristem Size in Maize",
+          "authors": "Pautler M, Eveland AL, LaRue T, Yang F, Weeks R, Lunde C, Je BI, Meeley R, Komatsu M, Vollbrecht E, Sakai H, Jackson D",
+          "year": 2015,
+          "journal": "Plant Cell",
+          "evidence_sentence": "BARREN STALK1 downregulated (P=0.002) in fea4 mutants",
+          "claim": "FEA4 activates BA1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N076",
+      "source": "RA1",
+      "target": "Axillary_Meristem",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "RA1 C2H2 zinc-finger TF imposes determinacy on spikelet-pair meristems, preventing indeterminate AM elaboration",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.051748",
+          "title": "The control of axillary meristem fate in the maize ramosa pathway",
+          "authors": "Gallavotti A, Long JA, Stanfield S, Yang X, Jackson D, Vollbrecht E, Schmidt RJ",
+          "year": 2010,
+          "journal": "Development",
+          "evidence_sentence": "RA1 imposes determinacy on spikelet-pair meristems, preventing indeterminate branching",
+          "claim": "RA1 restricts axillary meristem indeterminacy",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N077",
+      "source": "UB2",
+      "target": "KN1",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "UB2 SBP-box TF maintains KN1 expression in central meristem redundantly with UB3; loss of KN1 in ub2;ub3 residual IMs",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1407401112",
+          "title": "Maize SBP-box transcription factors unbranched2 and unbranched3 affect yield traits",
+          "authors": "Chuck GS, Brown PJ, Meeley R, Hake S",
+          "year": 2014,
+          "journal": "PNAS",
+          "evidence_sentence": "Loss of KN1 expression in residual inflorescence meristems in ub2;ub3 mutants",
+          "claim": "UB2 maintains KN1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N078",
+      "source": "UB2",
+      "target": "BIF2",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "UB2 SBP-box TF directly binds the BIF2 promoter; SBP-box consensus motif (GTAC) shared with UB3/TSH4 family",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koac352",
+          "title": "UB2/UB3/TSH4-anchored transcriptional networks regulate early maize inflorescence development in response to simulated shade",
+          "authors": "Kong D, Wang B, Wang H",
+          "year": 2022,
+          "journal": "Plant Cell",
+          "evidence_sentence": "UB2/UB3/TSH4 directly bind BIF2 promoter",
+          "claim": "UB2 activates BIF2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N079",
+      "source": "UB2",
+      "target": "ZMTCP30",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "UB2 SBP-box TF directly binds and activates the ZmTCP30 promoter in parallel with UB3/TSH4",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koac352",
+          "title": "UB2/UB3/TSH4-anchored transcriptional networks regulate early maize inflorescence development in response to simulated shade",
+          "authors": "Kong D, Wang B, Wang H",
+          "year": 2022,
+          "journal": "Plant Cell",
+          "evidence_sentence": "UB2/UB3/TSH4 could directly regulate the expression of ZmTCP30",
+          "claim": "UB2 activates ZmTCP30",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N080",
+      "source": "Cytokinin",
+      "target": "ZMCKX",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "Cytokinin signalling induces ZmCKX cytokinin-oxidase transcription, closing the homeostatic negative-feedback loop (Motif 2-safe: CK->CKX->degrade CK is stabilising)",
+      "evidence": [
+        {
+          "doi": "10.1007/s00497-024-00510-0",
+          "title": "Hormonal influence on maize inflorescence development and reproduction",
+          "authors": "Chaudhry A, Chen Z, Gallavotti A",
+          "year": 2024,
+          "journal": "Plant Reproduction",
+          "evidence_sentence": "CK signalling activates CKX expression as feedback catabolism of CK",
+          "claim": "Cytokinin activates ZmCKX (feedback catabolism)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N081",
+      "source": "FEA4",
+      "target": "RA3",
+      "sign": 1,
+      "effect": "activation",
+      "mechanism": "FEA4 bZIP directly activates RA3 TPP transcription; RA3 is significantly downregulated in fea4 mutants",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.132506",
+          "title": "FASCIATED EAR4 Encodes a bZIP Transcription Factor That Regulates Shoot Meristem Size in Maize",
+          "authors": "Pautler M, Eveland AL, LaRue T, Yang F, Weeks R, Lunde C, Je BI, Meeley R, Komatsu M, Vollbrecht E, Sakai H, Jackson D",
+          "year": 2015,
+          "journal": "Plant Cell",
+          "evidence_sentence": "RAMOSA3 downregulated (P=1.79e-15) in fea4 mutants",
+          "claim": "FEA4 activates RA3",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "edge_id": "N082",
+      "source": "FEA4",
+      "target": "Kernel_Row_Number",
+      "sign": -1,
+      "effect": "inhibition",
+      "mechanism": "FEA4 bZIP TF directly restricts kernel row number beyond its effects on IM size; Pautler et al. show fea4 mutant ears have increased kernel row number with enlarged IM and ectopic spikelet-pair meristem formation, implicating FEA4 in row-number restriction downstream of the meristem-size expansion phenotype.",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.132506",
+          "title": "FASCIATED EAR4 encodes a bZIP transcription factor that regulates shoot meristem size in maize",
+          "authors": "Pautler M, Eveland AL, LaRue T, Yang F, Weeks R, Lunde C, Je BI, Meeley R, Komatsu M, Vollbrecht E, Sakai H, Jackson D",
+          "year": 2015,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "fea4 mutants show enlarged inflorescence meristems and produce ears with increased kernel row number",
+          "claim": "FEA4 restricts kernel row number directly in addition to its inhibition of meristem size",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    }
+  ]
+}

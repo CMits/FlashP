@@ -1,0 +1,187 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lignin_SG_Ratio",
+    "species": "Populus trichocarpa",
+    "created": "2026-04-20",
+    "state": "post_refinement_iter1"
+  },
+  "summary": {
+    "best_method": "ODE",
+    "best_accuracy": 0.871,
+    "best_kappa": 0.7643,
+    "best_kappa_band": "substantial",
+    "best_mcc": 0.7229,
+    "best_frs": 9.219,
+    "best_frs_band": "large-scale strong",
+    "best_dars": 9.219,
+    "best_dars_band": "large-scale strong",
+    "recommendation": "Proceed to Step 6 (Export). Best-method accuracy 87.1% with kappa 0.76 (substantial) and FRS/DARS in the large-scale strong band. All remaining 4 ODE failures are framework/edge-case residuals with no evidence-backed fix available.",
+    "tier2_scope": {
+      "n_nodes": 43,
+      "n_edges": 95,
+      "n_tests": 31,
+      "t_effective": 31,
+      "mean_path_length": 2.29
+    },
+    "stratified_poplar_lignin": {
+      "by_perturbation_class": {
+        "algebraic": {
+          "F5H_OE":        {"n": 4, "correct": 4, "acc_pct": 100.0},
+          "COMT_RNAi":     {"n": 2, "correct": 2, "acc_pct": 100.0},
+          "CCoAOMT_RNAi":  {"n": 1, "correct": 0, "acc_pct": 0.0},
+          "CCR_RNAi_KO":   {"n": 2, "correct": 0, "acc_pct": 0.0},
+          "CAD_RNAi":      {"n": 1, "correct": 0, "acc_pct": 0.0},
+          "C3H_RNAi":      {"n": 3, "correct": 2, "acc_pct": 66.7},
+          "4CL_RNAi_KO":   {"n": 2, "correct": 2, "acc_pct": 100.0},
+          "CSE_RNAi_KO":   {"n": 2, "correct": 0, "acc_pct": 0.0},
+          "HCT_RNAi":      {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrSND1_OE":    {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrSND1_RNAi":  {"n": 2, "correct": 2, "acc_pct": 100.0},
+          "PtrMYB3_RNAi":  {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrMYB21_RNAi": {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrMYB152_OE":  {"n": 1, "correct": 0, "acc_pct": 0.0},
+          "PtrMYB156_OE":  {"n": 1, "correct": 0, "acc_pct": 0.0},
+          "PtrMYB221_OE":  {"n": 1, "correct": 0, "acc_pct": 0.0},
+          "PtrKNAT7_OE":   {"n": 1, "correct": 0, "acc_pct": 0.0},
+          "PtrKNAT7_RNAi": {"n": 1, "correct": 0, "acc_pct": 0.0},
+          "PtrNF_YA11_OE": {"n": 1, "correct": 0, "acc_pct": 0.0},
+          "PtrNF_YA11_KO": {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "tension_wood":  {"n": 1, "correct": 1, "acc_pct": 100.0}
+        },
+        "ode": {
+          "F5H_OE":        {"n": 4, "correct": 4, "acc_pct": 100.0},
+          "COMT_RNAi":     {"n": 2, "correct": 2, "acc_pct": 100.0},
+          "CCoAOMT_RNAi":  {"n": 1, "correct": 0, "acc_pct": 0.0},
+          "CCR_RNAi_KO":   {"n": 2, "correct": 2, "acc_pct": 100.0},
+          "CAD_RNAi":      {"n": 1, "correct": 0, "acc_pct": 0.0},
+          "C3H_RNAi":      {"n": 3, "correct": 2, "acc_pct": 66.7},
+          "4CL_RNAi_KO":   {"n": 2, "correct": 2, "acc_pct": 100.0},
+          "CSE_RNAi_KO":   {"n": 2, "correct": 2, "acc_pct": 100.0},
+          "HCT_RNAi":      {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrSND1_OE":    {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrSND1_RNAi":  {"n": 2, "correct": 2, "acc_pct": 100.0},
+          "PtrMYB3_RNAi":  {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrMYB21_RNAi": {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrMYB152_OE":  {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrMYB156_OE":  {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrMYB221_OE":  {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrKNAT7_OE":   {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrKNAT7_RNAi": {"n": 1, "correct": 0, "acc_pct": 0.0},
+          "PtrNF_YA11_OE": {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrNF_YA11_KO": {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "tension_wood":  {"n": 1, "correct": 1, "acc_pct": 100.0}
+        },
+        "rwr": {
+          "F5H_OE":        {"n": 4, "correct": 4, "acc_pct": 100.0},
+          "COMT_RNAi":     {"n": 2, "correct": 2, "acc_pct": 100.0},
+          "CCoAOMT_RNAi":  {"n": 1, "correct": 0, "acc_pct": 0.0},
+          "CCR_RNAi_KO":   {"n": 2, "correct": 2, "acc_pct": 100.0},
+          "CAD_RNAi":      {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "C3H_RNAi":      {"n": 3, "correct": 2, "acc_pct": 66.7},
+          "4CL_RNAi_KO":   {"n": 2, "correct": 2, "acc_pct": 100.0},
+          "CSE_RNAi_KO":   {"n": 2, "correct": 0, "acc_pct": 0.0},
+          "HCT_RNAi":      {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrSND1_OE":    {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrSND1_RNAi":  {"n": 2, "correct": 2, "acc_pct": 100.0},
+          "PtrMYB3_RNAi":  {"n": 1, "correct": 0, "acc_pct": 0.0},
+          "PtrMYB21_RNAi": {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrMYB152_OE":  {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrMYB156_OE":  {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrMYB221_OE":  {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrKNAT7_OE":   {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrKNAT7_RNAi": {"n": 1, "correct": 0, "acc_pct": 0.0},
+          "PtrNF_YA11_OE": {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "PtrNF_YA11_KO": {"n": 1, "correct": 1, "acc_pct": 100.0},
+          "tension_wood":  {"n": 1, "correct": 1, "acc_pct": 100.0}
+        }
+      },
+      "by_analytical_method": {
+        "algebraic": {
+          "thioacidolysis":  {"n": 28, "correct": 16, "acc_pct": 57.1},
+          "pyrolysis_GC_MS": {"n": 1,  "correct": 1,  "acc_pct": 100.0},
+          "2D_HSQC_NMR":     {"n": 2,  "correct": 1,  "acc_pct": 50.0}
+        },
+        "ode": {
+          "thioacidolysis":  {"n": 28, "correct": 24, "acc_pct": 85.7},
+          "pyrolysis_GC_MS": {"n": 1,  "correct": 1,  "acc_pct": 100.0},
+          "2D_HSQC_NMR":     {"n": 2,  "correct": 2,  "acc_pct": 100.0}
+        },
+        "rwr": {
+          "thioacidolysis":  {"n": 28, "correct": 23, "acc_pct": 82.1},
+          "pyrolysis_GC_MS": {"n": 1,  "correct": 1,  "acc_pct": 100.0},
+          "2D_HSQC_NMR":     {"n": 2,  "correct": 1,  "acc_pct": 50.0}
+        },
+        "note": "After iter 1 (T016 now skipped), the Py-GC-MS stratum drops to n=1 (T015 only); low-n caveat applies."
+      },
+      "by_background": {
+        "algebraic": {
+          "P.tremula_x_alba":         {"n": 17, "correct": 9,  "acc_pct": 52.9},
+          "P.trichocarpa":            {"n": 2,  "correct": 1,  "acc_pct": 50.0},
+          "P.alba_x_tremula":         {"n": 2,  "correct": 2,  "acc_pct": 100.0},
+          "P.alba_x_grandidentata":   {"n": 2,  "correct": 2,  "acc_pct": 100.0},
+          "P.alba_x_glandulosa":      {"n": 2,  "correct": 1,  "acc_pct": 50.0},
+          "P.tomentosa":              {"n": 1,  "correct": 0,  "acc_pct": 0.0},
+          "Populus_generic":          {"n": 3,  "correct": 3,  "acc_pct": 100.0},
+          "Arabidopsis_heterologous": {"n": 2,  "correct": 0,  "acc_pct": 0.0}
+        },
+        "ode": {
+          "P.tremula_x_alba":         {"n": 17, "correct": 14, "acc_pct": 82.4},
+          "P.trichocarpa":            {"n": 2,  "correct": 2,  "acc_pct": 100.0},
+          "P.alba_x_tremula":         {"n": 2,  "correct": 2,  "acc_pct": 100.0},
+          "P.alba_x_grandidentata":   {"n": 2,  "correct": 2,  "acc_pct": 100.0},
+          "P.alba_x_glandulosa":      {"n": 2,  "correct": 1,  "acc_pct": 50.0},
+          "P.tomentosa":              {"n": 1,  "correct": 1,  "acc_pct": 100.0},
+          "Populus_generic":          {"n": 3,  "correct": 3,  "acc_pct": 100.0},
+          "Arabidopsis_heterologous": {"n": 2,  "correct": 2,  "acc_pct": 100.0}
+        },
+        "rwr": {
+          "P.tremula_x_alba":         {"n": 17, "correct": 13, "acc_pct": 76.5},
+          "P.trichocarpa":            {"n": 2,  "correct": 2,  "acc_pct": 100.0},
+          "P.alba_x_tremula":         {"n": 2,  "correct": 2,  "acc_pct": 100.0},
+          "P.alba_x_grandidentata":   {"n": 2,  "correct": 2,  "acc_pct": 100.0},
+          "P.alba_x_glandulosa":      {"n": 2,  "correct": 1,  "acc_pct": 50.0},
+          "P.tomentosa":              {"n": 1,  "correct": 1,  "acc_pct": 100.0},
+          "Populus_generic":          {"n": 3,  "correct": 2,  "acc_pct": 66.7},
+          "Arabidopsis_heterologous": {"n": 2,  "correct": 2,  "acc_pct": 100.0}
+        }
+      },
+      "stratum_notes": "After iter 1 the P. tremula x alba stratum improved 77.8% -> 82.4% on ODE (dropped T016). Remaining dominant-background failures are T007, T010, T027 — all framework/edge-case residuals. The P. alba x glandulosa failure (T013) persists — literature background-heterogeneity residual."
+    }
+  },
+  "comparison": [
+    {
+      "method": "Algebraic",
+      "accuracy": 0.581,
+      "kappa": 0.3111,
+      "mcc": 0.3061,
+      "convergence_rate": 1.0,
+      "best_params": "epsilon=0.1, K=10, activator_floor=0.01, damping=0.7 (defaults)",
+      "strengths": "100% on strong-effect short-path tests: F5H OE, COMT RNAi, MYB3/21 LoF, SND1 family, 4CL RNAi/KO (after iter 1), HCT RNAi, tension wood.",
+      "weaknesses": "13 failures. Geometric-mean dilution at the 6-activator Lignin_SG_Ratio hub compresses moderate-effect perturbations (CCR2, CSE, MYB OE, NF-YA11 OE) into the 0.9-1.1 unchanged band. Kappa 0.31 ('fair') reflects the dilution, not a structural bug — ODE recovers 9 of these.",
+      "failures": ["T007", "T008", "T009", "T010", "T013", "T017", "T018", "T023", "T024", "T025", "T026", "T027", "T029"]
+    },
+    {
+      "method": "ODE",
+      "accuracy": 0.871,
+      "kappa": 0.7643,
+      "mcc": 0.7229,
+      "convergence_rate": 1.0,
+      "best_params": "K=2.0, n=1 (Hill). 24-cell K in {0.1,0.5,1,2,5,10} x n in {1,2,3,4} sweep.",
+      "strengths": "Best method on every metric after iter 1. Kappa 0.76 ('substantial'), MCC 0.72, FRS/DARS 9.22 ('large-scale strong'). Hill amplification rescues 9 near-threshold algebraic failures. Perfect on every MYB (152, 156, 221, 3, 21), SND1 family, NF-YA11, CSE, CCR, COMT, F5H, HCT, 4CL (post iter-1 scope), tension wood.",
+      "weaknesses": "4 residual failures, all non-fixable: 2 framework limits (T007 CCoAOMT1, T010 CAD1 ratio-on-ratio), 1 literature background heterogeneity (T013 C3H1 alt hybrid), 1 non-monotonic biology (T027 KNAT7 KD).",
+      "failures": ["T007", "T010", "T013", "T027"]
+    },
+    {
+      "method": "RWR",
+      "accuracy": 0.806,
+      "kappa": 0.6649,
+      "mcc": 0.7104,
+      "convergence_rate": 1.0,
+      "best_params": "alpha=0.5 (restart probability). Alpha sweep {0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 0.99}.",
+      "strengths": "Kappa 0.66 ('substantial'). Only method that gets T010 (CAD1 KD) correct — signed-graph propagation happens to cancel CAD1's split-branch contribution. Best unchanged-class recall (0.67) of the three.",
+      "weaknesses": "6 failures. Still misses T017 and T018 (CSE) and T021 (MYB3) that ODE gets right; signed-graph propagation is vulnerable to uneven positive/negative fan-out cancellation.",
+      "failures": ["T007", "T013", "T017", "T018", "T021", "T027"]
+    }
+  ]
+}

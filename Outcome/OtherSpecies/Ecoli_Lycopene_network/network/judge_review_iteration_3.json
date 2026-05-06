@@ -1,0 +1,152 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lycopene_Titer",
+    "phenotype_node": "Lycopene_Titer",
+    "species": "Escherichia coli",
+    "created": "2026-04-21",
+    "iteration": 3,
+    "judge_model": "Claude Opus 4.7 (1M context)",
+    "framing_note": "Metabolic-as-signalling review (iteration 3, final). Same FLASH-P mathematics.",
+    "previous_review": "network/judge_review_iteration_2.json"
+  },
+  "verdict": "approved",
+  "summary": "BUILDER iteration 3 applied S014 via dual composite strategy (ENVELOPE_STRESS bundles 6 envelope-integrity gene KOs; MEMBRANE_STORAGE bundles 4 lipid-biogenesis enzyme OEs, absorbing the pre-existing PLSB and ALMGS nodes). S010 (NADPH→Mevalonate) also applied. S005 (PMK), S013 (IspG/IspH), and S007 (OxyR/KatG) defensibly deferred with documented reasons tied to the 7-activator cap on IPP and the absence of curated KatG→ROS evidence. The composite strategy raises Lycopene_Titer §9.11 coverage from 0.19 → 0.40 (bundled), crossing the 0.30 flag threshold and reaching the 0.40 strong-coverage threshold. Source percentage 48.4% (within 30-50% target). All 5 structural QA checks pass. Schema validation passes. No fabricated edges. No floating nodes. Network is biologically coherent and ready for Step 3 PERTURBATION.",
+  "iteration_2_followup": {
+    "suggestions_applied_by_builder": [
+      {"id": "S014", "priority": "high", "status": "APPLIED (Option A + extension)", "comment": "ENVELOPE_STRESS composite (PROTEIN_COMPLEX, is_source=true) added with N097 → Lycopene_Titer (-1) bundling E085-E090. MEMBRANE_STORAGE composite added with N098 → Lycopene_Titer (+1) bundling E082+E083+E084+E134; ALMGS and PLSB nodes absorbed (N090, N091 removed). Both composites follow §9.3 composite rules: functional redundancy, same downstream target, same sign. Coverage 0.19 → 0.40."},
+      {"id": "S010", "priority": "low", "status": "APPLIED", "comment": "NADPH→Mevalonate (+1) N099 added per E021. Mevalonate coverage 0.71 → 0.86; NADPH coverage 0.71 → 0.86."}
+    ],
+    "suggestions_deferred_by_builder": [
+      {"id": "S005", "priority": "medium", "builder_decision": "DEFERRED", "judge_assessment": "Defensible. Adding PMK→IPP would push IPP activators to 8 (over hard cap). Restructuring IPP into a MVA chain requires phantom intermediate metabolite nodes (MVA-5P, MVA-5PP) that are not in curated_edges.json — violates the no-fabrication rule. The parallel-activator MVA arrangement correctly predicts direction of MVA perturbations (pmk OE increases lycopene via IPP boost), even if signal magnitude is diluted by geometric mean. REFINEMENT (Step 5) can revisit if validator surfaces specific MVA-chain failures."},
+      {"id": "S013", "priority": "medium", "builder_decision": "DEFERRED", "judge_assessment": "Defensible. Same cap concern as S005: IspG and IspH would push IPP over 7 activators. DXR addition in iter 2 already captures the most literature-prominent interior MEP step. IspG/IspH are MEDIUM confidence single-edge additions; their absence is not a phenotype-reachability issue for the common ispG/ispH perturbation tests (which typically report indirect effects via HMBPP accumulation, already modelled through Dxr→IPP collapsed cascade)."},
+      {"id": "S007", "priority": "medium", "builder_decision": "REJECTED (literature_gap)", "judge_assessment": "Correct rejection. KatG has no curated outgoing edge; only E069 OxyR→KatG exists. Adding OxyR and KatG as nodes would create a two-node dead-end chain with no path to Lycopene_Titer, violating the no-floating-nodes rule. BUILDER's literature_gap flag for 'KatG→ROS(-1) needs Step 1 re-open' is the correct remediation path. Accepted."}
+    ]
+  },
+  "rubric_scores": {
+    "pathway_completeness": {
+      "score": 4,
+      "delta_vs_iter_2": 1,
+      "justification": "Envelope-stress and membrane-storage arms now represented via composite nodes — major gap closed. MEP: DXS+DXR+IDI (3 steps); IspD/E/F/G/H interior still collapsed but with defensible cap/evidence rationale. MVA: AtoB+HMGS+HMGR+MVK+MVD (5 of 6 enzymes); PMK defensibly deferred. Carotenoid cassette complete. Oxidative defense partial: KATE present; SodA/KatG/OxyR as literature_gaps. Central metabolism full. Engineering inputs complete. Lycopene↔ROS feedback clean. Score upgraded to 4."
+    },
+    "mechanistic_depth": {
+      "score": 4,
+      "delta_vs_iter_2": 1,
+      "justification": "Two new §9.3-compliant composites applied (PROTEIN_COMPLEX type). Dxs substrate-depletion, DXR cofactor-dependence, NADPH-Mevalonate substrate-flux all captured. MVA still collapsed (chain via phantom intermediates would need Step 1 additions). Score upgraded."
+    },
+    "motif_coverage": {
+      "score": 5,
+      "delta_vs_iter_2": 1,
+      "justification": "Full motif catalog now applied where biology supports it: Biosynthesis-Degradation (Dxs on G3P/Pyr; CRTI+ROS on Lyc), Competing Sink (ISPB→FPP, GPP/FPP→Lyc, ENVELOPE_STRESS→Lyc), Multi-Output (ISPA→FPP+GPP, DXS→IPP/G3P/Pyr), Feed-Forward (MEP‖MVA→IPP; MEMBRANE_STORAGE direct and via reaching phenotype), Negative Feedback (Lyc↔ROS, prenyl-products↔MVK), Composite Node (ENVELOPE_STRESS, MEMBRANE_STORAGE). Score raised to 5."
+    },
+    "cascade_balance": {
+      "score": 3,
+      "delta_vs_iter_2": 1,
+      "justification": "Re-examined per §10: rule is per-side (activators OR inhibitors ≤7), not total inputs. Final counts: G3P 7 act + 3 inh (at cap on activators); Pyruvate 7 act + 3 inh; IPP 7 act + 0 inh; Lycopene_Titer 3 act + 5 inh; all within caps. My iteration 2 flagging of G3P/Pyr as 'over cap' was based on total inputs — I retract that. Source % 48.4% within 30-50% target. Score raised (2→3) to reflect corrected assessment; still short of 4 because 3 nodes sit exactly at the per-side cap (signal dilution concern for IPP via geometric mean of 7 activators persists)."
+    },
+    "composite_node_handling": {
+      "score": 5,
+      "delta_vs_iter_2": 1,
+      "justification": "ENVELOPE_STRESS and MEMBRANE_STORAGE follow §9.3 composite rules exactly: functional redundancy ≥70% (all envelope-biogenesis genes disrupt outer-membrane integrity with same direction on titer; all membrane-lipid enzymes expand hydrophobic storage), same downstream target (Lycopene_Titer), same direction of effect (all -1 for envelope stress; all +1 for membrane storage). Naming follows ALL_CAPS_UNDERSCORE convention. Evidence lists bundle per-member DOIs. Score raised to 5."
+    },
+    "hub_completeness": {
+      "score": 4,
+      "delta_vs_iter_2": 1,
+      "justification": "Lycopene_Titer raw coverage 9/43 = 0.21, bundled coverage 17/43 = 0.40 — the composite bundling puts 10 curated edges behind 2 network edges while preserving per-edge evidence traceability. §9.11 flag cleared. IPP unchanged at 0.56 (cap-limited). Mevalonate 0.86, NADPH 0.86, DXR 1.00, DXS 0.83, MVK 0.86 — all strong. Score raised to 4."
+    },
+    "topology_hazards": {
+      "score": 5,
+      "delta_vs_iter_2": 0,
+      "justification": "No new hazards introduced. Composites are source nodes (is_source=true) with no self-loops. All edges cleanly one-way. No positive-feedback loops. Lycopene↔ROS remains safe negative feedback. Score held at 5."
+    },
+    "evidence_quality": {
+      "score": 4,
+      "delta_vs_iter_2": 0,
+      "justification": "Composite edges N097 and N098 carry full evidence bundles (6 and 4 evidence entries respectively) with per-source attribution preserved in each entry's claim field. No placeholder mechanisms. All 94 edges have DOIs (script check 2/5 passes). Spot-check: N099 NADPH→Mevalonate has Wu 2021 synbio evidence. Unchanged."
+    },
+    "phenotype_audit": {
+      "score": 4,
+      "delta_vs_iter_2": 0,
+      "justification": "Lycopene_Titer 3 activators (CRTI, Phytoene, MEMBRANE_STORAGE) at lower end of 3-5 phenotype cap. 5 inhibitors (GPP, FPP, Temperature, ROS, ENVELOPE_STRESS) at the 5-7 target range. All effector classes preserved (enzyme, substrate, competing pool, environment, oxidative damage, envelope-integrity composite, storage composite). Both arms present and balanced. Score held at 4."
+    },
+    "rejected_edges_review": {
+      "score": 4,
+      "delta_vs_iter_2": 0,
+      "justification": "29 in_model=True curated edges still excluded (down from 38 in iter 2). Remaining exclusions clustered: (a) MEP interior IspD/E/F/G/H + PMK — cap-limited with defensible rationale; (b) direct-to-Lyc shortcuts for Dxs/Idi/MVK/CrtE/CrtB/IspA — correctly collapsed through intermediates; (c) peripheral metabolism (FdhF, EutD, AlphaKGDH, TalB, TpiA) — LOW confidence single-edges; (d) catabolite regulator CRP and Chassis_K12/Medium_Richness — valid literature_gap candidates. Every exclusion has a documented rationale in build_log_iteration_3.json."
+    },
+    "key_player_density": {
+      "score": 4,
+      "delta_vs_iter_2": 2,
+      "justification": "Lycopene_Titer bundled coverage 0.40 (above the §9.11 0.30 flag threshold; at the 0.40 strong-coverage threshold). All other key players improved or held: DXR 1.00, DXS 0.83, IPP 0.56, G3P 0.79, Pyruvate 1.00, FPP 0.88, Mevalonate 0.86, NADPH 0.86, MVK 0.86. No key player now below 0.30. §9.11 flag cleared. Score raised substantially (2→4).",
+      "per_player_ratios": {
+        "Lycopene_Titer_raw": 0.21,
+        "Lycopene_Titer_bundled": 0.40,
+        "IPP": 0.56,
+        "G3P": 0.79,
+        "Pyruvate": 1.00,
+        "FPP": 0.88,
+        "Mevalonate": 0.86,
+        "NADPH": 0.86,
+        "MVK": 0.86,
+        "Acetyl_CoA": 0.57,
+        "IDI": 0.71,
+        "DXS": 0.83,
+        "DXR": 1.00,
+        "PPS": 0.80,
+        "ROS": 0.80,
+        "GGPP": 0.80,
+        "DMAPP": 0.75
+      },
+      "key_player_flags": []
+    }
+  },
+  "per_node_audit_delta": [
+    {"node": "ENVELOPE_STRESS", "status": "NEW", "inputs": [], "outputs": ["Lycopene_Titer(-)"], "verdict": "appropriate", "comment": "Well-formed composite (PROTEIN_COMPLEX, is_source=true). Bundles 6 envelope-biogenesis genes (WaaC, WaaF, Lpp, NlpI, MlaE, TolA) into single -1 edge with 6-entry evidence bundle."},
+    {"node": "MEMBRANE_STORAGE", "status": "NEW", "inputs": [], "outputs": ["Lycopene_Titer(+)"], "verdict": "appropriate", "comment": "Well-formed composite. Bundles 4 membrane-lipid biogenesis enzymes (PlsB, PlsC, Almgs, DgkA) into single +1 edge with 4-entry evidence bundle. Absorbed ALMGS and PLSB nodes from iter 2."},
+    {"node": "ALMGS", "status": "REMOVED", "verdict": "absorbed", "comment": "Now a member of MEMBRANE_STORAGE composite."},
+    {"node": "PLSB", "status": "REMOVED", "verdict": "absorbed", "comment": "Now a member of MEMBRANE_STORAGE composite."},
+    {"node": "Mevalonate", "status": "UPDATED", "inputs_added": ["NADPH(+)"], "verdict": "appropriate", "comment": "NADPH substrate-flux dependence captured per E021. Coverage 5/7 → 6/7 = 0.86."},
+    {"node": "NADPH", "status": "UPDATED", "outputs_added": ["Mevalonate(+)"], "verdict": "appropriate", "comment": "Coverage gain from outgoing edge; 4/7 → 5/7 = 0.71 → actually 6/7 = 0.86 counting bidirectional."},
+    {"node": "Lycopene_Titer", "status": "UPDATED", "inputs_before": 7, "inputs_after": 8, "verdict": "appropriate", "comment": "3 activators (CRTI+, Phytoene+, MEMBRANE_STORAGE+) + 5 inhibitors (GPP-, FPP-, Temperature-, ROS-, ENVELOPE_STRESS-). All activators within 3-5 phenotype cap; all inhibitors within 5-7 cap. §9.11 bundled coverage 0.40."}
+  ],
+  "per_pathway_audit_delta": [
+    {
+      "pathway": "Membrane lipid-biogenesis storage arm",
+      "status_before": "partial (PLSB + ALMGS only)",
+      "status_after": "composite (PlsB + PlsC + Almgs + DgkA bundled in MEMBRANE_STORAGE)",
+      "comment": "Hu 2018 synergy fully captured. Plsc and DgkA now inside the composite, no longer literature_gaps."
+    },
+    {
+      "pathway": "Outer-membrane envelope-stress arm",
+      "status_before": "unmodeled",
+      "status_after": "composite (6 envelope genes bundled in ENVELOPE_STRESS)",
+      "comment": "Alper 2005 / Zhu 2022 / Bongers-review envelope KO hits now propagate to Lycopene_Titer through a single clean inhibitor edge. Coverage of these 6 curated edges now counted against Lycopene_Titer."
+    },
+    {
+      "pathway": "MVA pathway",
+      "status_before": "5/6 enzymes (missing PMK)",
+      "status_after": "5/6 enzymes (PMK deferred) + NADPH-Mevalonate substrate-flux added",
+      "comment": "PMK addition blocked by IPP cap. NADPH substrate-flux dependence of HMGR captured via E021."
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "S016",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "Step 1 re-open targets for eventual refinement (all deferred from iter 3 by BUILDER with documented reasons):",
+      "curated_edge_ids": [],
+      "implementation": "File as Step 1 re-open candidates if REFINEMENT surfaces perturbation failures requiring these edges: (a) KatG→ROS(-1) primary evidence sentence (Zhu 2022 or equivalent) to enable OxyR/KatG node addition — currently blocked because only E069 OxyR→KatG is curated and KatG has no curated outgoing edge; (b) SodA→ROS(-1) primary evidence to enable SodA routing through ROS rather than direct-to-Lycopene_Titer; (c) CRP→DXS(+1) for cAMP-regulated promoter effect (currently only E062 CRP→Lycopene_Titer curated); (d) MEP-interior intermediate metabolites (MEP, CDP-ME, MEcPP, HMBPP, DXP) if IspG/IspH/IspD/IspE/IspF cascade restructure becomes necessary. All are deferrable to REFINEMENT rather than blocking the pipeline now."
+    }
+  ],
+  "literature_gaps": [
+    "KatG → ROS (-1): blocks OxyR/KatG addition — literature_gap carryover.",
+    "SodA → ROS (-1): textbook but not curated as an explicit edge — literature_gap carryover.",
+    "CRP → DXS (+1): cAMP-regulated dxs promoter — currently only CRP→Lycopene_Titer is curated.",
+    "MEP interior intermediate metabolites (MEP, CDP-ME, MEcPP, HMBPP, DXP) not curated — blocks chain-restructure of IPP.",
+    "MVA intermediate metabolites (MVA-5P, MVA-5PP) not curated — blocks adding PMK without IPP cap violation.",
+    "Zwf → NADPH (+1): still not explicitly curated; would be textbook, needs Li 2015 or Wang 2020 sentence.",
+    "Alper 2005 / Jin 2008 / Zhao 2013 / Yoon 2009 primary-source paywall access — residual from literature_judge_report G003."
+  ],
+  "stop_reason": "Verdict=approved because: (a) all 4 HIGH-priority suggestions from iter 1 have been resolved (S001, S002, S004 applied in iter 2; S003→S014 applied in iter 3 via composite strategy); (b) §9.11 key-player under-representation flag cleared (Lycopene_Titer bundled coverage 0.40 vs 0.30 threshold); (c) all remaining MEDIUM suggestions (S005 PMK, S013 IspG/IspH, S007 OxyR/KatG) have defensible BUILDER rejections tied to the 7-activator hard cap plus absent curated indirect-route evidence; (d) no dimension scored ≤ 2 (per Anti-Pattern 3); (e) mean rubric score improved from 3.00 (iter 1) → 3.45 (iter 2) → 4.18 (iter 3); (f) all 5 QA structural checks and schema validation pass. The 7 remaining literature_gaps (see above) are Step 1 re-open candidates for potential future REFINEMENT cycles but do not block Step 3 PERTURBATION. Network is ready for PERTURBATION handoff."
+}

@@ -1,0 +1,414 @@
+{
+  "metadata": {
+    "method": "ODE_Hill",
+    "K": 2.0,
+    "n": 1,
+    "accuracy": 87.1,
+    "hill_activation_formula": "f(x) = x^1 * (2.0^1 + 1) / (2.0^1 + x^1)",
+    "hill_inhibition_formula": "g(x) = (2.0^1 + 1) / (2.0^1 + x^1)",
+    "ode_dynamics": "dx/dt = production - x; at steady state x = production",
+    "dt": 0.1,
+    "max_time": 50.0,
+    "convergence_tolerance": 0.0001,
+    "direction_threshold": 0.05
+  },
+  "equations": [
+    {
+      "node": "Tension_Wood",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Tension_Wood = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Auxin",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Auxin = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ARF2_1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ARF2_1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CSE1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CSE1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MYB152",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MYB152 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MYB90",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MYB90 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MYB161",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MYB161 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MYB156",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MYB156 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NF_YA11",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NF_YA11 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "WBLH2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "WBLH2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SND1",
+      "activators": [],
+      "inhibitors": [
+        "Auxin",
+        "ARF2_1",
+        "MYB221"
+      ],
+      "formula": "SND1 = 1.0 * prod(g(Auxin, ARF2_1, MYB221)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "NAC156",
+      "activators": [
+        "SND1"
+      ],
+      "inhibitors": [],
+      "formula": "NAC156 = prod(f(SND1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MYB3",
+      "activators": [
+        "SND1"
+      ],
+      "inhibitors": [],
+      "formula": "MYB3 = prod(f(SND1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MYB20",
+      "activators": [
+        "SND1"
+      ],
+      "inhibitors": [],
+      "formula": "MYB20 = prod(f(SND1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MYB21",
+      "activators": [
+        "SND1"
+      ],
+      "inhibitors": [],
+      "formula": "MYB21 = prod(f(SND1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MYB74",
+      "activators": [
+        "NAC156"
+      ],
+      "inhibitors": [],
+      "formula": "MYB74 = prod(f(NAC156)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MYB92",
+      "activators": [],
+      "inhibitors": [
+        "ARF2_1"
+      ],
+      "formula": "MYB92 = 1.0 * prod(g(ARF2_1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "MYB221",
+      "activators": [
+        "MYB3"
+      ],
+      "inhibitors": [],
+      "formula": "MYB221 = prod(f(MYB3)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "KNAT7",
+      "activators": [
+        "SND1"
+      ],
+      "inhibitors": [],
+      "formula": "KNAT7 = prod(f(SND1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PAL1",
+      "activators": [
+        "MYB3",
+        "MYB20",
+        "MYB92",
+        "KNAT7"
+      ],
+      "inhibitors": [
+        "MYB156",
+        "MYB221"
+      ],
+      "formula": "PAL1 = prod(f(MYB3, MYB20, MYB92, KNAT7)) * prod(g(MYB156, MYB221)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "C4H1",
+      "activators": [
+        "MYB74",
+        "MYB92"
+      ],
+      "inhibitors": [
+        "MYB156",
+        "MYB221"
+      ],
+      "formula": "C4H1 = prod(f(MYB74, MYB92)) * prod(g(MYB156, MYB221)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "PT4CL1",
+      "activators": [
+        "MYB21",
+        "MYB152"
+      ],
+      "inhibitors": [
+        "MYB156",
+        "MYB221"
+      ],
+      "formula": "PT4CL1 = prod(f(MYB21, MYB152)) * prod(g(MYB156, MYB221)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "HCT1",
+      "activators": [
+        "MYB92",
+        "MYB152",
+        "WBLH2"
+      ],
+      "inhibitors": [
+        "MYB156",
+        "MYB221"
+      ],
+      "formula": "HCT1 = prod(f(MYB92, MYB152, WBLH2)) * prod(g(MYB156, MYB221)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "C3H1",
+      "activators": [
+        "MYB74",
+        "MYB92",
+        "MYB152"
+      ],
+      "inhibitors": [
+        "MYB156",
+        "MYB221"
+      ],
+      "formula": "C3H1 = prod(f(MYB74, MYB92, MYB152)) * prod(g(MYB156, MYB221)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "CCOAOMT1",
+      "activators": [
+        "SND1",
+        "NAC156",
+        "MYB3",
+        "MYB21",
+        "MYB74",
+        "MYB92",
+        "MYB152"
+      ],
+      "inhibitors": [
+        "MYB156",
+        "MYB221"
+      ],
+      "formula": "CCOAOMT1 = prod(f(SND1, NAC156, MYB3, MYB21, MYB74, MYB92, MYB152)) * prod(g(MYB156, MYB221)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "CCR2",
+      "activators": [
+        "KNAT7",
+        "MYB74",
+        "MYB92",
+        "MYB152"
+      ],
+      "inhibitors": [
+        "MYB221"
+      ],
+      "formula": "CCR2 = prod(f(KNAT7, MYB74, MYB92, MYB152)) * prod(g(MYB221)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "F5H1",
+      "activators": [
+        "MYB74",
+        "MYB90",
+        "MYB152",
+        "MYB161",
+        "NF_YA11",
+        "WBLH2"
+      ],
+      "inhibitors": [
+        "MYB156"
+      ],
+      "formula": "F5H1 = prod(f(MYB74, MYB90, MYB152, MYB161, NF_YA11, WBLH2)) * prod(g(MYB156)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "COMT1",
+      "activators": [
+        "MYB3",
+        "MYB90",
+        "MYB92"
+      ],
+      "inhibitors": [
+        "MYB221"
+      ],
+      "formula": "COMT1 = prod(f(MYB3, MYB90, MYB92)) * prod(g(MYB221)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "CAD1",
+      "activators": [
+        "MYB92",
+        "MYB152"
+      ],
+      "inhibitors": [
+        "MYB221"
+      ],
+      "formula": "CAD1 = prod(f(MYB92, MYB152)) * prod(g(MYB221)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Cinnamate",
+      "activators": [
+        "PAL1"
+      ],
+      "inhibitors": [],
+      "formula": "Cinnamate = prod(f(PAL1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "P_Coumarate",
+      "activators": [
+        "C4H1",
+        "Cinnamate"
+      ],
+      "inhibitors": [],
+      "formula": "P_Coumarate = prod(f(C4H1, Cinnamate)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "P_Coumaroyl_CoA",
+      "activators": [
+        "PT4CL1",
+        "P_Coumarate"
+      ],
+      "inhibitors": [],
+      "formula": "P_Coumaroyl_CoA = prod(f(PT4CL1, P_Coumarate)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "P_Coumaroyl_Shikimate",
+      "activators": [
+        "HCT1",
+        "P_Coumaroyl_CoA"
+      ],
+      "inhibitors": [],
+      "formula": "P_Coumaroyl_Shikimate = prod(f(HCT1, P_Coumaroyl_CoA)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Caffeoyl_Shikimate",
+      "activators": [
+        "C3H1",
+        "P_Coumaroyl_Shikimate"
+      ],
+      "inhibitors": [],
+      "formula": "Caffeoyl_Shikimate = prod(f(C3H1, P_Coumaroyl_Shikimate)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Caffeic_Acid",
+      "activators": [
+        "CSE1",
+        "Caffeoyl_Shikimate"
+      ],
+      "inhibitors": [],
+      "formula": "Caffeic_Acid = prod(f(CSE1, Caffeoyl_Shikimate)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Caffeoyl_CoA",
+      "activators": [
+        "Caffeic_Acid"
+      ],
+      "inhibitors": [],
+      "formula": "Caffeoyl_CoA = prod(f(Caffeic_Acid)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Feruloyl_CoA",
+      "activators": [
+        "CCOAOMT1",
+        "Caffeoyl_CoA"
+      ],
+      "inhibitors": [],
+      "formula": "Feruloyl_CoA = prod(f(CCOAOMT1, Caffeoyl_CoA)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Coniferaldehyde",
+      "activators": [
+        "CCR2",
+        "Feruloyl_CoA"
+      ],
+      "inhibitors": [],
+      "formula": "Coniferaldehyde = prod(f(CCR2, Feruloyl_CoA)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Hydroxyconiferaldehyde",
+      "activators": [
+        "F5H1",
+        "Coniferaldehyde"
+      ],
+      "inhibitors": [],
+      "formula": "Hydroxyconiferaldehyde = prod(f(F5H1, Coniferaldehyde)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Sinapaldehyde",
+      "activators": [
+        "COMT1",
+        "Hydroxyconiferaldehyde"
+      ],
+      "inhibitors": [],
+      "formula": "Sinapaldehyde = prod(f(COMT1, Hydroxyconiferaldehyde)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Coniferyl_Alcohol",
+      "activators": [
+        "CAD1",
+        "Coniferaldehyde"
+      ],
+      "inhibitors": [],
+      "formula": "Coniferyl_Alcohol = prod(f(CAD1, Coniferaldehyde)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Sinapyl_Alcohol",
+      "activators": [
+        "CAD1",
+        "Sinapaldehyde"
+      ],
+      "inhibitors": [],
+      "formula": "Sinapyl_Alcohol = prod(f(CAD1, Sinapaldehyde)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Lignin_SG_Ratio",
+      "activators": [
+        "F5H1",
+        "Sinapyl_Alcohol",
+        "MYB152",
+        "Tension_Wood",
+        "CCR2",
+        "PT4CL1"
+      ],
+      "inhibitors": [
+        "Coniferyl_Alcohol",
+        "C3H1"
+      ],
+      "formula": "Lignin_SG_Ratio = prod(f(F5H1, Sinapyl_Alcohol, MYB152, Tension_Wood, CCR2, PT4CL1)) * prod(g(Coniferyl_Alcohol, C3H1)) * gene_modifier + exogenous"
+    }
+  ]
+}

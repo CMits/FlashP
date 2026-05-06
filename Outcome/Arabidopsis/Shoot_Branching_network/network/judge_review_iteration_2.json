@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "shoot_branching",
+    "phenotype_node": "Shoot_Branching",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-18",
+    "iteration": 2,
+    "judge_model": "Claude Opus 4.7 (1M context)",
+    "previous_review": "judge_review_iteration_1.json"
+  },
+  "verdict": "approved",
+  "summary": "BUILDER applied 6 of 7 priority suggestions from iteration 1 (skipped only S007 ABCB19 with documented reason). Network is now biologically defensible: SL biosynthesis is canonical (5 enzymes), Cytokinin has both synthesis and degradation (Motif 4 satisfied with documented Trap 5 trade-off), BRC1 hub regulation is near-complete (TIE1 + Decapitation direct added). Remaining gaps are LOW priority or literature-coverage issues outside BUILDER scope. Source percentage rose to 37.1% (above 20-30% target band but within 50% hard cap) - this is a defensible cost of biosynthesis completeness since D27/MAX1/LBO/TIE1 lack curated upstream regulators. Network ready for Step 3 PERTURBATION.",
+  "iteration_diff_summary": {
+    "nodes_added": ["D27", "MAX1", "LBO", "TIE1", "CKX9"],
+    "nodes_removed": [],
+    "edges_added": ["D27->Strigolactone(+)", "MAX1->Strigolactone(+)", "LBO->Strigolactone(+)", "TIE1->BRC1(-)", "Decapitation->BRC1(-)", "Strigolactone->CKX9(+)", "CKX9->Cytokinin(-)"],
+    "edges_removed": [],
+    "iter1_to_iter2": {"nodes": "30 -> 35", "edges": "54 -> 61", "sources": "9 (30.0%) -> 13 (37.1%)", "curated_coverage": "69/155 -> 76/155"}
+  },
+  "rubric_scores": {
+    "pathway_completeness": {
+      "score": 5,
+      "previous": 3,
+      "justification": "All major pathway arms now have appropriate depth. SL biosynthesis: 5 enzymes (CCD7, CCD8, D27, MAX1, LBO) covering the canonical 4-step cascade. CK biosynthesis-degradation: IPT (synthesis) + CKX9 (degradation) - Motif 4 satisfied. BRC1 hub: 10 regulators (3 act + 7 inh) including the previously missing TIE1 and Decapitation direct. Remaining missing pieces (ABCB19, ABA catabolism via CYP707A, CO pathway intermediates) are either low-priority secondary regulators or literature gaps outside BUILDER scope. This is now a defensible Plant Cell-quality network."
+    },
+    "mechanistic_depth": {
+      "score": 5,
+      "previous": 4,
+      "justification": "SL biosynthesis depth corrected from 2-step to 5-enzyme canonical pathway. Cytokinin now properly modeled with synthesis-degradation balance. All other cascades retain their iter 1 mechanistic depth (Perception Gate, Multi-Output Scaffold, GA-DELLA-SPL9, ABA dormancy program, FHY3 dual path). No flat shortcuts remain where intermediates would matter."
+    },
+    "motif_coverage": {
+      "score": 4,
+      "previous": 3,
+      "justification": "Motif 4 (Biosynthesis-Degradation Balance) now applied to Cytokinin with IPT+CKX9. Motif 1 (Perception Gate) is partially compromised by SL->CKX9 direct edge but the trade-off is explicitly documented in the CKX9 mechanism field as accepted Trap 5 framework limitation per BUILDER_AGENT.md §14. This is the right call - alternative was leaving CK degradation unmodeled, which would silently mispredict ckx mutants AND SL-CK antagonism tests. Documenting Trap 5 is the disciplined choice. All other motifs (3 Coherent Feed-Forward, 5 Multi-Output Scaffold, 6 Self-Limiting) intact. Score withheld from 5 only because the documented Trap 5 trade-off remains a known weakness in signaling-mutant + exogenous-SL test predictions."
+    },
+    "cascade_balance": {
+      "score": 3,
+      "previous": 5,
+      "justification": "Source percentage rose from 30.0% to 37.1% - above the 20-30% target band, though within 50% hard cap. The 4 added biosynthesis sources (D27, MAX1, LBO, TIE1) lack curated upstream regulators, so they are forced sources. To bring source % back to target would require either (a) adding 8+ downstream nodes (unjustified by curated edges), or (b) finding upstream regulators in literature for D27/MAX1/LBO/TIE1 (literature gap). This is an acceptable cost of biosynthesis completeness. BRC1 now at 7 inhibitors (right at the per-direction cap) - any future inhibitor addition would require tradeoff. Strigolactone has 5 activators (within cap). All other nodes balanced. Score reflects the legitimate concern but acknowledges the architectural constraint."
+    },
+    "composite_node_handling": {
+      "score": 4,
+      "previous": 4,
+      "justification": "Unchanged. SMXL678 and HB21 (representing HB21/40/53) composites appropriate. SPL15 dropped (SPL9 alone) defensible. New nodes D27, MAX1, LBO are single genes (no paralog families to composite). TIE1 has no curated paralogs in this dataset."
+    },
+    "hub_completeness": {
+      "score": 5,
+      "previous": 3,
+      "justification": "BRC1 now has 10 of ~13 curated regulators (3 act + 7 inh). Remaining excluded: TCP14/15 (M conf antagonists - low priority and would push inh count to 9, exceeding 7 cap), GA direct (correctly via DELLA cascade), Strigolactone direct (correctly via Perception Gate). All HIGH-confidence regulators present. SMXL678 hub also complete (3 inputs from 3 distinct upstream pathways). Phenotype hub at 4 act + 2 inh covering all major effector classes. Hub completeness fully addressed."
+    },
+    "topology_hazards": {
+      "score": 4,
+      "previous": 5,
+      "justification": "Strigolactone now has 2 outgoing edges (D14 per Perception Gate + CKX9 with Trap 5 disclosure). This is a documented and defensible relaxation of strict Perception Gate purity, but it does mean signaling-mutant rescue tests for CKX9-mediated CK changes (max2+GR24, d14+GR24 for CKX9 readouts) will mispredict because exogenous SL will activate CKX9 directly bypassing receptor KO. Mechanism field on the SL->CKX9 edge explicitly flags this. No new positive-feedback loops introduced. D14 self-loop unchanged. No sole-activator collapse risks (SMXL678 still has FHY3 as sole activator with 2 inhibitors providing dominant signal path)."
+    },
+    "evidence_quality": {
+      "score": 4,
+      "previous": 4,
+      "justification": "All new edges (S001-S006 applications) use HIGH-confidence curated edges with verified DOIs. Mechanism fields specific. The iter 2 CKX9 mechanism field includes the most detailed Trap 5 disclosure I've seen in any FLASH-P build - explicitly naming which test types may mispredict and citing BUILDER_AGENT.md §14 - this is exemplary documentation."
+    },
+    "phenotype_audit": {
+      "score": 4,
+      "previous": 4,
+      "justification": "Unchanged: 4 activators (Cytokinin, PIN1, PIN3, T6P) + 2 inhibitors (BRC1, ABA). All major effector classes present. ABCB19 (S007) was correctly skipped by BUILDER to preserve 1-slot headroom."
+    },
+    "rejected_edges_review": {
+      "score": 4,
+      "previous": 3,
+      "justification": "Curated edge coverage rose from 69 to 76 of 155. Remaining 79 exclusions: developmental module (~12 edges, intentionally dropped per scope), bypass/net-effect edges (~30, correctly excluded by Perception Gate or routed via cascade), paralog alternatives (~20, handled by composites), peripheral regulators (~10, defensible parsimony), positive feedback (~3, correctly excluded for stability), miscellaneous secondary (~4). All remaining exclusions either have defensible reasons or are LOW priority. No silent aggressive cuts remain."
+    }
+  },
+  "per_node_audit_changes_only": [
+    {"node": "Strigolactone", "previous_verdict": "under-specified for biosynthesis", "new_verdict": "appropriate", "comment": "Now has 5 biosynthesis activators (CCD7, CCD8, D27, MAX1, LBO) covering the canonical pathway. 2 outgoing edges (D14 + CKX9, Trap 5 documented)."},
+    {"node": "Cytokinin", "previous_verdict": "under-specified - MISSING DEGRADATION ARM", "new_verdict": "appropriate", "comment": "Now has IPT (synthesis) + CKX9 (degradation). Motif 4 Biosynthesis-Degradation Balance satisfied. SL-CK antagonism mechanism now modelable."},
+    {"node": "BRC1", "previous_verdict": "missing key inputs", "new_verdict": "appropriate", "comment": "TIE1 and Decapitation direct now included. 10 regulators total - hub completeness addressed."},
+    {"node": "D27", "new_node": true, "verdict": "appropriate", "comment": "NEW: source GENE node. Single edge to Strigolactone per E106. No curated upstream regulators."},
+    {"node": "MAX1", "new_node": true, "verdict": "appropriate", "comment": "NEW: source GENE node. Single edge to Strigolactone per E004."},
+    {"node": "LBO", "new_node": true, "verdict": "appropriate", "comment": "NEW: source GENE node. Single edge to Strigolactone per E005."},
+    {"node": "TIE1", "new_node": true, "verdict": "appropriate", "comment": "NEW: source GENE node. Single edge inhibiting BRC1 per E040."},
+    {"node": "CKX9", "new_node": true, "verdict": "appropriate with documented trade-off", "comment": "NEW: downstream GENE node. SL->CKX9 (E064) is non-gated direct edge with explicit Trap 5 disclosure. CKX9->Cytokinin (-1) per E065 closes the degradation arm."}
+  ],
+  "suggestions": [
+    {
+      "id": "S010",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "No upstream curated regulators for D27, MAX1, LBO, TIE1 - all forced as source nodes",
+      "biological_justification": "The 4 added biosynthesis genes lack curated upstream regulation. Auxin is known to upregulate the entire SL biosynthesis pathway (not just CCD7/CCD8) and several stresses regulate TIE1, but specific Auxin->MAX1, Auxin->LBO, Auxin->D27 transcriptional papers were not curated. If Step 1 LITERATURE REVIEW is re-run with focused queries for these, the source percentage would naturally drop back to target band.",
+      "curated_edge_ids": [],
+      "implementation": "Step 1 search: 'Auxin transcriptional regulation MAX1 LBO D27', 'TIE1 transcriptional regulation branching'."
+    },
+    {
+      "id": "S011",
+      "type": "add_edge",
+      "priority": "low",
+      "description": "BRC1 is at 7-inhibitor cap - any future MEDIUM addition (TCP14/15) would require tradeoff",
+      "biological_justification": "BRC1 inhibitors: SMXL678, Cytokinin, BES1, FT, Sucrose, TIE1, Decapitation = 7 (max). Adding TCP14/15 (E127/E128, M conf) would exceed cap. If their inclusion becomes important for accuracy, the 7-cap could be relaxed for the BRC1 hub specifically (with documentation), or one of the existing inhibitors could be re-routed (e.g., move Sucrose effect entirely through HB21 path, removing direct Sucrose->BRC1).",
+      "curated_edge_ids": ["E127", "E128"],
+      "implementation": "No action this iteration. Note for future REFINEMENT phase if BRC1 dynamics underperform."
+    }
+  ],
+  "literature_gaps": [
+    "Upstream regulators of SL biosynthesis genes D27, MAX1, LBO (only CCD7/CCD8 have curated Auxin upstream)",
+    "Upstream regulators of TIE1",
+    "SMXL678 -> CKX9 transcriptional regulation (would convert SL->CKX9 from Trap 5 trade-off to strict Perception Gate)",
+    "CYP707A ABA catabolism (would complete ABA biosynthesis-degradation balance)",
+    "CO pathway intermediates (GI, CO) for Photoperiod->FT cascade"
+  ],
+  "stop_reason": "All HIGH and MEDIUM priority suggestions from iteration 1 either applied (6/7) or rejected with documented reason (1/7). No new HIGH or MEDIUM suggestions in iteration 2. Two LOW-priority observations (S010, S011) noted but neither requires another build iteration - both are either Step 1 literature gaps or future REFINEMENT considerations. Per JUDGE_AGENT.md §11 stop conditions: 'approved if only LOW priority suggestions remain'.",
+  "iteration_notes": "Iteration 2 verdict approved. BUILDER may proceed to Step 3 PERTURBATION. Final v47 stats: 35 nodes, 61 edges, 13 sources (37.1%). Curated coverage: 76/155 edges. All 5 structural checks pass. All schema validations pass. Network is biologically defensible across all 11 audited pathways and reaches 5/5 on pathway completeness, mechanistic depth, and hub completeness."
+}

@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "iteration": 2,
+    "consumed_judge_review": "judge_review_iteration_1.json",
+    "created": "2026-04-18"
+  },
+  "applied": [
+    {
+      "id": "S001",
+      "type": "add_node",
+      "description": "MAX1 -> Strigolactone (E004)",
+      "status": "applied"
+    },
+    {
+      "id": "S002",
+      "type": "add_node",
+      "description": "LBO -> Strigolactone (E005)",
+      "status": "applied"
+    },
+    {
+      "id": "S003",
+      "type": "add_node",
+      "description": "D27 -> Strigolactone (E106)",
+      "status": "applied"
+    },
+    {
+      "id": "S004",
+      "type": "restructure_pathway",
+      "description": "Added CKX9 with SL->CKX9 (option a, Trap 5 disclosure documented in mechanism field)",
+      "status": "applied"
+    },
+    {
+      "id": "S005",
+      "type": "add_edge",
+      "description": "TIE1 -> BRC1 (E040)",
+      "status": "applied"
+    },
+    {
+      "id": "S006",
+      "type": "add_edge",
+      "description": "Decapitation -> BRC1 direct (E073)",
+      "status": "applied"
+    }
+  ],
+  "rejected": [
+    {
+      "id": "S007",
+      "type": "add_node",
+      "description": "ABCB19 -> Shoot_Branching",
+      "rejection_reason": "Would push phenotype activator count to 5/5 (current 4). Defer to leave headroom for future iterations or higher-priority effectors. Re-evaluate if Judge insists in iter 3."
+    }
+  ],
+  "literature_gaps_noted": [
+    {
+      "id": "S008",
+      "description": "SMXL678 -> CKX9 transcriptional regulation - would enable strict Perception Gate for CK degradation"
+    },
+    {
+      "id": "S009",
+      "description": "CYP707A ABA catabolism - would complete ABA biosynthesis-degradation balance"
+    }
+  ],
+  "stats": {
+    "iter1_nodes": 30,
+    "iter2_nodes": 35,
+    "iter1_edges": 54,
+    "iter2_edges": 61,
+    "iter1_sources": 9,
+    "iter2_sources": 13,
+    "iter1_source_pct": 30.0,
+    "iter2_source_pct": 37.1
+  }
+}

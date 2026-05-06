@@ -1,0 +1,168 @@
+{
+  "cluster": "C10_Reviews_Additional",
+  "papers": [
+    {
+      "doi": "10.1016/j.xplc.2025.101325",
+      "title": "VRN1 regulates heading and plant height in wheat by activating gibberellin biosynthesis",
+      "authors": "Liu T, Li D, Xie Z, et al",
+      "year": 2025,
+      "journal": "Plant Communications",
+      "status": "read"
+    },
+    {
+      "doi": "10.1038/s41586-018-0415-5",
+      "title": "Modulating plant growth-metabolism coordination for sustainable agriculture",
+      "authors": "Li S, Tian Y, Wu K, Ye Y, Yu J, Zhang J, Liu Q, Hu M, Li H, Tong Y, Harberd NP, Fu X",
+      "year": 2018,
+      "journal": "Nature",
+      "status": "read"
+    },
+    {
+      "doi": "10.1186/s12870-025-07556-w",
+      "title": "Molecular characteristics and regulatory effects of dwarfing Rht genes in Triticum aestivum L",
+      "authors": "Wang YR, Shi J, He YY, et al",
+      "year": 2025,
+      "journal": "BMC Plant Biology",
+      "status": "read",
+      "pmc_id": "PMC12599085"
+    }
+  ],
+  "edges": [
+    {
+      "source": "VRN1",
+      "target": "TaGA20ox",
+      "sign": 1,
+      "mechanism": "VRN1 binds TaGA20ox2 promoter and activates GA biosynthesis after vernalization",
+      "evidence_doi": "10.1016/j.xplc.2025.101325",
+      "evidence_sentence": "VRN1 binds to and activates the TaGA20ox2 promoter"
+    },
+    {
+      "source": "VRN1",
+      "target": "Plant_Height",
+      "sign": 1,
+      "mechanism": "VRN1 promotes plant height via GA biosynthesis activation; VRN1-5A/5B/5D redundantly regulate height",
+      "evidence_doi": "10.1016/j.xplc.2025.101325",
+      "evidence_sentence": "VRN1-5A/5B/5D redundantly regulate heading date and plant height in wheat; the plant height of these mutants was reduced by 3.7-5 cm compared with that of Fielder"
+    },
+    {
+      "source": "TaGRF4",
+      "target": "Plant_Height",
+      "sign": 1,
+      "mechanism": "GRF4 promotes growth, carbon fixation, nitrogen assimilation; antagonises DELLA",
+      "evidence_doi": "10.1038/s41586-018-0415-5",
+      "evidence_sentence": "GRF4 promotes and integrates nitrogen assimilation, carbon fixation and growth, whereas DELLA inhibits these processes"
+    },
+    {
+      "source": "Rht-B1",
+      "target": "TaGRF4",
+      "sign": -1,
+      "mechanism": "DELLA inhibits GRF4 by physical interaction; restricts growth and N-uptake",
+      "evidence_doi": "10.1038/s41586-018-0415-5",
+      "evidence_sentence": "The balanced opposing activities and physical interactions of the GROWTH-REGULATING FACTOR 4 (GRF4) transcription factor and the growth inhibitor DELLA confer homeostatic co-regulation of growth"
+    },
+    {
+      "source": "TaGRF4",
+      "target": "Nitrogen_Assimilation",
+      "sign": 1,
+      "mechanism": "GRF4 activates nitrogen assimilation genes; drives NUE",
+      "evidence_doi": "10.1038/s41586-018-0415-5",
+      "evidence_sentence": "GRF4 promotes and integrates nitrogen assimilation, carbon fixation and growth"
+    },
+    {
+      "source": "Nitrogen_Assimilation",
+      "target": "Plant_Height",
+      "sign": 1,
+      "mechanism": "Increased N-uptake supports growth and stem elongation",
+      "evidence_doi": "10.1038/s41586-018-0415-5",
+      "evidence_sentence": "grain yield are increased by tipping the GRF4-DELLA balance towards increased GRF4 abundance"
+    },
+    {
+      "source": "Rht3",
+      "target": "Plant_Height",
+      "sign": -1,
+      "mechanism": "Rht3 (= Rht-B1c) allele on 4BS, GA-insensitive DELLA; ~64% height reduction",
+      "evidence_doi": "10.1186/s12870-025-07556-w",
+      "evidence_sentence": "Rht3 | 4BS | GA-insensitive (DELLA) | ~64% reduction"
+    },
+    {
+      "source": "Rht4",
+      "target": "Plant_Height",
+      "sign": -1,
+      "mechanism": "Rht4 locus on 2BL; GA-responsive; ~12% reduction",
+      "evidence_doi": "10.1186/s12870-025-07556-w",
+      "evidence_sentence": "Rht4 | 2BL | GA-responsive | ~12% reduction"
+    },
+    {
+      "source": "Rht5",
+      "target": "Plant_Height",
+      "sign": -1,
+      "mechanism": "Rht5 on 3BS; P450-family mechanism (likely GA biosynthesis); ~50% reduction",
+      "evidence_doi": "10.1186/s12870-025-07556-w",
+      "evidence_sentence": "Rht5 | 3BS | GA-responsive (P450) | ~50% reduction"
+    },
+    {
+      "source": "Rht26",
+      "target": "Plant_Height",
+      "sign": -1,
+      "mechanism": "Rht26 on 3DL; PMEI (pectin methylesterase inhibitor) class affecting cell wall",
+      "evidence_doi": "10.1186/s12870-025-07556-w",
+      "evidence_sentence": "Rht26 | 3DL | GA-responsive (PMEI) | Unspecified"
+    }
+  ],
+  "perturbations": [
+    {
+      "gene": "VRN1_5A_ko",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "magnitude": "slight",
+      "evidence_doi": "10.1016/j.xplc.2025.101325",
+      "evidence_sentence": "the plant height of these mutants was reduced by 3.7-5 cm compared with that of Fielder",
+      "notes": "VRN1-5A/B/D single homeolog mutants delayed heading and shorter"
+    },
+    {
+      "gene": "VRN1_triple_ko",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "magnitude": "strong",
+      "evidence_doi": "10.1016/j.xplc.2025.101325",
+      "evidence_sentence": "VRN1-5A/5B/5D redundantly regulate heading date and plant height in wheat",
+      "notes": "Triple loss delays flowering and dwarfs plants"
+    },
+    {
+      "gene": "TaGRF4_oe",
+      "perturbation_type": "overexpression",
+      "expected_direction": "unchanged",
+      "magnitude": "slight",
+      "evidence_doi": "10.1038/s41586-018-0415-5",
+      "evidence_sentence": "increased GRF4 abundance boosts grain yield and NUE of rice and wheat GRVs without increasing mature plant height",
+      "notes": "GRF4 OE in Rht-B1b background boosts yield without extra height"
+    },
+    {
+      "gene": "Rht3",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "magnitude": "strong",
+      "evidence_doi": "10.1186/s12870-025-07556-w",
+      "evidence_sentence": "Rht3 | ~64% reduction",
+      "notes": "Tom Thumb severe dwarf = Rht-B1c allele"
+    },
+    {
+      "gene": "Rht4",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "magnitude": "slight",
+      "evidence_doi": "10.1186/s12870-025-07556-w",
+      "evidence_sentence": "Rht4 | ~12% reduction",
+      "notes": "Burt's dwarf; chromosome 2BL"
+    },
+    {
+      "gene": "Rht5",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "magnitude": "strong",
+      "evidence_doi": "10.1186/s12870-025-07556-w",
+      "evidence_sentence": "Rht5 | ~50% reduction",
+      "notes": "3BS; GA-responsive"
+    }
+  ]
+}

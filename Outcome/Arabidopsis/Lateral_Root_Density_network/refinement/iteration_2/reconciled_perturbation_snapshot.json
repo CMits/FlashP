@@ -1,0 +1,5749 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lateral_Root_Density",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "total_tests": 158,
+    "in_network": 120,
+    "not_in_network": 38,
+    "phenotype_node": "Lateral_Root_Density"
+  },
+  "direction_threshold": 0.05,
+  "perturbations": [
+    {
+      "test_id": "T001",
+      "gene": "TIR1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TIR1"
+      ],
+      "gene_modifiers": {
+        "TIR1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TIR1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "tir1 KO -> TIR1 node",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.54740",
+          "title": "Genetic analysis of TIR1/AFB auxin receptors",
+          "authors": "Prigge MJ, et al.",
+          "year": 2020,
+          "journal": "eLife",
+          "evidence_sentence": "tir1 allele had the largest effect on induction of lateral root primordia",
+          "claim": "tir1 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "tir1 KO -> TIR1 node"
+    },
+    {
+      "test_id": "T002",
+      "gene": "AFB1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "TIR1"
+      ],
+      "gene_modifiers": {
+        "TIR1": 0.997
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TIR1",
+          "modifier_type": "gene_modifier",
+          "value": 0.997
+        }
+      ],
+      "notes": "AFB1 is a TIR1/AFB-family paralog; mapped to TIR1 composite representative (single-paralog redundancy gm=0.997)",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.54740",
+          "title": "Prigge TIR1/AFB analysis",
+          "authors": "Prigge MJ, et al.",
+          "year": 2020,
+          "journal": "eLife",
+          "evidence_sentence": "afb1 mutation had an opposite effect on lateral root formation",
+          "claim": "afb1 increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "AFB1 is a TIR1/AFB-family paralog; mapped to TIR1 composite representative (single-paralog redundancy gm=0.997)"
+    },
+    {
+      "test_id": "T003",
+      "gene": "AFB2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TIR1"
+      ],
+      "gene_modifiers": {
+        "TIR1": 0.85
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TIR1",
+          "modifier_type": "gene_modifier",
+          "value": 0.85
+        }
+      ],
+      "notes": "AFB2 -> TIR1 family (single-paralog redundancy) [iter1 LR refinement: gm: {'TIR1': 0.997} -> {'TIR1': 0.85}]",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.54740",
+          "title": "Prigge TIR1/AFB",
+          "authors": "Prigge MJ, et al.",
+          "year": 2020,
+          "journal": "eLife",
+          "evidence_sentence": "afb2 mutations having smaller median effects",
+          "claim": "afb2 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "AFB2 -> TIR1 family (single-paralog redundancy)"
+    },
+    {
+      "test_id": "T004",
+      "gene": "TIR1 AFB2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TIR1"
+      ],
+      "gene_modifiers": {
+        "TIR1": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TIR1",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "tir1 afb2 double -> partial TIR1/AFB family loss (2 of 6 paralogs collapsed into TIR1 node)",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.54740",
+          "title": "Prigge TIR1/AFB",
+          "authors": "Prigge MJ, et al.",
+          "year": 2020,
+          "journal": "eLife",
+          "evidence_sentence": "roots of lines containing tir1 and afb2 displayed strong IAA resistance",
+          "claim": "tir1afb2 strongly decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "tir1 afb2 double -> partial TIR1/AFB family loss (2 of 6 paralogs collapsed into TIR1 node)"
+    },
+    {
+      "test_id": "T005",
+      "gene": "TIR1 AFB2 AFB3",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TIR1"
+      ],
+      "gene_modifiers": {
+        "TIR1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TIR1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "tir1 afb2 afb3 triple -> the three main root auxin receptors -> full TIR1 perception loss in network",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.54740",
+          "title": "Prigge TIR1/AFB",
+          "authors": "Prigge MJ, et al.",
+          "year": 2020,
+          "journal": "eLife",
+          "evidence_sentence": "tir1afb23 seedlings lack roots defects to some degree",
+          "claim": "tir1afb23 severely decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "tir1 afb2 afb3 triple -> the three main root auxin receptors -> full TIR1 perception loss in network"
+    },
+    {
+      "test_id": "T006",
+      "gene": "AFB4 AFB5",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TIR1"
+      ],
+      "gene_modifiers": {
+        "TIR1": 0.8
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TIR1",
+          "modifier_type": "gene_modifier",
+          "value": 0.8
+        }
+      ],
+      "notes": "afb4 afb5 double -> partial TIR1 family loss (AFB4/5 are a distinct clade, residual TIR1/AFB1/2/3 intact)",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.54740",
+          "title": "Prigge TIR1/AFB",
+          "authors": "Prigge MJ, et al.",
+          "year": 2020,
+          "journal": "eLife",
+          "evidence_sentence": "afb45 largely overlapping functions, minimal effects on most traits",
+          "claim": "afb45 mild LR phenotype"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "afb4 afb5 double -> partial TIR1 family loss (AFB4/5 are a distinct clade, residual TIR1/AFB1/2/3 intact)"
+    },
+    {
+      "test_id": "T007",
+      "gene": "IAA14",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "IAA14"
+      ],
+      "gene_modifiers": {
+        "IAA14": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "IAA14",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "slr-1 is a stabilised dominant IAA14; gm=2.0 encodes super-active repressor (see \u00a7Dominant-negative Aux/IAA rule)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.008110",
+          "title": "slr/IAA14 gain-of-function blocks LR formation",
+          "authors": "Fukaki H, et al.",
+          "year": 2002,
+          "journal": "Plant J",
+          "evidence_sentence": "Lateral root formation is blocked by gain-of-function mutation in SOLITARY-ROOT/IAA14",
+          "claim": "slr-1 blocks LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "slr-1 is a stabilised dominant IAA14; gm=2.0 encodes super-active repressor (see \u00a7Dominant-negative Aux/IAA rule)"
+    },
+    {
+      "test_id": "T008",
+      "gene": "IAA28",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "IAA28"
+      ],
+      "gene_modifiers": {
+        "IAA28": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "IAA28",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "iaa28-1 stabilised dominant allele; gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root Development",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "both relative expression level and promoter activity of GATA23 was reduced only in the iaa28-1 gain-of-function mutant",
+          "claim": "iaa28-1 decreases LR founder specification"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "iaa28-1 stabilised dominant allele; gm=2.0"
+    },
+    {
+      "test_id": "T009",
+      "gene": "IAA12",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Dominant bdl stabilised allele; ARF5 pathway not captured",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039941",
+          "title": "Auxin-Regulated LR Organogenesis",
+          "authors": "Cavallari N, Artner C, Benkova E",
+          "year": 2021,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "BDL (IAA12-ARF5) signaling module in LRP development",
+          "claim": "bdl decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "IAA12 (bdl) partners with ARF5 (MP); neither IAA12 nor ARF5 is in the LR network"
+    },
+    {
+      "test_id": "T010",
+      "gene": "IAA3",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "IAA14"
+      ],
+      "gene_modifiers": {
+        "IAA14": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "IAA14",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "shy2 (iaa3) stabilised dominant allele; IAA3 is the nearest LR-functional Aux/IAA paralog to the in-network IAA14 node; gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20030486",
+          "title": "Interplay Auxin-CK",
+          "authors": "Jing H, Strader LC",
+          "year": 2019,
+          "journal": "IJMS",
+          "evidence_sentence": "plants expressing gain-of-function shy2-2 allele in endodermal cells display delayed lateral root emergence",
+          "claim": "shy2-2 delays LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "shy2 (iaa3) stabilised dominant allele; IAA3 is the nearest LR-functional Aux/IAA paralog to the in-network IAA14 node; gm=2.0"
+    },
+    {
+      "test_id": "T011",
+      "gene": "ARF7",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "ARF7"
+      ],
+      "gene_modifiers": {
+        "ARF7": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ARF7",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "arf7 KO",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.047761",
+          "title": "ARF7/19 LBD",
+          "authors": "Okushima Y, et al.",
+          "year": 2007,
+          "journal": "Plant Cell",
+          "evidence_sentence": "arf7 and arf19 single mutants show mild effects",
+          "claim": "arf7 mild LR decrease"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "arf7 KO"
+    },
+    {
+      "test_id": "T012",
+      "gene": "ARF19",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "ARF19"
+      ],
+      "gene_modifiers": {
+        "ARF19": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ARF19",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "arf19 KO",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.047761",
+          "title": "ARF7/19 LBD",
+          "authors": "Okushima Y, et al.",
+          "year": 2007,
+          "journal": "Plant Cell",
+          "evidence_sentence": "arf7 and arf19 single mutants show mild effects",
+          "claim": "arf19 mild LR decrease"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "arf19 KO"
+    },
+    {
+      "test_id": "T013",
+      "gene": "ARF7 ARF19",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "ARF7",
+        "ARF19"
+      ],
+      "gene_modifiers": {
+        "ARF7": 0.0,
+        "ARF19": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ARF7",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "ARF19",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "arf7 arf19 double KO",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.047761",
+          "title": "ARF7/19 LBD",
+          "authors": "Okushima Y, et al.",
+          "year": 2007,
+          "journal": "Plant Cell",
+          "evidence_sentence": "arf7 arf19 double mutants exhibit severely reduced lateral root formation phenotype",
+          "claim": "arf7arf19 blocks LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "arf7 arf19 double KO"
+    },
+    {
+      "test_id": "T014",
+      "gene": "ARF5",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "ARF5 governs embryonic patterning, not modelled here",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root Development",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "Loss-of-function signaling mutants show altered branching patterns with fewer LRP/LRs",
+          "claim": "mp/arf5 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "ARF5 (MP) not in LR network"
+    },
+    {
+      "test_id": "T015",
+      "gene": "LBD16",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "LBD"
+      ],
+      "gene_modifiers": {
+        "LBD": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "LBD",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "LBD16 is one of several LR LBDs collapsed into the LBD composite; single-paralog gm=0.997 [iter1 LR refinement: gm: {'LBD': 0.997} -> {'LBD': 0.5}]",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.047761",
+          "title": "ARF7/19 LBD",
+          "authors": "Okushima Y, et al.",
+          "year": 2007,
+          "journal": "Plant Cell",
+          "evidence_sentence": "number of lateral roots was reduced slightly in 7-d-old lbd16-1 seedlings",
+          "claim": "lbd16 mild decrease"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "LBD16 is one of several LR LBDs collapsed into the LBD composite; single-paralog gm=0.997"
+    },
+    {
+      "test_id": "T016",
+      "gene": "LBD16",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "LBD"
+      ],
+      "gene_modifiers": {
+        "LBD": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "LBD",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "LBD16 OE -> LBD composite OE",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.047761",
+          "title": "ARF7/19 LBD",
+          "authors": "Okushima Y, et al.",
+          "year": 2007,
+          "journal": "Plant Cell",
+          "evidence_sentence": "overexpression of LBD16 and LBD29 induced lateral root formation in the absence of ARF7 and ARF19",
+          "claim": "LBD16 OE increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "LBD16 OE -> LBD composite OE"
+    },
+    {
+      "test_id": "T017",
+      "gene": "LBD29",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "LBD"
+      ],
+      "gene_modifiers": {
+        "LBD": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "LBD",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "LBD29 OE -> LBD composite OE",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.047761",
+          "title": "ARF7/19 LBD",
+          "authors": "Okushima Y, et al.",
+          "year": 2007,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Pro35S:LBD29 seedlings developed small number of lateral roots",
+          "claim": "LBD29 OE weak LR increase"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "LBD29 OE -> LBD composite OE"
+    },
+    {
+      "test_id": "T018",
+      "gene": "LBD16",
+      "perturbation_type": "knockdown",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "LBD"
+      ],
+      "gene_modifiers": {
+        "LBD": 0.8
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "LBD",
+          "modifier_type": "gene_modifier",
+          "value": 0.8
+        }
+      ],
+      "notes": "LBD16 knockdown -> mild reduction in LBD composite",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.047761",
+          "title": "ARF7/19 LBD",
+          "authors": "Okushima Y, et al.",
+          "year": 2007,
+          "journal": "Plant Cell",
+          "evidence_sentence": "lateral root formation in Pro35S:LBD16-SRDX seedlings was strongly impaired",
+          "claim": "LBD16-SRDX decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "LBD16 knockdown -> mild reduction in LBD composite"
+    },
+    {
+      "test_id": "T019",
+      "gene": "LBD18",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "LBD"
+      ],
+      "gene_modifiers": {
+        "LBD": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "LBD",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "LBD18 single KO [iter1 LR refinement: gm: {'LBD': 0.997} -> {'LBD': 0.5}]",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.109.066480",
+          "title": "LBD18 LR formation",
+          "authors": "Lee HW, et al.",
+          "year": 2009,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "LBD18 regulates lateral root formation",
+          "claim": "lbd18 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "LBD18 single KO"
+    },
+    {
+      "test_id": "T020",
+      "gene": "LBD29",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "LBD"
+      ],
+      "gene_modifiers": {
+        "LBD": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "LBD",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "LBD29 single KO [iter1 LR refinement: gm: {'LBD': 0.997} -> {'LBD': 0.5}]",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.047761",
+          "title": "ARF7/19 LBD",
+          "authors": "Okushima Y, et al.",
+          "year": 2007,
+          "journal": "Plant Cell",
+          "evidence_sentence": "LBD29 loss contributes to reduced lateral roots",
+          "claim": "lbd29 mild LR decrease"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "LBD29 single KO"
+    },
+    {
+      "test_id": "T021",
+      "gene": "GATA23",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "GATA23"
+      ],
+      "gene_modifiers": {
+        "GATA23": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GATA23",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "gata23 LOF",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "gata23 gain- and loss-of-function mutants show altered numbers and spacing of LRs",
+          "claim": "gata23 loss decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "gata23 LOF"
+    },
+    {
+      "test_id": "T022",
+      "gene": "GATA23",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "GATA23"
+      ],
+      "gene_modifiers": {
+        "GATA23": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GATA23",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "GATA23 OE",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "gata23 gain-of-function mutants show altered numbers of LRs",
+          "claim": "GATA23 OE altered LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "GATA23 OE"
+    },
+    {
+      "test_id": "T023",
+      "gene": "PUCHI",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "PUCHI is a lateral-root AP2 TF; not modelled",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039941",
+          "title": "Auxin-Regulated LR",
+          "authors": "Cavallari N, et al.",
+          "year": 2021,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "loss of PUCHI results in abnormally enlarged flank cells and clustering of LRP",
+          "claim": "puchi decreases LR patterning"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "PUCHI not in LR network"
+    },
+    {
+      "test_id": "T024",
+      "gene": "PLT3 PLT5 PLT7",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PLT"
+      ],
+      "gene_modifiers": {
+        "PLT": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PLT",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "plt3 plt5 plt7 triple -> full PLT composite KO",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1714410114",
+          "title": "PLETHORA LR outgrowth",
+          "authors": "Du Y, Scheres B",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "only ~3% primordia emerged in plt3plt5plt7",
+          "claim": "plt357 strongly decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "plt3 plt5 plt7 triple -> full PLT composite KO"
+    },
+    {
+      "test_id": "T025",
+      "gene": "AUX1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "AUX1"
+      ],
+      "gene_modifiers": {
+        "AUX1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "AUX1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "aux1 KO",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "aux1 mutants also have fewer LRs",
+          "claim": "aux1 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "aux1 KO"
+    },
+    {
+      "test_id": "T026",
+      "gene": "LAX3",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "LAX3"
+      ],
+      "gene_modifiers": {
+        "LAX3": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "LAX3",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "lax3 KO",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20030486",
+          "title": "Interplay Auxin-CK",
+          "authors": "Jing H, Strader LC",
+          "year": 2019,
+          "journal": "IJMS",
+          "evidence_sentence": "Disrupting auxin-inducible LAX3 expression phenocopied mutant resulting in delayed lateral root emergence",
+          "claim": "lax3 decreases LR emergence"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "lax3 KO"
+    },
+    {
+      "test_id": "T027",
+      "gene": "PIN2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PIN"
+      ],
+      "gene_modifiers": {
+        "PIN": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PIN",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "pin2 -> PIN composite single-paralog [iter1 LR refinement: gm: {'PIN': 0.997} -> {'PIN': 0.5}]",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "polar auxin transport mutants show altered branching patterns with fewer LRP/LRs",
+          "claim": "pin2 mildly decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "pin2 -> PIN composite single-paralog"
+    },
+    {
+      "test_id": "T028",
+      "gene": "PIN3",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PIN"
+      ],
+      "gene_modifiers": {
+        "PIN": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PIN",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "pin3 -> PIN composite single-paralog [iter1 LR refinement: gm: {'PIN': 0.997} -> {'PIN': 0.7}] [iter2 LR refinement: gm: {'PIN': 0.7} -> {'PIN': 0.5}]",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "pin3 mutants have reduced numbers of LRPs",
+          "claim": "pin3 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "pin3 -> PIN composite single-paralog"
+    },
+    {
+      "test_id": "T029",
+      "gene": "PIN3 PIN7",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PIN"
+      ],
+      "gene_modifiers": {
+        "PIN": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PIN",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "pin3 pin7 double -> partial PIN composite loss (~2 of ~8 PINs) [iter2 LR refinement: gm: {'PIN': 0.9} -> {'PIN': 0.5}]",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "polar auxin transport mutants show altered branching patterns",
+          "claim": "pin3pin7 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "pin3 pin7 double -> partial PIN composite loss (~2 of ~8 PINs)"
+    },
+    {
+      "test_id": "T030",
+      "gene": "PIN8",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PIN"
+      ],
+      "gene_modifiers": {
+        "PIN": 0.7
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PIN",
+          "modifier_type": "gene_modifier",
+          "value": 0.7
+        }
+      ],
+      "notes": "pin8 -> PIN composite single-paralog [iter1 LR refinement: gm: {'PIN': 0.997} -> {'PIN': 0.85}] [iter2 LR refinement: gm: {'PIN': 0.85} -> {'PIN': 0.7}]",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "pin8 mutants show significantly reduced numbers of emerged LRs",
+          "claim": "pin8 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "pin8 -> PIN composite single-paralog"
+    },
+    {
+      "test_id": "T031",
+      "gene": "ABCB19",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "ABCB/PGP efflux transporter, separate from PIN family",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "ABCB14/PGP19/MDR1 show arrested and/or impaired LR growth rates",
+          "claim": "abcb19 decreases LR growth"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "ABCB19 (efflux carrier, distinct family) not in network"
+    },
+    {
+      "test_id": "T032",
+      "gene": "GNOM",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PIN"
+      ],
+      "gene_modifiers": {
+        "PIN": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PIN",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "GNOM controls PIN membrane trafficking; LOF collapses PIN polarity -> modelled as strong PIN KD gm=0.1",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "polar auxin transport mutants show altered branching patterns with fewer LRP/LRs",
+          "claim": "gnom decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "GNOM controls PIN membrane trafficking; LOF collapses PIN polarity -> modelled as strong PIN KD gm=0.1"
+    },
+    {
+      "test_id": "T033",
+      "gene": "TAA1 TAR2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TAA1",
+        "TAR2"
+      ],
+      "gene_modifiers": {
+        "TAA1": 0.0,
+        "TAR2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TAA1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "TAR2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "taa1 tar2 double KO",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.12448",
+          "title": "TAR2 low-N LR",
+          "authors": "Ma W, et al.",
+          "year": 2014,
+          "journal": "Plant J",
+          "evidence_sentence": "Low N-stimulated auxin accumulation and LR responses disrupted in tar2",
+          "claim": "taa1 tar2 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "taa1 tar2 double KO"
+    },
+    {
+      "test_id": "T034",
+      "gene": "TAR2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TAR2"
+      ],
+      "gene_modifiers": {
+        "TAR2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TAR2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "tar2 KO",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "Low N-stimulated auxin accumulation and LR responses disrupted in tar2",
+          "claim": "tar2 decreases LR under low-N"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "tar2 KO"
+    },
+    {
+      "test_id": "T035",
+      "gene": "YUC",
+      "perturbation_type": "quadruple_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "YUC4"
+      ],
+      "gene_modifiers": {
+        "YUC4": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "YUC4",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "yuc quadruple (yuc1/2/4/6) -> only YUC4 represented in network; gm=0 models strong YUC-family auxin biosynthesis loss",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1108434108",
+          "title": "Main auxin biosynthesis pathway",
+          "authors": "Mashiguchi K, et al.",
+          "year": 2011,
+          "journal": "PNAS",
+          "evidence_sentence": "YUCCA enzymes required for auxin biosynthesis and root meristem maintenance",
+          "claim": "yuc quadruple decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "yuc quadruple (yuc1/2/4/6) -> only YUC4 represented in network; gm=0 models strong YUC-family auxin biosynthesis loss"
+    },
+    {
+      "test_id": "T036",
+      "gene": "AHK2 AHK3",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "AHK"
+      ],
+      "gene_modifiers": {
+        "AHK": 0.3
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "AHK",
+          "modifier_type": "gene_modifier",
+          "value": 0.3
+        }
+      ],
+      "notes": "ahk2 ahk3 double -> two of three AHK paralogs lost in the AHK composite -> gm=0.3",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20030486",
+          "title": "Interplay Auxin-CK",
+          "authors": "Jing H, Strader LC",
+          "year": 2019,
+          "journal": "IJMS",
+          "evidence_sentence": "Mutation of AHK2 and AHK3 caused increased auxin sensitivity of LR formation",
+          "claim": "ahk2ahk3 increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "ahk2 ahk3 double -> two of three AHK paralogs lost in the AHK composite -> gm=0.3"
+    },
+    {
+      "test_id": "T037",
+      "gene": "AHK4",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "AHK"
+      ],
+      "gene_modifiers": {
+        "AHK": 0.7
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "AHK",
+          "modifier_type": "gene_modifier",
+          "value": 0.7
+        }
+      ],
+      "notes": "ahk4 (cre1) single -> one of three AHK paralogs lost; gm=0.7 reflects moderate CK-insensitivity phenotype",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20030486",
+          "title": "Interplay Auxin-CK",
+          "authors": "Jing H, Strader LC",
+          "year": 2019,
+          "journal": "IJMS",
+          "evidence_sentence": "Arabidopsis mutants defective in cytokinin receptors display increased root branching",
+          "claim": "ahk4 increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "ahk4 (cre1) single -> one of three AHK paralogs lost; gm=0.7 reflects moderate CK-insensitivity phenotype"
+    },
+    {
+      "test_id": "T038",
+      "gene": "CKX1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "CKX2"
+      ],
+      "gene_modifiers": {
+        "CKX2": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CKX2",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "CKX1 OE -> CKX2 node represents the CKX family; OE gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20030486",
+          "title": "Interplay Auxin-CK",
+          "authors": "Jing H, Strader LC",
+          "year": 2019,
+          "journal": "IJMS",
+          "evidence_sentence": "overexpression of cytokinin oxidase (CKX) results in reduced cytokinin levels and enhanced root branching",
+          "claim": "CKX OE increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "CKX1 OE -> CKX2 node represents the CKX family; OE gm=2.0"
+    },
+    {
+      "test_id": "T039",
+      "gene": "IPT",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "IPT5"
+      ],
+      "gene_modifiers": {
+        "IPT5": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "IPT5",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "IPT OE (e.g., IPT3/5/7) -> IPT5 node represents the IPT family; gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20030486",
+          "title": "Interplay Auxin-CK",
+          "authors": "Jing H, Strader LC",
+          "year": 2019,
+          "journal": "IJMS",
+          "evidence_sentence": "Plants overproducing cytokinin exhibit reduced lateral root formation",
+          "claim": "IPT OE decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "IPT OE (e.g., IPT3/5/7) -> IPT5 node represents the IPT family; gm=2.0"
+    },
+    {
+      "test_id": "T040",
+      "gene": "AHP6",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "AHP6 is a pseudo-His phosphotransferase that blocks CK signalling in LR founders; not modelled",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20030486",
+          "title": "Interplay Auxin-CK",
+          "authors": "Jing H, Strader LC",
+          "year": 2019,
+          "journal": "IJMS",
+          "evidence_sentence": "ahp6 mutant displays defects in pericycle founder cell divisions",
+          "claim": "ahp6 decreases LR initiation"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "AHP6 not in network"
+    },
+    {
+      "test_id": "T041",
+      "gene": "NRT1.1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "CHL1"
+      ],
+      "gene_modifiers": {
+        "CHL1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CHL1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "nrt1.1 (chl1) KO -> CHL1",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "chl1-9 and chl1-5 show identical long-term suppression of LR development",
+          "claim": "chl1-5 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "nrt1.1 (chl1) KO -> CHL1"
+    },
+    {
+      "test_id": "T042",
+      "gene": "NRT2.1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "NRT2.1 is the high-affinity nitrate transporter, separate from the CHL1/NRT1.1 transceptor; not modelled",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "NRT2.1 positively regulates LRs under low NO3- conditions",
+          "claim": "nrt2.1 decreases LR under low N"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "NRT2.1 not in network"
+    },
+    {
+      "test_id": "T043",
+      "gene": "ANR1",
+      "perturbation_type": "knockdown",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "ANR1"
+      ],
+      "gene_modifiers": {
+        "ANR1": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ANR1",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "ANR1 knockdown -> gm=0.5",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "ANR1 underexpression prevents local stimulation of lateral root elongation by high nitrate availability",
+          "claim": "anr1 blocks nitrate-LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "ANR1 knockdown -> gm=0.5"
+    },
+    {
+      "test_id": "T044",
+      "gene": "AFB3",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TIR1"
+      ],
+      "gene_modifiers": {
+        "TIR1": 0.7
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TIR1",
+          "modifier_type": "gene_modifier",
+          "value": 0.7
+        }
+      ],
+      "notes": "afb3 single -> TIR1 family paralog [iter1 LR refinement: gm: {'TIR1': 0.997} -> {'TIR1': 0.7}]",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "afb3 mutant displays apparent reduction in LR growth in response to NO3-",
+          "claim": "afb3 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "afb3 single -> TIR1 family paralog"
+    },
+    {
+      "test_id": "T045",
+      "gene": "AFB3",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "TIR1"
+      ],
+      "gene_modifiers": {
+        "TIR1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TIR1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "AFB3 OE -> TIR1 family OE",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "AFB3 overexpression line displays increased growth of LRs under NO3- sufficient",
+          "claim": "AFB3 OE increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "AFB3 OE -> TIR1 family OE"
+    },
+    {
+      "test_id": "T046",
+      "gene": "NAC4",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "NAC4 downstream of ARF7; not modelled",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "nac4 mutants show reduced LR growth in response to NO3-",
+          "claim": "nac4 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "NAC4 not in network"
+    },
+    {
+      "test_id": "T047",
+      "gene": "STOP1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "STOP1 is a low-pH/Al TF; not modelled",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms15300",
+          "title": "STOP1-ALMT1 low Pi",
+          "authors": "Balzergue C, et al.",
+          "year": 2017,
+          "journal": "Nat Commun",
+          "evidence_sentence": "stop1 mutant did not respond with root growth inhibition on -Pi",
+          "claim": "stop1 loses Pi response"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "STOP1 not in network"
+    },
+    {
+      "test_id": "T048",
+      "gene": "ALMT1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "ALMT1 malate transporter; not modelled",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms15300",
+          "title": "STOP1-ALMT1 low Pi",
+          "authors": "Balzergue C, et al.",
+          "year": 2017,
+          "journal": "Nat Commun",
+          "evidence_sentence": "almt1 mutant did not respond during the entire 7.5 h time course",
+          "claim": "almt1 loses Pi response"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "ALMT1 not in network"
+    },
+    {
+      "test_id": "T049",
+      "gene": "LPR1 LPR2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Low-phosphate response ferroxidases; not modelled directly",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms15300",
+          "title": "STOP1-ALMT1 low Pi",
+          "authors": "Balzergue C, et al.",
+          "year": 2017,
+          "journal": "Nat Commun",
+          "evidence_sentence": "lpr1;lpr2 mutant no inhibition of root growth",
+          "claim": "lpr1lpr2 loses Pi response"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "LPR1/LPR2 not in network"
+    },
+    {
+      "test_id": "T050",
+      "gene": "EIN2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "EIN2"
+      ],
+      "gene_modifiers": {
+        "EIN2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "EIN2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ein2 KO",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2008.03495.x",
+          "title": "Ethylene LR",
+          "authors": "Negi S, et al.",
+          "year": 2008,
+          "journal": "Plant J",
+          "evidence_sentence": "ein2-5 has increased numbers of lateral roots",
+          "claim": "ein2 increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "ein2 KO"
+    },
+    {
+      "test_id": "T051",
+      "gene": "ETR1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "EIN2"
+      ],
+      "gene_modifiers": {
+        "EIN2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "EIN2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "etr1 ethylene-insensitive allele blocks ethylene signalling upstream of CTR1/EIN2; encoded as EIN2 gm=0 to match ein2-like phenotype (expected increased LR)",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2008.03495.x",
+          "title": "Ethylene LR",
+          "authors": "Negi S, et al.",
+          "year": 2008,
+          "journal": "Plant J",
+          "evidence_sentence": "etr1-3 has increased numbers of lateral roots",
+          "claim": "etr1 increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "etr1 ethylene-insensitive allele blocks ethylene signalling upstream of CTR1/EIN2; encoded as EIN2 gm=0 to match ein2-like phenotype (expected increased LR)"
+    },
+    {
+      "test_id": "T052",
+      "gene": "CTR1",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "CTR1"
+      ],
+      "gene_modifiers": {
+        "CTR1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CTR1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ctr1 LOF -> constitutive ethylene signalling -> EIN2 up -> LR down",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2008.03495.x",
+          "title": "Ethylene LR",
+          "authors": "Negi S, et al.",
+          "year": 2008,
+          "journal": "Plant J",
+          "evidence_sentence": "ctr1-1 constitutive ethylene-signaling mutant decrease in the number of emerged lateral roots",
+          "claim": "ctr1 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "ctr1 LOF -> constitutive ethylene signalling -> EIN2 up -> LR down"
+    },
+    {
+      "test_id": "T053",
+      "gene": "ETO1",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "ACS"
+      ],
+      "gene_modifiers": {
+        "ACS": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ACS",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "eto1 LOF stabilises ACS5 -> excess ethylene biosynthesis; encoded as ACS gm=2.0 (OE)",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2008.03495.x",
+          "title": "Ethylene LR",
+          "authors": "Negi S, et al.",
+          "year": 2008,
+          "journal": "Plant J",
+          "evidence_sentence": "eto1-1 an ethylene-overproducing mutant decrease in the number of emerged lateral roots",
+          "claim": "eto1 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "eto1 LOF stabilises ACS5 -> excess ethylene biosynthesis; encoded as ACS gm=2.0 (OE)"
+    },
+    {
+      "test_id": "T054",
+      "gene": "ABI4",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ABI4_5"
+      ],
+      "gene_modifiers": {
+        "ABI4_5": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ABI4_5",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "abi4 single KO -> ABI4_5 composite (ABI4+ABI5 collapsed); partial loss gm=0.5",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.074641",
+          "title": "ABI4 LR",
+          "authors": "Shkolnik-Inbar D, Bar-Zvi D",
+          "year": 2010,
+          "journal": "Plant Cell",
+          "evidence_sentence": "abi4 mutants had 125 to 135% more LRs than wild-type plants",
+          "claim": "abi4 increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "abi4 single KO -> ABI4_5 composite (ABI4+ABI5 collapsed); partial loss gm=0.5"
+    },
+    {
+      "test_id": "T055",
+      "gene": "ABI4",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "ABI4_5"
+      ],
+      "gene_modifiers": {
+        "ABI4_5": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ABI4_5",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "ABI4 OE -> ABI4_5 composite OE",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.074641",
+          "title": "ABI4 LR",
+          "authors": "Shkolnik-Inbar D, Bar-Zvi D",
+          "year": 2010,
+          "journal": "Plant Cell",
+          "evidence_sentence": "ABI4-overexpressing plants developed <50% of the LRPs",
+          "claim": "ABI4 OE decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "ABI4 OE -> ABI4_5 composite OE"
+    },
+    {
+      "test_id": "T056",
+      "gene": "PYL8",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PYL8"
+      ],
+      "gene_modifiers": {
+        "PYL8": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PYL8",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "pyl8 KO",
+      "evidence": [
+        {
+          "doi": "10.1126/scisignal.2005051",
+          "title": "PYL8 MYB77 LR",
+          "authors": "Zhao Y, et al.",
+          "year": 2014,
+          "journal": "Science Signaling",
+          "evidence_sentence": "pyl8 mutant seedlings showed more suppression of lateral root growth",
+          "claim": "pyl8 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "pyl8 KO"
+    },
+    {
+      "test_id": "T057",
+      "gene": "MYB77",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "MYB77 auxin-responsive TF; not modelled",
+      "evidence": [
+        {
+          "doi": "10.1126/scisignal.2005051",
+          "title": "PYL8 MYB77 LR",
+          "authors": "Zhao Y, et al.",
+          "year": 2014,
+          "journal": "Science Signaling",
+          "evidence_sentence": "myb77 mutant more sensitive to inhibition by ABA",
+          "claim": "myb77 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "MYB77 not in network"
+    },
+    {
+      "test_id": "T058",
+      "gene": "ABI1",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ABI1"
+      ],
+      "gene_modifiers": {
+        "ABI1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ABI1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "abi1-1 dominant gof PP2C -> ABA-insensitive (ABI1 super-active at inhibiting SnRK2); gm=2.0 reflects the dominant gain-of-inhibition",
+      "evidence": [
+        {
+          "doi": "10.1126/scisignal.2005051",
+          "title": "PYL8 MYB77 LR",
+          "authors": "Zhao Y, et al.",
+          "year": 2014,
+          "journal": "Science Signaling",
+          "evidence_sentence": "abi1-1 mutant less sensitive to ABA",
+          "claim": "abi1-1 increases LR under ABA"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "abi1-1 dominant gof PP2C -> ABA-insensitive (ABI1 super-active at inhibiting SnRK2); gm=2.0 reflects the dominant gain-of-inhibition"
+    },
+    {
+      "test_id": "T059",
+      "gene": "SNRK2.2 SNRK2.3 SNRK2.6",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "SNRK2"
+      ],
+      "gene_modifiers": {
+        "SNRK2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "SNRK2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "snrk2.2/2.3/2.6 triple -> full SNRK2 composite loss",
+      "evidence": [
+        {
+          "doi": "10.1126/scisignal.2005051",
+          "title": "PYL8 MYB77 LR",
+          "authors": "Zhao Y, et al.",
+          "year": 2014,
+          "journal": "Science Signaling",
+          "evidence_sentence": "snrk2.2/3/6 less sensitive to ABA inhibition; quiescent phase was shorter",
+          "claim": "snrk2 triple increases LR under ABA"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "snrk2.2/2.3/2.6 triple -> full SNRK2 composite loss"
+    },
+    {
+      "test_id": "T060",
+      "gene": "PYR1 PYL1 PYL2 PYL4",
+      "perturbation_type": "quadruple_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "PYL8"
+      ],
+      "gene_modifiers": {
+        "PYL8": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PYL8",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "pyr1 pyl1 pyl2 pyl4 quadruple -> broad ABA-receptor loss; PYL8 node represents the PYR/PYL/RCAR family, encoded as gm=0 to model ABA perception block",
+      "evidence": [
+        {
+          "doi": "10.1126/scisignal.2005051",
+          "title": "PYL8 MYB77 LR",
+          "authors": "Zhao Y, et al.",
+          "year": 2014,
+          "journal": "Science Signaling",
+          "evidence_sentence": "pyr1pyl1/2/4 less sensitive than wild-type to ABA",
+          "claim": "pyr1pyl1/2/4 insensitive to ABA"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "pyr1 pyl1 pyl2 pyl4 quadruple -> broad ABA-receptor loss; PYL8 node represents the PYR/PYL/RCAR family, encoded as gm=0 to model ABA perception block"
+    },
+    {
+      "test_id": "T061",
+      "gene": "MAX2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "MAX2"
+      ],
+      "gene_modifiers": {
+        "MAX2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MAX2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "max2 KO",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.13681",
+          "title": "SL RSA",
+          "authors": "Richmond BL, et al.",
+          "year": 2022,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "rac-GR24 effect maintained in max1, max3, max4, but max2-1 unresponsive",
+          "claim": "max2 insensitive to GR24 LR suppression"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "max2 KO"
+    },
+    {
+      "test_id": "T062",
+      "gene": "D14",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "D14"
+      ],
+      "gene_modifiers": {
+        "D14": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "D14",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "d14 KO",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.13681",
+          "title": "SL RSA",
+          "authors": "Richmond BL, et al.",
+          "year": 2022,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "d14-1 had significantly longer primary root length than Col-0 under mock",
+          "claim": "d14 mild increase in root length"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "d14 KO"
+    },
+    {
+      "test_id": "T063",
+      "gene": "KAI2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "KAI2 is the karrikin receptor, functionally distinct from D14; mapping to D14 would invert the expected direction (D14 KO increases LR whereas KAI2 KO decreases)",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.13681",
+          "title": "SL RSA",
+          "authors": "Richmond BL, et al.",
+          "year": 2022,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "kai2-2 had significantly shorter average LR lengths than Col-0",
+          "claim": "kai2 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "KAI2 not in network"
+    },
+    {
+      "test_id": "T064",
+      "gene": "MAX3",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "MAX3"
+      ],
+      "gene_modifiers": {
+        "MAX3": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MAX3",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "max3 KO",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.13681",
+          "title": "SL RSA",
+          "authors": "Richmond BL, et al.",
+          "year": 2022,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "RH more numerous in max3-9",
+          "claim": "max3 increases root hair"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "max3 KO"
+    },
+    {
+      "test_id": "T065",
+      "gene": "MAX4",
+      "perturbation_type": "knockout",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "MAX4"
+      ],
+      "gene_modifiers": {
+        "MAX4": 0.85
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MAX4",
+          "modifier_type": "gene_modifier",
+          "value": 0.85
+        }
+      ],
+      "notes": "max4 KO [iter1 LR refinement: gm: {'MAX4': 0.0} -> {'MAX4': 0.5}] [iter2 LR refinement: gm: {'MAX4': 0.5} -> {'MAX4': 0.85}]",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.13681",
+          "title": "SL RSA",
+          "authors": "Richmond BL, et al.",
+          "year": 2022,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "max4-1 primary root shorter in 12h/12h",
+          "claim": "max4 context-dependent"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "max4 KO"
+    },
+    {
+      "test_id": "T066",
+      "gene": "MAX1",
+      "perturbation_type": "knockout",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "MAX1"
+      ],
+      "gene_modifiers": {
+        "MAX1": 0.85
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MAX1",
+          "modifier_type": "gene_modifier",
+          "value": 0.85
+        }
+      ],
+      "notes": "max1 KO [iter1 LR refinement: gm: {'MAX1': 0.0} -> {'MAX1': 0.5}] [iter2 LR refinement: gm: {'MAX1': 0.5} -> {'MAX1': 0.85}]",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.13681",
+          "title": "SL RSA",
+          "authors": "Richmond BL, et al.",
+          "year": 2022,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "max1-1 variable LR/RH responses",
+          "claim": "max1 variable LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "max1 KO"
+    },
+    {
+      "test_id": "T067",
+      "gene": "HY5",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "HY5"
+      ],
+      "gene_modifiers": {
+        "HY5": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "HY5",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "hy5 KO",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.17.00771",
+          "title": "HY5 FR LR",
+          "authors": "van Gelderen K, et al.",
+          "year": 2018,
+          "journal": "Plant Cell",
+          "evidence_sentence": "hy5 single mutant did not show significant difference in LR density between WL and WL+FR (constitutively higher LR than WT+FR)",
+          "claim": "hy5 loses FR suppression of LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "hy5 KO"
+    },
+    {
+      "test_id": "T068",
+      "gene": "HY5 HYH",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "HY5"
+      ],
+      "gene_modifiers": {
+        "HY5": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "HY5",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "hy5 hyh double -> HYH maps to HY5 paralog; double gm=0",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.17.00771",
+          "title": "HY5 FR LR",
+          "authors": "van Gelderen K, et al.",
+          "year": 2018,
+          "journal": "Plant Cell",
+          "evidence_sentence": "hy5 hyh double mutant did not have reduced LR density in WL+FR",
+          "claim": "hy5hyh insensitive to FR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "hy5 hyh double -> HYH maps to HY5 paralog; double gm=0"
+    },
+    {
+      "test_id": "T069",
+      "gene": "PHYB",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PHYB"
+      ],
+      "gene_modifiers": {
+        "PHYB": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PHYB",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "phyB KO",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.17.00771",
+          "title": "HY5 FR LR",
+          "authors": "van Gelderen K, et al.",
+          "year": 2018,
+          "journal": "Plant Cell",
+          "evidence_sentence": "phyB-9 mutant did not have reduced LR density in WL+FR",
+          "claim": "phyB loses response"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "phyB KO"
+    },
+    {
+      "test_id": "T070",
+      "gene": "PHYA",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PHYB"
+      ],
+      "gene_modifiers": {
+        "PHYB": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PHYB",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "phyA -> PHYB node represents the phytochrome family in this network",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.17.00771",
+          "title": "HY5 FR LR",
+          "authors": "van Gelderen K, et al.",
+          "year": 2018,
+          "journal": "Plant Cell",
+          "evidence_sentence": "phyA-501 did not respond to WL+FR",
+          "claim": "phyA loses response"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "phyA -> PHYB node represents the phytochrome family in this network"
+    },
+    {
+      "test_id": "T071",
+      "gene": "PIN3",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PIN"
+      ],
+      "gene_modifiers": {
+        "PIN": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PIN",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "pin3 (independent replicate) -> PIN composite single-paralog [iter1 LR refinement: gm: {'PIN': 0.997} -> {'PIN': 0.7}] [iter2 LR refinement: gm: {'PIN': 0.7} -> {'PIN': 0.5}]",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.17.00771",
+          "title": "HY5 FR LR",
+          "authors": "van Gelderen K, et al.",
+          "year": 2018,
+          "journal": "Plant Cell",
+          "evidence_sentence": "pin3-3 did not have reduced LR density in WL+FR compared with WL",
+          "claim": "pin3 loses FR response"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "pin3 (independent replicate) -> PIN composite single-paralog"
+    },
+    {
+      "test_id": "T072",
+      "gene": "LAX3",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "LAX3"
+      ],
+      "gene_modifiers": {
+        "LAX3": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "LAX3",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "lax3 (independent replicate)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.17.00771",
+          "title": "HY5 FR LR",
+          "authors": "van Gelderen K, et al.",
+          "year": 2018,
+          "journal": "Plant Cell",
+          "evidence_sentence": "lax3-1 did not have reduced LR density in WL+FR compared with WL",
+          "claim": "lax3 loses FR response"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "lax3 (independent replicate)"
+    },
+    {
+      "test_id": "T073",
+      "gene": "ACC",
+      "perturbation_type": "acc_treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "Ethylene"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Ethylene": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Ethylene",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "ACC -> ethylene biosynthesis precursor -> Ethylene exogenous supply",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2008.03495.x",
+          "title": "Ethylene LR",
+          "authors": "Negi S, et al.",
+          "year": 2008,
+          "journal": "Plant J",
+          "evidence_sentence": "Seedlings show both reduced root elongation and reduced lateral root numbers (1 uM ACC)",
+          "claim": "ACC decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "ACC -> ethylene biosynthesis precursor -> Ethylene exogenous supply"
+    },
+    {
+      "test_id": "T074",
+      "gene": "AgNO3",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "EIN2"
+      ],
+      "gene_modifiers": {
+        "EIN2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "EIN2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "AgNO3 blocks ethylene receptors -> phenotypic ethylene-insensitivity -> EIN2 gm=0 (same encoding as etr1)",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2008.03495.x",
+          "title": "Ethylene LR",
+          "authors": "Negi S, et al.",
+          "year": 2008,
+          "journal": "Plant J",
+          "evidence_sentence": "reduced root branching by ACC is reversible by treatment with the ethylene antagonist silver nitrate",
+          "claim": "AgNO3 increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "AgNO3 blocks ethylene receptors -> phenotypic ethylene-insensitivity -> EIN2 gm=0 (same encoding as etr1)"
+    },
+    {
+      "test_id": "T075",
+      "gene": "IAA",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Auxin"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Auxin": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Auxin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "IAA treatment -> Auxin supply",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "heat-shock-inducible system to generate clonal sectors of XPP cells with local high IAA levels (iaaM) were sufficient to enhance LR production",
+          "claim": "IAA promotes LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "IAA treatment -> Auxin supply"
+    },
+    {
+      "test_id": "T076",
+      "gene": "NAA",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Auxin"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Auxin": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Auxin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "NAA -> Auxin supply (synthetic auxin)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.047761",
+          "title": "ARF7/19 LBD",
+          "authors": "Okushima Y, et al.",
+          "year": 2007,
+          "journal": "Plant Cell",
+          "evidence_sentence": "auxin treatment led to increased expression of ProLBD29:GUS and ProLBD33:GUS; strong GUS activity in pericycle",
+          "claim": "NAA induces LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "NAA -> Auxin supply (synthetic auxin)"
+    },
+    {
+      "test_id": "T077",
+      "gene": "ABA",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "ABA"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "ABA": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "ABA",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "exogenous ABA -> ABA supply",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.074641",
+          "title": "ABI4 LR",
+          "authors": "Shkolnik-Inbar D, Bar-Zvi D",
+          "year": 2010,
+          "journal": "Plant Cell",
+          "evidence_sentence": "treatment with ABA reduced LR number in wild-type seedlings",
+          "claim": "ABA decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "exogenous ABA -> ABA supply"
+    },
+    {
+      "test_id": "T078",
+      "gene": "Zeatin",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "Cytokinin"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Cytokinin": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Cytokinin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Zeatin -> Cytokinin supply",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.074641",
+          "title": "ABI4 LR",
+          "authors": "Shkolnik-Inbar D, Bar-Zvi D",
+          "year": 2010,
+          "journal": "Plant Cell",
+          "evidence_sentence": "zeatin reduced LR number in wild-type seedlings",
+          "claim": "zeatin decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Zeatin -> Cytokinin supply"
+    },
+    {
+      "test_id": "T079",
+      "gene": "TIBA",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PIN"
+      ],
+      "gene_modifiers": {
+        "PIN": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PIN",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "TIBA blocks polar auxin transport -> PIN KD",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.074641",
+          "title": "ABI4 LR",
+          "authors": "Shkolnik-Inbar D, Bar-Zvi D",
+          "year": 2010,
+          "journal": "Plant Cell",
+          "evidence_sentence": "application of auxin transport inhibitor 2,3,5-triiodobenzoic acid (TIBA) resulted in increased levels of ABI4 transcript",
+          "claim": "TIBA decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "TIBA blocks polar auxin transport -> PIN KD"
+    },
+    {
+      "test_id": "T080",
+      "gene": "NPA",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PIN"
+      ],
+      "gene_modifiers": {
+        "PIN": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PIN",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "NPA blocks polar auxin transport -> PIN KD",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039941",
+          "title": "Auxin-Regulated LR",
+          "authors": "Cavallari N, et al.",
+          "year": 2021,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "Inhibition of auxin transport by NPA dims oscillation of auxin response and initiation of LRs",
+          "claim": "NPA decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "NPA blocks polar auxin transport -> PIN KD"
+    },
+    {
+      "test_id": "T081",
+      "gene": "GR24",
+      "perturbation_type": "exogenous_SL",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "Strigolactone"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Strigolactone": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Strigolactone",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "GR24 synthetic SL -> Strigolactone supply",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.13681",
+          "title": "SL RSA",
+          "authors": "Richmond BL, et al.",
+          "year": 2022,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "rac-GR24 reduces LR length and number in Col-0",
+          "claim": "GR24 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "GR24 synthetic SL -> Strigolactone supply"
+    },
+    {
+      "test_id": "T082",
+      "gene": "KNO3_10mM",
+      "perturbation_type": "high_nitrate_treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "Low_Nitrate"
+      ],
+      "gene_modifiers": {
+        "Low_Nitrate": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "Low_Nitrate",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "10 mM KNO3 high-N -> Low_Nitrate turned off (gm=0)",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "High NO3- conditions decreased entire root system development",
+          "claim": "High KNO3 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "10 mM KNO3 high-N -> Low_Nitrate turned off (gm=0)"
+    },
+    {
+      "test_id": "T083",
+      "gene": "KNO3_patch",
+      "perturbation_type": "treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ANR1"
+      ],
+      "gene_modifiers": {
+        "ANR1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ANR1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "localised KNO3 patch -> local N-foraging response via ANR1 induction (OE-like)",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "Low NO3- patches trigger local induction of LR elongation",
+          "claim": "Nitrate patch increases local LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "localised KNO3 patch -> local N-foraging response via ANR1 induction (OE-like)"
+    },
+    {
+      "test_id": "T084",
+      "gene": "Glutamate",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "NLP7"
+      ],
+      "gene_modifiers": {
+        "NLP7": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "NLP7",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "glutamate -> activates N-signalling TF NLP7 (surrogate for amino-acid N sensing)",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "Glutamate specifically stimulates LR growth at root tip",
+          "claim": "Glu increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "glutamate -> activates N-signalling TF NLP7 (surrogate for amino-acid N sensing)"
+    },
+    {
+      "test_id": "T085",
+      "gene": "Low_Phosphate",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Low_Phosphate"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Low_Phosphate": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Low_Phosphate",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "low-Pi environment -> Low_Phosphate supply",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "phosphate deficiency leads to PR length inhibition, increases in LR length",
+          "claim": "Low Pi increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "low-Pi environment -> Low_Phosphate supply"
+    },
+    {
+      "test_id": "T086",
+      "gene": "Far_Red",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PHYB"
+      ],
+      "gene_modifiers": {
+        "PHYB": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PHYB",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "Far-Red light inactivates PHYB (shade avoidance) -> PHYB gm=0.1",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.17.00771",
+          "title": "HY5 FR LR",
+          "authors": "van Gelderen K, et al.",
+          "year": 2018,
+          "journal": "Plant Cell",
+          "evidence_sentence": "supplemental FR enrichment of shoot leads to reduction in LR density",
+          "claim": "FR decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Far-Red light inactivates PHYB (shade avoidance) -> PHYB gm=0.1"
+    },
+    {
+      "test_id": "T087",
+      "gene": "UV_B",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "UV_B stress not modelled",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039941",
+          "title": "Auxin-Regulated LR",
+          "authors": "Cavallari N, et al.",
+          "year": 2021,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "UV-B light markedly affects root branching",
+          "claim": "UV-B decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "UV_B stress not modelled"
+    },
+    {
+      "test_id": "T088",
+      "gene": "Salt",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Salt stress not modelled",
+      "evidence": [
+        {
+          "doi": "10.1126/scisignal.2005051",
+          "title": "PYL8 MYB77 LR",
+          "authors": "Zhao Y, et al.",
+          "year": 2014,
+          "journal": "Science Signaling",
+          "evidence_sentence": "endogenous ABA stimulated by salt stress promoting lateral root quiescence",
+          "claim": "Salt decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "Salt stress not modelled"
+    },
+    {
+      "test_id": "T089",
+      "gene": "Hypoxia",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Hypoxia not modelled",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039941",
+          "title": "Auxin-Regulated LR",
+          "authors": "Cavallari N, et al.",
+          "year": 2021,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "lack of soil oxygen inhibition of LR development",
+          "claim": "Hypoxia decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "Hypoxia not modelled"
+    },
+    {
+      "test_id": "T090",
+      "gene": "Low_Potassium",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Low_Potassium not modelled",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039941",
+          "title": "Auxin-Regulated LR",
+          "authors": "Cavallari N, et al.",
+          "year": 2021,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "K-deficiency inhibits LR organogenesis",
+          "claim": "Low K decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "Low_Potassium not modelled"
+    },
+    {
+      "test_id": "T091",
+      "gene": "High_Water",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "High_Water regime not modelled",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039941",
+          "title": "Auxin-Regulated LR",
+          "authors": "Cavallari N, et al.",
+          "year": 2021,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "LR organogenesis is enhanced at root side exposed to moisture",
+          "claim": "Water promotes LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "High_Water regime not modelled"
+    },
+    {
+      "test_id": "T092",
+      "gene": "PCIB",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "ARF7",
+        "ARF19"
+      ],
+      "gene_modifiers": {
+        "ARF7": 0.1,
+        "ARF19": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ARF7",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        },
+        {
+          "node": "ARF19",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "PCIB antagonises auxin-responsive ARFs -> ARF7/19 KD",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "Treatment with p-chloro-phenoxy-isobutyl acetic acid (PCIB), inhibitor of Aux/IAA protein degradation produced decrease in hydrotropic response",
+          "claim": "PCIB decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "PCIB antagonises auxin-responsive ARFs -> ARF7/19 KD"
+    },
+    {
+      "test_id": "T093",
+      "gene": "Auxinole",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TIR1"
+      ],
+      "gene_modifiers": {
+        "TIR1": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TIR1",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "auxinole is a TIR1/AFB antagonist -> TIR1 KD",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "auxinole or PEO-IAA TIR1 antagonist",
+          "claim": "Auxinole decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "auxinole is a TIR1/AFB antagonist -> TIR1 KD"
+    },
+    {
+      "test_id": "T094",
+      "gene": "AVG",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ACS"
+      ],
+      "gene_modifiers": {
+        "ACS": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ACS",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "AVG inhibits ACS (ACC synthase) -> ethylene biosynthesis block",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2008.03495.x",
+          "title": "Ethylene LR",
+          "authors": "Negi S, et al.",
+          "year": 2008,
+          "journal": "Plant J",
+          "evidence_sentence": "ethylene antagonist silver nitrate reverses ACC effect (AVG similar)",
+          "claim": "AVG increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "AVG inhibits ACS (ACC synthase) -> ethylene biosynthesis block"
+    },
+    {
+      "test_id": "T095",
+      "gene": "Kinetin",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "Cytokinin"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Cytokinin": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Cytokinin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "kinetin -> Cytokinin supply",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20030486",
+          "title": "Interplay Auxin-CK",
+          "authors": "Jing H, Strader LC",
+          "year": 2019,
+          "journal": "IJMS",
+          "evidence_sentence": "plants overproducing cytokinin exhibit reduced lateral root formation",
+          "claim": "Kinetin decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "kinetin -> Cytokinin supply"
+    },
+    {
+      "test_id": "T096",
+      "gene": "IAA28 + NAA",
+      "perturbation_type": "gain_of_function_plus_treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "IAA28",
+        "Auxin"
+      ],
+      "gene_modifiers": {
+        "IAA28": 2.0
+      },
+      "exogenous_supply": {
+        "Auxin": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "IAA28",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "Auxin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "iaa28-1 gof + NAA -> stabilised IAA28 cannot be degraded even with excess auxin; combined treatment compared to WT [iter1 LR refinement: baseline: WT -> mutant; expected: decreased -> unchanged] [iter2 LR refinement: baseline: mutant -> WT; expected: unchanged -> decreased]",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "iaa28-1 gain-of-function blocks GATA23 induction",
+          "claim": "iaa28-1 blocks auxin response"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "iaa28-1 gof + NAA -> stabilised IAA28 cannot be degraded even with excess auxin; combined treatment compared to WT"
+    },
+    {
+      "test_id": "T097",
+      "gene": "IAA14 + NAA",
+      "perturbation_type": "gain_of_function_plus_treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "IAA14",
+        "Auxin"
+      ],
+      "gene_modifiers": {
+        "IAA14": 2.0
+      },
+      "exogenous_supply": {
+        "Auxin": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "IAA14",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "Auxin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "slr-1 (IAA14 stabilised) + NAA vs WT -> stabilised IAA14 resists auxin-dependent degradation [iter1 LR refinement: baseline: WT -> mutant; expected: decreased -> unchanged] [iter2 LR refinement: baseline: mutant -> WT; expected: unchanged -> decreased]",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20030486",
+          "title": "Interplay Auxin-CK",
+          "authors": "Jing H, Strader LC",
+          "year": 2019,
+          "journal": "IJMS",
+          "evidence_sentence": "LRP virtually absent in dominant negative slr",
+          "claim": "slr-1 blocks auxin-induced LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "slr-1 (IAA14 stabilised) + NAA vs WT -> stabilised IAA14 resists auxin-dependent degradation"
+    },
+    {
+      "test_id": "T098",
+      "gene": "ABI4 + IAA",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ABI4_5",
+        "Auxin"
+      ],
+      "gene_modifiers": {
+        "ABI4_5": 0.5
+      },
+      "exogenous_supply": {
+        "Auxin": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "ABI4_5",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        },
+        {
+          "node": "Auxin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "abi4 + IAA combined vs WT -> abi4 partial (ABI4_5 composite) plus auxin supply",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.074641",
+          "title": "ABI4 LR",
+          "authors": "Shkolnik-Inbar D, Bar-Zvi D",
+          "year": 2010,
+          "journal": "Plant Cell",
+          "evidence_sentence": "40 to 90% increase in LR formation in the three IAA-treated abi4 mutant lines",
+          "claim": "IAA rescues abi4 OE"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "abi4 + IAA combined vs WT -> abi4 partial (ABI4_5 composite) plus auxin supply"
+    },
+    {
+      "test_id": "T099",
+      "gene": "pyl8 + IAA",
+      "perturbation_type": "rescue",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "PYL8",
+        "Auxin"
+      ],
+      "gene_modifiers": {
+        "PYL8": 0.0
+      },
+      "exogenous_supply": {
+        "Auxin": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "PYL8",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "Auxin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "pyl8 + IAA rescue; baseline = pyl8 alone",
+      "evidence": [
+        {
+          "doi": "10.1126/scisignal.2005051",
+          "title": "PYL8 MYB77 LR",
+          "authors": "Zhao Y, et al.",
+          "year": 2014,
+          "journal": "Science Signaling",
+          "evidence_sentence": "10 nM IAA was sufficient to rescue inhibition of lateral root growth in pyl8 mutant",
+          "claim": "IAA rescues pyl8 LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "mutant",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "pyl8 + IAA rescue; baseline = pyl8 alone"
+    },
+    {
+      "test_id": "T100",
+      "gene": "arf7 arf19 + ARF7-GR + Dex",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ARF7",
+        "ARF19"
+      ],
+      "gene_modifiers": {
+        "ARF7": 2.0,
+        "ARF19": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ARF7",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "ARF19",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "arf7 arf19 + ARF7-GR (dex induced) rescue; ARF7 forced active on top of arf19 loss; baseline = arf7 arf19 double [iter1 LR refinement: baseline: mutant -> WT]",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.047761",
+          "title": "ARF7/19 LBD",
+          "authors": "Okushima Y, et al.",
+          "year": 2007,
+          "journal": "Plant Cell",
+          "evidence_sentence": "DEX treatment rescues phenotype of arf7 arf19 double mutant",
+          "claim": "DEX-induced ARF7 rescues arf7arf19"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "arf7 arf19 + ARF7-GR (dex induced) rescue; ARF7 forced active on top of arf19 loss; baseline = arf7 arf19 double"
+    },
+    {
+      "test_id": "T101",
+      "gene": "arf7 arf19 + LBD16 OE",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ARF7",
+        "ARF19",
+        "LBD"
+      ],
+      "gene_modifiers": {
+        "ARF7": 0.0,
+        "ARF19": 0.0,
+        "LBD": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ARF7",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "ARF19",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "LBD",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "arf7 arf19 + LBD16 OE rescue; LBD forced downstream of the ARF block [iter1 LR refinement: baseline: mutant -> WT]",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.047761",
+          "title": "ARF7/19 LBD",
+          "authors": "Okushima Y, et al.",
+          "year": 2007,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Pro35S:LBD16/arf7 arf19 developed lateral roots, partially rescues",
+          "claim": "LBD16 OE rescues arf7arf19"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "arf7 arf19 + LBD16 OE rescue; LBD forced downstream of the ARF block"
+    },
+    {
+      "test_id": "T102",
+      "gene": "plt3plt5plt7 + PLT1 OE",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "PLT"
+      ],
+      "gene_modifiers": {
+        "PLT": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PLT",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "plt3 plt5 plt7 + PLT1 OE rescue -> PLT composite forced back on (gm=2.0) [iter1 LR refinement: baseline: mutant -> WT]",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1714410114",
+          "title": "PLETHORA LR",
+          "authors": "Du Y, Scheres B",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "reactivation of any PLT family member at this early stage led to full complementation of morphological defects",
+          "claim": "PLT1 rescues plt357"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "plt3 plt5 plt7 + PLT1 OE rescue -> PLT composite forced back on (gm=2.0)"
+    },
+    {
+      "test_id": "T103",
+      "gene": "plt3plt5plt7 + PIN1 OE",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "PLT",
+        "PIN"
+      ],
+      "gene_modifiers": {
+        "PLT": 0.0,
+        "PIN": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PLT",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "PIN",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "plt3 plt5 plt7 + PIN1 OE rescue -> PIN forced high but PLT block remains; expected unchanged vs plt3/5/7 mutant",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1714410114",
+          "title": "PLETHORA LR",
+          "authors": "Du Y, Scheres B",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "LRP-targeted induction of individual genes failed to complement the LR outgrowth defect",
+          "claim": "PIN1 alone does not rescue plt357"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "mutant",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "plt3 plt5 plt7 + PIN1 OE rescue -> PIN forced high but PLT block remains; expected unchanged vs plt3/5/7 mutant"
+    },
+    {
+      "test_id": "T104",
+      "gene": "lbo",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "LBO catalyses the final SL-biosynthesis step; not modelled as a separate node",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "SL biosynthesis mutants show modified root architecture",
+          "claim": "lbo context-dependent LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "LBO (LATERAL BRANCHING OXIDOREDUCTASE) not in network"
+    },
+    {
+      "test_id": "T105",
+      "gene": "dao1 dao2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "DAO1"
+      ],
+      "gene_modifiers": {
+        "DAO1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "DAO1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "dao1 dao2 double -> DAO1 node represents the DAO IAA-oxidase family",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "Loss-of-function dao mutants increased LR density",
+          "claim": "dao1 dao2 increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "dao1 dao2 double -> DAO1 node represents the DAO IAA-oxidase family"
+    },
+    {
+      "test_id": "T106",
+      "gene": "ETT",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "ARF3/ETT not in network",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "Loss-of-function mutants have increased numbers of emerged LRs",
+          "claim": "ett increases LR emergence"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "ARF3/ETT not in network"
+    },
+    {
+      "test_id": "T107",
+      "gene": "ibr1 ibr3 ibr10",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "IBR1/3/10 IBA->IAA conversion genes not in network",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "IBR1, IBR3, IBR10 lead to reduced frequency of pre-branch sites",
+          "claim": "ibr1/3/10 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "IBR1/3/10 IBA->IAA conversion genes not in network"
+    },
+    {
+      "test_id": "T108",
+      "gene": "acr4",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "ACR4 receptor-like kinase not in network",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039941",
+          "title": "Auxin-Regulated LR",
+          "authors": "Cavallari N, et al.",
+          "year": 2021,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "accumulation of ectopic LRP in acr4 mutants",
+          "claim": "acr4 increases ectopic LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "ACR4 receptor-like kinase not in network"
+    },
+    {
+      "test_id": "T109",
+      "gene": "ralf34",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "RALF34 peptide not in network",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "Two loss-of-function insertion mutants of RALF4 showed threefold increase in clustered LRPs",
+          "claim": "ralf34 increases LR clustering"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "RALF34 peptide not in network"
+    },
+    {
+      "test_id": "T110",
+      "gene": "cep5 cepr",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "CEP5/CEPR peptide-receptor pair not in network",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "CEP5/CEPR has similar phenotype in loss-of-function background (increased clustered LR)",
+          "claim": "cep5/cepr increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "CEP5/CEPR peptide-receptor pair not in network"
+    },
+    {
+      "test_id": "T111",
+      "gene": "alf1/sur",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Auxin"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Auxin": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Auxin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "alf1/sur dominant mutant -> constitutive auxin accumulation -> Auxin exogenous=1.0",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "Constitutively active allele of alf1/sur displays hyperproliferation of LRs",
+          "claim": "alf1 increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "alf1/sur dominant mutant -> constitutive auxin accumulation -> Auxin exogenous=1.0"
+    },
+    {
+      "test_id": "T112",
+      "gene": "bbx16",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "BBX16 B-box TF not in network",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "bbx16-1 mutants produce larger LRs under NO3- limitation",
+          "claim": "bbx16 increases LR under low N"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "BBX16 B-box TF not in network"
+    },
+    {
+      "test_id": "T113",
+      "gene": "agl21",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "AGL21 MADS TF not in network",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "agl21 mutants exhibit reduction in LR elongation under low NO3-",
+          "claim": "agl21 decreases LR under low N"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "AGL21 MADS TF not in network"
+    },
+    {
+      "test_id": "T114",
+      "gene": "CLE OE",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "CLE"
+      ],
+      "gene_modifiers": {
+        "CLE": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CLE",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "CLE-peptide OE (general) -> CLE composite OE",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "Overexpression of CLE genes results in repression of LR emergence",
+          "claim": "CLE OE decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "CLE-peptide OE (general) -> CLE composite OE"
+    },
+    {
+      "test_id": "T115",
+      "gene": "T101A NRT1.1",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "CHL1"
+      ],
+      "gene_modifiers": {
+        "CHL1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CHL1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "T101A NRT1.1 prevents phosphorylation -> locked low-affinity mode -> enhanced N-uptake signalling (encoded as CHL1 gm=2.0)",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "T101A had much higher LR density under low NO3- conditions",
+          "claim": "T101A increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "T101A NRT1.1 prevents phosphorylation -> locked low-affinity mode -> enhanced N-uptake signalling (encoded as CHL1 gm=2.0)"
+    },
+    {
+      "test_id": "T116",
+      "gene": "T101D NRT1.1",
+      "perturbation_type": "phospho_dead_mutant",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "CHL1"
+      ],
+      "gene_modifiers": {
+        "CHL1": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CHL1",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "T101D phospho-mimic locks NRT1.1 in high-affinity/low-signal mode -> CHL1 functional reduction gm=0.5",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "No significant difference in LR density of T101D under low NO3- vs WT",
+          "claim": "T101D low LR response"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "T101D phospho-mimic locks NRT1.1 in high-affinity/low-signal mode -> CHL1 functional reduction gm=0.5"
+    },
+    {
+      "test_id": "T117",
+      "gene": "Malate_rescue_almt1",
+      "perturbation_type": "rescue",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Almt1 malate rescue not modelled (ALMT1 absent)",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms15300",
+          "title": "STOP1-ALMT1",
+          "authors": "Balzergue C, et al.",
+          "year": 2017,
+          "journal": "Nat Commun",
+          "evidence_sentence": "chemical complementation by exogenous malate application restored primary root growth inhibition on -Pi medium in almt1 mutants",
+          "claim": "malate rescues almt1"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "Almt1 malate rescue not modelled (ALMT1 absent)"
+    },
+    {
+      "test_id": "T118",
+      "gene": "SHAM",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "SHAM/mitochondrial respiration axis not modelled",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms15300",
+          "title": "STOP1-ALMT1",
+          "authors": "Balzergue C, et al.",
+          "year": 2017,
+          "journal": "Nat Commun",
+          "evidence_sentence": "SHAM strongly decreased CW stiffness in -Pi-challenged WT restored root growth",
+          "claim": "SHAM rescues root growth"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "SHAM/mitochondrial respiration axis not modelled"
+    },
+    {
+      "test_id": "T119",
+      "gene": "Low_Pi + Fe_omission",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Low_Phosphate"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Low_Phosphate": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Low_Phosphate",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Fe-omission cancels low-P LR response in biology; network cannot distinguish",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms15300",
+          "title": "STOP1-ALMT1",
+          "authors": "Balzergue C, et al.",
+          "year": 2017,
+          "journal": "Nat Commun",
+          "evidence_sentence": "root growth arrest does not occur under -Pi when iron is omitted",
+          "claim": "Fe-omission rescues LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "low-Pi with Fe omission; Fe node not in network so encoding reduces to Low_Phosphate supply; biology caveat noted"
+    },
+    {
+      "test_id": "T120",
+      "gene": "pdr2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "PDR2 P5-type ATPase not in network",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0901778106",
+          "title": "PDR2 LPR1 root meristem Pi",
+          "authors": "Ticconi CA, et al.",
+          "year": 2009,
+          "journal": "PNAS",
+          "evidence_sentence": "PDR2 functions in the endoplasmic reticulum and is required for proper expression of SCR",
+          "claim": "pdr2 decreases LR under low Pi"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "PDR2 P5-type ATPase not in network"
+    },
+    {
+      "test_id": "T121",
+      "gene": "NAC1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "NAC1 not in network",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0605275103",
+          "title": "NAC1 auxin LR",
+          "authors": "Xie Q, et al.",
+          "year": 2000,
+          "journal": "PNAS",
+          "evidence_sentence": "NAC1 transduces auxin signal downstream of TIR1 to promote lateral root development",
+          "claim": "nac1 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "NAC1 not in network"
+    },
+    {
+      "test_id": "T122",
+      "gene": "MAX2 + GR24",
+      "perturbation_type": "knockout_plus_GR24",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "MAX2",
+        "Strigolactone"
+      ],
+      "gene_modifiers": {
+        "MAX2": 0.0
+      },
+      "exogenous_supply": {
+        "Strigolactone": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "MAX2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "Strigolactone",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "max2 + GR24: signalling-mutant rescue (Trap 5) -> expected unchanged vs max2 alone",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.13681",
+          "title": "SL RSA",
+          "authors": "Richmond BL, et al.",
+          "year": 2022,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "max2-1 not responsive to rac-GR24",
+          "claim": "max2 rescued from GR24 effect"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "mutant",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "max2 + GR24: signalling-mutant rescue (Trap 5) -> expected unchanged vs max2 alone"
+    },
+    {
+      "test_id": "T123",
+      "gene": "D14 + GR24",
+      "perturbation_type": "knockout_plus_GR24",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "D14",
+        "Strigolactone"
+      ],
+      "gene_modifiers": {
+        "D14": 0.0
+      },
+      "exogenous_supply": {
+        "Strigolactone": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "D14",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "Strigolactone",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "d14 + GR24: signalling-mutant rescue (Trap 5) -> expected unchanged vs d14 alone",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.13681",
+          "title": "SL RSA",
+          "authors": "Richmond BL, et al.",
+          "year": 2022,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "d14-1 had responsive to GR24 (reduction in LR length)",
+          "claim": "d14 still responds to GR24 via KAI2"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "mutant",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "d14 + GR24: signalling-mutant rescue (Trap 5) -> expected unchanged vs d14 alone"
+    },
+    {
+      "test_id": "T124",
+      "gene": "KAI2 + GR24",
+      "perturbation_type": "knockout_plus_GR24",
+      "expected_direction": "unchanged",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "KAI2 not in network -> KAI2 + GR24 not encodable",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.13681",
+          "title": "SL RSA",
+          "authors": "Richmond BL, et al.",
+          "year": 2022,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "kai2-2 not responsive to rac-GR24",
+          "claim": "kai2 insensitive to GR24 LR effect"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "KAI2 not in network -> KAI2 + GR24 not encodable"
+    },
+    {
+      "test_id": "T125",
+      "gene": "ralf4",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "RALF4 not in network",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "Two loss-of-function insertion mutants of RALF4 showed threefold increase in clustered LRPs",
+          "claim": "ralf4 increases LR clustering"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "RALF4 not in network"
+    },
+    {
+      "test_id": "T126",
+      "gene": "QSK1 IMK2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "QSK1 IMK2 receptor-like kinases not in network",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039941",
+          "title": "Auxin-Regulated LR",
+          "authors": "Cavallari N, et al.",
+          "year": 2021,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "QSK1 and IMK2 fine-tune LRP organogenesis (loss relieves inhibition)",
+          "claim": "qsk1 imk2 context-dependent LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "QSK1 IMK2 receptor-like kinases not in network"
+    },
+    {
+      "test_id": "T127",
+      "gene": "ORE1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "ORE1 NAC TF not in network",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039941",
+          "title": "Auxin-Regulated LR",
+          "authors": "Cavallari N, et al.",
+          "year": 2021,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "ORE1 delayed outgrowth of LRP",
+          "claim": "ore1 delays LR emergence"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "ORE1 NAC TF not in network"
+    },
+    {
+      "test_id": "T128",
+      "gene": "GA3",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "GA"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "GA": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "GA",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "GA3 -> GA supply",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1469-8137.2011.03723.x",
+          "title": "GA LR",
+          "authors": "Yuan TT, et al.",
+          "year": 2014,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "gibberellin promotes root growth via DELLA degradation",
+          "claim": "GA3 promotes LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "GA3 -> GA supply"
+    },
+    {
+      "test_id": "T129",
+      "gene": "PAC",
+      "perturbation_type": "inhibitor_PBZ",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "GA"
+      ],
+      "gene_modifiers": {
+        "GA": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GA",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "PAC (paclobutrazol) inhibits GA biosynthesis -> GA gm=0.1",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1469-8137.2011.03723.x",
+          "title": "GA LR",
+          "authors": "Yuan TT, et al.",
+          "year": 2014,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "PAC inhibits GA biosynthesis stabilises DELLA",
+          "claim": "PAC decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "PAC (paclobutrazol) inhibits GA biosynthesis -> GA gm=0.1"
+    },
+    {
+      "test_id": "T130",
+      "gene": "ga1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "GA"
+      ],
+      "gene_modifiers": {
+        "GA": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "GA",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "ga1 KO blocks GA biosynthesis; GA1 (CPS) not a separate node -> encode as GA gm=0.1",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1469-8137.2011.03723.x",
+          "title": "GA LR",
+          "authors": "Yuan TT, et al.",
+          "year": 2014,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "ga1 blocks GA biosynthesis",
+          "claim": "ga1 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "ga1 KO blocks GA biosynthesis; GA1 (CPS) not a separate node -> encode as GA gm=0.1"
+    },
+    {
+      "test_id": "T131",
+      "gene": "dellaQ",
+      "perturbation_type": "quadruple_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "DELLA"
+      ],
+      "gene_modifiers": {
+        "DELLA": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "DELLA",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "della quadruple KO -> DELLA composite fully lost",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1469-8137.2011.03723.x",
+          "title": "GA LR K+ deprivation",
+          "authors": "Yuan TT, et al.",
+          "year": 2014,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "DELLAs repress LR under low K; quadruple loss relieves repression",
+          "claim": "dellaQ increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "della quadruple KO -> DELLA composite fully lost"
+    },
+    {
+      "test_id": "T132",
+      "gene": "TOR + AZD8055",
+      "perturbation_type": "inhibitor_PBZ",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "TOR kinase axis not in network",
+      "evidence": [
+        {
+          "doi": "10.15252/embj.2022111273",
+          "title": "TOR metabolic gatekeeper LR",
+          "authors": "Barrada A, et al.",
+          "year": 2023,
+          "journal": "EMBO J",
+          "evidence_sentence": "TOR acts as a metabolic gatekeeper for auxin-dependent lateral root initiation",
+          "claim": "TOR inhibition blocks LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "TOR kinase axis not in network"
+    },
+    {
+      "test_id": "T133",
+      "gene": "BR_brassinolide",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Brassinosteroid"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Brassinosteroid": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Brassinosteroid",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "BR brassinolide -> Brassinosteroid supply",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.13681",
+          "title": "SL RSA",
+          "authors": "Richmond BL, et al.",
+          "year": 2022,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "BES1 brassinosteroid transcription factor",
+          "claim": "BR promotes LR at low doses"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "BR brassinolide -> Brassinosteroid supply"
+    },
+    {
+      "test_id": "T134",
+      "gene": "bri1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "BRI1"
+      ],
+      "gene_modifiers": {
+        "BRI1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "BRI1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "bri1 KO",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.13681",
+          "title": "SL RSA",
+          "authors": "Richmond BL, et al.",
+          "year": 2022,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "BR signaling via BRI1 receptor",
+          "claim": "bri1 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "bri1 KO"
+    },
+    {
+      "test_id": "T135",
+      "gene": "PAX",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "PAX kinase not in network",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "BRX and PAX coordinately act at rootward membrane of PPSE cells to inhibit PIN1-dependent auxin efflux",
+          "claim": "pax affects LR auxin transport"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "PAX kinase not in network"
+    },
+    {
+      "test_id": "T136",
+      "gene": "BRX",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "BRX membrane protein not in network",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "BRX and PAX act as molecular rheostat to control timing of PPSE differentiation",
+          "claim": "brx alters LR auxin"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "BRX membrane protein not in network"
+    },
+    {
+      "test_id": "T137",
+      "gene": "mir393 OE",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TIR1"
+      ],
+      "gene_modifiers": {
+        "TIR1": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TIR1",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "miR393 targets TIR1/AFB transcripts -> TIR1 KD",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "AFB3 is repressed by miR393 ; miR393 OE suppresses auxin signalling",
+          "claim": "miR393 OE decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "miR393 targets TIR1/AFB transcripts -> TIR1 KD"
+    },
+    {
+      "test_id": "T138",
+      "gene": "Bending_48h",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "PIN"
+      ],
+      "gene_modifiers": {
+        "PIN": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PIN",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "48-h root bending induces local auxin maxima via PIN3 repolarisation -> PIN gm=2.0 surrogate",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039941",
+          "title": "Auxin-Regulated LR",
+          "authors": "Cavallari N, et al.",
+          "year": 2021,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "mechanical deformation leads to local increases of auxin activity stimulates LR initiation",
+          "claim": "Bending induces LR on convex side"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "48-h root bending induces local auxin maxima via PIN3 repolarisation -> PIN gm=2.0 surrogate"
+    },
+    {
+      "test_id": "T139",
+      "gene": "Drought",
+      "perturbation_type": "drought_stress",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "ABA"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "ABA": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "ABA",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "drought stress activates ABA biosynthesis -> ABA exogenous=1.0 surrogate",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039941",
+          "title": "Auxin-Regulated LR",
+          "authors": "Cavallari N, et al.",
+          "year": 2021,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "LR organogenesis suppressed in airy microenvironments",
+          "claim": "Drought decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "drought stress activates ABA biosynthesis -> ABA exogenous=1.0 surrogate"
+    },
+    {
+      "test_id": "T140",
+      "gene": "Fe_patch",
+      "perturbation_type": "treatment",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Fe-patch local response not modelled",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "Localized iron supply promotes LR elongation via altering AUX1-mediated auxin distribution",
+          "claim": "Fe patch increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "Fe-patch local response not modelled"
+    },
+    {
+      "test_id": "T141",
+      "gene": "cle3",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "CLE"
+      ],
+      "gene_modifiers": {
+        "CLE": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CLE",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "cle3 single KO under low N -> CLE composite single-paralog; low-N condition Low_Nitrate exogenous=1 [iter1 LR refinement: gm: {'CLE': 0.997} -> {CLE: 0.5}, exo: {Low_Nitrate: 1.0}] [iter2 LR refinement: gm: {'CLE': 0.5} -> {'CLE': 0.5}; exo: {'Low_Nitrate': 1.0} -> {}]",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1319953111",
+          "title": "CLE-CLV1 N module",
+          "authors": "Araya T, et al.",
+          "year": 2014,
+          "journal": "PNAS",
+          "evidence_sentence": "cle mutants showed outgrowth of lateral root primordia under N-deficient conditions",
+          "claim": "cle3 increases LR under low N"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "low_nitrate",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "cle3 single KO under low N -> CLE composite single-paralog; low-N condition Low_Nitrate exogenous=1"
+    },
+    {
+      "test_id": "T142",
+      "gene": "clv1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "CLV1"
+      ],
+      "gene_modifiers": {
+        "CLV1": 0.0
+      },
+      "exogenous_supply": {
+        "Low_Nitrate": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "CLV1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "Low_Nitrate",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "clv1 KO under low N",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1319953111",
+          "title": "CLE-CLV1 N module",
+          "authors": "Araya T, et al.",
+          "year": 2014,
+          "journal": "PNAS",
+          "evidence_sentence": "clv1 mutants showed progressive outgrowth of lateral root primordia into lateral roots under N-deficient conditions",
+          "claim": "clv1 increases LR under low N"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "low_nitrate",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "clv1 KO under low N"
+    },
+    {
+      "test_id": "T143",
+      "gene": "CLE3",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "CLE"
+      ],
+      "gene_modifiers": {
+        "CLE": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CLE",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "CLE3 OE -> CLE composite OE",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1319953111",
+          "title": "CLE-CLV1 N module",
+          "authors": "Araya T, et al.",
+          "year": 2014,
+          "journal": "PNAS",
+          "evidence_sentence": "emerged lateral roots at stage VIII was dramatically decreased by overexpression of CLE1, -2, -3, -4, and -7",
+          "claim": "CLE3 OE decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "CLE3 OE -> CLE composite OE"
+    },
+    {
+      "test_id": "T144",
+      "gene": "wox11 wox12",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "WOX11"
+      ],
+      "gene_modifiers": {
+        "WOX11": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "WOX11",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "wox11 wox12 double -> WOX12 maps to WOX11 paralog; double gm=0",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.122887",
+          "title": "WOX11 and 12 first-step cell fate transition",
+          "authors": "Liu J, et al.",
+          "year": 2014,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "rooting time of wox11-2 wox12-1 was more strongly delayed ... mutant explants produced fewer roots than did the wild-type",
+          "claim": "wox11 wox12 decreases root primordia"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "wox11 wox12 double -> WOX12 maps to WOX11 paralog; double gm=0"
+    },
+    {
+      "test_id": "T145",
+      "gene": "ein3 eil1",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "EIN2"
+      ],
+      "gene_modifiers": {
+        "EIN2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "EIN2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ein3 eil1 double are the main ethylene-response TFs downstream of EIN2; encoded as EIN2 gm=0 because EIN3/EIL1 are not separate nodes",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2008.03495.x",
+          "title": "Ethylene regulates LR formation",
+          "authors": "Negi S, et al.",
+          "year": 2008,
+          "journal": "Plant J",
+          "evidence_sentence": "Mutations that block ethylene responses enhance root formation",
+          "claim": "ein3 eil1 increases LR (ethylene insensitive)"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "ein3 eil1 double are the main ethylene-response TFs downstream of EIN2; encoded as EIN2 gm=0 because EIN3/EIL1 are not separate nodes"
+    },
+    {
+      "test_id": "T146",
+      "gene": "wei2",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TAA1",
+        "Ethylene"
+      ],
+      "gene_modifiers": {
+        "TAA1": 0.5
+      },
+      "exogenous_supply": {
+        "Ethylene": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "TAA1",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        },
+        {
+          "node": "Ethylene",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "wei2 (ASA1) under ACC; wei2 reduces Trp->IAA precursor pool. Encoded as TAA1 partial KD + ethylene supply",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.105.033365",
+          "title": "wei2 wei7",
+          "authors": "Stepanova AN, et al.",
+          "year": 2005,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "wei2-1 and wei7-4 mutants display root-specific ethylene insensitivity ... loss-of-function mutations in these genes prevent ethylene-mediated auxin increase",
+          "claim": "wei2 decreases ethylene-induced auxin (and LR modulation)"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "acc_treatment",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "wei2 (ASA1) under ACC; wei2 reduces Trp->IAA precursor pool. Encoded as TAA1 partial KD + ethylene supply"
+    },
+    {
+      "test_id": "T147",
+      "gene": "bzr1-1D",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "BZR"
+      ],
+      "gene_modifiers": {
+        "BZR": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "BZR",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "bzr1-1D dominant gof -> BZR composite hyper-active; gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2024.1387321",
+          "title": "BZR1/BES1 control RSA under N",
+          "authors": "Al-Mamun MH, et al.",
+          "year": 2024,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "bzr1-1D increased LR number by 13-233% across N conditions",
+          "claim": "bzr1-1D increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "bzr1-1D dominant gof -> BZR composite hyper-active; gm=2.0"
+    },
+    {
+      "test_id": "T148",
+      "gene": "bes1-D",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "BZR"
+      ],
+      "gene_modifiers": {
+        "BZR": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "BZR",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "bes1-D (BZR2-D) dominant gof -> BZR composite hyper-active",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2024.1387321",
+          "title": "BZR1/BES1 control RSA under N",
+          "authors": "Al-Mamun MH, et al.",
+          "year": 2024,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "bes1-D exhibited significantly higher LR density",
+          "claim": "bes1-D increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "bes1-D (BZR2-D) dominant gof -> BZR composite hyper-active"
+    },
+    {
+      "test_id": "T149",
+      "gene": "EBR_treatment",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Brassinosteroid",
+        "Low_Nitrate"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Brassinosteroid": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Brassinosteroid",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "EBR (epi-brassinolide) under mild N-deficiency -> BR + low-N dual supply [iter2 LR refinement: gm: {} -> {}; exo: {'Brassinosteroid': 1.0, 'Low_Nitrate': 1.0} -> {'Brassinosteroid': 1.0}]",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2024.1387321",
+          "title": "BZR1/BES1 control RSA under N",
+          "authors": "Al-Mamun MH, et al.",
+          "year": 2024,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "EBR at 0.05 nM increased LR number by 28% and total LR length by 50% under mild N deficiency",
+          "claim": "EBR increases LR under mild N"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "mild_N_deficient",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "EBR (epi-brassinolide) under mild N-deficiency -> BR + low-N dual supply"
+    },
+    {
+      "test_id": "T150",
+      "gene": "arr1 arr10 arr12",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ARR_B"
+      ],
+      "gene_modifiers": {
+        "ARR_B": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ARR_B",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "arr1 arr10 arr12 triple -> full type-B ARR composite KO",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.108.059584",
+          "title": "Type-B ARRs in CK signaling",
+          "authors": "Argyros RD, et al.",
+          "year": 2008,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "arr1,10,12 triple mutant is significantly less sensitive to cytokinin ... showed almost complete insensitivity to cytokinin",
+          "claim": "arr1 arr10 arr12 increases LR (cytokinin insensitive)"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "arr1 arr10 arr12 triple -> full type-B ARR composite KO"
+    },
+    {
+      "test_id": "T151",
+      "gene": "arr10 arr12",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ARR_B"
+      ],
+      "gene_modifiers": {
+        "ARR_B": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ARR_B",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "arr10 arr12 double -> partial type-B ARR composite loss",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.108.059584",
+          "title": "Type-B ARRs in CK signaling",
+          "authors": "Argyros RD, et al.",
+          "year": 2008,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "ARR10 and ARR12 redundantly play an important role in the cytokinin signaling in roots",
+          "claim": "arr10 arr12 increases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "arr10 arr12 double -> partial type-B ARR composite loss"
+    },
+    {
+      "test_id": "T152",
+      "gene": "lbd16 lbd18 lbd29",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "LBD"
+      ],
+      "gene_modifiers": {
+        "LBD": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "LBD",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "lbd16 lbd18 lbd29 triple -> all three main LR LBDs lost -> LBD composite gm=0",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.071928",
+          "title": "LBD16/ASL18 and related LBDs in LR",
+          "authors": "Goh T, et al.",
+          "year": 2012,
+          "journal": "Development",
+          "evidence_sentence": "LBD16 and other ASL proteins redundantly regulate the establishment of asymmetry in LR founder cells; triple mutants show strong LR reduction",
+          "claim": "lbd16 lbd18 lbd29 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "lbd16 lbd18 lbd29 triple -> all three main LR LBDs lost -> LBD composite gm=0"
+    },
+    {
+      "test_id": "T153",
+      "gene": "tir1 afb1 afb2 afb3 afb4 afb5",
+      "perturbation_type": "quintuple_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TIR1"
+      ],
+      "gene_modifiers": {
+        "TIR1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TIR1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "tir1 afb1-5 sextuple -> complete TIR1/AFB loss",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.54740",
+          "title": "TIR1/AFB genetic analysis",
+          "authors": "Prigge MJ, et al.",
+          "year": 2020,
+          "journal": "eLife",
+          "evidence_sentence": "higher-order TIR1/AFB mutants display near-complete auxin insensitivity and dramatically reduced lateral root formation",
+          "claim": "tir1 afb higher-order mutant strongly decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "tir1 afb1-5 sextuple -> complete TIR1/AFB loss"
+    },
+    {
+      "test_id": "T154",
+      "gene": "pin2 pin3 pin7",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PIN"
+      ],
+      "gene_modifiers": {
+        "PIN": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PIN",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "pin2 pin3 pin7 triple -> substantial PIN composite loss (~3 of ~8 PINs)",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root Development",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": "2022",
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "polar auxin transport mutants show altered branching patterns, with closely grouped, fused, or fewer LRP/LRs; triple pin mutants exacerbate the phenotype",
+          "claim": "pin2 pin3 pin7 decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "pin2 pin3 pin7 triple -> substantial PIN composite loss (~3 of ~8 PINs)"
+    },
+    {
+      "test_id": "T155",
+      "gene": "abi5",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ABI4_5",
+        "Low_Nitrate"
+      ],
+      "gene_modifiers": {
+        "ABI4_5": 0.5,
+        "Low_Nitrate": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ABI4_5",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        },
+        {
+          "node": "Low_Nitrate",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "abi5 single KO under high-N; abi5 maps to ABI4_5 composite (gm=0.5 partial), Low_Nitrate gm=0 marks high-N",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2016.01884",
+          "title": "ABI5 review",
+          "authors": "Skubacz A, et al.",
+          "year": 2016,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "inhibitory effect of nitrate on root growth was significantly reduced in abi4 and abi5 mutants",
+          "claim": "abi5 increases LR under high N"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "high_nitrate",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "abi5 single KO under high-N; abi5 maps to ABI4_5 composite (gm=0.5 partial), Low_Nitrate gm=0 marks high-N"
+    },
+    {
+      "test_id": "T156",
+      "gene": "Low_Nitrate",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "Low_Nitrate"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Low_Nitrate": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Low_Nitrate",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "systemic low-N environment -> Low_Nitrate supply",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1319953111",
+          "title": "CLE-CLV1 N module",
+          "authors": "Araya T, et al.",
+          "year": 2014,
+          "journal": "PNAS",
+          "evidence_sentence": "signaling module composed of N-responsive CLE peptides and CLV1 receptor plays a crucial role in regulating expansion of the root system under N-deficient conditions",
+          "claim": "low systemic N decreases LR"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "low_nitrate_systemic",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "systemic low-N environment -> Low_Nitrate supply"
+    },
+    {
+      "test_id": "T157",
+      "gene": "pid",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "PID kinase (PIN polarity regulator) not in network",
+      "evidence": [
+        {
+          "doi": "10.1038/s41598-018-28188-1",
+          "title": "PID/WAG phosphorylation of PIN3",
+          "authors": "Grones P, et al.",
+          "year": 2018,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "analysis of lateral root stages revealed an increased number of first-stage primordia in PIN3 phosphorylation mutant variants",
+          "claim": "pid slightly increases LR stage I primordia"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "PID kinase (PIN polarity regulator) not in network"
+    },
+    {
+      "test_id": "T158",
+      "gene": "WT",
+      "perturbation_type": "control",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "WT negative control: no perturbation; expected LR density = baseline.",
+      "evidence": [
+        {
+          "doi": "control",
+          "title": "WT control -- no perturbation",
+          "authors": "FLASH-P",
+          "year": 2026,
+          "journal": "N/A",
+          "evidence_sentence": "Untreated wild-type Col-0 baseline used as reference for all perturbation comparisons.",
+          "claim": "WT baseline is unchanged relative to itself"
+        }
+      ],
+      "phenotype_node": "Lateral_Root_Density",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "control",
+      "reconciliation_note": "Internal reference run (no node perturbed)"
+    }
+  ]
+}

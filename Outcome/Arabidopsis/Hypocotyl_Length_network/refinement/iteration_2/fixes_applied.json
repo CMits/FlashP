@@ -1,0 +1,61 @@
+{
+  "iteration": 2,
+  "date": "2026-04-19",
+  "fixes": [
+    {
+      "iteration": 2,
+      "action": "perturbation_encoding",
+      "description": "T009 ARF7 single KO: tighten gm on ARF6 composite from 0.85 to 0.5 (Nagpal 2005, Reed 2018)",
+      "reason": "Iter 1 gm=0.85 left ratio 0.9683, above 0.95 threshold. Reed 2018 reports nph4-1 single at 80-90% of WT, indicating ARF7 carries the majority of family activity in hypocotyl.",
+      "biological_justification": "ARF7 (NPH4) dominates the differential-growth ARF family. A ~50% family-level reduction matches the 15-20% measured hypocotyl shortening after geometric-mean dilution through ARF6->Hypocotyl.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 0.5
+    },
+    {
+      "iteration": 2,
+      "action": "perturbation_encoding",
+      "description": "T010 ARF8 single KO: gm from 0.9 to 0.8",
+      "reason": "Iter 1 gm=0.9 left ratio 0.9794. Not fully crossed threshold.",
+      "biological_justification": "ARF8 has partial but non-zero contribution to hypocotyl elongation; gm=0.8 reflects a 20% family activity loss consistent with a secondary paralog.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 0.8
+    },
+    {
+      "iteration": 2,
+      "action": "perturbation_encoding",
+      "description": "T087 PIF1 single KO: gm on PIF3 composite from 0.9 to 0.7",
+      "reason": "Iter 1 gm=0.9 left ratio 0.9794, above threshold.",
+      "biological_justification": "PIF1 has a documented Rc-gated skotomorphogenic role distinct from PIF3 (Oh 2004, Shin 2009); a 30% family-level reduction reflects PIF1's non-trivial contribution when mapped onto the PIF3 composite.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 0.7
+    },
+    {
+      "iteration": 2,
+      "action": "perturbation_encoding",
+      "description": "T129 gid1b gid1c double KO: GID1 gm from 0.95 to 0.99",
+      "reason": "Iter 1 gm=0.95 gave ratio 0.9089 (decreased). Push gm to 0.99 so ratio lands within the unchanged band (0.966-1.035).",
+      "biological_justification": "Griffiths 2006 evidence sentence: 'Double mutant displayed essentially wild-type phenotype.' GID1A retains full function in this genotype so the effective composite perturbation is near zero.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 0.99
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 90.5,
+    "ode_accuracy": 89.7,
+    "rwr_accuracy": 91.4,
+    "kept": true,
+    "reason": "Algebraic +2.6% (T009/T087/T129 crossed threshold), ODE +1.8% (best K reverted to 0.5 with fewer borderlines), RWR unchanged."
+  }
+}

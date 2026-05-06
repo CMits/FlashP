@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "default_activation": "geomean",
+  "default_inhibition": "bounded_inverse",
+  "default_params": {
+    "epsilon": 0.1,
+    "K_inhibition": 10.0,
+    "activator_floor": 0.01
+  },
+  "propagation_params": {
+    "damping": 0.8,
+    "max_iterations": 1000,
+    "convergence_tolerance": 0.0001,
+    "activator_floor": 0.01
+  },
+  "discovery_metadata": {
+    "discovered_by": "merge_arabidopsis_v2 + patch_pleiotropic_edges.py",
+    "notes": "max_iterations raised to 1000 and damping to 0.8 to tame the BR-feedback non-convergence that affected PLEIO_003 (BRI1 KO) and PLEIO_011 (DWF4 KO) in the previous run. Dense bidirectional dynamics (avg 2.14 regulators/node after patch) benefit from stronger damping."
+  },
+  "node_equations": {}
+}

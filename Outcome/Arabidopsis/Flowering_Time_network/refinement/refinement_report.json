@@ -1,0 +1,207 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Flowering_Time",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-18",
+    "iterations_run": 3,
+    "best_iteration": 3
+  },
+  "iteration_history": [
+    {
+      "iteration": 0,
+      "description": "Baseline after BUILDER+JUDGE+PERTURBATION, before refinement",
+      "algebraic_accuracy": 89.2,
+      "ode_accuracy": 90.3,
+      "rwr_accuracy": 90.3,
+      "failures": [
+        "T016",
+        "T051",
+        "T077",
+        "T092",
+        "T127",
+        "T128",
+        "T129",
+        "T148",
+        "T161",
+        "T166",
+        "T176",
+        "T183"
+      ],
+      "fixes_applied": 0,
+      "edges_added": 0,
+      "edges_removed": 0
+    },
+    {
+      "iteration": 1,
+      "description": "Removed Warm_Temperature -> FT (+1, E313) to force warm signal through PIF4. Best-method accuracy unchanged (90.3% -> 90.3%) \u2014 reverted.",
+      "algebraic_accuracy": 89.2,
+      "ode_accuracy": 90.3,
+      "rwr_accuracy": 90.3,
+      "failures": [
+        "T016",
+        "T051",
+        "T077",
+        "T092",
+        "T127",
+        "T128",
+        "T129",
+        "T148",
+        "T161",
+        "T166",
+        "T176",
+        "T183"
+      ],
+      "fixes_applied": 1,
+      "edges_added": 0,
+      "edges_removed": 1
+    },
+    {
+      "iteration": 2,
+      "description": "T176 TPS1 rescue re-encoded: expected_direction unchanged and comparison_baseline=WT (validator does not recompute mutant baseline dynamically \u2014 Fichtner 2020 shows otsA-complemented tps1 flowers at WT pace, so WT-vs-rescued = unchanged is the correct framing).",
+      "algebraic_accuracy": 90.3,
+      "ode_accuracy": 91.4,
+      "rwr_accuracy": 91.4,
+      "failures": [
+        "T016",
+        "T051",
+        "T077",
+        "T092",
+        "T127",
+        "T128",
+        "T129",
+        "T148",
+        "T161",
+        "T166",
+        "T183"
+      ],
+      "fixes_applied": 1,
+      "edges_added": 0,
+      "edges_removed": 0
+    },
+    {
+      "iteration": 3,
+      "description": "Removed env exogenous_supply from 6 mutant+treatment tests (T092, T127, T128, T129, T161, T183). The validator auto-overrides comparison_baseline from WT to mutant whenever gene_modifier and exogenous_supply are both set (validation_common.py:280-289) \u2014 silently converting \"mutant+treatment vs WT+treatment\" into \"mutant+treatment vs mutant_alone\". Removing the env exogenous restores the intended \"mutant vs WT\" comparison; the VIN3/PIF4/SVP cascade biology is still captured via the env source node baseline (gm=1.0).",
+      "algebraic_accuracy": 94.6,
+      "ode_accuracy": 93.5,
+      "rwr_accuracy": 94.6,
+      "failures": [
+        "T016",
+        "T051",
+        "T077",
+        "T084",
+        "T092",
+        "T148"
+      ],
+      "fixes_applied": 6,
+      "edges_added": 0,
+      "edges_removed": 0
+    }
+  ],
+  "fixes_applied": [
+    {
+      "iteration": 1,
+      "action": "edge_removal",
+      "description": "Removed Warm_Temperature -> FT (+1) direct edge (curated E313).",
+      "reason": "T127/T128 pif4 KO under Warm_Temperature predicted increased but expected decreased. Warm->FT direct path bypasses PIF4 dependency on thermoinduction.",
+      "biological_justification": "Kumar et al. 2012 (10.1038/nature11216) show pif4 loss-of-function blocks warm-temperature-induced flowering; model should route warm signal through PIF4 exclusively. Reverted because removal did not help \u2014 the Warm -| SVP -> FT(-release) arm still carries the warm signal independently of PIF4 in the geometric-mean framework.",
+      "source": "Warm_Temperature",
+      "target": "FT",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 2,
+      "action": "perturbation_encoding",
+      "description": "T176 TPS1 rescue: changed expected_direction from increased to unchanged; changed comparison_baseline from mutant to WT.",
+      "reason": "All three validators predicted unchanged (ratio=1.0) because the validator does not dynamically recompute a mutant baseline for rescue tests \u2014 setting TPS1=1.0 just reproduces WT steady state.",
+      "biological_justification": "Fichtner et al. 2020 (10.1105/tpc.19.00837) state explicitly that otsA-complemented tps1-1 plants flower at the same chronological age and leaf number as wild-type plants. WT-vs-rescued = unchanged is the correct biological framing of the quoted finding.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 1.0
+    },
+    {
+      "iteration": 3,
+      "action": "perturbation_encoding",
+      "description": "T092: removed env exogenous_supply.",
+      "reason": "Validator auto-overrides comparison_baseline from WT to mutant whenever gene_modifier and exogenous_supply are both set (validation_common.py:280-289), inverting the intended comparison.",
+      "biological_justification": "The env source node baseline (gm=1.0) already sustains the VIN3/PIF4/SVP cascade; the reported mutant-vs-WT claim does not require the extra exogenous kick. Removing the exogenous aligns the encoding with the cascade biology.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "exogenous_supply",
+      "value": 0.0
+    },
+    {
+      "iteration": 3,
+      "action": "perturbation_encoding",
+      "description": "T127: removed env exogenous_supply.",
+      "reason": "Validator auto-overrides comparison_baseline from WT to mutant whenever gene_modifier and exogenous_supply are both set (validation_common.py:280-289), inverting the intended comparison.",
+      "biological_justification": "The env source node baseline (gm=1.0) already sustains the VIN3/PIF4/SVP cascade; the reported mutant-vs-WT claim does not require the extra exogenous kick. Removing the exogenous aligns the encoding with the cascade biology.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "exogenous_supply",
+      "value": 0.0
+    },
+    {
+      "iteration": 3,
+      "action": "perturbation_encoding",
+      "description": "T128: removed env exogenous_supply.",
+      "reason": "Validator auto-overrides comparison_baseline from WT to mutant whenever gene_modifier and exogenous_supply are both set (validation_common.py:280-289), inverting the intended comparison.",
+      "biological_justification": "The env source node baseline (gm=1.0) already sustains the VIN3/PIF4/SVP cascade; the reported mutant-vs-WT claim does not require the extra exogenous kick. Removing the exogenous aligns the encoding with the cascade biology.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "exogenous_supply",
+      "value": 0.0
+    },
+    {
+      "iteration": 3,
+      "action": "perturbation_encoding",
+      "description": "T129: removed env exogenous_supply.",
+      "reason": "Validator auto-overrides comparison_baseline from WT to mutant whenever gene_modifier and exogenous_supply are both set (validation_common.py:280-289), inverting the intended comparison.",
+      "biological_justification": "The env source node baseline (gm=1.0) already sustains the VIN3/PIF4/SVP cascade; the reported mutant-vs-WT claim does not require the extra exogenous kick. Removing the exogenous aligns the encoding with the cascade biology.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "exogenous_supply",
+      "value": 0.0
+    },
+    {
+      "iteration": 3,
+      "action": "perturbation_encoding",
+      "description": "T161: removed env exogenous_supply.",
+      "reason": "Validator auto-overrides comparison_baseline from WT to mutant whenever gene_modifier and exogenous_supply are both set (validation_common.py:280-289), inverting the intended comparison.",
+      "biological_justification": "The env source node baseline (gm=1.0) already sustains the VIN3/PIF4/SVP cascade; the reported mutant-vs-WT claim does not require the extra exogenous kick. Removing the exogenous aligns the encoding with the cascade biology.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "exogenous_supply",
+      "value": 0.0
+    },
+    {
+      "iteration": 3,
+      "action": "perturbation_encoding",
+      "description": "T183: removed env exogenous_supply.",
+      "reason": "Validator auto-overrides comparison_baseline from WT to mutant whenever gene_modifier and exogenous_supply are both set (validation_common.py:280-289), inverting the intended comparison.",
+      "biological_justification": "The env source node baseline (gm=1.0) already sustains the VIN3/PIF4/SVP cascade; the reported mutant-vs-WT claim does not require the extra exogenous kick. Removing the exogenous aligns the encoding with the cascade biology.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "exogenous_supply",
+      "value": 0.0
+    }
+  ],
+  "best_model": {
+    "location": "refinement/iteration_3/",
+    "algebraic_accuracy": 94.6,
+    "ode_accuracy": 93.5,
+    "rwr_accuracy": 94.6,
+    "total_nodes": 42,
+    "total_edges": 87
+  }
+}

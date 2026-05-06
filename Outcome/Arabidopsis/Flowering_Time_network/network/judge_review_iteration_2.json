@@ -1,0 +1,1060 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Flowering_Time",
+    "phenotype_node": "Flowering_Time",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-18",
+    "iteration": 2,
+    "judge_model": "Claude Opus 4.7 (1M context)",
+    "responds_to": "build_log_iteration_2.json"
+  },
+  "verdict": "iterate",
+  "summary": "Iteration 2 shows substantial improvement across every under-performing rubric dimension: mean 3.27 -> 4.00. Motif coverage is now comprehensive (Motif 1/3/4/5/7 all applied); central hubs FT/SVP/DELLA/GI/SOC1 all crossed the 0.30 key-player threshold; GA has a proper Biosynthesis-Degradation balance; sugar-sensing and FUL integrator are explicit; phenotype finally has a repressor arm. Two gaps remain: (i) FUL hub is incomplete \u2014 canonical SOC1->FUL (E233 HIGH) and TFL1->FUL (E277 HIGH) missing, (ii) phenotype activators are all meristem TFs, missing the florigen class (FT->Flowering_Time E129 HIGH). Verdict iterate (2 HIGH + 3 MEDIUM + 2 LOW).",
+  "mean_rubric_score": 4.0,
+  "mean_rubric_score_prev": 3.27,
+  "rubric_scores": {
+    "pathway_completeness": {
+      "score": 4,
+      "justification": "All six canonical pathways present with strong sub-pathway coverage. GA now has full Biosynthesis-Degradation Balance (GA2OX added). Sugar-sensing arm explicit (TPS1, T6P). SVP hub completed. Only phenotype effector-class coverage and minor FUL inputs remain. +1 vs iter 1.",
+      "delta_vs_prev": 1
+    },
+    "mechanistic_depth": {
+      "score": 4,
+      "justification": "Cascade structure preserved; new nodes (GA2OX, FUL, TPS1, T6P) integrated as proper intermediates. No new shortcuts introduced.",
+      "delta_vs_prev": 0
+    },
+    "motif_coverage": {
+      "score": 5,
+      "justification": "Motif 1 Perception Gate intact; Motif 3 Coherent Feed-Forward applied for photoperiod (triple path to CO) and FT->{AP1,SOC1,LFY,FUL}; Motif 4 Biosynthesis-Degradation Balance complete for Gibberellin; Motif 5 Multi-Output Scaffold applied for DELLA (5 outputs) and TFL1 (4 outputs); Motif 7 Mutual Inhibition applied three times (AP1<->TFL1, AP2<->SOC1, SVP<->SOC1). All motif opportunities exercised. +2 vs iter 1.",
+      "delta_vs_prev": 2
+    },
+    "cascade_balance": {
+      "score": 4,
+      "justification": "Sources 18/42 = 42.9% (within softened 30-50% target). FLC still AT hard cap (7 inhibitors) \u2014 documented. FT has 6 activators / 3 inhibitors; AP1 has 6 activators / 2 inhibitors \u2014 both within \u00a710 (7 max). Phenotype 4 activators / 1 inhibitor.",
+      "delta_vs_prev": 0
+    },
+    "composite_node_handling": {
+      "score": 4,
+      "justification": "SPL9 (SPL9+SPL15), AP2 (AP2/TOE1/TOE2/SMZ/SNZ), DELLA composite handling unchanged from iter 1. No new composites introduced.",
+      "delta_vs_prev": 0
+    },
+    "hub_completeness": {
+      "score": 4,
+      "justification": "FT 0.19->0.33 (3 new direct regulators + T6P input); SVP 0.21->0.50; CO 0.19->0.22 (DELLA added); PIF4 0.14->0.29 (DELLA, GI); DELLA 0.33->0.47; SOC1 0.39->0.50. FLC still 0.26 \u2014 blocked by inhibitor cap. Major hubs substantially filled. +2 vs iter 1.",
+      "delta_vs_prev": 2
+    },
+    "topology_hazards": {
+      "score": 4,
+      "justification": "New Motif-7 mutual inhibitions (SVP<->SOC1, AP2<->SOC1) plus existing AP1<->TFL1 are all bistable switches with damping=0.7 \u2014 safe per BUILDER \u00a712 Motif 7 note. TFL1 multi-output creates multiple positive feedback paths through the AP1<->TFL1 core but all are coherent with the bistable switch. SVP->FLC->SOC1-|SVP creates an extra positive feedback on SVP that reinforces the Motif-7 mutual inhibition \u2014 coherent but worth monitoring during validation. -1 vs iter 1 because the number of interacting feedback loops has grown.",
+      "delta_vs_prev": -1
+    },
+    "evidence_quality": {
+      "score": 4,
+      "justification": "All 83 edges cite curated DOIs. Most new edges are HIGH confidence; E017 (AP2->AP1) remains MEDIUM \u2014 flagged for mechanism review (low priority).",
+      "delta_vs_prev": 0
+    },
+    "phenotype_audit": {
+      "score": 3,
+      "justification": "4 activators + 1 inhibitor \u2014 repressor arm is present now (TFL1 direct, S001 applied) which was the iter-1 critical gap. However all four activators remain meristem MADS-box TFs; missing the florigen effector class (FT direct E129) and hormone class (Gibberellin direct E153). Per \u00a79.9 this is a score 3 \"right count but missing one effector class or imbalanced arms\". +1 vs iter 1.",
+      "delta_vs_prev": 1
+    },
+    "rejected_edges_review": {
+      "score": 4,
+      "justification": "31 rejected edges between in-net nodes (down from 44). Defensible exclusions: 12 direct phenotype edges (cascade philosophy), 3 Perception-Gate bypass (GA), 2 mutual-positive feedback (AP1<->LFY, AGL24<->SOC1), 5 MEDIUM-confidence peripheral, 3 autoregulation. Non-defensible remaining: TFL1->FUL (S17), SOC1->FUL (S18), AP2->miR172 (S19), TPS1->FT (S20), FT->Flowering_Time (S21). BUILDER correctly documented S007 and S011 rejections due to FLC inhibitor cap. +1 vs iter 1.",
+      "delta_vs_prev": 1
+    },
+    "key_player_density": {
+      "score": 4,
+      "justification": "Substantial improvement. Critical hubs moved above 0.30: FT 0.33, SVP 0.50, DELLA 0.47, GI 0.45, SOC1 0.50, AGL24 0.43, AP1 0.77, LFY 0.57, FKF1 0.83. Still below 0.30: FLC 0.26 (blocked by inhibitor cap \u2014 defensible), CO 0.22 (clock layer peripheral), Flowering_Time 0.17 (cascade-design ceiling), PIF4 0.29 (borderline), miR172/miR156 ~0.22-0.25 (single-input by design), VIN3/Cold 0.17-0.25, FCA 0.33 (now above). The three critical flowering-biology players (FT, FLC, CO) are all improved; FT and DELLA crossed the 0.30 threshold. +2 vs iter 1.",
+      "delta_vs_prev": 2,
+      "per_player_ratios": {
+        "Cold": 0.167,
+        "DELLA": 0.467,
+        "AP1": 0.769,
+        "GI": 0.455,
+        "Warm_Temperature": 0.375,
+        "T6P": 0.5,
+        "miR172": 0.222,
+        "AGL24": 0.429,
+        "FD": 0.444,
+        "SPL9": 0.636,
+        "AP2": 0.571,
+        "FKF1": 0.833,
+        "miR156": 0.25,
+        "FLC": 0.256,
+        "VIN3": 0.25,
+        "FUL": 0.571,
+        "SOC1": 0.5,
+        "TFL1": 0.667,
+        "CO": 0.222,
+        "SVP": 0.5,
+        "FCA": 0.333,
+        "LFY": 0.571,
+        "PIF4": 0.286,
+        "Gibberellin": 0.333,
+        "FT": 0.333,
+        "Flowering_Time": 0.167
+      }
+    }
+  },
+  "per_node_audit": [
+    {
+      "node": "Long_Day",
+      "type": "ENVIRONMENT",
+      "inputs": [],
+      "outputs": [
+        "CO(+)"
+      ],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Single outgoing to CO; cascade entry point unchanged from iter 1."
+    },
+    {
+      "node": "Blue_Light",
+      "type": "ENVIRONMENT",
+      "inputs": [],
+      "outputs": [
+        "FKF1(+)"
+      ],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "FKF1 activator; unchanged."
+    },
+    {
+      "node": "Cold",
+      "type": "ENVIRONMENT",
+      "inputs": [],
+      "outputs": [
+        "VIN3(+)"
+      ],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Cold->VIN3 captured; other Cold targets (CBF1/2/3, HOS1, VRN2) defensibly peripheral. Coverage 0.17 reflects this."
+    },
+    {
+      "node": "Vernalization",
+      "type": "ENVIRONMENT",
+      "inputs": [],
+      "outputs": [
+        "VIN3(+)",
+        "AGL24(+)"
+      ],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Now activates both VIN3 and AGL24 (S013 applied). Direct Vernalization->FLC (E308) rejected for FLC hard-cap; cascade via VIN3/PRC2 preserves the silencing effect. Coverage 0.25 \u2014 defensibly limited."
+    },
+    {
+      "node": "Warm_Temperature",
+      "type": "ENVIRONMENT",
+      "inputs": [],
+      "outputs": [
+        "SVP(-)",
+        "PIF4(+)",
+        "FT(+)"
+      ],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Now activates PIF4 and FT direct (S006d), represses SVP. Coverage 0.38. Remaining FLM/H2A_Z/ELF3/PHYB targets are peripheral thermosensing arms."
+    },
+    {
+      "node": "FRI",
+      "type": "GENE",
+      "inputs": [],
+      "outputs": [
+        "FLC(+)"
+      ],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "FLC activator; unchanged."
+    },
+    {
+      "node": "PRC2",
+      "type": "PROTEIN_COMPLEX",
+      "inputs": [],
+      "outputs": [
+        "FLC(-)"
+      ],
+      "curated_regulators_excluded": [
+        "VIN3(+,E300)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Constitutive source repressing FLC; VIN3->PRC2 (E300) defensibly omitted."
+    },
+    {
+      "node": "SLY1",
+      "type": "GENE",
+      "inputs": [],
+      "outputs": [
+        "DELLA(-)"
+      ],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Perception-Gate co-inhibitor; unchanged."
+    },
+    {
+      "node": "GA20OX",
+      "type": "GENE",
+      "inputs": [],
+      "outputs": [
+        "Gibberellin(+)"
+      ],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "GA biosynthesis source; paired with GA2OX for Motif 4."
+    },
+    {
+      "node": "GA2OX",
+      "type": "GENE",
+      "inputs": [],
+      "outputs": [
+        "Gibberellin(-)"
+      ],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "NEW iter 2. GA-inactivating enzyme gating Gibberellin level. Single outgoing to Gibberellin is correct for an enzyme source node."
+    },
+    {
+      "node": "FCA",
+      "type": "GENE",
+      "inputs": [],
+      "outputs": [
+        "FLC(-)",
+        "SVP(-)"
+      ],
+      "curated_regulators_excluded": [
+        "FCA(-,E096)",
+        "FLD(+,E115)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Targets FLC and SVP (S005 added). FCA->FCA autoregulation (E096 HIGH) and FLD->FCA (E115 HIGH) defensibly omitted \u2014 autonomous-internal feedback simplified."
+    },
+    {
+      "node": "FPA",
+      "type": "GENE",
+      "inputs": [],
+      "outputs": [
+        "FLC(-)"
+      ],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Single target FLC."
+    },
+    {
+      "node": "FLD",
+      "type": "GENE",
+      "inputs": [],
+      "outputs": [
+        "FLC(-)"
+      ],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "FLC target; FLD->FCA (E115) defensibly simplified."
+    },
+    {
+      "node": "FVE",
+      "type": "GENE",
+      "inputs": [],
+      "outputs": [
+        "FLC(-)",
+        "SVP(-)"
+      ],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Now targets both FLC and SVP (S005 applied)."
+    },
+    {
+      "node": "LD",
+      "type": "GENE",
+      "inputs": [],
+      "outputs": [
+        "FLC(-)"
+      ],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Single curated target (FLC); role preserved."
+    },
+    {
+      "node": "GI",
+      "type": "GENE",
+      "inputs": [],
+      "outputs": [
+        "FKF1(+)",
+        "CDF1(-)",
+        "CO(+)",
+        "FT(+)",
+        "PIF4(-)"
+      ],
+      "curated_regulators_excluded": [
+        "CCA1(-,E040)",
+        "ELF3(-,E085)",
+        "HY5(-,E166)",
+        "LUX(-,E178)",
+        "PIF4(+,E201)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Outputs FKF1, CDF1, CO, FT (S006c added), PIF4 (S012 added as negative feedback). Coverage 0.45. Strong hub now."
+    },
+    {
+      "node": "Sucrose",
+      "type": "METABOLITE",
+      "inputs": [],
+      "outputs": [
+        "miR156(-)",
+        "T6P(+)"
+      ],
+      "curated_regulators_excluded": [
+        "Light(+,E180)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Dual output: miR156 (age) and T6P (sugar-sensing). Sugar arm now explicit."
+    },
+    {
+      "node": "TPS1",
+      "type": "GENE",
+      "inputs": [],
+      "outputs": [
+        "T6P(+)"
+      ],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "NEW iter 2 source GENE. TPS1->T6P activator; TPS1->FT direct (E291 HIGH) excluded \u2014 flagged as medium-priority addition S20."
+    },
+    {
+      "node": "miR156",
+      "type": "REGULATORY_RNA",
+      "inputs": [
+        "Sucrose(-)"
+      ],
+      "outputs": [
+        "SPL9(-)"
+      ],
+      "curated_regulators_excluded": [
+        "SPL9(-,E254)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Sucrose inhibitor and SPL9 target; unchanged."
+    },
+    {
+      "node": "T6P",
+      "type": "METABOLITE",
+      "inputs": [
+        "Sucrose(+)",
+        "TPS1(+)"
+      ],
+      "outputs": [
+        "FT(+)"
+      ],
+      "curated_regulators_excluded": [
+        "TPPI(-,E289)"
+      ],
+      "verdict": "appropriate",
+      "comment": "NEW iter 2 METABOLITE. Two activators (Sucrose, TPS1) and one target (FT). Coverage 0.50."
+    },
+    {
+      "node": "FKF1",
+      "type": "GENE",
+      "inputs": [
+        "Blue_Light(+)",
+        "GI(+)"
+      ],
+      "outputs": [
+        "CDF1(-)",
+        "CO(+)",
+        "FT(+)"
+      ],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Now outputs CDF1, CO, FT (S006b added). Coverage 0.83 \u2014 well-specified."
+    },
+    {
+      "node": "CDF1",
+      "type": "GENE",
+      "inputs": [
+        "FKF1(-)",
+        "GI(-)"
+      ],
+      "outputs": [
+        "CO(-)",
+        "FT(-)"
+      ],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Now represses both CO and FT (S006a added); captures CDF1 direct FT-promoter binding."
+    },
+    {
+      "node": "CO",
+      "type": "GENE",
+      "inputs": [
+        "Long_Day(+)",
+        "CDF1(-)",
+        "GI(+)",
+        "FKF1(+)",
+        "DELLA(-)"
+      ],
+      "outputs": [
+        "FT(+)"
+      ],
+      "curated_regulators_excluded": [
+        "BBX19(-,E027)",
+        "CDF2(-,E049)",
+        "CDF3(-,E050)",
+        "CDF5(-,E051)",
+        "COP1(-,E059)",
+        "CRY1(+,E060)",
+        "CRY2(+,E061)",
+        "ELF3(-,E084)",
+        "FBH1(+,E092)",
+        "FBH2(+,E093)",
+        "FBH3(+,E094)",
+        "FBH4(+,E095)",
+        "HOS1(-,E161)",
+        "PHYA(+,E196)",
+        "PHYB(-,E197)",
+        "PRR5(+,E207)",
+        "PRR7(+,E210)",
+        "SPA1(-,E239)",
+        "TOC1(+,E283)",
+        "ZTL(-,E319)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Coverage 0.22 still moderate. Now has DELLA inhibitor (S003a) for GA-photoperiod crosstalk. Remaining rejected inputs (BBX19, CDF2/3/5, COP1, CRY1/2, HOS1, PHYA/B, SPA1, ZTL, TOC1, ELF3) are clock/photoreceptor layer \u2014 defensibly simplified."
+    },
+    {
+      "node": "VIN3",
+      "type": "GENE",
+      "inputs": [
+        "Cold(+)",
+        "Vernalization(+)"
+      ],
+      "outputs": [
+        "FLC(-)"
+      ],
+      "curated_regulators_excluded": [
+        "EFS(+,E082)",
+        "ELF7(+,E091)",
+        "LHP1(-,E175)",
+        "NTL8(+,E190)",
+        "SDG7(-,E220)",
+        "VAL1(+,E295)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Cold + Vernalization activators preserved; chromatin regulators (EFS, ELF7, LHP1, NTL8, SDG7, VAL1) defensibly peripheral. Coverage 0.25."
+    },
+    {
+      "node": "FLC",
+      "type": "GENE",
+      "inputs": [
+        "FRI(+)",
+        "VIN3(-)",
+        "PRC2(-)",
+        "FCA(-)",
+        "FPA(-)",
+        "FLD(-)",
+        "FVE(-)",
+        "LD(-)",
+        "SVP(+)"
+      ],
+      "outputs": [
+        "FT(-)",
+        "SOC1(-)"
+      ],
+      "curated_regulators_excluded": [
+        "APRF1(-,E021)",
+        "ATX1(+,E024)",
+        "CBF1(+,E033)",
+        "CBP20(+,E036)",
+        "CBP80(+,E037)",
+        "CLF(-,E054)",
+        "COLDAIR(-,E057)",
+        "COOLAIR(-,E058)",
+        "EFS(+,E081)",
+        "FES1(+,E106)",
+        "FIE(-,E107)",
+        "FLK(-,E117)",
+        "FLX(+,E121)",
+        "FRL1(+,E124)",
+        "FY(-,E137)",
+        "HDA6(-,E159)",
+        "HOS1(+,E162)",
+        "HUA2(+,E165)",
+        "LHP1(-,E174)",
+        "PEP(+,E193)",
+        "PKL(-,E204)",
+        "REF6(-,E214)",
+        "SDG26(-,E219)",
+        "SUF4(+,E257)",
+        "SWN(-,E264)",
+        "SWR1(+,E265)",
+        "VAL1(-,E294)",
+        "VRN1(-,E304)",
+        "VRN2(-,E305)",
+        "VRN5(-,E306)",
+        "Vernalization(-,E308)"
+      ],
+      "verdict": "under-specified",
+      "comment": "Coverage 0.26 (11/43). SVP->FLC partnership (S005d) now present. Still AT \u00a710 hard cap (7 inhibitors). Direct Vernalization->FLC (E308) rejected defensibly \u2014 but note that the underlying biology (Vernalization directly silences FLC chromatin independent of VIN3) is compressed into the VIN3 cascade. Future restructure (e.g., AUTONOMOUS composite) could free slots."
+    },
+    {
+      "node": "SVP",
+      "type": "GENE",
+      "inputs": [
+        "Warm_Temperature(-)",
+        "FCA(-)",
+        "FVE(-)",
+        "SOC1(-)"
+      ],
+      "outputs": [
+        "FT(-)",
+        "SOC1(-)",
+        "FLC(+)"
+      ],
+      "curated_regulators_excluded": [
+        "CCA1(-,E045)",
+        "FLM(+,E119)",
+        "GAF1(-,E143)",
+        "LHY(-,E176)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Dramatically improved. Now 4 inhibitors (Warm, FCA, FVE, SOC1) and 3 outputs (FT, SOC1, FLC). Coverage 0.21 -> 0.50. Forms Motif 7 with SOC1 (mutual inhibition)."
+    },
+    {
+      "node": "PIF4",
+      "type": "GENE",
+      "inputs": [
+        "Warm_Temperature(+)",
+        "DELLA(-)",
+        "GI(-)"
+      ],
+      "outputs": [
+        "FT(+)"
+      ],
+      "curated_regulators_excluded": [
+        "Ambient_Temperature(+,E025)",
+        "ELF3(-,E086)",
+        "HDA15(-,E157)",
+        "HDA19(+,E158)",
+        "HDA9(+,E160)",
+        "PHYB(-,E198)",
+        "REF6(+,E215)",
+        "TOC1(-,E284)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Now 1 activator (Warm) + 2 inhibitors (DELLA, GI). Coverage 0.14 -> 0.29. PIF4->GI feedback (E201) remains an option (would create safe single-negative feedback loop)."
+    },
+    {
+      "node": "Gibberellin",
+      "type": "HORMONE",
+      "inputs": [
+        "GA20OX(+)",
+        "GA2OX(-)"
+      ],
+      "outputs": [
+        "GID1(+)"
+      ],
+      "curated_regulators_excluded": [
+        "GA20ox(+,E139)",
+        "GA2ox(-,E140)",
+        "GA3ox(+,E141)",
+        "NFL(+,E187)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Motif 4 Biosynthesis-Degradation Balance now complete: GA20OX activator + GA2OX inhibitor. Perception-Gate purity preserved (single outgoing to GID1). Bypass edges to AGL24, DELLA direct, LFY correctly rejected."
+    },
+    {
+      "node": "GID1",
+      "type": "GENE",
+      "inputs": [
+        "Gibberellin(+)"
+      ],
+      "outputs": [
+        "DELLA(-)"
+      ],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Receptor; unchanged."
+    },
+    {
+      "node": "DELLA",
+      "type": "PROTEIN_COMPLEX",
+      "inputs": [
+        "GID1(-)",
+        "SLY1(-)"
+      ],
+      "outputs": [
+        "SPL9(-)",
+        "LFY(-)",
+        "SOC1(-)",
+        "CO(-)",
+        "PIF4(-)"
+      ],
+      "curated_regulators_excluded": [
+        "Gibberellin(-,E152)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Multi-Output Scaffold now complete: 5 outputs (SPL9, LFY, SOC1, CO, PIF4). Coverage 0.47. Motif 5 applied well."
+    },
+    {
+      "node": "SPL9",
+      "type": "GENE",
+      "inputs": [
+        "DELLA(-)",
+        "miR156(-)"
+      ],
+      "outputs": [
+        "miR172(+)",
+        "AP1(+)",
+        "LFY(+)",
+        "SOC1(+)",
+        "FUL(+)"
+      ],
+      "curated_regulators_excluded": [
+        "AHL15(-,E011)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Now 4 outputs (miR172, AP1, LFY, SOC1, FUL) \u2014 added SPL9->FUL (S009b). Coverage 0.64."
+    },
+    {
+      "node": "miR172",
+      "type": "REGULATORY_RNA",
+      "inputs": [
+        "SPL9(+)"
+      ],
+      "outputs": [
+        "AP2(-)"
+      ],
+      "curated_regulators_excluded": [
+        "AP2(-,E020)",
+        "SPL15(+,E244)"
+      ],
+      "verdict": "appropriate",
+      "comment": "AP2 target only. AP2->miR172 (E020 HIGH) would close Motif 7 mutual inhibition \u2014 flagged S19."
+    },
+    {
+      "node": "AP2",
+      "type": "GENE",
+      "inputs": [
+        "miR172(-)",
+        "SOC1(-)"
+      ],
+      "outputs": [
+        "SOC1(-)",
+        "AP1(-)"
+      ],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Mutual inhibition with SOC1 now complete (S008). AP2->miR172 (E020) is the remaining Motif 7 closure edge \u2014 see S19."
+    },
+    {
+      "node": "FT",
+      "type": "GENE",
+      "inputs": [
+        "CO(+)",
+        "FLC(-)",
+        "SVP(-)",
+        "PIF4(+)",
+        "CDF1(-)",
+        "FKF1(+)",
+        "GI(+)",
+        "Warm_Temperature(+)",
+        "T6P(+)"
+      ],
+      "outputs": [
+        "FD(+)",
+        "AP1(+)",
+        "LFY(+)",
+        "SOC1(+)",
+        "FUL(+)"
+      ],
+      "curated_regulators_excluded": [
+        "AGL15(-,E002)",
+        "AGL18(-,E004)",
+        "AS1(+,E023)",
+        "BBX32(-,E028)",
+        "CIB1(+,E053)",
+        "CRY2(+,E062)",
+        "FLM(-,E118)",
+        "FTIP1(+,E132)",
+        "H2A_Z(-,E156)",
+        "KIN10(-,E167)",
+        "MAF1(-,E182)",
+        "NaKR1(+,E191)",
+        "PHO2(-,E194)",
+        "PIF5(+,E203)",
+        "Phosphatidylcholine(+,E212)",
+        "QKY(+,E213)",
+        "SMZ(-,E224)",
+        "SYP121(+,E266)",
+        "Sucrose(+,E267)",
+        "TEM1(-,E273)",
+        "TEM2(-,E274)",
+        "TOE1(-,E285)",
+        "TPPI(+,E288)",
+        "TPS1(+,E291)",
+        "VOZ1(+,E302)",
+        "VOZ2(+,E303)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Coverage 0.19 -> 0.33. Now 6 activators (CO, FKF1, GI, PIF4, Warm, T6P) and 3 inhibitors (FLC, SVP, CDF1). Strong central hub. TPS1->FT direct (E291 HIGH) remaining \u2014 parallel path to TPS1->T6P->FT. Direct FT->Flowering_Time (E129) is the canonical florigen edge still missing from phenotype inputs."
+    },
+    {
+      "node": "FUL",
+      "type": "GENE",
+      "inputs": [
+        "FT(+)",
+        "SPL9(+)"
+      ],
+      "outputs": [
+        "AP1(+)",
+        "Flowering_Time(+)"
+      ],
+      "curated_regulators_excluded": [
+        "SOC1(+,E233)",
+        "SPL15(+,E241)",
+        "TFL1(-,E277)"
+      ],
+      "verdict": "under-specified",
+      "comment": "NEW iter 2. FT and SPL9 activators present; AP1 and Flowering_Time targets present. Two canonical HIGH regulators missing: SOC1->FUL (E233 \u2014 floral-transition activator) and TFL1->FUL (E277 \u2014 TFL1-FD complex represses FUL). These complete the FUL hub. Coverage 4/7 = 0.57."
+    },
+    {
+      "node": "FD",
+      "type": "GENE",
+      "inputs": [
+        "FT(+)",
+        "TFL1(+)"
+      ],
+      "outputs": [
+        "AP1(+)",
+        "SOC1(+)"
+      ],
+      "curated_regulators_excluded": [
+        "14-3-3(+,E001)",
+        "LFY(+,E171)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Now activated by FT and TFL1 (S002b). LFY->FD (E171 MEDIUM) defensibly omitted."
+    },
+    {
+      "node": "SOC1",
+      "type": "GENE",
+      "inputs": [
+        "FLC(-)",
+        "SVP(-)",
+        "DELLA(-)",
+        "AP2(-)",
+        "FT(+)",
+        "FD(+)",
+        "SPL9(+)",
+        "TFL1(-)"
+      ],
+      "outputs": [
+        "AGL24(+)",
+        "LFY(+)",
+        "AP1(+)",
+        "Flowering_Time(+)",
+        "SVP(-)",
+        "AP2(-)"
+      ],
+      "curated_regulators_excluded": [
+        "AGL15(-,E003)",
+        "AGL18(-,E005)",
+        "AGL24(+,E009)",
+        "BRM(-,E029)",
+        "CCA1(-,E044)",
+        "NF_YC(+,E188)",
+        "SOC1(-,E237)",
+        "SPL15(+,E243)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Now 3 activators + 5 inhibitors (added TFL1, AP2 closure via S002a, S008). Coverage 0.50. SOC1->FUL (E233 HIGH) missing \u2014 see S18."
+    },
+    {
+      "node": "AGL24",
+      "type": "GENE",
+      "inputs": [
+        "SOC1(+)",
+        "Vernalization(+)"
+      ],
+      "outputs": [
+        "LFY(+)"
+      ],
+      "curated_regulators_excluded": [
+        "Gibberellin(+,E151)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Now activated by SOC1 and Vernalization (S013). Coverage 0.43. Gibberellin->AGL24 (E151) correctly rejected as Perception-Gate bypass."
+    },
+    {
+      "node": "AP1",
+      "type": "GENE",
+      "inputs": [
+        "AP2(-)",
+        "FT(+)",
+        "FD(+)",
+        "SOC1(+)",
+        "LFY(+)",
+        "SPL9(+)",
+        "TFL1(-)",
+        "FUL(+)"
+      ],
+      "outputs": [
+        "TFL1(-)",
+        "Flowering_Time(+)"
+      ],
+      "curated_regulators_excluded": [
+        "SPL3(+,E245)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Now 6 activators (FT, FD, LFY, SOC1, SPL9, FUL \u2014 FUL added via S009c) + 2 inhibitors. Still within \u00a710. Coverage 0.77."
+    },
+    {
+      "node": "LFY",
+      "type": "GENE",
+      "inputs": [
+        "DELLA(-)",
+        "FT(+)",
+        "SOC1(+)",
+        "AGL24(+)",
+        "SPL9(+)",
+        "TFL1(-)"
+      ],
+      "outputs": [
+        "AP1(+)",
+        "Flowering_Time(+)"
+      ],
+      "curated_regulators_excluded": [
+        "AP1(+,E013)",
+        "Gibberellin(+,E155)",
+        "SPL3(+,E247)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 1. Coverage 0.57."
+    },
+    {
+      "node": "TFL1",
+      "type": "GENE",
+      "inputs": [
+        "AP1(-)"
+      ],
+      "outputs": [
+        "AP1(-)",
+        "LFY(-)",
+        "Flowering_Time(-)",
+        "SOC1(-)",
+        "FD(+)"
+      ],
+      "curated_regulators_excluded": [
+        "LFY(+,E173)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Multi-Output Scaffold complete: 4 outputs (AP1, LFY, SOC1, FD) + phenotype inhibitor (S001). TFL1->FUL (E277 HIGH) is the remaining canonical target \u2014 flagged S17."
+    },
+    {
+      "node": "Flowering_Time",
+      "type": "PHENOTYPE",
+      "inputs": [
+        "AP1(+)",
+        "LFY(+)",
+        "SOC1(+)",
+        "TFL1(-)",
+        "FUL(+)"
+      ],
+      "outputs": [],
+      "curated_regulators_excluded": [
+        "AGL24(+,E006)",
+        "AP2(-,E018)",
+        "DELLA(-,E071)",
+        "FD(+,E101)",
+        "FLC(-,E113)",
+        "FLP1(+,E120)",
+        "FT(+,E129)",
+        "Gibberellin(+,E153)",
+        "MAF2(-,E183)",
+        "MAF3(-,E184)",
+        "MAF4(-,E185)",
+        "MAF5(-,E186)",
+        "SMZ(-,E225)",
+        "SNZ(-,E226)",
+        "SPL15(+,E242)",
+        "SPL3(+,E246)",
+        "SPL9(+,E251)",
+        "SSF(-,E256)",
+        "SVP(-,E261)",
+        "TOE1(-,E286)",
+        "TOE2(-,E287)",
+        "TSF(+,E293)",
+        "Vernalization(+,E309)",
+        "miR156(-,E322)",
+        "miR172(+,E329)"
+      ],
+      "verdict": "under-specified",
+      "comment": "Now 4 activators (AP1, LFY, SOC1, FUL) + 1 inhibitor (TFL1). Repressor arm added (S001 closed iter 1 gap). Still missing florigen-class direct effector: FT->Flowering_Time (E129 HIGH) is canonical and absent. All four activators remain meristem-MADS-box TFs. Adding FT direct (possibly swapping with FUL direct) would add the florigen effector class per \u00a79.9."
+    }
+  ],
+  "per_pathway_audit": [
+    {
+      "pathway": "Photoperiod (GI/FKF1/CDF1/CO/FT)",
+      "completeness": "high",
+      "comment": "FT now receives CO, FKF1, GI direct (S006) plus CDF1 inhibition. Coherent feed-forward fully applied. Clock-layer regulators (BBX19, CRY1/2, PHYA/B, ZTL, HOS1, COP1) remain defensibly abstracted.",
+      "missing_pieces": [
+        "PIF4->GI (E201 HIGH) \u2014 would close a safe single-negative feedback with existing GI->PIF4 (Motif 2)"
+      ]
+    },
+    {
+      "pathway": "Vernalization (Cold/Vernalization -> VIN3/PRC2 -| FLC)",
+      "completeness": "medium",
+      "comment": "Core VIN3 cascade present. Direct Vernalization->FLC (E308) rejected for FLC hard-cap \u2014 defensible because VIN3 carries the silencing signal. VRN1/VRN2 additions also blocked by cap.",
+      "missing_pieces": [
+        "Restructure option: composite {FCA, FPA, FLD, FVE, LD} into AUTONOMOUS node would free inhibitor slots and allow VRN1 + direct Vernalization->FLC"
+      ]
+    },
+    {
+      "pathway": "Autonomous (FCA/FPA/FLD/FVE/LD -> FLC; FCA/FVE -> SVP)",
+      "completeness": "high",
+      "comment": "FCA and FVE now target both FLC and SVP (S005 applied); autonomous pathway influence on SVP is captured.",
+      "missing_pieces": [
+        "FLD->FCA (E115 HIGH) \u2014 autonomous-internal, defensibly simplified"
+      ]
+    },
+    {
+      "pathway": "GA signalling (GA20OX/GA2OX -> Gibberellin -> GID1/SLY1 -| DELLA -> [SPL9, LFY, SOC1, CO, PIF4])",
+      "completeness": "high",
+      "comment": "Motif 1 Perception Gate intact (Gibberellin has single outgoing to GID1). Motif 4 Biosynthesis-Degradation Balance complete with GA2OX. Motif 5 Multi-Output Scaffold for DELLA complete (5 targets).",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Age (Sucrose/TPS1 -> {miR156, T6P} -> SPL9/FT -> miR172 -| AP2 -| integrators)",
+      "completeness": "high",
+      "comment": "Sugar-sensing arm (T6P, TPS1) added. SPL9 fan-out to five integrators (AP1/LFY/SOC1/FUL/miR172). AP2<->SOC1 mutual inhibition closed.",
+      "missing_pieces": [
+        "TPS1->FT (E291 HIGH) direct \u2014 parallel path to TPS1->T6P->FT (worth adding to capture tps1 hypomorphs distinct from t6p depletion)",
+        "AP2->miR172 (E020 HIGH) \u2014 Motif 7 closure"
+      ]
+    },
+    {
+      "pathway": "Ambient temperature (Warm_Temperature -> PIF4/SVP/FT)",
+      "completeness": "high",
+      "comment": "Warm now directly activates FT (S006d), activates PIF4, represses SVP. PIF4 has negative feedback from GI and DELLA (S012, S003b).",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Floral integrators (FT/FUL/FD/SOC1/AGL24 -> LFY/AP1; TFL1 antagonism)",
+      "completeness": "high",
+      "comment": "FUL integrator added (S009). TFL1 multi-output scaffold extended to SOC1 and FD (S002). SOC1<->AP2 and AP1<->TFL1 Motif 7 pairs present.",
+      "missing_pieces": [
+        "TFL1->FUL (E277 HIGH) \u2014 TFL1-FD complex represses FUL",
+        "SOC1->FUL (E233 HIGH) \u2014 canonical activation of FUL during floral transition"
+      ]
+    },
+    {
+      "pathway": "Phenotype node (Flowering_Time)",
+      "completeness": "medium",
+      "comment": "Now 4 activators + 1 inhibitor \u2014 repressor arm closed (TFL1 direct, S001 applied). Still missing florigen-class effector (FT->Flowering_Time E129 HIGH). All four activators are meristem MADS-box TFs; per \u00a79.9 the phenotype should include all effector classes.",
+      "missing_pieces": [
+        "FT->Flowering_Time (E129 HIGH \u2014 florigen class)",
+        "Optional Gibberellin->Flowering_Time (E153 HIGH \u2014 hormone class, but BUILDER may route through DELLA for gate purity)"
+      ]
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "S17",
+      "type": "add_edge",
+      "priority": "high",
+      "description": "Add TFL1 -> FUL (-1) to complete TFL1 Multi-Output Scaffold.",
+      "biological_justification": "TFL1-FD complex directly represses FUL at the inflorescence meristem (E277 HIGH). The iter-2 build added TFL1 multi-output targets SOC1, AP1, LFY, FD, Flowering_Time but missed FUL, which is now in the network. Without this edge, tfl1 mutants will show unconstrained FUL activation and the AP1/FUL/LFY co-specification of floral identity is partially miscalibrated.",
+      "curated_edge_ids": [
+        "E277"
+      ],
+      "implementation": "Add TFL1 -> FUL (-1, E277). FUL gains a second inhibitor (already has implicit negative from TFL1->AP1-|... cascade, but direct edge is canonical)."
+    },
+    {
+      "id": "S18",
+      "type": "add_edge",
+      "priority": "high",
+      "description": "Add SOC1 -> FUL (+1) to complete FUL hub.",
+      "biological_justification": "SOC1 directly activates FUL transcription as part of the floral transition program (E233 HIGH). FUL currently has only two activators (FT, SPL9); SOC1 is the canonical third activator and ties FUL to the central integrator SOC1. Without it, SOC1 OE cannot move FUL in the model.",
+      "curated_edge_ids": [
+        "E233"
+      ],
+      "implementation": "Add SOC1 -> FUL (+1, E233). FUL now has 3 activators (FT, SPL9, SOC1) and 0 inhibitors \u2014 consistent with coverage 0.86 after S17 is also applied."
+    },
+    {
+      "id": "S19",
+      "type": "add_edge",
+      "priority": "medium",
+      "description": "Add AP2 -> miR172 (-1) for Motif 7 mutual inhibition with miR172 -| AP2.",
+      "biological_justification": "AP2 directly represses miR172b transcription (E020 HIGH). miR172 -| AP2 is already present; adding AP2 -| miR172 closes a canonical mutual-inhibition loop that stabilizes the juvenile/adult phase boundary. Safe bistable switch per Motif 7.",
+      "curated_edge_ids": [
+        "E020"
+      ],
+      "implementation": "Add AP2 -> miR172 (-1, E020). miR172 gains a second input (SPL9 activator + AP2 inhibitor)."
+    },
+    {
+      "id": "S20",
+      "type": "add_edge",
+      "priority": "medium",
+      "description": "Add TPS1 -> FT (+1) direct edge parallel to TPS1 -> T6P -> FT.",
+      "biological_justification": "TPS1 catalyses T6P biosynthesis, but TPS1 also has FT-promoter binding activity independent of T6P accumulation (E291 HIGH). Adding the direct edge captures tps1 loss-of-function phenotypes more accurately \u2014 tps1 hypomorphs show FT loss beyond what reduced T6P alone predicts.",
+      "curated_edge_ids": [
+        "E291"
+      ],
+      "implementation": "Add TPS1 -> FT (+1, E291). FT activator count rises to 7 (still within \u00a710 hard cap)."
+    },
+    {
+      "id": "S21",
+      "type": "restructure_pathway",
+      "priority": "medium",
+      "pathway_name": "Phenotype effector-class completion",
+      "description": "Add FT -> Flowering_Time (+1) as florigen-class direct effector, optionally removing FUL -> Flowering_Time to keep activator count <= 4.",
+      "biological_justification": "Per \u00a79.9, phenotype should include all major effector classes (TFs / hormones / florigens / metabolites). All four current activators (AP1, LFY, SOC1, FUL) are meristem MADS-box TFs. FT is the canonical mobile florigen; ft mutants are extremely late-flowering. E129 is HIGH confidence and the single most-cited flowering edge in the literature. Two implementation options: (a) keep FUL and add FT giving 5 activators at \u00a710 cap, or (b) swap \u2014 remove FUL -> Flowering_Time (FUL still connects via FUL -> AP1) and add FT -> Flowering_Time, keeping 4 activators with 2 effector classes.",
+      "curated_edge_ids": [
+        "E129"
+      ],
+      "implementation": "Preferred (b): Remove FUL -> Flowering_Time (keep FUL -> AP1), add FT -> Flowering_Time (+1, E129). Activators become {AP1, LFY, SOC1, FT}. Alternative (a): keep both, accept 5 activators at \u00a710 cap."
+    },
+    {
+      "id": "S22",
+      "type": "add_edge",
+      "priority": "low",
+      "description": "Consider PIF4 -> GI (+1) to close single-negative feedback loop with GI -| PIF4.",
+      "biological_justification": "PIF4 directly activates GI transcription at warm temperatures (E201 HIGH). Combined with existing GI -| PIF4, creates a safe single-negative feedback loop (Motif 2 variant) \u2014 stabilising, not runaway. LOW priority because GI is currently a source; making it non-source would cascade-shift the model.",
+      "curated_edge_ids": [
+        "E201"
+      ],
+      "implementation": "If adopted: GI becomes non-source with single activator PIF4. Make sure damping handles the feedback."
+    },
+    {
+      "id": "S23",
+      "type": "restructure_pathway",
+      "priority": "low",
+      "pathway_name": "AUTONOMOUS pathway composite (to free FLC inhibitor slots)",
+      "description": "Consider collapsing {FCA, FPA, FLD, FVE, LD} into a single AUTONOMOUS composite node per \u00a79.3.",
+      "biological_justification": "FLC is at the \u00a710 hard cap (7 inhibitors) which blocks desirable additions (Vernalization->FLC direct E308, VRN1->FLC E304). If the five autonomous-pathway genes are collapsed per \u00a79.3 composite rules, FLC inhibitor count drops from 7 to 3 (VIN3, PRC2, AUTONOMOUS) and frees 4 slots. TRADE-OFF: losing individual-mutant resolution (fca vs fve vs fld distinct phenotypes) \u2014 this is why BUILDER iter 2 kept them separate. Document explicitly if accepting.",
+      "curated_edge_ids": [
+        "E097",
+        "E122",
+        "E116",
+        "E135",
+        "E168"
+      ],
+      "implementation": "Create AUTONOMOUS (PROTEIN_COMPLEX) composite; move FLC inhibition edges onto it. Retain FCA, FVE as separate only if their SVP-targeting role is preserved via composite -> SVP. Not recommended unless S07/S11 (Vernalization direct, VRN1) become mission-critical."
+    }
+  ],
+  "literature_gaps": [
+    "None new. Iter 1 flagged as \"no major gaps\"; this remains true. The rejected edges (Perception-Gate bypass, FLC cap-limited, direct-phenotype) are modelling choices, not curation gaps."
+  ],
+  "stop_reason": null,
+  "suggestion_counts": {
+    "high": 2,
+    "medium": 3,
+    "low": 2,
+    "total": 7
+  },
+  "iteration_2_builder_response": {
+    "suggestions_from_iter_1_applied": 12,
+    "suggestions_from_iter_1_rejected": 4,
+    "rejections_documented_correctly": true,
+    "new_fixes_needed_this_iteration": 7
+  }
+}

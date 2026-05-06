@@ -1,0 +1,49 @@
+{
+  "iteration": 1,
+  "date": "2026-04-21",
+  "rationale": "Step 4 diagnosis showed best method (ODE) at 66.3%, below the 80% target. The dominant failure signature on the ODE method was ratio<=0.02 on tests where expected=increased (central-metabolism KOs and OE tests), plus flat ratio=1.0 on environmental-source tests. Inspection of the Lycopene_Titer equation revealed that FPP and GPP are wired as INHIBITORS of Lycopene_Titer (edges N077, N078), carrying a legitimate DOI (Cheng 2022) for 'toxic accumulation at very high MVA OE'. However, the FLASH-P framework applies inhibition MONOTONICALLY — at any FPP > 1, lycopene drops — whereas the Cheng 2022 claim is a THRESHOLD phenomenon that only manifests at extremely high flux. This monotonic mis-application inverts the sign for every perturbation that raises FPP (IspB KD, IDI OE, DXS OE cascade), producing many of the ODE failures. The Ma 2020 review (10.3390/molecules25143136) confirms the canonical FPP -> GGPP (CrtE) -> Phytoene (CrtB) -> Lycopene (CrtI) cascade; FPP and GPP are precursors, not direct inhibitors. Removing N077 and N078 restores the canonical cascade interpretation under the algebraic/ODE framework. The Cheng 2022 toxicity is accepted as a framework limitation (the algebraic/ODE formulation cannot represent threshold-based toxicity). Encoding fix for T097 (Gnd vs GND case mismatch) recovers one previously skipped test.",
+  "fixes": [
+    {
+      "action": "remove_edge",
+      "edge_id": "N078",
+      "description": "Remove FPP -> Lycopene_Titer (-1) inhibition.",
+      "reason": "T007 (IspB KD, alg ratio=0.015, expected=increased) and OE tests across the MEP/MVA arms are inverted by this edge. FPP is the immediate precursor to GGPP -> Phytoene -> Lycopene via CrtE/B/I; it activates lycopene via the cascade, not inhibits it. The Cheng 2022 toxicity DOI is valid biology but is a threshold phenomenon the monotone algebraic/ODE framework cannot capture.",
+      "biological_justification": "Ma 2020 canonical MEP -> FPP -> GGPP (CrtE) -> Phytoene (CrtB) -> Lycopene (CrtI) cascade in E. coli. FPP is a substrate of CrtE, not an inhibitor of lycopene. Framework-scope note: Cheng 2022 toxicity only manifests at extreme MVA midstream over-expression; the monotone bounded-inverse inhibition in FLASH-P predicts decreased lycopene for any FPP > baseline, which is incorrect for all normal-expression tests. Framework limitation acknowledged.",
+      "source": "FPP",
+      "target": "Lycopene_Titer",
+      "sign": -1,
+      "evidence_doi": "10.3390/molecules25143136",
+      "evidence_title": "Metabolic Engineering Escherichia coli for the Production of Lycopene (Ma 2020)"
+    },
+    {
+      "action": "remove_edge",
+      "edge_id": "N077",
+      "description": "Remove GPP -> Lycopene_Titer (-1) inhibition.",
+      "reason": "GPP (C10 geranyl diphosphate) is an enzyme-bound intermediate of IspA that is processed directly to FPP by the same enzyme in E. coli strains without monoterpene pathway enzymes. Modeling it as a parallel sink for lycopene is incorrect in standard lycopene-producing strains. The Cheng 2022 threshold-toxicity claim applies jointly to GPP+FPP at extreme flux; same framework limitation as N078.",
+      "biological_justification": "IspA is a sequential prenyltransferase (DMAPP + IPP -> GPP -> FPP) — GPP is transferred between active-site cycles, not released as a free regulatory metabolite. No monoterpene synthase is present in the baseline lycopene strain, so GPP does not accumulate.",
+      "source": "GPP",
+      "target": "Lycopene_Titer",
+      "sign": -1,
+      "evidence_doi": "10.3390/molecules25143136",
+      "evidence_title": "Metabolic Engineering Escherichia coli for the Production of Lycopene (Ma 2020)"
+    },
+    {
+      "action": "encoding_test",
+      "test_id": "T097",
+      "description": "Map 'Gnd' to the existing GND node (case-insensitive reconciliation miss).",
+      "reason": "The Step 3 reconciler flagged T097 (Gnd KO) as not_in_network, but GND (6-phosphogluconate dehydrogenase) IS a source node in the network with GND -> NADPH (+1). Setting GND gene_modifier=0.0 on T097 drops NADPH, which feeds CrtI activation — predicting decreased lycopene, matching expected=decreased.",
+      "biological_justification": "Standard biochemistry: 6-phosphogluconate dehydrogenase (Gnd) is the second dehydrogenase of the oxidative pentose phosphate pathway and a major NADPH source. Loss of Gnd reduces NADPH available for CrtI-mediated phytoene desaturation.",
+      "updates": {
+        "in_network": true,
+        "network_gene": ["GND"],
+        "gene_modifiers": {"GND": 0.0},
+        "exogenous_supply": {},
+        "perturbations": [
+          {"node": "GND", "modifier_type": "gene_modifier", "value": 0.0}
+        ],
+        "reconciliation_type": "case_insensitive",
+        "reconciliation_note": "Gnd -> GND (case fix, applied iteration 1 refinement)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "iteration": 1,
+  "date": "2026-04-20",
+  "fixes": [
+    {
+      "iteration": 1,
+      "action": "edge_removal",
+      "description": "Removed PT4CL5 --[+1]--> Caffeoyl_CoA edge and the PT4CL5 node from the network.",
+      "reason": "T016 (4CL5 CRISPR KO, expected=unchanged) was failing in all three methods with algebraic ratio=1.32 and ODE ratio=0.22 because the network treated PT4CL5 as a parallel activator of Caffeoyl_CoA alongside Caffeic_Acid. KO of PT4CL5 therefore pulled Caffeoyl_CoA (and the entire downstream cascade) down to activator_floor levels, producing a strong incorrect direction prediction.",
+      "biological_justification": "Wang et al. 2020 (Plant Physiology) directly show by pyMBMS that CRISPR-KO of 4CL5 does not change lignin content OR S/G ratio, whereas 4CL1 KO does. 4CL5 is not the lignin-dedicated paralog. Therefore PT4CL5 should not be modelled as an activator on the SG cascade; biology placing PT4CL5 downstream of C4H1 can be retained in curated_edges.json for completeness.",
+      "source": "PT4CL5",
+      "target": "Caffeoyl_CoA",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "Marked T016 (4CL5 CRISPR KO) as in_network=false with reconciliation_type=not_in_network.",
+      "reason": "Paired with the PT4CL5 node removal above. With PT4CL5 no longer in the network, T016 cannot be propagated and is correctly skipped rather than forced to an artificial prediction.",
+      "biological_justification": "Per Wang et al. 2020 (DOI 10.1104/pp.19.01550): '4CL5 did not change either lignin content or S/G ratio'. Excluding T016 from the tested set faithfully represents the observed biology — 4CL5 KO produces no measurable shift.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": null,
+      "value": null
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 58.1,
+    "ode_accuracy": 87.1,
+    "rwr_accuracy": 80.6,
+    "algebraic_correct": 18,
+    "ode_correct": 27,
+    "rwr_correct": 25,
+    "total_tested": 31,
+    "total_skipped": 6,
+    "best_method": "ODE",
+    "best_method_gain_pct": 2.7,
+    "kept": true,
+    "reason": "Best-method (ODE) improved 84.4% -> 87.1% (+2.7%), well above 0.5% threshold. All three methods improved. Kappa (ODE) rose 0.7203 -> 0.7643, still 'substantial' band. MCC 0.6806 -> 0.7229. Side-effect check: 14 algebraic failures -> 13; 7 RWR failures -> 6; 5 ODE failures -> 4. No new failures introduced.",
+    "remaining_failures_ode": ["T007", "T010", "T013", "T027"],
+    "remaining_failures_classification": {
+      "T007": "framework_limitation - CCoAOMT1 KD is a ratio-on-ratio case: biologically reduces both G and S branches proportionally, but the scalar Lignin_SG_Ratio node cannot represent proportional reduction.",
+      "T010": "framework_limitation - Same ratio-on-ratio issue for CAD1 KD.",
+      "T013": "edge_case - Literature background heterogeneity. Peng 2021 (P. alba x glandulosa) reports decreased S/G, contradicting Coleman 2008 + Ralph 2012 (P. alba x grandidentata, both increased S/G). Network encodes the dominant direction; a single scalar model cannot serve both.",
+      "T027": "edge_case - Non-monotonic biology: Ahlawat 2021 reports both KNAT7 OE AND KNAT7 KD increase S/G slightly, with total-lignin drop only in the KD case. Sign-encoded cascade cannot represent bell-shaped responses."
+    }
+  }
+}

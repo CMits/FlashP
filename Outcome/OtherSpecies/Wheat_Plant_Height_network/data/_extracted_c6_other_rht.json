@@ -1,0 +1,100 @@
+{
+  "cluster": "C6_Other_Rht_loci",
+  "papers": [
+    {
+      "doi": "10.1016/j.molp.2022.01.013",
+      "title": "A natural variation in Ribonuclease H-like gene underlies Rht8 to confer Green Revolution trait in wheat",
+      "authors": "Chai L, Xin M, Dong C, Chen Z, Zhai H, Zhuang J, Cheng X, Wang N, Geng J, Wang X, Jiang H, Hu Z, Xin M, Yao Y, Ni Z, Sun Q, Peng H",
+      "year": 2022,
+      "journal": "Molecular Plant",
+      "status": "read"
+    },
+    {
+      "doi": "10.1016/j.molp.2022.01.014",
+      "title": "Cloning and functional characterization of Rht8, a Green Revolution replacement gene in wheat",
+      "authors": "Xiong H, Zhou C, Fu M, Guo H, Xie Y, Zhao L, Gu J, Zhao S, Ding Y, Li Y, Liu L",
+      "year": 2022,
+      "journal": "Molecular Plant",
+      "status": "read"
+    },
+    {
+      "doi": "10.1073/pnas.2209875119",
+      "title": "An autoactive NB-LRR gene causes Rht13 dwarfism in wheat",
+      "authors": "Borrill P, Mago R, Xu T, Ford B, Williams SJ, Derkx A, Bovill WD, Hyles J, Bhatt D, Xia XC, MacMillan C, Park RF, Karafiátová M, Doležel J, Ayliffe M, Lagudah E, Spielmeyer W",
+      "year": 2022,
+      "journal": "Proceedings of the National Academy of Sciences USA",
+      "status": "read",
+      "pmc_id": "PMC9860330"
+    }
+  ],
+  "edges": [
+    {
+      "source": "Rht8",
+      "target": "Plant_Height",
+      "sign": -1,
+      "mechanism": "Rht8 encodes TaRNHL-D1 (Ribonuclease H-like); loss of function produces shorter internodes via reduced cell elongation; GA-sensitive",
+      "evidence_doi": "10.1016/j.molp.2022.01.013",
+      "evidence_sentence": "The map-based cloning of Rht8 confirmed that loss of Ribonuclease H-Like 1 (RNHL-D1) is responsible for Rht8 semi-dwarfing effect"
+    },
+    {
+      "source": "Rht8",
+      "target": "Gibberellin",
+      "sign": 1,
+      "mechanism": "Rht8 (TaRNHL-D1) affects GA biosynthesis; loss-of-function reduces bioactive GA in stem",
+      "evidence_doi": "10.1016/j.molp.2022.01.014",
+      "evidence_sentence": "Rht8 cloned as a ribonuclease h-like domain gene using map-based cloning, and controls the plant height and spike length via GA biosynthesis"
+    },
+    {
+      "source": "Rht13",
+      "target": "Plant_Height",
+      "sign": -1,
+      "mechanism": "Rht-B13b autoactive NB-LRR (S240F mutation in RNBS-A) triggers PR gene induction and cell wall cross-linking, limiting cell elongation; GA-independent",
+      "evidence_doi": "10.1073/pnas.2209875119",
+      "evidence_sentence": "A point mutation in the semidwarf Rht-B13b allele autoactivates the NB-LRR gene and causes a height reduction comparable with Rht-B1b and Rht-D1b in diverse genetic backgrounds"
+    },
+    {
+      "source": "Rht13",
+      "target": "Pathogenesis_Related_Genes",
+      "sign": 1,
+      "mechanism": "Autoactive Rht-B13b upregulates PR genes including class III peroxidases",
+      "evidence_doi": "10.1073/pnas.2209875119",
+      "evidence_sentence": "autoactivation of Rht13 leads to upregulation of pathogenesis-related (PR) genes, including class III peroxidases"
+    },
+    {
+      "source": "Pathogenesis_Related_Genes",
+      "target": "Cell_Wall_Crosslinking",
+      "sign": 1,
+      "mechanism": "Class III peroxidases catalyse cross-linking of cell wall compounds, limiting cell elongation",
+      "evidence_doi": "10.1073/pnas.2209875119",
+      "evidence_sentence": "class III peroxidases, which may catalyse the cross-linking of cell wall compounds to limit cell elongation and hence reduce height"
+    },
+    {
+      "source": "Cell_Wall_Crosslinking",
+      "target": "Plant_Height",
+      "sign": -1,
+      "mechanism": "Cross-linked cell walls resist extension; reduced internode elongation",
+      "evidence_doi": "10.1073/pnas.2209875119",
+      "evidence_sentence": "catalyse the cross-linking of cell wall compounds to limit cell elongation and hence reduce height"
+    }
+  ],
+  "perturbations": [
+    {
+      "gene": "Rht8",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "magnitude": "moderate",
+      "evidence_doi": "10.1016/j.molp.2022.01.013",
+      "evidence_sentence": "The Reduced height 8 (Rht8) semi-dwarfing gene reduces stature of wheat and improves lodging resistance, without compromising grain yield",
+      "notes": "Natural loss-of-function variant of RNHL-D1; chromosome 2DS"
+    },
+    {
+      "gene": "Rht13",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "magnitude": "moderate",
+      "evidence_doi": "10.1073/pnas.2209875119",
+      "evidence_sentence": "Rht-B13b plants exhibited approximately 17-34% height reduction primarily through shortened peduncle development",
+      "notes": "NB-LRR autoactive (S240F); 17-34% height reduction; stronger stems"
+    }
+  ]
+}

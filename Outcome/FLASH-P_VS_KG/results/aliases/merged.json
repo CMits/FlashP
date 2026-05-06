@@ -1,0 +1,485 @@
+{
+  "trait": "merged",
+  "aliases": [
+    {
+      "term": "ABA2",
+      "kb_node": "ABA",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "ABA2 is ABA biosynthesis enzyme; no ABA2 node in KB - map to ABA hormone as functional proxy."
+    },
+    {
+      "term": "ABI4_5",
+      "kb_node": "ABI4",
+      "reconciliation_type": "composite",
+      "note": "ABI4_5 composite (ABI4+ABI5); ABI4 is canonical representative ABA-responsive TF in KB."
+    },
+    {
+      "term": "ACS",
+      "kb_node": "not_in_network",
+      "reconciliation_type": "not_in_network",
+      "note": "ACS (1-aminocyclopropane-1-carboxylate synthase, ethylene biosynthesis) has no family member in KB; 'lacs' entries are LACS (lipid) not ACS."
+    },
+    {
+      "term": "AGG3",
+      "kb_node": "GBETAGAMMA1",
+      "reconciliation_type": "family",
+      "note": "AGG3 is heterotrimeric G-protein gamma subunit; KB has GBETAGAMMA1 (Gbeta/gamma complex) as closest family representative."
+    },
+    {
+      "term": "AHK3",
+      "kb_node": "AHK",
+      "reconciliation_type": "family",
+      "note": "AHK3 is cytokinin histidine kinase receptor; KB has AHK (Arabidopsis Histidine Kinase) family node."
+    },
+    {
+      "term": "ANR1",
+      "kb_node": "NITRATE",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "ANR1 is a nitrate-responsive MADS-box TF regulating lateral root growth; no ANR1 or MADS family node in KB - map to NITRATE signal as functional proxy."
+    },
+    {
+      "term": "AP2_TOE",
+      "kb_node": "TOE1",
+      "reconciliation_type": "composite",
+      "note": "AP2_TOE composite (AP2 + TOE1/2/3 miR172 targets); TOE1 is canonical representative."
+    },
+    {
+      "term": "ARF6_7_8",
+      "kb_node": "ARF6",
+      "reconciliation_type": "composite",
+      "note": "ARF6_7_8 composite (auxin response factors 6/7/8); ARF6 is canonical representative in KB."
+    },
+    {
+      "term": "ARR_B",
+      "kb_node": "ARR1",
+      "reconciliation_type": "family",
+      "note": "ARR_B = type-B Arabidopsis Response Regulators (transcriptional activators); ARR1 is canonical type-B representative in KB."
+    },
+    {
+      "term": "AUT_SYN",
+      "kb_node": "Autonomous pathway",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "AUT_SYN is FLASH-P composite for autonomous flowering pathway; KB has 'Autonomous pathway' node."
+    },
+    {
+      "term": "AUX_IAA",
+      "kb_node": "IAA",
+      "reconciliation_type": "composite",
+      "note": "AUX_IAA composite (Aux/IAA transcriptional repressors); IAA in KB represents the family."
+    },
+    {
+      "term": "BAK1",
+      "kb_node": "ATBAK1",
+      "reconciliation_type": "case_insensitive",
+      "note": "BAK1 = ATBAK1 in KB (BRI1-Associated Receptor Kinase 1) with species prefix."
+    },
+    {
+      "term": "BPC1",
+      "kb_node": "ATBPC1",
+      "reconciliation_type": "case_insensitive",
+      "note": "BPC1 = ATBPC1 in KB (Basic Pentacysteine 1) with species prefix."
+    },
+    {
+      "term": "BZR",
+      "kb_node": "BZR1",
+      "reconciliation_type": "family",
+      "note": "BZR is the BZR family; BZR1 is canonical brassinosteroid TF representative in KB."
+    },
+    {
+      "term": "BZR_BES",
+      "kb_node": "BZR1",
+      "reconciliation_type": "composite",
+      "note": "BZR_BES composite (BZR1 + BES1/BZR2 BR-regulated TFs); BZR1 is canonical representative in KB."
+    },
+    {
+      "term": "CCD8",
+      "kb_node": "CCD7",
+      "reconciliation_type": "family",
+      "note": "CCD8 is carotenoid cleavage dioxygenase 8 (SL biosynthesis); CCD7 is its paralog and only CCD family member in KB."
+    },
+    {
+      "term": "CKX3",
+      "kb_node": "CKX",
+      "reconciliation_type": "family",
+      "note": "CKX3 is cytokinin oxidase/dehydrogenase 3; KB has CKX family node."
+    },
+    {
+      "term": "CKX5",
+      "kb_node": "CKX",
+      "reconciliation_type": "family",
+      "note": "CKX5 is cytokinin oxidase/dehydrogenase 5; KB has CKX family node."
+    },
+    {
+      "term": "COP1_SPA",
+      "kb_node": "COP1",
+      "reconciliation_type": "composite",
+      "note": "COP1_SPA composite (COP1 + SPA E3 ligase complex); COP1 is canonical representative in KB."
+    },
+    {
+      "term": "Cold_Vernalization",
+      "kb_node": "vernalization",
+      "reconciliation_type": "case_insensitive",
+      "note": "Cold_Vernalization = cold-induced vernalization signal; KB has 'vernalization' node."
+    },
+    {
+      "term": "D27",
+      "kb_node": "Strigolactone",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "D27 is DWARF27 beta-carotene isomerase (SL biosynthesis); no D27 node in KB - map to Strigolactone hormone as mechanism proxy."
+    },
+    {
+      "term": "DAO1",
+      "kb_node": "GH3",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "DAO1 (Dioxygenase for Auxin Oxidation 1) oxidises IAA; KB has no DAO family - GH3 is closest functional node for IAA catabolism/inactivation."
+    },
+    {
+      "term": "EC",
+      "kb_node": "ELF3",
+      "reconciliation_type": "composite",
+      "note": "EC = Evening Complex (ELF3+ELF4+LUX); ELF3 is scaffolding core and canonical representative in KB."
+    },
+    {
+      "term": "ELF3_EC",
+      "kb_node": "ELF3",
+      "reconciliation_type": "composite",
+      "note": "ELF3_EC composite (ELF3 within Evening Complex); ELF3 exact match in KB."
+    },
+    {
+      "term": "ETR1",
+      "kb_node": "ATETR1",
+      "reconciliation_type": "case_insensitive",
+      "note": "ETR1 = ATETR1 in KB (Ethylene Receptor 1) with species prefix."
+    },
+    {
+      "term": "FHY1",
+      "kb_node": "FHY3",
+      "reconciliation_type": "family",
+      "note": "FHY1 (Far-red elongated Hypocotyl 1) has no exact KB node; FHY3 is closest family member (both phyA signaling)."
+    },
+    {
+      "term": "FIE",
+      "kb_node": "MEDEA",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "FIE (Fertilization-Independent Endosperm) is a PRC2 WD40 partner of MEDEA; no FIE node in KB - map to MEDEA (same FIS-PRC2 complex)."
+    },
+    {
+      "term": "FIS2",
+      "kb_node": "FIS",
+      "reconciliation_type": "family",
+      "note": "FIS2 is Fertilization-Independent Seed 2 (PRC2 subunit); KB has FIS family node."
+    },
+    {
+      "term": "FKF1",
+      "kb_node": "GI",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "FKF1 (Flavin-binding Kelch F-box 1) forms a complex with GI to degrade CDFs and promote CO/FT; no FKF family in KB - map to GI as functional partner."
+    },
+    {
+      "term": "FLOWER_INT",
+      "kb_node": "FT",
+      "reconciliation_type": "composite",
+      "note": "FLOWER_INT is FLASH-P composite for flowering integrators (FT/SOC1/LFY); FT is canonical florigen representative in KB."
+    },
+    {
+      "term": "FRI",
+      "kb_node": "FRI_COMPLEX",
+      "reconciliation_type": "family",
+      "note": "FRI (FRIGIDA) functions as part of the FRI complex; KB has FRI_COMPLEX as the nearest representative."
+    },
+    {
+      "term": "FVE",
+      "kb_node": "FCA",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "FVE (MSI4) is an autonomous-pathway flowering repressor of FLC; no FVE/MSI4 in KB - map to FCA (same autonomous pathway)."
+    },
+    {
+      "term": "GA3OX",
+      "kb_node": "ATGA3OX1",
+      "reconciliation_type": "family",
+      "note": "GA3OX is the GA3-oxidase family (GA biosynthesis); ATGA3OX1 is KB representative."
+    },
+    {
+      "term": "GA3OX1",
+      "kb_node": "ATGA3OX1",
+      "reconciliation_type": "case_insensitive",
+      "note": "GA3OX1 = ATGA3OX1 in KB (GA3ox1, GA biosynthesis) with species prefix."
+    },
+    {
+      "term": "GA4",
+      "kb_node": "GA",
+      "reconciliation_type": "treatment_analog",
+      "note": "GA4 is bioactive gibberellin species; KB has GA as the hormone node (treatment analog)."
+    },
+    {
+      "term": "GATA23",
+      "kb_node": "GATA",
+      "reconciliation_type": "family",
+      "note": "GATA23 is a lateral-root-inducing GATA TF; KB has GATA family node."
+    },
+    {
+      "term": "GID1",
+      "kb_node": "GAI",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "GID1 is the GA receptor that promotes DELLA (GAI) degradation; no GID1 in KB - map to GAI as the immediate functional partner in GA signaling."
+    },
+    {
+      "term": "GIF1",
+      "kb_node": "AN3",
+      "reconciliation_type": "case_insensitive",
+      "note": "GIF1 = AN3 (ANGUSTIFOLIA3) - same gene, different name. Exact KB match under AN3."
+    },
+    {
+      "term": "GPA1",
+      "kb_node": "GBETA",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "GPA1 is the sole Arabidopsis G-alpha; no Galpha/GPA node in KB - map to GBETA (partner subunit of the heterotrimeric G-protein complex)."
+    },
+    {
+      "term": "GRF",
+      "kb_node": "ATGRF1",
+      "reconciliation_type": "family",
+      "note": "GRF is Growth-Regulating Factor family; ATGRF1 is KB representative."
+    },
+    {
+      "term": "HB21",
+      "kb_node": "not_in_network",
+      "reconciliation_type": "not_in_network",
+      "note": "HB21 (HD-Zip class I TF, branching regulator downstream of BRC1) has no HB family member in KB."
+    },
+    {
+      "term": "HSFA1D",
+      "kb_node": "ATHSFA1D",
+      "reconciliation_type": "case_insensitive",
+      "note": "HSFA1D = ATHSFA1D in KB (Heat Shock Factor A1D) with species prefix."
+    },
+    {
+      "term": "IPT5",
+      "kb_node": "IPT",
+      "reconciliation_type": "family",
+      "note": "IPT5 is Isopentenyltransferase 5 (cytokinin biosynthesis); KB has IPT family node."
+    },
+    {
+      "term": "KLUH",
+      "kb_node": "KLU",
+      "reconciliation_type": "case_insensitive",
+      "note": "KLUH = KLU (CYP78A5) - same gene, shorter KB label."
+    },
+    {
+      "term": "LD",
+      "kb_node": "FLD",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "LD (LUMINIDEPENDENS) has no KB node; FLD (Flowering Locus D) is closest autonomous-pathway FLC repressor in KB."
+    },
+    {
+      "term": "LDL1",
+      "kb_node": "FLD",
+      "reconciliation_type": "family",
+      "note": "LDL1 (LSD1-LIKE 1) is an FLD paralog - both LSD1-family H3K4 demethylases in autonomous flowering pathway. KB has FLD."
+    },
+    {
+      "term": "LEC1",
+      "kb_node": "ATLEC1",
+      "reconciliation_type": "case_insensitive",
+      "note": "LEC1 = ATLEC1 in KB (Leafy Cotyledon 1) with species prefix."
+    },
+    {
+      "term": "LEC2",
+      "kb_node": "ATLEC2",
+      "reconciliation_type": "case_insensitive",
+      "note": "LEC2 = ATLEC2 in KB (Leafy Cotyledon 2) with species prefix."
+    },
+    {
+      "term": "Low_Nitrate",
+      "kb_node": "NITRATE",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "Low_Nitrate is the environmental low-nitrate signal; KB has NITRATE node as the nitrate-availability signal."
+    },
+    {
+      "term": "Low_Phosphate",
+      "kb_node": "Phosphate Starvation",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "Low_Phosphate is the environmental low-phosphate signal; KB has 'Phosphate Starvation' as the matching stimulus node."
+    },
+    {
+      "term": "MAX3",
+      "kb_node": "MAX1",
+      "reconciliation_type": "family",
+      "note": "MAX3 (= CCD7) is SL biosynthesis; no MAX3 in KB - MAX1 is the nearest SL-biosynthesis MAX family member present."
+    },
+    {
+      "term": "MAX4",
+      "kb_node": "MAX1",
+      "reconciliation_type": "family",
+      "note": "MAX4 (= CCD8) is SL biosynthesis; no MAX4 in KB - MAX1 is the nearest SL-biosynthesis MAX family member present."
+    },
+    {
+      "term": "MEA",
+      "kb_node": "MEDEA",
+      "reconciliation_type": "case_insensitive",
+      "note": "MEA = MEDEA (PRC2 SET-domain component); KB uses full name MEDEA."
+    },
+    {
+      "term": "MSI1",
+      "kb_node": "ATMSI1",
+      "reconciliation_type": "case_insensitive",
+      "note": "MSI1 = ATMSI1 in KB (Multicopy Suppressor of IRA 1) with species prefix."
+    },
+    {
+      "term": "NCED3",
+      "kb_node": "BNNCED3",
+      "reconciliation_type": "family",
+      "note": "NCED3 (ABA biosynthesis 9-cis-epoxycarotenoid dioxygenase) has no Arabidopsis NCED3 in KB; BNNCED3 (Brassica napus NCED3 orthologue) is the only NCED family representative."
+    },
+    {
+      "term": "NLP7",
+      "kb_node": "NITRATE",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "NLP7 is the master nitrate-responsive TF; no NLP family in KB - map to NITRATE signal as functional proxy."
+    },
+    {
+      "term": "PAR1",
+      "kb_node": "PAR",
+      "reconciliation_type": "family",
+      "note": "PAR1 (Phytochrome Rapidly Regulated 1, HLH shade-avoidance); KB has PAR family node."
+    },
+    {
+      "term": "PIF4_5_7",
+      "kb_node": "PIF4",
+      "reconciliation_type": "composite",
+      "note": "PIF4_5_7 composite (thermo/shade-avoidance bHLH PIFs); PIF4 is canonical representative in KB."
+    },
+    {
+      "term": "PLT",
+      "kb_node": "plt3plt5plt7 triple ",
+      "reconciliation_type": "composite",
+      "note": "PLT composite (PLETHORA family, lateral-root/meristem AP2 TFs); KB has 'plt3plt5plt7 triple ' as only PLT representative (triple-mutant descriptor used as family node)."
+    },
+    {
+      "term": "PYL",
+      "kb_node": "PYL8",
+      "reconciliation_type": "family",
+      "note": "PYL is the PYR/PYL ABA receptor family; PYL8 is the KB representative."
+    },
+    {
+      "term": "RAV1",
+      "kb_node": "ATRAV1",
+      "reconciliation_type": "case_insensitive",
+      "note": "RAV1 = ATRAV1 in KB (Related to ABI3/VP1 1) with species prefix."
+    },
+    {
+      "term": "SEEDSTICK",
+      "kb_node": "AGL11",
+      "reconciliation_type": "case_insensitive",
+      "note": "SEEDSTICK = STK = AGL11 - same gene; KB uses AGL11."
+    },
+    {
+      "term": "SLY1",
+      "kb_node": "GAI",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "SLY1 is the F-box that targets DELLA (GAI/RGA) for degradation in GA signaling; no SLY1 in KB - map to GAI as direct target in the same pathway."
+    },
+    {
+      "term": "SL_SYN",
+      "kb_node": "Strigolactone",
+      "reconciliation_type": "composite",
+      "note": "SL_SYN is FLASH-P composite for SL biosynthesis; map to Strigolactone hormone node (product of pathway)."
+    },
+    {
+      "term": "SNRK2",
+      "kb_node": "SnRK1",
+      "reconciliation_type": "family",
+      "note": "SNRK2 is the ABA-activated SnRK2 kinase family; KB has no SnRK2 - SnRK1 is the closest paralogous family kinase."
+    },
+    {
+      "term": "SOB7",
+      "kb_node": "SOB3",
+      "reconciliation_type": "family",
+      "note": "SOB7 is Suppressor Of phyB-4 7 (AHL22-like); SOB3 is nearest SOB/AHL family member in KB."
+    },
+    {
+      "term": "TAR1",
+      "kb_node": "TAA1",
+      "reconciliation_type": "family",
+      "note": "TAR1 (Tryptophan Aminotransferase Related 1) is a TAA1 paralog in the TAA/TAR auxin biosynthesis family; TAA1 is KB representative."
+    },
+    {
+      "term": "TAR2",
+      "kb_node": "ATTAR2",
+      "reconciliation_type": "case_insensitive",
+      "note": "TAR2 = ATTAR2 in KB with species prefix (Tryptophan Aminotransferase Related 2)."
+    },
+    {
+      "term": "TCP14",
+      "kb_node": "BPTCP14",
+      "reconciliation_type": "case_insensitive",
+      "note": "TCP14 = BPTCP14 in KB (Betula platyphylla TCP14 orthologue) - only TCP14 representative present."
+    },
+    {
+      "term": "TIE1",
+      "kb_node": "BPTCP14",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "TIE1 (TCP Interactor containing EAR motif 1) binds and represses TCP transcription factors (incl. TCP14); no TIE1 in KB - map to BPTCP14 (its direct target and pathway proxy)."
+    },
+    {
+      "term": "TPS1",
+      "kb_node": "not_in_network",
+      "reconciliation_type": "not_in_network",
+      "note": "TPS1 is Trehalose Phosphate Synthase 1 producing T6P (sugar signal); KB has no TPS or T6P/trehalose-related node."
+    },
+    {
+      "term": "UVR8",
+      "kb_node": "ATUVR8",
+      "reconciliation_type": "case_insensitive",
+      "note": "UVR8 = ATUVR8 in KB (UV Resistance Locus 8, UV-B photoreceptor) with species prefix."
+    },
+    {
+      "term": "VAL1",
+      "kb_node": "not_in_network",
+      "reconciliation_type": "not_in_network",
+      "note": "VAL1 (VP1/ABI3-Like 1, HSI2-related B3 repressor silencing FLC) has no VAL/HSI2 family node in KB."
+    },
+    {
+      "term": "VAL2",
+      "kb_node": "not_in_network",
+      "reconciliation_type": "not_in_network",
+      "note": "VAL2 (VP1/ABI3-Like 2) has no VAL/HSI2 family node in KB."
+    },
+    {
+      "term": "VIN3",
+      "kb_node": "vernalization",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "VIN3 (Vernalization Insensitive 3, PHD finger) is the cold-induced FLC repressor; no VIN3 in KB - map to 'vernalization' signal as the pathway it transduces."
+    },
+    {
+      "term": "Warm_Temperature",
+      "kb_node": "TEMPERATURE",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "Warm_Temperature is FLASH-P environmental signal; KB has 'TEMPERATURE' as the ambient-temperature node."
+    },
+    {
+      "term": "YUC10",
+      "kb_node": "YUC",
+      "reconciliation_type": "family",
+      "note": "YUC10 is YUCCA10 (flavin monooxygenase, auxin biosynthesis); KB has YUC family node."
+    },
+    {
+      "term": "YUC11",
+      "kb_node": "YUC",
+      "reconciliation_type": "family",
+      "note": "YUC11 is YUCCA11 (auxin biosynthesis); KB has YUC family node."
+    },
+    {
+      "term": "YUC8",
+      "kb_node": "YUC",
+      "reconciliation_type": "family",
+      "note": "YUC8 is YUCCA8 (auxin biosynthesis); KB has YUC family node."
+    },
+    {
+      "term": "ZTL",
+      "kb_node": "NAZTL",
+      "reconciliation_type": "case_insensitive",
+      "note": "ZTL (Zeitlupe, blue-light F-box) - KB has NAZTL (Nicotiana attenuata ZTL orthologue) as only ZTL family representative."
+    }
+  ]
+}

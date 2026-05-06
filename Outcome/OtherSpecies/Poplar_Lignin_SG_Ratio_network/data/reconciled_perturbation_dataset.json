@@ -1,0 +1,1515 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lignin_SG_Ratio",
+    "species": "Populus trichocarpa",
+    "created": "2026-04-20",
+    "total_tests": 37,
+    "in_network": 34,
+    "not_in_network": 3,
+    "phenotype_node": "Lignin_SG_Ratio",
+    "convention": "Higher S/G (more syringyl, less guaiacyl) = increased; lower = decreased. WT Populus trichocarpa stem xylem S/G ~2-3."
+  },
+  "direction_threshold": 0.05,
+  "perturbations": [
+    {
+      "test_id": "T001",
+      "gene": "F5H1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "F5H1"
+      ],
+      "gene_modifiers": {
+        "F5H1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "F5H1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Canonical positive-control S/G OE experiment in poplar (Meyermans 2000; Huntley 2003; Stewart 2009; Skyba 2013)",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.109.137059",
+          "title": "The Effects on Lignin Structure of Overexpression of Ferulate 5-Hydroxylase in Hybrid Poplar",
+          "authors": "Stewart JJ, Akiyama T, Chapple C, Ralph J, Mansfield SD",
+          "year": 2009,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "C4H::F5H transgenic lignin was comprised of as much as 97.5% syringyl units; the syringyl level in the wild-type control was 68%",
+          "claim": "C4H::F5H OE gives dramatic S/G increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "F5H1 OE (C4H::F5H or 35S::F5H) -> network node F5H1 gm=2.0",
+      "expected_magnitude": "strong",
+      "species": "Populus tremula x alba"
+    },
+    {
+      "test_id": "T002",
+      "gene": "F5H1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "F5H1"
+      ],
+      "gene_modifiers": {
+        "F5H1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "F5H1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Canonical positive-control S/G OE experiment in poplar (Meyermans 2000; Huntley 2003; Stewart 2009; Skyba 2013)",
+      "evidence": [
+        {
+          "doi": "10.1128/AEM.03182-12",
+          "title": "Syringyl-Rich Lignin Renders Poplars More Resistant to Degradation by Wood Decay Fungi",
+          "authors": "Skyba O, Douglas CJ, Mansfield SD",
+          "year": 2013,
+          "journal": "Applied and Environmental Microbiology",
+          "evidence_sentence": "Line 64 exhibits ca. 94 mol%, line 82 exhibits ca. 85 mol%, and the wild type exhibits ca. 65 mol% of syringyl lignin units, as determined by thioacidolysis",
+          "claim": "C4H::F5H OE dramatically increases S/G",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "F5H1 OE (C4H::F5H or 35S::F5H) -> network node F5H1 gm=2.0",
+      "expected_magnitude": "strong",
+      "species": "Populus alba x tremula"
+    },
+    {
+      "test_id": "T003",
+      "gene": "F5H1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "F5H1"
+      ],
+      "gene_modifiers": {
+        "F5H1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "F5H1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Canonical positive-control S/G OE experiment in poplar (Meyermans 2000; Huntley 2003; Stewart 2009; Skyba 2013)",
+      "evidence": [
+        {
+          "doi": "10.1046/j.1365-313X.2000.00795.x",
+          "title": "Modified lignin in tobacco and poplar plants over-expressing the Arabidopsis gene encoding ferulate 5-hydroxylase",
+          "authors": "Meyermans H, Morreel K, Lapierre C, Pollet B, De Bruyn A, Busson R, Herdewijn P, Devreese B, Van Beeumen J, Marita JM, Ralph J, Chen C, Burggraeve B, Van Montagu M, Messens E, Boerjan W",
+          "year": 2000,
+          "journal": "Plant Journal",
+          "evidence_sentence": "Ectopic expression of AtF5H cDNA in transgenic tobacco and poplar induces an increase in S-units in lignins",
+          "claim": "F5H OE increases S-units",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "F5H1 OE (C4H::F5H or 35S::F5H) -> network node F5H1 gm=2.0",
+      "expected_magnitude": "strong",
+      "species": "Populus tremula x alba"
+    },
+    {
+      "test_id": "T004",
+      "gene": "F5H1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "F5H1"
+      ],
+      "gene_modifiers": {
+        "F5H1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "F5H1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Canonical positive-control S/G OE experiment in poplar (Meyermans 2000; Huntley 2003; Stewart 2009; Skyba 2013)",
+      "evidence": [
+        {
+          "doi": "10.1021/jf034176m",
+          "title": "Significant increases in pulping efficiency in C4H-F5H-transformed poplars",
+          "authors": "Huntley SK, Ellis D, Gilbert M, Chapple C, Mansfield SD",
+          "year": 2003,
+          "journal": "Journal of Agricultural and Food Chemistry",
+          "evidence_sentence": "Analysis of poplar transformed with a C4H-F5H construct demonstrated significant increases in chemical (kraft) pulping efficiency; decreases of 23 kappa units and increases of more than 20 ISO brightness units in trees exhibiting high syringyl monomer concentrations",
+          "claim": "C4H-F5H OE increases S content",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "F5H1 OE (C4H::F5H or 35S::F5H) -> network node F5H1 gm=2.0",
+      "expected_magnitude": "strong",
+      "species": "Populus tremula x alba"
+    },
+    {
+      "test_id": "T005",
+      "gene": "COMT1",
+      "perturbation_type": "knockdown",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "COMT1"
+      ],
+      "gene_modifiers": {
+        "COMT1": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "COMT1",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "COMT1 is the syringyl-specific methylation step; silencing -> loss of S units",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.123.4.1363",
+          "title": "Lignification in Transgenic Poplars with Extremely Reduced Caffeic Acid O-Methyltransferase Activity",
+          "authors": "Jouanin L, Goujon T, de Nadai V, Martin MT, Mila I, Vallet C, Pollet B, Yoshinaga A, Chabbert B, Petit-Conil M, Lapierre C",
+          "year": 2000,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "70SOMT-3 line: 10-fold reduction in beta-O-4-linked S units (60% to 6%); almost complete lack of syringyl units",
+          "claim": "COMT1 silencing dramatically reduces S",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "COMT1 RNAi/antisense -> network node COMT1 gm=0.1",
+      "expected_magnitude": "strong",
+      "species": "Populus tremula x alba"
+    },
+    {
+      "test_id": "T006",
+      "gene": "COMT1",
+      "perturbation_type": "knockdown",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "COMT1"
+      ],
+      "gene_modifiers": {
+        "COMT1": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "COMT1",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "COMT1 is the syringyl-specific methylation step; silencing -> loss of S units",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.123.4.1363",
+          "title": "Lignification in Transgenic Poplars with Extremely Reduced Caffeic Acid O-Methyltransferase Activity",
+          "authors": "Jouanin L, Goujon T, de Nadai V, Martin MT, Mila I, Vallet C, Pollet B, Yoshinaga A, Chabbert B, Petit-Conil M, Lapierre C",
+          "year": 2000,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "ASOMT antisense lines: 65-67% G vs 29-31% S (vs 33-34% G; 64-67% S in control)",
+          "claim": "COMT1 antisense lowers S",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "COMT1 RNAi/antisense -> network node COMT1 gm=0.1",
+      "expected_magnitude": "moderate",
+      "species": "Populus tremula x alba"
+    },
+    {
+      "test_id": "T007",
+      "gene": "CCoAOMT1",
+      "perturbation_type": "knockdown",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "CCOAOMT1"
+      ],
+      "gene_modifiers": {
+        "CCOAOMT1": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CCOAOMT1",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "CCoAOMT1 KD reduces total lignin but leaves S/G ratio largely unchanged",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.124.2.563",
+          "title": "Essential Role of Caffeoyl Coenzyme A O-Methyltransferase in Lignin Biosynthesis in Woody Poplar Plants",
+          "authors": "Zhong R, Morrison WH 3rd, Himmelsbach DS, Poole FL 2nd, Ye ZH",
+          "year": 2000,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "The reduction in lignin content was the result of a decrease in both guaiacyl and syringyl lignins (both reduced proportionally)",
+          "claim": "CCoAOMT1 KD reduces total lignin without shifting S/G",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "CCoAOMT1 -> CCOAOMT1 (case difference only)",
+      "expected_magnitude": "slight",
+      "species": "Populus tremula x alba"
+    },
+    {
+      "test_id": "T008",
+      "gene": "CCR2",
+      "perturbation_type": "knockdown",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "CCR2"
+      ],
+      "gene_modifiers": {
+        "CCR2": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CCR2",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "CCR RNAi preferentially lowers S units in poplar (Leple 2007)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.107.054148",
+          "title": "Downregulation of Cinnamoyl-Coenzyme A Reductase in Poplar",
+          "authors": "Leple JC, Dauwe R, Morreel K, Storme V, Lapierre C, Pollet B, Naumann A, Kang KY, Kim H, Ruel K, Lefebvre A, Joseleau JP, Grima-Pettenati J, De Rycke R, Andersson-Gunneras S, Erban A, Fehrle I, Petit-Conil M, Kopka J, Polle A, Messens E, Sundberg B, Mansfield SD, Ralph J, Pilate G, Boerjan W",
+          "year": 2007,
+          "journal": "Plant Cell",
+          "evidence_sentence": "CCR transcript levels down to 3 to 4% of wild-type; S/G ratio of FAS13 and FS40 lignin was significantly lower than that of wild type; relatively more reduced in syringyl than in guaiacyl units",
+          "claim": "CCR2 KD preferentially reduces S",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "CCR2 RNAi -> CCR2 gm=0.1",
+      "expected_magnitude": "strong",
+      "species": "Populus tremula x alba"
+    },
+    {
+      "test_id": "T009",
+      "gene": "CCR2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "CCR2"
+      ],
+      "gene_modifiers": {
+        "CCR2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CCR2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Null CCR2 allele + haploinsufficient allele (De Meester 2020)",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-18822-w",
+          "title": "Tailoring poplar lignin without yield penalty by combining a null and haploinsufficient CINNAMOYL-CoA REDUCTASE2 allele",
+          "authors": "De Meester B, Madariaga Calderon B, de Vries L, Pollier J, Goeminne G, Van Doorsselaere J, Chen M, Ralph J, Vanholme R, Boerjan W",
+          "year": 2020,
+          "journal": "Nature Communications",
+          "evidence_sentence": "Null CCR2 allele combined with haploinsufficient allele alters lignin composition",
+          "claim": "CCR2 compound allele decreases S",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "CCR2 null allele -> CCR2 gm=0.0",
+      "expected_magnitude": "moderate",
+      "species": "Populus tremula x alba"
+    },
+    {
+      "test_id": "T010",
+      "gene": "CAD1",
+      "perturbation_type": "knockdown",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "CAD1"
+      ],
+      "gene_modifiers": {
+        "CAD1": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CAD1",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "CAD acts on both coniferaldehyde and sinapaldehyde; KD does not shift S/G ratio",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.112.4.1479",
+          "title": "Red Xylem and Higher Lignin Extractability by Down-Regulating a Cinnamyl Alcohol Dehydrogenase in Poplar",
+          "authors": "Baucher M, Chabbert B, Pilate G, Van Doorsselaere J, Tollier MT, Petit-Conil M, Cornu D, Monties B, Van Montagu M, Inze D, Jouanin L, Boerjan W",
+          "year": 1996,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Neither the lignin amount nor the lignin monomeric composition (syringyl/guaiacyl) were significantly modified",
+          "claim": "CAD1 KD does not affect S/G",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "CAD1 antisense -> CAD1 gm=0.1",
+      "expected_magnitude": "slight",
+      "species": "Populus tremula x alba"
+    },
+    {
+      "test_id": "T011",
+      "gene": "C3H1",
+      "perturbation_type": "knockdown",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "C3H1"
+      ],
+      "gene_modifiers": {
+        "C3H1": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "C3H1",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "C3H KD redirects flux to H; G reduced preferentially, S maintained (Coleman 2008; Ralph 2012). Opposing result in P. alba x glandulosa (Peng 2021) reflects genetic-background variation.",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0706537105",
+          "title": "RNAi-mediated suppression of p-coumaroyl-CoA 3'-hydroxylase in hybrid poplar impacts lignin deposition and soluble secondary metabolism",
+          "authors": "Coleman HD, Park JY, Nair R, Chapple C, Mansfield SD",
+          "year": 2008,
+          "journal": "PNAS",
+          "evidence_sentence": "up to approximately 20% p-hydroxyphenyl (H) lignin subunits; increase in H monomers came at the expense of only guaiacyl (G); S maintained",
+          "claim": "C3H RNAi lowers G not S, increasing S/G",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "C3H1 RNAi -> C3H1 gm=0.1",
+      "expected_magnitude": "strong",
+      "species": "Populus alba x grandidentata"
+    },
+    {
+      "test_id": "T012",
+      "gene": "C3H1",
+      "perturbation_type": "knockdown",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "C3H1"
+      ],
+      "gene_modifiers": {
+        "C3H1": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "C3H1",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "C3H KD redirects flux to H; G reduced preferentially, S maintained (Coleman 2008; Ralph 2012). Opposing result in P. alba x glandulosa (Peng 2021) reflects genetic-background variation.",
+      "evidence": [
+        {
+          "doi": "10.1007/s12155-012-9218-y",
+          "title": "Effects on Lignin Structure of Coumarate 3-Hydroxylase Downregulation in Poplar",
+          "authors": "Ralph J, Akiyama T, Coleman HD, Mansfield SD",
+          "year": 2012,
+          "journal": "BioEnergy Research",
+          "evidence_sentence": "C3H downregulation reduced lignin levels by half; G/S went from 0.59 WT to 0.28 C3H (so S/G from ~1.7 to ~3.6)",
+          "claim": "C3H KD increases S/G",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "C3H1 RNAi -> C3H1 gm=0.1",
+      "expected_magnitude": "strong",
+      "species": "Populus alba x grandidentata"
+    },
+    {
+      "test_id": "T013",
+      "gene": "C3H1",
+      "perturbation_type": "knockdown",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "C3H1"
+      ],
+      "gene_modifiers": {
+        "C3H1": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "C3H1",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "C3H KD redirects flux to H; G reduced preferentially, S maintained (Coleman 2008; Ralph 2012). Opposing result in P. alba x glandulosa (Peng 2021) reflects genetic-background variation.",
+      "evidence": [
+        {
+          "doi": "10.3389/fbioe.2021.790539",
+          "title": "Effects of P-Coumarate 3-Hydroxylase Downregulation on the Compositional and Structural Characteristics of Lignin and Hemicelluloses in Poplar Wood",
+          "authors": "Peng X, Bian X, Yao S, Ma C, Wen J",
+          "year": 2021,
+          "journal": "Frontiers in Bioengineering and Biotechnology",
+          "evidence_sentence": "the S/G ratio in DEL-CK was 2.82, while the S/G ratio for DEL-C3H was 2.48",
+          "claim": "C3H KD modest S/G decrease in alt hybrid",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "C3H1 RNAi -> C3H1 gm=0.1",
+      "expected_magnitude": "moderate",
+      "species": "Populus alba x glandulosa"
+    },
+    {
+      "test_id": "T014",
+      "gene": "4CL1",
+      "perturbation_type": "knockdown",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PT4CL1"
+      ],
+      "gene_modifiers": {
+        "PT4CL1": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PT4CL1",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "4CL antisense lowers total lignin and S/G",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.110.159269",
+          "title": "Antisense Down-Regulation of 4CL Expression Alters Lignification, Tree Growth, and Saccharification Potential of Field-Grown Poplar",
+          "authors": "Voelker SL, Lachenbruch B, Meinzer FC, Jourdes M, Ki C, Patten AM, Davin LB, Lewis NG, Tuskan GA, Gunter L, Decker SR, Selig MJ, Sykes R, Himmel ME, Kitin P, Shevchenko O, Strauss SH",
+          "year": 2010,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "S/G ratios declined to as little as 1.1 to 1.4 in event 712 as compared with 1.8 to 2.3",
+          "claim": "4CL antisense lowers S/G",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "4CL1 -> PT4CL1 (Pt species prefix)",
+      "expected_magnitude": "moderate",
+      "species": "Populus tremula x alba"
+    },
+    {
+      "test_id": "T015",
+      "gene": "4CL1",
+      "perturbation_type": "knockout_CRISPR",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PT4CL1"
+      ],
+      "gene_modifiers": {
+        "PT4CL1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PT4CL1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "4CL1 CRISPR KO preferentially reduces S relative to G (Wang 2020)",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.19.01550",
+          "title": "Compensatory Guaiacyl Lignin Biosynthesis at the Expense of Syringyl Lignin in 4CL1-Knockout Poplar",
+          "authors": "Wang JP, Matthews ML, Williams CM, Shi R, Yang C, Tunlaya-Anukit S, Chen HC, Li Q, Liu J, Lin CY, Naik P, Sun YH, Loziuk PL, Yeh TF, Kim H, Gjersing E, Shollenberger T, Shuford CM, Song J, Miller Z, Huang YY, Edmunds CW, Liu B, Sun Y, Lin YJ, Li W, Chen H, Peszlen I, Ducoste JJ, Ralph J, Chang HM, Muddiman DC, Davis MF, Smith C, Isik F, Sederoff RR, Chiang VL",
+          "year": 2020,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "pyMBMS analysis detected a 30% decrease in S/G ratio; 34% reduction of S-units and a small (5%) reduction of G-units",
+          "claim": "4CL1 CRISPR KO lowers S/G via preferential S reduction",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "4CL1 -> PT4CL1 (Pt species prefix)",
+      "expected_magnitude": "moderate",
+      "species": "Populus tremula x alba"
+    },
+    {
+      "test_id": "T016",
+      "gene": "4CL5",
+      "perturbation_type": "knockout_CRISPR",
+      "expected_direction": "unchanged",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "4CL5 CRISPR KO does not change S/G (4CL5 is not the lignin-dedicated paralog)",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.19.01550",
+          "title": "Compensatory Guaiacyl Lignin Biosynthesis at the Expense of Syringyl Lignin in 4CL1-Knockout Poplar",
+          "authors": "Wang JP, Matthews ML, Williams CM, Shi R, Yang C, Tunlaya-Anukit S, Chen HC, Li Q, Liu J, Lin CY, Naik P, Sun YH, Loziuk PL, Yeh TF, Kim H, Gjersing E, Shollenberger T, Shuford CM, Song J, Miller Z, Huang YY, Edmunds CW, Liu B, Sun Y, Lin YJ, Li W, Chen H, Peszlen I, Ducoste JJ, Ralph J, Chang HM, Muddiman DC, Davis MF, Smith C, Isik F, Sederoff RR, Chiang VL",
+          "year": 2020,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "CRISPR-KO of 4CL5 did not change either lignin content or S/G ratio",
+          "claim": "4CL5 CRISPR KO has no S/G change",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "PT4CL5 removed from network per Wang 2020 (DOI 10.1104/pp.19.01550): 4CL5 CRISPR KO produces no change in lignin content or S/G ratio, so 4CL5 is not the lignin-dedicated paralog.",
+      "expected_magnitude": "slight",
+      "species": "Populus tremula x alba"
+    },
+    {
+      "test_id": "T017",
+      "gene": "CSE1",
+      "perturbation_type": "knockdown",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "CSE1"
+      ],
+      "gene_modifiers": {
+        "CSE1": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CSE1",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "CSE1 RNAi modestly reduces S/G (Saleme 2017)",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.17.00920",
+          "title": "Silencing CAFFEOYL SHIKIMATE ESTERASE Affects Lignification and Improves Saccharification in Poplar",
+          "authors": "Saleme MLS, Cesarino I, Vargas L, Kim H, Vanholme R, Goeminne G, Van Acker R, Fonseca FCA, Pallidis A, Voorend W, Nicomedes J Jr, Ralph J, Boerjan W",
+          "year": 2017,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "S/G ratio decreased from 2.06 in the wild type to 1.85 and 1.9 in hpCSE#1 and hpCSE#2",
+          "claim": "CSE RNAi modestly lowers S/G",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "CSE1 RNAi -> CSE1 gm=0.1",
+      "expected_magnitude": "moderate",
+      "species": "Populus tremula x alba"
+    },
+    {
+      "test_id": "T018",
+      "gene": "CSE1;CSE2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "CSE1"
+      ],
+      "gene_modifiers": {
+        "CSE1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CSE1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Both paralogs CRISPR-edited (de Vries 2021); effective full KO of CSE function",
+      "evidence": [
+        {
+          "doi": "10.1111/pbi.13651",
+          "title": "CRISPR-Cas9 editing of CAFFEOYL SHIKIMATE ESTERASE 1 and 2 shows their importance and partial redundancy in lignification in Populus tremula x P. alba",
+          "authors": "de Vries L, Guevara-Rozo S, Cobo-Medina M, Hoengenaert L, Ando D, Keene C, Gjersing E, Vega-Sanchez ME, Ralph J, Loque D",
+          "year": 2021,
+          "journal": "Plant Biotechnology Journal",
+          "evidence_sentence": "CRISPR double KO of CSE1 and CSE2 shows importance and partial redundancy in lignification",
+          "claim": "CSE1;CSE2 double KO strongly reduces lignification",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "CSE2 not separately represented; CSE1 node represents the CSE family",
+      "expected_magnitude": "strong",
+      "species": "Populus tremula x alba"
+    },
+    {
+      "test_id": "T019",
+      "gene": "SND1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "SND1"
+      ],
+      "gene_modifiers": {
+        "SND1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "SND1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "SND1 OE activates secondary wall program; modest S/G increase via MYB/F5H1 route",
+      "evidence": [
+        {
+          "doi": "10.4161/psb.5.4.11400",
+          "title": "The poplar PtrWNDs are transcriptional activators of secondary cell wall biosynthesis",
+          "authors": "Zhong R, Ye ZH",
+          "year": 2010,
+          "journal": "Plant Signaling and Behavior",
+          "evidence_sentence": "Overexpression of PtrWND2 and PtrWND6 in Arabidopsis leads to activation of secondary wall biosynthetic genes and ectopic deposition of secondary walls",
+          "claim": "SND1/WND2 OE increases secondary wall biosynthesis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "SND1/WND OE -> SND1 gm=2.0",
+      "expected_magnitude": "moderate",
+      "species": "Populus"
+    },
+    {
+      "test_id": "T020",
+      "gene": "SND1",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "SND1"
+      ],
+      "gene_modifiers": {
+        "SND1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "SND1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Dominant repression creates a chimeric repressor on SND1-family targets; treated as composite KO",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.181354",
+          "title": "Dissection of the Transcriptional Program Regulating Secondary Wall Biosynthesis during Wood Formation in Poplar",
+          "authors": "McCarthy RL, Zhong R, Lee C, Ye ZH",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Dominant repression of PtrWND2B reduced wall thickness of xylary fibers by 56%",
+          "claim": "SND1 dominant-repression strongly reduces lignification",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "PtrWND2B SRDX dominant-repression acts as family-level LoF -> SND1 gm=0.0",
+      "expected_magnitude": "strong",
+      "species": "Populus alba x tremula"
+    },
+    {
+      "test_id": "T021",
+      "gene": "MYB3",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "MYB3"
+      ],
+      "gene_modifiers": {
+        "MYB3": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MYB3",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Master-switch MYB dominant-repression: 60-70% wall-thickness reduction",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0069219",
+          "title": "The Poplar MYB Master Switches Bind to the SMRE Site and Activate the Secondary Wall Biosynthetic Program during Wood Formation",
+          "authors": "Zhong R, McCarthy RL, Haghighat M, Ye ZH",
+          "year": 2013,
+          "journal": "PLoS ONE",
+          "evidence_sentence": "thickness of secondary walls in wood fibers in PtrMYB3 and PtrMYB21 repressors was reduced by 60 to 70%",
+          "claim": "MYB3 dominant-repression strongly lowers secondary wall",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "PtrMYB3 SRDX dominant-repression -> MYB3 gm=0.0",
+      "expected_magnitude": "strong",
+      "species": "Populus"
+    },
+    {
+      "test_id": "T022",
+      "gene": "MYB21",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "MYB21"
+      ],
+      "gene_modifiers": {
+        "MYB21": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MYB21",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Master-switch MYB dominant-repression: strong secondary-wall alteration",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0069219",
+          "title": "The Poplar MYB Master Switches Bind to the SMRE Site and Activate the Secondary Wall Biosynthetic Program during Wood Formation",
+          "authors": "Zhong R, McCarthy RL, Haghighat M, Ye ZH",
+          "year": 2013,
+          "journal": "PLoS ONE",
+          "evidence_sentence": "strong alterations in wall thickness and vessel morphology in wood of stems",
+          "claim": "MYB21 dominant-repression strongly alters secondary wall",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "PtrMYB21 SRDX dominant-repression -> MYB21 gm=0.0",
+      "expected_magnitude": "strong",
+      "species": "Populus"
+    },
+    {
+      "test_id": "T023",
+      "gene": "MYB152",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "MYB152"
+      ],
+      "gene_modifiers": {
+        "MYB152": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MYB152",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "MYB152 OE (Populus TF expressed in Arabidopsis or Populus)",
+      "evidence": [
+        {
+          "doi": "10.1038/srep05054",
+          "title": "Regulation of secondary cell wall biosynthesis by poplar R2R3 MYB transcription factor PtrMYB152 in Arabidopsis",
+          "authors": "Wang S, Li E, Porth I, Chen JG, Mansfield SD, Douglas CJ",
+          "year": 2014,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "24% and 18% increase in lignin for 35S:PtrMYB152 and PtrCesA8:PtrMYB152; S/G monomer ratio higher (0.37-0.42) vs wild-type (0.31)",
+          "claim": "MYB152 OE raises S/G",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "MYB152 OE -> MYB152 gm=2.0",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis"
+    },
+    {
+      "test_id": "T024",
+      "gene": "MYB156",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "MYB156"
+      ],
+      "gene_modifiers": {
+        "MYB156": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MYB156",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "MYB156 OE (Populus TF expressed in Arabidopsis or Populus)",
+      "evidence": [
+        {
+          "doi": "10.1038/srep41209",
+          "title": "PtoMYB156 is involved in negative regulation of phenylpropanoid metabolism and secondary cell wall biosynthesis during wood formation in poplar",
+          "authors": "Yang L, Zhao X, Ran L, Li C, Fan D, Luo K",
+          "year": 2017,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "Transgenic plants overexpressing PtoMYB156 displayed a dramatic decrease in secondary wall thicknesses of xylem fibers and the content of cellulose, lignin and xylose compared with wild-type",
+          "claim": "MYB156 OE strongly represses secondary wall and lignin",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "MYB156 OE -> MYB156 gm=2.0",
+      "expected_magnitude": "strong",
+      "species": "Populus tomentosa"
+    },
+    {
+      "test_id": "T025",
+      "gene": "MYB221",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "MYB221"
+      ],
+      "gene_modifiers": {
+        "MYB221": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "MYB221",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "MYB221 OE (Populus TF expressed in Arabidopsis or Populus)",
+      "evidence": [
+        {
+          "doi": "10.1038/srep12240",
+          "title": "Poplar PdMYB221 is involved in the direct and indirect regulation of secondary wall biosynthesis during wood formation",
+          "authors": "Tang X, Zhuang Y, Qi G, Wang D, Liu H, Wang K, Chai G, Zhou G",
+          "year": 2015,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "35S:PdMYB221: lignin decreased 28%, cellulose 10%, xylose 26%; plants cannot remain upright",
+          "claim": "MYB221 OE represses lignin",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "MYB221 OE -> MYB221 gm=2.0",
+      "expected_magnitude": "moderate",
+      "species": "Arabidopsis"
+    },
+    {
+      "test_id": "T026",
+      "gene": "KNAT7",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "KNAT7"
+      ],
+      "gene_modifiers": {
+        "KNAT7": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "KNAT7",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "KNAT7 OE: slight S/G increase (Ahlawat 2021)",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2021.762067",
+          "title": "Genetic Modification of KNAT7 Transcription Factor Expression Enhances Saccharification and Reduces Recalcitrance of Woody Biomass in Poplars",
+          "authors": "Ahlawat YK, Biswal AK, Chowdary YA, Mohnen D",
+          "year": 2021,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "No significant changes in lignin content; 5-7% increase in S/G ratios",
+          "claim": "KNAT7 OE gives slight S/G increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "KNAT7 OE -> KNAT7 gm=2.0",
+      "expected_magnitude": "slight",
+      "species": "Populus tremula x alba"
+    },
+    {
+      "test_id": "T027",
+      "gene": "KNAT7",
+      "perturbation_type": "knockdown",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "KNAT7"
+      ],
+      "gene_modifiers": {
+        "KNAT7": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "KNAT7",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "KNAT7 antisense also gives slight S/G increase (KNAT7 is a modulatory brake; both OE and KD shift composition slightly)",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2021.762067",
+          "title": "Genetic Modification of KNAT7 Transcription Factor Expression Enhances Saccharification and Reduces Recalcitrance of Woody Biomass in Poplars",
+          "authors": "Ahlawat YK, Biswal AK, Chowdary YA, Mohnen D",
+          "year": 2021,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "significant decrease of about 6% lignin; 8-12% increase in S/G ratios",
+          "claim": "KNAT7 antisense gives slight S/G increase with lignin drop",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "KNAT7 antisense -> KNAT7 gm=0.1",
+      "expected_magnitude": "slight",
+      "species": "Populus tremula x alba"
+    },
+    {
+      "test_id": "T028",
+      "gene": "LTF1",
+      "perturbation_type": "phospho_dead_mutant",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "LTF1 is a poplar MYB repressor regulated by phosphorylation; no direct ortholog node in the network",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2019.05.008",
+          "title": "Phosphorylation of LTF1, an MYB Transcription Factor in Populus, Acts as a Sensory Switch Regulating Lignin Biosynthesis in Wood Cells",
+          "authors": "Gui J, Luo L, Zhong Y, Sun J, Umezawa T, Li L",
+          "year": 2019,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "Expression of a phosphorylation-null mutant version of LTF1 led to stable protein accumulation and persistent attenuation of lignification in wood cells",
+          "claim": "LTF1 phospho-null mutant reduces lignification",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "LTF1 (MYB lignin repressor; Gui 2019) is not represented in the current network",
+      "expected_magnitude": "moderate",
+      "species": "Populus"
+    },
+    {
+      "test_id": "T029",
+      "gene": "NF_YA11",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "NF_YA11"
+      ],
+      "gene_modifiers": {
+        "NF_YA11": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "NF_YA11",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "NF-YA11 activates F5H; OE raises S/G (Wei 2024)",
+      "evidence": [
+        {
+          "doi": "10.1016/j.indcrop.2024.119891",
+          "title": "Poplar NF-YA11 alters lignin composition and increases methane yield by upregulating the FERULIC ACID 5-HYDROXYLASE 2 gene",
+          "authors": "Wei et al.",
+          "year": 2024,
+          "journal": "Industrial Crops and Products",
+          "evidence_sentence": "S/G lignin ratio was increased in PtNF-YA11-overexpressing poplars",
+          "claim": "NF-YA11 OE increases S/G",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "NF-YA11 OE -> NF_YA11 gm=2.0",
+      "expected_magnitude": "moderate",
+      "species": "Populus trichocarpa"
+    },
+    {
+      "test_id": "T030",
+      "gene": "NF_YA11",
+      "perturbation_type": "knockout_CRISPR",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "NF_YA11"
+      ],
+      "gene_modifiers": {
+        "NF_YA11": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "NF_YA11",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "nf-ya11 poplars show reduced S-lignin and S/G ratio (Wei 2024)",
+      "evidence": [
+        {
+          "doi": "10.1016/j.indcrop.2024.119891",
+          "title": "Poplar NF-YA11 alters lignin composition and increases methane yield by upregulating the FERULIC ACID 5-HYDROXYLASE 2 gene",
+          "authors": "Wei et al.",
+          "year": 2024,
+          "journal": "Industrial Crops and Products",
+          "evidence_sentence": "CRISPR-Cas9 edited nf-ya11 poplars exhibit a decrease in S-lignin composition and S/G ratio",
+          "claim": "NF-YA11 CRISPR KO decreases S/G",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "NF-YA11 CRISPR KO -> NF_YA11 gm=0.0",
+      "expected_magnitude": "moderate",
+      "species": "Populus trichocarpa"
+    },
+    {
+      "test_id": "T031",
+      "gene": "miR397a",
+      "perturbation_type": "overexpression",
+      "expected_direction": "unchanged",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Ptr-miR397a OE lowers total lignin via laccase suppression; S/G unchanged (Lu 2013)",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1308936110",
+          "title": "Ptr-miR397a is a negative regulator of laccase genes affecting lignin content in Populus trichocarpa",
+          "authors": "Lu S, Li Q, Wei H, Chang MJ, Tunlaya-Anukit S, Kim H, Liu J, Song J, Sun YH, Yuan L, Yeh TF, Peszlen I, Ralph J, Sederoff RR, Chiang VL",
+          "year": 2013,
+          "journal": "PNAS",
+          "evidence_sentence": "S/G ratio of 2.2 compared with 2.1 in WT. The difference was not significant",
+          "claim": "miR397a OE reduces lignin but leaves S/G unchanged",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "miR397a targets laccase genes; neither miR397a nor laccase nodes are in the network",
+      "expected_magnitude": "slight",
+      "species": "Populus trichocarpa"
+    },
+    {
+      "test_id": "T032",
+      "gene": "SND1_B",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "SND1"
+      ],
+      "gene_modifiers": {
+        "SND1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "SND1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "SND1-B (WND6B) DR gave 68% wall reduction; collapsed to SND1 composite",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.181354",
+          "title": "Dissection of the Transcriptional Program Regulating Secondary Wall Biosynthesis during Wood Formation in Poplar",
+          "authors": "McCarthy RL, Zhong R, Lee C, Ye ZH",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Dominant repression of PtrWND6B reduced wall thickness by 68%",
+          "claim": "SND1-B (WND6B) DR reduces secondary wall",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "PtrWND6B is an SND1 paralog; SND1 node represents the family. Dominant-repression acts on family targets -> gm=0.0.",
+      "expected_magnitude": "strong",
+      "species": "Populus alba x tremula"
+    },
+    {
+      "test_id": "T033",
+      "gene": "HCT1",
+      "perturbation_type": "knockdown",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "HCT1"
+      ],
+      "gene_modifiers": {
+        "HCT1": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "HCT1",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "HCT RNAi lowers total lignin without shifting S/G (Peng 2014; Zhou 2018)",
+      "evidence": [
+        {
+          "doi": "10.1038/s41598-018-28675-5",
+          "title": "Preliminary study of Cell Wall Structure and its Mechanical Properties of C3H and HCT RNAi Transgenic Poplar Sapling",
+          "authors": "Zhou X, Ren S, Lu M, Zhao S, Chen Z, Zhao R, Lv J",
+          "year": 2018,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "lignin content of HCT samples was 9.4% lower than non-modified samples; no significant differences in S/G ratio and the distribution of the inter-unit linkages between the control and HCT down-regulated poplar",
+          "claim": "HCT RNAi lowers total lignin but does not shift S/G",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1016/j.fuel.2014.05.069",
+          "title": "Structural characterization of lignins from hydroxycinnamoyl transferase (HCT) down-regulated transgenic poplars",
+          "authors": "Peng XP, Sun SL, Wen JL, Yin WL, Sun RC",
+          "year": 2014,
+          "journal": "Fuel",
+          "evidence_sentence": "There were no significant differences in S/G ratio between the control and HCT down-regulated poplar",
+          "claim": "HCT RNAi does not change S/G",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "HCT1 RNAi -> HCT1 gm=0.1",
+      "expected_magnitude": "slight",
+      "species": "Populus alba x glandulosa"
+    },
+    {
+      "test_id": "T034",
+      "gene": "Tension_Wood",
+      "perturbation_type": "treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Tension_Wood"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Tension_Wood": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Tension_Wood",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Tension-wood lignin is S-enriched relative to normal/opposite wood (Al-Haddad 2013)",
+      "evidence": [
+        {
+          "doi": "10.1093/treephys/tpt013",
+          "title": "Chemical responses to modified lignin composition in tension wood of hybrid poplar (Populus tremula x Populus alba)",
+          "authors": "Al-Haddad JM, Kang KY, Mansfield SD, Telewski FW",
+          "year": 2013,
+          "journal": "Tree Physiology",
+          "evidence_sentence": "In the wild-type poplar, the lignin in tension wood contained a significantly higher percentage of syringyl than normal wood or opposite wood",
+          "claim": "Tension wood formation in WT poplar elevates S/G relative to normal or opposite wood",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "tension_wood_induction",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Tension wood induction encoded as Tension_Wood source node with exogenous_supply=1.0",
+      "expected_magnitude": "moderate",
+      "species": "Populus tremula x alba (clone 717)"
+    },
+    {
+      "test_id": "T035",
+      "gene": "WT_control",
+      "perturbation_type": "control",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Negative control: no modifications, expected=unchanged",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.123.4.1363",
+          "title": "Lignification in Transgenic Poplars with Extremely Reduced Caffeic Acid O-Methyltransferase Activity (WT control)",
+          "authors": "Jouanin L et al.",
+          "year": 2000,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Wild-type Populus tremula x alba stem xylem: ~33-34% G, 64-67% S; S/G ratio ~2.0",
+          "claim": "WT baseline S/G ratio in P. tremula x alba stem xylem"
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "control",
+      "reconciliation_note": "WT (no perturbation) - P. tremula x alba baseline",
+      "expected_magnitude": "",
+      "species": "Populus tremula x alba"
+    },
+    {
+      "test_id": "T036",
+      "gene": "WT_control",
+      "perturbation_type": "control",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Negative control for the reference species",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1308936110",
+          "title": "Ptr-miR397a is a negative regulator of laccase genes affecting lignin content in Populus trichocarpa (WT control)",
+          "authors": "Lu S et al.",
+          "year": 2013,
+          "journal": "PNAS",
+          "evidence_sentence": "S/G ratio of 2.1 in WT Populus trichocarpa stem xylem",
+          "claim": "WT baseline S/G in P. trichocarpa ~2.0-3.0"
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "control",
+      "reconciliation_note": "WT (no perturbation) - P. trichocarpa reference species baseline",
+      "expected_magnitude": "",
+      "species": "Populus trichocarpa"
+    },
+    {
+      "test_id": "T037",
+      "gene": "WT_control",
+      "perturbation_type": "control",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Negative control for heterologous Arabidopsis assays (MYB152/MYB221 OE)",
+      "evidence": [
+        {
+          "doi": "10.1038/srep05054",
+          "title": "Regulation of secondary cell wall biosynthesis by poplar R2R3 MYB transcription factor PtrMYB152 in Arabidopsis (WT control)",
+          "authors": "Wang S et al.",
+          "year": 2014,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "Arabidopsis wild-type controls showed S/G 0.31 vs 0.37-0.42 in 35S:PtrMYB152 lines",
+          "claim": "Arabidopsis WT baseline for heterologous expression assays"
+        }
+      ],
+      "phenotype_node": "Lignin_SG_Ratio",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "control",
+      "reconciliation_note": "WT (no perturbation) - Arabidopsis heterologous-expression host baseline",
+      "expected_magnitude": "",
+      "species": "Arabidopsis thaliana"
+    }
+  ]
+}

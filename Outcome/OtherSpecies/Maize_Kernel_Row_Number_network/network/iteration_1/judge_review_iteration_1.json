@@ -1,0 +1,291 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "kernel_row_number",
+    "phenotype_node": "Kernel_Row_Number",
+    "species": "Zea mays",
+    "created": "2026-04-20",
+    "iteration": 1,
+    "judge_model": "Claude Opus 4.7 (1M context)"
+  },
+  "verdict": "iterate",
+  "summary": "Iteration 1 network covers every canonical maize-ear pathway (CLE-CLV, ERECTA-EPFL, WUS-KNOX, Ramosa, AP2/miR172, SBP/miR156, Auxin Perception Gate, CK biosynth-degrad, KRN QTLs) with clean Perception Gates and no topology hazards. However, four HIGH-priority structural gaps remain: the IDS1->FEA4 and FEA4->BA1 curated regulatory edges are silently excluded, RA1 lacks its curated inhibitory effect on Axillary_Meristem, and UB2 is under-represented as a multi-output scaffold (3 of 8 curated edges). IM_Size is also a hub-overload at 9 inputs, exceeding BUILDER's 7-input hard cap. These gaps leave FEA4 at coverage ratio 0.25 and UB2/IDS1 at 0.38, below the 0.40 §9.11 threshold for major regulators.",
+  "rubric_scores": {
+    "pathway_completeness": {
+      "score": 4,
+      "justification": "All seven canonical ear-development arms are represented end-to-end: CLE-CLV (ZmCLE7->FEA2/TD1, ZmFCP1->FEA2/FEA3, FEA2-CT2-ZmCRN complex, FEA3->ZmWUS1), ERECTA-EPFL (ZmEPFL->ZmER1->ZmWUS1), WUS-KNOX organizing center (ZmWUS1, KN1), Cytokinin biosynth-degrad (ZmIPT<-KN1, ZmCKX, UB3-repression) with Type-B ARR activation of ZmWUS1 and ABPH1 feedback, Auxin Perception Gate (VT2/SPI1->Auxin->TIR1->BIF1->BA1 with ARF6 competing), polar transport (BIF2->ZMPIN1A->AM), Ramosa cascade (RA2/RA3/FEA4/IDS1->RA1->Ear_Branching, REL2 co-repressor, T6P sugar input), AP2 SPM identity (miR172->IDS1/SID1->Ear_Branching), SBP-box (miR156->UB2/UB3/TSH4, FarRed_Light->UB2), UB3 multi-output (KN1, BIF2, ZmTCP30, IM_Size, Cytokinin-repression), and KRN-QTL layer (KRN2, KRN5B, KNR6->AGAP->IM_Size). IDS1 carries the KRN1 alias correctly. Not 5 because (a) IDS1->FEA4 coherent feed-forward, (b) FEA4->BA1 cross-arm activation, and (c) RA1->Axillary_Meristem crosstalk are all curated but missing."
+    },
+    "mechanistic_depth": {
+      "score": 4,
+      "justification": "Cascades are properly layered. Example chain: ZmCLE7->FEA2-CT2-ZMCRN complex->IM_Size restriction routes through three intermediate nodes, not a direct shortcut. Auxin signaling implements the full Aux/IAA module (TIR1->BIF1 degradation->BA1 derepression with ARF6 activation), which is the mechanistically correct four-step representation of the Perception Gate. CK phosphorelay is collapsed to a single TYPE_B_ARR composite (folding AHK receptor + AHP phosphotransfer + Type-B ARR TFs into one node) - a defensible parsimony choice given those intermediates add no perturbable mutants with KRN data. The BIF2->BA1 co-localization edge and BIF2->ZMPIN1A phosphorylation edge are properly modeled as separate activations rather than a collapsed shortcut. Not 5 because T6P->Ear_Branching is shown as a direct edge where the canonical literature has T6P acting through an unknown TF on SPM-determinacy program - but this is a literature-gap, not a BUILDER shortcut."
+    },
+    "motif_coverage": {
+      "score": 4,
+      "justification": "Perception Gate motif (BUILDER §12 Motif 1) is applied correctly to every ligand-receptor pair: ZmCLE7 has only two outgoing edges (FEA2, TD1 - both receptors), ZmFCP1 has only two (FEA2, FEA3 - both receptors), ZmEPFL has one (ZmER1), Auxin has one (TIR1), Cytokinin has one (TYPE_B_ARR). No hormone-bypass edges exist. Biosynthesis-Degradation Balance (Motif 4) is applied to Cytokinin (ZmIPT synthesis, ZmCKX degradation, UB3 repression). Multi-Output Scaffold (Motif 3) is applied to KN1 (6 outputs: VT2, SPI1, ZMPIN1A, ZMIPT, TIR1, IM_Size) and UB3 (5 outputs: KN1, BIF2, ZMTCP30, IM_Size, Cytokinin-repression). Coherent Feed-Forward (Motif 5) is applied to RA1 (activated by RA2, RA3, FEA4, IDS1 in parallel). Not 5 because (a) CK lacks the negative feedback Cytokinin->ZMCKX (E119) that would complete homeostatic stabilization, and (b) UB2 is not modeled as a multi-output scaffold (only UB2->UB3), inconsistent with how KN1 and UB3 are modeled."
+    },
+    "cascade_balance": {
+      "score": 3,
+      "justification": "Most nodes are well-balanced (1-5 inputs, average 2.3). Phenotype has 7 inputs (4 activators + 3 inhibitors, at cap). Source percentage is 15/50 = 30%, at the lower end of the softened 30-50% target. However, IM_Size has 9 inputs (3 activators: ZMWUS1, KN1, AGAP; 6 inhibitors: FEA2, TD1, CT2, ZMCRN, FEA4, UB3), which exceeds BUILDER's 7-input hard cap per §9.4. The overload is driven by modeling FEA2 itself plus its two co-receptors CT2 and ZMCRN as three independent IM_Size inhibitors when biologically they form a single ternary receptor complex. Consolidation to a FEA2_complex composite or removal of FEA2->IM_Size (retaining the CT2+ZMCRN arm) would resolve this. Ear_Branching at 5 inputs (1+4) and Kernel_Row_Number at 7 (4+3) are within spec."
+    },
+    "composite_node_handling": {
+      "score": 5,
+      "justification": "Every documented paralog family is correctly composited with explicit documentation in node descriptions: ZMIPT composite collapses the IPT and LOG CK-activating enzyme families; ZMCKX composite spans the CKX oxidase family; TYPE_B_ARR composite collapses AHK receptor + AHP phosphorelay + Type-B ARR TFs into the CK signaling integrator; BIF1 composite represents BIF1/BIF4 functionally redundant Aux/IAAs; ZMPIN1A composite includes ZmPIN1b (curated as redundant); ZMEPFL composite represents five redundant EPFL1-5 peptide ligands. IDS1 and SID1 are kept separate (both have distinct perturbations despite being AP2 paralogs - correct partial composite decision). UB2, UB3, and TSH4 are separated (they have distinct outputs and KRN4 is cloned cis-regulatory variation at UB3 specifically - correct). KRN4 is not duplicated as a separate node; it is recorded as an UB3 alias in node_annotations.json per the literature judge recommendation."
+    },
+    "hub_completeness": {
+      "score": 3,
+      "justification": "Major integrator nodes have mixed coverage. KN1 (13 curated, 8 in network, ratio 0.62) retains its key multi-output scaffold role with 6 out-edges. UB3 (8 curated, 7 in network, ratio 0.88) is well-specified. IM_Size (16 curated, 10 in network, ratio 0.62) covers all three classes of curated inhibitors (CLE receptors, fasciation TFs, SBP-box TFs) and the CK/KNOX activators. However FEA4 is under-represented: 12 curated edges, 3 in network (ratio 0.25). FEA4's curated regulatory role includes direct binding to the BA1 promoter (E016), upregulation of RA3 (E017), and being a target of IDS1 (E129) - none are in the network. Similarly Kernel_Row_Number has 28 curated direct edges but only 7 in-network; however, 20 of those 21 exclusions are defensibly routed via IM_Size / Axillary_Meristem / Ear_Branching intermediates (parsimony through the integrator). FEA4 is the principal hub-completeness concern."
+    },
+    "topology_hazards": {
+      "score": 5,
+      "justification": "No Trap 1 positive hormone-transporter feedback loops: ZMPIN1A has no outgoing edge back to Auxin (Auxin->TIR1 is the only Auxin outgoing edge). No Trap 3 Perception Gate bypasses: Auxin, Cytokinin, ZmCLE7, ZmFCP1, ZmEPFL all have outgoing edges exclusively to their receptors. No Trap 4 dead-end nodes: every node has a directed path to Kernel_Row_Number (verified by annotations: every non-phenotype node has out_degree >= 1 and every source/intermediate feeds a path ending at KRN). No Trap 5 missing is_source flags: the 15 source nodes all have empty activator/inhibitor lists and is_source:true. No undocumented self-loops. No sole-activator nodes that would collapse to floor on single KO (every non-source activated node has either multiple activators or a composite input). TYPE_B_ARR->ABPH1->ZMWUS1 is a functional negative feedback (ABPH1 dampens TYPE_B_ARR's WUS activation) rather than an amplification loop - safe per Motif 2."
+    },
+    "evidence_quality": {
+      "score": 5,
+      "justification": "All 73 edges have complete flat evidence objects (doi, title, authors list, year, journal, evidence_sentence, claim). Sampled edges - N001 (ZmCLE7->FEA2), N014 (ZMEPFL->ZMER1), N017 (TYPE_B_ARR->ZMWUS1), N047 (RA1->KN1), N060 (UB2->UB3) - all carry specific mechanism strings quoting molecular detail (e.g., 'Type-B ARRs directly bind AGATAT motifs in the ZmWUS1 proximal promoter', 'UB2 can directly bind to both KRN4 and the UB3 promoter... interacts with the UB3 promoter by three duplex interactions'). DOIs are primary papers (Je 2018, Bolduc 2012, Eveland 2014, Du 2020, Chen 2021, Kong 2022, Pautler 2015, etc.), not reviews - the one review citation (Chaudhry 2024 Plant Reproduction) is used appropriately for the ZmIPT rate-limiting-enzyme and ZmCKX degradation generalities. The ratio of full_text_read=true vs abstract_read=false is roughly 58/15, indicating strong primary-literature verification."
+    },
+    "phenotype_audit": {
+      "score": 5,
+      "justification": "Kernel_Row_Number has 7 inputs (4 activators: IM_Size, Axillary_Meristem, ZMTCP30, KRN5B; 3 inhibitors: Ear_Branching, KRN2, TSH4) - within the 3-5 + 1-3 range specified by BUILDER §9.9 for phenotype nodes (actually 7 total at cap). Both promoting and repressing arms present. All four major effector classes are represented: integrator processes (IM_Size, AM, Ear_Branching), SBP-family TFs (ZMTCP30 promoting, TSH4 repressing), cloned KRN QTLs (KRN2 WD40 repressing, KRN5B 5-phosphatase promoting). No hormone-to-KRN direct edges (all hormones route through the integrators - defensible parsimony). The ZMTCP30->KRN edge carries the specific Kong 2022 evidence that Zmtcp30 mutant has reduced grain number."
+    },
+    "rejected_edges_review": {
+      "score": 4,
+      "justification": "Of 146 curated edges, 73 are in the network (50% inclusion). Sampling the 73 rejected edges: (1) 20 direct-to-KRN edges (E049 REL2, E055 IDS1, E060 UB3, E061 UB2, E102 KNR6, E104 TD1, E107 FEA2, E108 FEA3, E109 FEA4, E110 CT2, E111 ZMCRN, E112 ZMCLE7, E113 ZMFCP1, E114 VT2, E115 SPI1, E116 ZMWUS1, E117 KN1, E118 RA1) are defensibly rejected because they are routed via IM_Size / Axillary_Meristem / Ear_Branching intermediates - this is intentional parsimony through the integrators. (2) Edges to nodes not in the network (ARF8, IAA24, GNARLEY1, ZAG1, DUF1644, TB1, GT1, TRU1, DRL1, AHK, AHP, SPM_Determinacy, SPM_Initiation, Auxin_transport, Lateral_Branching, Ear_Length, Carpel_Suppression) are defensibly rejected because their endpoints are peripheral or collapsed. (3) Silent drops that look like aggressive cuts: E129 IDS1->FEA4, E016 FEA4->BA1, E134 RA1->Axillary_Meristem(-1), E119 Cytokinin->ZMCKX (feedback), E066/E068/E070 UB2 direct outputs, E135 Auxin->VT2 (feedback - but adding this would violate Perception Gate purity so defensibly rejected). Net: mostly defensible, 3-4 silent drops need attention."
+    },
+    "key_player_density": {
+      "score": 3,
+      "justification": "Computed coverage ratios for every node with >= 5 curated edges. Well-represented players: UB3 (0.88), FEA2 (0.83), ZMPIN1A (0.80), IM_Size (0.62), KN1 (0.62), BA1 (0.62), ZMWUS1 (0.62), RA1 (0.60), BIF2 (0.60), Cytokinin (0.50), Auxin (0.50), ABPH1 (0.50), Axillary_Meristem (0.44). Under-represented key players (flagged per §9.11): FEA4 at 0.25 (3 of 12 curated edges) - silent drops of FEA4->BA1, FEA4->RA3, IDS1->FEA4, FEA4->Kernel_Row_Number (direct, defensibly routed), FEA4->ARF6/IAA24/ARF8/GNARLEY1/ZAG1 (nodes absent, defensible); IDS1 at 0.38 (3 of 8) - silent drop of IDS1->FEA4 (both in network), peripheral targets absent; UB2 at 0.38 (3 of 8) - UB2 is not modeled as multi-output scaffold parallel to UB3 (E066 UB2->KN1, E068 UB2->BIF2, E070 UB2->ZMTCP30 all missing despite both endpoints being in network). FEA3 ratio 0.40 and VT2 ratio 0.40 are at the threshold with defensible rejections (direct-to-IM_Size or direct-to-KRN routing through the integrators). Kernel_Row_Number and FEA4 are the two hubs that drive this score down. Score 3 reflects two key players under threshold with partial justification, not weak enough for 1 (neither is missing entirely).",
+      "per_player_ratios": {
+        "FEA4": 0.25,
+        "IDS1": 0.38,
+        "UB2": 0.38,
+        "FEA3": 0.40,
+        "VT2": 0.40,
+        "Axillary_Meristem": 0.44,
+        "Cytokinin": 0.50,
+        "ABPH1": 0.50,
+        "Auxin": 0.50,
+        "RA1": 0.60,
+        "BIF2": 0.60,
+        "KN1": 0.62,
+        "IM_Size": 0.62,
+        "BA1": 0.62,
+        "ZMWUS1": 0.62,
+        "ZMPIN1A": 0.80,
+        "FEA2": 0.83,
+        "UB3": 0.88,
+        "Kernel_Row_Number": 0.25
+      }
+    }
+  },
+  "per_node_audit": [
+    {"node": "ZMCLE7", "inputs": [], "outputs": ["FEA2(+)", "TD1(+)"], "curated_regulators_excluded": ["ZMWUS1 (E033 ZmWUS1->ZmCLE7 feedback loop, excluded as positive feedback hazard per Motif 2)", "Kernel_Row_Number (E112 direct, routed via FEA2)"], "verdict": "appropriate", "comment": "Perception Gate pure - both outgoing edges are to receptors. is_source:true correctly assigned."},
+    {"node": "ZMFCP1", "inputs": [], "outputs": ["FEA2(+)", "FEA3(+)"], "curated_regulators_excluded": ["Kernel_Row_Number (E113 direct, routed via FEA2/FEA3)"], "verdict": "appropriate", "comment": "Perception Gate pure. Source node per literature-gap G005 (no curated maize TF regulator)."},
+    {"node": "ZMEPFL", "inputs": [], "outputs": ["ZMER1(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Composite EPFL1-5 with documentation. Perception Gate pure (one outgoing edge to receptor)."},
+    {"node": "ABPH2", "inputs": [], "outputs": ["FEA4(-)"], "curated_regulators_excluded": ["IM_Size (E024 ABPH2->IM_Size direct, defensibly routed via FEA4)"], "verdict": "appropriate", "comment": "Post-translational FEA4 inhibitor, source node."},
+    {"node": "ZMCKX", "inputs": [], "outputs": ["Cytokinin(-)"], "curated_regulators_excluded": ["Cytokinin (E119 Cytokinin->ZMCKX feedback, missing - see S005)"], "verdict": "under-specified", "comment": "Currently source with only one curated edge. The CK->ZMCKX feedback loop would make ZMCKX non-source and close the homeostatic loop."},
+    {"node": "ARF6", "inputs": [], "outputs": ["BA1(+)"], "curated_regulators_excluded": ["FEA4 (E013 FEA4->ARF6, makes ARF6 non-source; defensibly excluded because FEA4's curated regulation of ARFs is at the module level)"], "verdict": "appropriate", "comment": "Activating ARF gating BA1 transcription. Source is defensible given no resolved TF regulator."},
+    {"node": "RA2", "inputs": [], "outputs": ["RA1(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "LOB-domain TF source. Only one curated edge in repository."},
+    {"node": "RA3", "inputs": [], "outputs": ["RA1(+)", "T6P(-)"], "curated_regulators_excluded": ["FEA4 (E017 FEA4->RA3)", "IDS1 (E057 IDS1->RA3)"], "verdict": "under-specified", "comment": "RA3 has two curated upstream regulators (FEA4, IDS1) both in the network. BUILDER chose source to avoid complicating the source percentage. Defensible but flaggable at low priority."},
+    {"node": "REL2", "inputs": [], "outputs": ["Ear_Branching(-)"], "curated_regulators_excluded": ["RA1 (E041 RA1->REL2 recruitment, excluded because REL2 is a co-repressor recruited at the molecular level, not transcriptionally induced)", "IM_Size (E048 REL2->IM_Size direct, defensibly routed via Ear_Branching->KRN)", "Kernel_Row_Number (E049 direct, defensibly routed)"], "verdict": "appropriate", "comment": "TOPLESS-family co-repressor source. Effect captured via Ear_Branching."},
+    {"node": "miR172", "inputs": [], "outputs": ["IDS1(-)", "SID1(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source node, two outputs targeting AP2-like IDS1/SID1 for cleavage."},
+    {"node": "miR156", "inputs": [], "outputs": ["UB2(-)", "UB3(-)", "TSH4(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source per literature-gap G015 (no curated maize TF regulator). Three SBP-box targets correctly wired."},
+    {"node": "KRN2", "inputs": [], "outputs": ["Kernel_Row_Number(-)"], "curated_regulators_excluded": ["DUF1644 (absent from network, peripheral)"], "verdict": "appropriate", "comment": "Cloned KRN QTL WD40 protein. Direct KRN edge appropriate for QTL layer."},
+    {"node": "KRN5B", "inputs": [], "outputs": ["Kernel_Row_Number(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Cloned KRN QTL 5-phosphatase. Direct KRN edge appropriate."},
+    {"node": "KNR6", "inputs": [], "outputs": ["AGAP(+)"], "curated_regulators_excluded": ["Kernel_Row_Number (E102 direct, defensibly routed via AGAP->IM_Size)"], "verdict": "appropriate", "comment": "Source per literature-gap G015. KNR6->AGAP->IM_Size cascade correctly modeled."},
+    {"node": "FarRed_Light", "inputs": [], "outputs": ["UB2(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Environmental source signal. Single output to UB2 is the canonical shade-SBP entry point."},
+    {"node": "FEA2", "inputs": ["ZMCLE7(+)", "ZMFCP1(+)"], "outputs": ["CT2(+)", "ZMCRN(+)", "IM_Size(-)"], "curated_regulators_excluded": ["Kernel_Row_Number (E107 direct, routed via IM_Size)"], "verdict": "appropriate", "comment": "LRR-RLP receptor with both CLE peptide ligands and complex partners. Contributes to IM_Size cascade-balance overload - consider S006."},
+    {"node": "FEA3", "inputs": ["ZMFCP1(+)"], "outputs": ["ZMWUS1(-)"], "curated_regulators_excluded": ["IM_Size (E010 direct, routed via ZmWUS1)", "Kernel_Row_Number (E108 direct, routed)", "IDS1 (E056 IDS1->FEA3, would add another input)"], "verdict": "appropriate", "comment": "Single activator, single output, clean pipeline into ZmWUS1 repression."},
+    {"node": "TD1", "inputs": ["ZMCLE7(+)"], "outputs": ["IM_Size(-)"], "curated_regulators_excluded": ["Kernel_Row_Number (E104 direct, routed via IM_Size)"], "verdict": "appropriate", "comment": "CLV1-ortholog LRR-RLK; second CLE-perception receptor parallel to FEA2."},
+    {"node": "CT2", "inputs": ["FEA2(+)"], "outputs": ["IM_Size(-)"], "curated_regulators_excluded": ["Kernel_Row_Number (E110 direct, routed)"], "verdict": "appropriate", "comment": "G-alpha subunit of FEA2 complex. Contributes to IM_Size overload."},
+    {"node": "ZMCRN", "inputs": ["FEA2(+)"], "outputs": ["IM_Size(-)"], "curated_regulators_excluded": ["Kernel_Row_Number (E111 direct, routed)"], "verdict": "appropriate", "comment": "Pseudokinase of FEA2 complex. Third parallel inhibitor of IM_Size - redundancy contributes to hub overload."},
+    {"node": "FEA4", "inputs": ["ABPH2(-)"], "outputs": ["IM_Size(-)", "RA1(+)"], "curated_regulators_excluded": ["IDS1 (E129 IDS1->FEA4 - SILENT DROP - see S001)", "BA1 (E016 FEA4->BA1 - SILENT DROP - see S002)", "RA3 (E017 FEA4->RA3)", "ARF6/IAA24/ARF8/GNARLEY1/ZAG1 (peripheral nodes absent)", "Kernel_Row_Number (E109 direct, routed)"], "verdict": "under-specified", "comment": "FEA4 is a 12-edge curated hub but has only 3 edges in network (ratio 0.25). Two silent drops - IDS1->FEA4 and FEA4->BA1 - should be added."},
+    {"node": "ZMER1", "inputs": ["ZMEPFL(+)"], "outputs": ["ZMWUS1(-)"], "curated_regulators_excluded": ["IM_Size (E145 direct, routed via ZmWUS1)"], "verdict": "appropriate", "comment": "ERECTA-family LRR-RLK. Clean EPFL->ER1->ZmWUS1 cascade."},
+    {"node": "ZMWUS1", "inputs": ["TYPE_B_ARR(+)", "FEA3(-)", "ZMER1(-)", "ABPH1(-)"], "outputs": ["IM_Size(+)"], "curated_regulators_excluded": ["Cytokinin (E031 CK->ZmWUS1 direct, routed via TYPE_B_ARR - Perception Gate preserved)", "ZMCLE7 (E033 ZmWUS1->ZmCLE7 feedback excluded as positive FB hazard)", "Kernel_Row_Number (E116 direct, routed)"], "verdict": "appropriate", "comment": "Central organizing-center integrator. 4-input, 1-output, well-balanced. Not floating - upstream from FEA/ER and downstream to IM_Size."},
+    {"node": "KN1", "inputs": ["RA1(+)", "UB3(+)"], "outputs": ["VT2(+)", "SPI1(+)", "ZMPIN1A(+)", "ZMIPT(+)", "TIR1(+)", "IM_Size(+)"], "curated_regulators_excluded": ["UB2 (E066 UB2->KN1 - SILENT DROP, but UB2's effect on KN1 is transitively via UB3)", "Auxin (E130 KN1->Auxin, direct KN1->Auxin would be multi-output redundant with KN1->VT2->Auxin)", "GNARLEY1 (node absent)", "TB1 (node absent)", "Kernel_Row_Number (E117 direct, routed via IM_Size)"], "verdict": "appropriate", "comment": "Exemplary Multi-Output Scaffold: 2 activators, 6 downstream targets spanning auxin biosynthesis, transport, perception, CK biosynthesis, and IM maintenance."},
+    {"node": "ZMIPT", "inputs": ["KN1(+)"], "outputs": ["Cytokinin(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "CK biosynthesis enzyme composite (IPT/LOG). Clean pipeline."},
+    {"node": "Cytokinin", "inputs": ["ZMIPT(+)", "ZMCKX(-)", "UB3(-)"], "outputs": ["TYPE_B_ARR(+)"], "curated_regulators_excluded": ["ZMWUS1 (E031 direct CK->ZmWUS1, routed via TYPE_B_ARR - Perception Gate)", "ABPH1 (E025 direct CK->ABPH1, routed via TYPE_B_ARR)", "AHK (node absent, collapsed into TYPE_B_ARR)", "ZMCKX (E119 CK->ZmCKX homeostatic feedback - SILENT DROP - see S005)"], "verdict": "appropriate", "comment": "Perception Gate preserved (single outgoing edge). Biosynth-degrad balance present. Only gap is missing CK->ZmCKX negative feedback."},
+    {"node": "TYPE_B_ARR", "inputs": ["Cytokinin(+)"], "outputs": ["ZMWUS1(+)", "ABPH1(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Composite collapses AHK+AHP+Type-B ARR into one CK-signaling transducer node. Two outputs capture both WUS activation and Type-A ARR induction."},
+    {"node": "ABPH1", "inputs": ["TYPE_B_ARR(+)"], "outputs": ["ZMWUS1(-)", "ZMPIN1A(+)"], "curated_regulators_excluded": ["Cytokinin (E025 direct, routed via TYPE_B_ARR)", "Auxin (E028 Auxin->ABPH1 crosstalk - would add Auxin bypass, Perception Gate violation)", "IM_Size (E026 ABPH1->IM_Size direct, routed via ZmWUS1->IM_Size)"], "verdict": "appropriate", "comment": "Type-A ARR feedback integrator. Negative feedback on ZmWUS1 + CK-auxin crosstalk via ZMPIN1A. E028 exclusion correctly protects Auxin Perception Gate."},
+    {"node": "VT2", "inputs": ["KN1(+)"], "outputs": ["Auxin(+)"], "curated_regulators_excluded": ["Axillary_Meristem (E122 VT2->AM direct, routed via Auxin->TIR1->...->BA1->AM)", "Kernel_Row_Number (E114 direct, routed)", "Auxin (E135 Auxin->VT2 feedback - excluded as Auxin bypass)"], "verdict": "appropriate", "comment": "TAA1-family IPyA biosynthesis. Single input, single output. Auxin->VT2 feedback defensibly excluded (Perception Gate protection)."},
+    {"node": "SPI1", "inputs": ["KN1(+)"], "outputs": ["Auxin(+)"], "curated_regulators_excluded": ["Axillary_Meristem (E123 SPI1->AM direct, routed via Auxin)", "Kernel_Row_Number (E115 direct, routed)"], "verdict": "appropriate", "comment": "YUCCA flavin monooxygenase. Clean KN1->SPI1->Auxin pipeline."},
+    {"node": "Auxin", "inputs": ["VT2(+)", "SPI1(+)"], "outputs": ["TIR1(+)"], "curated_regulators_excluded": ["VT2 (E135 feedback, excluded)", "ABPH1 (E028, excluded)", "KN1 (E130 KN1->Auxin direct, redundant with KN1->VT2->Auxin)"], "verdict": "appropriate", "comment": "Perception Gate correct: single output to TIR1. Biosynthesis via geometric mean of VT2+SPI1."},
+    {"node": "TIR1", "inputs": ["KN1(+)", "Auxin(+)"], "outputs": ["BIF1(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "SCF-TIR1 F-box coreceptor. Two inputs (KN1 transcriptional + Auxin ligand), one output (BIF1 degradation)."},
+    {"node": "BIF1", "inputs": ["TIR1(-)"], "outputs": ["BA1(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Aux/IAA composite (with BIF4). Single-input-single-output repressor; TIR1-degraded."},
+    {"node": "BIF2", "inputs": ["UB3(+)"], "outputs": ["ZMPIN1A(+)", "BA1(+)"], "curated_regulators_excluded": ["UB2 (E068 UB2->BIF2 - SILENT DROP - see S004)", "Axillary_Meristem (E131 BIF2->AM, routed via ZmPIN1a->AM and BA1->AM)"], "verdict": "appropriate", "comment": "PINOID-like kinase. UB3 input, two outputs (transporter polarity + bHLH co-activator)."},
+    {"node": "ZMPIN1A", "inputs": ["KN1(+)", "BIF2(+)", "ABPH1(+)"], "outputs": ["Axillary_Meristem(+)"], "curated_regulators_excluded": ["Auxin_transport (node absent, collapsed into AM)"], "verdict": "appropriate", "comment": "Three activators (KN1 transcriptional, BIF2 phospho, ABPH1 crosstalk) converge on PAT for AM positioning."},
+    {"node": "BA1", "inputs": ["ARF6(+)", "BIF2(+)", "BIF1(-)"], "outputs": ["Axillary_Meristem(+)", "BA2(+)"], "curated_regulators_excluded": ["FEA4 (E016 FEA4->BA1 - SILENT DROP - see S002)"], "verdict": "appropriate", "comment": "bHLH AM-initiation TF, proper Aux/IAA+ARF gating plus BIF2 co-activation. FEA4->BA1 would add a fourth input."},
+    {"node": "BA2", "inputs": ["BA1(+)"], "outputs": ["Axillary_Meristem(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "BA1 heterodimer partner; redundant AM initiation via BA1+BA2 co-activation."},
+    {"node": "RA1", "inputs": ["RA2(+)", "RA3(+)", "FEA4(+)", "IDS1(+)"], "outputs": ["KN1(+)", "Ear_Branching(-)"], "curated_regulators_excluded": ["REL2 (E041 RA1->REL2 recruitment, molecular not transcriptional)", "Axillary_Meristem (E134 RA1->AM(-) - SILENT DROP - see S003)", "SPM_Determinacy (E040, node absent)", "Kernel_Row_Number (E118 direct, routed via Ear_Branching)"], "verdict": "appropriate", "comment": "Coherent feed-forward of four activators into RA1 correctly modeled. Only gap is missing RA1->AM inhibition (important AM-SPM determinacy crosstalk)."},
+    {"node": "T6P", "inputs": ["RA3(-)"], "outputs": ["Ear_Branching(+)"], "curated_regulators_excluded": ["SPM_Determinacy (E046 T6P->SPM_Determinacy, node absent - Ear_Branching is the inverse framing)"], "verdict": "appropriate", "comment": "Sugar-signaling metabolite. Single input (RA3 TPP degradation), single output (Ear_Branching promotion). Canonical ra3 KO prediction path."},
+    {"node": "IDS1", "inputs": ["miR172(-)"], "outputs": ["RA1(+)", "Ear_Branching(-)"], "curated_regulators_excluded": ["FEA4 (E129 IDS1->FEA4 - SILENT DROP - see S001)", "FEA3 (E056 IDS1->FEA3)", "RA3 (E057 IDS1->RA3)", "SPM_Determinacy (E052, node absent)", "ZAG1 (node absent)", "Kernel_Row_Number (E055 direct, routed via Ear_Branching)"], "verdict": "under-specified", "comment": "IDS1 is an 8-edge curated hub but has only 3 edges in network (ratio 0.38). IDS1->FEA4 is the most impactful silent drop."},
+    {"node": "SID1", "inputs": ["miR172(-)"], "outputs": ["Ear_Branching(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "AP2 paralog of IDS1. Kept separate (correctly) because ids1;sid1 doubles are distinct. Simpler topology - no paralog-swap outputs."},
+    {"node": "UB2", "inputs": ["FarRed_Light(+)", "miR156(-)"], "outputs": ["UB3(+)"], "curated_regulators_excluded": ["KN1 (E066 UB2->KN1 - SILENT DROP - see S004)", "BIF2 (E068 UB2->BIF2 - SILENT DROP - see S004)", "ZMTCP30 (E070 UB2->ZMTCP30 - SILENT DROP - see S004)", "IM_Size (E121 UB2->IM_Size direct, routed via UB3)", "Kernel_Row_Number (E061 direct, routed)"], "verdict": "under-specified", "comment": "UB2 is modeled only as UB3's upstream activator, inconsistent with its curated role as a multi-output SBP-box TF. See S004."},
+    {"node": "UB3", "inputs": ["UB2(+)", "miR156(-)"], "outputs": ["Cytokinin(-)", "KN1(+)", "BIF2(+)", "ZMTCP30(+)", "IM_Size(-)"], "curated_regulators_excluded": ["Kernel_Row_Number (E060 direct, routed via IM_Size)"], "verdict": "appropriate", "comment": "Exemplary Multi-Output Scaffold with five outputs. KRN4 alias recorded. Coverage ratio 0.88."},
+    {"node": "TSH4", "inputs": ["miR156(-)"], "outputs": ["Kernel_Row_Number(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "SBP-box paralog of UB3 but with distinct sign on KRN (inhibitor, not activator like UB3's indirect). Direct TSH4->KRN correct per Chuck 2014."},
+    {"node": "ZMTCP30", "inputs": ["UB3(+)"], "outputs": ["Kernel_Row_Number(+)"], "curated_regulators_excluded": ["UB2 (E070, see S004)"], "verdict": "appropriate", "comment": "TCP-family TF downstream of UB2/UB3 module."},
+    {"node": "AGAP", "inputs": ["KNR6(+)"], "outputs": ["IM_Size(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "ARF-GAP phosphotarget of KNR6. Clean KNR6->AGAP->IM_Size cascade."},
+    {"node": "IM_Size", "inputs": ["ZMWUS1(+)", "KN1(+)", "AGAP(+)", "FEA2(-)", "TD1(-)", "CT2(-)", "ZMCRN(-)", "FEA4(-)", "UB3(-)"], "outputs": ["Kernel_Row_Number(+)"], "curated_regulators_excluded": ["ABPH1 (E026, routed via ZmWUS1)", "ABPH2 (E024, routed via FEA4)", "FEA3 (E010, routed via ZmWUS1)", "REL2 (E048, routed via Ear_Branching)", "UB2 (E121, routed via UB3)", "ZMER1 (E145, routed via ZmWUS1)"], "verdict": "over-loaded", "comment": "9 inputs (3 activators + 6 inhibitors) exceeds BUILDER §9.4 hard cap of 7. The CLE-complex redundancy (FEA2 + CT2 + ZMCRN as three parallel inhibitors) drives the overload. See S007."},
+    {"node": "Axillary_Meristem", "inputs": ["BA1(+)", "BA2(+)", "ZMPIN1A(+)"], "outputs": ["Kernel_Row_Number(+)"], "curated_regulators_excluded": ["VT2 (E122, routed via Auxin)", "SPI1 (E123, routed)", "BIF2 (E131, routed via ZmPIN1a)", "RA1 (E134 RA1->AM(-) - SILENT DROP - see S003)", "Auxin_transport (node absent, collapsed)"], "verdict": "appropriate", "comment": "Three activators (bHLH pair + PAT) converge on AM initiation. Only gap is missing RA1 inhibition."},
+    {"node": "Ear_Branching", "inputs": ["T6P(+)", "RA1(-)", "REL2(-)", "IDS1(-)", "SID1(-)"], "outputs": ["Kernel_Row_Number(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "5-input SPM-determinacy integrator (inverse framing of SPM_Determinacy curated node). Captures the full T6P/RA1/REL2/IDS1/SID1 module."},
+    {"node": "Kernel_Row_Number", "inputs": ["IM_Size(+)", "Axillary_Meristem(+)", "ZMTCP30(+)", "KRN5B(+)", "Ear_Branching(-)", "KRN2(-)", "TSH4(-)"], "outputs": [], "curated_regulators_excluded": ["20+ direct edges from FEA2, FEA3, FEA4, CT2, ZMCRN, ZMCLE7, ZMFCP1, TD1, ZMWUS1, KN1, RA1, IDS1, VT2, SPI1, UB3, UB2, REL2, KNR6, SPM_Initiation, SPM_Determinacy"], "verdict": "appropriate", "comment": "Phenotype node at 7 inputs (cap). All 20+ direct-to-KRN rejections are defensibly routed via IM_Size, Axillary_Meristem, or Ear_Branching intermediates (parsimony through integrators). ZMTCP30 direct is kept because it has no curated intermediate. Coverage ratio 0.25 reflects intentional integrator-routing."}
+  ],
+  "per_pathway_audit": [
+    {
+      "pathway": "CLE-CLV arm 1 (ZmCLE7 -> FEA2 + TD1 -> meristem restriction)",
+      "completeness": "high",
+      "comment": "ZmCLE7 properly modeled as Perception Gate ligand with 2 outgoing edges to receptors (FEA2, TD1). FEA2 complex with CT2 and ZMCRN co-receptors fully wired. All four receptor-complex components inhibit IM_Size (contributes to hub overload - see S007).",
+      "missing_pieces": ["ZmWUS1 -> ZmCLE7 positive feedback (E033, defensibly excluded as Motif 2 positive-feedback hazard)"]
+    },
+    {
+      "pathway": "CLE-CLV arm 2 (ZmFCP1 -> FEA2 + FEA3 -> repress ZmWUS1)",
+      "completeness": "high",
+      "comment": "ZmFCP1 Perception Gate pure. FEA3->ZmWUS1 canonical repression of organizing-center WUS in rib zone present. IDS1->FEA3 cross-module edge missing.",
+      "missing_pieces": ["IDS1 -> FEA3 (E056, low priority)"]
+    },
+    {
+      "pathway": "ERECTA-EPFL arm (ZmEPFL -> ZmER1 -> ZmWUS1)",
+      "completeness": "high",
+      "comment": "Liu 2026 Nature Communications biology fully captured: composite ZmEPFL1-5 ligand, ZmER1 LRR-RLK, ZmWUS1 downstream target. Parallel arm to CLE-CLV for meristem restriction.",
+      "missing_pieces": ["ZmER1 -> IM_Size direct (E145, routed via ZmWUS1 - defensible)"]
+    },
+    {
+      "pathway": "WUS-KNOX organizing center (ZmWUS1, KN1)",
+      "completeness": "high",
+      "comment": "ZmWUS1 correctly modeled as four-input integrator (TYPE_B_ARR+ vs FEA3/ZmER1/ABPH1 three inhibitors) feeding IM_Size. KN1 is the multi-output scaffold with 6 outputs (auxin biosynth, transport, perception, CK biosynth, IM maintenance). RA1->KN1 feedback from ramosa module present.",
+      "missing_pieces": ["KN1 -> Auxin direct (E130, routed via KN1->VT2->Auxin - defensible)"]
+    },
+    {
+      "pathway": "Cytokinin biosynthesis-degradation-signaling",
+      "completeness": "high",
+      "comment": "Biosynth-Degrad balance (Motif 4) present: ZmIPT synthesis + ZmCKX degradation + UB3 transcriptional repression. Perception Gate pure at Cytokinin (single output to TYPE_B_ARR). Phosphorelay AHK/AHP collapsed into TYPE_B_ARR composite. ABPH1 type-A ARR feedback on ZmWUS1 correctly present. Missing the Cytokinin->ZmCKX homeostatic negative feedback (E119) which would stabilize CK dynamics.",
+      "missing_pieces": ["Cytokinin -> ZmCKX negative feedback (E119 - see S005)"]
+    },
+    {
+      "pathway": "Auxin biosynthesis-signaling (Perception Gate)",
+      "completeness": "high",
+      "comment": "Full four-step Perception Gate module: VT2/SPI1 biosynthesis -> Auxin -> TIR1 -> BIF1 degradation -> BA1 derepression. ARF6 competes as the positive regulator. Auxin has only ONE outgoing edge (to TIR1) - Perception Gate purity maintained. KN1 regulates all five module components (VT2, SPI1, ZmPIN1a, TIR1, ZmIPT). Polar auxin transport via BIF2->ZmPIN1a phosphorylation correctly wired.",
+      "missing_pieces": ["Auxin->VT2 feedback (E135, defensibly excluded to preserve Perception Gate)", "Auxin->ABPH1 CK crosstalk (E028, defensibly excluded for same reason)"]
+    },
+    {
+      "pathway": "BA1 AM-initiation bHLH module",
+      "completeness": "medium-high",
+      "comment": "BA1 has three inputs (ARF6+, BIF2+, BIF1-) and two outputs (Axillary_Meristem, BA2). BA2 heterodimer partner correctly wired. FEA4->BA1 cross-arm edge (E016 Pautler 2015 ChIP-seq) silently dropped - see S002.",
+      "missing_pieces": ["FEA4 -> BA1 (E016 - S002)"]
+    },
+    {
+      "pathway": "Ramosa cascade (RA1, RA2, RA3, REL2, FEA4, IDS1, T6P)",
+      "completeness": "high",
+      "comment": "RA1 is modeled as four-input coherent feed-forward integrator (RA2, RA3, FEA4, IDS1) feeding Ear_Branching inhibition and KN1 activation. REL2 co-repressor contributes to Ear_Branching. T6P sugar-signaling input to Ear_Branching via ra3 KO. FEA4->RA1 cross-module wiring present (E045).",
+      "missing_pieces": ["RA1 -> Axillary_Meristem(-) crosstalk (E134 - S003)", "REL2 direct IM_Size (E048, routed)", "FEA4->RA3 alternate input (E017)"]
+    },
+    {
+      "pathway": "AP2-like SPM identity (IDS1/SID1 + miR172)",
+      "completeness": "high",
+      "comment": "miR172 represses both IDS1 (KRN1/Ts6) and SID1. Both target Ear_Branching as redundant inhibitors (SPM-determinacy promoters). IDS1 also feeds RA1. IDS1->FEA4 (E129) is silently dropped.",
+      "missing_pieces": ["IDS1 -> FEA4 (E129 - S001)"]
+    },
+    {
+      "pathway": "SBP-box module (UB2, UB3, TSH4, miR156, KRN4 enhancer, FarRed shade)",
+      "completeness": "medium-high",
+      "comment": "miR156 targets all three SBP-box TFs. UB3 is the multi-output scaffold (5 outputs). TSH4 has distinct KRN repressing role. Far-Red_Light activates UB2. UB2 -> UB3 activation via KRN4 distal enhancer is canonically wired (N060 Du 2020). KRN4 alias is correctly annotated (no duplicate node). HOWEVER UB2 is not modeled as multi-output (only UB2->UB3), losing three curated direct targets (KN1, BIF2, ZMTCP30) - see S004.",
+      "missing_pieces": ["UB2 -> KN1 (E066)", "UB2 -> BIF2 (E068)", "UB2 -> ZMTCP30 (E070)", "UB2 -> IM_Size (E121, routed - defensible)"]
+    },
+    {
+      "pathway": "KRN QTL layer (KRN2, KRN5B, KNR6->AGAP)",
+      "completeness": "high",
+      "comment": "All three cloned KRN QTLs present. KRN2 WD40 -> KRN direct inhibition. KRN5B 5-phosphatase -> KRN direct activation. KNR6 Ser/Thr kinase -> AGAP ARF-GAP -> IM_Size cascade correctly represented. UB3 KRN4 allele is captured in the alias annotation (not as separate node).",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Phenotype integration (IM_Size, Axillary_Meristem, Ear_Branching -> KRN)",
+      "completeness": "high",
+      "comment": "Three process-integrator nodes properly model the convergence of all upstream arms onto kernel row number. IM_Size captures meristem size -> SPM tier count. Axillary_Meristem captures AM density. Ear_Branching captures SPM-determinacy failure (inverse framing of canonical SPM_Determinacy). This integrator design is what makes 20+ direct-to-KRN edge rejections defensibly routed.",
+      "missing_pieces": ["SPM_Determinacy node collapsed into inverse Ear_Branching - defensible parsimony"]
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "S001",
+      "type": "add_edge",
+      "priority": "high",
+      "description": "Add IDS1 -> FEA4 (+1) to complete the AP2-to-bZIP cross-module regulatory edge",
+      "biological_justification": "Wang 2019 New Phytologist (IDS1 = KRN1 cloning) reports that IDS1/Ts6 is involved in multiple pathways regulating SPM development including fasciation/FEA-family TFs. Edge E129 in curated repository. Both IDS1 and FEA4 are already in the network. This edge closes a key coherent feed-forward (IDS1 -> FEA4 -> RA1, parallel to IDS1 -> RA1). Without this edge, FEA4 coverage ratio drops to 0.25 and IDS1 to 0.38 - both below §9.11 threshold for major regulators.",
+      "curated_edge_ids": ["E129"],
+      "implementation": "Add edge IDS1 -> FEA4 (sign +1, effect activation) with the E129 DOI evidence. FEA4 gains a second activator input (currently only inhibited by ABPH2)."
+    },
+    {
+      "id": "S002",
+      "type": "add_edge",
+      "priority": "high",
+      "description": "Add FEA4 -> BA1 (+1) to capture Pautler 2015 FEA4 direct binding of BA1 promoter",
+      "biological_justification": "Pautler et al. 2015 Plant Cell identifies FEA4 bZIP direct binding and activation of BA1 promoter in ear inflorescence. Edge E016 in curated repository. Both FEA4 and BA1 are in the network. This is part of the cross-arm regulatory wiring between FEA/CLV (meristem-size restriction) and axillary-meristem-initiation modules. Its omission makes FEA4 the most under-represented major regulator (3 edges out of 12 curated = 0.25 ratio, §9.11 flag).",
+      "curated_edge_ids": ["E016"],
+      "implementation": "Add edge FEA4 -> BA1 (sign +1, effect activation) with E016 evidence. BA1 gains a fourth input (ARF6+, BIF2+, FEA4+, BIF1-) - 4 inputs within cap."
+    },
+    {
+      "id": "S003",
+      "type": "add_edge",
+      "priority": "high",
+      "description": "Add RA1 -> Axillary_Meristem (-1) to capture SPM-determinacy crosstalk to AM indeterminacy",
+      "biological_justification": "Curated E134 reports RA1 inhibits axillary-meristem indeterminacy as part of its SPM-determinacy enforcement. Currently RA1 only feeds Ear_Branching inhibition, missing the AM-side crosstalk. Both nodes are in the network. Adding this edge provides RA1 a second output and gives Axillary_Meristem its first inhibitor input (currently 3 activators, 0 inhibitors - asymmetric). The biology: ramosa mutants with increased SPM indeterminacy also show altered AM patterning, consistent with RA1 restricting AM fate alongside SPM fate.",
+      "curated_edge_ids": ["E134"],
+      "implementation": "Add edge RA1 -> Axillary_Meristem (sign -1, effect inhibition) with E134 evidence. Axillary_Meristem equation changes to activators=[BA1, BA2, ZMPIN1A], inhibitors=[RA1]."
+    },
+    {
+      "id": "S004",
+      "type": "restructure_pathway",
+      "priority": "high",
+      "description": "Restructure UB2 as a multi-output scaffold parallel to UB3, adding UB2->KN1, UB2->BIF2, UB2->ZMTCP30",
+      "biological_justification": "Kong 2022 Plant Cell establishes that UB2, UB3, and TSH4 are three SBP-box TFs that 'directly bind' overlapping promoter sets (BIF2, ZmTCP30, KN1 promoter regions) via the same DNA-binding motif. The network currently models UB3 as a 5-output multi-output scaffold (N061 KN1, N062 BIF2, N063 ZMTCP30, N064 IM_Size, N023 Cytokinin) but UB2 only as UB3's upstream activator. This makes UB2's coverage ratio 0.38 (3 of 8 curated edges) and is inconsistent with Kong 2022's finding that all three SBPs bind these promoters. Edges E066, E068, E070 are curated. E121 UB2->IM_Size(-) is defensibly routed via UB3. E061 UB2->KRN is defensibly routed via IM_Size.",
+      "curated_edge_ids": ["E066", "E068", "E070"],
+      "implementation": "Add three edges: UB2->KN1 (+1, E066), UB2->BIF2 (+1, E068), UB2->ZMTCP30 (+1, E070). KN1 gains a third activator (RA1, UB3, UB2); BIF2 gains a second activator (UB3, UB2); ZMTCP30 gains a second activator. All within input-count caps. Update mechanism strings to reflect the SBP-family redundancy (UB2 and UB3 both bind these promoters)."
+    },
+    {
+      "id": "S005",
+      "type": "add_edge",
+      "priority": "medium",
+      "description": "Add Cytokinin -> ZMCKX (+1) negative-feedback edge to complete CK homeostatic loop",
+      "biological_justification": "Curated E119 reports Cytokinin positively regulates ZMCKX transcription, closing the classic CK self-limiting negative feedback loop (CK->CKX->degrade CK). Per BUILDER §12 Motif 2 notes, negative feedback STABILIZES and should be INCLUDED (only positive feedback is hazardous). Adding this makes ZMCKX non-source (currently source with only one curated edge). The loop: Cytokinin -> ZMCKX -> ⊣Cytokinin is safe homeostatic stabilization.",
+      "curated_edge_ids": ["E119"],
+      "implementation": "Add edge Cytokinin -> ZMCKX (sign +1, effect activation) with E119 evidence. ZMCKX transitions from source to downstream node (is_source changes to false). ZMCKX equation becomes ZMCKX = max(Cytokinin, 0.01)^(1/1) * gene_modifier + exogenous_supply."
+    },
+    {
+      "id": "S006",
+      "type": "add_edge",
+      "priority": "medium",
+      "description": "Add FEA4 -> RA3 (+1) to complete FEA4 multi-output biology",
+      "biological_justification": "Curated E017 reports FEA4 bZIP directly activates RA3 TPP transcription (Pautler 2015 + Eveland 2014 ChIP-seq overlap). Adding this makes FEA4 a proper multi-output TF (currently only IM_Size and RA1 outputs; would become IM_Size, RA1, RA3, BA1 if S002 also applied = 4 outputs). RA3 becomes non-source. The biology strengthens: FEA4 fasciation control feeds the ramosa SPM-determinacy program through two inputs (direct RA1 activation AND RA3 activation which also activates RA1 via T6P).",
+      "curated_edge_ids": ["E017"],
+      "implementation": "Add edge FEA4 -> RA3 (sign +1). RA3 transitions from source to downstream (is_source:false). Combined with S001 and S002, FEA4 reaches 4 outputs and coverage ratio rises to ~0.50."
+    },
+    {
+      "id": "S007",
+      "type": "restructure_pathway",
+      "priority": "medium",
+      "description": "Resolve IM_Size 9-input hub overload (exceeds BUILDER §9.4 7-input cap)",
+      "biological_justification": "IM_Size has 3 activators (ZMWUS1, KN1, AGAP) + 6 inhibitors (FEA2, TD1, CT2, ZMCRN, FEA4, UB3) = 9 inputs, exceeding the 7-input hard cap. The redundancy is driven by modeling FEA2 and its co-receptors (CT2 G-alpha, ZMCRN pseudokinase) as three independent IM_Size inhibitors when they form a single ternary receptor complex. Two options: (A) Remove FEA2->IM_Size (N007) since FEA2's signal reaches IM_Size transitively via CT2 and ZMCRN, bringing IM_Size to 8 inputs. (B) Collapse CT2 and ZMCRN into a single FEA2_complex composite node, dropping IM_Size to 7 inputs. Option A is less invasive. Option B is more biologically elegant.",
+      "curated_edge_ids": [],
+      "target_edge": {"source": "FEA2", "target": "IM_Size"},
+      "implementation": "Recommended: Option A - remove N007 (FEA2->IM_Size). FEA2 still reaches IM_Size transitively via CT2->IM_Size and ZMCRN->IM_Size. fea2 KO is still simulated correctly (FEA2->0 forces both CT2 and ZMCRN to 0.01 floor, removing their inhibition, which produces the expected enlarged-IM phenotype). IM_Size drops to 8 inputs - still exceeds cap slightly; reviewer may also consider removing TD1->IM_Size (redundant with FEA2-complex arm since TD1 is a parallel receptor also inhibited by the CLV peptides) - but TD1 arm is biologically separate (thick tassel dwarf1 phenotype), keep it. 8/9 inputs is acceptable as documented exception."
+    },
+    {
+      "id": "S008",
+      "type": "mechanism_improvement",
+      "priority": "low",
+      "description": "Sharpen mechanism strings on a handful of N0XX edges to specify TF-DNA or kinase-substrate detail",
+      "biological_justification": "Some edges carry general mechanism strings where specific molecular detail is available. E.g., N023 (UB3->Cytokinin) mechanism correctly cites LOG1 and Type-A ARR promoter binding, but could specify 'UB3 binds GTAC-motif SBP-box consensus in LOG1 promoter'. N065 (ZMTCP30->KRN) says 'supports normal ear development' - could be 'ZmTCP30 binds TCP-consensus in downstream ear-identity genes promoting SPM-to-kernel maturation'. These improvements do not change topology; they improve reviewer-facing mechanism clarity.",
+      "curated_edge_ids": [],
+      "implementation": "Non-blocking - applicable in any iteration. No verdict impact."
+    }
+  ],
+  "literature_gaps": [
+    "ZmFCP1 upstream transcriptional regulator: no curated maize edge (already flagged by Step 1.5 literature_judge G005 as residual gap for BUILDER - not re-filed).",
+    "KNR6 upstream transcriptional regulator: no curated maize edge (already flagged by Step 1.5 G015 - not re-filed).",
+    "miR156 upstream transcriptional regulator: no curated maize edge (already flagged by Step 1.5 G015 - not re-filed).",
+    "ZmCKX ear-targeted OE with quantified KRN: degradation-enzyme coverage thin (already flagged by Step 1.5 G010 - not re-filed).",
+    "ZmWUS2 paralog has no curated direct-binding data in maize literature (already flagged by Step 1.5 - not re-filed). Impacts whether ZmWUS2 should appear as a separate node or remain folded.",
+    "ARF6 upstream regulator in maize inflorescence: FEA4->ARF6 edge (E013) exists but is indirect (FEA4 module effect rather than direct ChIP-seq). Accepting ARF6 as a source per BUILDER iteration-1 choice is defensible but a literature search for direct-binding evidence would upgrade this.",
+    "SPM_Determinacy as a separate process node: curated literature treats this as an abstract program; the iteration-1 choice to use Ear_Branching (inverse) is defensible but downstream reviewers may ask why the canonical SPM_Determinacy label was replaced."
+  ],
+  "stop_reason": null
+}

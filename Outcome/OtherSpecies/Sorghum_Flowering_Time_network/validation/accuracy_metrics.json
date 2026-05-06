@@ -1,0 +1,744 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Flowering_Time",
+    "species": "Sorghum bicolor",
+    "created": "2026-04-21"
+  },
+  "tests": {
+    "total": 83,
+    "tested": 77,
+    "skipped": 6
+  },
+  "algebraic": {
+    "accuracy": 0.558,
+    "correct": 43,
+    "total_tested": 77,
+    "kappa": 0.2625,
+    "mcc": 0.2543,
+    "convergence_rate": 98.7,
+    "failures": [
+      "T001",
+      "T003",
+      "T004",
+      "T005",
+      "T006",
+      "T007",
+      "T009",
+      "T010",
+      "T011",
+      "T013",
+      "T015",
+      "T016",
+      "T017",
+      "T018",
+      "T026",
+      "T030",
+      "T031",
+      "T038",
+      "T040",
+      "T044",
+      "T045",
+      "T047",
+      "T062",
+      "T063",
+      "T064",
+      "T065",
+      "T068",
+      "T072",
+      "T075",
+      "T076",
+      "T077",
+      "T078",
+      "T079",
+      "T082"
+    ],
+    "ci_95": [
+      0.0936,
+      0.4314
+    ],
+    "frs": 3.4424,
+    "frs_band": "small-scale solid",
+    "dars": 3.7288,
+    "dars_band": "small-scale solid",
+    "kappa_band": "fair",
+    "per_class": {
+      "increased": {
+        "precision": 0.5714,
+        "recall": 0.75,
+        "f1": 0.6486,
+        "support": 32
+      },
+      "decreased": {
+        "precision": 0.68,
+        "recall": 0.4359,
+        "f1": 0.5312,
+        "support": 39
+      },
+      "unchanged": {
+        "precision": 0.2,
+        "recall": 0.3333,
+        "f1": 0.25,
+        "support": 6
+      }
+    },
+    "by_photoperiod": {
+      "LD": {
+        "n": 38,
+        "correct": 13,
+        "accuracy": 0.3421
+      },
+      "SD": {
+        "n": 9,
+        "correct": 5,
+        "accuracy": 0.5556
+      },
+      "both": {
+        "n": 11,
+        "correct": 8,
+        "accuracy": 0.7273
+      },
+      "photoperiod_shift": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      },
+      "continuous_dark": {
+        "n": 1,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "normal": {
+        "n": 13,
+        "correct": 12,
+        "accuracy": 0.9231
+      },
+      "night_break": {
+        "n": 1,
+        "correct": 1,
+        "accuracy": 1.0
+      },
+      "far_red": {
+        "n": 1,
+        "correct": 1,
+        "accuracy": 1.0
+      }
+    },
+    "by_class": {
+      "PhyB_LOF": {
+        "n": 4,
+        "correct": 1,
+        "accuracy": 0.25
+      },
+      "PRR37_LOF": {
+        "n": 6,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "Ghd7_LOF": {
+        "n": 3,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "Ghd7_OE": {
+        "n": 2,
+        "correct": 1,
+        "accuracy": 0.5
+      },
+      "PhyC_LOF": {
+        "n": 2,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "MA2_SMYD": {
+        "n": 2,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "Ehd1": {
+        "n": 2,
+        "correct": 2,
+        "accuracy": 1.0
+      },
+      "SbFT_CRISPR": {
+        "n": 4,
+        "correct": 2,
+        "accuracy": 0.5
+      },
+      "clock": {
+        "n": 9,
+        "correct": 6,
+        "accuracy": 0.6667
+      },
+      "ID1": {
+        "n": 4,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "CO_like": {
+        "n": 2,
+        "correct": 2,
+        "accuracy": 1.0
+      },
+      "Ma_double_mutant": {
+        "n": 7,
+        "correct": 5,
+        "accuracy": 0.7143
+      },
+      "photoperiod_shift_only": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6667
+      },
+      "SbFT_OE": {
+        "n": 5,
+        "correct": 5,
+        "accuracy": 1.0
+      },
+      "GA": {
+        "n": 2,
+        "correct": 1,
+        "accuracy": 0.5
+      },
+      "PhyB_OE": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6667
+      },
+      "other": {
+        "n": 9,
+        "correct": 7,
+        "accuracy": 0.7778
+      },
+      "downstream_misc": {
+        "n": 4,
+        "correct": 4,
+        "accuracy": 1.0
+      },
+      "WT_environmental": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      },
+      "PRR37_OE": {
+        "n": 1,
+        "correct": 0,
+        "accuracy": 0.0
+      }
+    },
+    "tier2_scope": {
+      "n_nodes": 35,
+      "n_edges": 80,
+      "n_tests": 77,
+      "t_effective": 164,
+      "mean_path_length": 2.08
+    },
+    "stratified": {
+      "easy": {
+        "n": 26,
+        "correct": 22,
+        "accuracy_pct": 84.6,
+        "cohens_kappa": 0.7054,
+        "kappa_note": null
+      },
+      "medium": {
+        "n": 19,
+        "correct": 14,
+        "accuracy_pct": 73.7,
+        "cohens_kappa": 0.6058,
+        "kappa_note": null
+      },
+      "hard": {
+        "n": 32,
+        "correct": 7,
+        "accuracy_pct": 21.9,
+        "cohens_kappa": -0.0499,
+        "kappa_note": null
+      }
+    }
+  },
+  "ode": {
+    "accuracy": 0.636,
+    "correct": 49,
+    "total_tested": 77,
+    "kappa": 0.3875,
+    "mcc": 0.345,
+    "convergence_rate": 100.0,
+    "failures": [
+      "T003",
+      "T004",
+      "T005",
+      "T006",
+      "T010",
+      "T011",
+      "T012",
+      "T014",
+      "T015",
+      "T016",
+      "T017",
+      "T018",
+      "T026",
+      "T030",
+      "T031",
+      "T038",
+      "T044",
+      "T047",
+      "T049",
+      "T056",
+      "T063",
+      "T064",
+      "T065",
+      "T068",
+      "T072",
+      "T076",
+      "T077",
+      "T079"
+    ],
+    "ci_95": [
+      0.2183,
+      0.5567
+    ],
+    "frs": 5.081,
+    "frs_band": "small-scale solid",
+    "dars": 5.5037,
+    "dars_band": "small-scale solid",
+    "kappa_band": "fair",
+    "per_class": {
+      "increased": {
+        "precision": 0.697,
+        "recall": 0.7188,
+        "f1": 0.7077,
+        "support": 32
+      },
+      "decreased": {
+        "precision": 0.7273,
+        "recall": 0.6154,
+        "f1": 0.6667,
+        "support": 39
+      },
+      "unchanged": {
+        "precision": 0.1818,
+        "recall": 0.3333,
+        "f1": 0.2353,
+        "support": 6
+      }
+    },
+    "by_photoperiod": {
+      "LD": {
+        "n": 38,
+        "correct": 21,
+        "accuracy": 0.5526
+      },
+      "SD": {
+        "n": 9,
+        "correct": 4,
+        "accuracy": 0.4444
+      },
+      "both": {
+        "n": 11,
+        "correct": 7,
+        "accuracy": 0.6364
+      },
+      "photoperiod_shift": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      },
+      "continuous_dark": {
+        "n": 1,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "normal": {
+        "n": 13,
+        "correct": 12,
+        "accuracy": 0.9231
+      },
+      "night_break": {
+        "n": 1,
+        "correct": 1,
+        "accuracy": 1.0
+      },
+      "far_red": {
+        "n": 1,
+        "correct": 1,
+        "accuracy": 1.0
+      }
+    },
+    "by_class": {
+      "PhyB_LOF": {
+        "n": 4,
+        "correct": 4,
+        "accuracy": 1.0
+      },
+      "PRR37_LOF": {
+        "n": 6,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "Ghd7_LOF": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6667
+      },
+      "Ghd7_OE": {
+        "n": 2,
+        "correct": 1,
+        "accuracy": 0.5
+      },
+      "PhyC_LOF": {
+        "n": 2,
+        "correct": 1,
+        "accuracy": 0.5
+      },
+      "MA2_SMYD": {
+        "n": 2,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "Ehd1": {
+        "n": 2,
+        "correct": 1,
+        "accuracy": 0.5
+      },
+      "SbFT_CRISPR": {
+        "n": 4,
+        "correct": 2,
+        "accuracy": 0.5
+      },
+      "clock": {
+        "n": 9,
+        "correct": 4,
+        "accuracy": 0.4444
+      },
+      "ID1": {
+        "n": 4,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "CO_like": {
+        "n": 2,
+        "correct": 2,
+        "accuracy": 1.0
+      },
+      "Ma_double_mutant": {
+        "n": 7,
+        "correct": 7,
+        "accuracy": 1.0
+      },
+      "photoperiod_shift_only": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6667
+      },
+      "SbFT_OE": {
+        "n": 5,
+        "correct": 5,
+        "accuracy": 1.0
+      },
+      "GA": {
+        "n": 2,
+        "correct": 1,
+        "accuracy": 0.5
+      },
+      "PhyB_OE": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6667
+      },
+      "other": {
+        "n": 9,
+        "correct": 7,
+        "accuracy": 0.7778
+      },
+      "downstream_misc": {
+        "n": 4,
+        "correct": 4,
+        "accuracy": 1.0
+      },
+      "WT_environmental": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      },
+      "PRR37_OE": {
+        "n": 1,
+        "correct": 1,
+        "accuracy": 1.0
+      }
+    },
+    "tier2_scope": {
+      "n_nodes": 35,
+      "n_edges": 80,
+      "n_tests": 77,
+      "t_effective": 164,
+      "mean_path_length": 2.08
+    },
+    "stratified": {
+      "easy": {
+        "n": 26,
+        "correct": 21,
+        "accuracy_pct": 80.8,
+        "cohens_kappa": 0.6429,
+        "kappa_note": null
+      },
+      "medium": {
+        "n": 19,
+        "correct": 13,
+        "accuracy_pct": 68.4,
+        "cohens_kappa": 0.5289,
+        "kappa_note": null
+      },
+      "hard": {
+        "n": 32,
+        "correct": 15,
+        "accuracy_pct": 46.9,
+        "cohens_kappa": 0.1832,
+        "kappa_note": null
+      }
+    },
+    "best_K": 0.1,
+    "best_n": 2
+  },
+  "rwr": {
+    "accuracy": 0.649,
+    "correct": 50,
+    "total_tested": 77,
+    "kappa": 0.3865,
+    "mcc": 0.4358,
+    "convergence_rate": 100.0,
+    "failures": [
+      "T001",
+      "T003",
+      "T004",
+      "T005",
+      "T006",
+      "T007",
+      "T009",
+      "T010",
+      "T011",
+      "T015",
+      "T026",
+      "T031",
+      "T038",
+      "T040",
+      "T044",
+      "T045",
+      "T047",
+      "T064",
+      "T068",
+      "T069",
+      "T072",
+      "T075",
+      "T076",
+      "T077",
+      "T078",
+      "T079",
+      "T082"
+    ],
+    "ci_95": [
+      0.2239,
+      0.5492
+    ],
+    "frs": 5.0685,
+    "frs_band": "small-scale solid",
+    "dars": 5.4901,
+    "dars_band": "small-scale solid",
+    "kappa_band": "fair",
+    "per_class": {
+      "increased": {
+        "precision": 0.5962,
+        "recall": 0.9688,
+        "f1": 0.7381,
+        "support": 32
+      },
+      "decreased": {
+        "precision": 0.7727,
+        "recall": 0.4359,
+        "f1": 0.5574,
+        "support": 39
+      },
+      "unchanged": {
+        "precision": 0.6667,
+        "recall": 0.3333,
+        "f1": 0.4444,
+        "support": 6
+      }
+    },
+    "by_photoperiod": {
+      "LD": {
+        "n": 38,
+        "correct": 17,
+        "accuracy": 0.4474
+      },
+      "SD": {
+        "n": 9,
+        "correct": 5,
+        "accuracy": 0.5556
+      },
+      "both": {
+        "n": 11,
+        "correct": 11,
+        "accuracy": 1.0
+      },
+      "photoperiod_shift": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      },
+      "continuous_dark": {
+        "n": 1,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "normal": {
+        "n": 13,
+        "correct": 12,
+        "accuracy": 0.9231
+      },
+      "night_break": {
+        "n": 1,
+        "correct": 1,
+        "accuracy": 1.0
+      },
+      "far_red": {
+        "n": 1,
+        "correct": 1,
+        "accuracy": 1.0
+      }
+    },
+    "by_class": {
+      "PhyB_LOF": {
+        "n": 4,
+        "correct": 1,
+        "accuracy": 0.25
+      },
+      "PRR37_LOF": {
+        "n": 6,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "Ghd7_LOF": {
+        "n": 3,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "Ghd7_OE": {
+        "n": 2,
+        "correct": 2,
+        "accuracy": 1.0
+      },
+      "PhyC_LOF": {
+        "n": 2,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "MA2_SMYD": {
+        "n": 2,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "Ehd1": {
+        "n": 2,
+        "correct": 2,
+        "accuracy": 1.0
+      },
+      "SbFT_CRISPR": {
+        "n": 4,
+        "correct": 3,
+        "accuracy": 0.75
+      },
+      "clock": {
+        "n": 9,
+        "correct": 6,
+        "accuracy": 0.6667
+      },
+      "ID1": {
+        "n": 4,
+        "correct": 3,
+        "accuracy": 0.75
+      },
+      "CO_like": {
+        "n": 2,
+        "correct": 2,
+        "accuracy": 1.0
+      },
+      "Ma_double_mutant": {
+        "n": 7,
+        "correct": 4,
+        "accuracy": 0.5714
+      },
+      "photoperiod_shift_only": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6667
+      },
+      "SbFT_OE": {
+        "n": 5,
+        "correct": 5,
+        "accuracy": 1.0
+      },
+      "GA": {
+        "n": 2,
+        "correct": 2,
+        "accuracy": 1.0
+      },
+      "PhyB_OE": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      },
+      "other": {
+        "n": 9,
+        "correct": 7,
+        "accuracy": 0.7778
+      },
+      "downstream_misc": {
+        "n": 4,
+        "correct": 4,
+        "accuracy": 1.0
+      },
+      "WT_environmental": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      },
+      "PRR37_OE": {
+        "n": 1,
+        "correct": 1,
+        "accuracy": 1.0
+      }
+    },
+    "tier2_scope": {
+      "n_nodes": 35,
+      "n_edges": 80,
+      "n_tests": 77,
+      "t_effective": 164,
+      "mean_path_length": 2.08
+    },
+    "stratified": {
+      "easy": {
+        "n": 26,
+        "correct": 25,
+        "accuracy_pct": 96.2,
+        "cohens_kappa": 0.9238,
+        "kappa_note": null
+      },
+      "medium": {
+        "n": 19,
+        "correct": 14,
+        "accuracy_pct": 73.7,
+        "cohens_kappa": 0.6058,
+        "kappa_note": null
+      },
+      "hard": {
+        "n": 32,
+        "correct": 11,
+        "accuracy_pct": 34.4,
+        "cohens_kappa": 0.0289,
+        "kappa_note": null
+      }
+    },
+    "best_alpha": 0.5
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Hypocotyl_Length",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "best_method": "Algebraic",
+    "best_accuracy_pct": 95.7,
+    "frs_best": 13.0281,
+    "frs_best_band": "exceptional",
+    "dars_best": 13.2197,
+    "dars_best_band": "exceptional"
+  },
+  "tests": {
+    "total": 161,
+    "tested": 116,
+    "skipped": 45
+  },
+  "algebraic": {
+    "accuracy": 0.957,
+    "correct": 111,
+    "total_tested": 116,
+    "kappa": 0.9205,
+    "mcc": 0.8952,
+    "convergence_rate": 0.914,
+    "failures": [
+      "T003",
+      "T022",
+      "T099",
+      "T128",
+      "T137"
+    ],
+    "ci_95": [
+      0.853,
+      0.9881
+    ]
+  },
+  "ode": {
+    "accuracy": 0.931,
+    "correct": 108,
+    "total_tested": 116,
+    "kappa": 0.8751,
+    "mcc": 0.8234,
+    "convergence_rate": 1.0,
+    "failures": [
+      "T003",
+      "T004",
+      "T022",
+      "T077",
+      "T099",
+      "T104",
+      "T128",
+      "T137"
+    ],
+    "ci_95": [
+      0.794,
+      0.9562
+    ],
+    "best_K": 0.5,
+    "best_n": 1
+  },
+  "rwr": {
+    "accuracy": 0.922,
+    "correct": 107,
+    "total_tested": 116,
+    "kappa": 0.8508,
+    "mcc": 0.8979,
+    "convergence_rate": 1.0,
+    "failures": [
+      "T003",
+      "T022",
+      "T046",
+      "T047",
+      "T049",
+      "T112",
+      "T128",
+      "T129",
+      "T137"
+    ],
+    "ci_95": [
+      0.7615,
+      0.9401
+    ],
+    "best_alpha": 0.5
+  },
+  "by_light_condition": {
+    "algebraic": {
+      "dark": {
+        "n": 21,
+        "correct": 20,
+        "accuracy_pct": 95.2
+      },
+      "warm": {
+        "n": 9,
+        "correct": 8,
+        "accuracy_pct": 88.9
+      },
+      "standard": {
+        "n": 38,
+        "correct": 36,
+        "accuracy_pct": 94.7
+      },
+      "white": {
+        "n": 16,
+        "correct": 16,
+        "accuracy_pct": 100.0
+      },
+      "blue": {
+        "n": 8,
+        "correct": 8,
+        "accuracy_pct": 100.0
+      },
+      "shade": {
+        "n": 8,
+        "correct": 7,
+        "accuracy_pct": 87.5
+      },
+      "uv-b": {
+        "n": 3,
+        "correct": 3,
+        "accuracy_pct": 100.0
+      },
+      "far-red": {
+        "n": 3,
+        "correct": 3,
+        "accuracy_pct": 100.0
+      },
+      "red": {
+        "n": 10,
+        "correct": 10,
+        "accuracy_pct": 100.0
+      }
+    },
+    "ode": {
+      "dark": {
+        "n": 21,
+        "correct": 20,
+        "accuracy_pct": 95.2
+      },
+      "warm": {
+        "n": 9,
+        "correct": 7,
+        "accuracy_pct": 77.8
+      },
+      "standard": {
+        "n": 38,
+        "correct": 34,
+        "accuracy_pct": 89.5
+      },
+      "white": {
+        "n": 16,
+        "correct": 16,
+        "accuracy_pct": 100.0
+      },
+      "blue": {
+        "n": 8,
+        "correct": 8,
+        "accuracy_pct": 100.0
+      },
+      "shade": {
+        "n": 8,
+        "correct": 7,
+        "accuracy_pct": 87.5
+      },
+      "uv-b": {
+        "n": 3,
+        "correct": 3,
+        "accuracy_pct": 100.0
+      },
+      "far-red": {
+        "n": 3,
+        "correct": 3,
+        "accuracy_pct": 100.0
+      },
+      "red": {
+        "n": 10,
+        "correct": 10,
+        "accuracy_pct": 100.0
+      }
+    },
+    "rwr": {
+      "dark": {
+        "n": 21,
+        "correct": 17,
+        "accuracy_pct": 81.0
+      },
+      "warm": {
+        "n": 9,
+        "correct": 8,
+        "accuracy_pct": 88.9
+      },
+      "standard": {
+        "n": 38,
+        "correct": 34,
+        "accuracy_pct": 89.5
+      },
+      "white": {
+        "n": 16,
+        "correct": 16,
+        "accuracy_pct": 100.0
+      },
+      "blue": {
+        "n": 8,
+        "correct": 8,
+        "accuracy_pct": 100.0
+      },
+      "shade": {
+        "n": 8,
+        "correct": 8,
+        "accuracy_pct": 100.0
+      },
+      "uv-b": {
+        "n": 3,
+        "correct": 3,
+        "accuracy_pct": 100.0
+      },
+      "far-red": {
+        "n": 3,
+        "correct": 3,
+        "accuracy_pct": 100.0
+      },
+      "red": {
+        "n": 10,
+        "correct": 10,
+        "accuracy_pct": 100.0
+      }
+    }
+  },
+  "stratified": {
+    "algebraic": {
+      "easy": {
+        "n": 102,
+        "correct": 98,
+        "accuracy_pct": 96.1,
+        "cohens_kappa": 0.9233,
+        "kappa_note": null
+      },
+      "medium": {
+        "n": 10,
+        "correct": 9,
+        "accuracy_pct": 90.0,
+        "cohens_kappa": 0.8148,
+        "kappa_note": null
+      },
+      "hard": {
+        "n": 4,
+        "correct": 4,
+        "accuracy_pct": 100.0,
+        "cohens_kappa": null,
+        "kappa_note": "stratum too small (n=4) for reliable kappa"
+      }
+    },
+    "ode": {
+      "easy": {
+        "n": 102,
+        "correct": 96,
+        "accuracy_pct": 94.1,
+        "cohens_kappa": 0.8868,
+        "kappa_note": null
+      },
+      "medium": {
+        "n": 10,
+        "correct": 8,
+        "accuracy_pct": 80.0,
+        "cohens_kappa": 0.6364,
+        "kappa_note": null
+      },
+      "hard": {
+        "n": 4,
+        "correct": 4,
+        "accuracy_pct": 100.0,
+        "cohens_kappa": null,
+        "kappa_note": "stratum too small (n=4) for reliable kappa"
+      }
+    },
+    "rwr": {
+      "easy": {
+        "n": 102,
+        "correct": 98,
+        "accuracy_pct": 96.1,
+        "cohens_kappa": 0.9219,
+        "kappa_note": null
+      },
+      "medium": {
+        "n": 10,
+        "correct": 5,
+        "accuracy_pct": 50.0,
+        "cohens_kappa": 0.1935,
+        "kappa_note": null
+      },
+      "hard": {
+        "n": 4,
+        "correct": 4,
+        "accuracy_pct": 100.0,
+        "cohens_kappa": null,
+        "kappa_note": "stratum too small (n=4) for reliable kappa"
+      }
+    }
+  },
+  "tier2_scope": {
+    "n_nodes": 54,
+    "n_edges": 103,
+    "n_tests": 116,
+    "t_effective": 134,
+    "mean_path_length": 2.42
+  }
+}

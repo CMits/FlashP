@@ -1,0 +1,292 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lateral_Root_Density",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "best_method": "RWR",
+    "best_accuracy_pct": 85.7,
+    "frs_best": 10.0895,
+    "frs_best_band": "large-scale strong",
+    "dars_best": 10.2376,
+    "dars_best_band": "large-scale strong"
+  },
+  "tests": {
+    "total": 158,
+    "tested": 119,
+    "skipped": 39
+  },
+  "algebraic": {
+    "accuracy": 0.773,
+    "correct": 92,
+    "total_tested": 119,
+    "kappa": 0.6159,
+    "mcc": 0.5563,
+    "convergence_rate": 1.0,
+    "failures": [
+      "T002",
+      "T003",
+      "T015",
+      "T019",
+      "T020",
+      "T027",
+      "T028",
+      "T029",
+      "T030",
+      "T044",
+      "T056",
+      "T065",
+      "T066",
+      "T069",
+      "T070",
+      "T071",
+      "T082",
+      "T086",
+      "T096",
+      "T097",
+      "T100",
+      "T101",
+      "T102",
+      "T115",
+      "T116",
+      "T141",
+      "T149"
+    ],
+    "ci_95": [
+      0.5009,
+      0.731
+    ]
+  },
+  "ode": {
+    "accuracy": 0.807,
+    "correct": 96,
+    "total_tested": 119,
+    "kappa": 0.656,
+    "mcc": 0.5531,
+    "convergence_rate": 1.0,
+    "failures": [
+      "T002",
+      "T015",
+      "T019",
+      "T020",
+      "T027",
+      "T028",
+      "T030",
+      "T056",
+      "T065",
+      "T066",
+      "T069",
+      "T070",
+      "T071",
+      "T086",
+      "T096",
+      "T097",
+      "T100",
+      "T101",
+      "T102",
+      "T115",
+      "T122",
+      "T155",
+      "T156"
+    ],
+    "ci_95": [
+      0.5388,
+      0.7733
+    ],
+    "best_K": 1.0,
+    "best_n": 2
+  },
+  "rwr": {
+    "accuracy": 0.857,
+    "correct": 102,
+    "total_tested": 119,
+    "kappa": 0.7291,
+    "mcc": 0.5774,
+    "convergence_rate": 1.0,
+    "failures": [
+      "T002",
+      "T056",
+      "T065",
+      "T066",
+      "T069",
+      "T070",
+      "T082",
+      "T086",
+      "T096",
+      "T097",
+      "T100",
+      "T101",
+      "T102",
+      "T122",
+      "T123",
+      "T141",
+      "T142"
+    ],
+    "ci_95": [
+      0.6157,
+      0.8426
+    ],
+    "best_alpha": 0.9
+  },
+  "by_condition": {
+    "algebraic": {
+      "standard": {
+        "n": 113,
+        "correct": 88,
+        "accuracy_pct": 77.9
+      },
+      "low_nitrate": {
+        "n": 3,
+        "correct": 2,
+        "accuracy_pct": 66.7
+      },
+      "acc_treatment": {
+        "n": 1,
+        "correct": 1,
+        "accuracy_pct": 100.0
+      },
+      "mild_N_deficient": {
+        "n": 1,
+        "correct": 0,
+        "accuracy_pct": 0.0
+      },
+      "high_nitrate": {
+        "n": 1,
+        "correct": 1,
+        "accuracy_pct": 100.0
+      }
+    },
+    "ode": {
+      "standard": {
+        "n": 113,
+        "correct": 92,
+        "accuracy_pct": 81.4
+      },
+      "low_nitrate": {
+        "n": 3,
+        "correct": 2,
+        "accuracy_pct": 66.7
+      },
+      "acc_treatment": {
+        "n": 1,
+        "correct": 1,
+        "accuracy_pct": 100.0
+      },
+      "mild_N_deficient": {
+        "n": 1,
+        "correct": 1,
+        "accuracy_pct": 100.0
+      },
+      "high_nitrate": {
+        "n": 1,
+        "correct": 0,
+        "accuracy_pct": 0.0
+      }
+    },
+    "rwr": {
+      "standard": {
+        "n": 113,
+        "correct": 98,
+        "accuracy_pct": 86.7
+      },
+      "low_nitrate": {
+        "n": 3,
+        "correct": 1,
+        "accuracy_pct": 33.3
+      },
+      "acc_treatment": {
+        "n": 1,
+        "correct": 1,
+        "accuracy_pct": 100.0
+      },
+      "mild_N_deficient": {
+        "n": 1,
+        "correct": 1,
+        "accuracy_pct": 100.0
+      },
+      "high_nitrate": {
+        "n": 1,
+        "correct": 1,
+        "accuracy_pct": 100.0
+      }
+    }
+  },
+  "stratified": {
+    "algebraic": {
+      "easy": {
+        "n": 102,
+        "correct": 81,
+        "accuracy_pct": 79.4,
+        "cohens_kappa": 0.6416,
+        "kappa_note": null
+      },
+      "medium": {
+        "n": 16,
+        "correct": 11,
+        "accuracy_pct": 68.8,
+        "cohens_kappa": 0.5181,
+        "kappa_note": null
+      },
+      "hard": {
+        "n": 1,
+        "correct": 0,
+        "accuracy_pct": 0.0,
+        "cohens_kappa": null,
+        "kappa_note": "stratum too small (n=1) for reliable kappa"
+      }
+    },
+    "ode": {
+      "easy": {
+        "n": 102,
+        "correct": 85,
+        "accuracy_pct": 83.3,
+        "cohens_kappa": 0.6919,
+        "kappa_note": null
+      },
+      "medium": {
+        "n": 16,
+        "correct": 11,
+        "accuracy_pct": 68.8,
+        "cohens_kappa": 0.5062,
+        "kappa_note": null
+      },
+      "hard": {
+        "n": 1,
+        "correct": 0,
+        "accuracy_pct": 0.0,
+        "cohens_kappa": null,
+        "kappa_note": "stratum too small (n=1) for reliable kappa"
+      }
+    },
+    "rwr": {
+      "easy": {
+        "n": 102,
+        "correct": 93,
+        "accuracy_pct": 91.2,
+        "cohens_kappa": 0.8249,
+        "kappa_note": null
+      },
+      "medium": {
+        "n": 16,
+        "correct": 9,
+        "accuracy_pct": 56.2,
+        "cohens_kappa": 0.3,
+        "kappa_note": null
+      },
+      "hard": {
+        "n": 1,
+        "correct": 0,
+        "accuracy_pct": 0.0,
+        "cohens_kappa": null,
+        "kappa_note": "stratum too small (n=1) for reliable kappa"
+      }
+    }
+  },
+  "tier2_scope": {
+    "n_nodes": 55,
+    "n_edges": 68,
+    "n_tests": 119,
+    "t_effective": 137,
+    "mean_path_length": 2.17
+  }
+}

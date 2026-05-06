@@ -1,0 +1,1840 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Flowering_Time",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-18",
+    "total_nodes": 38,
+    "total_edges": 59,
+    "source_nodes": 16,
+    "source_percentage": 42.11
+  },
+  "nodes": [
+    {
+      "id": "Long_Day",
+      "type": "ENVIRONMENT",
+      "full_name": "Long day photoperiod",
+      "description": "Long photoperiod input integrating clock phase with light duration; drives CO accumulation in leaves.",
+      "is_source": true
+    },
+    {
+      "id": "Blue_Light",
+      "type": "ENVIRONMENT",
+      "full_name": "Blue light",
+      "description": "Blue light activation of FKF1 (and cryptochromes) for photoperiod sensing.",
+      "is_source": true
+    },
+    {
+      "id": "Cold",
+      "type": "ENVIRONMENT",
+      "full_name": "Short-term cold",
+      "description": "Low-temperature signal activating CBFs and VIN3 initiation.",
+      "is_source": true
+    },
+    {
+      "id": "Vernalization",
+      "type": "ENVIRONMENT",
+      "full_name": "Prolonged winter cold",
+      "description": "Extended cold that triggers epigenetic silencing of FLC; competence to flower acquired after weeks of cold.",
+      "is_source": true
+    },
+    {
+      "id": "Warm_Temperature",
+      "type": "ENVIRONMENT",
+      "full_name": "Warm ambient temperature",
+      "description": "Above-optimal temperature activating PIF4 and destabilising SVP.",
+      "is_source": true
+    },
+    {
+      "id": "FRI",
+      "type": "GENE",
+      "full_name": "FRIGIDA",
+      "description": "Scaffolding factor recruiting the FRI complex to FLC chromatin; active FRI keeps FLC highly expressed in winter annuals.",
+      "is_source": true
+    },
+    {
+      "id": "PRC2",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "Polycomb Repressive Complex 2",
+      "description": "CLF/SWN-VRN2/FIE/MSI1 complex depositing H3K27me3 at FLC and other floral repressor loci.",
+      "is_source": true
+    },
+    {
+      "id": "SLY1",
+      "type": "GENE",
+      "full_name": "SLEEPY1",
+      "description": "F-box protein of the SCF^SLY1 complex; required co-factor for GID1-mediated DELLA ubiquitination (Perception Gate co-receptor).",
+      "is_source": true
+    },
+    {
+      "id": "GA20OX",
+      "type": "GENE",
+      "full_name": "GA20-oxidase",
+      "description": "Rate-limiting biosynthesis enzyme generating bioactive gibberellins (GA1, GA4).",
+      "is_source": true
+    },
+    {
+      "id": "FCA",
+      "type": "GENE",
+      "full_name": "FLOWERING CONTROL LOCUS A",
+      "description": "Autonomous-pathway RNA-binding protein that represses FLC via 3' processing and chromatin remodelling.",
+      "is_source": true
+    },
+    {
+      "id": "FPA",
+      "type": "GENE",
+      "full_name": "FLOWERING TIME CONTROL PROTEIN A",
+      "description": "Autonomous-pathway RRM-containing protein repressing FLC, partially redundant with FCA.",
+      "is_source": true
+    },
+    {
+      "id": "FLD",
+      "type": "GENE",
+      "full_name": "FLOWERING LOCUS D",
+      "description": "LSD1-family H3K4 demethylase; removes activating marks from FLC chromatin.",
+      "is_source": true
+    },
+    {
+      "id": "FVE",
+      "type": "GENE",
+      "full_name": "FLOWERING LOCUS VE (MSI4)",
+      "description": "WD40 component of HDAC-containing complex at FLC; autonomous repressor of FLC.",
+      "is_source": true
+    },
+    {
+      "id": "LD",
+      "type": "GENE",
+      "full_name": "LUMINIDEPENDENS",
+      "description": "Homeodomain-containing autonomous-pathway repressor of FLC.",
+      "is_source": true
+    },
+    {
+      "id": "GI",
+      "type": "GENE",
+      "full_name": "GIGANTEA",
+      "description": "Clock-regulated scaffold promoting FKF1-CDF interaction and directly activating CO; simplification: treated here as constitutive input to the photoperiod module (the clock is not modelled).",
+      "is_source": true
+    },
+    {
+      "id": "Sucrose",
+      "type": "METABOLITE",
+      "full_name": "Sucrose",
+      "description": "Photosynthate whose rising levels with age suppress miR156, promoting the juvenile-to-adult transition.",
+      "is_source": true
+    },
+    {
+      "id": "miR156",
+      "type": "REGULATORY_RNA",
+      "full_name": "microRNA 156",
+      "description": "Juvenile-phase miRNA that silences SPL transcripts; declines with age.",
+      "is_source": false
+    },
+    {
+      "id": "FKF1",
+      "type": "GENE",
+      "full_name": "FLAVIN-BINDING KELCH F-BOX 1",
+      "description": "Blue-light-activated F-box that targets CDF repressors for degradation and stabilises CO.",
+      "is_source": false
+    },
+    {
+      "id": "CDF1",
+      "type": "GENE",
+      "full_name": "CYCLING DOF FACTOR 1",
+      "description": "Composite representative for CDF1/2/3/5 \u2014 morning DOF repressors of CO.",
+      "is_source": false
+    },
+    {
+      "id": "CO",
+      "type": "GENE",
+      "full_name": "CONSTANS",
+      "description": "Central photoperiod output; activates FT in leaves when CO protein coincides with daylight.",
+      "is_source": false
+    },
+    {
+      "id": "VIN3",
+      "type": "GENE",
+      "full_name": "VERNALIZATION INSENSITIVE 3",
+      "description": "Cold-induced PHD-finger protein recruiting PRC2 to FLC.",
+      "is_source": false
+    },
+    {
+      "id": "FLC",
+      "type": "GENE",
+      "full_name": "FLOWERING LOCUS C",
+      "description": "MADS-box central floral repressor; represses FT and SOC1 transcriptionally.",
+      "is_source": false
+    },
+    {
+      "id": "SVP",
+      "type": "GENE",
+      "full_name": "SHORT VEGETATIVE PHASE",
+      "description": "MADS-box repressor of FT/SOC1; destabilised at warm temperatures.",
+      "is_source": false
+    },
+    {
+      "id": "PIF4",
+      "type": "GENE",
+      "full_name": "PHYTOCHROME INTERACTING FACTOR 4",
+      "description": "bHLH activator of FT under warm temperatures and low R:FR.",
+      "is_source": false
+    },
+    {
+      "id": "Gibberellin",
+      "type": "HORMONE",
+      "full_name": "Gibberellic acid (bioactive GAs)",
+      "description": "Bioactive gibberellins (GA1/GA4) produced by GA20ox/GA3ox; ligand for the GID1 receptor.",
+      "is_source": false
+    },
+    {
+      "id": "GID1",
+      "type": "GENE",
+      "full_name": "GIBBERELLIN INSENSITIVE DWARF 1",
+      "description": "Soluble GA receptor; with SLY1 forms the Perception Gate that targets DELLAs for degradation.",
+      "is_source": false
+    },
+    {
+      "id": "DELLA",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "DELLA proteins (GAI/RGA/RGL1/2/3)",
+      "description": "Composite node representing the five DELLA repressors; degraded upon GA\u2013GID1\u2013SLY1 perception.",
+      "is_source": false
+    },
+    {
+      "id": "SPL9",
+      "type": "GENE",
+      "full_name": "SQUAMOSA PROMOTER BINDING LIKE 9 (composite of SPL9/SPL15)",
+      "description": "Adult-phase transcription factor activating miR172 and the integrator genes; composite for SPL9 and SPL15 which share targets and are both miR156-regulated.",
+      "is_source": false
+    },
+    {
+      "id": "miR172",
+      "type": "REGULATORY_RNA",
+      "full_name": "microRNA 172",
+      "description": "Adult-phase miRNA that cleaves AP2-clade transcripts.",
+      "is_source": false
+    },
+    {
+      "id": "AP2",
+      "type": "GENE",
+      "full_name": "APETALA 2 (composite AP2/TOE1/TOE2/SMZ/SNZ)",
+      "description": "Composite node for the AP2-like flowering repressor clade; all members repress FT/SOC1 and are targeted by miR172.",
+      "is_source": false
+    },
+    {
+      "id": "FT",
+      "type": "GENE",
+      "full_name": "FLOWERING LOCUS T",
+      "description": "Leaf-produced florigen; moves through phloem to the SAM and partners with FD/14-3-3.",
+      "is_source": false
+    },
+    {
+      "id": "FD",
+      "type": "GENE",
+      "full_name": "FD (bZIP)",
+      "description": "Meristem-expressed bZIP transcription factor that partners with FT to activate AP1 and SOC1.",
+      "is_source": false
+    },
+    {
+      "id": "SOC1",
+      "type": "GENE",
+      "full_name": "SUPPRESSOR OF OVEREXPRESSION OF CO 1",
+      "description": "MADS-box floral integrator activating AGL24, LFY and AP1 at the shoot apex.",
+      "is_source": false
+    },
+    {
+      "id": "AGL24",
+      "type": "GENE",
+      "full_name": "AGAMOUS-LIKE 24",
+      "description": "MADS-box integrator reinforcing LFY expression.",
+      "is_source": false
+    },
+    {
+      "id": "AP1",
+      "type": "GENE",
+      "full_name": "APETALA 1",
+      "description": "Floral meristem identity MADS-box gene; part of the AP1-LFY-TFL1 switch.",
+      "is_source": false
+    },
+    {
+      "id": "LFY",
+      "type": "GENE",
+      "full_name": "LEAFY",
+      "description": "Plant-specific transcription factor specifying floral meristem identity; converges with AP1 to commit the meristem.",
+      "is_source": false
+    },
+    {
+      "id": "TFL1",
+      "type": "GENE",
+      "full_name": "TERMINAL FLOWER 1",
+      "description": "FT paralog that maintains indeterminate inflorescence identity by repressing AP1 and LFY; mutually antagonistic with AP1.",
+      "is_source": false
+    },
+    {
+      "id": "Flowering_Time",
+      "type": "PHENOTYPE",
+      "full_name": "Flowering time",
+      "description": "Time to flowering; increased = earlier, decreased = later.",
+      "is_source": false
+    }
+  ],
+  "edges": [
+    {
+      "source": "Long_Day",
+      "target": "CO",
+      "sign": 1,
+      "edge_id": "N001",
+      "effect": "activation",
+      "mechanism": "LD afternoon coincides with CO mRNA peak (driven by FKF1-GI-mediated CDF degradation) and stabilizes CO protein; SD degrades CO",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.16.01327",
+          "title": "Circadian Clock and Photoperiodic Flowering in Arabidopsis: CONSTANS Is a Hub for Signal Integration",
+          "authors": "Shim JS, Kubota A, Imaizumi T",
+          "year": 2017,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "CO protein is stabilized in LD conditions but degraded in SD conditions",
+          "claim": "Long day stabilizes CO",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Blue_Light",
+      "target": "FKF1",
+      "sign": 1,
+      "edge_id": "N002",
+      "effect": "activation",
+      "mechanism": "Blue light activates FKF1 LOV domain to form FKF1-GI complex",
+      "evidence": [
+        {
+          "doi": "10.1126/science.1146994",
+          "title": "FKF1 and GIGANTEA complex formation is required for day-length measurement in Arabidopsis",
+          "authors": "Sawa M, Nusinow DA, Kay SA, Imaizumi T",
+          "year": 2007,
+          "journal": "Science",
+          "evidence_sentence": "FKF1 and GI proteins form a complex in a blue-light dependent manner",
+          "claim": "Blue light activates FKF1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GI",
+      "target": "FKF1",
+      "sign": 1,
+      "edge_id": "N003",
+      "effect": "activation",
+      "mechanism": "GI physically binds FKF1 in a blue-light-dependent manner via FKF1 LOV domain; stabilizes FKF1 nuclear abundance",
+      "evidence": [
+        {
+          "doi": "10.1126/science.1146994",
+          "title": "FKF1 and GIGANTEA complex formation is required for day-length measurement in Arabidopsis",
+          "authors": "Sawa M, Nusinow DA, Kay SA, Imaizumi T",
+          "year": 2007,
+          "journal": "Science",
+          "evidence_sentence": "FKF1 and GI proteins form a complex in a blue-light dependent manner",
+          "claim": "GI and FKF1 form a blue-light-dependent complex that stabilizes FKF1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FKF1",
+      "target": "CDF1",
+      "sign": -1,
+      "edge_id": "N004",
+      "effect": "inhibition",
+      "mechanism": "FKF1 forms SCF(FKF1) E3 ligase complex with ASK1, ASK2, CUL1 and targets CDF1 for ubiquitin-mediated degradation in late afternoon",
+      "evidence": [
+        {
+          "doi": "10.1126/science.1146994",
+          "title": "FKF1 and GIGANTEA complex formation is required for day-length measurement in Arabidopsis",
+          "authors": "Sawa M, Nusinow DA, Kay SA, Imaizumi T",
+          "year": 2007,
+          "journal": "Science",
+          "evidence_sentence": "FKF1 regulates CO by degrading its repressor, CDF1",
+          "claim": "FKF1 degrades CDF1 protein",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1199/tab.0178",
+          "title": "Photoperiodic Regulation of Florigen Function in Arabidopsis thaliana",
+          "authors": "Golembeski GS, Imaizumi T",
+          "year": 2015,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "CDF repression of CO is released in the afternoon through the action of a blue light induced complex composed of the GIGANTEA (GI) protein and the LOV domain blue-light photoreceptor E3 ubiquitin ligase FLAVIN BINDING, KELCH REPEAT, F-BOX 1 (FKF1)",
+          "claim": "FKF1 degrades CDF proteins",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GI",
+      "target": "CDF1",
+      "sign": -1,
+      "edge_id": "N005",
+      "effect": "repression",
+      "mechanism": "GI forms complex with FKF1 that degrades CDFs in afternoon",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0178",
+          "title": "Photoperiodic Regulation of Florigen Function in Arabidopsis thaliana",
+          "authors": "Golembeski GS, Imaizumi T",
+          "year": 2015,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "CDF repression of CO is released in the afternoon through the action of a blue light induced complex composed of the GIGANTEA (GI) protein and the LOV domain blue-light photoreceptor E3 ubiquitin ligase FLAVIN BINDING, KELCH REPEAT, F-BOX 1 (FKF1)",
+          "claim": "GI degrades CDF proteins",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CDF1",
+      "target": "CO",
+      "sign": -1,
+      "edge_id": "N006",
+      "effect": "repression",
+      "mechanism": "CDF1-5 bind DOF cis-elements in CO promoter in the morning and recruit TOPLESS/TPR co-repressors",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2023.100552",
+          "title": "Photoperiodic flowering in Arabidopsis: Multilayered regulatory mechanisms of CONSTANS and the florigen FLOWERING LOCUS T",
+          "authors": "Takagi H, Hempton AK, Imaizumi T",
+          "year": 2023,
+          "journal": "Plant Communications",
+          "evidence_sentence": "CYCLING DOF FACTOR 1 (CDF1) to CDF5 were the first CO regulators identified, strongly repressing CO transcription by recruiting TOPLESS(TPL)/TPL-RELATED (TPR) co-repressors",
+          "claim": "CDF1 represses CO transcription",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1199/tab.0178",
+          "title": "Photoperiodic Regulation of Florigen Function in Arabidopsis thaliana",
+          "authors": "Golembeski GS, Imaizumi T",
+          "year": 2015,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "Repression of CO expression during the morning...is mediated by the CYCLING DOF FACTOR (CDF) family of DOF domain transcription factors",
+          "claim": "CDF proteins repress CO transcription",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GI",
+      "target": "CO",
+      "sign": 1,
+      "edge_id": "N007",
+      "effect": "activation",
+      "mechanism": "GI activates CO expression via FKF1-mediated degradation of CDF repressors; GI also partners with FKF1 to stabilize afternoon CO protein",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.12759",
+          "title": "The GI-CDF module of Arabidopsis affects freezing tolerance and growth as well as flowering",
+          "authors": "Fornara F, de Montaigu A, Sanchez-Villarreal A, Zafra A, Davis SJ, Alfaro J, Davis AM, Schneeberger K, Coupland G",
+          "year": 2015,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "GI was shown to activate expression of the key floral regulators CONSTANS (CO) and FLOWERING LOCUS T (FT) by facilitating degradation of a family of CYCLING DOF FACTOR (CDF) transcriptional repressors",
+          "claim": "GI activates CO by facilitating CDF degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FKF1",
+      "target": "CO",
+      "sign": 1,
+      "edge_id": "N008",
+      "effect": "activation",
+      "mechanism": "FKF1 binds CO through LOV domain in blue-light-enhanced manner; prevents COP1 homodimer formation, stabilizing CO in LD afternoon",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1415375111",
+          "title": "Distinct roles of FKF1, GIGANTEA, and ZEITLUPE proteins in the regulation of CONSTANS stability in Arabidopsis photoperiodic flowering",
+          "authors": "Song YH, Estrada DA, Johnson RS, Li S, Kim SY, Kiba T, Kay SA, MacCoss MJ, Imaizumi T",
+          "year": 2014,
+          "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+          "evidence_sentence": "FKF1 binds to CO through the LOV domain in a blue light-enhanced manner and stabilizes CO specifically in the LD afternoon",
+          "claim": "FKF1 stabilizes CO protein in LD afternoon",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1199/tab.0178",
+          "title": "Photoperiodic Regulation of Florigen Function in Arabidopsis thaliana",
+          "authors": "Golembeski GS, Imaizumi T",
+          "year": 2015,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "Under blue light conditions, FKF1, in addition to its described role in CDF degradation, also stabilizes CO protein",
+          "claim": "FKF1 stabilizes CO protein",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CO",
+      "target": "FT",
+      "sign": 1,
+      "edge_id": "N009",
+      "effect": "activation",
+      "mechanism": "CO binds directly to CORE cis-elements in FT promoter; CO-NF-Y complex brings distal NF-Y binding sites to proximal CORE via chromatin looping",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.16.01327",
+          "title": "Circadian Clock and Photoperiodic Flowering in Arabidopsis: CONSTANS Is a Hub for Signal Integration",
+          "authors": "Shim JS, Kubota A, Imaizumi T",
+          "year": 2017,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "CO binds to the cis-element referred to as CO Responsive Element (CORE) in the FT promoter",
+          "claim": "CO directly activates FT transcription",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.3390/ijms22115716",
+          "title": "Beyond the Genetic Pathways, Flowering Regulation Complexity in Arabidopsis thaliana",
+          "authors": "Quiroz S, Yustis JC, Chavez-Hernandez EC, Martinez T, Sanchez MP, Garay-Arroyo A, Alvarez-Buylla ER, Garcia-Ponce B",
+          "year": 2021,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "CO \u00e2\u2020\u2019 FT: Binding to CO-responsive elements (CORE)",
+          "claim": "CO activates FT",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1199/tab.0178",
+          "title": "Photoperiodic Regulation of Florigen Function in Arabidopsis thaliana",
+          "authors": "Golembeski GS, Imaizumi T",
+          "year": 2015,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "Primary activation of FT in the late afternoon of long day conditions is accomplished through the action of CO protein",
+          "claim": "CO activates FT",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FRI",
+      "target": "FLC",
+      "sign": 1,
+      "edge_id": "N010",
+      "effect": "activation",
+      "mechanism": "FRI forms scaffold complex (FRI-C) with FRL1/FES1/SUF4/FLX to activate FLC via chromatin modifier recruitment",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0171",
+          "title": "Genetic and Epigenetic Mechanisms Underlying Vernalization",
+          "authors": "Kim DH, Sung S",
+          "year": 2014,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "FRI mainly acts to up-regulate FLC transcription and thus contributes to the vernalization requirement",
+          "claim": "FRI activates FLC",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Cold",
+      "target": "VIN3",
+      "sign": 1,
+      "edge_id": "N011",
+      "effect": "activation",
+      "mechanism": "Prolonged cold progressively induces VIN3 transcription",
+      "evidence": [
+        {
+          "doi": "10.4161/psb.5.11.13465",
+          "title": "Mechanisms underlying vernalization-mediated VIN3 induction",
+          "authors": "Kim DH, Zografos BR, Sung S",
+          "year": 2010,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "The most direct link between measurement of the duration of cold and the output of vernalization response is the induction of VIN3 expression, which is tightly linked to prolonged cold exposure",
+          "claim": "Cold induces VIN3",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Vernalization",
+      "target": "VIN3",
+      "sign": 1,
+      "edge_id": "N012",
+      "effect": "activation",
+      "mechanism": "Vernalizing cold progressively activates VIN3 via H3K4me3",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0606385103",
+          "title": "Polycomb-like complex",
+          "authors": "Wood CC et al.",
+          "year": 2006,
+          "journal": "PNAS",
+          "evidence_sentence": "VIN3 mRNA is present at very low abundance during growth at warm temperatures, with expression increasing progressively during vernalization",
+          "claim": "Vernalization induces VIN3",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "VIN3",
+      "target": "FLC",
+      "sign": -1,
+      "edge_id": "N013",
+      "effect": "repression",
+      "mechanism": "VIN3 PHD protein binds H3K9me2 and recruits PRC2 for H3K27me3 silencing",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0171",
+          "title": "Genetic and Epigenetic Mechanisms Underlying Vernalization",
+          "authors": "Kim DH, Sung S",
+          "year": 2014,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "all VIN3 family proteins preferentially bind to H3K9me2 peptides in vitro through PHD motifs",
+          "claim": "VIN3 recruits PRC2 to silence FLC",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PRC2",
+      "target": "FLC",
+      "sign": -1,
+      "edge_id": "N014",
+      "effect": "repression",
+      "mechanism": "PRC2 catalyzes H3K27me3 at FLC",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.14817",
+          "title": "Transcriptome and epigenome analyses of vernalization",
+          "authors": "Xi Y et al.",
+          "year": 2020,
+          "journal": "Plant Journal",
+          "evidence_sentence": "PRC2 catalyzes tri-methylation of histone H3K27",
+          "claim": "PRC2 silences FLC",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FCA",
+      "target": "FLC",
+      "sign": -1,
+      "edge_id": "N015",
+      "effect": "repression",
+      "mechanism": "FCA autonomous-pathway RBP represses FLC",
+      "evidence": [
+        {
+          "doi": "10.1534/genetics.104.036533",
+          "title": "FRI-Independent Flowering Time",
+          "authors": "Werner JD et al.",
+          "year": 2005,
+          "journal": "Genetics",
+          "evidence_sentence": "FLC is also negatively regulated by the autonomous pathway",
+          "claim": "FCA represses FLC",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1104/pp.19.01009",
+          "title": "Autonomous Pathway: FLOWERING LOCUS C Repression through an Antisense-Mediated Chromatin-Silencing Mechanism",
+          "authors": "Wu Z, Fang X, Zhu D, Dean C",
+          "year": 2020,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "FCA is a nuclear RNA-binding protein that functions in regulating alternative RNA 3'-end processing. FCA, FPA, and FY activities promote proximal polyadenylation of COOLAIR.",
+          "claim": "FCA represses FLC via COOLAIR processing",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FPA",
+      "target": "FLC",
+      "sign": -1,
+      "edge_id": "N016",
+      "effect": "repression",
+      "mechanism": "FPA autonomous-pathway RBP represses FLC",
+      "evidence": [
+        {
+          "doi": "10.1534/genetics.104.036533",
+          "title": "FRI-Independent",
+          "authors": "Werner JD et al.",
+          "year": 2005,
+          "journal": "Genetics",
+          "evidence_sentence": "FLC is also negatively regulated by the autonomous pathway",
+          "claim": "FPA represses FLC",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1105/tpc.13.6.1427",
+          "title": "FPA, a Gene Involved in Floral Induction in Arabidopsis, Encodes a Protein Containing RNA-Recognition Motifs",
+          "authors": "Schomburg FM, Patton DA, Meinke DW, Amasino RM",
+          "year": 2001,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "The predicted FPA protein contains three RNA recognition motifs in the N-terminal region; autonomous-pathway genes act to decrease FLC.",
+          "claim": "FPA represses FLC",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FLD",
+      "target": "FLC",
+      "sign": -1,
+      "edge_id": "N017",
+      "effect": "repression",
+      "mechanism": "FLD autonomous-pathway H3K4 demethylase represses FLC",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0171",
+          "title": "Genetic and Epigenetic Mechanisms",
+          "authors": "Kim DH, Sung S",
+          "year": 2014,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "Mutations in autonomous pathway genes result in high level of FLC expression",
+          "claim": "FLD represses FLC",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1104/pp.19.01009",
+          "title": "Autonomous Pathway: FLOWERING LOCUS C Repression through an Antisense-Mediated Chromatin-Silencing Mechanism",
+          "authors": "Wu Z, Fang X, Zhu D, Dean C",
+          "year": 2020,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "FLD is a histone Lys-4 demethylase; FLD demethylates H3K4me2 mainly in the body of the FLC gene.",
+          "claim": "FLD represses FLC by H3K4me2 demethylation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FVE",
+      "target": "FLC",
+      "sign": -1,
+      "edge_id": "N018",
+      "effect": "repression",
+      "mechanism": "FVE recruits HDA6 to FLC",
+      "evidence": [
+        {
+          "doi": "10.4161/psb.27342",
+          "title": "HOS1",
+          "authors": "Jung JH, Park CM",
+          "year": 2013,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "HOS1 physically interacts with FVE, and FVE is essential for the binding of HOS1 to FLC chromatin",
+          "claim": "FVE represses FLC",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1007/s10059-011-1022-6",
+          "title": "FVE, an Arabidopsis homologue of the retinoblastoma-associated protein that regulates flowering time and cold response, binds to chromatin as a large multiprotein complex",
+          "authors": "Jeon J, Kim J",
+          "year": 2011,
+          "journal": "Molecules and Cells",
+          "evidence_sentence": "In the fve mutants, the FLC chromatin was enriched in acetylated histones H3 and H4, thereby indicating that FVE is required for histone deacetylation at the FLC chromatin.",
+          "claim": "FVE represses FLC via histone deacetylation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "LD",
+      "target": "FLC",
+      "sign": -1,
+      "edge_id": "N019",
+      "effect": "repression",
+      "mechanism": "LD is a homeodomain-containing transcriptional repressor of FLC; interacts with FLD and SDG26 in autonomous pathway complex",
+      "evidence": [
+        {
+          "doi": "10.1093/nar/gkac551",
+          "title": "Characterization of an autonomous pathway complex that promotes flowering in Arabidopsis",
+          "authors": "Qi PL, et al.",
+          "year": 2022,
+          "journal": "Nucleic Acids Research",
+          "evidence_sentence": "LD is a homeodomain-containing protein that functions as a transcriptional repressor of FLC; SDG26 interacts with the autonomous pathway components LD and FLD and thereby forms a complex that promotes flowering by suppressing FLC expression.",
+          "claim": "LD represses FLC",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FLC",
+      "target": "FT",
+      "sign": -1,
+      "edge_id": "N020",
+      "effect": "repression",
+      "mechanism": "FLC-SVP heterodimer binds first intron of FT and represses transcription",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2023.100552",
+          "title": "Photoperiodic flowering in Arabidopsis: Multilayered regulatory mechanisms of CONSTANS and the florigen FLOWERING LOCUS T",
+          "authors": "Takagi H, Hempton AK, Imaizumi T",
+          "year": 2023,
+          "journal": "Plant Communications",
+          "evidence_sentence": "SVP-FLC, SVP-FLM, FLC-FLM heterodimers bind to the first intron of FT",
+          "claim": "FLC represses FT",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1105/tpc.108.063883",
+          "title": "SOC1-FLC crosstalk",
+          "authors": "Seo E et al.",
+          "year": 2009,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "FLC...acts as a negative regulator of flowering",
+          "claim": "FLC represses FT",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1371/journal.pone.0116973",
+          "title": "A Quantitative and Dynamic Model of the Arabidopsis Flowering Time Gene Regulatory Network",
+          "authors": "Leal Valentim F, van Mourik S, Pose D, Kim MC, Schmid M, van Ham RCHJ, Busscher M, Sanchez-Perez GF, Molenaar J, Angenent GC, Immink RGH, van Dijk ADJ",
+          "year": 2015,
+          "journal": "PLOS One",
+          "evidence_sentence": "SVP and FLC repress the transcription of FT in leaves",
+          "claim": "FLC represses FT",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1093/plphys/kiaf225",
+          "title": "Mutations in the floral regulator gene HUA2 restore flowering to the Arabidopsis trehalose 6-phosphate synthase1 (tps1) mutant",
+          "authors": "Zeng L, Zacharaki V, van Es SW, Wang Y, Schmid M",
+          "year": 2025,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "loss of FLC is sufficient to induce flowering in tps1-2 GVG::TPS1",
+          "claim": "FLC represses FT",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FLC",
+      "target": "SOC1",
+      "sign": -1,
+      "edge_id": "N021",
+      "effect": "repression",
+      "mechanism": "FLC binds SOC1 promoter and represses it; cdf1235 mutation relieves this to increase SOC1",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.12759",
+          "title": "The GI-CDF module of Arabidopsis affects freezing tolerance and growth as well as flowering",
+          "authors": "Fornara F, de Montaigu A, Sanchez-Villarreal A, Zafra A, Davis SJ, Alfaro J, Davis AM, Schneeberger K, Coupland G",
+          "year": 2015,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "FT, SUPPRESSOR OF OVEREXPRESSION OF CONSTANS 1 (SOC1) and FRUITFULL (FUL)",
+          "claim": "FLC represses SOC1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1105/tpc.108.063883",
+          "title": "SOC1-FLC crosstalk",
+          "authors": "Seo E et al.",
+          "year": 2009,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "FLC, mediating the autonomous/vernalization pathway, acts as a negative regulator of flowering",
+          "claim": "FLC represses SOC1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1104/pp.112.202614",
+          "title": "Characterization of SOC1's Central Role in Flowering by the Identification of Its Upstream and Downstream Regulators",
+          "authors": "Immink RGH, Pose D, Ferrario S, Ott F, Kaufmann K, Valentim FL, de Folter S, van der Wal F, van Dijk AD, Schmid M, Angenent GC",
+          "year": 2012,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "FLC represses the expression of SOC1 via direct binding to the SOC1 promoter region",
+          "claim": "FLC represses SOC1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SVP",
+      "target": "FT",
+      "sign": -1,
+      "edge_id": "N022",
+      "effect": "repression",
+      "mechanism": "SVP-FLC, SVP-FLM heterodimers bind first intron of FT and repress transcription",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2023.100552",
+          "title": "Photoperiodic flowering in Arabidopsis: Multilayered regulatory mechanisms of CONSTANS and the florigen FLOWERING LOCUS T",
+          "authors": "Takagi H, Hempton AK, Imaizumi T",
+          "year": 2023,
+          "journal": "Plant Communications",
+          "evidence_sentence": "SVP-FLC, SVP-FLM, FLC-FLM heterodimers bind to the first intron of FT",
+          "claim": "SVP represses FT",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1371/journal.pone.0116973",
+          "title": "A Quantitative and Dynamic Model of the Arabidopsis Flowering Time Gene Regulatory Network",
+          "authors": "Leal Valentim F, van Mourik S, Pose D, Kim MC, Schmid M, van Ham RCHJ, Busscher M, Sanchez-Perez GF, Molenaar J, Angenent GC, Immink RGH, van Dijk ADJ",
+          "year": 2015,
+          "journal": "PLOS One",
+          "evidence_sentence": "SVP and FLC repress the transcription of FT in leaves",
+          "claim": "SVP represses FT",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1101/gad.1518407",
+          "title": "Role of SVP in the control of flowering time by ambient temperature in Arabidopsis",
+          "authors": "Lee JH, Yoo SJ, Park SH, Hwang I, Lee JS, Ahn JH",
+          "year": 2007,
+          "journal": "Genes & Development",
+          "evidence_sentence": "SVP represses FT expression via direct binding to the vCArG III motif in the FT promoter",
+          "claim": "SVP directly represses FT via vCArG III binding",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SVP",
+      "target": "SOC1",
+      "sign": -1,
+      "edge_id": "N023",
+      "effect": "repression",
+      "mechanism": "SVP binds SOC1 regulatory sequences directly, often as a complex with FLC",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.112.202614",
+          "title": "Characterization of SOC1's Central Role in Flowering by the Identification of Its Upstream and Downstream Regulators",
+          "authors": "Immink RGH, Pose D, Ferrario S, Ott F, Kaufmann K, Valentim FL, de Folter S, van der Wal F, van Dijk AD, Schmid M, Angenent GC",
+          "year": 2012,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "SVP binds SOC1 regulatory sequences as well",
+          "claim": "SVP represses SOC1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Warm_Temperature",
+      "target": "SVP",
+      "sign": -1,
+      "edge_id": "N024",
+      "effect": "repression",
+      "mechanism": "Warm ambient temperature triggers rapid SVP protein degradation via the 26S proteasome pathway",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms19103196",
+          "title": "Ambient Temperature-Responsive Mechanisms Coordinate Regulation of Flowering Time",
+          "authors": "Susila H, Nasim Z, Ahn JH",
+          "year": 2018,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "SVP protein is rapidly degraded by the 26S proteasome pathway in response to warm ambient temperatures",
+          "claim": "Warm temperature induces SVP protein degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Warm_Temperature",
+      "target": "PIF4",
+      "sign": 1,
+      "edge_id": "N025",
+      "effect": "activation",
+      "mechanism": "Warm temperature releases ELF3/HY5 repression and stabilizes PIF4 via reduced phyB activity",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms19103196",
+          "title": "Ambient Temperature-Responsive Mechanisms Coordinate Regulation of Flowering Time",
+          "authors": "Susila H, Nasim Z, Ahn JH",
+          "year": 2018,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "Warm temperatures reduce the binding of the evening complex to chromatin and eventually promotes the expression of PIF4",
+          "claim": "Warm temperature activates PIF4",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PIF4",
+      "target": "FT",
+      "sign": 1,
+      "edge_id": "N026",
+      "effect": "activation",
+      "mechanism": "PIF4 binds Block E region of FT promoter",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2023.100552",
+          "title": "Photoperiodic flowering in Arabidopsis: Multilayered regulatory mechanisms of CONSTANS and the florigen FLOWERING LOCUS T",
+          "authors": "Takagi H, Hempton AK, Imaizumi T",
+          "year": 2023,
+          "journal": "Plant Communications",
+          "evidence_sentence": "PIF4 binds Block E region",
+          "claim": "PIF4 activates FT via Block E",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.3390/ijms19103196",
+          "title": "Ambient Temperature-Responsive Mechanisms Coordinate Regulation of Flowering Time",
+          "authors": "Susila H, Nasim Z, Ahn JH",
+          "year": 2018,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "PIF4 plays an important role in the activation of FT expression at warm ambient temperature",
+          "claim": "PIF4 directly activates FT at warm temperature",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GA20OX",
+      "target": "Gibberellin",
+      "sign": 1,
+      "edge_id": "N027",
+      "effect": "activation",
+      "mechanism": "GA20ox catalyzes the penultimate step in bioactive GA production",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Tai-ping Sun",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "Overexpression of GA20ox: early flowering and increased stem growth phenotypes",
+          "claim": "GA20ox produces bioactive gibberellin",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Gibberellin",
+      "target": "GID1",
+      "sign": 1,
+      "edge_id": "N028",
+      "effect": "activation",
+      "mechanism": "Bioactive GA binds the GID1 receptor, enabling GID1 to interact with DELLA proteins",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Tai-ping Sun",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "GID1s bind to bioactive GAs with high affinity, but not to inactive GA derivatives",
+          "claim": "GA activates the GID1 receptor",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GID1",
+      "target": "DELLA",
+      "sign": -1,
+      "edge_id": "N029",
+      "effect": "inhibition",
+      "mechanism": "GID1-GA-DELLA complex recruits SCF-SLY1 E3 ligase that polyubiquitinates DELLA for 26S proteasome degradation",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Tai-ping Sun",
+          "year": 2008,
+          "journal": "The Arabidopsis Book",
+          "evidence_sentence": "GA de-represses its signaling pathway by binding to GID1s, which induce degradation of GA signaling repressors (DELLAs) via an ubiquitin-proteasome pathway",
+          "claim": "GID1 promotes DELLA degradation upon GA binding",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SLY1",
+      "target": "DELLA",
+      "sign": -1,
+      "edge_id": "N030",
+      "effect": "inhibition",
+      "mechanism": "SLY1 F-box protein recognizes GA-GID1-bound DELLA and triggers its polyubiquitination/degradation",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.113.219451",
+          "title": "Lifting DELLA Repression of Arabidopsis Seed Germination by Nonproteolytic Gibberellin Signaling",
+          "authors": "Ariizumi T, Hauvermale AL, Nelson SK, Hanada A, Yamaguchi S, Steber CM",
+          "year": 2013,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "GID1-GA-DELLA complex formation stimulates DELLA recognition by the F-box protein SLY1, leading to DELLA polyubiquitination",
+          "claim": "SLY1 degrades DELLA",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "DELLA",
+      "target": "SPL9",
+      "sign": -1,
+      "edge_id": "N031",
+      "effect": "inhibition",
+      "mechanism": "DELLA proteins (RGA, GAI) directly bind SPL9 and interfere with SPL9 transcriptional activity",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.112.101014",
+          "title": "Gibberellin Regulates the Arabidopsis Floral Transition through miR156-Targeted SQUAMOSA PROMOTER BINDING-LIKE Transcription Factors",
+          "authors": "Yu S, Galvao VC, Zhang YC, et al.",
+          "year": 2012,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "DELLA directly binds to microRNA156 (miR156)-targeted SQUAMOSA PROMOTER BINDING-LIKE (SPL) transcription factors; the interaction between DELLA and SPL interferes with SPL transcriptional activity.",
+          "claim": "DELLA inhibits SPL9 activity",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1105/tpc.112.101014",
+          "title": "Gibberellin Regulates the Arabidopsis Floral Transition through miR156-Targeted SQUAMOSA PROMOTER BINDING-LIKE Transcription Factors",
+          "authors": "Yu S, Galvao VC, Zhang YC, Horrer D, Zhang TQ, Hao YH, Feng YQ, Wang S, Schmid M, Wang JW",
+          "year": 2012,
+          "journal": "Plant Cell",
+          "evidence_sentence": "DELLA directly binds to miR156-targeted SPL transcription factors; The C-terminal domain of SPL9 is responsible for interaction with RGA",
+          "claim": "DELLA inhibits SPL9 transactivation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "DELLA",
+      "target": "LFY",
+      "sign": -1,
+      "edge_id": "N032",
+      "effect": "repression",
+      "mechanism": "DELLA inhibits LFY transcription, counteracting GA induction",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.042317",
+          "title": "GA4 Is the Active Gibberellin in the Regulation of LEAFY Transcription and Arabidopsis Floral Initiation",
+          "authors": "Eriksson S, Bohlenius H, Moritz T, Nilsson O",
+          "year": 2006,
+          "journal": "Plant Cell",
+          "evidence_sentence": "GA-deficient ga1-3 mutants fail to flower when grown under short days, with inability to upregulate LFY",
+          "claim": "DELLA represses LFY",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "DELLA",
+      "target": "SOC1",
+      "sign": -1,
+      "edge_id": "N033",
+      "effect": "repression",
+      "mechanism": "DELLA represses SOC1 via multiple routes (SPL binding, GAF1 coactivation of repressors, BRM interaction)",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.112.202614",
+          "title": "Characterization of SOC1's Central Role in Flowering by the Identification of Its Upstream and Downstream Regulators",
+          "authors": "Immink RGH, Pose D, Ferrario S, Ott F, Kaufmann K, Valentim FL, de Folter S, van der Wal F, van Dijk AD, Schmid M, Angenent GC",
+          "year": 2012,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "SOC1 integrates the GA-mediated flowering-time signal",
+          "claim": "DELLA represses SOC1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Sucrose",
+      "target": "miR156",
+      "sign": -1,
+      "edge_id": "N034",
+      "effect": "repression",
+      "mechanism": "Sugar represses MIR156A and MIR156C expression to promote vegetative phase change",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20246166",
+          "title": "A Regulatory Network for miR156-SPL Module in Arabidopsis thaliana",
+          "authors": "Zheng C, Ye M, Sang M, Wu R",
+          "year": 2019,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "Sugar promotes vegetative phase change in Arabidopsis thaliana by repressing the expression of MIR156A and MIR156C.",
+          "claim": "Sucrose represses miR156",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "miR156",
+      "target": "SPL9",
+      "sign": -1,
+      "edge_id": "N035",
+      "effect": "repression",
+      "mechanism": "miR156 targets SPL9 transcript by cleavage/translational repression",
+      "evidence": [
+        {
+          "doi": "10.1016/j.cell.2009.06.031",
+          "title": "The sequential action of miR156 and miR172 regulates developmental timing in Arabidopsis",
+          "authors": "Wu G, Park MY, Conway SR, Wang JW, Weigel D, Poethig RS",
+          "year": 2009,
+          "journal": "Cell",
+          "evidence_sentence": "miR156 targets 10 members of the SQUAMOSA PROMOTER BINDING PROTEIN LIKE (SPL) family of transcription factors (SPL2, SPL3, SPL4, SPL5, SPL6, SPL9, SPL10, SPL11, SPL13, SPL15).",
+          "claim": "miR156 represses SPL9",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1105/tpc.112.101014",
+          "title": "Gibberellin Regulates the Arabidopsis Floral Transition through miR156-Targeted SQUAMOSA PROMOTER BINDING-LIKE Transcription Factors",
+          "authors": "Yu S, Galvao VC, Zhang YC, Horrer D, Zhang TQ, Hao YH, Feng YQ, Wang S, Schmid M, Wang JW",
+          "year": 2012,
+          "journal": "Plant Cell",
+          "evidence_sentence": "The age-dependent decrease in miR156 results in an increase in SPLs",
+          "claim": "miR156 represses SPL9",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SPL9",
+      "target": "miR172",
+      "sign": 1,
+      "edge_id": "N036",
+      "effect": "activation",
+      "mechanism": "SPL9 binds upstream of MIR172B promoter (~1.2 kb upstream) and directly transcriptionally activates miR172b",
+      "evidence": [
+        {
+          "doi": "10.1016/j.cell.2009.06.031",
+          "title": "The sequential action of miR156 and miR172 regulates developmental timing in Arabidopsis",
+          "authors": "Wu G, Park MY, Conway SR, Wang JW, Weigel D, Poethig RS",
+          "year": 2009,
+          "journal": "Cell",
+          "evidence_sentence": "SPL9 is a direct transcriptional activator of miR172b with enrichment ~5-fold at binding site S1 located 1.2 kb upstream of miR172b transcription start.",
+          "claim": "SPL9 activates miR172b",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1105/tpc.112.101014",
+          "title": "Gibberellin Regulates the Arabidopsis Floral Transition through miR156-Targeted SQUAMOSA PROMOTER BINDING-LIKE Transcription Factors",
+          "authors": "Yu S, Galvao VC, Zhang YC, Horrer D, Zhang TQ, Hao YH, Feng YQ, Wang S, Schmid M, Wang JW",
+          "year": 2012,
+          "journal": "Plant Cell",
+          "evidence_sentence": "rSPL9 resulted in a threefold increase in MIR172b transcripts",
+          "claim": "SPL9 activates miR172",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "miR172",
+      "target": "AP2",
+      "sign": -1,
+      "edge_id": "N037",
+      "effect": "repression",
+      "mechanism": "miR172 targets AP2 transcript",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11030319",
+          "title": "The Critical Role of miRNAs in Regulation of Flowering Time and Flower Development",
+          "authors": "Waheed S, Zeng L",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "In Arabidopsis miR172 negatively regulate the expression of AP2 and five AP2-like genes including TARGET OF EAT 1 (TOE1), TOE2, TOE3, SCHNARCHZAPFEN (SNZ) and SCHLAFMUTZE (SMZ).",
+          "claim": "miR172 represses AP2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1105/tpc.112.101014",
+          "title": "Gibberellin Regulates the Arabidopsis Floral Transition through miR156-Targeted SQUAMOSA PROMOTER BINDING-LIKE Transcription Factors",
+          "authors": "Yu S, Galvao VC, Zhang YC, Horrer D, Zhang TQ, Hao YH, Feng YQ, Wang S, Schmid M, Wang JW",
+          "year": 2012,
+          "journal": "Plant Cell",
+          "evidence_sentence": "miR172 controls its targeted genes mainly through translational inhibition",
+          "claim": "miR172 represses AP2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "AP2",
+      "target": "SOC1",
+      "sign": -1,
+      "edge_id": "N038",
+      "effect": "repression",
+      "mechanism": "AP2 directly binds SOC1 upstream region to repress transcription",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.075606",
+          "title": "Orchestration of the Floral Transition and Floral Development in Arabidopsis by the Bifunctional Transcription Factor APETALA2",
+          "authors": "Yant L, Mathieu J, Dinh TT, Ott F, Lanz C, Wollmann H, Chen X, Schmid M",
+          "year": 2010,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "SOC1: AP2 directly binds upstream region and represses transcription; soc1-2 ap2-12 double mutant flowered only 1 leaf later than wild-type",
+          "claim": "AP2 represses SOC1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "AP2",
+      "target": "AP1",
+      "sign": -1,
+      "edge_id": "N039",
+      "effect": "repression",
+      "mechanism": "AP2 binds AP1 regulatory regions (ChIP-seq direct targets)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.075606",
+          "title": "Orchestration of the Floral Transition and Floral Development in Arabidopsis by the Bifunctional Transcription Factor APETALA2",
+          "authors": "Yant L, Mathieu J, Dinh TT, Ott F, Lanz C, Wollmann H, Chen X, Schmid M",
+          "year": 2010,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "Other Direct Targets: SEP3, AP1, TOE3, ARF3/ETTIN, AGL44",
+          "claim": "AP2 represses AP1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FT",
+      "target": "FD",
+      "sign": 1,
+      "edge_id": "N040",
+      "effect": "activation",
+      "mechanism": "FT binds FD via 14-3-3 proteins to form the florigen activation complex",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms22115716",
+          "title": "Beyond the Genetic Pathways, Flowering Regulation Complexity in Arabidopsis thaliana",
+          "authors": "Quiroz S, Yustis JC, Chavez-Hernandez EC, Martinez T, Sanchez MP, Garay-Arroyo A, Alvarez-Buylla ER, Garcia-Ponce B",
+          "year": 2021,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "FT associates with FD via 14-3-3 growth response factors to activate flowering genes",
+          "claim": "FT binds FD to activate flowering targets",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1038/s41586-025-09704-6",
+          "title": "Florigen activation complex forms via multifaceted assembly in Arabidopsis",
+          "authors": "Gao H, Ding N, Wu Y, Yu D, et al.",
+          "year": 2025,
+          "journal": "Nature",
+          "evidence_sentence": "FT is not recruited by 14-3-3 alone, but that it interacts with the DNA-FD-14-3-3 complex through two interfaces, one of which binds DNA via the unstructured C terminus of FT",
+          "claim": "FT forms activation complex with FD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FT",
+      "target": "AP1",
+      "sign": 1,
+      "edge_id": "N041",
+      "effect": "activation",
+      "mechanism": "FT-FD complex activates AP1 at the shoot apical meristem",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0116973",
+          "title": "A Quantitative and Dynamic Model of the Arabidopsis Flowering Time Gene Regulatory Network",
+          "authors": "Leal Valentim F, van Mourik S, Pose D, Kim MC, Schmid M, van Ham RCHJ, Busscher M, Sanchez-Perez GF, Molenaar J, Angenent GC, Immink RGH, van Dijk ADJ",
+          "year": 2015,
+          "journal": "PLOS One",
+          "evidence_sentence": "FT has the potential to interact with FD leading to activation of SOC1; FT-FD complex formation activates AP1",
+          "claim": "FT activates AP1 via FD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FT",
+      "target": "LFY",
+      "sign": 1,
+      "edge_id": "N042",
+      "effect": "activation",
+      "mechanism": "FT (via FD) indirectly induces LFY; conditional FT knockdown fails to upregulate LFY",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-18782-1",
+          "title": "TERMINAL FLOWER 1-FD complex target genes and competition with FLOWERING LOCUS T",
+          "authors": "Zhu Y, Klasfeld S, Jeong CW, Jin R, Goto K, Yamaguchi N, Wagner D",
+          "year": 2020,
+          "journal": "Nature Communications",
+          "evidence_sentence": "FT was recruited to LFY e2 alone; ft mutants: Delayed flower formation; failed LFY upregulation in conditional knockdown",
+          "claim": "FT activates LFY",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FT",
+      "target": "SOC1",
+      "sign": 1,
+      "edge_id": "N043",
+      "effect": "activation",
+      "mechanism": "FT protein interacts with FD to activate SOC1 at the shoot apex",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.112.202614",
+          "title": "Characterization of SOC1's Central Role in Flowering by the Identification of Its Upstream and Downstream Regulators",
+          "authors": "Immink RGH, Pose D, Ferrario S, Ott F, Kaufmann K, Valentim FL, de Folter S, van der Wal F, van Dijk AD, Schmid M, Angenent GC",
+          "year": 2012,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "SOC1 expression is up-regulated under long-day conditions by CONSTANS, in a process that to a large extent depends on the presence of the FT protein",
+          "claim": "FT activates SOC1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FD",
+      "target": "AP1",
+      "sign": 1,
+      "edge_id": "N044",
+      "effect": "activation",
+      "mechanism": "FD (with FT) activates AP1 at the shoot apex; FD is a bZIP transcription factor",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms22115716",
+          "title": "Beyond the Genetic Pathways, Flowering Regulation Complexity in Arabidopsis thaliana",
+          "authors": "Quiroz S, Yustis JC, Chavez-Hernandez EC, Martinez T, Sanchez MP, Garay-Arroyo A, Alvarez-Buylla ER, Garcia-Ponce B",
+          "year": 2021,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "FT associates with FD via 14-3-3 growth response factors to activate flowering genes (SOC1, FUL, AP1)",
+          "claim": "FD activates AP1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FD",
+      "target": "SOC1",
+      "sign": 1,
+      "edge_id": "N045",
+      "effect": "activation",
+      "mechanism": "FD-FT complex activates SOC1 at the shoot apical meristem",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms22115716",
+          "title": "Beyond the Genetic Pathways, Flowering Regulation Complexity in Arabidopsis thaliana",
+          "authors": "Quiroz S, Yustis JC, Chavez-Hernandez EC, Martinez T, Sanchez MP, Garay-Arroyo A, Alvarez-Buylla ER, Garcia-Ponce B",
+          "year": 2021,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "FT-FD: AP1, SOC1, FUL (transcriptional activation complex)",
+          "claim": "FD activates SOC1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SOC1",
+      "target": "AGL24",
+      "sign": 1,
+      "edge_id": "N046",
+      "effect": "activation",
+      "mechanism": "SOC1 directly promotes AGL24 mRNA expression (positive feedback loop)",
+      "evidence": [
+        {
+          "doi": "10.4161/psb.21552",
+          "title": "AGL24 acts in concert with SOC1 and FUL during Arabidopsis floral transition",
+          "authors": "Torti S, Fornara F",
+          "year": 2012,
+          "journal": "Plant Signaling and Behavior",
+          "evidence_sentence": "SOC1 can directly promote AGL24 mRNA expression",
+          "claim": "SOC1 activates AGL24 (positive feedback)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SOC1",
+      "target": "LFY",
+      "sign": 1,
+      "edge_id": "N047",
+      "effect": "activation",
+      "mechanism": "SOC1 directly binds LFY regulatory sequences (ChIP-seq) to activate transcription",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.112.202614",
+          "title": "Characterization of SOC1's Central Role in Flowering by the Identification of Its Upstream and Downstream Regulators",
+          "authors": "Immink RGH, Pose D, Ferrario S, Ott F, Kaufmann K, Valentim FL, de Folter S, van der Wal F, van Dijk AD, Schmid M, Angenent GC",
+          "year": 2012,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "peak of SOC1 expression just prior to the floral transition precedes LFY up-regulation explained by direct binding of SOC1 to LFY regulatory sequences",
+          "claim": "SOC1 activates LFY",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SOC1",
+      "target": "AP1",
+      "sign": 1,
+      "edge_id": "N048",
+      "effect": "activation",
+      "mechanism": "SOC1 (with AGL24/FUL) upregulates AP1 at the floral meristem",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2022.852047",
+          "title": "The flowering transition pathways converge into a complex gene regulatory network that underlies the phase changes of the shoot apical meristem in Arabidopsis thaliana",
+          "authors": "Chavez-Hernandez EC, Quiroz S, Garcia-Ponce B, Alvarez-Buylla ER",
+          "year": 2022,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "SOC1 upregulates LFY and AP1",
+          "claim": "SOC1 activates AP1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "AGL24",
+      "target": "LFY",
+      "sign": 1,
+      "edge_id": "N049",
+      "effect": "activation",
+      "mechanism": "AGL24 (with SOC1) activates LFY transcription; 35S::LFY rescues agl24 late flowering",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.212624599",
+          "title": "AGAMOUS-LIKE 24, a dosage-dependent mediator of the flowering signals",
+          "authors": "Yu H, Xu Y, Tan EL, Kumar PP",
+          "year": 2002,
+          "journal": "PNAS",
+          "evidence_sentence": "AGL24 regulates transcriptional induction of LEAFY; 35S:LFY almost completely rescues agl24 late-flowering phenotype",
+          "claim": "AGL24 activates LFY",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "LFY",
+      "target": "AP1",
+      "sign": 1,
+      "edge_id": "N050",
+      "effect": "activation",
+      "mechanism": "LFY directly activates AP1 transcription; onset of AP1 expression is delayed in lfy mutants",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.11.6.1007",
+          "title": "Interactions among APETALA1, LEAFY, and TERMINAL FLOWER1 specify meristem fate",
+          "authors": "Liljegren SJ, Gustafson-Brown C, Pinyopich A, Ditta GS, Yanofsky MF",
+          "year": 1999,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "In lfy mutants, the onset of AP1 expression is delayed, indicating that LFY is formally a positive regulator of AP1",
+          "claim": "LFY activates AP1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SPL9",
+      "target": "AP1",
+      "sign": 1,
+      "edge_id": "N051",
+      "effect": "activation",
+      "mechanism": "SPL9 activates AP1 transcription",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pgen.1006263",
+          "title": "Developmental Functions of miR156-Regulated SQUAMOSA PROMOTER BINDING PROTEIN-LIKE (SPL) Genes in Arabidopsis thaliana",
+          "authors": "Xu M, Hu T, Zhao J, Park MY, Earley KW, Wu G, Yang L, Poethig RS",
+          "year": 2016,
+          "journal": "PLoS Genetics",
+          "evidence_sentence": "spl2/9/11/13/15 mutants showed reduced LFY, AP1, FUL, and SOC1 transcripts by about 50%.",
+          "claim": "SPL9 activates AP1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SPL9",
+      "target": "LFY",
+      "sign": 1,
+      "edge_id": "N052",
+      "effect": "activation",
+      "mechanism": "SPL9 activates LFY transcription",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pgen.1006263",
+          "title": "Developmental Functions of miR156-Regulated SQUAMOSA PROMOTER BINDING PROTEIN-LIKE (SPL) Genes in Arabidopsis thaliana",
+          "authors": "Xu M, Hu T, Zhao J, Park MY, Earley KW, Wu G, Yang L, Poethig RS",
+          "year": 2016,
+          "journal": "PLoS Genetics",
+          "evidence_sentence": "spl2/9/11/13/15 mutants showed reduced LFY, AP1, FUL, and SOC1 transcripts.",
+          "claim": "SPL9 activates LFY",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.3390/ijms22115716",
+          "title": "Beyond the Genetic Pathways, Flowering Regulation Complexity in Arabidopsis thaliana",
+          "authors": "Quiroz S, Yustis JC, Chavez-Hernandez EC, Martinez T, Sanchez MP, Garay-Arroyo A, Alvarez-Buylla ER, Garcia-Ponce B",
+          "year": 2021,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "SPL9/10/15 targets: MIR172, FUL, LFY, AP1 (direct promoter binding)",
+          "claim": "SPL9 activates LFY",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SPL9",
+      "target": "SOC1",
+      "sign": 1,
+      "edge_id": "N053",
+      "effect": "activation",
+      "mechanism": "SPL9 activates SOC1 expression",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.112.101014",
+          "title": "Gibberellin Regulates the Arabidopsis Floral Transition through miR156-Targeted SQUAMOSA PROMOTER BINDING-LIKE Transcription Factors",
+          "authors": "Yu S, Galvao VC, Zhang YC, et al.",
+          "year": 2012,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "ProSPL9:rSPL9 promoted flowering; elevated SOC1 and MIR172b.",
+          "claim": "SPL9 activates SOC1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1105/tpc.112.101014",
+          "title": "Gibberellin Regulates the Arabidopsis Floral Transition through miR156-Targeted SQUAMOSA PROMOTER BINDING-LIKE Transcription Factors",
+          "authors": "Yu S, Galvao VC, Zhang YC, Horrer D, Zhang TQ, Hao YH, Feng YQ, Wang S, Schmid M, Wang JW",
+          "year": 2012,
+          "journal": "Plant Cell",
+          "evidence_sentence": "ProSPL9:rSPL9 plants show elevated SOC1 and FUL expression; DELLA-SPL interaction interferes with SPL transcriptional activation of miR172 and MADS box genes",
+          "claim": "SPL9 activates SOC1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "TFL1",
+      "target": "AP1",
+      "sign": -1,
+      "edge_id": "N054",
+      "effect": "repression",
+      "mechanism": "TFL1-FD complex directly represses AP1 transcription",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.111.088641",
+          "title": "Arabidopsis TERMINAL FLOWER1 Is Involved in the Regulation of Flowering Time and Inflorescence Development through Transcriptional Repression",
+          "authors": "Hanano S, Goto K",
+          "year": 2011,
+          "journal": "Plant Cell",
+          "evidence_sentence": "TFL1-SRDX repressed all genes examined including AP1; overexpression delays flowering",
+          "claim": "TFL1 represses AP1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "TFL1",
+      "target": "LFY",
+      "sign": -1,
+      "edge_id": "N055",
+      "effect": "repression",
+      "mechanism": "TFL1-FD complex represses LFY by binding G-box/bZIP motifs in the LFY second exon",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-18782-1",
+          "title": "TERMINAL FLOWER 1-FD complex target genes and competition with FLOWERING LOCUS T",
+          "authors": "Zhu Y, Klasfeld S, Jeong CW, Jin R, Goto K, Yamaguchi N, Wagner D",
+          "year": 2020,
+          "journal": "Nature Communications",
+          "evidence_sentence": "LFY: Repression via exonic G-box and C-boxes; reporters with mutated bZIP sites show ectopic expression in apex",
+          "claim": "TFL1 represses LFY",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "AP1",
+      "target": "TFL1",
+      "sign": -1,
+      "edge_id": "N056",
+      "effect": "repression",
+      "mechanism": "AP1 directly binds essential cis-regulatory elements in the TFL1 promoter to repress it",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.11.6.1007",
+          "title": "Interactions among APETALA1, LEAFY, and TERMINAL FLOWER1 specify meristem fate",
+          "authors": "Liljegren SJ, Gustafson-Brown C, Pinyopich A, Ditta GS, Yanofsky MF",
+          "year": 1999,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "TFL1 expression is downregulated in plants constitutively expressing AP1",
+          "claim": "AP1 represses TFL1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "AP1",
+      "target": "Flowering_Time",
+      "sign": 1,
+      "edge_id": "N057",
+      "effect": "activation",
+      "mechanism": "AP1 is a floral meristem identity gene promoting flowering",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pgen.1006263",
+          "title": "Developmental Functions of miR156-Regulated SQUAMOSA PROMOTER BINDING PROTEIN-LIKE (SPL) Genes in Arabidopsis thaliana",
+          "authors": "Xu M, Hu T, Zhao J, Park MY, Earley KW, Wu G, Yang L, Poethig RS",
+          "year": 2016,
+          "journal": "PLoS Genetics",
+          "evidence_sentence": "spl2/9/11/13/15 mutants showed reduced LFY, AP1, FUL, and SOC1 transcripts; AP1 specifies floral meristem identity.",
+          "claim": "AP1 promotes flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1105/tpc.11.6.1007",
+          "title": "Interactions among APETALA1, LEAFY, and TERMINAL FLOWER1 specify meristem fate",
+          "authors": "Liljegren SJ, Gustafson-Brown C, Pinyopich A, Ditta GS, Yanofsky MF",
+          "year": 1999,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "flower meristem identity genes LEAFY (LFY), APETALA1 (AP1), and CAULIFLOWER specify meristem fate",
+          "claim": "AP1 promotes flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "LFY",
+      "target": "Flowering_Time",
+      "sign": 1,
+      "edge_id": "N058",
+      "effect": "activation",
+      "mechanism": "LFY is a floral meristem identity gene promoting flower formation",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pgen.1006263",
+          "title": "Developmental Functions of miR156-Regulated SQUAMOSA PROMOTER BINDING PROTEIN-LIKE (SPL) Genes in Arabidopsis thaliana",
+          "authors": "Xu M, Hu T, Zhao J, Park MY, Earley KW, Wu G, Yang L, Poethig RS",
+          "year": 2016,
+          "journal": "PLoS Genetics",
+          "evidence_sentence": "spl2/9/11/13/15 mutants showed reduced LFY, AP1, FUL, and SOC1 transcripts; LFY required for floral induction.",
+          "claim": "LFY promotes flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1105/tpc.106.042317",
+          "title": "GA4 Is the Active Gibberellin in the Regulation of LEAFY Transcription and Arabidopsis Floral Initiation",
+          "authors": "Eriksson S, Bohlenius H, Moritz T, Nilsson O",
+          "year": 2006,
+          "journal": "Plant Cell",
+          "evidence_sentence": "LFY expression from a constitutive promoter induces flowering in a ga1-3 mutant background",
+          "claim": "LFY promotes flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SOC1",
+      "target": "Flowering_Time",
+      "sign": 1,
+      "edge_id": "N059",
+      "effect": "activation",
+      "mechanism": "SOC1 integrates photoperiod/GA/vernalization signals to activate meristem identity genes",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/eraa057",
+          "title": "Genetic and molecular basis of floral induction in Arabidopsis thaliana",
+          "authors": "Kinoshita A, Richter R",
+          "year": 2020,
+          "journal": "Journal of Experimental Botany",
+          "evidence_sentence": "SPL9 and SPL15 functionally cooperate with the MADS-box protein SOC1 to activate FRUITFULL (FUL)",
+          "claim": "SOC1 activates floral transition",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1105/tpc.108.063883",
+          "title": "SOC1-FLC crosstalk",
+          "authors": "Seo E et al.",
+          "year": 2009,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "FLC, mediating the autonomous/vernalization pathway, acts as a negative regulator of flowering",
+          "claim": "SOC1 promotes flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1105/tpc.112.101014",
+          "title": "Gibberellin Regulates the Arabidopsis Floral Transition through miR156-Targeted SQUAMOSA PROMOTER BINDING-LIKE Transcription Factors",
+          "authors": "Yu S, Galvao VC, Zhang YC, et al.",
+          "year": 2012,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "SPLs activate miR172 and MADS box genes controlling flowering; SOC1 promotes flowering.",
+          "claim": "SOC1 promotes flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1104/pp.112.202614",
+          "title": "Characterization of SOC1's Central Role in Flowering by the Identification of Its Upstream and Downstream Regulators",
+          "authors": "Immink RGH, Pose D, Ferrario S, Ott F, Kaufmann K, Valentim FL, de Folter S, van der Wal F, van Dijk AD, Schmid M, Angenent GC",
+          "year": 2012,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "soc1-2 mutant produced on average 19.0 +/- 0.5 leaves versus 12 +/- 0.5 for wild-type controls (significantly delayed flowering)",
+          "claim": "SOC1 promotes flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    }
+  ]
+}

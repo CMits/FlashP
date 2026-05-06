@@ -1,0 +1,3119 @@
+{
+  "metadata": {
+    "method": "ODE_Hill",
+    "K": 0.5,
+    "n": 1,
+    "accuracy": 52.1,
+    "hill_activation_formula": "f(x) = x^1 * (0.5^1 + 1) / (0.5^1 + x^1)",
+    "hill_inhibition_formula": "g(x) = (0.5^1 + 1) / (0.5^1 + x^1)",
+    "ode_dynamics": "dx/dt = production - x; at steady state x = production",
+    "dt": 0.1,
+    "max_time": 50.0,
+    "convergence_tolerance": 0.0001,
+    "direction_threshold": 0.05
+  },
+  "equations": [
+    {
+      "node": "phytohormones",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "phytohormones = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Seed_Size",
+      "activators": [
+        "phytohormones",
+        "FAE1",
+        "Overexpression of mi",
+        "TASERK3",
+        "GmPSK\u03b31",
+        "PPD",
+        "Brassinosteroid",
+        "PSK",
+        "CHR7",
+        "transgenic A. thalia",
+        "A. thaliana mutants",
+        "parent-of-origin eff",
+        "TaZIP gene(s)",
+        "OES",
+        "KLU",
+        "Maternal and paterna",
+        "DDM2",
+        "DA1",
+        "nutrient sink effect",
+        "AP2",
+        "AN3",
+        "ARF2",
+        "life history",
+        "VVAGL12",
+        "Reduced expression o",
+        "EOD3",
+        "DA2",
+        "YUC4",
+        "CKX2",
+        "ABAP1",
+        "limitation in nutrie",
+        "AUXIN",
+        "EOD1",
+        "EMBRYO",
+        "T-6b",
+        "IMPRINTING",
+        "transition from sync",
+        "BZR1",
+        "DPA4",
+        "genome balance in en",
+        "ATFAX1",
+        "UBP15",
+        "P1W",
+        "paternal genome exce",
+        "CHD3",
+        "EMB71",
+        "truncated R domain",
+        "AGL63",
+        "reduced seed product",
+        "SHB1",
+        "loss of ULTRAPETALA1",
+        "Specific mutations",
+        "early expansion of c",
+        "growth conditions",
+        "AMI1",
+        "GMMYB73",
+        "APUM24",
+        "AGL",
+        "AGL62",
+        "Maternal excess hybr",
+        "STPL",
+        "soluble sugar accumu",
+        "GhDA1-1AR301K mutant",
+        "CYCD7",
+        "ATWRKY6",
+        "GAI",
+        "Defoliation during f",
+        "MEE45",
+        "Sibling abortion",
+        "Overexpression of Gh",
+        "TTG2",
+        "IKU1",
+        "parental genome dosa",
+        "HDG9",
+        "GhDA1-1AR301K",
+        "NODGTT5",
+        "TASERK1",
+        "altered expression",
+        "SOD7",
+        "TaNAK1.2",
+        "constitutive express",
+        "LPFC",
+        "lipopeptide treatmen",
+        "autotetraploidy",
+        "CLE8",
+        "low redox buffering ",
+        "BnLEA3 gene(s)",
+        "16 gene(s)",
+        "parental origin",
+        "TEMPERATURE",
+        "UMAMIT25",
+        "Lack of water",
+        "paternal inheritance",
+        "BSK3",
+        "RPT2",
+        "Endosperm developmen",
+        "NR",
+        "AGL11",
+        "Napin-BnGRF2a transg",
+        "GHNAC2",
+        "sibling lethality",
+        "Maternal temperature",
+        "growth of endosperm",
+        "CYP78A9",
+        "GA",
+        "OTP90",
+        "Increased expression",
+        "AA",
+        "DNA",
+        "Overexpression of ol",
+        "Organellar genomes",
+        "IAA",
+        "Auxin export defect",
+        "GIG1",
+        "DECREASE",
+        "C24",
+        "MAX2",
+        "Genome hybridization",
+        "increase in ovule si",
+        "severe nitrogen limi",
+        "Overexpression of At",
+        "Overexpression of Eg",
+        "Endosperm cellulariz",
+        "TASERK2",
+        "MINISEED3",
+        "TaSDIR1-4A-overexpre",
+        "HYBRIDITY",
+        "P4-SIRNAS",
+        "Endosperm growth",
+        "MNT",
+        "extra cell division ",
+        "TASERK4",
+        "maternal donors",
+        "S2LB",
+        "GLN1",
+        "TAP46",
+        "mitotic synchrony",
+        "overexpressed ginsen",
+        "F1",
+        "QTL",
+        "Hypomethylation in t",
+        "4 x Ler",
+        "ALLELE",
+        "timing of endosperm ",
+        "ARF3",
+        "DET2",
+        "USB1",
+        "ETFQO",
+        "FUS3",
+        "TASPL16",
+        "UGT76C2",
+        "Overexpression of an",
+        "DEFOLIATION",
+        "GMDREBL",
+        "UMAMIT24",
+        "YB12",
+        "epigenetic factors",
+        "Heterologous express",
+        "PLOIDY",
+        "ATGPAT9",
+        "AHA2",
+        "Circadian gene(s) ex",
+        "Natural variation",
+        "Reduction of auxin b",
+        "length and width",
+        "OTU1",
+        "Partial ovule aborti",
+        "ATBAK1",
+        "2 x Col x 4 x Col",
+        "maternal contributio",
+        "DA1R358K",
+        "growth of maternal o",
+        "environmental factor",
+        "ATGSR2",
+        "transgenic PfDGAT3-1",
+        "3-aminotriazole",
+        "genetic correlations",
+        "ATLEA3",
+        "BPE",
+        "JAZ",
+        "large flower mutants",
+        "ATVPS29",
+        "E2",
+        "Sizes of cells and c",
+        "KS",
+        "partial silencing of",
+        "JCFATB",
+        "GMPLD\u0393-OE",
+        "Overexpression of Bn",
+        "HDG3",
+        "CMV",
+        "cell number",
+        "DGAT",
+        "AHLPAAT2",
+        "AT3G01472.1",
+        "CU5",
+        "Overexpression of Ah",
+        "Transgenic seeds",
+        "RCA",
+        "ABX45",
+        "overexpression of Ta",
+        "Coordinated growth o",
+        "over-expression of C",
+        "Copper sulfate",
+        "EgWRI1-1",
+        "DAGT1",
+        "NPC6",
+        "HpDGAT1-overexpressi",
+        "JCFATA",
+        "ATGLK1",
+        "Seed oil content",
+        "Linnemannia elongata",
+        "GmDof4 transgenic pl",
+        "Delaying flowering",
+        "plant(s) photosynthe",
+        "CU20",
+        "Alteration of lipid ",
+        "transgenic PfDGAT2-2",
+        "Hybridization",
+        "SPECIES",
+        "HR02",
+        "EhDH domains",
+        "Severe water limitat",
+        "Ectopic expression o",
+        "CU60",
+        "PRWRI1",
+        "GmDof11 transgenic p",
+        "ATDGAT1",
+        "GENOTYPES",
+        "Severe water depriva",
+        "Reduced storage capa",
+        "PrLPAAT4-overexpress",
+        "overexpressed AhGPAT",
+        "BNGRF2A",
+        "NRPC3",
+        "ATBPC1",
+        "ATHD2A",
+        "plasma-seed treatmen",
+        "AIL5",
+        "ATLEC2",
+        "changed seed oil com",
+        "FIS",
+        "ATMDN1",
+        "Reproductive growth ",
+        "NaCl stress",
+        "basipetal auxin flow",
+        "ATHMP53",
+        "POLLINATION",
+        "ATMYB118",
+        "DIOXINS",
+        "ATC3H17",
+        "Growth Defects",
+        "ATLEC1",
+        "GENOTYPE",
+        "NRPC2",
+        "TPD1",
+        "CJBPC1",
+        "inter-ploidy cross d",
+        "down regulation of p",
+        "EDA3",
+        "triploid block",
+        "RGE1",
+        "LORELEI",
+        "low iron levels in c",
+        "ATTFIIB1",
+        "MIR159",
+        "RNAPIII",
+        "PCLEC1",
+        "ATUPF1",
+        "NRPABC1",
+        "EMF1",
+        "ATDOG1",
+        "FLOWERING",
+        "Vegetative developme",
+        "epigenetic variation",
+        "ABA",
+        "ABI5",
+        "higher fatty acid co",
+        "carbon starvation in",
+        "ATCSP2",
+        "LECOP1",
+        "ATHMP51",
+        "Autophagy in materna",
+        "analyzed peg mutants",
+        "changes in the ploid",
+        "overexpression of Pf",
+        "PheMYB4-1",
+        "BBM",
+        "ATSCO1",
+        "ATPPR2",
+        "genomic imprinting",
+        "Misbalanced expressi",
+        "soluble sugars",
+        "ATNPF8.3",
+        "SMC6A",
+        "parental cross direc",
+        "ATCBL3",
+        "fertilization with d",
+        "ABI3",
+        "ATSMC5",
+        "ABI4",
+        "ATMYB25",
+        "PGCRC",
+        "parental genome imba",
+        "VORICONAZOLE",
+        "NRPABC2",
+        "Decreased vesicular ",
+        "FOC",
+        "NRPC8",
+        "REM11",
+        "paternal genome",
+        "ATSR45",
+        "MEDEA",
+        "disruptions in valin",
+        "Maternal tissues",
+        "multiple processes/f",
+        "ATNDT1",
+        "short-term heat expo",
+        "integument of the ov",
+        "cellularization",
+        "NSE4A",
+        "E12A11",
+        "mitochondrial riboso",
+        "defects in endosperm",
+        "EMS",
+        "TCDD",
+        "NADP",
+        "altered flavonoid me",
+        "PCWRI1",
+        "ATTTG1",
+        "P5CS2",
+        "Fatty acid synthesis",
+        "11_11B",
+        "ATMYB56",
+        "PML3",
+        "MPC",
+        "ATCBL2",
+        "ATRAD18",
+        "LOCUS",
+        "ASK13",
+        "EMB1379",
+        "ATNADP-ME1",
+        "COSWEET10",
+        "FUSCA",
+        "MDKIN2",
+        "BPCS",
+        "PoWRI1 gene(s)",
+        "Fragmentation of out",
+        "ER",
+        "BL",
+        "GME",
+        "overexpression of Ps",
+        "SUS",
+        "ATMMS21",
+        "fertilization proces",
+        "EL20Y",
+        "ATGRP2",
+        "PGA6",
+        "paternal regulation",
+        "fis class",
+        "PEGS",
+        "reciprocal inter-plo",
+        "ATPRP4",
+        "NSE3",
+        "BFN1",
+        "ATEIN2"
+      ],
+      "inhibitors": [
+        "ENO2",
+        "AfAP2-2-overexpressi",
+        "MEE57",
+        "XsAP2 gene(s)",
+        "HAIKU",
+        "MINI3",
+        "ANT",
+        "AGC1",
+        "T540",
+        "PMEI6",
+        "ATMPK10",
+        "cytonuclear interact",
+        "IKU2",
+        "BRI1",
+        "TT15",
+        "MYCS",
+        "Overexpression of Gm",
+        "Overexpression of Xs",
+        "ATRAV1",
+        "PPD1",
+        "TaNAK1.1",
+        "LEA_1 subfamily",
+        "LPAT2",
+        "salt stress",
+        "SUB",
+        "TESTA2",
+        "PGI1-2",
+        "Over-expression of A",
+        "premature endosperm ",
+        "sense ZmRLK7 overexp",
+        "LuLEA1 gene(s)",
+        "iku mutations",
+        "IAM",
+        "Overexpression of Br",
+        "TRITERPENE",
+        "gfp gene(s)",
+        "ATMYB123",
+        "FAH12",
+        "Quadruple mutants",
+        "heterologous express",
+        "overexpression of Zm",
+        "PCF10SRDX",
+        "Overexpression of se",
+        "BRMYC2OE",
+        "OX40",
+        "OX26",
+        "Col-0 plant(s)",
+        "macro-element defici",
+        "AHL29",
+        "triple mutants",
+        "gln1;1-gln1;2-gln1;3",
+        "Co-silencing RNAi of",
+        "E1",
+        "Remaining genotypes",
+        "AIF2",
+        "PRS",
+        "ATWDR5A",
+        "ATTT8",
+        "FIS-PRC2",
+        "FIS_PRC2",
+        "oxygen concentration",
+        "GmZOU-2",
+        "Difference in satura",
+        "NTRC",
+        "Inactivating imprint",
+        "Fis mutants",
+        "BnGA2ox6 overexpress",
+        "H2B",
+        "ASH2R",
+        "ATCSP4",
+        "CESA6",
+        "EMF",
+        "ATCHS",
+        "GCN1",
+        "plant(s) homozygous ",
+        "RBL"
+      ],
+      "formula": "Seed_Size = prod(f(phytohormones, FAE1, Overexpression of mi, TASERK3, GmPSK\u03b31, PPD, Brassinosteroid, PSK, CHR7, transgenic A. thalia, A. thaliana mutants, parent-of-origin eff, TaZIP gene(s), OES, KLU, Maternal and paterna, DDM2, DA1, nutrient sink effect, AP2, AN3, ARF2, life history, VVAGL12, Reduced expression o, EOD3, DA2, YUC4, CKX2, ABAP1, limitation in nutrie, AUXIN, EOD1, EMBRYO, T-6b, IMPRINTING, transition from sync, BZR1, DPA4, genome balance in en, ATFAX1, UBP15, P1W, paternal genome exce, CHD3, EMB71, truncated R domain, AGL63, reduced seed product, SHB1, loss of ULTRAPETALA1, Specific mutations, early expansion of c, growth conditions, AMI1, GMMYB73, APUM24, AGL, AGL62, Maternal excess hybr, STPL, soluble sugar accumu, GhDA1-1AR301K mutant, CYCD7, ATWRKY6, GAI, Defoliation during f, MEE45, Sibling abortion, Overexpression of Gh, TTG2, IKU1, parental genome dosa, HDG9, GhDA1-1AR301K, NODGTT5, TASERK1, altered expression, SOD7, TaNAK1.2, constitutive express, LPFC, lipopeptide treatmen, autotetraploidy, CLE8, low redox buffering , BnLEA3 gene(s), 16 gene(s), parental origin, TEMPERATURE, UMAMIT25, Lack of water, paternal inheritance, BSK3, RPT2, Endosperm developmen, NR, AGL11, Napin-BnGRF2a transg, GHNAC2, sibling lethality, Maternal temperature, growth of endosperm, CYP78A9, GA, OTP90, Increased expression, AA, DNA, Overexpression of ol, Organellar genomes, IAA, Auxin export defect, GIG1, DECREASE, C24, MAX2, Genome hybridization, increase in ovule si, severe nitrogen limi, Overexpression of At, Overexpression of Eg, Endosperm cellulariz, TASERK2, MINISEED3, TaSDIR1-4A-overexpre, HYBRIDITY, P4-SIRNAS, Endosperm growth, MNT, extra cell division , TASERK4, maternal donors, S2LB, GLN1, TAP46, mitotic synchrony, overexpressed ginsen, F1, QTL, Hypomethylation in t, 4 x Ler, ALLELE, timing of endosperm , ARF3, DET2, USB1, ETFQO, FUS3, TASPL16, UGT76C2, Overexpression of an, DEFOLIATION, GMDREBL, UMAMIT24, YB12, epigenetic factors, Heterologous express, PLOIDY, ATGPAT9, AHA2, Circadian gene(s) ex, Natural variation, Reduction of auxin b, length and width, OTU1, Partial ovule aborti, ATBAK1, 2 x Col x 4 x Col, maternal contributio, DA1R358K, growth of maternal o, environmental factor, ATGSR2, transgenic PfDGAT3-1, 3-aminotriazole, genetic correlations, ATLEA3, BPE, JAZ, large flower mutants, ATVPS29, E2, Sizes of cells and c, KS, partial silencing of, JCFATB, GMPLD\u0393-OE, Overexpression of Bn, HDG3, CMV, cell number, DGAT, AHLPAAT2, AT3G01472.1, CU5, Overexpression of Ah, Transgenic seeds, RCA, ABX45, overexpression of Ta, Coordinated growth o, over-expression of C, Copper sulfate, EgWRI1-1, DAGT1, NPC6, HpDGAT1-overexpressi, JCFATA, ATGLK1, Seed oil content, Linnemannia elongata, GmDof4 transgenic pl, Delaying flowering, plant(s) photosynthe, CU20, Alteration of lipid , transgenic PfDGAT2-2, Hybridization, SPECIES, HR02, EhDH domains, Severe water limitat, Ectopic expression o, CU60, PRWRI1, GmDof11 transgenic p, ATDGAT1, GENOTYPES, Severe water depriva, Reduced storage capa, PrLPAAT4-overexpress, overexpressed AhGPAT, BNGRF2A, NRPC3, ATBPC1, ATHD2A, plasma-seed treatmen, AIL5, ATLEC2, changed seed oil com, FIS, ATMDN1, Reproductive growth , NaCl stress, basipetal auxin flow, ATHMP53, POLLINATION, ATMYB118, DIOXINS, ATC3H17, Growth Defects, ATLEC1, GENOTYPE, NRPC2, TPD1, CJBPC1, inter-ploidy cross d, down regulation of p, EDA3, triploid block, RGE1, LORELEI, low iron levels in c, ATTFIIB1, MIR159, RNAPIII, PCLEC1, ATUPF1, NRPABC1, EMF1, ATDOG1, FLOWERING, Vegetative developme, epigenetic variation, ABA, ABI5, higher fatty acid co, carbon starvation in, ATCSP2, LECOP1, ATHMP51, Autophagy in materna, analyzed peg mutants, changes in the ploid, overexpression of Pf, PheMYB4-1, BBM, ATSCO1, ATPPR2, genomic imprinting, Misbalanced expressi, soluble sugars, ATNPF8.3, SMC6A, parental cross direc, ATCBL3, fertilization with d, ABI3, ATSMC5, ABI4, ATMYB25, PGCRC, parental genome imba, VORICONAZOLE, NRPABC2, Decreased vesicular , FOC, NRPC8, REM11, paternal genome, ATSR45, MEDEA, disruptions in valin, Maternal tissues, multiple processes/f, ATNDT1, short-term heat expo, integument of the ov, cellularization, NSE4A, E12A11, mitochondrial riboso, defects in endosperm, EMS, TCDD, NADP, altered flavonoid me, PCWRI1, ATTTG1, P5CS2, Fatty acid synthesis, 11_11B, ATMYB56, PML3, MPC, ATCBL2, ATRAD18, LOCUS, ASK13, EMB1379, ATNADP-ME1, COSWEET10, FUSCA, MDKIN2, BPCS, PoWRI1 gene(s), Fragmentation of out, ER, BL, GME, overexpression of Ps, SUS, ATMMS21, fertilization proces, EL20Y, ATGRP2, PGA6, paternal regulation, fis class, PEGS, reciprocal inter-plo, ATPRP4, NSE3, BFN1, ATEIN2)) * prod(g(ENO2, AfAP2-2-overexpressi, MEE57, XsAP2 gene(s), HAIKU, MINI3, ANT, AGC1, T540, PMEI6, ATMPK10, cytonuclear interact, IKU2, BRI1, TT15, MYCS, Overexpression of Gm, Overexpression of Xs, ATRAV1, PPD1, TaNAK1.1, LEA_1 subfamily, LPAT2, salt stress, SUB, TESTA2, PGI1-2, Over-expression of A, premature endosperm , sense ZmRLK7 overexp, LuLEA1 gene(s), iku mutations, IAM, Overexpression of Br, TRITERPENE, gfp gene(s), ATMYB123, FAH12, Quadruple mutants, heterologous express, overexpression of Zm, PCF10SRDX, Overexpression of se, BRMYC2OE, OX40, OX26, Col-0 plant(s), macro-element defici, AHL29, triple mutants, gln1;1-gln1;2-gln1;3, Co-silencing RNAi of, E1, Remaining genotypes, AIF2, PRS, ATWDR5A, ATTT8, FIS-PRC2, FIS_PRC2, oxygen concentration, GmZOU-2, Difference in satura, NTRC, Inactivating imprint, Fis mutants, BnGA2ox6 overexpress, H2B, ASH2R, ATCSP4, CESA6, EMF, ATCHS, GCN1, plant(s) homozygous , RBL)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "FAE1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FAE1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ENO2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ENO2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Overexpression of mi",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of mi = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TASERK3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TASERK3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GmPSK\u03b31",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GmPSK\u03b31 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AfAP2-2-overexpressi",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AfAP2-2-overexpressi = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MEE57",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MEE57 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PPD",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PPD = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Brassinosteroid",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Brassinosteroid = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PSK",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PSK = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "XsAP2 gene(s)",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "XsAP2 gene(s) = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CHR7",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CHR7 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "transgenic A. thalia",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "transgenic A. thalia = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "A. thaliana mutants",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "A. thaliana mutants = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "parent-of-origin eff",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "parent-of-origin eff = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TaZIP gene(s)",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TaZIP gene(s) = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "HAIKU",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HAIKU = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "OES",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "OES = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MINI3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MINI3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "KLU",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "KLU = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Maternal and paterna",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Maternal and paterna = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DDM2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DDM2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DA1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DA1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "nutrient sink effect",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "nutrient sink effect = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AP2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AP2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ANT",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ANT = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AN3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AN3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ARF2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ARF2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "life history",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "life history = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "VVAGL12",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "VVAGL12 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Reduced expression o",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Reduced expression o = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "EOD3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EOD3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DA2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DA2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "YUC4",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "YUC4 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CKX2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CKX2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ABAP1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABAP1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "limitation in nutrie",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "limitation in nutrie = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AUXIN",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AUXIN = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "EOD1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EOD1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "EMBRYO",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EMBRYO = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "T-6b",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "T-6b = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "IMPRINTING",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "IMPRINTING = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "transition from sync",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "transition from sync = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BZR1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BZR1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DPA4",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DPA4 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "genome balance in en",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "genome balance in en = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AGC1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AGC1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATFAX1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATFAX1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "UBP15",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "UBP15 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "P1W",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "P1W = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "T540",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "T540 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "paternal genome exce",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "paternal genome exce = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CHD3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CHD3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "EMB71",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EMB71 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "truncated R domain",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "truncated R domain = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AGL63",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AGL63 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "reduced seed product",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "reduced seed product = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SHB1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SHB1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "loss of ULTRAPETALA1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "loss of ULTRAPETALA1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PMEI6",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PMEI6 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Specific mutations",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Specific mutations = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "early expansion of c",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "early expansion of c = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATMPK10",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMPK10 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "growth conditions",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "growth conditions = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AMI1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AMI1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GMMYB73",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GMMYB73 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "APUM24",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "APUM24 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "cytonuclear interact",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "cytonuclear interact = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AGL",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AGL = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AGL62",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AGL62 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Maternal excess hybr",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Maternal excess hybr = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "STPL",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "STPL = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "soluble sugar accumu",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "soluble sugar accumu = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GhDA1-1AR301K mutant",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GhDA1-1AR301K mutant = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CYCD7",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CYCD7 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATWRKY6",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATWRKY6 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GAI",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GAI = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Defoliation during f",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Defoliation during f = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MEE45",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MEE45 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "IKU2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "IKU2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BRI1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BRI1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Sibling abortion",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Sibling abortion = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Overexpression of Gh",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Gh = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TTG2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TTG2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "IKU1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "IKU1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "parental genome dosa",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "parental genome dosa = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "HDG9",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HDG9 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TT15",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TT15 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GhDA1-1AR301K",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GhDA1-1AR301K = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NODGTT5",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NODGTT5 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TASERK1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TASERK1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "altered expression",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "altered expression = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SOD7",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SOD7 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TaNAK1.2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TaNAK1.2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "constitutive express",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "constitutive express = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LPFC",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LPFC = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MYCS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MYCS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "lipopeptide treatmen",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "lipopeptide treatmen = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "autotetraploidy",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "autotetraploidy = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CLE8",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CLE8 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "low redox buffering ",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "low redox buffering  = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BnLEA3 gene(s)",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BnLEA3 gene(s) = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "16 gene(s)",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "16 gene(s) = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "parental origin",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "parental origin = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TEMPERATURE",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TEMPERATURE = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Overexpression of Gm",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Gm = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "UMAMIT25",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "UMAMIT25 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Lack of water",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Lack of water = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "paternal inheritance",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "paternal inheritance = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BSK3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BSK3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "RPT2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RPT2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Endosperm developmen",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Endosperm developmen = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NR",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NR = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AGL11",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AGL11 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Napin-BnGRF2a transg",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Napin-BnGRF2a transg = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GHNAC2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GHNAC2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Overexpression of Xs",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Xs = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATRAV1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATRAV1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "sibling lethality",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "sibling lethality = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Maternal temperature",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Maternal temperature = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "growth of endosperm",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "growth of endosperm = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CYP78A9",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CYP78A9 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "OTP90",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "OTP90 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Increased expression",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Increased expression = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PPD1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PPD1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DNA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DNA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Overexpression of ol",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of ol = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Organellar genomes",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Organellar genomes = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "IAA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "IAA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TaNAK1.1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TaNAK1.1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Auxin export defect",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Auxin export defect = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GIG1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GIG1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DECREASE",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DECREASE = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "C24",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "C24 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MAX2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MAX2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Genome hybridization",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Genome hybridization = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "increase in ovule si",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "increase in ovule si = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "severe nitrogen limi",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "severe nitrogen limi = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Overexpression of At",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of At = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Overexpression of Eg",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Eg = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Endosperm cellulariz",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Endosperm cellulariz = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TASERK2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TASERK2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MINISEED3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MINISEED3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TaSDIR1-4A-overexpre",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TaSDIR1-4A-overexpre = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "HYBRIDITY",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HYBRIDITY = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LEA_1 subfamily",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LEA_1 subfamily = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "P4-SIRNAS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "P4-SIRNAS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Endosperm growth",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Endosperm growth = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MNT",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MNT = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "extra cell division ",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "extra cell division  = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TASERK4",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TASERK4 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "maternal donors",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "maternal donors = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "S2LB",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "S2LB = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GLN1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GLN1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAP46",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TAP46 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "mitotic synchrony",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "mitotic synchrony = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "overexpressed ginsen",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "overexpressed ginsen = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "F1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "F1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LPAT2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LPAT2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "QTL",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "QTL = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "salt stress",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "salt stress = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SUB",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SUB = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Hypomethylation in t",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Hypomethylation in t = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "4 x Ler",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "4 x Ler = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TESTA2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TESTA2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ALLELE",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ALLELE = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "timing of endosperm ",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "timing of endosperm  = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ARF3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ARF3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DET2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DET2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "USB1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "USB1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ETFQO",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ETFQO = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FUS3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FUS3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TASPL16",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TASPL16 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PGI1-2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PGI1-2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Over-expression of A",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Over-expression of A = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "UGT76C2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "UGT76C2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Overexpression of an",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of an = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DEFOLIATION",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DEFOLIATION = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GMDREBL",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GMDREBL = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "UMAMIT24",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "UMAMIT24 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "YB12",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "YB12 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "premature endosperm ",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "premature endosperm  = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "epigenetic factors",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "epigenetic factors = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Heterologous express",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Heterologous express = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PLOIDY",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PLOIDY = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATGPAT9",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATGPAT9 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AHA2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AHA2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Circadian gene(s) ex",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Circadian gene(s) ex = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Natural variation",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Natural variation = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Reduction of auxin b",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Reduction of auxin b = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "sense ZmRLK7 overexp",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "sense ZmRLK7 overexp = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "length and width",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "length and width = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "OTU1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "OTU1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Partial ovule aborti",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Partial ovule aborti = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LuLEA1 gene(s)",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LuLEA1 gene(s) = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATBAK1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATBAK1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "iku mutations",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "iku mutations = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "2 x Col x 4 x Col",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "2 x Col x 4 x Col = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "maternal contributio",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "maternal contributio = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DA1R358K",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DA1R358K = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "IAM",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "IAM = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "growth of maternal o",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "growth of maternal o = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "environmental factor",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "environmental factor = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATGSR2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATGSR2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Overexpression of Br",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Br = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "transgenic PfDGAT3-1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "transgenic PfDGAT3-1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TRITERPENE",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TRITERPENE = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "3-aminotriazole",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "3-aminotriazole = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "genetic correlations",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "genetic correlations = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "gfp gene(s)",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "gfp gene(s) = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATLEA3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATLEA3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BPE",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BPE = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "JAZ",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "JAZ = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "large flower mutants",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "large flower mutants = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATVPS29",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATVPS29 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "E2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "E2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATMYB123",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMYB123 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Sizes of cells and c",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Sizes of cells and c = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "KS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "KS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "partial silencing of",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "partial silencing of = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "JCFATB",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "JCFATB = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GMPLD\u0393-OE",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GMPLD\u0393-OE = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FAH12",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FAH12 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Overexpression of Bn",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Bn = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Quadruple mutants",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Quadruple mutants = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "heterologous express",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "heterologous express = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "HDG3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HDG3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CMV",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CMV = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "overexpression of Zm",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "overexpression of Zm = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PCF10SRDX",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PCF10SRDX = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "cell number",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "cell number = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DGAT",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DGAT = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Overexpression of se",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of se = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BRMYC2OE",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BRMYC2OE = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AHLPAAT2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AHLPAAT2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AT3G01472.1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AT3G01472.1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CU5",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CU5 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Overexpression of Ah",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Ah = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Transgenic seeds",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Transgenic seeds = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "RCA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RCA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ABX45",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABX45 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "overexpression of Ta",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "overexpression of Ta = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Coordinated growth o",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Coordinated growth o = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "over-expression of C",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "over-expression of C = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Copper sulfate",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Copper sulfate = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "EgWRI1-1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EgWRI1-1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DAGT1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DAGT1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NPC6",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NPC6 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "OX40",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "OX40 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "HpDGAT1-overexpressi",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HpDGAT1-overexpressi = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "OX26",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "OX26 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "JCFATA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "JCFATA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATGLK1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATGLK1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Seed oil content",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Seed oil content = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Linnemannia elongata",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Linnemannia elongata = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Col-0 plant(s)",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Col-0 plant(s) = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GmDof4 transgenic pl",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GmDof4 transgenic pl = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Delaying flowering",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Delaying flowering = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "plant(s) photosynthe",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "plant(s) photosynthe = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "macro-element defici",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "macro-element defici = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CU20",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CU20 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Alteration of lipid ",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Alteration of lipid  = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "transgenic PfDGAT2-2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "transgenic PfDGAT2-2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Hybridization",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Hybridization = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AHL29",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AHL29 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "triple mutants",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "triple mutants = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SPECIES",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SPECIES = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "gln1;1-gln1;2-gln1;3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "gln1;1-gln1;2-gln1;3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "HR02",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HR02 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "EhDH domains",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EhDH domains = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Severe water limitat",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Severe water limitat = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Co-silencing RNAi of",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Co-silencing RNAi of = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Ectopic expression o",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Ectopic expression o = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CU60",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CU60 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PRWRI1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PRWRI1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "E1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "E1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GmDof11 transgenic p",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GmDof11 transgenic p = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATDGAT1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATDGAT1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GENOTYPES",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GENOTYPES = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Remaining genotypes",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Remaining genotypes = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Severe water depriva",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Severe water depriva = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AIF2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AIF2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Reduced storage capa",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Reduced storage capa = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PrLPAAT4-overexpress",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PrLPAAT4-overexpress = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "overexpressed AhGPAT",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "overexpressed AhGPAT = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BNGRF2A",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BNGRF2A = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PRS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PRS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NRPC3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NRPC3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATBPC1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATBPC1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATWDR5A",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATWDR5A = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATHD2A",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATHD2A = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATTT8",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATTT8 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "plasma-seed treatmen",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "plasma-seed treatmen = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AIL5",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AIL5 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATLEC2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATLEC2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "changed seed oil com",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "changed seed oil com = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FIS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FIS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FIS-PRC2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FIS-PRC2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATMDN1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMDN1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Reproductive growth ",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Reproductive growth  = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NaCl stress",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NaCl stress = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "basipetal auxin flow",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "basipetal auxin flow = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATHMP53",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATHMP53 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FIS_PRC2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FIS_PRC2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "POLLINATION",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "POLLINATION = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATMYB118",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMYB118 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DIOXINS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DIOXINS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATC3H17",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATC3H17 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Growth Defects",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Growth Defects = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "oxygen concentration",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "oxygen concentration = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATLEC1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATLEC1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GENOTYPE",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GENOTYPE = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NRPC2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NRPC2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TPD1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TPD1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CJBPC1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CJBPC1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "inter-ploidy cross d",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "inter-ploidy cross d = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "down regulation of p",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "down regulation of p = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "EDA3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EDA3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "triploid block",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "triploid block = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GmZOU-2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GmZOU-2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "RGE1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RGE1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LORELEI",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LORELEI = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "low iron levels in c",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "low iron levels in c = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATTFIIB1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATTFIIB1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MIR159",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MIR159 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "RNAPIII",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RNAPIII = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PCLEC1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PCLEC1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATUPF1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATUPF1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NRPABC1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NRPABC1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "EMF1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EMF1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATDOG1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATDOG1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FLOWERING",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FLOWERING = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Vegetative developme",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Vegetative developme = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "epigenetic variation",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "epigenetic variation = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ABA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ABI5",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABI5 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "higher fatty acid co",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "higher fatty acid co = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Difference in satura",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Difference in satura = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "carbon starvation in",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "carbon starvation in = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NTRC",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NTRC = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Inactivating imprint",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Inactivating imprint = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATCSP2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATCSP2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LECOP1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LECOP1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATHMP51",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATHMP51 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Fis mutants",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Fis mutants = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Autophagy in materna",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Autophagy in materna = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "analyzed peg mutants",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "analyzed peg mutants = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "changes in the ploid",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "changes in the ploid = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "overexpression of Pf",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "overexpression of Pf = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PheMYB4-1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PheMYB4-1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BBM",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BBM = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATSCO1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATSCO1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATPPR2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATPPR2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "genomic imprinting",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "genomic imprinting = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Misbalanced expressi",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Misbalanced expressi = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "soluble sugars",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "soluble sugars = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATNPF8.3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATNPF8.3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SMC6A",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SMC6A = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "parental cross direc",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "parental cross direc = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATCBL3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATCBL3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "fertilization with d",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "fertilization with d = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ABI3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABI3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATSMC5",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATSMC5 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ABI4",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABI4 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATMYB25",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMYB25 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PGCRC",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PGCRC = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "parental genome imba",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "parental genome imba = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "VORICONAZOLE",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "VORICONAZOLE = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NRPABC2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NRPABC2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Decreased vesicular ",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Decreased vesicular  = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FOC",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FOC = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NRPC8",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NRPC8 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "REM11",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "REM11 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "paternal genome",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "paternal genome = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATSR45",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATSR45 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MEDEA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MEDEA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "disruptions in valin",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "disruptions in valin = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Maternal tissues",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Maternal tissues = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "multiple processes/f",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "multiple processes/f = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATNDT1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATNDT1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "short-term heat expo",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "short-term heat expo = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BnGA2ox6 overexpress",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BnGA2ox6 overexpress = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "integument of the ov",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "integument of the ov = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "cellularization",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "cellularization = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NSE4A",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NSE4A = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "E12A11",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "E12A11 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "mitochondrial riboso",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "mitochondrial riboso = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "defects in endosperm",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "defects in endosperm = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "EMS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EMS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TCDD",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TCDD = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NADP",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NADP = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "altered flavonoid me",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "altered flavonoid me = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PCWRI1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PCWRI1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATTTG1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATTTG1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "P5CS2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "P5CS2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Fatty acid synthesis",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Fatty acid synthesis = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "11_11B",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "11_11B = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATMYB56",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMYB56 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PML3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PML3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MPC",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MPC = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATCBL2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATCBL2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATRAD18",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATRAD18 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "H2B",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "H2B = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ASH2R",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ASH2R = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LOCUS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LOCUS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ASK13",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ASK13 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "EMB1379",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EMB1379 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATCSP4",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATCSP4 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATNADP-ME1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATNADP-ME1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "COSWEET10",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "COSWEET10 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FUSCA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FUSCA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MDKIN2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MDKIN2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BPCS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BPCS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PoWRI1 gene(s)",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PoWRI1 gene(s) = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Fragmentation of out",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Fragmentation of out = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CESA6",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CESA6 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ER",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ER = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BL",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BL = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GME",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GME = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "overexpression of Ps",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "overexpression of Ps = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SUS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SUS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "EMF",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EMF = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATMMS21",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMMS21 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "fertilization proces",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "fertilization proces = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "EL20Y",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EL20Y = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATCHS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATCHS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATGRP2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATGRP2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PGA6",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PGA6 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "paternal regulation",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "paternal regulation = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GCN1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GCN1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "fis class",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "fis class = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "plant(s) homozygous ",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "plant(s) homozygous  = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PEGS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PEGS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "reciprocal inter-plo",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "reciprocal inter-plo = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATPRP4",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATPRP4 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "RBL",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RBL = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NSE3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NSE3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BFN1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BFN1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATEIN2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATEIN2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    }
+  ]
+}

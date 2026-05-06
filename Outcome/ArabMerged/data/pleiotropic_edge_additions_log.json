@@ -1,0 +1,251 @@
+{
+  "metadata": {
+    "created": "2026-04-23",
+    "reason": "Add literature-backed edges to bridge composite/component gaps exposed by the 15 pleiotropic cross-phenotype tests.",
+    "total_edges_added_to_network": 7,
+    "total_edges_added_to_curated": 7
+  },
+  "edges_added": [
+    {
+      "edge_id": "ME498",
+      "source": "AHK",
+      "target": "ARR1",
+      "source_type": "PROTEIN_COMPLEX",
+      "target_type": "GENE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "",
+      "confidence": "HIGH",
+      "mechanism": "Cytokinin receptor histidine kinase composite (AHK2/AHK3/AHK4) activates B-type ARR transcription factors via AHP phosphorelay.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1104/pp.104.039131",
+          "title": "Histidine Kinase Homologs That Act as Cytokinin Receptors Possess Overlapping Functions in the Regulation of Shoot and Root Growth in Arabidopsis",
+          "authors": [
+            "Higuchi M",
+            "Pischke MS",
+            "Mahonen AP",
+            "Miyawaki K",
+            "Hashimoto Y",
+            "Seki M",
+            "Kobayashi M",
+            "Shinozaki K",
+            "Kato T",
+            "Tabata S",
+            "Helariutta Y",
+            "Sussman MR",
+            "Kakimoto T"
+          ],
+          "year": 2004,
+          "journal": "Plant Cell",
+          "evidence_sentence": "ahk2 ahk3 double mutants exhibited a semidwarf phenotype as to shoots, such as a reduced leaf size and a reduced inflorescence stem length, and AHK receptors activate the AHP-ARR phosphorelay downstream.",
+          "claim": "AHK cytokinin receptors activate B-type ARR (incl. ARR1) to regulate shoot growth; ahk2 ahk3 is a semidwarf."
+        }
+      ],
+      "source_networks": [
+        "pleiotropic_patch_2026-04-23"
+      ],
+      "affected_pleiotropic_test": "PLEIO_010"
+    },
+    {
+      "edge_id": "ME499",
+      "source": "EIN3",
+      "target": "FLC",
+      "source_type": "GENE",
+      "target_type": "GENE",
+      "sign": -1,
+      "effect": "repression",
+      "edge_type": "",
+      "confidence": "HIGH",
+      "mechanism": "EIN3/EIL1 recruit the FLD histone demethylase to the FLC locus, reducing H3K4me2 and repressing FLC transcription.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1093/plphys/kiad131",
+          "title": "ETHYLENE INSENSITIVE3/EIN3-LIKE1 modulate FLOWERING LOCUS C expression via histone demethylase interaction",
+          "authors": [
+            "Lee JH",
+            "Joshi HJ",
+            "Chae S"
+          ],
+          "year": 2023,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "The ein3 eil1 double mutant had higher levels of H3K4me2 at the FLC locus and exhibited a late flowering phenotype, suggesting EIN3/EIL1 recruit FLD demethylase to repress FLC.",
+          "claim": "EIN3 represses FLC; ein2/ein3 loss-of-function causes late flowering via sustained FLC expression."
+        }
+      ],
+      "source_networks": [
+        "pleiotropic_patch_2026-04-23"
+      ],
+      "affected_pleiotropic_test": "PLEIO_012"
+    },
+    {
+      "edge_id": "ME500",
+      "source": "Auxin",
+      "target": "LBD",
+      "source_type": "HORMONE",
+      "target_type": "PROTEIN_COMPLEX",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "",
+      "confidence": "HIGH",
+      "mechanism": "Auxin-induced expression of LBD16/LBD29 drives lateral root founder cell specification and primordium initiation downstream of ARF7/ARF19.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.107.052787",
+          "title": "ARF7 and ARF19 Regulate Lateral Root Formation via Direct Activation of LBD/ASL Genes in Arabidopsis",
+          "authors": [
+            "Okushima Y",
+            "Fukaki H",
+            "Onoda M",
+            "Theologis A",
+            "Tasaka M"
+          ],
+          "year": 2007,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Auxin induces the expression of LBD16 and LBD29 through ARF7 and ARF19; lbd16 lbd29 double mutants show drastically reduced lateral root density.",
+          "claim": "Auxin promotes LBD expression to drive lateral root formation; loss of TAA1/TAR2 reduces auxin and lateral root density."
+        }
+      ],
+      "source_networks": [
+        "pleiotropic_patch_2026-04-23"
+      ],
+      "affected_pleiotropic_test": "PLEIO_013"
+    },
+    {
+      "edge_id": "ME501",
+      "source": "Auxin",
+      "target": "Lateral_Root_Density",
+      "source_type": "HORMONE",
+      "target_type": "PHENOTYPE",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "",
+      "confidence": "HIGH",
+      "mechanism": "Auxin is the master hormonal promoter of lateral root initiation, founder-cell specification, and primordium emergence.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1242/dev.086363",
+          "title": "Molecular mechanisms of lateral root formation: an emerging hologenomic perspective",
+          "authors": [
+            "Lavenus J",
+            "Goh T",
+            "Roberts I",
+            "Guyomarc'h S",
+            "Lucas M",
+            "De Smet I",
+            "Fukaki H",
+            "Beeckman T",
+            "Bennett M",
+            "Laplaze L"
+          ],
+          "year": 2013,
+          "journal": "Development",
+          "evidence_sentence": "Local auxin biosynthesis via TAA1/TAR and YUCCA enzymes, followed by polar transport through PINs, establishes the auxin maximum required for lateral root initiation and density.",
+          "claim": "Auxin positively regulates lateral root density; taa1 tar2 auxin-biosynthesis mutants have reduced lateral root density."
+        }
+      ],
+      "source_networks": [
+        "pleiotropic_patch_2026-04-23"
+      ],
+      "affected_pleiotropic_test": "PLEIO_013"
+    },
+    {
+      "edge_id": "ME502",
+      "source": "BZR1",
+      "target": "BZR_BES",
+      "source_type": "GENE",
+      "target_type": "PROTEIN_COMPLEX",
+      "sign": 1,
+      "effect": "activation",
+      "edge_type": "",
+      "confidence": "HIGH",
+      "mechanism": "BZR1 and BES1 (BZR2) are close paralogs with redundant function. They heterodimerize and bind many shared genomic targets; they behave as a composite BZR/BES transcriptional activator.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1146/annurev-arplant-050213-040027",
+          "title": "Brassinosteroid Signaling Network and Regulation of Photomorphogenesis",
+          "authors": [
+            "Wang ZY",
+            "Bai MY",
+            "Oh E",
+            "Zhu JY"
+          ],
+          "year": 2012,
+          "journal": "Annual Review of Genetics",
+          "evidence_sentence": "BZR1 and BES1/BZR2 are close paralogs acting redundantly; gain-of-function bzr1-1D phenocopies bes1-D, with constitutive BR responses including enhanced growth and elongation.",
+          "claim": "BZR1 and BES1 are paralogous transcription factors with shared function; BZR1 activity drives the same cell-elongation program as the BZR_BES composite."
+        }
+      ],
+      "source_networks": [
+        "pleiotropic_patch_2026-04-23"
+      ],
+      "affected_pleiotropic_test": "PLEIO_014"
+    },
+    {
+      "edge_id": "ME503",
+      "source": "BIN2",
+      "target": "Plant_Height",
+      "source_type": "GENE",
+      "target_type": "PHENOTYPE",
+      "sign": -1,
+      "effect": "repression",
+      "edge_type": "",
+      "confidence": "HIGH",
+      "mechanism": "BIN2 phosphorylates and inactivates BZR1/BES1, blocking BR-responsive cell-elongation transcription. bin2-1 gain-of-function causes dwarfism.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.010319",
+          "title": "BIN2, a New Brassinosteroid-Insensitive Locus in Arabidopsis",
+          "authors": [
+            "Li J",
+            "Nam KH",
+            "Vafeados D",
+            "Chory J"
+          ],
+          "year": 2001,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "At maturity, the main inflorescence stem was about one-half of the wild-type height in bin2 gain-of-function mutants; BIN2 is a negative regulator of brassinosteroid signaling and plant height.",
+          "claim": "BIN2 negatively regulates Plant_Height; bin2 gain-of-function is a semidwarf."
+        }
+      ],
+      "source_networks": [
+        "pleiotropic_patch_2026-04-23"
+      ],
+      "affected_pleiotropic_test": "PLEIO_015"
+    },
+    {
+      "edge_id": "ME504",
+      "source": "PHYB",
+      "target": "BRC1",
+      "source_type": "GENE",
+      "target_type": "GENE",
+      "sign": -1,
+      "effect": "repression",
+      "edge_type": "",
+      "confidence": "HIGH",
+      "mechanism": "Active PHYB (high R:FR) represses BRC1 transcription in axillary buds; phyB loss-of-function or low R:FR derepresses BRC1 and enforces bud dormancy.",
+      "in_model": true,
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1302759110",
+          "title": "BRANCHED1 promotes axillary bud dormancy in response to shade in Arabidopsis",
+          "authors": "Gonzalez-Grandio E; Poza-Carrion C; Sorzano COS; Cubas P",
+          "year": 2013,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Active phyB down-regulates BRC1 in axillary buds under high R:FR; phyB mutants have elevated BRC1, increased bud dormancy, and fewer branches, phenocopying shade avoidance.",
+          "claim": "PHYB represses BRC1; phyB KO upregulates BRC1 and reduces shoot branching."
+        }
+      ],
+      "source_networks": [
+        "pleiotropic_patch_2026-04-23"
+      ],
+      "affected_pleiotropic_test": "PLEIO_002"
+    }
+  ]
+}

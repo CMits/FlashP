@@ -1,0 +1,92 @@
+{
+  "cluster": "C9_QTL_NIL",
+  "papers": [
+    {
+      "doi": "10.1111/tpj.13726",
+      "title": "A modern Green Revolution gene for reduced height in wheat",
+      "authors": "Würschum T, Langer SM, Longin CFH, Tucker MR, Leiser WL",
+      "year": 2017,
+      "journal": "The Plant Journal",
+      "status": "read"
+    },
+    {
+      "doi": "10.1111/tpj.16652",
+      "title": "Green Revolution dwarfing Rht genes negatively affected wheat floral traits related to cross-pollination efficiency",
+      "authors": "Schierenbeck M, Alqudah AM, Lantos E, Avogadro EG, Simón MR, Börner A",
+      "year": 2024,
+      "journal": "The Plant Journal",
+      "status": "read"
+    },
+    {
+      "doi": "10.1093/jxb/eraa494",
+      "title": "Towards the replacement of wheat Green Revolution genes",
+      "authors": "Pearce S",
+      "year": 2021,
+      "journal": "Journal of Experimental Botany",
+      "status": "read",
+      "pmc_id": "PMC7853296"
+    }
+  ],
+  "edges": [
+    {
+      "source": "Rht24",
+      "target": "Plant_Height",
+      "sign": -1,
+      "mechanism": "Rht24 on chromosome 6A explains 15% of genotypic variance; allele substitution -8.8 cm; GA-sensitive",
+      "evidence_doi": "10.1111/tpj.13726",
+      "evidence_sentence": "Rht24 was the second most important locus for reduced height, explaining 15.0% of the genotypic variance and exerting an allele substitution effect of -8.8 cm"
+    },
+    {
+      "source": "Rht-B1",
+      "target": "Anther_Length",
+      "sign": -1,
+      "mechanism": "Dwarfing alleles reduce anther length up to 20% in Rht1+Rht2 combinations",
+      "evidence_doi": "10.1111/tpj.16652",
+      "evidence_sentence": "Decreases up to 20.2% in anther length were documented with the double gene combination"
+    },
+    {
+      "source": "Rht-B1",
+      "target": "Filament_Length",
+      "sign": -1,
+      "mechanism": "Dwarfing reduces filament length up to 33%",
+      "evidence_doi": "10.1111/tpj.16652",
+      "evidence_sentence": "33% in filament length reductions relative to control plants"
+    },
+    {
+      "source": "Rht-B1",
+      "target": "Coleoptile_Length",
+      "sign": -1,
+      "mechanism": "Rht-B1b/Rht-D1b shortens coleoptile (GA-insensitive dwarfs); GA-responsive Rht do NOT shorten coleoptile",
+      "evidence_doi": "10.1093/jxb/eraa494",
+      "evidence_sentence": "no shortening of the coleoptile in plants carrying the Rht18 allele, contrasting sharply with the coleoptile reduction observed in Rht-D1b lines"
+    },
+    {
+      "source": "TaTB1",
+      "target": "Plant_Height",
+      "sign": -1,
+      "mechanism": "TEOSINTE BRANCHED 1 regulates plant height and stem internode length",
+      "evidence_doi": "10.1093/jxb/eraa494",
+      "evidence_sentence": "TEOSINTE BRANCHED 1 | Regulates height and stem internode length"
+    }
+  ],
+  "perturbations": [
+    {
+      "gene": "Rht-B1b+Rht-D1b_double",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "magnitude": "strong",
+      "evidence_doi": "10.1111/tpj.16652",
+      "evidence_sentence": "The Rht1+2 combination produced reductions up to 64% compared to the tall variety",
+      "notes": "Rht1+Rht2 double dwarf; up to 64% height reduction"
+    },
+    {
+      "gene": "Rht24b_Mercia_NIL",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "magnitude": "moderate",
+      "evidence_doi": "10.1111/tpj.13726",
+      "evidence_sentence": "exerting an allele substitution effect of -8.8 cm",
+      "notes": "Rht24 allele substitution reduces height 8.8 cm"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+node,node_type,activators,inhibitors,formula
+Auxin,,,,Auxin = 1.0 * 1.0 * gene_modifier + exogenous
+BRC1,,"Auxin,Strigolactone,MAX2","Decapitation,Sucrose,Cytokinin,SMXL678,GA,FT,Auxin",BRC1 = ((Auxin^2 * (1.0+1) / (1.0 + Auxin^2)) * (Strigolactone^2 * (1.0+1) / (1.0 + Strigolactone^2)) * (MAX2^2 * (1.0+1) / (1.0 + MAX2^2))) * (((1.0+1) / (1.0 + Decapitation^2)) * ((1.0+1) / (1.0 + Sucrose^2)) * ((1.0+1) / (1.0 + Cytokinin^2)) * ((1.0+1) / (1.0 + SMXL678^2)) * ((1.0+1) / (1.0 + GA^2)) * ((1.0+1) / (1.0 + FT^2)) * ((1.0+1) / (1.0 + Auxin^2))) * gene_modifier + exogenous
+Cytokinin,,,Auxin,Cytokinin = (1.0) * (((1.0+1) / (1.0 + Auxin^2))) * gene_modifier + exogenous
+D53,,,,D53 = 1.0 * 1.0 * gene_modifier + exogenous
+Decapitation,,,,Decapitation = 1.0 * 1.0 * gene_modifier + exogenous
+FT,,,,FT = 1.0 * 1.0 * gene_modifier + exogenous
+GA,,,,GA = 1.0 * 1.0 * gene_modifier + exogenous
+MAX2,,,Sucrose,MAX2 = (1.0) * (((1.0+1) / (1.0 + Sucrose^2))) * gene_modifier + exogenous
+SMXL678,,,MAX2,SMXL678 = (1.0) * (((1.0+1) / (1.0 + MAX2^2))) * gene_modifier + exogenous
+Shoot_Branching,,"Cytokinin,FT","BRC1,Auxin,MAX2,Strigolactone,D53",Shoot_Branching = ((Cytokinin^2 * (1.0+1) / (1.0 + Cytokinin^2)) * (FT^2 * (1.0+1) / (1.0 + FT^2))) * (((1.0+1) / (1.0 + BRC1^2)) * ((1.0+1) / (1.0 + Auxin^2)) * ((1.0+1) / (1.0 + MAX2^2)) * ((1.0+1) / (1.0 + Strigolactone^2)) * ((1.0+1) / (1.0 + D53^2))) * gene_modifier + exogenous
+Strigolactone,,,,Strigolactone = 1.0 * 1.0 * gene_modifier + exogenous
+Sucrose,,,,Sucrose = 1.0 * 1.0 * gene_modifier + exogenous

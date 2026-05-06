@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lignin_SG_Ratio",
+    "species": "Populus trichocarpa",
+    "created": "2026-04-20"
+  },
+  "failures": [
+    {
+      "test_id": "T007",
+      "gene": "CCoAOMT1",
+      "perturbation_type": "knockdown",
+      "expected_direction": "unchanged",
+      "predicted_direction": "decreased",
+      "category": "framework_limitation",
+      "explanation": "Ratio-on-ratio framework limit. CCoAOMT1 methylates caffeoyl-CoA upstream of the G/S branch point. Biologically KD reduces both G and S proportionally leaving S/G unchanged (Zhong 2000). The scalar Lignin_SG_Ratio node cannot represent 'both branches reduce proportionally' because there is no separate Lignin_G and Lignin_S node to cancel.",
+      "evidence": "10.1104/pp.124.2.563",
+      "fixable": false,
+      "fix_strategy": "Would require splitting Lignin_SG_Ratio into Lignin_G and Lignin_S sub-nodes. Out of scope of surgical refinement."
+    },
+    {
+      "test_id": "T010",
+      "gene": "CAD1",
+      "perturbation_type": "knockdown",
+      "expected_direction": "unchanged",
+      "predicted_direction": "decreased",
+      "category": "framework_limitation",
+      "explanation": "Ratio-on-ratio framework limit. CAD1 reduces both coniferaldehyde and sinapaldehyde with similar kinetics; biologically KD does not shift S/G (Baucher 1996). The network wires CAD1 to both Sinapyl_Alcohol (+1 to SG) and Coniferyl_Alcohol (-1 to SG), but geometric-mean activation and bounded-inverse inhibition have asymmetric magnitudes — Sinapyl_Alcohol drop dominates and SG falls. Cannot be fixed without removing CAD1 from both alcohol edges, which would break COMT1 propagation (T005/T006).",
+      "evidence": "10.1104/pp.112.4.1479",
+      "fixable": false,
+      "fix_strategy": "Would require separating Sinapyl / Coniferyl alcohol contributions via a sub-node split. Retaining CAD1 as-is is the honest model compromise."
+    },
+    {
+      "test_id": "T013",
+      "gene": "C3H1",
+      "perturbation_type": "knockdown",
+      "expected_direction": "decreased",
+      "predicted_direction": "increased",
+      "category": "edge_case",
+      "explanation": "Genetic-background heterogeneity. T011 (Coleman 2008 PNAS) and T012 (Ralph 2012) in P. alba x grandidentata show C3H KD increases S/G. T013 (Peng 2021) in P. alba x glandulosa shows the opposite. The network encodes the Coleman/Ralph consensus (C3H1 -> Lignin_SG_Ratio sign=-1) which gets T011, T012 right and T013 wrong. No single sign-coded edge can simultaneously satisfy both published directions.",
+      "evidence": "10.3389/fbioe.2021.790539",
+      "fixable": false,
+      "fix_strategy": "Not addressable without a background-stratified model. Acceptable residual at 2/3 C3H_RNAi."
+    },
+    {
+      "test_id": "T027",
+      "gene": "KNAT7",
+      "perturbation_type": "knockdown",
+      "expected_direction": "increased",
+      "predicted_direction": "decreased",
+      "category": "edge_case",
+      "explanation": "Non-monotonic biology. Ahlawat 2021 reports BOTH KNAT7 OE (T026, +5-7% S/G) AND KNAT7 KD (T027, +8-12% S/G) produce S/G increases, with total-lignin drop only in the KD case. A sign-encoded cascade (where +1 means 'more regulator = more output') cannot represent bell-shaped responses where both too-much and too-little of the regulator shift composition in the same direction. The model gets T026 right and T027 wrong.",
+      "evidence": "10.3389/fpls.2021.762067",
+      "fixable": false,
+      "fix_strategy": "Would require non-monotonic response functions not part of the FLASH-P framework."
+    }
+  ],
+  "summary": {
+    "total_failures": 4,
+    "by_category": {
+      "framework_limitation": 2,
+      "composite_collapse": 0,
+      "epistasis_complexity": 0,
+      "edge_case": 2
+    },
+    "fixable_count": 0,
+    "unfixable_count": 4,
+    "note_iter1_fix": "Iteration 1 removed T016 (4CL5 CRISPR KO) from the failure list by removing the PT4CL5 node per Wang 2020. T016 is now correctly skipped as 'not in network' rather than misclassified.",
+    "note_algebraic_vs_ode": "Algebraic method still produces 13 failures vs 4 in ODE. The additional 9 algebraic-only failures (T008, T009, T017, T018, T023, T024, T025, T026, T029) are all cases where the propagated ratio sits within +/- 0.05 of the threshold because geometric-mean activation dilutes signals through a 2-3 step cascade. Hill-function dynamics (K=2, n=1) amplify these signals and recover the correct direction. These are NOT structural network issues.",
+    "accept_as_residual": ["T007 (CCoAOMT1 KD ratio-on-ratio)", "T010 (CAD1 KD ratio-on-ratio)", "T013 (C3H1 KD background heterogeneity)", "T027 (KNAT7 KD non-monotonic)"]
+  }
+}

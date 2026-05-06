@@ -1,0 +1,221 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Plant_Height",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19"
+  },
+  "failures": [
+    {
+      "test_id": "T033",
+      "gene": "CPS",
+      "perturbation_type": "knockout_plus_treatment",
+      "expected_direction": "unchanged",
+      "predicted_direction": "increased",
+      "category": "framework_limitation",
+      "explanation": "ga1-3 (CPS KO, mapped mechanistically to GA20OX KO) + exogenous GA rescue. Model treats exogenous Gibberellin as additive supply regardless of network context; the rescue restores height to near-WT ('unchanged') but the model over-shoots into 'increased'. Classic Trap-5 framework behaviour for biosynthesis-mutant + hormone rescue.",
+      "evidence": "10.1105/tpc.1.10.945",
+      "fixable": true,
+      "fix_strategy": "Adjust exogenous_supply value for rescue tests to 0.5 (half-dose) rather than 1.0, OR implement comparison_baseline='mutant_alone' more carefully in validator."
+    },
+    {
+      "test_id": "T043",
+      "gene": "DWF4",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "unchanged",
+      "category": "composite_collapse",
+      "explanation": "DWF4 mapped to BR_SYN composite as composite_member with gm=0.99 (per §Trap 2). But DWF4 is rate-limiting for BR biosynthesis; single dwf4 KO alone gives strong dwarf. The 0.99 modifier produces a near-WT perturbation in the model when 0.0 is biologically appropriate. Applies also to T045 (DET2) and T046 (CPD).",
+      "evidence": "10.1074/jbc.273.4.2094",
+      "fixable": true,
+      "fix_strategy": "Over-ride PERTURBATION's composite_member rule for BR_SYN: treat DWF4/DET2/CPD single KOs with gm=0.0 (each is rate-limiting, not redundant). BR_SYN over-collapses non-redundant enzymes (§9.3 §Trap 2 rule doesn't apply)."
+    },
+    {
+      "test_id": "T045",
+      "gene": "DET2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "unchanged",
+      "category": "composite_collapse",
+      "explanation": "Same as T043. det2 alone is a strong dwarf; composite gm=0.99 produces near-WT.",
+      "evidence": "10.1105/tpc.8.1.159",
+      "fixable": true,
+      "fix_strategy": "Treat DET2 single KO as gm=0.0 on BR_SYN (non-redundant enzyme)."
+    },
+    {
+      "test_id": "T046",
+      "gene": "CPD",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "unchanged",
+      "category": "composite_collapse",
+      "explanation": "Same as T043/T045. cpd is strong dwarf single KO; BR_SYN over-collapses.",
+      "evidence": "10.1016/0092-8674(95)90452-2",
+      "fixable": true,
+      "fix_strategy": "Treat CPD single KO as gm=0.0 on BR_SYN."
+    },
+    {
+      "test_id": "T087",
+      "gene": "PIF4",
+      "perturbation_type": "knockout_plus_treatment",
+      "expected_direction": "unchanged",
+      "predicted_direction": "increased",
+      "category": "framework_limitation",
+      "explanation": "pif4 + 27C (warm temperature). Expected 'unchanged' because PIF4 is required for the warm-temperature elongation response; pif4 blocks the response. Model adds Temperature exogenous_supply regardless of PIF4 status, so warm-temp signal propagates through other PIFs in the composite (PIF5, PIF7) and via Gibberellin, triggering growth. Trap-5 scenario.",
+      "evidence": "10.1038/ncomms6204",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T089",
+      "gene": "BRI1",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "unchanged",
+      "predicted_direction": "increased",
+      "category": "framework_limitation",
+      "explanation": "bri1 + BL (brassinolide). BRI1 is the BR receptor; KO blocks ALL BR perception. Model adds Brassinosteroid exogenous_supply regardless of BRI1 status, so the ligand still propagates via BRI1 downstream (BRI1=0.01 floor still multiplied into BSU1). Classic Trap-5 signaling-mutant rescue failure.",
+      "evidence": "10.1007/BF00220464",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T090",
+      "gene": "DET2",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "unchanged",
+      "predicted_direction": "increased",
+      "category": "composite_collapse",
+      "explanation": "det2 + BL rescue. det2 is biosynthesis mutant so BL should rescue to near-WT (unchanged vs WT). Model: DET2 in BR_SYN composite gm=0.99 (too lenient) + BL exogenous_supply=1.0 pushes BR signalling above WT. Combination of composite_collapse bias + Trap-5 additivity.",
+      "evidence": "10.1105/tpc.8.1.159",
+      "fixable": true,
+      "fix_strategy": "Use gm=0.0 for DET2 KO; then baseline compare against mutant rather than WT."
+    },
+    {
+      "test_id": "T091",
+      "gene": "GAI",
+      "perturbation_type": "gain_of_function_plus_treatment",
+      "expected_direction": "unchanged",
+      "predicted_direction": "increased",
+      "category": "framework_limitation",
+      "explanation": "gai-1 (stabilised DELLA, GA-insensitive) + GA. Expected 'unchanged' because GA cannot degrade the stabilised GAI mutant protein. Model: GAI gm=2.0 on DELLA composite, + Gibberellin exogenous_supply=1.0 → GID1 still degrades DELLA composite, giving growth increase. Framework doesn't capture GAI DELLA-specific GA-insensitivity.",
+      "evidence": "10.1038/22307",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T097",
+      "gene": "Gibberellin",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "unchanged",
+      "predicted_direction": "increased",
+      "category": "edge_case",
+      "explanation": "Exogenous GA on WT. Expected 'unchanged' (GA-saturated WT context: adding more GA has no effect). Model over-predicts because WT is already at 1.0 and adding exogenous supply pushes past the natural saturation. Edge case: dataset reports 'unchanged' while typical GA treatment increases height.",
+      "evidence": "(dataset-specific saturation context)",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T103",
+      "gene": "Cytokinin",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "decreased",
+      "predicted_direction": "increased",
+      "category": "edge_case",
+      "explanation": "CK treatment → dataset expects 'decreased'. CK canonically promotes growth (height increase) so the expectation is unusual and likely context-specific (e.g., high-dose CK inhibition). Model encodes CK → Plant_Height (+1) from curated; the sign conflict is in the perturbation dataset itself.",
+      "evidence": "(context-specific)",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T107",
+      "gene": "ETR1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "decreased",
+      "category": "framework_limitation",
+      "explanation": "etr1 KO: in Arabidopsis, dominant etr1-1 blocks ethylene signalling (tall). But recessive etr1 LoF has minor effect due to ETR1/2/ERS1/2/EIN4 redundancy. Network encodes inverse-receptor logic Ethylene⊣ETR1→CTR1. ETR1=0 → CTR1=0 → EIN3 active → growth reduced. Framework cannot distinguish dominant-negative etr1-1 from LoF.",
+      "evidence": "10.1126/science.262.5133.539",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T110",
+      "gene": "MAX1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "increased",
+      "category": "edge_case",
+      "explanation": "max1 KO → less SL_SYN → less Strigolactone → less D14 → less MAX2 → less BZR_BES inhibition → more growth. But dataset says 'decreased' (max1 primary shoot is shorter due to more branches consuming resources). Sign conflict driven by iter-3 JUDGE decision to route SL via MAX2⊣BZR_BES (Perception Gate) instead of direct SL→Plant_Height(+1). Applies also to T111 (MAX3) and T112 (MAX4).",
+      "evidence": "10.1007/s00425-003-1088-2",
+      "fixable": true,
+      "fix_strategy": "Revisit iter-3 SL Perception Gate decision: either restore Strigolactone→Plant_Height(+1) direct edge as parallel path OR add SL-promoting downstream output (e.g., via SMXL6_7_8→Plant_Height literature_gap resolution)."
+    },
+    {
+      "test_id": "T111",
+      "gene": "MAX3",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "increased",
+      "category": "edge_case",
+      "explanation": "Same sign conflict as T110.",
+      "evidence": "10.1016/s0092-8674(00)80874-3",
+      "fixable": true,
+      "fix_strategy": "See T110."
+    },
+    {
+      "test_id": "T112",
+      "gene": "MAX4",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "increased",
+      "category": "edge_case",
+      "explanation": "Same sign conflict as T110.",
+      "evidence": "10.1101/gad.256603",
+      "fixable": true,
+      "fix_strategy": "See T110."
+    },
+    {
+      "test_id": "T113",
+      "gene": "D14",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "increased",
+      "category": "edge_case",
+      "explanation": "d14 KO: same topology conflict as MAX1/3/4 - d14 loses SL perception → MAX2 can't form active complex → BZR_BES inhibition relieved → growth up. But dataset says decreased. RWR-specific failure (Algebraic/ODE marginally pass).",
+      "evidence": "10.1126/science.1218094",
+      "fixable": true,
+      "fix_strategy": "See T110."
+    },
+    {
+      "test_id": "T115",
+      "gene": "Strigolactone",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "predicted_direction": "decreased",
+      "category": "edge_case",
+      "explanation": "Exogenous SL treatment. Expected 'increased' per curated E211. Model: SL routes via D14→MAX2⊣BZR_BES, so exogenous SL reduces BZR_BES → reduces growth. Direct opposite of expected. Same iter-3 topology issue as T110-T113.",
+      "evidence": "10.1038/nature07272",
+      "fixable": true,
+      "fix_strategy": "Re-enable Strigolactone→Plant_Height(+1) direct as parallel path to the Perception Gate, OR flip sign of MAX2→BZR_BES edge to positive if SL-BES1 biology is context-dependent in Arabidopsis."
+    }
+  ],
+  "summary": {
+    "total_failures_rwr": 16,
+    "total_failures_ode": 30,
+    "total_failures_algebraic": 31,
+    "shared_all_methods": 12,
+    "by_category": {
+      "framework_limitation": 5,
+      "composite_collapse": 4,
+      "epistasis_complexity": 0,
+      "edge_case": 7
+    },
+    "fixable_count": 9,
+    "unfixable_count": 7,
+    "category_notes": {
+      "framework_limitation": "Trap-5 signaling-mutant-rescue and inverse-receptor cases that the algebraic formalism cannot represent without adding conditional gates.",
+      "composite_collapse": "BR_SYN composite over-collapses DWF4/DET2/CPD which are individually rate-limiting; treated here as fixable via PERTURBATION modifier override (gm=0.0 rather than 0.99).",
+      "edge_case": "Sign-conflict failures driven by the iter-3 JUDGE-loop decision to route Strigolactone through the Perception Gate (MAX2⊣BZR_BES) rather than a direct +1 edge on Plant_Height; resolving requires revisiting that design choice."
+    }
+  }
+}

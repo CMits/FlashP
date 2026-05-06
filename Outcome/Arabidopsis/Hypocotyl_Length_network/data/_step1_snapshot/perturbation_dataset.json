@@ -1,0 +1,2742 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Hypocotyl_Length",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "total_perturbations": 123,
+    "by_type": {
+      "knockout": 57,
+      "exogenous_treatment": 7,
+      "gain_of_function": 10,
+      "triple_knockout": 6,
+      "double_knockout": 9,
+      "chemical_treatment": 4,
+      "overexpression": 22,
+      "quintuple_knockout": 2,
+      "quadruple_knockout": 5,
+      "phospho_dead_mutant": 1
+    },
+    "convention": "compare to WT unless rescue (compare to mutant alone)"
+  },
+  "direction_threshold": 0.05,
+  "perturbations": [
+    {
+      "test_id": "T001",
+      "gene": "14-3-3_lambda",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.31636",
+          "title": "Shade-induced nuclear localization of PIF7 is regulated by phosphorylation and 14-3-3 proteins in Arabidopsis",
+          "authors": "Huang X, Zhang Q, Jiang Y, Yang C, Wang Q, Li L",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "14-3-3 λκ double mutant shows faster PIF7 nuclear accumulation",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "shade",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T002",
+      "gene": "ACC_treatment",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1007/s42994-021-00063-0",
+          "title": "Seedling morphogenesis: when ethylene meets high ambient temperature",
+          "authors": "Shi J, Zhu Z",
+          "year": 2021,
+          "journal": "aBIOTECH",
+          "evidence_sentence": "ACC treatment of WT seedlings induces triple response (short hypocotyl)",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "darkness 22C",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T003",
+      "gene": "ACC_treatment",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "minimal",
+      "evidence": [
+        {
+          "doi": "10.1007/s42994-021-00063-0",
+          "title": "Seedling morphogenesis: when ethylene meets high ambient temperature",
+          "authors": "Shi J, Zhu Z",
+          "year": 2021,
+          "journal": "aBIOTECH",
+          "evidence_sentence": "seedlings grown at 28°C with identical ethylene treatment exhibit almost no change in hypocotyl",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "darkness 28C",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T004",
+      "gene": "AFB5",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.19048",
+          "title": "TIR1/AFB-Aux/IAA auxin perception mediates rapid cell wall acidification and growth of Arabidopsis hypocotyls",
+          "authors": "Fendrych M, Leung J, Friml J",
+          "year": 2016,
+          "journal": "eLife",
+          "evidence_sentence": "afb5-5 leads to decreased sensitivity to picloram-induced hypocotyl elongation",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "picloram",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T005",
+      "gene": "AHA2",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.19048",
+          "title": "TIR1/AFB-Aux/IAA auxin perception mediates rapid cell wall acidification and growth of Arabidopsis hypocotyls",
+          "authors": "Fendrych M, Leung J, Friml J",
+          "year": 2016,
+          "journal": "eLife",
+          "evidence_sentence": "ost2-2D/aha2-5 mutant line elongates in absence of auxin",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "ost2-2D/aha2-5",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T006",
+      "gene": "ARF6",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.18.00718",
+          "title": "Three Auxin Response Factors Promote Hypocotyl Elongation",
+          "authors": "Reed JW, Wu MF, Reeves PH, Hodgens C, Yadav V, Hayes S, Pierik R",
+          "year": 2018,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "arf6-2 single mutants 80-90% of WT",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "darkness",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T007",
+      "gene": "ARF6_ARF7_ARF8",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.18.00718",
+          "title": "Three Auxin Response Factors Promote Hypocotyl Elongation",
+          "authors": "Reed JW, Wu MF, Reeves PH, Hodgens C, Yadav V, Hayes S, Pierik R",
+          "year": 2018,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Plants deficient in all three ARFs were 20% to 30% of wild-type in darkness",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "darkness",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T008",
+      "gene": "ARF6_ARF8",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.03031",
+          "title": "Cell elongation is regulated through a central circuit of interacting transcription factors in the Arabidopsis hypocotyl",
+          "authors": "Oh E, Zhu JY, Bai MY, Arenhart RA, Sun Y, Wang ZY",
+          "year": 2014,
+          "journal": "eLife",
+          "evidence_sentence": "arf6;arf8 double mutant showed reduced BR and GA promotion of hypocotyl elongation",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "any",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T009",
+      "gene": "ARF7",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.18.00718",
+          "title": "Three Auxin Response Factors Promote Hypocotyl Elongation",
+          "authors": "Reed JW, Wu MF, Reeves PH, Hodgens C, Yadav V, Hayes S, Pierik R",
+          "year": 2018,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "nph4-1 single mutants 80-90% of WT",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "darkness",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T010",
+      "gene": "ARF8",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.18.00718",
+          "title": "Three Auxin Response Factors Promote Hypocotyl Elongation",
+          "authors": "Reed JW, Wu MF, Reeves PH, Hodgens C, Yadav V, Hayes S, Pierik R",
+          "year": 2018,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "arf8-3 single mutants 80-90% of WT",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "darkness",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T011",
+      "gene": "ARP6",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.14348/molcells.2016.0126",
+          "title": "PIF4 Integrates Multiple Environmental and Hormonal Signals for Plant Growth Regulation in Arabidopsis",
+          "authors": "Choi H, Oh E",
+          "year": 2016,
+          "journal": "Molecules and Cells",
+          "evidence_sentence": "arp6 mutants show a constitutive thermoresponsive growth phenotype",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "22C",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T012",
+      "gene": "AXR2_IAA7",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.18.00718",
+          "title": "Three Auxin Response Factors Promote Hypocotyl Elongation",
+          "authors": "Reed JW, Wu MF, Reeves PH, Hodgens C, Yadav V, Hayes S, Pierik R",
+          "year": 2018,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "axr2-1 gain-of-function (stabilized IAA7) shows short hypocotyls",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "darkness",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T013",
+      "gene": "AXR2_IAA7_AXR3_IAA17",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.18.00718",
+          "title": "Three Auxin Response Factors Promote Hypocotyl Elongation",
+          "authors": "Reed JW, Wu MF, Reeves PH, Hodgens C, Yadav V, Hayes S, Pierik R",
+          "year": 2018,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Hypocotyls of axr2/iaa7-7 axr3/iaa17-7 double mutant seedlings were longer than wild-type",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "short days",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T014",
+      "gene": "Auxinole",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.19048",
+          "title": "TIR1/AFB-Aux/IAA auxin perception mediates rapid cell wall acidification and growth of Arabidopsis hypocotyls",
+          "authors": "Fendrych M, Leung J, Friml J",
+          "year": 2016,
+          "journal": "eLife",
+          "evidence_sentence": "auxinole largely inhibits auxin induced hypocotyl elongation",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "auxin response",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T015",
+      "gene": "BAK1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "bak1 mutants have semi-dwarf phenotype",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T016",
+      "gene": "BBX18",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1126/sciadv.abf4427",
+          "title": "XBAT31 regulates thermoresponsive hypocotyl growth through mediating degradation of the thermosensor ELF3 in Arabidopsis",
+          "authors": "Zhang LL, Shao YJ, Ding L, Wang MJ, Davis SJ, Liu JX",
+          "year": 2021,
+          "journal": "Science Advances",
+          "evidence_sentence": "the hypocotyl phenotype was suppressed in bbx18-1 single mutant background at warm temperatures",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "29C",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T017",
+      "gene": "BBX21",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1607687113",
+          "title": "BBX21, an Arabidopsis B-box protein, directly activates HY5 and is targeted by COP1 for 26S proteasome-mediated degradation",
+          "authors": "Xu D, Jiang Y, Li J, Lin F, Holm M, Deng XW",
+          "year": 2016,
+          "journal": "PNAS",
+          "evidence_sentence": "bbx21-1 mutant showed slightly longer hypocotyl",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "white light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T018",
+      "gene": "BBX21",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1607687113",
+          "title": "BBX21, an Arabidopsis B-box protein, directly activates HY5 and is targeted by COP1 for 26S proteasome-mediated degradation",
+          "authors": "Xu D, Jiang Y, Li J, Lin F, Holm M, Deng XW",
+          "year": 2016,
+          "journal": "PNAS",
+          "evidence_sentence": "transgenic BBX21-OX lines exhibited significantly shorter hypocotyls compared with WT",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "white/blue/red light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T019",
+      "gene": "BBX22",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1607687113",
+          "title": "",
+          "authors": "",
+          "year": null,
+          "journal": "",
+          "evidence_sentence": "bbx22 mutant shows slightly elongated hypocotyl in light, opposite to BBX21",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "white light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T020",
+      "gene": "BBX24",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1607687113",
+          "title": "",
+          "authors": "",
+          "year": null,
+          "journal": "",
+          "evidence_sentence": "bbx24 mutants show reduced shade-induced hypocotyl elongation",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "shade",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T021",
+      "gene": "BES1",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "bes1-D dominant mutant shows BR-hypersensitive phenotype with elongated hypocotyl",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T022",
+      "gene": "BIN2",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1700850114",
+          "title": "Noncanonical role of Arabidopsis COP1/SPA complex in repressing BIN2-mediated PIF3 phosphorylation and degradation in darkness",
+          "authors": "Ling JJ, Li J, Zhu D, Deng XW",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "Constitutively active bin2-1 mutant dramatically decreases PIF3 abundance; longer hypocotyl",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "darkness (bin2-1)",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T023",
+      "gene": "BIN2",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "bin2-1 dominant mutant is dwarf with constitutive BR-insensitive phenotype",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T024",
+      "gene": "BL_treatment",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "",
+          "authors": "",
+          "year": null,
+          "journal": "",
+          "evidence_sentence": "Brassinolide treatment promotes hypocotyl elongation in WT seedlings via BRI1-BZR1",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T025",
+      "gene": "BRI1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "bri1 mutants are dwarfs with short hypocotyls",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light/dark",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T026",
+      "gene": "BR_treatment",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "BL treatment promotes hypocotyl elongation in WT",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T027",
+      "gene": "BZR1",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "bzr1-1D dominant gain-of-function constitutively activates BR responses including longer hypocotyl",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T028",
+      "gene": "Brassinazole_Brz",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "Brz BR biosynthesis inhibitor produces dwarf phenotype",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T029",
+      "gene": "CCA1_LHY",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "",
+          "authors": "",
+          "year": null,
+          "journal": "",
+          "evidence_sentence": "cca1 lhy double mutant has long hypocotyl",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "LD",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T030",
+      "gene": "COG1",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.14348/molcells.2016.0126",
+          "title": "PIF4 Integrates Multiple Environmental and Hormonal Signals for Plant Growth Regulation in Arabidopsis",
+          "authors": "Choi H, Oh E",
+          "year": 2016,
+          "journal": "Molecules and Cells",
+          "evidence_sentence": "cog1-3D single mutants show an elongated hypocotyl phenotype under light conditions",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T031",
+      "gene": "COP1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1700850114",
+          "title": "Noncanonical role of Arabidopsis COP1/SPA complex in repressing BIN2-mediated PIF3 phosphorylation and degradation in darkness",
+          "authors": "Ling JJ, Li J, Zhu D, Deng XW",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "cop1-4 mutants show shorter hypocotyls and fully opened cotyledons in darkness",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "darkness (skotomorphogenesis)",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T032",
+      "gene": "COP1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/emboj.2009.4",
+          "title": "Interaction of COP1 and UVR8 regulates UV-B-induced photomorphogenesis and stress acclimation in Arabidopsis",
+          "authors": "Favory JJ, Stec A, Gruber H, Rizzini L, Oravecz A, Funk M, Albert A, Cloix C, Jenkins GI, Oakeley EJ, Seidlitz HK, Nagy F, Ulm R",
+          "year": 2009,
+          "journal": "EMBO J",
+          "evidence_sentence": "cop1 mutants are deficient in UV-B photomorphogenic responses",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "white light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T033",
+      "gene": "CRY1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1016/B978-0-12-801922-1.00007-5",
+          "title": "The Cryptochrome Blue Light Receptors",
+          "authors": "Wang X, Wang Q, Nguyen P, Lin C",
+          "year": 2014,
+          "journal": "Enzymes",
+          "evidence_sentence": "Arabidopsis cry1 (hy4) mutants exhibit elongated hypocotyl under blue light",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "blue light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T034",
+      "gene": "CRY1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1016/B978-0-12-801922-1.00007-5",
+          "title": "The Cryptochrome Blue Light Receptors",
+          "authors": "Wang X, Wang Q, Nguyen P, Lin C",
+          "year": 2014,
+          "journal": "Enzymes",
+          "evidence_sentence": "overexpression of Arabidopsis CRY1 resulted in enhanced light responses",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "blue light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T035",
+      "gene": "CRY1_CRY2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1016/B978-0-12-801922-1.00007-5",
+          "title": "The Cryptochrome Blue Light Receptors",
+          "authors": "Wang X, Wang Q, Nguyen P, Lin C",
+          "year": 2014,
+          "journal": "Enzymes",
+          "evidence_sentence": "cry1cry2 double mutants have stronger long-hypocotyl phenotypes than either single mutant",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "blue light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T036",
+      "gene": "CRY2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1016/B978-0-12-801922-1.00007-5",
+          "title": "The Cryptochrome Blue Light Receptors",
+          "authors": "Wang X, Wang Q, Nguyen P, Lin C",
+          "year": 2014,
+          "journal": "Enzymes",
+          "evidence_sentence": "cry2 mutation shows evident effects under medium-low fluence blue light",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "low fluence blue light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T037",
+      "gene": "CRY2",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1016/B978-0-12-801922-1.00007-5",
+          "title": "The Cryptochrome Blue Light Receptors",
+          "authors": "Wang X, Wang Q, Nguyen P, Lin C",
+          "year": 2014,
+          "journal": "Enzymes",
+          "evidence_sentence": "transgenic seedlings overexpressing CRY2 showed enhanced light responses",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "blue light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T038",
+      "gene": "CTR1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1007/s42994-021-00063-0",
+          "title": "Seedling morphogenesis: when ethylene meets high ambient temperature",
+          "authors": "Shi J, Zhu Z",
+          "year": 2021,
+          "journal": "aBIOTECH",
+          "evidence_sentence": "ctr1-1 mutants display hypocotyls shorter than Col-0",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "any",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T039",
+      "gene": "DELLA",
+      "perturbation_type": "quintuple_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "della quintuple (rga gai rgl1 rgl2 rgl3) mutant shows constitutively elongated hypocotyl independent of GA",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T040",
+      "gene": "DELLA_pentuple",
+      "perturbation_type": "quintuple_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.03031",
+          "title": "Cell elongation is regulated through a central circuit of interacting transcription factors in the Arabidopsis hypocotyl",
+          "authors": "Oh E, Zhu JY, Bai MY, Arenhart RA, Sun Y, Wang ZY",
+          "year": 2014,
+          "journal": "eLife",
+          "evidence_sentence": "della pentuple mutant lacking all five DELLA members showed near-normal auxin response",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "any",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T041",
+      "gene": "DET1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.130666",
+          "title": "Arabidopsis DE-ETIOLATED1 Represses Photomorphogenesis by Positively Regulating Phytochrome-Interacting Factors in the Dark",
+          "authors": "Dong J, Tang D, Gao Z, Yu R, Li K, He H, Terzaghi W, Deng XW, Chen H",
+          "year": 2014,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Arabidopsis seedlings undergo photomorphogenic development even in darkness when DET1 function is disrupted",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "darkness",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T042",
+      "gene": "DET2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "det2 mutants are extreme dwarfs with constitutive photomorphogenesis in dark",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "darkness/light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T043",
+      "gene": "DWF4",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1016/j.pbi.2014.07.012",
+          "title": "The brassinosteroid signaling network - a paradigm of signal integration",
+          "authors": "Wang W, Bai MY, Wang ZY",
+          "year": 2014,
+          "journal": "Current Opinion in Plant Biology",
+          "evidence_sentence": "dwf4 mutants are dwarfs with short hypocotyls rescuable by BL",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T044",
+      "gene": "EBF1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.076588",
+          "title": "Ethylene-Induced Stabilization of EIN3 and EIL1 Is Mediated by Proteasomal Degradation of EBF1 and EBF2 That Requires EIN2 in Arabidopsis",
+          "authors": "An F, Zhao Q, Ji Y, Li W, Jiang Z, Yu X, Zhang C, Han Y, He W, Liu Y, Zhang S, Ecker JR, Guo H",
+          "year": 2010,
+          "journal": "Plant Cell",
+          "evidence_sentence": "35S:EBF1 displays ethylene insensitivity",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "ACC",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T045",
+      "gene": "EBF1_EBF2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.076588",
+          "title": "Ethylene-Induced Stabilization of EIN3 and EIL1 Is Mediated by Proteasomal Degradation of EBF1 and EBF2 That Requires EIN2 in Arabidopsis",
+          "authors": "An F, Zhao Q, Ji Y, Li W, Jiang Z, Yu X, Zhang C, Han Y, He W, Liu Y, Zhang S, Ecker JR, Guo H",
+          "year": 2010,
+          "journal": "Plant Cell",
+          "evidence_sentence": "ebf1 ebf2 double mutant constitutively short with high EIN3",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "any",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T046",
+      "gene": "EIN2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.076588",
+          "title": "Ethylene-Induced Stabilization of EIN3 and EIL1 Is Mediated by Proteasomal Degradation of EBF1 and EBF2 That Requires EIN2 in Arabidopsis",
+          "authors": "An F, Zhao Q, Ji Y, Li W, Jiang Z, Yu X, Zhang C, Han Y, He W, Liu Y, Zhang S, Ecker JR, Guo H",
+          "year": 2010,
+          "journal": "Plant Cell",
+          "evidence_sentence": "ein2-5 mutant is ethylene insensitive (longer hypocotyl)",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "ACC dark",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T047",
+      "gene": "EIN3",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.076588",
+          "title": "Ethylene-Induced Stabilization of EIN3 and EIL1 Is Mediated by Proteasomal Degradation of EBF1 and EBF2 That Requires EIN2 in Arabidopsis",
+          "authors": "An F, Zhao Q, Ji Y, Li W, Jiang Z, Yu X, Zhang C, Han Y, He W, Liu Y, Zhang S, Ecker JR, Guo H",
+          "year": 2010,
+          "journal": "Plant Cell",
+          "evidence_sentence": "ein3-1 mutant has reduced ethylene response",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "ACC dark",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T048",
+      "gene": "EIN3",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.076588",
+          "title": "Ethylene-Induced Stabilization of EIN3 and EIL1 Is Mediated by Proteasomal Degradation of EBF1 and EBF2 That Requires EIN2 in Arabidopsis",
+          "authors": "An F, Zhao Q, Ji Y, Li W, Jiang Z, Yu X, Zhang C, Han Y, He W, Liu Y, Zhang S, Ecker JR, Guo H",
+          "year": 2010,
+          "journal": "Plant Cell",
+          "evidence_sentence": "EIN3 overexpression hypersensitivity (short hypocotyl)",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "any",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T049",
+      "gene": "EIN3_EIL1",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1007/s42994-021-00063-0",
+          "title": "Seedling morphogenesis: when ethylene meets high ambient temperature",
+          "authors": "Shi J, Zhu Z",
+          "year": 2021,
+          "journal": "aBIOTECH",
+          "evidence_sentence": "ein3 eil1 double mutants exhibit completely ethylene-insensitive phenotypes",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "ACC dark",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T050",
+      "gene": "ELF3",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.14348/molcells.2016.0126",
+          "title": "PIF4 Integrates Multiple Environmental and Hormonal Signals for Plant Growth Regulation in Arabidopsis",
+          "authors": "Choi H, Oh E",
+          "year": 2016,
+          "journal": "Molecules and Cells",
+          "evidence_sentence": "elf3 mutant displays a constitutive thermomorphogenic phenotype (elongated hypocotyls) at 22°C",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "22-29C",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T051",
+      "gene": "ELF3",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/nature10182",
+          "title": "The ELF4-ELF3-LUX Complex Links the Circadian Clock to Diurnal Control of Hypocotyl Growth",
+          "authors": "Nusinow DA, Helfer A, Hamilton EE, King JJ, Imaizumi T, Schultz TF, Farre EM, Kay SA",
+          "year": 2011,
+          "journal": "Nature",
+          "evidence_sentence": "elf3 mutant exhibits abnormal hypocotyl growth and is constitutively long-hypocotyl",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "22C",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T052",
+      "gene": "ELF3_PIF4_PIF5",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/nature10182",
+          "title": "The ELF4-ELF3-LUX Complex Links the Circadian Clock to Diurnal Control of Hypocotyl Growth",
+          "authors": "Nusinow DA, Helfer A, Hamilton EE, King JJ, Imaizumi T, Schultz TF, Farre EM, Kay SA",
+          "year": 2011,
+          "journal": "Nature",
+          "evidence_sentence": "Loss of PIF4 or PIF5 mitigated hypocotyl length defect of elf3-2",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "22C",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T053",
+      "gene": "ELF4",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/nature10182",
+          "title": "The ELF4-ELF3-LUX Complex Links the Circadian Clock to Diurnal Control of Hypocotyl Growth",
+          "authors": "Nusinow DA, Helfer A, Hamilton EE, King JJ, Imaizumi T, Schultz TF, Farre EM, Kay SA",
+          "year": 2011,
+          "journal": "Nature",
+          "evidence_sentence": "elf4 mutants have abnormally elongated hypocotyl",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "22C",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T054",
+      "gene": "ETR1",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.076588",
+          "title": "Ethylene-Induced Stabilization of EIN3 and EIL1 Is Mediated by Proteasomal Degradation of EBF1 and EBF2 That Requires EIN2 in Arabidopsis",
+          "authors": "An F, Zhao Q, Ji Y, Li W, Jiang Z, Yu X, Zhang C, Han Y, He W, Liu Y, Zhang S, Ecker JR, Guo H",
+          "year": 2010,
+          "journal": "Plant Cell",
+          "evidence_sentence": "etr1-1 dominant gain-of-function is ethylene insensitive",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "ACC dark",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T055",
+      "gene": "GA1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "ga1-3 mutant shows extreme dwarf with much reduced hypocotyl length",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T056",
+      "gene": "GA20ox1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "ga20ox1 mutants show reduced stem and hypocotyl growth",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T057",
+      "gene": "GA3_treatment",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "GA3 treatment promotes hypocotyl elongation, rescuing dwarfs",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T058",
+      "gene": "GA3ox1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "ga3ox1 single mutant is semi-dwarf",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T059",
+      "gene": "GAI",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "gai-1 (Delta-DELLA) gain-of-function dwarf with short hypocotyl",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T060",
+      "gene": "GI",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2024.100833",
+          "title": "A warm temperature-released negative feedback loop fine-tunes PIF4-mediated thermomorphogenesis in Arabidopsis",
+          "authors": "Li H, Xue M, Zhang H, Zhao F, Li X, Yu S, Jiang D",
+          "year": 2024,
+          "journal": "Plant Communications",
+          "evidence_sentence": "gi-2 showed increased hypocotyl elongation compared with WT at high temperatures",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "27C",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T061",
+      "gene": "GI",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2024.100833",
+          "title": "A warm temperature-released negative feedback loop fine-tunes PIF4-mediated thermomorphogenesis in Arabidopsis",
+          "authors": "Li H, Xue M, Zhang H, Zhao F, Li X, Yu S, Jiang D",
+          "year": 2024,
+          "journal": "Plant Communications",
+          "evidence_sentence": "Overexpression of GI suppressed hypocotyl elongation at high temperatures",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "27C",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T062",
+      "gene": "GID1A_GID1B_GID1C",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "triple gid1 mutant is non-germinating extreme dwarf, phenotype more severe than ga1-3",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T063",
+      "gene": "GRF4",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1126/sciadv.ade2493",
+          "title": "Auxin promotes hypocotyl elongation by enhancing BZR1 nuclear accumulation in Arabidopsis",
+          "authors": "Yu Z, Ma J, Zhang M, Li X, Sun Y, Zhang M, Ding Z",
+          "year": 2023,
+          "journal": "Science Advances",
+          "evidence_sentence": "grf4 mutant exhibited long hypocotyl phenotype",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "any",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T064",
+      "gene": "GRF4",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1126/sciadv.ade2493",
+          "title": "Auxin promotes hypocotyl elongation by enhancing BZR1 nuclear accumulation in Arabidopsis",
+          "authors": "Yu Z, Ma J, Zhang M, Li X, Sun Y, Zhang M, Ding Z",
+          "year": 2023,
+          "journal": "Science Advances",
+          "evidence_sentence": "GRF4-OE lines had shorter hypocotyls",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "any",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T065",
+      "gene": "HBI1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.03031",
+          "title": "Cell elongation is regulated through a central circuit of interacting transcription factors in the Arabidopsis hypocotyl",
+          "authors": "Oh E, Zhu JY, Bai MY, Arenhart RA, Sun Y, Wang ZY",
+          "year": 2014,
+          "journal": "eLife",
+          "evidence_sentence": "HBI1-OX increased auxin sensitivity",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "any",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T066",
+      "gene": "HFR1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.14348/molcells.2016.0126",
+          "title": "PIF4 Integrates Multiple Environmental and Hormonal Signals for Plant Growth Regulation in Arabidopsis",
+          "authors": "Choi H, Oh E",
+          "year": 2016,
+          "journal": "Molecules and Cells",
+          "evidence_sentence": "hfr1 mutant has long hypocotyl in shade",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "shade/FR",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T067",
+      "gene": "HMR",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-021-22313-x",
+          "title": "RCB initiates Arabidopsis thermomorphogenesis by stabilizing the thermoregulator PIF4 in the daytime",
+          "authors": "Qiu Y, Pasoreck EK, Yoo CY, He J, Wang H, Bajracharya A, Li M, Larsen HD, Cheung S, Chen M",
+          "year": 2021,
+          "journal": "Nature Communications",
+          "evidence_sentence": "hmr-22 with D516N mutation blocks PIF4 accumulation and thermomorphogenesis",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "27C",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T068",
+      "gene": "HSFA1A_HSFA1B_HSFA1D",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1126/sciadv.adh1738",
+          "title": "The heat response regulators HSFA1s promote Arabidopsis thermomorphogenesis via stabilizing PIF4 during the day",
+          "authors": "Tan W, Chen J, Yue X, Chai S, Liu W, Li C, Yang F, Gao Y, Rodriguez LG, Resco de Dios V, Zhang D, Yao Y",
+          "year": 2023,
+          "journal": "Science Advances",
+          "evidence_sentence": "thermo-insensitive phenotypes observed in eTK; HSFA1a/1b/1d function redundantly",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "28C LD",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T069",
+      "gene": "HSFA1D",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1126/sciadv.adh1738",
+          "title": "The heat response regulators HSFA1s promote Arabidopsis thermomorphogenesis via stabilizing PIF4 during the day",
+          "authors": "Tan W, Chen J, Yue X, Chai S, Liu W, Li C, Yang F, Gao Y, Rodriguez LG, Resco de Dios V, Zhang D, Yao Y",
+          "year": 2023,
+          "journal": "Science Advances",
+          "evidence_sentence": "HSFA1d-overexpressing transgenic lines were much longer at warm temperatures",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "28C LD",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T070",
+      "gene": "HY5",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.14556",
+          "title": "Degradation of the transcription factors PIF4 and PIF5 under UV-B promotes UVR8-mediated inhibition of hypocotyl growth in Arabidopsis",
+          "authors": "Tavridou E, Pireyre M, Ulm R",
+          "year": 2020,
+          "journal": "Plant Journal",
+          "evidence_sentence": "hy5 displayed longer hypocotyls even in the absence of UV-B",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "white light/UV-B",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T071",
+      "gene": "HY5_HYH",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.14556",
+          "title": "Degradation of the transcription factors PIF4 and PIF5 under UV-B promotes UVR8-mediated inhibition of hypocotyl growth in Arabidopsis",
+          "authors": "Tavridou E, Pireyre M, Ulm R",
+          "year": 2020,
+          "journal": "Plant Journal",
+          "evidence_sentence": "hy5 hyh double mutant has longer hypocotyls",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "white light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T072",
+      "gene": "HYH",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.14556",
+          "title": "Degradation of the transcription factors PIF4 and PIF5 under UV-B promotes UVR8-mediated inhibition of hypocotyl growth in Arabidopsis",
+          "authors": "Tavridou E, Pireyre M, Ulm R",
+          "year": 2020,
+          "journal": "Plant Journal",
+          "evidence_sentence": "hy5 hyh double mutant still showed obvious inhibition of hypocotyl growth under UV-B",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "white light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T073",
+      "gene": "IBH1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.03031",
+          "title": "Cell elongation is regulated through a central circuit of interacting transcription factors in the Arabidopsis hypocotyl",
+          "authors": "Oh E, Zhu JY, Bai MY, Arenhart RA, Sun Y, Wang ZY",
+          "year": 2014,
+          "journal": "eLife",
+          "evidence_sentence": "IBH1-OX significantly reduced sensitivity to auxin",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "any",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T074",
+      "gene": "LUX",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/nature10182",
+          "title": "The ELF4-ELF3-LUX Complex Links the Circadian Clock to Diurnal Control of Hypocotyl Growth",
+          "authors": "Nusinow DA, Helfer A, Hamilton EE, King JJ, Imaizumi T, Schultz TF, Farre EM, Kay SA",
+          "year": 2011,
+          "journal": "Nature",
+          "evidence_sentence": "lux mutants have abnormally elongated hypocotyl",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "22C",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T075",
+      "gene": "MPK3",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1126/sciadv.ade2493",
+          "title": "Auxin promotes hypocotyl elongation by enhancing BZR1 nuclear accumulation in Arabidopsis",
+          "authors": "Yu Z, Ma J, Zhang M, Li X, Sun Y, Zhang M, Ding Z",
+          "year": 2023,
+          "journal": "Science Advances",
+          "evidence_sentence": "mpk3-1 mutant showed shorter hypocotyl",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "auxin",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T076",
+      "gene": "MPK6",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1126/sciadv.ade2493",
+          "title": "Auxin promotes hypocotyl elongation by enhancing BZR1 nuclear accumulation in Arabidopsis",
+          "authors": "Yu Z, Ma J, Zhang M, Li X, Sun Y, Zhang M, Ding Z",
+          "year": 2023,
+          "journal": "Science Advances",
+          "evidence_sentence": "mpk6-3 mutant exhibited shorter hypocotyl",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "auxin",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T077",
+      "gene": "NAA_treatment",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.19048",
+          "title": "TIR1/AFB-Aux/IAA auxin perception mediates rapid cell wall acidification and growth of Arabidopsis hypocotyls",
+          "authors": "Fendrych M, Leung J, Friml J",
+          "year": 2016,
+          "journal": "eLife",
+          "evidence_sentence": "auxin (NAA) treatment promotes hypocotyl elongation",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "any",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T078",
+      "gene": "NPA_treatment",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-022-32585-6",
+          "title": "PIF7 is a master regulator of thermomorphogenesis in shade",
+          "authors": "Burko Y, Willige BC, Seluzicki A, Novak O, Ljung K, Chory J",
+          "year": 2022,
+          "journal": "Nature Communications",
+          "evidence_sentence": "NPA blocked growth in all four conditions",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "any",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T079",
+      "gene": "PAR1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.14348/molcells.2016.0126",
+          "title": "PIF4 Integrates Multiple Environmental and Hormonal Signals for Plant Growth Regulation in Arabidopsis",
+          "authors": "Choi H, Oh E",
+          "year": 2016,
+          "journal": "Molecules and Cells",
+          "evidence_sentence": "par1 par2 has enhanced shade-induced elongation",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "shade",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T080",
+      "gene": "PAR1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.03031",
+          "title": "Cell elongation is regulated through a central circuit of interacting transcription factors in the Arabidopsis hypocotyl",
+          "authors": "Oh E, Zhu JY, Bai MY, Arenhart RA, Sun Y, Wang ZY",
+          "year": 2014,
+          "journal": "eLife",
+          "evidence_sentence": "PAR1-OX almost completely abolished auxin sensitivity",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "any",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T081",
+      "gene": "PHYA",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.17.00913",
+          "title": "Phytochrome B Requires PIF Degradation and Sequestration to Induce Light Responses across a Wide Range of Light Conditions",
+          "authors": "Park E, Kim Y, Choi G",
+          "year": 2018,
+          "journal": "Plant Cell",
+          "evidence_sentence": "phyA mutant has long hypocotyls under far-red",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "FRc (continuous far-red light)",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T082",
+      "gene": "PHYA_PHYB",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.107.052142",
+          "title": "The Arabidopsis Phytochrome-Interacting Factor PIF7, Together with PIF3 and PIF4, Regulates Responses to Prolonged Red Light by Modulating phyB Levels",
+          "authors": "Leivar P, Monte E, Al-Sady B, Carle C, Storer A, Alonso JM, Ecker JR, Quail PH",
+          "year": 2008,
+          "journal": "Plant Cell",
+          "evidence_sentence": "phyA-211 phyB-9 produces longer hypocotyls than wild type in Rc",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "Rc/white light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T083",
+      "gene": "PHYB",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.107.052142",
+          "title": "The Arabidopsis Phytochrome-Interacting Factor PIF7, Together with PIF3 and PIF4, Regulates Responses to Prolonged Red Light by Modulating phyB Levels",
+          "authors": "Leivar P, Monte E, Al-Sady B, Carle C, Storer A, Alonso JM, Ecker JR, Quail PH",
+          "year": 2008,
+          "journal": "Plant Cell",
+          "evidence_sentence": "phyB phyA double mutants produce longer hypocotyls than wild type in Rc",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "Rc (continuous red light)",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T084",
+      "gene": "PHYB",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.17.00913",
+          "title": "Phytochrome B Requires PIF Degradation and Sequestration to Induce Light Responses across a Wide Range of Light Conditions",
+          "authors": "Park E, Kim Y, Choi G",
+          "year": 2018,
+          "journal": "Plant Cell",
+          "evidence_sentence": "phyB-9 mutant shows constitutively long hypocotyls in light",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "white light (LD)",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T085",
+      "gene": "PHYB",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.17.00913",
+          "title": "",
+          "authors": "",
+          "year": null,
+          "journal": "",
+          "evidence_sentence": "PHYB-OX seedlings show shorter hypocotyls than WT in red and white light",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "white light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T086",
+      "gene": "PHYBG111D",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.17.00913",
+          "title": "Phytochrome B Requires PIF Degradation and Sequestration to Induce Light Responses across a Wide Range of Light Conditions",
+          "authors": "Park E, Kim Y, Choi G",
+          "year": 2018,
+          "journal": "Plant Cell",
+          "evidence_sentence": "PHYBG111D-OX has short hypocotyls with open cotyledons",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "Rc",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T087",
+      "gene": "PIF1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.130666",
+          "title": "Arabidopsis DE-ETIOLATED1 Represses Photomorphogenesis by Positively Regulating Phytochrome-Interacting Factors in the Dark",
+          "authors": "Dong J, Tang D, Gao Z, Yu R, Li K, He H, Terzaghi W, Deng XW, Chen H",
+          "year": 2014,
+          "journal": "Plant Cell",
+          "evidence_sentence": "pif1-1 det1-1 double mutant exhibited more exaggerated photomorphogenic phenotypes",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "Rc",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T088",
+      "gene": "PIF1_PIF3_PIF4_PIF5",
+      "perturbation_type": "quadruple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.130666",
+          "title": "Arabidopsis DE-ETIOLATED1 Represses Photomorphogenesis by Positively Regulating Phytochrome-Interacting Factors in the Dark",
+          "authors": "Dong J, Tang D, Gao Z, Yu R, Li K, He H, Terzaghi W, Deng XW, Chen H",
+          "year": 2014,
+          "journal": "Plant Cell",
+          "evidence_sentence": "quadruple pifq mutant displays development in total darkness that strongly phenocopies normal light-grown wild-type seedlings (short hypocotyls, open cotyledons)",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "darkness",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T089",
+      "gene": "PIF3",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.107.052142",
+          "title": "The Arabidopsis Phytochrome-Interacting Factor PIF7, Together with PIF3 and PIF4, Regulates Responses to Prolonged Red Light by Modulating phyB Levels",
+          "authors": "Leivar P, Monte E, Al-Sady B, Carle C, Storer A, Alonso JM, Ecker JR, Quail PH",
+          "year": 2008,
+          "journal": "Plant Cell",
+          "evidence_sentence": "pif3 mutants are hypersensitive to all Rc fluence rates tested",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "Rc",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T090",
+      "gene": "PIF3",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2012.05114.x",
+          "title": "Phytochrome B inhibits binding of Phytochrome-Interacting Factors to their target promoters",
+          "authors": "Park E, Park J, Kim J, Nagatani A, Lagarias JC, Choi G",
+          "year": 2012,
+          "journal": "Plant Journal",
+          "evidence_sentence": "PIF3-OX shows longer hypocotyls in light",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "white light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T091",
+      "gene": "PIF4",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.14348/molcells.2016.0126",
+          "title": "PIF4 Integrates Multiple Environmental and Hormonal Signals for Plant Growth Regulation in Arabidopsis",
+          "authors": "Choi H, Oh E",
+          "year": 2016,
+          "journal": "Molecules and Cells",
+          "evidence_sentence": "hypocotyl growth of pif4 mutants is insensitive to high temperatures",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "27C/29C (warm)",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T092",
+      "gene": "PIF4",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.107.052142",
+          "title": "The Arabidopsis Phytochrome-Interacting Factor PIF7, Together with PIF3 and PIF4, Regulates Responses to Prolonged Red Light by Modulating phyB Levels",
+          "authors": "Leivar P, Monte E, Al-Sady B, Carle C, Storer A, Alonso JM, Ecker JR, Quail PH",
+          "year": 2008,
+          "journal": "Plant Cell",
+          "evidence_sentence": "pif4 had slightly greater sensitivity to Rc",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "Rc/white light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T093",
+      "gene": "PIF4",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.14556",
+          "title": "Degradation of the transcription factors PIF4 and PIF5 under UV-B promotes UVR8-mediated inhibition of hypocotyl growth in Arabidopsis",
+          "authors": "Tavridou E, Pireyre M, Ulm R",
+          "year": 2020,
+          "journal": "Plant Journal",
+          "evidence_sentence": "PIF4-OX promotes hypocotyl elongation",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "PIF4 overexpression lines have longer hypocotyls and are more resistant to PAC",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "white light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T094",
+      "gene": "PIF4_PIF5_PIF7",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-022-32585-6",
+          "title": "PIF7 is a master regulator of thermomorphogenesis in shade",
+          "authors": "Burko Y, Willige BC, Seluzicki A, Novak O, Ljung K, Chory J",
+          "year": 2022,
+          "journal": "Nature Communications",
+          "evidence_sentence": "pif457 triple mutant strongest defect in shade thermomorphogenesis",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "shade+warm",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T095",
+      "gene": "PIF5",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.14556",
+          "title": "Degradation of the transcription factors PIF4 and PIF5 under UV-B promotes UVR8-mediated inhibition of hypocotyl growth in Arabidopsis",
+          "authors": "Tavridou E, Pireyre M, Ulm R",
+          "year": 2020,
+          "journal": "Plant Journal",
+          "evidence_sentence": "pif4 pif5 mutants exhibited reduced hypocotyl elongation",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "Rc",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T096",
+      "gene": "PIF5",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.14348/molcells.2016.0126",
+          "title": "PIF4 Integrates Multiple Environmental and Hormonal Signals for Plant Growth Regulation in Arabidopsis",
+          "authors": "Choi H, Oh E",
+          "year": 2016,
+          "journal": "Molecules and Cells",
+          "evidence_sentence": "plants overexpressing PIF5 are morphologically similar to plants overproducing ethylene",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "white light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T097",
+      "gene": "PIF7",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.107.052142",
+          "title": "The Arabidopsis Phytochrome-Interacting Factor PIF7, Together with PIF3 and PIF4, Regulates Responses to Prolonged Red Light by Modulating phyB Levels",
+          "authors": "Leivar P, Monte E, Al-Sady B, Carle C, Storer A, Alonso JM, Ecker JR, Quail PH",
+          "year": 2008,
+          "journal": "Plant Cell",
+          "evidence_sentence": "pif7 mutant seedlings displayed shorter hypocotyls than wild-type seedlings when grown under Rc",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "Rc",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T098",
+      "gene": "PIF7",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.31636",
+          "title": "Shade-induced nuclear localization of PIF7 is regulated by phosphorylation and 14-3-3 proteins in Arabidopsis",
+          "authors": "Huang X, Zhang Q, Jiang Y, Yang C, Wang Q, Li L",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "severe shade-defective phenotype of pif7 mutants",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "shade (low R:FR)",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T099",
+      "gene": "PIF7",
+      "perturbation_type": "phospho_dead_mutant",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.31636",
+          "title": "Shade-induced nuclear localization of PIF7 is regulated by phosphorylation and 14-3-3 proteins in Arabidopsis",
+          "authors": "Huang X, Zhang Q, Jiang Y, Yang C, Wang Q, Li L",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "PIF7(2A) transgenic lines show increased nuclear localization and augmented hypocotyl elongation",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "shade",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T100",
+      "gene": "PRE1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.03031",
+          "title": "Cell elongation is regulated through a central circuit of interacting transcription factors in the Arabidopsis hypocotyl",
+          "authors": "Oh E, Zhu JY, Bai MY, Arenhart RA, Sun Y, Wang ZY",
+          "year": 2014,
+          "journal": "eLife",
+          "evidence_sentence": "PRE1-OX enhanced auxin sensitivity",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "any",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T101",
+      "gene": "PRE1_PRE2_PRE5_PRE6",
+      "perturbation_type": "quadruple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.03031",
+          "title": "Cell elongation is regulated through a central circuit of interacting transcription factors in the Arabidopsis hypocotyl",
+          "authors": "Oh E, Zhu JY, Bai MY, Arenhart RA, Sun Y, Wang ZY",
+          "year": 2014,
+          "journal": "eLife",
+          "evidence_sentence": "pre amiR knockdown reduced auxin sensitivity in hypocotyl elongation",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "any",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T102",
+      "gene": "PRR5_PRR7_PRR9",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "",
+          "authors": "",
+          "year": null,
+          "journal": "",
+          "evidence_sentence": "prr5 prr7 prr9 triple mutant has long hypocotyl",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "LD",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T103",
+      "gene": "Paclobutrazol_PAC",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "PAC GA biosynthesis inhibitor produces dwarf phenotype",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T104",
+      "gene": "Picloram_treatment",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-022-32585-6",
+          "title": "PIF7 is a master regulator of thermomorphogenesis in shade",
+          "authors": "Burko Y, Willige BC, Seluzicki A, Novak O, Ljung K, Chory J",
+          "year": 2022,
+          "journal": "Nature Communications",
+          "evidence_sentence": "Picloram caused stronger elongation response at 30°C",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "30C",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T105",
+      "gene": "RCB",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-021-22313-x",
+          "title": "RCB initiates Arabidopsis thermomorphogenesis by stabilizing the thermoregulator PIF4 in the daytime",
+          "authors": "Qiu Y, Pasoreck EK, Yoo CY, He J, Wang H, Bajracharya A, Li M, Larsen HD, Cheung S, Chen M",
+          "year": 2021,
+          "journal": "Nature Communications",
+          "evidence_sentence": "rcb-10 null mutant exhibited only 10% of warm-temperature response of Col-0",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "27C",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T106",
+      "gene": "RGA",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "rga loss-of-function partially suppresses ga1-3 dwarf phenotype",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T107",
+      "gene": "RGA_GAI",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "rga gai double mutant fully rescues ga1-3 vegetative growth",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T108",
+      "gene": "SAUR19",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.19048",
+          "title": "TIR1/AFB-Aux/IAA auxin perception mediates rapid cell wall acidification and growth of Arabidopsis hypocotyls",
+          "authors": "Fendrych M, Leung J, Friml J",
+          "year": 2016,
+          "journal": "eLife",
+          "evidence_sentence": "35S::GFP-SAUR19 stabilized SAUR shows auxin-independent elongation",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "any",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T109",
+      "gene": "SHY2_IAA3",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.18.00718",
+          "title": "Three Auxin Response Factors Promote Hypocotyl Elongation",
+          "authors": "Reed JW, Wu MF, Reeves PH, Hodgens C, Yadav V, Hayes S, Pierik R",
+          "year": 2018,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "shy2-2 stabilized IAA3 shows short hypocotyl",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "darkness",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T110",
+      "gene": "SLY1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "Gibberellin Metabolism, Perception and Signaling Pathways in Arabidopsis",
+          "authors": "Sun TP",
+          "year": 2008,
+          "journal": "Arabidopsis Book",
+          "evidence_sentence": "sly1 mutant is semi-dwarf",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T111",
+      "gene": "SPA1_SPA2_SPA3_SPA4",
+      "perturbation_type": "quadruple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17332",
+          "title": "Direct phosphorylation of HY5 by SPA kinases to regulate photomorphogenesis in Arabidopsis",
+          "authors": "Wang W, Paik I, Kim J, Hou X, Sung S, Huq E",
+          "year": 2021,
+          "journal": "New Phytologist",
+          "evidence_sentence": "spaQ mutant shows constitutive photomorphogenesis; phosphorylation of HY5 abolished",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "darkness",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T112",
+      "gene": "TIR1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.19048",
+          "title": "TIR1/AFB-Aux/IAA auxin perception mediates rapid cell wall acidification and growth of Arabidopsis hypocotyls",
+          "authors": "Fendrych M, Leung J, Friml J",
+          "year": 2016,
+          "journal": "eLife",
+          "evidence_sentence": "tir1 mutant has reduced auxin response",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "auxin treatment",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T113",
+      "gene": "TIR1_AFB1_AFB2_AFB3",
+      "perturbation_type": "quadruple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.19048",
+          "title": "TIR1/AFB-Aux/IAA auxin perception mediates rapid cell wall acidification and growth of Arabidopsis hypocotyls",
+          "authors": "Fendrych M, Leung J, Friml J",
+          "year": 2016,
+          "journal": "eLife",
+          "evidence_sentence": "tir1 afb quadruple mutants severely impaired in auxin response",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "any",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T114",
+      "gene": "TOC1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2024.100833",
+          "title": "A warm temperature-released negative feedback loop fine-tunes PIF4-mediated thermomorphogenesis in Arabidopsis",
+          "authors": "Li H, Xue M, Zhang H, Zhao F, Li X, Yu S, Jiang D",
+          "year": 2024,
+          "journal": "Plant Communications",
+          "evidence_sentence": "toc1-2 mutant displayed increased hypocotyl elongation at high temperatures",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "27C SD",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T115",
+      "gene": "TOC1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1199/tab.0103",
+          "title": "",
+          "authors": "",
+          "year": null,
+          "journal": "",
+          "evidence_sentence": "TOC1 overexpression suppresses hypocotyl elongation",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "LD",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T116",
+      "gene": "TOC1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2024.100833",
+          "title": "A warm temperature-released negative feedback loop fine-tunes PIF4-mediated thermomorphogenesis in Arabidopsis",
+          "authors": "Li H, Xue M, Zhang H, Zhao F, Li X, Yu S, Jiang D",
+          "year": 2024,
+          "journal": "Plant Communications",
+          "evidence_sentence": "TOC1 overexpression suppressed hypocotyl elongation",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T117",
+      "gene": "UVR8",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/emboj.2009.4",
+          "title": "Interaction of COP1 and UVR8 regulates UV-B-induced photomorphogenesis and stress acclimation in Arabidopsis",
+          "authors": "Favory JJ, Stec A, Gruber H, Rizzini L, Oravecz A, Funk M, Albert A, Cloix C, Jenkins GI, Oakeley EJ, Seidlitz HK, Nagy F, Ulm R",
+          "year": 2009,
+          "journal": "EMBO J",
+          "evidence_sentence": "hypocotyl growth of the uvr8 mutant seedlings was not inhibited by UV-B",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "UV-B+white light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T118",
+      "gene": "UVR8",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/emboj.2009.4",
+          "title": "Interaction of COP1 and UVR8 regulates UV-B-induced photomorphogenesis and stress acclimation in Arabidopsis",
+          "authors": "Favory JJ, Stec A, Gruber H, Rizzini L, Oravecz A, Funk M, Albert A, Cloix C, Jenkins GI, Oakeley EJ, Seidlitz HK, Nagy F, Ulm R",
+          "year": 2009,
+          "journal": "EMBO J",
+          "evidence_sentence": "marked UV-B photomorphogenic hypersensitivity in all assays employed, including hypocotyl growth inhibition",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "UV-B+white light",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T119",
+      "gene": "XBAT31",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1126/sciadv.abf4427",
+          "title": "XBAT31 regulates thermoresponsive hypocotyl growth through mediating degradation of the thermosensor ELF3 in Arabidopsis",
+          "authors": "Zhang LL, Shao YJ, Ding L, Wang MJ, Davis SJ, Liu JX",
+          "year": 2021,
+          "journal": "Science Advances",
+          "evidence_sentence": "the hypocotyl length was significantly reduced in both lines of xbat31 mutants at warm temperature",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "29C (warm)",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T120",
+      "gene": "XBAT31",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1126/sciadv.abf4427",
+          "title": "XBAT31 regulates thermoresponsive hypocotyl growth through mediating degradation of the thermosensor ELF3 in Arabidopsis",
+          "authors": "Zhang LL, Shao YJ, Ding L, Wang MJ, Davis SJ, Liu JX",
+          "year": 2021,
+          "journal": "Science Advances",
+          "evidence_sentence": "the hypocotyl length of the XBAT31 overexpression plants was much longer than that of the WT",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "29C",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T121",
+      "gene": "YUC2_YUC5_YUC8_YUC9",
+      "perturbation_type": "quadruple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-022-32585-6",
+          "title": "PIF7 is a master regulator of thermomorphogenesis in shade",
+          "authors": "Burko Y, Willige BC, Seluzicki A, Novak O, Ljung K, Chory J",
+          "year": 2022,
+          "journal": "Nature Communications",
+          "evidence_sentence": "yuc2589 strongly suppressed 21FR response",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "shade",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T122",
+      "gene": "YUC8",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-022-32585-6",
+          "title": "",
+          "authors": "",
+          "year": null,
+          "journal": "",
+          "evidence_sentence": "yuc2589 strongly suppressed shade response, with YUC8 contributing significantly to PIF7-driven elongation",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "warm temperature/shade",
+      "species": "Arabidopsis thaliana"
+    },
+    {
+      "test_id": "T123",
+      "gene": "phyB-9",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1126/sciadv.adh1738",
+          "title": "",
+          "authors": "",
+          "year": null,
+          "journal": "",
+          "evidence_sentence": "phyB null mutant has constitutively elongated hypocotyl",
+          "claim": "",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "white light LD",
+      "species": "Arabidopsis thaliana"
+    }
+  ]
+}

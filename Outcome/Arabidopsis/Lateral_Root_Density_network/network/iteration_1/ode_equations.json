@@ -1,0 +1,397 @@
+{
+  "metadata": {
+    "method": "ODE (Hill Functions)",
+    "K": 1.0,
+    "n": 2,
+    "accuracy": null,
+    "hill_activation_formula": "f(x) = x^n * (K^n + 1) / (K^n + x^n)",
+    "hill_inhibition_formula": "g(x) = (K^n + 1) / (K^n + x^n)",
+    "dt": 0.01,
+    "max_time": 50.0,
+    "convergence_tolerance": 0.001,
+    "direction_threshold": 0.05,
+    "activator_floor": 0.01
+  },
+  "equations": [
+    {
+      "node": "Lateral_Root_Density",
+      "activators": [
+        "LBD",
+        "PLT",
+        "PUCHI",
+        "LAX3",
+        "PIN",
+        "ANR1"
+      ],
+      "inhibitors": [
+        "ARR_B",
+        "CLV1",
+        "EIN2",
+        "ABI4",
+        "DELLA",
+        "D14",
+        "MAX2"
+      ],
+      "formula": "Lateral_Root_Density = prod(f(LBD, PLT, PUCHI, LAX3, PIN, ANR1)) * prod(g(ARR_B, CLV1, EIN2, ABI4, DELLA, D14, MAX2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Auxin",
+      "activators": [
+        "TAA1",
+        "TAR2",
+        "YUC4",
+        "AUX1"
+      ],
+      "inhibitors": [
+        "GH3",
+        "DAO1"
+      ],
+      "formula": "Auxin = prod(f(TAA1, TAR2, YUC4, AUX1)) * prod(g(GH3, DAO1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Cytokinin",
+      "activators": [
+        "IPT5"
+      ],
+      "inhibitors": [
+        "CKX2"
+      ],
+      "formula": "Cytokinin = prod(f(IPT5)) * prod(g(CKX2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Ethylene",
+      "activators": [
+        "ACS",
+        "ACO"
+      ],
+      "inhibitors": [],
+      "formula": "Ethylene = prod(f(ACS, ACO)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ABA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABA = gene_modifier + exogenous"
+    },
+    {
+      "node": "GA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GA = gene_modifier + exogenous"
+    },
+    {
+      "node": "Strigolactone",
+      "activators": [
+        "MAX1",
+        "MAX3",
+        "MAX4"
+      ],
+      "inhibitors": [],
+      "formula": "Strigolactone = prod(f(MAX1, MAX3, MAX4)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Low_Nitrate",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Low_Nitrate = gene_modifier + exogenous"
+    },
+    {
+      "node": "Low_Phosphate",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Low_Phosphate = gene_modifier + exogenous"
+    },
+    {
+      "node": "TIR1",
+      "activators": [
+        "Auxin",
+        "Low_Phosphate"
+      ],
+      "inhibitors": [],
+      "formula": "TIR1 = prod(f(Auxin, Low_Phosphate)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "IAA14",
+      "activators": [],
+      "inhibitors": [
+        "TIR1"
+      ],
+      "formula": "IAA14 = 1.0 * prod(g(TIR1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "IAA28",
+      "activators": [],
+      "inhibitors": [
+        "TIR1"
+      ],
+      "formula": "IAA28 = 1.0 * prod(g(TIR1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ARF7",
+      "activators": [],
+      "inhibitors": [
+        "IAA14",
+        "IAA28"
+      ],
+      "formula": "ARF7 = 1.0 * prod(g(IAA14, IAA28)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ARF19",
+      "activators": [],
+      "inhibitors": [
+        "IAA14",
+        "IAA28"
+      ],
+      "formula": "ARF19 = 1.0 * prod(g(IAA14, IAA28)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "LBD",
+      "activators": [
+        "ARF7",
+        "ARF19"
+      ],
+      "inhibitors": [],
+      "formula": "LBD = prod(f(ARF7, ARF19)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "PLT",
+      "activators": [
+        "ARF7",
+        "ARF19"
+      ],
+      "inhibitors": [],
+      "formula": "PLT = prod(f(ARF7, ARF19)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "PUCHI",
+      "activators": [
+        "LBD"
+      ],
+      "inhibitors": [],
+      "formula": "PUCHI = prod(f(LBD)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "PIN",
+      "activators": [
+        "PLT"
+      ],
+      "inhibitors": [],
+      "formula": "PIN = prod(f(PLT)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "AUX1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AUX1 = gene_modifier + exogenous"
+    },
+    {
+      "node": "LAX3",
+      "activators": [
+        "LBD"
+      ],
+      "inhibitors": [],
+      "formula": "LAX3 = prod(f(LBD)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAA1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TAA1 = gene_modifier + exogenous"
+    },
+    {
+      "node": "TAR2",
+      "activators": [
+        "Low_Nitrate"
+      ],
+      "inhibitors": [
+        "CHL1"
+      ],
+      "formula": "TAR2 = prod(f(Low_Nitrate)) * prod(g(CHL1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "YUC4",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "YUC4 = gene_modifier + exogenous"
+    },
+    {
+      "node": "GH3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GH3 = gene_modifier + exogenous"
+    },
+    {
+      "node": "DAO1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DAO1 = gene_modifier + exogenous"
+    },
+    {
+      "node": "AHK",
+      "activators": [
+        "Cytokinin"
+      ],
+      "inhibitors": [],
+      "formula": "AHK = prod(f(Cytokinin)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ARR_B",
+      "activators": [
+        "AHK"
+      ],
+      "inhibitors": [],
+      "formula": "ARR_B = prod(f(AHK)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "IPT5",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "IPT5 = gene_modifier + exogenous"
+    },
+    {
+      "node": "CKX2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CKX2 = gene_modifier + exogenous"
+    },
+    {
+      "node": "CHL1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CHL1 = gene_modifier + exogenous"
+    },
+    {
+      "node": "NLP7",
+      "activators": [
+        "CHL1"
+      ],
+      "inhibitors": [],
+      "formula": "NLP7 = prod(f(CHL1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ANR1",
+      "activators": [
+        "NLP7",
+        "CHL1"
+      ],
+      "inhibitors": [],
+      "formula": "ANR1 = prod(f(NLP7, CHL1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "CLE",
+      "activators": [
+        "Low_Nitrate"
+      ],
+      "inhibitors": [],
+      "formula": "CLE = prod(f(Low_Nitrate)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "CLV1",
+      "activators": [
+        "CLE"
+      ],
+      "inhibitors": [],
+      "formula": "CLV1 = prod(f(CLE)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "EIN2",
+      "activators": [
+        "Ethylene"
+      ],
+      "inhibitors": [
+        "CTR1"
+      ],
+      "formula": "EIN2 = prod(f(Ethylene)) * prod(g(CTR1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "CTR1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CTR1 = gene_modifier + exogenous"
+    },
+    {
+      "node": "ACS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ACS = gene_modifier + exogenous"
+    },
+    {
+      "node": "ACO",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ACO = gene_modifier + exogenous"
+    },
+    {
+      "node": "PYL8",
+      "activators": [
+        "ABA"
+      ],
+      "inhibitors": [],
+      "formula": "PYL8 = prod(f(ABA)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ABI1",
+      "activators": [],
+      "inhibitors": [
+        "PYL8"
+      ],
+      "formula": "ABI1 = 1.0 * prod(g(PYL8)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "SNRK2",
+      "activators": [],
+      "inhibitors": [
+        "ABI1"
+      ],
+      "formula": "SNRK2 = 1.0 * prod(g(ABI1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ABI4",
+      "activators": [
+        "SNRK2"
+      ],
+      "inhibitors": [],
+      "formula": "ABI4 = prod(f(SNRK2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "DELLA",
+      "activators": [],
+      "inhibitors": [
+        "GA"
+      ],
+      "formula": "DELLA = 1.0 * prod(g(GA)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "D14",
+      "activators": [
+        "Strigolactone"
+      ],
+      "inhibitors": [],
+      "formula": "D14 = prod(f(Strigolactone)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "MAX2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MAX2 = gene_modifier + exogenous"
+    },
+    {
+      "node": "MAX1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MAX1 = gene_modifier + exogenous"
+    },
+    {
+      "node": "MAX3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MAX3 = gene_modifier + exogenous"
+    },
+    {
+      "node": "MAX4",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MAX4 = gene_modifier + exogenous"
+    }
+  ]
+}

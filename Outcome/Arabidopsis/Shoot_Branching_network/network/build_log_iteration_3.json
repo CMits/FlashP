@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "iteration": 3,
+    "consumed_judge_reviews": [
+      "iteration_1",
+      "iteration_2"
+    ],
+    "consumed_literature_iteration": 2,
+    "created": "2026-04-18"
+  },
+  "additions_over_iter2": {
+    "nodes_added": [
+      "ARR1",
+      "CAMEL",
+      "GA2OX"
+    ],
+    "status_changes": {
+      "TIE1": "source -> downstream (via ARR1)",
+      "GA": "source -> downstream (via Auxin + GA2OX feedback)"
+    },
+    "edges_added_iter3": [
+      "Cytokinin -> ARR1 (+1)",
+      "ARR1 -> TIE1 (+1)",
+      "Auxin -> CAMEL (+1)",
+      "CAMEL -> PIN1 (+1)",
+      "Auxin -> GA (+1)",
+      "GA -| MAX1 (-1)",
+      "GA2OX -| GA (-1)",
+      "GA -> GA2OX (+1)"
+    ]
+  },
+  "deliberate_exclusions": [
+    "BRC1 -> MAX1 (positive feedback Trap 1 risk)",
+    "BRC1 <-> FT mutual inhibition (Motif 7 bistability risk)",
+    "PIF5, CYP707A3, GH3.5 cascades (incomplete in curated_edges - literature gaps)",
+    "Dormancy TFs ABF3/ABI5/AFP/NAC/GBF3/DRM1 (dead-ends without phenotype edges)",
+    "Process nodes Auxin_canalization etc. (upstream regulators not curated)",
+    "KAI2/SMAX1 karrikin pathway (SMAX1 only reaches PIF4 which is not in network)"
+  ],
+  "stats": {
+    "iter2": {
+      "nodes": 35,
+      "edges": 61,
+      "sources": 13,
+      "source_pct": 37.1
+    },
+    "iter3": {
+      "nodes": 38,
+      "edges": 69,
+      "sources": 10,
+      "source_pct": 26.3
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Plant_Height",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19"
+  },
+  "summary": {
+    "best_method": "RWR",
+    "best_accuracy": 0.861,
+    "best_kappa": 0.740,
+    "best_mcc": 0.525,
+    "best_dars": 10.64,
+    "best_frs": 10.58,
+    "recommendation": "proceed_to_refinement",
+    "rationale": "RWR achieves 86.1% accuracy with substantial Cohen's kappa (0.74) and DARS 10.64 (large-scale strong band). Algebraic/ODE are marginally over 73% with moderate kappa (0.56-0.58) due to composite-member single-KO tests producing near-WT perturbations (ratios 0.99-1.02) that the direction_threshold=0.05 filter classifies as 'unchanged'. RWR's graph-propagation captures small signals where Algebraic/ODE's bounded-inverse dilution does not. Accuracy falls in the 80-95% band per §Decision table, so refinement is the appropriate next step focusing on (a) composite_collapse fixes for BR_SYN (DWF4/DET2/CPD should use gm=0.0), and (b) the SL topology sign issue from iter-3 Perception Gate (5 tests: T110-T113, T115).",
+    "total_tests_tested": 115,
+    "total_tests_skipped": 16
+  },
+  "comparison": [
+    {
+      "method": "Algebraic",
+      "accuracy": 0.730,
+      "kappa": 0.558,
+      "mcc": 0.461,
+      "convergence_rate": 0.800,
+      "best_params": "epsilon=0.1, K=10.0, damping=0.7, activator_floor=0.01, direction_threshold=0.05",
+      "strengths": "Deterministic fixed-point solver; interpretable equations; perfect on large-effect perturbations (OE, full-family KO, multi-gene KOs). 100% accuracy on overexpression, double/triple/quadruple/quintuple_knockout.",
+      "weaknesses": "Bounded-inverse inhibition and geometric-mean activation heavily dilute small-magnitude perturbations. Composite-member single KOs (gm=0.99) produce ratios 0.99-1.02 that fall within direction_threshold=0.05 and get classified 'unchanged' regardless of actual biology. 23 tests failed convergence (mostly composite-member cases). Per-class F1 for 'unchanged' is 0.07 (very low), showing the model cannot distinguish true unchanged from barely-moved perturbations.",
+      "failures": ["T007","T008","T009","T010","T024","T026","T031","T033","T043","T045","T046","T049","T063","T064","T066","T072","T084","T087","T090","T091","T097","T103","T107","T110","T111","T112","T113","T115","T120","T121","T122"]
+    },
+    {
+      "method": "ODE (Hill Functions)",
+      "accuracy": 0.739,
+      "kappa": 0.578,
+      "mcc": 0.523,
+      "convergence_rate": 0.904,
+      "best_params": "K=0.5, n=3 (Hill activation: f(x)=x^n*(K^n+1)/(K^n+x^n), inhibition: g(x)=(K^n+1)/(K^n+x^n))",
+      "strengths": "Hill functions give steeper sigmoidal response than bounded-inverse, improving sensitivity for moderate-effect perturbations (T041/T042 BZR1/BES1 gain-of-function caught where others missed some). Better MCC (0.52) than Algebraic (0.46). Convergence rate improves to 90%.",
+      "weaknesses": "Still dilutes composite-member single KOs similar to Algebraic. Several rescue/Trap-5 tests fail (T033, T087-T091). Some large-ratio instability (T033 ratio 500000 indicates numerical blow-up under K=0.5, n=3 when GA rescue is applied to GA-insensitive background).",
+      "failures": ["T024","T026","T033","T035","T041","T042","T043","T044","T045","T046","T049","T063","T064","T066","T074","T078","T084","T088","T090","T091","T096","T103","T107","T110","T111","T112","T115","T120","T121","T122"]
+    },
+    {
+      "method": "RWR",
+      "accuracy": 0.861,
+      "kappa": 0.740,
+      "mcc": 0.525,
+      "convergence_rate": 1.000,
+      "best_params": "alpha=0.9 (restart probability)",
+      "strengths": "Graph propagation captures small-signal composite-member KOs that Algebraic/ODE classify as 'unchanged'. Per-class F1 for 'increased'=0.89, 'decreased'=0.90 (both excellent). 100% convergence. Cohen's kappa 0.74 (substantial band) is by far the best. DARS 10.64 in large-scale strong band. Fewer failures (16 vs 30-31).",
+      "weaknesses": "Per-class F1 for 'unchanged'=0.00 — RWR cannot represent 'no change' well because any signed-graph propagation produces at least epsilon-sized signal. Struggles with signaling-mutant rescue (T033, T087, T089-T091, T097) because it cannot block hormone propagation when receptor is absent. Sign-conflict failures T110-T115 are topology-driven, not RWR-specific.",
+      "failures": ["T033","T043","T045","T046","T087","T089","T090","T091","T097","T103","T107","T110","T111","T112","T113","T115"]
+    }
+  ]
+}

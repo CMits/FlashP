@@ -1,0 +1,125 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lateral_Root_Density",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "iteration": 2,
+    "previous_network_snapshot": "network/iteration_1/",
+    "judge_review_input": "network/judge_review_iteration_1.json"
+  },
+  "summary": {
+    "total_nodes": 55,
+    "total_edges": 68,
+    "source_nodes": 21,
+    "source_percentage": 38.2,
+    "nodes_added": ["Brassinosteroid", "GATA23", "WOX11", "BRI1", "BIN2", "BZR", "HY5", "PHYB", "ABI4_5"],
+    "nodes_removed": ["PUCHI", "ABI4"],
+    "nodes_renamed_or_merged": {"ABI4": "merged into ABI4_5 composite (with ABI5 from E247/E248 curated edges)"},
+    "net_node_delta": "+7 (48 -> 55)",
+    "net_edge_delta": "+10 (58 -> 68)"
+  },
+  "applied_suggestions": [
+    {
+      "id": "S001",
+      "priority": "high",
+      "disposition": "applied_in_full",
+      "edges_added": [
+        {"source": "ARF7", "target": "GATA23", "sign": 1, "curated": "E033"},
+        {"source": "IAA28", "target": "GATA23", "sign": -1, "curated": "E200"},
+        {"source": "GATA23", "target": "Lateral_Root_Density", "sign": 1, "curated": "E032"}
+      ],
+      "notes": "Founder-cell marker restored. LR activators go from 6 to 7 (at hard cap after PUCHI drop)."
+    },
+    {
+      "id": "S002",
+      "priority": "high",
+      "disposition": "applied_partial",
+      "edges_added": [
+        {"source": "Auxin", "target": "WOX11", "sign": 1, "curated": "E220"},
+        {"source": "WOX11", "target": "LBD", "sign": 1, "curated": "E221"}
+      ],
+      "notes": "WOX11 included; WOX12 paralog deferred (E223 is WOX12->LBD16, could be added as second WOX11-parallel input but kept simple for iter 2). Auxin now has 2 outgoing edges (TIR1 + WOX11) - documented minor Perception Gate leak. Gate integrity for LR core cascade (TIR1 -> IAA14 -> ARF) preserved because WOX11 is a parallel TF, not a direct LR effector."
+    },
+    {
+      "id": "S003",
+      "priority": "high",
+      "disposition": "applied_in_full",
+      "edges_added": [
+        {"source": "Brassinosteroid", "target": "BRI1", "sign": 1, "curated": "E204"},
+        {"source": "BRI1", "target": "BIN2", "sign": -1, "curated": "E235"},
+        {"source": "BIN2", "target": "BZR", "sign": -1, "curated": "E236"},
+        {"source": "BZR", "target": "Lateral_Root_Density", "sign": 1, "curated": "E238"}
+      ],
+      "nodes_added": ["Brassinosteroid (HORMONE source)", "BRI1 (GENE)", "BIN2 (GENE)", "BZR (PROTEIN_COMPLEX composite of BZR1 + BES1)"],
+      "notes": "BR module added with Perception Gate (BR -> BRI1 sole outgoing). BZR composite covers both BZR1 and BES1 (E236/E237 and E238/E239 are composite-represented). bzr1-1D and bes1-D tests can now reconcile as composite member gain-of-function. To fit BZR->LR under hard-cap 7 activators, PUCHI->LR direct was dropped and PUCHI node removed."
+    },
+    {
+      "id": "S004",
+      "priority": "medium",
+      "disposition": "applied_partial",
+      "edges_added": [
+        {"source": "PHYB", "target": "HY5", "sign": 1, "curated": "E161"},
+        {"source": "HY5", "target": "ARF19", "sign": -1, "curated": "E162"}
+      ],
+      "nodes_added": ["HY5 (GENE)", "PHYB (GENE source)"],
+      "notes": "HY5 routed via ARF19 (not LR direct) as JUDGE recommended to stay under inhibitor cap. Far_Red/PHYA arm deferred - PHYB alone gives constitutive HY5 source for shoot-root integration. ARF19 inhibitors go from 2 (IAA14, IAA28) to 3 (+HY5); within cap."
+    },
+    {
+      "id": "S005",
+      "priority": "medium",
+      "disposition": "applied_with_restructure",
+      "edges_added": [
+        {"source": "ABA", "target": "ABI4_5", "sign": 1, "curated": "E247"},
+        {"source": "SNRK2", "target": "ABI4_5", "sign": 1, "curated": "E149"},
+        {"source": "ABI4_5", "target": "Lateral_Root_Density", "sign": -1, "curated": "E140"}
+      ],
+      "edges_removed_as_part_of_restructure": [
+        "SNRK2 -> ABI4 (iter-1 edge, replaced by SNRK2 -> ABI4_5)",
+        "ABI4 -> LR (iter-1 edge, replaced by ABI4_5 -> LR)"
+      ],
+      "nodes_renamed": {"ABI4": "ABI4_5 (composite including ABI5)"},
+      "notes": "Merged ABI4 and ABI5 into composite ABI4_5 per JUDGE's preferred option (a). ABA now has 2 outgoing edges (PYL8 gate-primary + ABI4_5 bypass for ABI5 via E247) - documented minor gate leak. SNRK2 arm preserved as gate-pure route for ABI4 (via E149)."
+    }
+  ],
+  "rejected_suggestions": [
+    {
+      "id": "S007",
+      "priority": "medium",
+      "disposition": "rejected_dependency_failure",
+      "reason": "Applies TOLS2->PUCHI and RLK7->PUCHI, but PUCHI node was dropped in iter 2 to fit BR module (S003 HIGH) under LR activator hard-cap 7. Re-adding PUCHI in iter 3 requires dropping another LR activator or routing PUCHI through a non-curated intermediate (literature_gap). Deferring for now.",
+      "reconsider_in_iteration": 3
+    },
+    {
+      "id": "S008",
+      "priority": "medium",
+      "disposition": "rejected_hard_cap_violation",
+      "reason": "NAC4->LR direct edge would push LR activator count from 7 to 8, exceeding the hard cap of 7 (BUILDER_AGENT.md §10 / CLAUDE.md §10). NAC4 cannot be routed via ANR1 (no curated NAC4->ANR1 edge) or via ARF7 (no curated NAC4->ARF7). To include the AFB3->NAC4 arm would require either: (a) collapsing ANR1 + NAC4 into a nitrate-TF composite, or (b) dropping ANR1->LR and routing NLP7/ANR1 via an alternative path (none curated). Defer to iter 3 or leave as literature_gap.",
+      "reconsider_in_iteration": 3
+    }
+  ],
+  "deferred_as_literature_gap": [
+    "S010 ARR_B->SHY2/IAA3 transcriptional induction - curated still lacks this edge (noted in literature_judge_report residual_gaps_for_builder)",
+    "S011 EIN3 downstream targets - curated still lacks EIN3->TAA1 etc.",
+    "S012 SMXL6/7/8 nodes for SL Perception Gate completion",
+    "S013 Phosphate machinery STOP1/ALMT1/LPR1 endpoints"
+  ],
+  "cap_state_after_iter2": {
+    "Lateral_Root_Density_activators": {"count": 7, "cap": 7, "status": "AT_HARD_CAP", "list": ["LBD", "PLT", "LAX3", "PIN", "ANR1", "GATA23", "BZR"]},
+    "Lateral_Root_Density_inhibitors": {"count": 7, "cap": 7, "status": "AT_HARD_CAP", "list": ["ARR_B", "CLV1", "EIN2", "ABI4_5", "DELLA", "D14", "MAX2"]},
+    "other_hubs_max_regulators": {"max_observed": 3, "at_node": "ARF19 (IAA14 + IAA28 + HY5 inhibitors)", "cap": 7}
+  },
+  "perception_gate_status": {
+    "Auxin_outgoing": ["TIR1 (primary gate)", "WOX11 (minor leak, founder TF, documented)"],
+    "Cytokinin_outgoing": ["AHK (sole)"],
+    "Ethylene_outgoing": ["EIN2 (sole)"],
+    "ABA_outgoing": ["PYL8 (primary gate)", "ABI4_5 (minor leak, ABI5 composite arm, documented)"],
+    "GA_outgoing": ["DELLA (sole, no GID1 intermediate - literature_gap)"],
+    "Strigolactone_outgoing": ["D14 (sole)"],
+    "Brassinosteroid_outgoing": ["BRI1 (sole)"]
+  },
+  "structural_qa": {
+    "check_network_structure_result": "ALL 5 CHECKS PASS (exit 0)",
+    "validate_schema_result": "ALL PASS"
+  }
+}

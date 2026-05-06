@@ -1,0 +1,275 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lycopene_Titer",
+    "phenotype_node": "Lycopene_Titer",
+    "species": "Escherichia coli",
+    "created": "2026-04-21",
+    "iteration": 2,
+    "judge_model": "Claude Opus 4.7 (1M context)",
+    "framing_note": "Metabolic-as-signalling review (iteration 2). Same FLASH-P mathematics.",
+    "previous_review": "network/iteration_1/judge_review_iteration_1.json"
+  },
+  "verdict": "iterate",
+  "summary": "BUILDER applied 3 of 4 HIGH-priority suggestions correctly: DXS substrate-depletion edges (S001), DXR node with its 3 curated edges (S002 minimum variant), and removal of redundant KATE/RPOS direct-to-phenotype edges (S004). The one rejection (S003 adding SodA/CRP/DgkA) is defensible — I made an arithmetic error in iteration 1 that BUILDER correctly flagged: S003 + S004 together would have pushed Lycopene_Titer to 10 inputs, violating the 7-cap. The Lycopene_Titer §9.11 coverage ratio actually regressed slightly (10/43 → 8/43 = 0.19) because S004 subtracted edges without S003 adding them back. Network is now better on mechanistic_depth (MEP has 2 steps instead of 1, Dxs has substrate-depletion biology) and worse on cascade_balance (G3P and Pyruvate now at 10 inputs each — over the 7-cap because S001 added edges without offsetting). Two new issues surface from this iteration: G3P/Pyruvate cap violations (structural, need EDD+EDA composite or similar), and the Lycopene_Titer coverage regression (needs a new approach that respects the 7-cap). Iterate for these + MEDIUM carry-overs (PMK, OxyR/KatG, Envelope_Stress composite).",
+  "iteration_1_followup": {
+    "suggestions_applied_by_builder": [
+      {"id": "S001", "priority": "high", "status": "APPLIED", "comment": "DXS→G3P(-1) [N092] and DXS→Pyruvate(-1) [N093] correctly added with E143/E144 citations. DXS coverage ratio jumped from 0.50 to 0.83. Biology now captures Wang 2009 MAGE non-monotonic OE dose-response."},
+      {"id": "S002", "priority": "high", "status": "APPLIED (minimum variant)", "comment": "DXR added as GENE node with Arabinose→DXR (N094, E057), NADPH→DXR (N095, E095), DXR→IPP (N096, E028). DXR coverage 3/3 = 1.00. BUILDER chose minimum variant (DXR only, not IspG/IspH) which is defensible; see S013 for residual gap. BUILDER dropped IDI→IPP (N042) to keep IPP at the 7-activator cap — IDI still reaches phenotype via IDI→DMAPP, so this is clean."},
+      {"id": "S003", "priority": "high", "status": "REJECTED by BUILDER (defensible)", "comment": "BUILDER correctly identified that my iter-1 arithmetic was wrong: S004 removes 2 direct edges (9→7), so S003 can add at most 0 direct edges under the 7-cap — not 3 as I implied. Curated evidence for SodA/CRP/DgkA is only direct-to-Lycopene_Titer. See revised suggestion S014 which routes via indirect edges or uses a composite collapse."},
+      {"id": "S004", "priority": "high", "status": "APPLIED", "comment": "N080 (RPOS→Lyc) and N086 (KATE→Lyc) removed cleanly. Lycopene_Titer inputs reduced from 9 to 7 (at cap). Redundant double-counting eliminated. Bongers 2015 mechanistic interpretation (ROS-mediated) preserved via the RPOS→KATE→ROS→Lycopene_Titer chain."}
+    ],
+    "medium_low_deferred": ["S005 PMK", "S006 ZWF→NADPH literature_gap", "S007 OxyR/KatG", "S008 MVA chain restructure (optional)", "S009 Plsc", "S010 NADPH→Mevalonate", "S011 ATP→IspE (contingent on IspE)", "S012 paywall literature carryover"],
+    "deferred_comment": "BUILDER deferred all 8 medium/low suggestions to focus on HIGH priorities. Acceptable for iteration 2; at least PMK (S005) and OxyR/KatG (S007) should be revisited in iteration 3."
+  },
+  "rubric_scores": {
+    "pathway_completeness": {
+      "score": 3,
+      "delta_vs_iter_1": 0,
+      "justification": "MEP cascade improved from 1 step (DXS→IPP) to 2 steps (DXS→IPP, DXR→IPP parallel). Still missing IspD, IspE, IspF, IspG, IspH interior MEP enzymes (all in_model=True in curated). MVA still missing PMK (E023 in_model=True, HIGH confidence). Oxidative defense still missing SodA, KatG, OxyR (E069, E131 in_model=True). Envelope-stress arm still unmodeled. Score unchanged — DXR is a material improvement but enough still missing that 4/5 cannot be awarded."
+    },
+    "mechanistic_depth": {
+      "score": 3,
+      "delta_vs_iter_1": 1,
+      "justification": "DXS now has substrate-depletion biology (consumer of G3P and Pyruvate) — this is a structural improvement. MEP has 2 steps in parallel (DXS+DXR both feed IPP). MVA still collapsed. Lycopene<->ROS feedback preserved and no longer double-counted via KATE direct edge. Score up by one (2→3) because the Biosynthesis-Degradation motif is now applied where it wasn't."
+    },
+    "motif_coverage": {
+      "score": 4,
+      "delta_vs_iter_1": 1,
+      "justification": "New motif gained: Biosynthesis-Degradation Balance on G3P and Pyruvate pools (via DXS substrate-consumer edges). Competing Sink (IspB→FPP), Multi-Output (IspA→FPP+GPP), Feed-Forward (MEP||MVA to IPP), Negative Feedback (Lyc↔ROS, prenyl-products↔MVK) all preserved. Still missing: explicit degradation enzymes for IPP/DMAPP/GPP/FPP/GGPP pools; Biosynthesis-Degradation not applied to MVA intermediates."
+    },
+    "cascade_balance": {
+      "score": 2,
+      "delta_vs_iter_1": 0,
+      "justification": "REGRESSION on G3P (9→10) and Pyruvate (9→10) input counts because S001 added DXS→G3P(-1) and DXS→Pyruvate(-1) without offsetting. Both nodes now exceed the 7 hard cap by 3. IPP stays at exactly 7 (DXR added, IDI→IPP removed — clean offset). Lycopene_Titer is exactly at 7 after S004 (good). Source % = 46.77% (within 30-50% target). The G3P/Pyruvate overload is the headline issue — structural, needs composite consolidation (e.g., EDD+EDA into ED_Pathway; PYKA+PYKF into PYK) or accepting the violation with a literature-gap justification."
+    },
+    "composite_node_handling": {
+      "score": 4,
+      "delta_vs_iter_1": 0,
+      "justification": "No new composite decisions in iter 2. DXR added as single GENE (correct — E. coli has one dxr/ispC gene). dxr/ispC aliasing documented. CrtY remains absent (confirmed). Candidate new composites for iter 3 to resolve cascade_balance: EDD+EDA (ED pathway), PYKA+PYKF (pyruvate kinases). Both are defensible since these isozymes co-act."
+    },
+    "hub_completeness": {
+      "score": 3,
+      "delta_vs_iter_1": 0,
+      "justification": "Lycopene_Titer coverage regressed 0.23→0.19 because of S004 (necessary removal of double-counted paths; the loss is artifactual of the 10/43 ratio, not a biology loss). IPP unchanged at 0.56 — gained DXR, lost IDI direct, so net-neutral (IDI now reaches IPP via DMAPP only). G3P up to 0.79 (+DXS). Pyruvate up to 1.00 (+DXS). DXS up to 0.83 (+E143, +E144). DXR at 1.00 (new). The phenotype hub itself is still the weakest; see S014 revised approach."
+    },
+    "topology_hazards": {
+      "score": 5,
+      "delta_vs_iter_1": 1,
+      "justification": "Redundant direct edges KATE→Lyc and RPOS→Lyc removed — double-counting hazard gone. DXR cleanly integrated (2 inputs: Arabinose+, NADPH+; 1 output: →IPP+). No new positive-feedback loops introduced. No sole-activator collapses created. Score raised to 5."
+    },
+    "evidence_quality": {
+      "score": 4,
+      "delta_vs_iter_1": 0,
+      "justification": "Spot-checked N092 (Wang 2009 MAGE, specific mechanism), N094-N096 (Wang 2020 review, specific mechanism for Dxr NADPH dependence and Arabinose induction). All new edges have DOIs and evidence sentences. No fabrication detected (all 93 network edges trace to curated). Unchanged."
+    },
+    "phenotype_audit": {
+      "score": 4,
+      "delta_vs_iter_1": 1,
+      "justification": "Lycopene_Titer inputs now 7 (3 activators: CRTI+, Phytoene+, PLSB+; 4 inhibitors: GPP-, FPP-, Temperature-, ROS-) — exactly at cap, good balance. All effector classes still represented (enzyme, substrate, competing pool, environment, storage, oxidative damage). Score up (3→4). The remaining concerns are coverage (see hub_completeness) and that the regulator arm is now narrow (no direct regulator-to-phenotype edges; all must flow through KATE→ROS→Lyc)."
+    },
+    "rejected_edges_review": {
+      "score": 4,
+      "delta_vs_iter_1": 1,
+      "justification": "40 curated in_model=True edges were missing in iter 1; 38 still missing in iter 2 (E143, E144, E028, E057, E095 closed; IDI→IPP E005 became newly-missing because BUILDER removed it to stay at 7-cap; net -5). Specifically closed: DXS substrate depletion (critical), DXR + cofactors (critical). Remaining in_model=True omissions are concentrated in (a) MEP interior enzymes IspD/E/F/G/H + PMK, (b) Lycopene_Titer shotgun-KO direct edges (envelope-stress cluster, YjiD cluster), (c) peripheral metabolism (FdhF, EutD, AlphaKGDH, TalB, TpiA). Category (a) is HIGH priority to close; (b) requires composite-node restructure; (c) is LOW."
+    },
+    "key_player_density": {
+      "score": 2,
+      "delta_vs_iter_1": 0,
+      "justification": "Lycopene_Titer: 10/43 (0.23) → 8/43 (0.19). Technically a regression, but S004 removals were biologically correct (removed double-counted KATE+RPOS direct edges that had already been applied indirectly via KATE→ROS→Lyc). The real §9.11 gap is that the phenotype has too few DIVERSE regulators captured. DXS: 3/6 (0.50) → 5/6 (0.83) — fully resolved, key-player success. DXR: 0/3 (0.00) → 3/3 (1.00) — new hub added with full coverage. IDI: 6/7 (0.86) → 5/7 (0.71) — slight regression from S002's IDI→IPP removal, still acceptable. Overall the density picture is mixed: MEP/MVA precursor hubs much improved, phenotype hub remains stuck.",
+      "per_player_ratios": {
+        "Lycopene_Titer": 0.19,
+        "IPP": 0.56,
+        "G3P": 0.79,
+        "Pyruvate": 1.00,
+        "FPP": 0.88,
+        "Mevalonate": 0.71,
+        "NADPH": 0.71,
+        "MVK": 0.86,
+        "Acetyl_CoA": 0.57,
+        "IDI": 0.71,
+        "DXS": 0.83,
+        "DXR": 1.00,
+        "PPS": 0.80,
+        "ROS": 0.80,
+        "GGPP": 0.80,
+        "DMAPP": 0.75
+      },
+      "key_player_flags": [
+        "Lycopene_Titer (8/43 = 0.19) - §9.11 UNDER-REPRESENTATION persists and worsened. See revised suggestion S014.",
+        "NADPH (5/7 = 0.71) - improved from 0.57 (+E095 NADPH→DXR); remaining gap is AlphaKGDH producer and Mevalonate consumer (E021), both LOW priority."
+      ]
+    }
+  },
+  "per_node_audit_delta": [
+    {
+      "node": "DXR",
+      "status": "NEW",
+      "inputs": ["Arabinose(+)", "NADPH(+)"],
+      "outputs": ["IPP(+)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Clean addition. DXP reductoisomerase second MEP step. Full 3/3 curated coverage. Arabinose induction captures PBAD-driven dxr OE; NADPH cofactor captures substrate-flux dependence; DXR→IPP captures the enzymatic step."
+    },
+    {
+      "node": "DXS",
+      "status": "UPDATED",
+      "inputs_same": true,
+      "new_outputs": ["G3P(-) via N092 (E143)", "Pyruvate(-) via N093 (E144)"],
+      "verdict": "appropriate (upgraded from under-specified)",
+      "comment": "Substrate-consumer edges now present. Wang 2009 MAGE non-monotonic OE response is now simulable. DXS coverage 3/6→5/6 = 0.83."
+    },
+    {
+      "node": "IDI",
+      "status": "UPDATED",
+      "removed_outputs": ["IPP(+) — N042 removed to keep IPP at 7-cap after DXR addition"],
+      "remaining_outputs": ["DMAPP(+)"],
+      "verdict": "acceptable (was appropriate)",
+      "comment": "IDI still reaches phenotype via IDI→DMAPP→FPP→GGPP→... and via DMAPP's role in GPP/FPP synthesis. Coverage 6/7→5/7 = 0.71. Mild regression; acceptable trade for making room for DXR."
+    },
+    {
+      "node": "IPP",
+      "status": "UPDATED",
+      "inputs_before": ["DXS","G3P","Pyruvate","IDI","Mevalonate","MVK","MVD"],
+      "inputs_after": ["DXS","DXR","G3P","Pyruvate","Mevalonate","MVK","MVD"],
+      "verdict": "acceptable",
+      "comment": "Net swap IDI→DXR. DXR is a more structural upgrade than IDI (new node vs existing parallel activator). Still at 7-cap with 7 parallel activators which dilutes perturbation signal under geometric mean — concern unchanged from iter 1 but now carries DXR mechanistic intermediacy."
+    },
+    {
+      "node": "KATE",
+      "status": "UPDATED",
+      "removed_outputs": ["Lycopene_Titer(+) — N086 removed per S004"],
+      "remaining_outputs": ["ROS(-)"],
+      "verdict": "appropriate (was redundant)",
+      "comment": "Double-count eliminated. KatE protection now flows exclusively via KATE→ROS(-)→Lycopene_Titer(-). Matches Bongers 2015 mechanism."
+    },
+    {
+      "node": "RPOS",
+      "status": "UPDATED",
+      "removed_outputs": ["Lycopene_Titer(+) — N080 removed per S004"],
+      "remaining_outputs": ["KATE(+)"],
+      "verdict": "appropriate",
+      "comment": "Direct RpoS→Lyc edge removed. RpoS effect now captured solely via RpoS→KatE→ROS→Lyc route. Resolves Bongers 2015 reinterpretation conflict from literature_judge_report."
+    },
+    {
+      "node": "Lycopene_Titer",
+      "status": "UPDATED",
+      "inputs_before": 9,
+      "inputs_after": 7,
+      "verdict": "at cap, coverage regressed",
+      "comment": "Input count now exactly 7 (good on cap; see phenotype_audit). Coverage 10/43→8/43 = 0.19 (regressed; see key_player_density). The remaining under-representation is structural — too few diverse regulators are reachable under the 7-cap with only direct-to-phenotype curated evidence."
+    },
+    {
+      "node": "G3P",
+      "status": "UPDATED",
+      "inputs_before": 9,
+      "inputs_after": 10,
+      "verdict": "OVER CAP",
+      "comment": "+DXS(-) pushes G3P over the 7-input cap. See revised suggestion S015 (EDD+EDA composite)."
+    },
+    {
+      "node": "Pyruvate",
+      "status": "UPDATED",
+      "inputs_before": 9,
+      "inputs_after": 10,
+      "verdict": "OVER CAP",
+      "comment": "+DXS(-) pushes Pyruvate over the 7-input cap. See revised suggestion S015."
+    }
+  ],
+  "per_pathway_audit_delta": [
+    {
+      "pathway": "MEP native pathway",
+      "completeness_before": "low (only DXS + IDI)",
+      "completeness_after": "medium (DXS + DXR + IDI)",
+      "comment": "DXR addition materially improves MEP representation. Still missing IspD/E/F/G/H interior. BUILDER chose minimum variant of S002 which is defensible; full MEP chain remains a future refinement target."
+    },
+    {
+      "pathway": "MVA heterologous pathway",
+      "completeness_before": "medium",
+      "completeness_after": "medium (unchanged)",
+      "comment": "PMK still missing. BUILDER deferred S005. Re-flag for iteration 3."
+    },
+    {
+      "pathway": "Lycopene <-> ROS feedback and oxidative defense",
+      "completeness_before": "medium (KatE redundant direct path)",
+      "completeness_after": "medium (redundancy removed, but still missing SodA/KatG/OxyR)",
+      "comment": "S004 cleanup successful. Remaining gap: parallel oxidative-defense arm (SodA/KatG/OxyR) still not modelable. See revised S014."
+    },
+    {
+      "pathway": "Central metabolism precursor supply",
+      "completeness_before": "high",
+      "completeness_after": "high but over cap",
+      "comment": "G3P and Pyruvate both now at 10 inputs (over 7-cap) because DXS substrate-depletion added. Either the 7-cap is softened for metabolic-hub nodes (defensible: metabolic hubs legitimately have many in-flows) or composite EDD+EDA / PYKA+PYKF to reduce count by 2."
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "S013",
+      "type": "add_node",
+      "priority": "medium",
+      "description": "Complete the MEP interior by adding IspG and IspH (the rate-co-limiting downstream pair).",
+      "biological_justification": "IspG (HMBPP synthase, E032) and IspH (HMBPP reductase, E033+E034) are the last two MEP steps; HMBPP accumulation has been shown to cause growth toxicity, making IspG/IspH OE a known lever in lycopene engineering. Both are curated in_model=True with MEDIUM confidence. IspD/IspE/IspF remain low-priority (single edges each, interior steps rarely perturbed in the lycopene literature).",
+      "curated_edge_ids": ["E032", "E033", "E034"],
+      "implementation": "Add ISPG as GENE node (is_source=true) with ISPG → IPP (+1, E032). Add ISPH as GENE node (is_source=true) with ISPH → IPP (+1, E033) and ISPH → DMAPP (+1, E034). Note: adding 3 more activators to IPP would exceed the 7-cap, so first restructure IPP (e.g., merge adjacent MEP steps into 'MEP_downstream' composite, or accept the 7-cap for IPP and replace one existing activator with ISPH). Deferred if IPP restructure is not in scope for iter 3."
+    },
+    {
+      "id": "S014",
+      "type": "restructure_pathway",
+      "priority": "high",
+      "description": "REVISED approach to Lycopene_Titer §9.11 under-representation (replaces rejected S003). Three viable options, pick one:",
+      "biological_justification": "Iter 1's S003 was arithmetically infeasible under the 7-cap. The goal — raise Lycopene_Titer coverage from 0.19 toward 0.40 — remains valid. The 7-cap constraint means any new input must be offset by route-through-intermediate or composite collapse. Three viable paths exist.",
+      "curated_edge_ids": ["E085", "E086", "E087", "E088", "E089", "E090", "E062", "E131", "E134", "E069"],
+      "implementation": "OPTION A (Envelope_Stress composite — preferred): add ONE composite node 'Envelope_Stress' (type=PROTEIN_COMPLEX, is_source=true, collapsing WaaC+WaaF+Lpp+NlpI+MlaE+TolA) with ONE edge Envelope_Stress → Lycopene_Titer (-1) grouping curated edges E085-E090. This adds only 1 direct input (need to offset by removing one existing input OR accept 8 inputs as a documented exception). Coverage gain: +6 curated edges captured by 1 network edge. Composite membership documented in node description.\n\nOPTION B (indirect routing via literature_gap): file Step 1 re-open requests for SodA→ROS(-1), CRP→DXS(+1), OxyR→KatG(+1). If any primary-source evidence sentences are recoverable, route SodA/CRP/OxyR as new GENE nodes with edges to ROS/DXS/KatG respectively (NOT to Lycopene_Titer). Coverage gain: +3 curated direct edges pending literature closure, at zero Lycopene_Titer cap cost.\n\nOPTION C (accept coverage regression): document that Lycopene_Titer coverage is structurally limited under the current constraints and flag as a permanent literature_gap. BUILDER picks one option and documents rationale."
+    },
+    {
+      "id": "S015",
+      "type": "composite_merge",
+      "priority": "medium",
+      "description": "Resolve G3P and Pyruvate 10-input cap violations by merging co-acting isozymes.",
+      "biological_justification": "G3P and Pyruvate each have 10 inputs now (over 7-cap). Biological candidates for composite merge: (a) EDD+EDA (the Entner-Doudoroff dehydratase + aldolase act obligately in sequence; they are always co-perturbed); (b) PYKA+PYKF (pyruvate kinase isozymes, redundant function). Merging each pair saves 1 input on G3P (EDD+EDA→ED_Pathway) and 2 inputs on Pyruvate (EDD+EDA→ED_Pathway plus PYKA+PYKF→PYK). Result: G3P 10→9, Pyruvate 10→8. Still over cap but closer.",
+      "curated_edge_ids": [],
+      "implementation": "OPTION A (minimal — fix G3P only): merge EDD+EDA into composite node 'ED_Pathway' (GENE type or PROTEIN_COMPLEX, is_source=true) with edges ED_Pathway → G3P (+1) and ED_Pathway → Pyruvate (+1). Save 2 edges total (1 from G3P, 1 from Pyruvate). G3P→9, Pyruvate→9.\nOPTION B (full): also merge PYKA+PYKF into composite 'PYK' with edge PYK → Pyruvate (+1). Save 1 more edge. G3P→9, Pyruvate→8.\nOPTION C (soften the cap for metabolic hubs): document that G3P and Pyruvate are central-metabolism nodes that legitimately have many converging activators, and request an exception to the 7-cap for METABOLITE hubs. The cap was designed for signalling TFs and integrator nodes.\nRecommend Option A as minimum; Option C is acceptable with justification."
+    },
+    {
+      "id": "S005_carryover",
+      "type": "add_node",
+      "priority": "medium",
+      "description": "CARRY-OVER from iter 1 — add PMK to complete the MVA pathway.",
+      "biological_justification": "Unchanged from iter 1. E023 PMK→IPP in_model=True, HIGH confidence. BUILDER deferred.",
+      "curated_edge_ids": ["E023"],
+      "implementation": "Add PMK as GENE node (is_source=true) with PMK → IPP (+1, E023). Will require a companion removal to keep IPP at 7-cap, OR chain-restructure IPP inputs (Mevalonate → MVK → PMK → MVD → IPP chain instead of parallel)."
+    },
+    {
+      "id": "S007_carryover",
+      "type": "add_node",
+      "priority": "medium",
+      "description": "CARRY-OVER from iter 1 — add OxyR and KatG for the peroxide-stress arm.",
+      "biological_justification": "Unchanged. E069 OxyR→KatG in_model=True HIGH confidence. Dovetails with S014 Option B (indirect routing).",
+      "curated_edge_ids": ["E069"],
+      "implementation": "Add OxyR (GENE, is_source=true) and KatG (GENE, is_source=false). OxyR → KatG (+1, E069). If Step 1 provides KatG → ROS (-1), route KatG into the existing KATE→ROS chain; otherwise file as literature_gap."
+    },
+    {
+      "id": "S009_carryover",
+      "type": "add_edge",
+      "priority": "low",
+      "description": "CARRY-OVER — Plsc → Lycopene_Titer (+1) for Hu 2018 membrane trio.",
+      "biological_justification": "Unchanged. Would add direct input to Lycopene_Titer — under 7-cap requires offset. Consider bundling into an Envelope_Storage composite if Option A of S014 is pursued.",
+      "curated_edge_ids": ["E083"],
+      "implementation": "Deferred until Lycopene_Titer cap strategy (S014) is settled."
+    },
+    {
+      "id": "S010_carryover",
+      "type": "add_edge",
+      "priority": "low",
+      "description": "CARRY-OVER — NADPH → Mevalonate (+1) as HMGR substrate-flux proxy.",
+      "biological_justification": "Unchanged. E021 in_model=True HIGH confidence.",
+      "curated_edge_ids": ["E021"],
+      "implementation": "Add edge NADPH → Mevalonate (+1, E021). Mevalonate has only 4 inputs currently, well under cap — no offset needed."
+    }
+  ],
+  "literature_gaps": [
+    "Same five from iter 1 carry over unchanged: Zwf→NADPH, KatG→ROS, SodA→ROS, Alper/Jin/Zhao/Yoon paywalls, RpoS→Dxs vs Bongers 2015 conflict.",
+    "NEW: curated evidence for CRP→DXS (cAMP-regulated promoter of dxs) is thin — E100 CRP→Pgi exists but the DXS-promoter edge would require a primary-source citation (Alper 2005 or similar). File as Step 1 re-open candidate if BUILDER wants to apply S014 Option B."
+  ],
+  "stop_reason": null
+}

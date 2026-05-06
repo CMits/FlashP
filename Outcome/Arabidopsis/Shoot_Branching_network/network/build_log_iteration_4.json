@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "iteration": 4,
+    "created": "2026-04-18",
+    "rationale": "Sucrose enrichment per user request - key player needed deeper coverage"
+  },
+  "edges_added": [
+    "Decapitation -> Sucrose (E109)",
+    "Sucrose -| MAX2 (E286)",
+    "Sucrose -> Cytokinin (E280)",
+    "Sucrose -> PIN1 (E287)",
+    "Sucrose -> Shoot_Branching (E288)"
+  ],
+  "status_changes": {
+    "Sucrose": "source -> downstream (gained Decapitation upstream)",
+    "MAX2": "source -> downstream (gained Sucrose inhibitor; Perception Gate becomes sucrose-modulated)"
+  },
+  "deliberate_exclusions": [
+    "Sucrose -> D14 (E281): would predict wrong direction in framework (sucrose stabilizes inactive D14, but math treats more D14 = more SMXL degradation)",
+    "Sucrose -> Auxin (E278): bud-local biosynthesis but global Auxin node routes through CK suppression, opposite of net sucrose effect",
+    "Sucrose -> IPT3/IPT5: paralog-specific edges; Sucrose -> Cytokinin direct captures the effect"
+  ],
+  "stats": {
+    "iter3": {
+      "nodes": 38,
+      "edges": 69,
+      "sources": 10,
+      "source_pct": 26.3
+    },
+    "iter4": {
+      "nodes": 38,
+      "edges": 74,
+      "sources": 8,
+      "source_pct": 21.1
+    }
+  }
+}

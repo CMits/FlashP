@@ -1,0 +1,2764 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "merged_arabidopsis",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-20",
+    "merge_script": "Agent/merge_arabidopsis_v2.py"
+  },
+  "source_networks": [
+    {
+      "name": "flowering_time",
+      "phenotype_node": "Flowering_Time",
+      "nodes": 42,
+      "edges": 87,
+      "tests": 195
+    },
+    {
+      "name": "hypocotyl_length",
+      "phenotype_node": "Hypocotyl_Length",
+      "nodes": 54,
+      "edges": 103,
+      "tests": 161
+    },
+    {
+      "name": "lateral_root_density",
+      "phenotype_node": "Lateral_Root_Density",
+      "nodes": 55,
+      "edges": 68,
+      "tests": 158
+    },
+    {
+      "name": "plant_height",
+      "phenotype_node": "Plant_Height",
+      "nodes": 78,
+      "edges": 98,
+      "tests": 131
+    },
+    {
+      "name": "seed_size",
+      "phenotype_node": "Seed_Size",
+      "nodes": 80,
+      "edges": 134,
+      "tests": 122
+    },
+    {
+      "name": "shoot_branching",
+      "phenotype_node": "Shoot_Branching",
+      "nodes": 38,
+      "edges": 75,
+      "tests": 201
+    }
+  ],
+  "normalization_map": {
+    "GA": "Gibberellin",
+    "GA1": "Gibberellin",
+    "Brassinolide": "Brassinosteroid",
+    "JA": "Jasmonate",
+    "COP1": "COP1_SPA",
+    "GA20OX": "GA20OX1",
+    "Abscisic_Acid": "ABA"
+  },
+  "merged_stats": {
+    "total_nodes": 237,
+    "total_edges": 501,
+    "total_tests": 968,
+    "shared_nodes": 63,
+    "per_phenotype_counts": {
+      "Flowering_Time": 195,
+      "Hypocotyl_Length": 161,
+      "Lateral_Root_Density": 158,
+      "Plant_Height": 131,
+      "Seed_Size": 122,
+      "Shoot_Branching": 201
+    }
+  },
+  "shared_nodes": {
+    "FRI": [
+      "flowering_time",
+      "plant_height"
+    ],
+    "PRC2": [
+      "flowering_time",
+      "plant_height",
+      "seed_size"
+    ],
+    "SLY1": [
+      "flowering_time",
+      "plant_height"
+    ],
+    "GA20OX1": [
+      "flowering_time",
+      "hypocotyl_length",
+      "plant_height",
+      "seed_size"
+    ],
+    "GA2OX": [
+      "flowering_time",
+      "plant_height",
+      "seed_size",
+      "shoot_branching"
+    ],
+    "GI": [
+      "flowering_time",
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "Sucrose": [
+      "flowering_time",
+      "plant_height",
+      "shoot_branching"
+    ],
+    "TPS1": [
+      "flowering_time",
+      "plant_height"
+    ],
+    "miR156": [
+      "flowering_time",
+      "plant_height",
+      "seed_size",
+      "shoot_branching"
+    ],
+    "T6P": [
+      "flowering_time",
+      "plant_height",
+      "shoot_branching"
+    ],
+    "FKF1": [
+      "flowering_time",
+      "plant_height"
+    ],
+    "CDF1": [
+      "flowering_time",
+      "plant_height"
+    ],
+    "CO": [
+      "flowering_time",
+      "plant_height"
+    ],
+    "VIN3": [
+      "flowering_time",
+      "plant_height"
+    ],
+    "FLC": [
+      "flowering_time",
+      "plant_height"
+    ],
+    "SVP": [
+      "flowering_time",
+      "plant_height"
+    ],
+    "PIF4": [
+      "flowering_time",
+      "hypocotyl_length"
+    ],
+    "Gibberellin": [
+      "flowering_time",
+      "lateral_root_density",
+      "plant_height",
+      "seed_size",
+      "shoot_branching"
+    ],
+    "GID1": [
+      "flowering_time",
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "DELLA": [
+      "flowering_time",
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height",
+      "seed_size",
+      "shoot_branching"
+    ],
+    "SPL9": [
+      "flowering_time",
+      "plant_height",
+      "shoot_branching"
+    ],
+    "miR172": [
+      "flowering_time",
+      "plant_height",
+      "seed_size"
+    ],
+    "AP2": [
+      "flowering_time",
+      "seed_size"
+    ],
+    "FT": [
+      "flowering_time",
+      "plant_height",
+      "shoot_branching"
+    ],
+    "Light": [
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "Temperature": [
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "PHYB": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height"
+    ],
+    "PHYA": [
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "COP1_SPA": [
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "HY5": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height"
+    ],
+    "HFR1": [
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "DET2": [
+      "hypocotyl_length",
+      "seed_size"
+    ],
+    "DWF4": [
+      "hypocotyl_length",
+      "seed_size"
+    ],
+    "BAS1": [
+      "hypocotyl_length",
+      "seed_size"
+    ],
+    "Brassinosteroid": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height",
+      "seed_size"
+    ],
+    "BRI1": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height",
+      "seed_size"
+    ],
+    "BAK1": [
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "BIN2": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height",
+      "seed_size"
+    ],
+    "BZR1": [
+      "hypocotyl_length",
+      "seed_size"
+    ],
+    "PP2A": [
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "TAA1": [
+      "hypocotyl_length",
+      "lateral_root_density"
+    ],
+    "Auxin": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height",
+      "seed_size",
+      "shoot_branching"
+    ],
+    "TIR1": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height",
+      "seed_size"
+    ],
+    "Ethylene": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height"
+    ],
+    "CTR1": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height"
+    ],
+    "EIN2": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height"
+    ],
+    "EIN3": [
+      "hypocotyl_length",
+      "plant_height"
+    ],
+    "ABA": [
+      "hypocotyl_length",
+      "lateral_root_density",
+      "plant_height",
+      "seed_size",
+      "shoot_branching"
+    ],
+    "Cytokinin": [
+      "lateral_root_density",
+      "plant_height",
+      "seed_size",
+      "shoot_branching"
+    ],
+    "Strigolactone": [
+      "lateral_root_density",
+      "plant_height",
+      "shoot_branching"
+    ],
+    "CKX2": [
+      "lateral_root_density",
+      "seed_size"
+    ],
+    "ABI1": [
+      "lateral_root_density",
+      "plant_height"
+    ],
+    "SNRK2": [
+      "lateral_root_density",
+      "plant_height"
+    ],
+    "D14": [
+      "lateral_root_density",
+      "plant_height",
+      "shoot_branching"
+    ],
+    "MAX2": [
+      "lateral_root_density",
+      "plant_height",
+      "shoot_branching"
+    ],
+    "MAX1": [
+      "lateral_root_density",
+      "shoot_branching"
+    ],
+    "NCED3": [
+      "plant_height",
+      "seed_size",
+      "shoot_branching"
+    ],
+    "GA3OX": [
+      "plant_height",
+      "seed_size"
+    ],
+    "IPT": [
+      "plant_height",
+      "seed_size",
+      "shoot_branching"
+    ],
+    "CKX3": [
+      "plant_height",
+      "seed_size"
+    ],
+    "ARR1": [
+      "plant_height",
+      "shoot_branching"
+    ],
+    "ABI5": [
+      "plant_height",
+      "seed_size"
+    ],
+    "ABA2": [
+      "seed_size",
+      "shoot_branching"
+    ]
+  },
+  "edge_conflicts": [],
+  "equation_merge_decisions": {
+    "ABA": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "NCED3",
+        "ABA2"
+      ],
+      "final_inhibitors": [
+        "CYP707A"
+      ]
+    },
+    "ABA2": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "ABI1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 2,
+      "final_activators": [],
+      "final_inhibitors": [
+        "PYL8",
+        "PYL"
+      ]
+    },
+    "ABI3": {
+      "strategy": "edge-derived",
+      "total_activators": 4,
+      "total_inhibitors": 2,
+      "final_activators": [
+        "LEC1",
+        "LEC2",
+        "FUS3",
+        "ABI4"
+      ],
+      "final_inhibitors": [
+        "VAL1",
+        "VAL2"
+      ]
+    },
+    "ABI4": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "ABI3"
+      ],
+      "final_inhibitors": []
+    },
+    "ABI4_5": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "SNRK2",
+        "ABA"
+      ],
+      "final_inhibitors": []
+    },
+    "ABI5": {
+      "strategy": "edge-derived",
+      "total_activators": 3,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "SNRK2",
+        "ABA",
+        "ABI4"
+      ],
+      "final_inhibitors": [
+        "RAV1"
+      ]
+    },
+    "ACO": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "ACS": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "ACS_ACO": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "AGB1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "AGG3": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "GPA1",
+        "AGB1"
+      ],
+      "final_inhibitors": []
+    },
+    "AGL24": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "SOC1",
+        "Vernalization"
+      ],
+      "final_inhibitors": []
+    },
+    "AHK": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Cytokinin"
+      ],
+      "final_inhibitors": []
+    },
+    "AHK3": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Cytokinin"
+      ],
+      "final_inhibitors": []
+    },
+    "AHP1": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "AHK3"
+      ],
+      "final_inhibitors": []
+    },
+    "AHP6": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "AIF2": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "ANR1": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "NLP7",
+        "CHL1"
+      ],
+      "final_inhibitors": []
+    },
+    "ANT": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "DELLA"
+      ],
+      "final_inhibitors": []
+    },
+    "AP1": {
+      "strategy": "edge-derived",
+      "total_activators": 6,
+      "total_inhibitors": 2,
+      "final_activators": [
+        "FT",
+        "FD",
+        "SOC1",
+        "LFY",
+        "SPL9",
+        "FUL"
+      ],
+      "final_inhibitors": [
+        "AP2",
+        "TFL1"
+      ]
+    },
+    "AP2": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 3,
+      "final_activators": [],
+      "final_inhibitors": [
+        "miR172",
+        "SOC1",
+        "BZR1"
+      ]
+    },
+    "AP2_TOE": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "miR172"
+      ]
+    },
+    "ARF19": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 3,
+      "final_activators": [],
+      "final_inhibitors": [
+        "IAA14",
+        "IAA28",
+        "HY5"
+      ]
+    },
+    "ARF2": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "TIR1"
+      ],
+      "final_inhibitors": [
+        "BZR1"
+      ]
+    },
+    "ARF6": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 2,
+      "final_activators": [
+        "PIF4",
+        "BZR1"
+      ],
+      "final_inhibitors": [
+        "AUX_IAA",
+        "DELLA"
+      ]
+    },
+    "ARF6_7_8": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 2,
+      "final_activators": [],
+      "final_inhibitors": [
+        "DELLA",
+        "IAA19"
+      ]
+    },
+    "ARF7": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 2,
+      "final_activators": [],
+      "final_inhibitors": [
+        "IAA14",
+        "IAA28"
+      ]
+    },
+    "ARR1": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "AHP1",
+        "Cytokinin"
+      ],
+      "final_inhibitors": []
+    },
+    "ARR_B": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "AHK"
+      ],
+      "final_inhibitors": []
+    },
+    "AUT_SYN": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "AUX1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "AUX_IAA": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "TIR1"
+      ]
+    },
+    "Auxin": {
+      "strategy": "edge-derived",
+      "total_activators": 10,
+      "total_inhibitors": 3,
+      "final_activators": [
+        "TAA1",
+        "YUC8",
+        "TAR2",
+        "YUC4",
+        "AUX1",
+        "YUC_TAA",
+        "YUC10",
+        "YUC11",
+        "TAR1",
+        "PGP10"
+      ],
+      "final_inhibitors": [
+        "GH3",
+        "DAO1",
+        "Decapitation"
+      ]
+    },
+    "BAK1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "BAS1": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "PHYB"
+      ],
+      "final_inhibitors": []
+    },
+    "BBX11": {
+      "strategy": "edge-derived",
+      "total_activators": 3,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "PHYB",
+        "CRY1",
+        "BBX21"
+      ],
+      "final_inhibitors": []
+    },
+    "BBX21": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "COP1_SPA"
+      ]
+    },
+    "BBX25": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "COP1_SPA"
+      ]
+    },
+    "BES1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "MAX2"
+      ]
+    },
+    "BIN2": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 5,
+      "final_activators": [],
+      "final_inhibitors": [
+        "COP1_SPA",
+        "BRI1",
+        "BAK1",
+        "SPA1",
+        "BSU1"
+      ]
+    },
+    "BPC1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "BRC1": {
+      "strategy": "edge-derived",
+      "total_activators": 3,
+      "total_inhibitors": 7,
+      "final_activators": [
+        "Low_R_FR",
+        "SPL9",
+        "Auxin"
+      ],
+      "final_inhibitors": [
+        "SMXL678",
+        "Cytokinin",
+        "BES1",
+        "FT",
+        "Sucrose",
+        "TIE1",
+        "Decapitation"
+      ]
+    },
+    "BRI1": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Brassinosteroid"
+      ],
+      "final_inhibitors": []
+    },
+    "BR_SYN": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "BZR_BES"
+      ]
+    },
+    "BSU1": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "BRI1",
+        "BAK1"
+      ],
+      "final_inhibitors": []
+    },
+    "BZR": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "BIN2"
+      ]
+    },
+    "BZR1": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 2,
+      "final_activators": [
+        "PP2A"
+      ],
+      "final_inhibitors": [
+        "BIN2",
+        "DELLA"
+      ]
+    },
+    "BZR_BES": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 3,
+      "final_activators": [
+        "PP2A"
+      ],
+      "final_inhibitors": [
+        "DELLA",
+        "BIN2",
+        "MAX2"
+      ]
+    },
+    "Blue_Light": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "Brassinosteroid": {
+      "strategy": "edge-derived",
+      "total_activators": 4,
+      "total_inhibitors": 2,
+      "final_activators": [
+        "DET2",
+        "DWF4",
+        "CPD",
+        "BR_SYN"
+      ],
+      "final_inhibitors": [
+        "BAS1",
+        "SOB7"
+      ]
+    },
+    "CAMEL": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Auxin"
+      ],
+      "final_inhibitors": []
+    },
+    "CCD7": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Auxin"
+      ],
+      "final_inhibitors": []
+    },
+    "CCD8": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Auxin"
+      ],
+      "final_inhibitors": []
+    },
+    "CDF1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 2,
+      "final_activators": [],
+      "final_inhibitors": [
+        "FKF1",
+        "GI"
+      ]
+    },
+    "CHL1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "CKX2": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "MINI3"
+      ],
+      "final_inhibitors": [
+        "PRC2"
+      ]
+    },
+    "CKX3": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Cytokinin"
+      ],
+      "final_inhibitors": []
+    },
+    "CKX5": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "CKX9": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Strigolactone"
+      ],
+      "final_inhibitors": []
+    },
+    "CLE": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Low_Nitrate"
+      ],
+      "final_inhibitors": []
+    },
+    "CLV1": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "CLE"
+      ],
+      "final_inhibitors": []
+    },
+    "CO": {
+      "strategy": "edge-derived",
+      "total_activators": 4,
+      "total_inhibitors": 4,
+      "final_activators": [
+        "Long_Day",
+        "GI",
+        "FKF1",
+        "PHYA"
+      ],
+      "final_inhibitors": [
+        "CDF1",
+        "DELLA",
+        "PHYB",
+        "ZTL"
+      ]
+    },
+    "COP1_SPA": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 5,
+      "final_activators": [
+        "SPA1"
+      ],
+      "final_inhibitors": [
+        "PHYB",
+        "PHYA",
+        "CRY1",
+        "CRY2",
+        "UVR8"
+      ]
+    },
+    "CPD": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "CRY1": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Light"
+      ],
+      "final_inhibitors": []
+    },
+    "CRY2": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Light"
+      ],
+      "final_inhibitors": []
+    },
+    "CTR1": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "ETR1"
+      ],
+      "final_inhibitors": [
+        "Ethylene"
+      ]
+    },
+    "CYP707A": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "Cell_Proliferation": {
+      "strategy": "edge-derived",
+      "total_activators": 3,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "GRF",
+        "E2FA",
+        "TCP14"
+      ],
+      "final_inhibitors": []
+    },
+    "Cell_Proliferation_Duration": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "AGG3"
+      ],
+      "final_inhibitors": []
+    },
+    "Cold": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "Cold_Vernalization": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "Cytokinin": {
+      "strategy": "edge-derived",
+      "total_activators": 3,
+      "total_inhibitors": 5,
+      "final_activators": [
+        "IPT5",
+        "IPT",
+        "Sucrose"
+      ],
+      "final_inhibitors": [
+        "CKX2",
+        "CKX3",
+        "CKX5",
+        "AHP6",
+        "CKX9"
+      ]
+    },
+    "D14": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "Strigolactone"
+      ],
+      "final_inhibitors": [
+        "D14"
+      ]
+    },
+    "D27": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "DA1": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "DA2",
+        "EOD1"
+      ],
+      "final_inhibitors": [
+        "Cytokinin"
+      ]
+    },
+    "DA2": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "DA1"
+      ]
+    },
+    "DAO1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "DELLA": {
+      "strategy": "edge-derived",
+      "total_activators": 3,
+      "total_inhibitors": 3,
+      "final_activators": [
+        "ABA",
+        "SPY",
+        "EIN2"
+      ],
+      "final_inhibitors": [
+        "GID1",
+        "SLY1",
+        "Gibberellin"
+      ]
+    },
+    "DET1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "DET2": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "DPA4": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "DWF4": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "BZR1"
+      ]
+    },
+    "Decapitation": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "E2FA": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "SEEDSTICK"
+      ],
+      "final_inhibitors": []
+    },
+    "EC": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "EIN2": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "Ethylene"
+      ],
+      "final_inhibitors": [
+        "CTR1"
+      ]
+    },
+    "EIN3": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "EIN2"
+      ],
+      "final_inhibitors": []
+    },
+    "ELF3_EC": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "Temperature"
+      ]
+    },
+    "EOD1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "DA1"
+      ]
+    },
+    "ETR1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "Ethylene"
+      ]
+    },
+    "Endosperm_Proliferation": {
+      "strategy": "edge-derived",
+      "total_activators": 5,
+      "total_inhibitors": 4,
+      "final_activators": [
+        "SHB1",
+        "MINI3",
+        "IKU2",
+        "Auxin",
+        "BZR1"
+      ],
+      "final_inhibitors": [
+        "AP2",
+        "Cytokinin",
+        "PRC2",
+        "RBR1"
+      ]
+    },
+    "Ethylene": {
+      "strategy": "edge-derived",
+      "total_activators": 3,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "ACS",
+        "ACO",
+        "ACS_ACO"
+      ],
+      "final_inhibitors": []
+    },
+    "FCA": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "FD": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "FT",
+        "TFL1"
+      ],
+      "final_inhibitors": []
+    },
+    "FHY1": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "PHYA"
+      ],
+      "final_inhibitors": []
+    },
+    "FHY3": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "Low_R_FR"
+      ]
+    },
+    "FIE": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "FIS2": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "FKF1": {
+      "strategy": "edge-derived",
+      "total_activators": 3,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Blue_Light",
+        "GI",
+        "Light"
+      ],
+      "final_inhibitors": []
+    },
+    "FLC": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 10,
+      "final_activators": [
+        "FRI",
+        "SVP"
+      ],
+      "final_inhibitors": [
+        "VIN3",
+        "PRC2",
+        "FCA",
+        "FPA",
+        "FLD",
+        "FVE",
+        "LD",
+        "AUT_SYN",
+        "lncCOOLAIR",
+        "LDL1"
+      ]
+    },
+    "FLD": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "FLM": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "FLOWER_INT": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "FT"
+      ],
+      "final_inhibitors": []
+    },
+    "FPA": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "FRI": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "FT": {
+      "strategy": "edge-derived",
+      "total_activators": 9,
+      "total_inhibitors": 6,
+      "final_activators": [
+        "CO",
+        "PIF4",
+        "FKF1",
+        "GI",
+        "Warm_Temperature",
+        "T6P",
+        "TPS1",
+        "Photoperiod",
+        "SPL9"
+      ],
+      "final_inhibitors": [
+        "FLC",
+        "SVP",
+        "CDF1",
+        "AP2_TOE",
+        "FLM",
+        "AP2"
+      ]
+    },
+    "FUL": {
+      "strategy": "edge-derived",
+      "total_activators": 3,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "FT",
+        "SPL9",
+        "SOC1"
+      ],
+      "final_inhibitors": [
+        "TFL1"
+      ]
+    },
+    "FUS3": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 3,
+      "final_activators": [
+        "ABI3",
+        "LEC2"
+      ],
+      "final_inhibitors": [
+        "VAL1",
+        "VAL2",
+        "PKL"
+      ]
+    },
+    "FVE": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "Flowering_Time": {
+      "strategy": "edge-derived",
+      "total_activators": 4,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "AP1",
+        "LFY",
+        "SOC1",
+        "FT"
+      ],
+      "final_inhibitors": [
+        "TFL1"
+      ]
+    },
+    "GA20OX1": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 2,
+      "final_activators": [
+        "PIF4_5_7"
+      ],
+      "final_inhibitors": [
+        "ABA",
+        "Gibberellin"
+      ]
+    },
+    "GA2OX": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Gibberellin"
+      ],
+      "final_inhibitors": []
+    },
+    "GA2OX1": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "ABA"
+      ],
+      "final_inhibitors": []
+    },
+    "GA3OX": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "Gibberellin"
+      ]
+    },
+    "GA3OX1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "ABA"
+      ]
+    },
+    "GA4": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "GA20OX1",
+        "GA3OX1"
+      ],
+      "final_inhibitors": [
+        "GA2OX1"
+      ]
+    },
+    "GATA23": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "ARF7"
+      ],
+      "final_inhibitors": [
+        "IAA28"
+      ]
+    },
+    "GH3": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "GI": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "PIF4"
+      ],
+      "final_inhibitors": [
+        "ELF3_EC"
+      ]
+    },
+    "GID1": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Gibberellin",
+        "GA4"
+      ],
+      "final_inhibitors": []
+    },
+    "GIF1": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "GRF"
+      ],
+      "final_inhibitors": []
+    },
+    "GPA1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "GRF": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "miR396"
+      ]
+    },
+    "Gibberellin": {
+      "strategy": "edge-derived",
+      "total_activators": 3,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "GA20OX1",
+        "GA3OX",
+        "Auxin"
+      ],
+      "final_inhibitors": [
+        "GA2OX"
+      ]
+    },
+    "HB21": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "BRC1",
+        "Low_R_FR"
+      ],
+      "final_inhibitors": [
+        "Sucrose"
+      ]
+    },
+    "HFR1": {
+      "strategy": "edge-derived",
+      "total_activators": 3,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "FHY1",
+        "PIF5",
+        "Light"
+      ],
+      "final_inhibitors": [
+        "COP1_SPA"
+      ]
+    },
+    "HSFA1D": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "Temperature",
+        "COP1_SPA"
+      ],
+      "final_inhibitors": [
+        "BIN2"
+      ]
+    },
+    "HY5": {
+      "strategy": "edge-derived",
+      "total_activators": 4,
+      "total_inhibitors": 4,
+      "final_activators": [
+        "BBX21",
+        "UVR8",
+        "BBX11",
+        "PHYB"
+      ],
+      "final_inhibitors": [
+        "Temperature",
+        "COP1_SPA",
+        "SPA1",
+        "BBX25"
+      ]
+    },
+    "HYH": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "COP1_SPA"
+      ]
+    },
+    "Hypocotyl_Length": {
+      "strategy": "edge-derived",
+      "total_activators": 5,
+      "total_inhibitors": 4,
+      "final_activators": [
+        "PIF3",
+        "PIF4",
+        "PIF5",
+        "BZR1",
+        "ARF6"
+      ],
+      "final_inhibitors": [
+        "HY5",
+        "DELLA",
+        "EIN3",
+        "HYH"
+      ]
+    },
+    "IAA14": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "TIR1"
+      ]
+    },
+    "IAA19": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "TIR1"
+      ]
+    },
+    "IAA28": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "TIR1"
+      ]
+    },
+    "IKU1": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "BZR1"
+      ],
+      "final_inhibitors": [
+        "AIF2"
+      ]
+    },
+    "IKU2": {
+      "strategy": "edge-derived",
+      "total_activators": 4,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "BZR1",
+        "IKU1",
+        "SHB1",
+        "MINI3"
+      ],
+      "final_inhibitors": [
+        "RAV1"
+      ]
+    },
+    "IPT": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "Nitrogen",
+        "Decapitation"
+      ],
+      "final_inhibitors": [
+        "Auxin"
+      ]
+    },
+    "IPT5": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "Integument_Growth": {
+      "strategy": "edge-derived",
+      "total_activators": 8,
+      "total_inhibitors": 7,
+      "final_activators": [
+        "UBP15",
+        "KLUH",
+        "TTG2",
+        "GIF1",
+        "Auxin",
+        "Cell_Proliferation_Duration",
+        "ANT",
+        "SEEDSTICK"
+      ],
+      "final_inhibitors": [
+        "DA1",
+        "DA2",
+        "EOD1",
+        "SOD7",
+        "DPA4",
+        "AP2",
+        "ARF2"
+      ]
+    },
+    "KLUH": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "LAX3": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "LBD"
+      ],
+      "final_inhibitors": []
+    },
+    "LBD": {
+      "strategy": "edge-derived",
+      "total_activators": 3,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "ARF7",
+        "ARF19",
+        "WOX11"
+      ],
+      "final_inhibitors": []
+    },
+    "LBO": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "LD": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "LDL1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "LEC1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 3,
+      "final_activators": [],
+      "final_inhibitors": [
+        "VAL1",
+        "VAL2",
+        "PKL"
+      ]
+    },
+    "LEC2": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 3,
+      "final_activators": [
+        "FUS3"
+      ],
+      "final_inhibitors": [
+        "VAL1",
+        "VAL2",
+        "PKL"
+      ]
+    },
+    "LFY": {
+      "strategy": "edge-derived",
+      "total_activators": 4,
+      "total_inhibitors": 2,
+      "final_activators": [
+        "FT",
+        "SOC1",
+        "AGL24",
+        "SPL9"
+      ],
+      "final_inhibitors": [
+        "DELLA",
+        "TFL1"
+      ]
+    },
+    "Lateral_Root_Density": {
+      "strategy": "edge-derived",
+      "total_activators": 7,
+      "total_inhibitors": 7,
+      "final_activators": [
+        "LBD",
+        "PLT",
+        "LAX3",
+        "PIN",
+        "ANR1",
+        "GATA23",
+        "BZR"
+      ],
+      "final_inhibitors": [
+        "ARR_B",
+        "CLV1",
+        "EIN2",
+        "ABI4_5",
+        "DELLA",
+        "D14",
+        "MAX2"
+      ]
+    },
+    "Light": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "Long_Day": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "Low_Nitrate": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "Low_Phosphate": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "Low_R_FR": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "MAX1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "Gibberellin"
+      ]
+    },
+    "MAX2": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "D14"
+      ],
+      "final_inhibitors": [
+        "Sucrose"
+      ]
+    },
+    "MAX3": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "MAX4": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "MEA": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "MINI3": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 2,
+      "final_activators": [
+        "SHB1",
+        "IKU1"
+      ],
+      "final_inhibitors": [
+        "RAV1",
+        "AIF2"
+      ]
+    },
+    "MSI1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "NCED3": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "HB21",
+        "Low_R_FR"
+      ],
+      "final_inhibitors": []
+    },
+    "NLP7": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "CHL1"
+      ],
+      "final_inhibitors": []
+    },
+    "Nitrogen": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "Ovule_size": {
+      "strategy": "edge-derived",
+      "total_activators": 4,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "ANT",
+        "Cytokinin",
+        "Cell_Proliferation",
+        "SEUSS"
+      ],
+      "final_inhibitors": []
+    },
+    "PAR1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "PGP10": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "PHYA": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Light"
+      ],
+      "final_inhibitors": []
+    },
+    "PHYB": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Light"
+      ],
+      "final_inhibitors": []
+    },
+    "PIF3": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 3,
+      "final_activators": [
+        "DET1",
+        "EIN3"
+      ],
+      "final_inhibitors": [
+        "PHYB",
+        "DELLA",
+        "BIN2"
+      ]
+    },
+    "PIF4": {
+      "strategy": "edge-derived",
+      "total_activators": 4,
+      "total_inhibitors": 7,
+      "final_activators": [
+        "Warm_Temperature",
+        "DET1",
+        "BZR1",
+        "HSFA1D"
+      ],
+      "final_inhibitors": [
+        "DELLA",
+        "GI",
+        "PHYB",
+        "CRY1",
+        "HFR1",
+        "ELF3_EC",
+        "TOC1"
+      ]
+    },
+    "PIF4_5_7": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 5,
+      "final_activators": [
+        "Temperature"
+      ],
+      "final_inhibitors": [
+        "PHYB",
+        "HFR1",
+        "PAR1",
+        "DELLA",
+        "EC"
+      ]
+    },
+    "PIF5": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 3,
+      "final_activators": [
+        "DET1"
+      ],
+      "final_inhibitors": [
+        "UVR8",
+        "PHYB",
+        "ELF3_EC"
+      ]
+    },
+    "PIF7": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 2,
+      "final_activators": [
+        "PIF4"
+      ],
+      "final_inhibitors": [
+        "PHYB",
+        "CRY1"
+      ]
+    },
+    "PIN": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "PLT"
+      ],
+      "final_inhibitors": []
+    },
+    "PIN1": {
+      "strategy": "edge-derived",
+      "total_activators": 5,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "SMXL678",
+        "Auxin",
+        "Cytokinin",
+        "CAMEL",
+        "Sucrose"
+      ],
+      "final_inhibitors": []
+    },
+    "PIN3": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "Cytokinin",
+        "Nitrogen"
+      ],
+      "final_inhibitors": [
+        "BRC1"
+      ]
+    },
+    "PKL": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "VAL1",
+        "VAL2"
+      ],
+      "final_inhibitors": []
+    },
+    "PLT": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "ARF7",
+        "ARF19"
+      ],
+      "final_inhibitors": []
+    },
+    "PP2A": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "PRC2": {
+      "strategy": "edge-derived",
+      "total_activators": 4,
+      "total_inhibitors": 2,
+      "final_activators": [
+        "MEA",
+        "FIS2",
+        "FIE",
+        "MSI1"
+      ],
+      "final_inhibitors": [
+        "BZR1",
+        "Auxin"
+      ]
+    },
+    "PYL": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "ABA"
+      ],
+      "final_inhibitors": []
+    },
+    "PYL8": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "ABA"
+      ],
+      "final_inhibitors": []
+    },
+    "Photoperiod": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "Plant_Height": {
+      "strategy": "edge-derived",
+      "total_activators": 5,
+      "total_inhibitors": 6,
+      "final_activators": [
+        "BZR_BES",
+        "ARF6_7_8",
+        "ARR1",
+        "PIF4_5_7",
+        "Strigolactone"
+      ],
+      "final_inhibitors": [
+        "SPL9",
+        "DELLA",
+        "EIN3",
+        "ABI5",
+        "FLOWER_INT",
+        "HY5"
+      ]
+    },
+    "RAV1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "BZR1"
+      ]
+    },
+    "RBR1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "SEEDSTICK": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "BPC1"
+      ],
+      "final_inhibitors": [
+        "ARF2"
+      ]
+    },
+    "SEUSS": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "SHB1": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 2,
+      "final_activators": [
+        "BZR1"
+      ],
+      "final_inhibitors": [
+        "ABI5",
+        "AIF2"
+      ]
+    },
+    "SLY1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "SL_SYN": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "SMXL678": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 2,
+      "final_activators": [
+        "FHY3"
+      ],
+      "final_inhibitors": [
+        "D14",
+        "MAX2"
+      ]
+    },
+    "SNRK2": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "ABI1"
+      ]
+    },
+    "SOB7": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "SOC1": {
+      "strategy": "edge-derived",
+      "total_activators": 3,
+      "total_inhibitors": 5,
+      "final_activators": [
+        "FT",
+        "FD",
+        "SPL9"
+      ],
+      "final_inhibitors": [
+        "FLC",
+        "SVP",
+        "DELLA",
+        "AP2",
+        "TFL1"
+      ]
+    },
+    "SOD7": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "SPA1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "SPL9": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 4,
+      "final_activators": [],
+      "final_inhibitors": [
+        "DELLA",
+        "miR156",
+        "SMXL678",
+        "FHY3"
+      ]
+    },
+    "SPY": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "SVP": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 4,
+      "final_activators": [
+        "FLM"
+      ],
+      "final_inhibitors": [
+        "Warm_Temperature",
+        "FCA",
+        "FVE",
+        "SOC1"
+      ]
+    },
+    "Seed_Size": {
+      "strategy": "edge-derived",
+      "total_activators": 5,
+      "total_inhibitors": 2,
+      "final_activators": [
+        "Integument_Growth",
+        "Endosperm_Proliferation",
+        "Ovule_size",
+        "GIF1",
+        "Storage_reserves"
+      ],
+      "final_inhibitors": [
+        "ABA",
+        "ABI5"
+      ]
+    },
+    "Shoot_Branching": {
+      "strategy": "edge-derived",
+      "total_activators": 5,
+      "total_inhibitors": 3,
+      "final_activators": [
+        "Cytokinin",
+        "PIN1",
+        "PIN3",
+        "T6P",
+        "Sucrose"
+      ],
+      "final_inhibitors": [
+        "BRC1",
+        "ABA",
+        "ARR1"
+      ]
+    },
+    "Storage_reserves": {
+      "strategy": "edge-derived",
+      "total_activators": 4,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "LEC1",
+        "LEC2",
+        "FUS3",
+        "ABI3"
+      ],
+      "final_inhibitors": []
+    },
+    "Strigolactone": {
+      "strategy": "edge-derived",
+      "total_activators": 8,
+      "total_inhibitors": 3,
+      "final_activators": [
+        "MAX1",
+        "MAX3",
+        "MAX4",
+        "SL_SYN",
+        "CCD7",
+        "CCD8",
+        "D27",
+        "LBO"
+      ],
+      "final_inhibitors": [
+        "Decapitation",
+        "Sucrose",
+        "Nitrogen"
+      ]
+    },
+    "Sucrose": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Decapitation"
+      ],
+      "final_inhibitors": []
+    },
+    "T6P": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Sucrose",
+        "TPS1"
+      ],
+      "final_inhibitors": []
+    },
+    "TAA1": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "PIF4"
+      ],
+      "final_inhibitors": []
+    },
+    "TAR1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "PRC2"
+      ]
+    },
+    "TAR2": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 1,
+      "final_activators": [
+        "Low_Nitrate"
+      ],
+      "final_inhibitors": [
+        "CHL1"
+      ]
+    },
+    "TCP14": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "TFL1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "AP1"
+      ]
+    },
+    "TIE1": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "ARR1"
+      ],
+      "final_inhibitors": []
+    },
+    "TIR1": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Auxin",
+        "Low_Phosphate"
+      ],
+      "final_inhibitors": []
+    },
+    "TOC1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "TPS1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "TTG2": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "Temperature": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "UBP15": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "DA1"
+      ]
+    },
+    "UVR8": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Light"
+      ],
+      "final_inhibitors": []
+    },
+    "VAL1": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "VAL2": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "VIN3": {
+      "strategy": "edge-derived",
+      "total_activators": 3,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Cold",
+        "Vernalization",
+        "Cold_Vernalization"
+      ],
+      "final_inhibitors": []
+    },
+    "Vernalization": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "WOX11": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "Auxin"
+      ],
+      "final_inhibitors": []
+    },
+    "Warm_Temperature": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "YUC10": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 1,
+      "final_activators": [],
+      "final_inhibitors": [
+        "PRC2"
+      ]
+    },
+    "YUC11": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "YUC4": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "YUC8": {
+      "strategy": "edge-derived",
+      "total_activators": 2,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "PIF4",
+        "PIF7"
+      ],
+      "final_inhibitors": []
+    },
+    "YUC_TAA": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 0,
+      "final_activators": [
+        "PIF4_5_7"
+      ],
+      "final_inhibitors": []
+    },
+    "ZTL": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "lncCOOLAIR": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    },
+    "miR156": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 2,
+      "final_activators": [],
+      "final_inhibitors": [
+        "Sucrose",
+        "T6P"
+      ]
+    },
+    "miR172": {
+      "strategy": "edge-derived",
+      "total_activators": 1,
+      "total_inhibitors": 2,
+      "final_activators": [
+        "SPL9"
+      ],
+      "final_inhibitors": [
+        "AP2",
+        "miR156"
+      ]
+    },
+    "miR396": {
+      "strategy": "edge-derived",
+      "total_activators": 0,
+      "total_inhibitors": 0,
+      "final_activators": [],
+      "final_inhibitors": []
+    }
+  }
+}

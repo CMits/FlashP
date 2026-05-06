@@ -1,0 +1,327 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Plant_Height",
+    "phenotype_node": "Plant_Height",
+    "species": "Triticum aestivum",
+    "created": "2026-04-20",
+    "judge_model": "Claude Opus 4.7",
+    "step_1_snapshot_location": "data/_step1_snapshot/"
+  },
+  "summary": {
+    "step_1_counts": {"papers": 31, "edges": 63, "perturbations": 44},
+    "step_1_5_additions": {"papers": 8, "edges": 16, "perturbations": 10},
+    "merged_totals": {"papers": 39, "edges": 79, "perturbations": 54},
+    "gaps_flagged": 11,
+    "gaps_closed": 8,
+    "gaps_closed_partial": 2,
+    "gaps_open": 1,
+    "verdict": "gaps_closed_with_residual"
+  },
+  "canonical_checklist": {
+    "pathways": [
+      "GA biosynthesis early-pathway: CPS -> KS -> KO -> KAO -> GA12/GA53 (shared diterpenoid arm)",
+      "GA biosynthesis late-pathway: TaGA20ox -> GA20/GA9 -> TaGA3ox -> bioactive GA1/GA4",
+      "GA catabolism: TaGA2ox (paralogs A9/A13/A3 families) -> inactive GA8/GA34/GA110",
+      "GA perception: Gibberellin + TaGID1 -> DELLA -> SCF-SLY1 -> 26S proteasome degradation",
+      "DELLA (Rht series): Rht-A1, Rht-B1, Rht-D1 homeologs; dwarfing alleles Rht-B1b/c/d/e/i and Rht-D1b/c",
+      "Other Rht non-DELLA loci: Rht8 (TaRNHL-D1), Rht12 (TaGA2oxA13), Rht13 (NB-LRR), Rht18/24 (TaGA2ox-A9), Rht25 (PLATZ-A1), Rht4/5 (uncloned)",
+      "BR biosynthesis: TaD11 (C6-oxidase), TaDWF4 (CYP90B rate-limiting), TaBRD2, TaDET2",
+      "BR perception/signalling: Brassinosteroid + TaBRI1 + TaSERK/BAK1 -> BSK/CDG/BSU1 -> TaBIN2 -> TaBZR1/TaBES1",
+      "Auxin: TaYUCCA biosynthesis, TaTIR1 perception, TaIAA, TaARF, TaGH3 conjugation, TaPIN1 transport",
+      "Cell-wall elongation: Expansins (TaEXPA/B), XTHs downstream of GA/BR/auxin",
+      "Photoperiod / vernalization: PPD-1, VRN1/2/3",
+      "Light / phytochrome: Phytochrome -> PIF sequestration by DELLA; TaERF-A1 -> TaPIF4 activation",
+      "Nitrogen-DELLA crosstalk: nitrate -> GA metabolism -> DELLA destabilisation"
+    ],
+    "hubs": [
+      "Rht-B1 (DELLA)",
+      "Rht-D1 (DELLA)",
+      "Gibberellin",
+      "TaGID1 (GA receptor)",
+      "TaGA20ox (rate-limiting biosynthesis)",
+      "TaGA3ox",
+      "TaGA2ox (catabolism)",
+      "TaBRI1 (BR receptor)",
+      "TaBIN2 (BR kinase)",
+      "TaBZR1 (BR TF)",
+      "TaSLY1 (F-box)",
+      "TaPIF4 / Phytochrome_Interacting_Factor",
+      "TaERF-A1",
+      "PLATZ-A1 (Rht25)",
+      "VRN1"
+    ],
+    "canonical_mutants": [
+      "Rht-B1a / Rht-D1a (WT tall)",
+      "Rht-B1b / Rht-D1b (Green Revolution semi-dwarfs)",
+      "Rht-B1c / Rht-D1c (severe dwarfs, Tom Thumb)",
+      "Rht-B1d / Rht-B1e / Rht-B1i",
+      "Rht-B1b + Rht-D1b double",
+      "Rht3 (= Rht-B1c)",
+      "Rht4 / Rht5 (uncloned GA-responsive)",
+      "Rht8 (RNHL-D1 LOF)",
+      "Rht12 / Rht12b (TaGA2oxA13 OE)",
+      "Rht13 (NB-LRR autoactive)",
+      "Rht14 / Rht16 / Rht18 (TaGA2oxA3/A9 variants)",
+      "Rht24 / Rht24b (TaGA2ox-A9 OE)",
+      "Rht25 / PLATZ-A1 KO/OE",
+      "TaGA3ox2/3 triple KO",
+      "TaGA1ox1-B1 KO",
+      "TaGID1 RNAi",
+      "TaBRI1 triple KO, TaBRI1-A1 missense",
+      "TaZnF-B LOF; znf + rht1 double",
+      "TaD11-2A KO, TaDWF4 OE",
+      "TaERF-A1 OE / JD6 (F178S) natural variant",
+      "TaPIF4 OE / KO",
+      "TaOSCA1.4 RNAi",
+      "Ppd-D1a dominant (photoperiod-insensitive)",
+      "VRN1 single / triple KO",
+      "Treatments: GA3, PAC, Uniconazole, BL (24-epiBL), Brassinazole, NAA, high/low nitrate",
+      "Trap-3 signalling-mutant rescues: Rht-B1b + GA3 (expect unchanged-to-moderate decrease), Rht-B1c + GA3 (unchanged), TaBRI1 triple + BL (unchanged decrease)"
+    ],
+    "environmental_inputs": [
+      "Photoperiod (long-day vs short-day; PPD-1)",
+      "Vernalization (cold; VRN1)",
+      "Temperature (not curated)",
+      "Nitrogen / nitrate availability",
+      "Light (phytochrome; red/far-red for shade avoidance)",
+      "Water availability (not curated)"
+    ],
+    "crosstalk": [
+      "GA -> DELLA degradation (GID1-SCF-SLY1)",
+      "DELLA -> GA biosynthesis feedback (DELLA activates GA20ox transcription)",
+      "BR -> DELLA (BZR1-DELLA physical interaction; BIN2 phosphorylates DELLA)",
+      "GA -> PIF derepression (DELLA sequesters PIFs)",
+      "TaERF-A1 -> TaPIF4 transcriptional activation",
+      "Auxin -> GA20ox (induces GA biosynthesis in elongating stems)",
+      "Photoperiod -> VRN1 -> TaGA20ox2 (flowering-height coordination)",
+      "Nitrogen -> GA biosynthesis / DELLA destabilisation"
+    ]
+  },
+  "gaps": [
+    {
+      "id": "G001",
+      "type": "pathway_missing",
+      "severity": "medium",
+      "pathway": "GA biosynthesis early-pathway (CPS, KS, KO, KAO)",
+      "step_1_edges": 0,
+      "biological_justification": "Step 1 curated TaGA20ox, TaGA3ox, TaGA2ox and TaGA1ox1 but not the upstream diterpenoid-cyclase/P450 enzymes (CPS, KS, KO, KAO). These enzymes supply GA12/GA53 to the TaGA20ox rate-limiting step and are cloned in wheat (Huang et al. 2012). Without them the BUILDER sees GA20ox as a source and cannot model pathway perturbation by CPS/KS/KO/KAO variants.",
+      "search_queries": ["wheat TaCPS TaKS TaKO TaKAO gibberellin early biosynthesis enzyme"],
+      "papers_read": ["Huang et al. 2012 Funct Integr Genomics (10.1007/s10142-011-0243-2)"],
+      "edges_added": ["E064", "E065", "E066", "E067"],
+      "perturbations_added": [],
+      "closed": true
+    },
+    {
+      "id": "G002",
+      "type": "hub_underrepresented",
+      "severity": "high",
+      "node": "Rht loci mechanism edges (Rht18, Rht24, Rht12, novel TaOSCA1.4)",
+      "step_1_edges": 2,
+      "expected_edges_min": 6,
+      "biological_justification": "Step 1 listed Rht18, Rht24, and Rht12 in perturbations (T019-T023) but did NOT wire them to TaGA2ox at the edge level. Published mechanism: Rht24b, Rht18, and Rht12b all upregulate TaGA2ox paralogs (A9, A9, A13 respectively) via promoter or cis-regulatory variation. Without these edges a KO of Rht24 cannot propagate through the network. TaOSCA1.4 is a novel Ca2+-channel Rht gene (Lv 2024) with no Step 1 coverage at all.",
+      "search_queries": [
+        "Rht24b TaGA2ox-A9 wheat Tian 2022 mechanism expression plant height",
+        "Rht12b TaGA2oxA13 wheat dwarfing allele plant height mechanism",
+        "wheat reduced height gene TaOSCA1.4 2024 calcium channel"
+      ],
+      "papers_read": [
+        "Zhang H et al. 2023 TAG (10.1007/s00122-023-04502-y)",
+        "Lv K et al. 2024 Front Plant Sci (10.3389/fpls.2024.1381243)",
+        "Ford BA et al. 2018 Plant Physiol (already in Step 1; re-read for mechanism quote)",
+        "Tian X et al. 2022 New Phytol (already in Step 1; re-read for mechanism quote)"
+      ],
+      "edges_added": ["E068", "E069", "E070", "E077"],
+      "perturbations_added": ["T050", "T052"],
+      "closed": true
+    },
+    {
+      "id": "G003",
+      "type": "biosynthesis_missing",
+      "severity": "medium",
+      "node": "TaDWF4 (CYP90B rate-limiting BR biosynthesis enzyme)",
+      "biological_justification": "Step 1 included TaD11 (C6-oxidase, BR biosynthesis late step) but not TaDWF4 which is the rate-limiting branch-point (22a-hydroxylation of campesterol). Milner et al. 2022 show TaDWF4 OE increases wheat productivity 45-101% on marginal N, establishing TaDWF4 -> BR -> growth axis.",
+      "search_queries": ["wheat TaDWF4 CYP90B1 brassinosteroid biosynthesis plant height"],
+      "papers_read": ["Milner MJ et al. 2022 Commun Biol (10.1038/s42003-022-03139-9)"],
+      "edges_added": ["E071"],
+      "perturbations_added": ["T045"],
+      "closed": true
+    },
+    {
+      "id": "G004",
+      "type": "receptor_missing",
+      "severity": "medium",
+      "node": "TaSERK / TaBAK1 (BR co-receptor family)",
+      "biological_justification": "Step 1 had TaBRI1 but no co-receptor. In the canonical model BAK1/SERK family heterodimerises with BRI1 to trigger kinase activation upon BR binding. TaBRI1 triple-KO phenotype is only interpretable with a co-receptor node.",
+      "search_queries": ["wheat TaBAK1 brassinosteroid coreceptor plant height SERK"],
+      "papers_read": ["Singh A et al. 2016 PLoS ONE (10.1371/journal.pone.0153273)"],
+      "edges_added": ["E072"],
+      "perturbations_added": [],
+      "closed": true
+    },
+    {
+      "id": "G005",
+      "type": "bidirectional_one_sided",
+      "severity": "low",
+      "node": "Rht8 (in-degree 0)",
+      "biological_justification": "Rht8 = TaRNHL-D1 is curated as source-only in Step 1. Upstream regulation of TaRNHL-D1 expression is not described in published wheat work; accepting as source is biologically justified.",
+      "search_queries": [],
+      "papers_read": [],
+      "edges_added": [],
+      "perturbations_added": [],
+      "closed": false,
+      "unclosable_reason": "No published upstream regulator of TaRNHL-D1 in wheat; Rht8 treated as near-source, which matches the biology."
+    },
+    {
+      "id": "G006",
+      "type": "bidirectional_one_sided",
+      "severity": "low",
+      "node": "TaTB1 (in-degree 0)",
+      "biological_justification": "TaTB1 (TEOSINTE BRANCHED 1) has review-level evidence only (Pearce 2021) and no curated wheat-specific upstream regulators. Low severity because it has only one out-edge and weak evidence already flagged in Step 1.",
+      "search_queries": [],
+      "papers_read": [],
+      "edges_added": [],
+      "perturbations_added": [],
+      "closed": false,
+      "unclosable_reason": "No published mechanistic wheat paper defining TaTB1 upstream regulation; better suited to REFINEMENT as literature_gap."
+    },
+    {
+      "id": "G007",
+      "type": "crosstalk_missing",
+      "severity": "medium",
+      "pathway": "Auxin -> GA20ox (auxin promotes GA biosynthesis in elongating stems)",
+      "biological_justification": "Auxin-induced GA biosynthesis is an established cross-talk (ARF/IAA + AuxRE in GA20ox promoter, primary papers in Arabidopsis/tobacco/bamboo). No published wheat primary paper found with OA full-text quantifying this edge. Reviewed in auxin-hormone crosstalk literature but not mechanistically in wheat.",
+      "search_queries": ["auxin induces GA20ox biosynthesis stem elongation wheat crosstalk"],
+      "papers_read": [],
+      "edges_added": [],
+      "perturbations_added": [],
+      "closed": false,
+      "unclosable_reason": "No primary wheat paper with OA access; Arabidopsis/bamboo mechanism not extrapolated to wheat in current literature. Residual gap for BUILDER."
+    },
+    {
+      "id": "G008",
+      "type": "crosstalk_missing",
+      "severity": "medium",
+      "pathway": "TaERF-A1 -> TaPIF4 transcriptional activation; TaPIF4 regulation of height",
+      "biological_justification": "Step 1 curated DELLA -> PIF (sequestration) but not the upstream activator of TaPIF4. Li et al. 2024 Plant Communications establishes TaERF-A1 as direct transcriptional activator of TaPIF4 with EMSA/ChIP evidence; JD6 natural variant produces semi-dwarfing. This closes the PIF activation half of the light-elongation loop and adds a new, paper-worthy height hub.",
+      "search_queries": [
+        "wheat TaPIF PHYTOCHROME INTERACTING FACTOR plant height homolog Triticum",
+        "wheat TaERF-A1 ERF dwarfing plant height DELLA 2024"
+      ],
+      "papers_read": [
+        "Li L et al. 2024 Plant Communications (10.1016/j.xplc.2024.101194)",
+        "Zhuang H et al. 2024 PLoS ONE (10.1371/journal.pone.0296269) - wheat PIF family census"
+      ],
+      "edges_added": ["E073", "E074"],
+      "perturbations_added": ["T046", "T047", "T048", "T049"],
+      "closed": true
+    },
+    {
+      "id": "G009",
+      "type": "mutant_missing",
+      "severity": "medium",
+      "missing_mutants": ["TaDWF4 OE", "TaGA20ox RNAi / OE", "Uniconazole treatment"],
+      "biological_justification": "Canonical BR/GA biosynthesis perturbation set was under-populated. TaDWF4 OE added via Milner 2022. TaGA20ox RNAi primary wheat paper (Appleford 2007) not retrieved via OA search; Uniconazole treatment has no dedicated wheat height publication with OA text. TaGA20ox RNAi residual.",
+      "search_queries": [
+        "wheat TaGA20ox RNAi transgenic plant height Appleford 2007",
+        "wheat Uniconazole plant height GA biosynthesis"
+      ],
+      "papers_read": ["Milner MJ et al. 2022 Commun Biol (10.1038/s42003-022-03139-9)"],
+      "edges_added": [],
+      "perturbations_added": ["T045"],
+      "closed": false,
+      "closed_partial": true,
+      "unclosable_reason": "TaGA20ox RNAi (Appleford 2007 Plant Biotech J) is paywalled with no PMC OA; Uniconazole wheat paper not located with OA access. Partial closure via TaDWF4 OE."
+    },
+    {
+      "id": "G010",
+      "type": "crosstalk_missing",
+      "severity": "medium",
+      "pathway": "Environmental inputs: Photoperiod (Ppd-D1), Nitrogen -> GA/DELLA axis",
+      "biological_justification": "Step 1 captured Vernalization -> VRN1 but not Photoperiod -> Ppd-1 or Nitrogen -> GA/DELLA. Both are well-characterised: Chen et al. 2018 (Ppd-D1a reduces height 10.2% via internode shortening) and Camut et al. 2021 Current Biology (nitrate -> GA metabolism gene expression -> DELLA destabilisation).",
+      "search_queries": [
+        "wheat Ppd-1 photoperiod plant height internode elongation mechanism",
+        "wheat sucrose nitrogen nitrate plant height internode GA"
+      ],
+      "papers_read": [
+        "Chen Z et al. 2018 Front Plant Sci (10.3389/fpls.2018.01312)",
+        "Camut L et al. 2021 Current Biology (10.1016/j.cub.2021.09.024)"
+      ],
+      "edges_added": ["E075", "E076", "E078", "E079"],
+      "perturbations_added": ["T051", "T053", "T054"],
+      "closed": true
+    },
+    {
+      "id": "G011",
+      "type": "homeolog_handling_inconsistent",
+      "severity": "low",
+      "description": "Step 1 uses a mixed convention: DELLA is split by homeolog (Rht-B1, Rht-D1 are separate nodes) but GA-oxidases (TaGA20ox, TaGA3ox, TaGA2ox, TaGA1ox1), TaGID1, TaBRI1, VRN1 are composite. TaD11-2A and TaZnF-B are homeolog-specific (trailed by '-2A' / '-B' suffix).",
+      "biological_justification": "The mixed convention is actually defensible: (a) DELLA alleles (Rht-B1b vs Rht-D1b) have distinct phenotypic magnitudes and are inherited on different chromosomes, so splitting B/D is biologically meaningful; (b) GA-oxidase homeologs are functionally redundant with overlapping expression, so composite treatment is standard; (c) TaD11-2A and TaZnF-B are specific alleles whose phenotype ties to one homeolog.",
+      "search_queries": [],
+      "papers_read": [],
+      "edges_added": [],
+      "perturbations_added": [],
+      "closed": true,
+      "decision": "RETAIN Step 1 convention: DELLA homeolog-specific (Rht-B1, Rht-D1); GA-pathway composite (TaGA20ox, TaGA3ox, TaGA2ox, TaGID1, TaBRI1, TaBZR1, VRN1); allele-specific where evidence is homeolog-specific (TaD11-2A, TaZnF-B, PLATZ-A1, TaERF-A1, TaBRI1-A1 missense in perturbations, TaGA1ox1-B1)."
+    }
+  ],
+  "bidirectional_audit": {
+    "source_only_nodes_before": ["TaSLY1", "TaGA1ox1", "TaZnF", "TaARF4", "Rht8", "Rht13", "TaTB1"],
+    "source_only_nodes_after": ["TaSLY1", "TaGA1ox1", "TaZnF", "TaARF4", "Rht8", "Rht13", "TaTB1"],
+    "new_source_only_nodes_introduced": ["TaCPS", "TaKS", "TaKO", "TaKAO", "TaDWF4", "TaSERK", "TaERF-A1", "Rht18", "Rht24", "Rht12", "TaOSCA1.4"],
+    "resolution": "Step 1.5 did not attempt to regulate existing source-only nodes upstream (the paper evidence on TaSLY1 upstream etc. is sparse in wheat and the Step 1 flagging already justifies source treatment). Several newly added nodes are biosynthesis enzymes or locus-level Rht variants that are intentionally modelled as sources (TaCPS/KS/KO/KAO are constitutively expressed; Rht allele variants are cis-regulatory changes). Net effect: richer source layer, appropriate for BUILDER's is_source flag handling."
+  },
+  "extraction_density_audit": {
+    "step_1_total_papers": 31,
+    "step_1_total_edges": 63,
+    "step_1_mean_edges_per_paper": 2.03,
+    "step_1_papers_with_only_1_2_edges": "Approximately 12 of 31 (~39%) full-text-read papers yielded only 1-2 edges; the review papers (Pearce 2021, Wang 2025) and the BR pathway paper (Gill 2025) are near the 1-2 mark.",
+    "step_1_5_papers_re_read": ["Tian 2022 (Rht24b)", "Ford 2018 (Rht18)", "Buss 2020 (Rht12)"],
+    "step_1_5_edges_recovered_from_re_read": 3,
+    "comment": "Re-read of Rht18/24/12 primary papers yielded the Rht-locus -> TaGA2ox mechanism edges (E068-E070) that Step 1 missed because extraction stopped at phenotype-level evidence. Other low-density papers (Pearce 2021 review, Wang 2025 review) were not re-read because they are survey articles where low per-paper density is expected."
+  },
+  "homeolog_handling_decision": {
+    "convention": "DELLA split (Rht-B1, Rht-D1 separate); GA-pathway and BR-receptor genes composite (TaGA20ox, TaGA3ox, TaGA2ox, TaGID1, TaBRI1, TaBZR1, TaBIN2, VRN1, TaGRF4, TaARF, TaIAA, TaTIR1, TaEXP, Phytochrome_Interacting_Factor); explicit homeolog where the allele name is phenotype-linked (TaD11-2A, TaZnF-B, PLATZ-A1, TaARF4, TaGA1ox1-B1)",
+    "consolidations_performed": "None - Step 1 convention retained; new nodes (TaCPS, TaKS, TaKO, TaKAO, TaDWF4, TaSERK, TaERF-A1, TaOSCA1.4, Rht18, Rht24, Rht12, Ppd-D1) follow composite convention except Ppd-D1 which is homeolog-specific because Ppd-D1a allele is the published phenotype driver.",
+    "rationale": "DELLA homeolog split is biologically motivated (B1/D1 alleles on different chromosomes with distinct phenotypes); composite for biosynthesis enzymes reflects functional redundancy; homeolog-specific where the allele name IS the phenotype driver (common in breeding literature)."
+  },
+  "paper_count_audit": {
+    "step_1_papers": 31,
+    "new_papers_added": 8,
+    "new_paper_dois": [
+      "10.1007/s10142-011-0243-2",
+      "10.1038/s42003-022-03139-9",
+      "10.1371/journal.pone.0153273",
+      "10.3389/fpls.2018.01312",
+      "10.1016/j.xplc.2024.101194",
+      "10.3389/fpls.2024.1381243",
+      "10.1007/s00122-023-04502-y",
+      "10.1016/j.cub.2021.09.024"
+    ],
+    "merged_paper_count": 39,
+    "growth_percent": "+26%"
+  },
+  "edge_count_audit": {
+    "step_1_edges": 63,
+    "new_edges_added": 16,
+    "new_edge_ids": ["E064", "E065", "E066", "E067", "E068", "E069", "E070", "E071", "E072", "E073", "E074", "E075", "E076", "E077", "E078", "E079"],
+    "merged_edge_count": 79,
+    "growth_percent": "+25%"
+  },
+  "perturbation_count_audit": {
+    "step_1_perturbations": 44,
+    "new_perturbations_added": 10,
+    "new_test_ids": ["T045", "T046", "T047", "T048", "T049", "T050", "T051", "T052", "T053", "T054"],
+    "merged_perturbation_count": 54,
+    "growth_percent": "+23%"
+  },
+  "residual_gaps_for_builder": [
+    "G007 - Auxin -> TaGA20ox crosstalk: established in Arabidopsis/bamboo but no OA wheat primary paper. BUILDER may include as literature_gap with Arabidopsis citation or omit.",
+    "G009 (partial) - TaGA20ox RNAi / OE primary wheat perturbation evidence paywalled (Appleford 2007 Plant Biotechnol J). Uniconazole treatment on wheat has no OA primary paper. Perturbation set limited accordingly.",
+    "G005 - Rht8 (TaRNHL-D1): no published upstream regulator. Keep as near-source.",
+    "G006 - TaTB1: review-level evidence only; no primary wheat paper for upstream regulation. Low-confidence edge already in Step 1.",
+    "Rht4, Rht5, Rht26 causative genes still uncloned (Step 1 already flagged in literature_gap_log).",
+    "TaTB1 downstream targets in wheat not curated (out-degree 1); BUILDER may omit or flag.",
+    "TaGRF1 is a sink-only node (IN=1 from PLATZ-A1, OUT=0). BUILDER should either (a) add TaGRF1 -> Plant_Height to avoid dead-end trap (Trap 4) or (b) omit TaGRF1 from the model and keep it only in curated_edges."
+  ]
+}

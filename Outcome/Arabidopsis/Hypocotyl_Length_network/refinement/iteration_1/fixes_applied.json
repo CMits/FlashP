@@ -1,0 +1,73 @@
+{
+  "iteration": 1,
+  "date": "2026-04-19",
+  "fixes": [
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "T009 ARF7 single KO: raise gm impact on ARF6 composite from 0.997 to 0.85 to reflect ARF7 as the dominant paralog for hypocotyl elongation",
+      "reason": "T009 predicted unchanged at ratio 0.9996 due to over-weak composite-member modifier. Reed 2018 reports nph4-1 single is 80-90% of WT, indicating ARF7 dominates ARF6/8/19 activity in hypocotyl.",
+      "biological_justification": "ARF7 (NPH4) is the dominant ARF in hypocotyl differential growth; ARF6 and ARF19 play smaller roles. Reducing the composite by only 0.3% does not reflect the measurable phenotype.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 0.85
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "T010 ARF8 single KO: raise gm impact on ARF6 composite from 0.997 to 0.9",
+      "reason": "T010 predicted unchanged at ratio 0.9996 due to over-weak composite-member modifier.",
+      "biological_justification": "ARF8 has a measurable but smaller role than ARF7 in hypocotyl elongation; 0.9 captures the partial-loss of family activity while reflecting its secondary role.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 0.9
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "T087 PIF1 single KO: raise gm impact on PIF3 composite from 0.997 to 0.9",
+      "reason": "T087 predicted unchanged at ratio 0.9996; PIF1/PIL5 has a distinct Rc-gated skotomorphogenic role not captured by 0.3% reduction.",
+      "biological_justification": "PIF1 (Oh 2004, Shin 2009) is the principal PIF for seed dormancy and Rc hypocotyl suppression; composite-member modifier 0.997 erases its effect.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 0.9
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "T106 RGA single KO: raise gm impact on DELLA composite from 0.997 to 0.85",
+      "reason": "T106 predicted unchanged at ratio 1.006 despite RGA being the dominant DELLA for hypocotyl elongation.",
+      "biological_justification": "Dill & Sun 2001 PNAS and Silverstone 2001 show RGA is the dominant DELLA in hypocotyl elongation; a 0.3% family reduction does not reflect the documented rga single-mutant elongation phenotype.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 0.85
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "T129 gid1b gid1c double KO: raise GID1 composite gm from 0.5 to 0.95",
+      "reason": "T129 predicted decreased at ratio 0.27 while Griffiths 2006 evidence sentence reports 'essentially wild-type phenotype'.",
+      "biological_justification": "gm=0.5 treats the double as 50% receptor loss, but GID1A retains full function in this genotype. The correct effective modifier is near 1.0 because the remaining GID1A is sufficient for GA perception.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 0.95
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 87.9,
+    "ode_accuracy": 87.9,
+    "rwr_accuracy": 91.4,
+    "kept": true,
+    "reason": "Algebraic +0.8% (T106 fixed), ODE +2.6% (T003/T009/T010/T087/T106/T129 fixed; T002/T054/T160 newly borderline at shifted best K=1.0), RWR unchanged (all 10 failures remain framework limits)."
+  }
+}

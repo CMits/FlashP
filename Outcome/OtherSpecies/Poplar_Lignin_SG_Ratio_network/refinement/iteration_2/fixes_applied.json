@@ -1,0 +1,33 @@
+{
+  "iteration": 2,
+  "date": "2026-04-20",
+  "fixes": [
+    {
+      "iteration": 2,
+      "action": "edge_removal",
+      "description": "Removed PT4CL1 --[+1]--> Lignin_SG_Ratio direct edge. Exploratory: PT4CL1 already reaches the phenotype via the cascade PT4CL1 -> P_Coumaroyl_CoA -> ... -> Sinapyl_Alcohol -> Lignin_SG_Ratio, so the direct edge potentially double-counts. Removing reduces SG hub from 6 -> 5 activators, which should reduce geometric-mean dilution and possibly help borderline-threshold tests.",
+      "reason": "Diagnostic re-exam after iter 1: most remaining algebraic failures sit within +/- 0.05 of the ratio threshold, suggesting hub dilution. Reducing the hub by one activator was the lowest-risk candidate.",
+      "biological_justification": "Wang 2020 (DOI 10.1104/pp.19.01550) attributes 4CL1 KO's S/G effect to cascade-level flux redirection. The direct edge to the ratio node was a modeling shortcut. Removing it keeps PT4CL1 -> cascade -> SG intact.",
+      "source": "PT4CL1",
+      "target": "Lignin_SG_Ratio",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 48.4,
+    "ode_accuracy": 83.9,
+    "rwr_accuracy": 71.0,
+    "algebraic_correct": 15,
+    "ode_correct": 26,
+    "rwr_correct": 22,
+    "total_tested": 31,
+    "best_method": "ODE",
+    "best_method_delta_pct": -3.2,
+    "kept": false,
+    "reason": "REVERTED. Best-method (ODE) dropped 87.1% -> 83.9% (-3.2%). T014 (4CL1 antisense KD) and T022 (MYB21 LoF) moved from correct to incorrect: cascade propagation alone was insufficient to move the ratio across the direction threshold once the direct edge was removed. The hub-dilution reduction hypothesis was partially correct (some borderline algebraic cases moved), but the cost of breaking previously-passing tests dominated. RWR also fell sharply (-9.6%). Per REFINEMENT §8, reverted to iter 1 snapshot.",
+    "tests_moved_to_incorrect_after_fix": ["T014", "T022 (algebraic/RWR)"],
+    "lesson": "Direct PT4CL1 -> SG edge is not redundant with the cascade: the multi-hop metabolic path (PT4CL1 -> P_Coumaroyl_CoA -> ... 7 intermediate steps... -> Sinapyl_Alcohol -> SG) attenuates signal too strongly under geometric-mean activation, so the direct edge is doing real work in the propagation math. Keep."
+  }
+}

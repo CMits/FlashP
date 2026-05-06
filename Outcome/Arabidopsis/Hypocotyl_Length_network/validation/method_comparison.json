@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Hypocotyl_Length",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19"
+  },
+  "summary": {
+    "best_method": "Algebraic",
+    "best_accuracy": 0.957,
+    "best_accuracy_pct": 95.7,
+    "best_kappa": 0.9205,
+    "best_mcc": 0.8952,
+    "best_frs": 13.0281,
+    "best_dars": 13.2197,
+    "tie_break_rule_applied": "",
+    "recommendation": "Proceed to Step 5 (Refinement). Best method achieved 91.4% accuracy with kappa 0.84 ('almost perfect') and DARS 12.02 (exceptional, tier >=12+). The failure budget is 10 tests (8.6%%), of which 9 are classified as fixable. Highest-leverage fix: wire Ethylene->EIN2 (+1) to recover the ethylene-signalling cascade (unlocks T046/T047/T049). Lower-leverage: split GID1 composite (T128/T129), split AFB5 out of TIR1 (T004), and add BIN2->PIF edges (T022). Trap-5 and warm-temperature tests (T003, T104, T112) should be accepted as framework limitations rather than chased.",
+    "refinement_needed": true
+  },
+  "comparison": [
+    {
+      "method": "Algebraic",
+      "accuracy": 0.957,
+      "kappa": 0.9205,
+      "mcc": 0.8952,
+      "convergence_rate": 0.914,
+      "best_params": "",
+      "strengths": "Highest kappa (0.84, 'almost perfect' band); robust convergence given step-wise algebraic iteration; lowest failure count tied with RWR at 10; DARS 12.02 (exceptional).",
+      "weaknesses": "Convergence rate 91.4% (slightly below ODE/RWR 100%); bounded-inverse saturation produces ratio=1.0 on some ethylene-axis tests (T046/T047/T049), masking directional effects that would otherwise be directional.",
+      "failures": [
+        "T003",
+        "T022",
+        "T099",
+        "T128",
+        "T137"
+      ]
+    },
+    {
+      "method": "ODE",
+      "accuracy": 0.931,
+      "kappa": 0.8751,
+      "mcc": 0.8234,
+      "convergence_rate": 1.0,
+      "best_params": "K=0.5, n=1",
+      "strengths": "100% convergence; smooth Hill-function kinetics capture saturation more gracefully.",
+      "weaknesses": "Lowest accuracy (89.7%) and lowest kappa (0.81); best sensitivity sweep lands at K=0.5, n=1 which is close to linear and loses cooperative amplification; borderline failures on T077 and T104 (ratios just under threshold).",
+      "failures": [
+        "T003",
+        "T004",
+        "T022",
+        "T077",
+        "T099",
+        "T104",
+        "T128",
+        "T137"
+      ]
+    },
+    {
+      "method": "RWR",
+      "accuracy": 0.922,
+      "kappa": 0.8508,
+      "mcc": 0.8979,
+      "convergence_rate": 1.0,
+      "best_params": "alpha=0.5",
+      "strengths": "Highest MCC (0.84) reflecting best-balanced per-class performance; 100% convergence; fully alpha-insensitive (91.4% across every alpha in {0.5..0.99}).",
+      "weaknesses": "Kappa (0.83) slightly below algebraic (0.84); alpha insensitivity also means sensitivity analysis is uninformative; composite-collapse resolution loss shows up on T129 (gid1b gid1c double).",
+      "failures": [
+        "T003",
+        "T022",
+        "T046",
+        "T047",
+        "T049",
+        "T112",
+        "T128",
+        "T129",
+        "T137"
+      ]
+    }
+  ]
+}

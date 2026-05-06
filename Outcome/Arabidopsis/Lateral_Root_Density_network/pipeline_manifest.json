@@ -1,0 +1,297 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lateral_Root_Density",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19"
+  },
+  "pipeline_version": "2.0",
+  "network_directory": "Arabidopsis\\Lateral_Root_Density_network",
+  "steps": [
+    {
+      "step": 5,
+      "step_name": "Refinement",
+      "started": "2026-04-19T11:55:55.488671+00:00",
+      "completed": "2026-04-19T11:55:55.488671+00:00",
+      "model": "claude-opus-4-7",
+      "model_version": "",
+      "flash_p_version": "2.0",
+      "inputs": [
+        {
+          "path": "validation/script_validation_results.json",
+          "checksum_sha256": "e51be5b18bc5dbbc9387782d0e2a38612829aeed1dc498b8a5c0209100c9d53e",
+          "size_bytes": 110775,
+          "created": "2026-04-19T11:51:54.599086+00:00"
+        },
+        {
+          "path": "validation/ode_validation_results.json",
+          "checksum_sha256": "e83595c5561e6db9bc8a08c87bc63fc426ba32682eb5e88e44c039bafdc7b2c4",
+          "size_bytes": 110886,
+          "created": "2026-04-19T11:52:07.951251+00:00"
+        },
+        {
+          "path": "validation/rwr_validation_results.json",
+          "checksum_sha256": "adf6d1f5cb26b567979a75a94021831381551f051b110377fd792121b1695eeb",
+          "size_bytes": 110697,
+          "created": "2026-04-19T11:52:09.082385+00:00"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "refinement/refinement_report.json",
+          "checksum_sha256": "92698c4c631e8f9d2be3940800e00771c9d3df7e3d4b75e7e781aabb19c5c574",
+          "size_bytes": 15565,
+          "created": "2026-04-19T11:55:24.982584+00:00"
+        },
+        {
+          "path": "refinement/iteration_0/accuracy_metrics.json",
+          "checksum_sha256": "cdd76662ea31345b626155c44f60b2f3b8fd81c4f047e7610d3b70817125a6c7",
+          "size_bytes": 5711,
+          "created": "2026-04-19T11:49:12.968118+00:00"
+        },
+        {
+          "path": "refinement/iteration_0/equations_snapshot.json",
+          "checksum_sha256": "16037823f60b9d04e7d83e764ce52c019b5ac43b0f95e442562277418855724e",
+          "size_bytes": 14716,
+          "created": "2026-04-19T11:49:12.963118+00:00"
+        },
+        {
+          "path": "refinement/iteration_0/failure_analysis.json",
+          "checksum_sha256": "765f05162cab0663515fd60538921fa6433014f2fa597708ec4c827c4764650a",
+          "size_bytes": 16995,
+          "created": "2026-04-19T11:49:12.969118+00:00"
+        },
+        {
+          "path": "refinement/iteration_0/method_comparison.json",
+          "checksum_sha256": "496e91e9fb6be4d01bd0a8694df11d6ed0de671348b12cb8767043c30573b41a",
+          "size_bytes": 3537,
+          "created": "2026-04-19T11:49:12.970119+00:00"
+        },
+        {
+          "path": "refinement/iteration_0/network_snapshot.json",
+          "checksum_sha256": "60c4f2d977b5b6a7969437c4ed4f44a9f92209a07955056e4c2933bc611e1e49",
+          "size_bytes": 64703,
+          "created": "2026-04-19T11:49:12.962118+00:00"
+        },
+        {
+          "path": "refinement/iteration_0/ode_sensitivity_results.json",
+          "checksum_sha256": "e192077200d21211381bed706187ae127b55bfa7cf0130c66e375892820f1a18",
+          "size_bytes": 121824,
+          "created": "2026-04-19T11:49:12.971118+00:00"
+        },
+        {
+          "path": "refinement/iteration_0/ode_steady_state_dump.json",
+          "checksum_sha256": "28acd8ee7bec926ad4f0dd0af4bf0f27e737cbd65004f527bef9aa7d1a02c4f5",
+          "size_bytes": 355915,
+          "created": "2026-04-19T11:49:12.978118+00:00"
+        },
+        {
+          "path": "refinement/iteration_0/ode_validation_results.json",
+          "checksum_sha256": "9940a901f58f07673258ba88654764cca17c2101f0f2e7bbd738f96e0c5b8144",
+          "size_bytes": 110936,
+          "created": "2026-04-19T11:49:12.967114+00:00"
+        },
+        {
+          "path": "refinement/iteration_0/reconciled_perturbation_snapshot.json",
+          "checksum_sha256": "29801a66501af4a98deddfa8ea2175cd3d09f3da6ed217968eb02cc0c1be8a81",
+          "size_bytes": 186078,
+          "created": "2026-04-19T11:49:12.964114+00:00"
+        },
+        {
+          "path": "refinement/iteration_0/rwr_sensitivity_results.json",
+          "checksum_sha256": "6312449ed04605ff0ff665effc4f17bd44f38cea95413e036ce2922efb9ab1f5",
+          "size_bytes": 119732,
+          "created": "2026-04-19T11:49:12.972119+00:00"
+        },
+        {
+          "path": "refinement/iteration_0/rwr_steady_state_dump.json",
+          "checksum_sha256": "7347b9f3558e7d34415acb53e77dd35d80662deac2730ada91b8236e6c872769",
+          "size_bytes": 203612,
+          "created": "2026-04-19T11:49:12.979120+00:00"
+        },
+        {
+          "path": "refinement/iteration_0/rwr_validation_results.json",
+          "checksum_sha256": "dd2ccf29e07f61a862dc22ab65d865054df818af51a28c9c7171352dd538ee7a",
+          "size_bytes": 110733,
+          "created": "2026-04-19T11:49:12.968118+00:00"
+        },
+        {
+          "path": "refinement/iteration_0/script_validation_results.json",
+          "checksum_sha256": "a2b0c30fae07f45992ef42d2357a831b5e12325ca7ab223a9745d02027e8f7bb",
+          "size_bytes": 110801,
+          "created": "2026-04-19T11:49:12.966115+00:00"
+        },
+        {
+          "path": "refinement/iteration_0/steady_state_dump.json",
+          "checksum_sha256": "42aec510029e5cede98465492100b75ff71c21332adac1bba37796382de87d90",
+          "size_bytes": 355734,
+          "created": "2026-04-19T11:49:12.976117+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/equations_snapshot.json",
+          "checksum_sha256": "16037823f60b9d04e7d83e764ce52c019b5ac43b0f95e442562277418855724e",
+          "size_bytes": 14716,
+          "created": "2026-04-19T11:50:43.101650+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/fixes_applied.json",
+          "checksum_sha256": "1e81311eccc711c5c58d4417be9ae4bae917bc075984f91e833b0729eae97a57",
+          "size_bytes": 7514,
+          "created": "2026-04-19T11:54:26.519694+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/network_snapshot.json",
+          "checksum_sha256": "60c4f2d977b5b6a7969437c4ed4f44a9f92209a07955056e4c2933bc611e1e49",
+          "size_bytes": 64703,
+          "created": "2026-04-19T11:50:43.098658+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/ode_sensitivity_results.json",
+          "checksum_sha256": "ee5e1a9f502bbc68777447a042990d9235c02a156b3da6b8b33257ce7d8fe470",
+          "size_bytes": 121797,
+          "created": "2026-04-19T11:50:43.111844+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/ode_steady_state_dump.json",
+          "checksum_sha256": "6725a165a44da53a74f7b79d5a76a5c4da2df328d297b08a231972173e20afa2",
+          "size_bytes": 355900,
+          "created": "2026-04-19T11:50:43.119081+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/ode_validation_results.json",
+          "checksum_sha256": "23829935449e4a09ab68deb8c1f5d8bff0b9df87de3d186b454422b2b170b5d9",
+          "size_bytes": 110911,
+          "created": "2026-04-19T11:50:43.107816+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/reconciled_perturbation_snapshot.json",
+          "checksum_sha256": "876c71de890cec9fd71daf752513c5b8ed3f57536e70e295b2705d403af0af5f",
+          "size_bytes": 187061,
+          "created": "2026-04-19T11:50:43.103811+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/rwr_sensitivity_results.json",
+          "checksum_sha256": "de39e6aca82ee12c5272a6e211a2a17d3e81824e6a820d8b3aabe63ff967a133",
+          "size_bytes": 119743,
+          "created": "2026-04-19T11:50:43.112820+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/rwr_steady_state_dump.json",
+          "checksum_sha256": "72c113b3c574079f25e80950001eedb50fa89166abb8709092c740dfe297e3d1",
+          "size_bytes": 203594,
+          "created": "2026-04-19T11:50:43.120086+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/rwr_validation_results.json",
+          "checksum_sha256": "679100620467c9248176ccad37d9d677da10edf2336835050023f165549a842c",
+          "size_bytes": 110743,
+          "created": "2026-04-19T11:50:43.109818+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/script_validation_results.json",
+          "checksum_sha256": "af4fae938f0e4177c19c327670be1f74c76b3d85f3805058ac93a0ff8ed7b232",
+          "size_bytes": 110791,
+          "created": "2026-04-19T11:50:43.105819+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/steady_state_dump.json",
+          "checksum_sha256": "e400f321491ca2320c4d4d276a88e972fed8889212430cc8621154cb84da7425",
+          "size_bytes": 355734,
+          "created": "2026-04-19T11:50:43.118081+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/equations_snapshot.json",
+          "checksum_sha256": "16037823f60b9d04e7d83e764ce52c019b5ac43b0f95e442562277418855724e",
+          "size_bytes": 14716,
+          "created": "2026-04-19T11:52:56.815422+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/fixes_applied.json",
+          "checksum_sha256": "03b0c92043280c339c197f7a04b60e4df2d53624351ac3d9d62d0daafaad6915",
+          "size_bytes": 4932,
+          "created": "2026-04-19T11:54:57.899348+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/network_snapshot.json",
+          "checksum_sha256": "60c4f2d977b5b6a7969437c4ed4f44a9f92209a07955056e4c2933bc611e1e49",
+          "size_bytes": 64703,
+          "created": "2026-04-19T11:52:56.811423+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/ode_sensitivity_results.json",
+          "checksum_sha256": "ef036aac444fa16609c403fbf5c0f03a3f0d96c02f415b9a61b476c08b3fa4a1",
+          "size_bytes": 121777,
+          "created": "2026-04-19T11:52:56.824943+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/ode_steady_state_dump.json",
+          "checksum_sha256": "dcec190b6ca934a73d26e9828602680da08ab1968f110d57c19557aa3251e062",
+          "size_bytes": 355799,
+          "created": "2026-04-19T11:52:56.830943+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/ode_validation_results.json",
+          "checksum_sha256": "e83595c5561e6db9bc8a08c87bc63fc426ba32682eb5e88e44c039bafdc7b2c4",
+          "size_bytes": 110886,
+          "created": "2026-04-19T11:52:56.821931+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/reconciled_perturbation_snapshot.json",
+          "checksum_sha256": "58caaa7ad2a0a6db7d28ed312dd2dbb2877988eb06e1231dfcaec7144720278e",
+          "size_bytes": 187439,
+          "created": "2026-04-19T11:52:56.817418+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/rwr_sensitivity_results.json",
+          "checksum_sha256": "12f25c8893184786c9b520c64fbe1100aeadc859fc07a3cfd17ac7c91614aa92",
+          "size_bytes": 119699,
+          "created": "2026-04-19T11:52:56.825944+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/rwr_steady_state_dump.json",
+          "checksum_sha256": "e3c4c9cf1b772e2ab1300f79ce0110973ed266394b4f55ded6d058598a2763e7",
+          "size_bytes": 203672,
+          "created": "2026-04-19T11:52:56.832437+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/rwr_validation_results.json",
+          "checksum_sha256": "adf6d1f5cb26b567979a75a94021831381551f051b110377fd792121b1695eeb",
+          "size_bytes": 110697,
+          "created": "2026-04-19T11:52:56.822937+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/script_validation_results.json",
+          "checksum_sha256": "e51be5b18bc5dbbc9387782d0e2a38612829aeed1dc498b8a5c0209100c9d53e",
+          "size_bytes": 110775,
+          "created": "2026-04-19T11:52:56.819419+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/steady_state_dump.json",
+          "checksum_sha256": "4a152ba7fda6b222635a320bdae9b2fab245ef30af159d226390b06e7af81f82",
+          "size_bytes": 355629,
+          "created": "2026-04-19T11:52:56.829944+00:00"
+        },
+        {
+          "path": "refinement/refined_equations.json",
+          "checksum_sha256": "16037823f60b9d04e7d83e764ce52c019b5ac43b0f95e442562277418855724e",
+          "size_bytes": 14716,
+          "created": "2026-04-19T11:55:24.986581+00:00"
+        },
+        {
+          "path": "refinement/refined_network.json",
+          "checksum_sha256": "60c4f2d977b5b6a7969437c4ed4f44a9f92209a07955056e4c2933bc611e1e49",
+          "size_bytes": 64703,
+          "created": "2026-04-19T11:55:24.984583+00:00"
+        },
+        {
+          "path": "refinement/refinement_report.json",
+          "checksum_sha256": "92698c4c631e8f9d2be3940800e00771c9d3df7e3d4b75e7e781aabb19c5c574",
+          "size_bytes": 15565,
+          "created": "2026-04-19T11:55:24.982584+00:00"
+        }
+      ],
+      "notes": ""
+    }
+  ],
+  "current_step": 5
+}

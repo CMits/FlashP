@@ -1,0 +1,2110 @@
+{
+  "metadata": {
+    "method": "ODE_Hill",
+    "K": 1.0,
+    "n": 2,
+    "accuracy": 71.1,
+    "hill_activation_formula": "f(x) = x^2 * (1.0^2 + 1) / (1.0^2 + x^2)",
+    "hill_inhibition_formula": "g(x) = (1.0^2 + 1) / (1.0^2 + x^2)",
+    "ode_dynamics": "dx/dt = production - x; at steady state x = production",
+    "dt": 0.1,
+    "max_time": 50.0,
+    "convergence_tolerance": 0.0001,
+    "direction_threshold": 0.05
+  },
+  "equations": [
+    {
+      "node": "ABA",
+      "activators": [
+        "NCED3",
+        "ABA2"
+      ],
+      "inhibitors": [
+        "CYP707A"
+      ],
+      "formula": "ABA = prod(f(NCED3, ABA2)) * prod(g(CYP707A)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ABA2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABA2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ABI1",
+      "activators": [],
+      "inhibitors": [
+        "PYL8"
+      ],
+      "formula": "ABI1 = 1.0 * prod(g(PYL8)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ABI3",
+      "activators": [
+        "LEC1",
+        "LEC2",
+        "FUS3",
+        "ABI4"
+      ],
+      "inhibitors": [
+        "VAL1",
+        "VAL2"
+      ],
+      "formula": "ABI3 = prod(f(LEC1, LEC2, FUS3, ABI4)) * prod(g(VAL1, VAL2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ABI4",
+      "activators": [
+        "ABI3"
+      ],
+      "inhibitors": [],
+      "formula": "ABI4 = prod(f(ABI3)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ABI4_5",
+      "activators": [
+        "SNRK2",
+        "ABA"
+      ],
+      "inhibitors": [],
+      "formula": "ABI4_5 = prod(f(SNRK2, ABA)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ABI5",
+      "activators": [
+        "ABA",
+        "ABI4"
+      ],
+      "inhibitors": [
+        "RAV1"
+      ],
+      "formula": "ABI5 = prod(f(ABA, ABI4)) * prod(g(RAV1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ACO",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ACO = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ACS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ACS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ACS_ACO",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ACS_ACO = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AGB1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AGB1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AGG3",
+      "activators": [
+        "GPA1",
+        "AGB1"
+      ],
+      "inhibitors": [],
+      "formula": "AGG3 = prod(f(GPA1, AGB1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AGL24",
+      "activators": [
+        "SOC1",
+        "Vernalization"
+      ],
+      "inhibitors": [],
+      "formula": "AGL24 = prod(f(SOC1, Vernalization)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AHK",
+      "activators": [
+        "Cytokinin"
+      ],
+      "inhibitors": [],
+      "formula": "AHK = prod(f(Cytokinin)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AHK3",
+      "activators": [
+        "Cytokinin"
+      ],
+      "inhibitors": [],
+      "formula": "AHK3 = prod(f(Cytokinin)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AHP1",
+      "activators": [
+        "AHK3"
+      ],
+      "inhibitors": [],
+      "formula": "AHP1 = prod(f(AHK3)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AHP6",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AHP6 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AIF2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AIF2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ANR1",
+      "activators": [
+        "NLP7",
+        "CHL1"
+      ],
+      "inhibitors": [],
+      "formula": "ANR1 = prod(f(NLP7, CHL1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ANT",
+      "activators": [
+        "DELLA"
+      ],
+      "inhibitors": [],
+      "formula": "ANT = prod(f(DELLA)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AP1",
+      "activators": [
+        "FT",
+        "FD",
+        "SOC1",
+        "LFY",
+        "SPL9",
+        "FUL"
+      ],
+      "inhibitors": [
+        "AP2",
+        "TFL1"
+      ],
+      "formula": "AP1 = prod(f(FT, FD, SOC1, LFY, SPL9, FUL)) * prod(g(AP2, TFL1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "AP2",
+      "activators": [],
+      "inhibitors": [
+        "miR172",
+        "SOC1"
+      ],
+      "formula": "AP2 = 1.0 * prod(g(miR172, SOC1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "AP2_TOE",
+      "activators": [],
+      "inhibitors": [
+        "miR172"
+      ],
+      "formula": "AP2_TOE = 1.0 * prod(g(miR172)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ARF19",
+      "activators": [],
+      "inhibitors": [
+        "IAA14",
+        "IAA28",
+        "HY5"
+      ],
+      "formula": "ARF19 = 1.0 * prod(g(IAA14, IAA28, HY5)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ARF2",
+      "activators": [
+        "TIR1"
+      ],
+      "inhibitors": [
+        "BZR1"
+      ],
+      "formula": "ARF2 = prod(f(TIR1)) * prod(g(BZR1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ARF6",
+      "activators": [
+        "PIF4",
+        "BZR1"
+      ],
+      "inhibitors": [
+        "AUX_IAA",
+        "DELLA"
+      ],
+      "formula": "ARF6 = prod(f(PIF4, BZR1)) * prod(g(AUX_IAA, DELLA)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ARF6_7_8",
+      "activators": [],
+      "inhibitors": [
+        "DELLA",
+        "IAA19"
+      ],
+      "formula": "ARF6_7_8 = 1.0 * prod(g(DELLA, IAA19)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ARF7",
+      "activators": [],
+      "inhibitors": [
+        "IAA14",
+        "IAA28"
+      ],
+      "formula": "ARF7 = 1.0 * prod(g(IAA14, IAA28)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ARR1",
+      "activators": [
+        "AHP1"
+      ],
+      "inhibitors": [],
+      "formula": "ARR1 = prod(f(AHP1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ARR_B",
+      "activators": [
+        "AHK"
+      ],
+      "inhibitors": [],
+      "formula": "ARR_B = prod(f(AHK)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AUT_SYN",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AUT_SYN = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AUX1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AUX1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AUX_IAA",
+      "activators": [],
+      "inhibitors": [
+        "TIR1"
+      ],
+      "formula": "AUX_IAA = 1.0 * prod(g(TIR1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Auxin",
+      "activators": [
+        "TAA1",
+        "TAR2",
+        "YUC4",
+        "AUX1"
+      ],
+      "inhibitors": [
+        "GH3",
+        "DAO1"
+      ],
+      "formula": "Auxin = prod(f(TAA1, TAR2, YUC4, AUX1)) * prod(g(GH3, DAO1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "BAK1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BAK1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BAS1",
+      "activators": [
+        "PHYB"
+      ],
+      "inhibitors": [],
+      "formula": "BAS1 = prod(f(PHYB)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BBX11",
+      "activators": [
+        "PHYB",
+        "CRY1",
+        "BBX21"
+      ],
+      "inhibitors": [],
+      "formula": "BBX11 = prod(f(PHYB, CRY1, BBX21)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BBX21",
+      "activators": [],
+      "inhibitors": [
+        "COP1_SPA"
+      ],
+      "formula": "BBX21 = 1.0 * prod(g(COP1_SPA)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "BBX25",
+      "activators": [],
+      "inhibitors": [
+        "COP1_SPA"
+      ],
+      "formula": "BBX25 = 1.0 * prod(g(COP1_SPA)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "BES1",
+      "activators": [],
+      "inhibitors": [
+        "MAX2"
+      ],
+      "formula": "BES1 = 1.0 * prod(g(MAX2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "BIN2",
+      "activators": [],
+      "inhibitors": [
+        "COP1_SPA",
+        "BRI1",
+        "BAK1",
+        "SPA1"
+      ],
+      "formula": "BIN2 = 1.0 * prod(g(COP1_SPA, BRI1, BAK1, SPA1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "BPC1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BPC1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BR",
+      "activators": [
+        "DET2",
+        "DWF4",
+        "CPD"
+      ],
+      "inhibitors": [
+        "BAS1",
+        "SOB7"
+      ],
+      "formula": "BR = prod(f(DET2, DWF4, CPD)) * prod(g(BAS1, SOB7)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "BRC1",
+      "activators": [
+        "Low_R_FR",
+        "SPL9",
+        "Auxin"
+      ],
+      "inhibitors": [
+        "SMXL678",
+        "Cytokinin",
+        "BES1",
+        "FT",
+        "Sucrose",
+        "TIE1",
+        "Decapitation"
+      ],
+      "formula": "BRC1 = prod(f(Low_R_FR, SPL9, Auxin)) * prod(g(SMXL678, Cytokinin, BES1, FT, Sucrose, TIE1, Decapitation)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "BRI1",
+      "activators": [
+        "BR"
+      ],
+      "inhibitors": [],
+      "formula": "BRI1 = prod(f(BR)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BR_SYN",
+      "activators": [],
+      "inhibitors": [
+        "BZR_BES"
+      ],
+      "formula": "BR_SYN = 1.0 * prod(g(BZR_BES)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "BSU1",
+      "activators": [
+        "BRI1",
+        "BAK1"
+      ],
+      "inhibitors": [],
+      "formula": "BSU1 = prod(f(BRI1, BAK1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BZR",
+      "activators": [],
+      "inhibitors": [
+        "BIN2"
+      ],
+      "formula": "BZR = 1.0 * prod(g(BIN2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "BZR1",
+      "activators": [
+        "PP2A"
+      ],
+      "inhibitors": [
+        "BIN2",
+        "DELLA"
+      ],
+      "formula": "BZR1 = prod(f(PP2A)) * prod(g(BIN2, DELLA)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "BZR_BES",
+      "activators": [
+        "PP2A"
+      ],
+      "inhibitors": [
+        "DELLA",
+        "BIN2",
+        "MAX2"
+      ],
+      "formula": "BZR_BES = prod(f(PP2A)) * prod(g(DELLA, BIN2, MAX2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Blue_Light",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Blue_Light = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Brassinosteroid",
+      "activators": [
+        "DET2",
+        "DWF4"
+      ],
+      "inhibitors": [
+        "BAS1"
+      ],
+      "formula": "Brassinosteroid = prod(f(DET2, DWF4)) * prod(g(BAS1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "CAMEL",
+      "activators": [
+        "Auxin"
+      ],
+      "inhibitors": [],
+      "formula": "CAMEL = prod(f(Auxin)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CCD7",
+      "activators": [
+        "Auxin"
+      ],
+      "inhibitors": [],
+      "formula": "CCD7 = prod(f(Auxin)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CCD8",
+      "activators": [
+        "Auxin"
+      ],
+      "inhibitors": [],
+      "formula": "CCD8 = prod(f(Auxin)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CDF1",
+      "activators": [],
+      "inhibitors": [
+        "FKF1",
+        "GI"
+      ],
+      "formula": "CDF1 = 1.0 * prod(g(FKF1, GI)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "CHL1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CHL1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CKX2",
+      "activators": [
+        "MINI3"
+      ],
+      "inhibitors": [
+        "PRC2"
+      ],
+      "formula": "CKX2 = prod(f(MINI3)) * prod(g(PRC2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "CKX3",
+      "activators": [
+        "Cytokinin"
+      ],
+      "inhibitors": [],
+      "formula": "CKX3 = prod(f(Cytokinin)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CKX5",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CKX5 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CKX9",
+      "activators": [
+        "Strigolactone"
+      ],
+      "inhibitors": [],
+      "formula": "CKX9 = prod(f(Strigolactone)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CLE",
+      "activators": [
+        "Low_Nitrate"
+      ],
+      "inhibitors": [],
+      "formula": "CLE = prod(f(Low_Nitrate)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CLV1",
+      "activators": [
+        "CLE"
+      ],
+      "inhibitors": [],
+      "formula": "CLV1 = prod(f(CLE)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CO",
+      "activators": [
+        "Long_Day",
+        "GI",
+        "FKF1"
+      ],
+      "inhibitors": [
+        "CDF1",
+        "DELLA"
+      ],
+      "formula": "CO = prod(f(Long_Day, GI, FKF1)) * prod(g(CDF1, DELLA)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "COP1_SPA",
+      "activators": [
+        "SPA1"
+      ],
+      "inhibitors": [
+        "PHYB",
+        "PHYA",
+        "CRY1",
+        "CRY2",
+        "UVR8"
+      ],
+      "formula": "COP1_SPA = prod(f(SPA1)) * prod(g(PHYB, PHYA, CRY1, CRY2, UVR8)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "CPD",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CPD = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CRY1",
+      "activators": [
+        "Light"
+      ],
+      "inhibitors": [],
+      "formula": "CRY1 = prod(f(Light)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CRY2",
+      "activators": [
+        "Light"
+      ],
+      "inhibitors": [],
+      "formula": "CRY2 = prod(f(Light)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CTR1",
+      "activators": [],
+      "inhibitors": [
+        "Ethylene"
+      ],
+      "formula": "CTR1 = 1.0 * prod(g(Ethylene)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "CYP707A",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CYP707A = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Cell_Proliferation",
+      "activators": [
+        "GRF",
+        "E2FA",
+        "TCP14"
+      ],
+      "inhibitors": [],
+      "formula": "Cell_Proliferation = prod(f(GRF, E2FA, TCP14)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Cell_Proliferation_Duration",
+      "activators": [
+        "AGG3"
+      ],
+      "inhibitors": [],
+      "formula": "Cell_Proliferation_Duration = prod(f(AGG3)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Cold",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Cold = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Cold_Vernalization",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Cold_Vernalization = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Cytokinin",
+      "activators": [
+        "IPT"
+      ],
+      "inhibitors": [
+        "CKX2",
+        "CKX3",
+        "CKX5",
+        "AHP6"
+      ],
+      "formula": "Cytokinin = prod(f(IPT)) * prod(g(CKX2, CKX3, CKX5, AHP6)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "D14",
+      "activators": [
+        "Strigolactone"
+      ],
+      "inhibitors": [
+        "D14"
+      ],
+      "formula": "D14 = prod(f(Strigolactone)) * prod(g(D14)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "D27",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "D27 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DA1",
+      "activators": [
+        "DA2",
+        "EOD1"
+      ],
+      "inhibitors": [
+        "Cytokinin"
+      ],
+      "formula": "DA1 = prod(f(DA2, EOD1)) * prod(g(Cytokinin)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "DA2",
+      "activators": [],
+      "inhibitors": [
+        "DA1"
+      ],
+      "formula": "DA2 = 1.0 * prod(g(DA1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "DAO1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DAO1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DELLA",
+      "activators": [
+        "SPY"
+      ],
+      "inhibitors": [
+        "GID1",
+        "SLY1"
+      ],
+      "formula": "DELLA = prod(f(SPY)) * prod(g(GID1, SLY1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "DET1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DET1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DET2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DET2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DPA4",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DPA4 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DWF4",
+      "activators": [],
+      "inhibitors": [
+        "BZR1"
+      ],
+      "formula": "DWF4 = 1.0 * prod(g(BZR1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Decapitation",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Decapitation = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "E2FA",
+      "activators": [
+        "SEEDSTICK"
+      ],
+      "inhibitors": [],
+      "formula": "E2FA = prod(f(SEEDSTICK)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "EC",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EC = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "EIN2",
+      "activators": [
+        "Ethylene"
+      ],
+      "inhibitors": [
+        "CTR1"
+      ],
+      "formula": "EIN2 = prod(f(Ethylene)) * prod(g(CTR1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "EIN3",
+      "activators": [
+        "EIN2"
+      ],
+      "inhibitors": [],
+      "formula": "EIN3 = prod(f(EIN2)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ELF3_EC",
+      "activators": [],
+      "inhibitors": [
+        "Temperature"
+      ],
+      "formula": "ELF3_EC = 1.0 * prod(g(Temperature)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "EOD1",
+      "activators": [],
+      "inhibitors": [
+        "DA1"
+      ],
+      "formula": "EOD1 = 1.0 * prod(g(DA1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "ETR1",
+      "activators": [],
+      "inhibitors": [
+        "Ethylene"
+      ],
+      "formula": "ETR1 = 1.0 * prod(g(Ethylene)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Endosperm_Proliferation",
+      "activators": [
+        "SHB1",
+        "MINI3",
+        "IKU2",
+        "Auxin",
+        "BZR1"
+      ],
+      "inhibitors": [
+        "AP2",
+        "Cytokinin",
+        "PRC2",
+        "RBR1"
+      ],
+      "formula": "Endosperm_Proliferation = prod(f(SHB1, MINI3, IKU2, Auxin, BZR1)) * prod(g(AP2, Cytokinin, PRC2, RBR1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Ethylene",
+      "activators": [
+        "ACS",
+        "ACO"
+      ],
+      "inhibitors": [],
+      "formula": "Ethylene = prod(f(ACS, ACO)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FCA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FCA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FD",
+      "activators": [
+        "FT",
+        "TFL1"
+      ],
+      "inhibitors": [],
+      "formula": "FD = prod(f(FT, TFL1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FHY1",
+      "activators": [
+        "PHYA"
+      ],
+      "inhibitors": [],
+      "formula": "FHY1 = prod(f(PHYA)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FHY3",
+      "activators": [],
+      "inhibitors": [
+        "Low_R_FR"
+      ],
+      "formula": "FHY3 = 1.0 * prod(g(Low_R_FR)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "FIE",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FIE = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FIS2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FIS2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FKF1",
+      "activators": [
+        "Blue_Light",
+        "GI"
+      ],
+      "inhibitors": [],
+      "formula": "FKF1 = prod(f(Blue_Light, GI)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FLC",
+      "activators": [
+        "FRI",
+        "SVP"
+      ],
+      "inhibitors": [
+        "VIN3",
+        "PRC2",
+        "FCA",
+        "FPA",
+        "FLD",
+        "FVE",
+        "LD"
+      ],
+      "formula": "FLC = prod(f(FRI, SVP)) * prod(g(VIN3, PRC2, FCA, FPA, FLD, FVE, LD)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "FLD",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FLD = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FLM",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FLM = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FLOWER_INT",
+      "activators": [
+        "FT"
+      ],
+      "inhibitors": [],
+      "formula": "FLOWER_INT = prod(f(FT)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FPA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FPA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FRI",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FRI = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FT",
+      "activators": [
+        "CO",
+        "PIF4",
+        "FKF1",
+        "GI",
+        "Warm_Temperature",
+        "T6P",
+        "TPS1"
+      ],
+      "inhibitors": [
+        "FLC",
+        "SVP",
+        "CDF1"
+      ],
+      "formula": "FT = prod(f(CO, PIF4, FKF1, GI, Warm_Temperature, T6P, TPS1)) * prod(g(FLC, SVP, CDF1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "FUL",
+      "activators": [
+        "FT",
+        "SPL9",
+        "SOC1"
+      ],
+      "inhibitors": [
+        "TFL1"
+      ],
+      "formula": "FUL = prod(f(FT, SPL9, SOC1)) * prod(g(TFL1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "FUS3",
+      "activators": [
+        "ABI3",
+        "LEC2"
+      ],
+      "inhibitors": [
+        "VAL1",
+        "VAL2",
+        "PKL"
+      ],
+      "formula": "FUS3 = prod(f(ABI3, LEC2)) * prod(g(VAL1, VAL2, PKL)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "FVE",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FVE = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Flowering_Time",
+      "activators": [
+        "AP1",
+        "LFY",
+        "SOC1",
+        "FT"
+      ],
+      "inhibitors": [
+        "TFL1"
+      ],
+      "formula": "Flowering_Time = prod(f(AP1, LFY, SOC1, FT)) * prod(g(TFL1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "GA20OX1",
+      "activators": [
+        "PIF4_5_7"
+      ],
+      "inhibitors": [
+        "Gibberellin",
+        "ABA"
+      ],
+      "formula": "GA20OX1 = prod(f(PIF4_5_7)) * prod(g(Gibberellin, ABA)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "GA2OX",
+      "activators": [
+        "Gibberellin"
+      ],
+      "inhibitors": [],
+      "formula": "GA2OX = prod(f(Gibberellin)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GA2OX1",
+      "activators": [
+        "ABA"
+      ],
+      "inhibitors": [],
+      "formula": "GA2OX1 = prod(f(ABA)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GA3OX",
+      "activators": [],
+      "inhibitors": [
+        "Gibberellin"
+      ],
+      "formula": "GA3OX = 1.0 * prod(g(Gibberellin)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "GA3OX1",
+      "activators": [],
+      "inhibitors": [
+        "ABA"
+      ],
+      "formula": "GA3OX1 = 1.0 * prod(g(ABA)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "GA4",
+      "activators": [
+        "GA20OX1",
+        "GA3OX1"
+      ],
+      "inhibitors": [
+        "GA2OX1"
+      ],
+      "formula": "GA4 = prod(f(GA20OX1, GA3OX1)) * prod(g(GA2OX1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "GATA23",
+      "activators": [
+        "ARF7"
+      ],
+      "inhibitors": [
+        "IAA28"
+      ],
+      "formula": "GATA23 = prod(f(ARF7)) * prod(g(IAA28)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "GH3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GH3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GI",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GI = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GID1",
+      "activators": [
+        "Gibberellin"
+      ],
+      "inhibitors": [],
+      "formula": "GID1 = prod(f(Gibberellin)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GIF1",
+      "activators": [
+        "GRF"
+      ],
+      "inhibitors": [],
+      "formula": "GIF1 = prod(f(GRF)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GPA1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GPA1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GRF",
+      "activators": [],
+      "inhibitors": [
+        "miR396"
+      ],
+      "formula": "GRF = 1.0 * prod(g(miR396)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Gibberellin",
+      "activators": [
+        "GA20OX1",
+        "GA3OX"
+      ],
+      "inhibitors": [
+        "GA2OX"
+      ],
+      "formula": "Gibberellin = prod(f(GA20OX1, GA3OX)) * prod(g(GA2OX)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "HB21",
+      "activators": [
+        "BRC1",
+        "Low_R_FR"
+      ],
+      "inhibitors": [
+        "Sucrose"
+      ],
+      "formula": "HB21 = prod(f(BRC1, Low_R_FR)) * prod(g(Sucrose)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "HFR1",
+      "activators": [
+        "FHY1",
+        "PIF5"
+      ],
+      "inhibitors": [
+        "COP1_SPA"
+      ],
+      "formula": "HFR1 = prod(f(FHY1, PIF5)) * prod(g(COP1_SPA)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "HSFA1D",
+      "activators": [
+        "Temperature",
+        "COP1_SPA"
+      ],
+      "inhibitors": [
+        "BIN2"
+      ],
+      "formula": "HSFA1D = prod(f(Temperature, COP1_SPA)) * prod(g(BIN2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "HY5",
+      "activators": [
+        "BBX21",
+        "UVR8",
+        "BBX11"
+      ],
+      "inhibitors": [
+        "Temperature",
+        "COP1_SPA",
+        "SPA1",
+        "BBX25"
+      ],
+      "formula": "HY5 = prod(f(BBX21, UVR8, BBX11)) * prod(g(Temperature, COP1_SPA, SPA1, BBX25)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "HYH",
+      "activators": [],
+      "inhibitors": [
+        "COP1_SPA"
+      ],
+      "formula": "HYH = 1.0 * prod(g(COP1_SPA)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Hypocotyl_Length",
+      "activators": [
+        "PIF3",
+        "PIF4",
+        "PIF5",
+        "BZR1",
+        "ARF6"
+      ],
+      "inhibitors": [
+        "HY5",
+        "DELLA",
+        "EIN3",
+        "HYH"
+      ],
+      "formula": "Hypocotyl_Length = prod(f(PIF3, PIF4, PIF5, BZR1, ARF6)) * prod(g(HY5, DELLA, EIN3, HYH)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "IAA14",
+      "activators": [],
+      "inhibitors": [
+        "TIR1"
+      ],
+      "formula": "IAA14 = 1.0 * prod(g(TIR1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "IAA19",
+      "activators": [],
+      "inhibitors": [
+        "TIR1"
+      ],
+      "formula": "IAA19 = 1.0 * prod(g(TIR1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "IAA28",
+      "activators": [],
+      "inhibitors": [
+        "TIR1"
+      ],
+      "formula": "IAA28 = 1.0 * prod(g(TIR1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "IKU1",
+      "activators": [
+        "BZR1"
+      ],
+      "inhibitors": [
+        "AIF2"
+      ],
+      "formula": "IKU1 = prod(f(BZR1)) * prod(g(AIF2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "IKU2",
+      "activators": [
+        "BZR1",
+        "IKU1",
+        "SHB1",
+        "MINI3"
+      ],
+      "inhibitors": [
+        "RAV1"
+      ],
+      "formula": "IKU2 = prod(f(BZR1, IKU1, SHB1, MINI3)) * prod(g(RAV1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "IPT",
+      "activators": [
+        "Nitrogen",
+        "Decapitation"
+      ],
+      "inhibitors": [
+        "Auxin"
+      ],
+      "formula": "IPT = prod(f(Nitrogen, Decapitation)) * prod(g(Auxin)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "IPT5",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "IPT5 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Integument_Growth",
+      "activators": [
+        "UBP15",
+        "KLUH",
+        "TTG2",
+        "GIF1",
+        "Auxin",
+        "Cell_Proliferation_Duration",
+        "ANT",
+        "SEEDSTICK"
+      ],
+      "inhibitors": [
+        "DA1",
+        "DA2",
+        "EOD1",
+        "SOD7",
+        "DPA4",
+        "AP2",
+        "ARF2"
+      ],
+      "formula": "Integument_Growth = prod(f(UBP15, KLUH, TTG2, GIF1, Auxin, Cell_Proliferation_Duration, ANT, SEEDSTICK)) * prod(g(DA1, DA2, EOD1, SOD7, DPA4, AP2, ARF2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "KLUH",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "KLUH = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LAX3",
+      "activators": [
+        "LBD"
+      ],
+      "inhibitors": [],
+      "formula": "LAX3 = prod(f(LBD)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LBD",
+      "activators": [
+        "ARF7",
+        "ARF19",
+        "WOX11"
+      ],
+      "inhibitors": [],
+      "formula": "LBD = prod(f(ARF7, ARF19, WOX11)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LBO",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LBO = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LD",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LD = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LDL1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LDL1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LEC1",
+      "activators": [],
+      "inhibitors": [
+        "VAL1",
+        "VAL2",
+        "PKL"
+      ],
+      "formula": "LEC1 = 1.0 * prod(g(VAL1, VAL2, PKL)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "LEC2",
+      "activators": [
+        "FUS3"
+      ],
+      "inhibitors": [
+        "VAL1",
+        "VAL2",
+        "PKL"
+      ],
+      "formula": "LEC2 = prod(f(FUS3)) * prod(g(VAL1, VAL2, PKL)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "LFY",
+      "activators": [
+        "FT",
+        "SOC1",
+        "AGL24",
+        "SPL9"
+      ],
+      "inhibitors": [
+        "DELLA",
+        "TFL1"
+      ],
+      "formula": "LFY = prod(f(FT, SOC1, AGL24, SPL9)) * prod(g(DELLA, TFL1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Lateral_Root_Density",
+      "activators": [
+        "LBD",
+        "PLT",
+        "LAX3",
+        "PIN",
+        "ANR1",
+        "GATA23",
+        "BZR"
+      ],
+      "inhibitors": [
+        "ARR_B",
+        "CLV1",
+        "EIN2",
+        "ABI4_5",
+        "DELLA",
+        "D14",
+        "MAX2"
+      ],
+      "formula": "Lateral_Root_Density = prod(f(LBD, PLT, LAX3, PIN, ANR1, GATA23, BZR)) * prod(g(ARR_B, CLV1, EIN2, ABI4_5, DELLA, D14, MAX2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Light",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Light = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Long_Day",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Long_Day = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Low_Nitrate",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Low_Nitrate = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Low_Phosphate",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Low_Phosphate = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Low_R_FR",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Low_R_FR = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MAX1",
+      "activators": [],
+      "inhibitors": [
+        "Gibberellin"
+      ],
+      "formula": "MAX1 = 1.0 * prod(g(Gibberellin)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "MAX2",
+      "activators": [
+        "D14"
+      ],
+      "inhibitors": [],
+      "formula": "MAX2 = prod(f(D14)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MAX3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MAX3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MAX4",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MAX4 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MEA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MEA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MINI3",
+      "activators": [
+        "SHB1",
+        "IKU1"
+      ],
+      "inhibitors": [
+        "RAV1",
+        "AIF2"
+      ],
+      "formula": "MINI3 = prod(f(SHB1, IKU1)) * prod(g(RAV1, AIF2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "MSI1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MSI1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NCED3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NCED3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NLP7",
+      "activators": [
+        "CHL1"
+      ],
+      "inhibitors": [],
+      "formula": "NLP7 = prod(f(CHL1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Nitrogen",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Nitrogen = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Ovule_size",
+      "activators": [
+        "ANT",
+        "Cytokinin",
+        "Cell_Proliferation",
+        "SEUSS"
+      ],
+      "inhibitors": [],
+      "formula": "Ovule_size = prod(f(ANT, Cytokinin, Cell_Proliferation, SEUSS)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PAR1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PAR1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PGP10",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PGP10 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PHYA",
+      "activators": [
+        "Light"
+      ],
+      "inhibitors": [],
+      "formula": "PHYA = prod(f(Light)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PHYB",
+      "activators": [
+        "Light"
+      ],
+      "inhibitors": [],
+      "formula": "PHYB = prod(f(Light)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PIF3",
+      "activators": [
+        "DET1",
+        "EIN3"
+      ],
+      "inhibitors": [
+        "PHYB",
+        "DELLA",
+        "BIN2"
+      ],
+      "formula": "PIF3 = prod(f(DET1, EIN3)) * prod(g(PHYB, DELLA, BIN2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "PIF4",
+      "activators": [
+        "DET1",
+        "BZR1",
+        "HSFA1D"
+      ],
+      "inhibitors": [
+        "PHYB",
+        "CRY1",
+        "HFR1",
+        "ELF3_EC",
+        "DELLA",
+        "TOC1",
+        "GI"
+      ],
+      "formula": "PIF4 = prod(f(DET1, BZR1, HSFA1D)) * prod(g(PHYB, CRY1, HFR1, ELF3_EC, DELLA, TOC1, GI)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "PIF4_5_7",
+      "activators": [
+        "Temperature"
+      ],
+      "inhibitors": [
+        "PHYB",
+        "HFR1",
+        "PAR1",
+        "DELLA",
+        "EC"
+      ],
+      "formula": "PIF4_5_7 = prod(f(Temperature)) * prod(g(PHYB, HFR1, PAR1, DELLA, EC)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "PIF5",
+      "activators": [
+        "DET1"
+      ],
+      "inhibitors": [
+        "UVR8",
+        "PHYB",
+        "ELF3_EC"
+      ],
+      "formula": "PIF5 = prod(f(DET1)) * prod(g(UVR8, PHYB, ELF3_EC)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "PIF7",
+      "activators": [
+        "PIF4"
+      ],
+      "inhibitors": [
+        "PHYB",
+        "CRY1"
+      ],
+      "formula": "PIF7 = prod(f(PIF4)) * prod(g(PHYB, CRY1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "PIN",
+      "activators": [
+        "PLT"
+      ],
+      "inhibitors": [],
+      "formula": "PIN = prod(f(PLT)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PIN1",
+      "activators": [
+        "SMXL678",
+        "Auxin",
+        "Cytokinin",
+        "CAMEL",
+        "Sucrose"
+      ],
+      "inhibitors": [],
+      "formula": "PIN1 = prod(f(SMXL678, Auxin, Cytokinin, CAMEL, Sucrose)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PIN3",
+      "activators": [
+        "Cytokinin",
+        "Nitrogen"
+      ],
+      "inhibitors": [
+        "BRC1"
+      ],
+      "formula": "PIN3 = prod(f(Cytokinin, Nitrogen)) * prod(g(BRC1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "PKL",
+      "activators": [
+        "VAL1",
+        "VAL2"
+      ],
+      "inhibitors": [],
+      "formula": "PKL = prod(f(VAL1, VAL2)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PLT",
+      "activators": [
+        "ARF7",
+        "ARF19"
+      ],
+      "inhibitors": [],
+      "formula": "PLT = prod(f(ARF7, ARF19)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PP2A",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PP2A = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PRC2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PRC2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PYL",
+      "activators": [
+        "ABA"
+      ],
+      "inhibitors": [],
+      "formula": "PYL = prod(f(ABA)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PYL8",
+      "activators": [
+        "ABA"
+      ],
+      "inhibitors": [],
+      "formula": "PYL8 = prod(f(ABA)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Photoperiod",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Photoperiod = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Plant_Height",
+      "activators": [
+        "BZR_BES",
+        "ARF6_7_8",
+        "ARR1",
+        "PIF4_5_7",
+        "Strigolactone"
+      ],
+      "inhibitors": [
+        "SPL9",
+        "DELLA",
+        "EIN3",
+        "ABI5",
+        "FLOWER_INT",
+        "HY5"
+      ],
+      "formula": "Plant_Height = prod(f(BZR_BES, ARF6_7_8, ARR1, PIF4_5_7, Strigolactone)) * prod(g(SPL9, DELLA, EIN3, ABI5, FLOWER_INT, HY5)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "RAV1",
+      "activators": [],
+      "inhibitors": [
+        "BZR1"
+      ],
+      "formula": "RAV1 = 1.0 * prod(g(BZR1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "RBR1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RBR1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SEEDSTICK",
+      "activators": [
+        "BPC1"
+      ],
+      "inhibitors": [
+        "ARF2"
+      ],
+      "formula": "SEEDSTICK = prod(f(BPC1)) * prod(g(ARF2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "SEUSS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SEUSS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SHB1",
+      "activators": [
+        "BZR1"
+      ],
+      "inhibitors": [
+        "ABI5",
+        "AIF2"
+      ],
+      "formula": "SHB1 = prod(f(BZR1)) * prod(g(ABI5, AIF2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "SLY1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SLY1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SL_SYN",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SL_SYN = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SMXL678",
+      "activators": [
+        "FHY3"
+      ],
+      "inhibitors": [
+        "D14",
+        "MAX2"
+      ],
+      "formula": "SMXL678 = prod(f(FHY3)) * prod(g(D14, MAX2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "SNRK2",
+      "activators": [],
+      "inhibitors": [
+        "ABI1"
+      ],
+      "formula": "SNRK2 = 1.0 * prod(g(ABI1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "SOB7",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SOB7 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SOC1",
+      "activators": [
+        "FT",
+        "FD",
+        "SPL9"
+      ],
+      "inhibitors": [
+        "FLC",
+        "SVP",
+        "DELLA",
+        "AP2",
+        "TFL1"
+      ],
+      "formula": "SOC1 = prod(f(FT, FD, SPL9)) * prod(g(FLC, SVP, DELLA, AP2, TFL1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "SOD7",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SOD7 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SPA1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SPA1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SPL9",
+      "activators": [],
+      "inhibitors": [
+        "SMXL678",
+        "DELLA",
+        "miR156",
+        "FHY3"
+      ],
+      "formula": "SPL9 = 1.0 * prod(g(SMXL678, DELLA, miR156, FHY3)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "SPY",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SPY = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SVP",
+      "activators": [],
+      "inhibitors": [
+        "Warm_Temperature",
+        "FCA",
+        "FVE",
+        "SOC1"
+      ],
+      "formula": "SVP = 1.0 * prod(g(Warm_Temperature, FCA, FVE, SOC1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Seed_Size",
+      "activators": [
+        "Integument_Growth",
+        "Endosperm_Proliferation",
+        "Ovule_size",
+        "GIF1",
+        "Storage_reserves"
+      ],
+      "inhibitors": [
+        "ABA",
+        "ABI5"
+      ],
+      "formula": "Seed_Size = prod(f(Integument_Growth, Endosperm_Proliferation, Ovule_size, GIF1, Storage_reserves)) * prod(g(ABA, ABI5)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Shoot_Branching",
+      "activators": [
+        "Cytokinin",
+        "PIN1",
+        "PIN3",
+        "T6P",
+        "Sucrose"
+      ],
+      "inhibitors": [
+        "BRC1",
+        "ABA",
+        "ARR1"
+      ],
+      "formula": "Shoot_Branching = prod(f(Cytokinin, PIN1, PIN3, T6P, Sucrose)) * prod(g(BRC1, ABA, ARR1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Storage_reserves",
+      "activators": [
+        "LEC1",
+        "LEC2",
+        "FUS3",
+        "ABI3"
+      ],
+      "inhibitors": [],
+      "formula": "Storage_reserves = prod(f(LEC1, LEC2, FUS3, ABI3)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Strigolactone",
+      "activators": [
+        "CCD7",
+        "CCD8",
+        "D27",
+        "MAX1",
+        "LBO"
+      ],
+      "inhibitors": [
+        "Decapitation",
+        "Sucrose",
+        "Nitrogen"
+      ],
+      "formula": "Strigolactone = prod(f(CCD7, CCD8, D27, MAX1, LBO)) * prod(g(Decapitation, Sucrose, Nitrogen)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Sucrose",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Sucrose = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "T6P",
+      "activators": [
+        "Sucrose",
+        "TPS1"
+      ],
+      "inhibitors": [],
+      "formula": "T6P = prod(f(Sucrose, TPS1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAA1",
+      "activators": [
+        "PIF4"
+      ],
+      "inhibitors": [],
+      "formula": "TAA1 = prod(f(PIF4)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAR1",
+      "activators": [],
+      "inhibitors": [
+        "PRC2"
+      ],
+      "formula": "TAR1 = 1.0 * prod(g(PRC2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "TAR2",
+      "activators": [
+        "Low_Nitrate"
+      ],
+      "inhibitors": [
+        "CHL1"
+      ],
+      "formula": "TAR2 = prod(f(Low_Nitrate)) * prod(g(CHL1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "TCP14",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TCP14 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TFL1",
+      "activators": [],
+      "inhibitors": [
+        "AP1"
+      ],
+      "formula": "TFL1 = 1.0 * prod(g(AP1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "TIE1",
+      "activators": [
+        "ARR1"
+      ],
+      "inhibitors": [],
+      "formula": "TIE1 = prod(f(ARR1)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TIR1",
+      "activators": [
+        "Auxin",
+        "Low_Phosphate"
+      ],
+      "inhibitors": [],
+      "formula": "TIR1 = prod(f(Auxin, Low_Phosphate)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TOC1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TOC1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TPS1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TPS1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TTG2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TTG2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Temperature",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Temperature = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "UBP15",
+      "activators": [],
+      "inhibitors": [
+        "DA1"
+      ],
+      "formula": "UBP15 = 1.0 * prod(g(DA1)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "UVR8",
+      "activators": [
+        "Light"
+      ],
+      "inhibitors": [],
+      "formula": "UVR8 = prod(f(Light)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "VAL1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "VAL1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "VAL2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "VAL2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "VIN3",
+      "activators": [
+        "Cold",
+        "Vernalization"
+      ],
+      "inhibitors": [],
+      "formula": "VIN3 = prod(f(Cold, Vernalization)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Vernalization",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Vernalization = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "WOX11",
+      "activators": [
+        "Auxin"
+      ],
+      "inhibitors": [],
+      "formula": "WOX11 = prod(f(Auxin)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Warm_Temperature",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Warm_Temperature = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "YUC10",
+      "activators": [],
+      "inhibitors": [
+        "PRC2"
+      ],
+      "formula": "YUC10 = 1.0 * prod(g(PRC2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "YUC11",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "YUC11 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "YUC4",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "YUC4 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "YUC8",
+      "activators": [
+        "PIF4",
+        "PIF7"
+      ],
+      "inhibitors": [],
+      "formula": "YUC8 = prod(f(PIF4, PIF7)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "YUC_TAA",
+      "activators": [
+        "PIF4_5_7"
+      ],
+      "inhibitors": [],
+      "formula": "YUC_TAA = prod(f(PIF4_5_7)) * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ZTL",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ZTL = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "lncCOOLAIR",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "lncCOOLAIR = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "miR156",
+      "activators": [],
+      "inhibitors": [
+        "Sucrose",
+        "T6P"
+      ],
+      "formula": "miR156 = 1.0 * prod(g(Sucrose, T6P)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "miR172",
+      "activators": [
+        "SPL9"
+      ],
+      "inhibitors": [
+        "AP2"
+      ],
+      "formula": "miR172 = prod(f(SPL9)) * prod(g(AP2)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "miR396",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "miR396 = 1.0 * 1.0 * gene_modifier + exogenous"
+    }
+  ]
+}

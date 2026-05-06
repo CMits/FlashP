@@ -1,0 +1,1571 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lateral_Root_Density",
+    "phenotype_node": "Lateral_Root_Density",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "total_nodes": 48,
+    "total_edges": 58,
+    "source_nodes": 19,
+    "source_percentage": 39.6
+  },
+  "nodes": [
+    {
+      "id": "Lateral_Root_Density",
+      "type": "PHENOTYPE",
+      "full_name": "Lateral root density",
+      "description": "Number of initiated+emerged lateral roots per unit primary-root length",
+      "is_source": false
+    },
+    {
+      "id": "Auxin",
+      "type": "HORMONE",
+      "full_name": "Auxin (IAA)",
+      "description": "Master LR-inducing hormone, perceived via TIR1/AFB",
+      "is_source": false
+    },
+    {
+      "id": "Cytokinin",
+      "type": "HORMONE",
+      "full_name": "Cytokinin",
+      "description": "LR-inhibiting hormone, antagonistic to auxin",
+      "is_source": false
+    },
+    {
+      "id": "Ethylene",
+      "type": "HORMONE",
+      "full_name": "Ethylene",
+      "description": "Gaseous hormone; net LR-inhibiting via EIN2",
+      "is_source": false
+    },
+    {
+      "id": "ABA",
+      "type": "HORMONE",
+      "full_name": "Abscisic acid",
+      "description": "Stress hormone; represses LR via ABI4/ABI5",
+      "is_source": true
+    },
+    {
+      "id": "GA",
+      "type": "HORMONE",
+      "full_name": "Gibberellin",
+      "description": "Modest LR-promoting via DELLA degradation",
+      "is_source": true
+    },
+    {
+      "id": "Strigolactone",
+      "type": "HORMONE",
+      "full_name": "Strigolactone",
+      "description": "LR-inhibiting via MAX2/D14",
+      "is_source": false
+    },
+    {
+      "id": "Low_Nitrate",
+      "type": "ENVIRONMENT",
+      "full_name": "Low nitrate (<100 uM N)",
+      "description": "Shoot-demand N limitation; induces CLE peptides",
+      "is_source": true
+    },
+    {
+      "id": "Low_Phosphate",
+      "type": "ENVIRONMENT",
+      "full_name": "Low phosphate (<10 uM P)",
+      "description": "P-starvation; promotes LR density via TIR1 and STOP1-ALMT1 (latter abstracted)",
+      "is_source": true
+    },
+    {
+      "id": "TIR1",
+      "type": "GENE",
+      "full_name": "TRANSPORT INHIBITOR RESPONSE 1",
+      "description": "F-box auxin co-receptor (SCF-TIR1) - degrades Aux/IAAs",
+      "is_source": false
+    },
+    {
+      "id": "IAA14",
+      "type": "GENE",
+      "full_name": "INDOLE-3-ACETIC ACID INDUCIBLE 14 / SLR",
+      "description": "Dominant LR-suppressing Aux/IAA (aliases: SLR)",
+      "is_source": false
+    },
+    {
+      "id": "IAA28",
+      "type": "GENE",
+      "full_name": "INDOLE-3-ACETIC ACID INDUCIBLE 28",
+      "description": "Aux/IAA repressor of LR founder-cell specification",
+      "is_source": false
+    },
+    {
+      "id": "ARF7",
+      "type": "GENE",
+      "full_name": "AUXIN RESPONSE FACTOR 7",
+      "description": "LR-initiation TF, redundant with ARF19",
+      "is_source": false
+    },
+    {
+      "id": "ARF19",
+      "type": "GENE",
+      "full_name": "AUXIN RESPONSE FACTOR 19",
+      "description": "LR-initiation TF, redundant with ARF7",
+      "is_source": false
+    },
+    {
+      "id": "LBD",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "LBD16/18/29 family",
+      "description": "Composite of LBD16, LBD18, LBD29 (LATERAL ORGAN BOUNDARIES DOMAIN) - LR-initiation TFs; asymmetric division triggers",
+      "is_source": false
+    },
+    {
+      "id": "PLT",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "PLT3/5/7 family",
+      "description": "Composite of PLETHORA3/5/7 - LR primordium organogenesis TFs",
+      "is_source": false
+    },
+    {
+      "id": "PUCHI",
+      "type": "GENE",
+      "full_name": "PUCHI (AP2/ERF)",
+      "description": "AP2/ERF TF for LR primordium morphogenesis",
+      "is_source": false
+    },
+    {
+      "id": "PIN",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "PIN1/2/3/7 family",
+      "description": "Composite of PIN-FORMED polar-auxin efflux carriers (PIN1/2/3/7)",
+      "is_source": false
+    },
+    {
+      "id": "AUX1",
+      "type": "GENE",
+      "full_name": "AUXIN RESISTANT 1",
+      "description": "Auxin influx carrier - uptake into pericycle/emerging primordium",
+      "is_source": true
+    },
+    {
+      "id": "LAX3",
+      "type": "GENE",
+      "full_name": "LIKE AUX1 3",
+      "description": "Auxin influx carrier induced in endodermis/cortex during LR emergence",
+      "is_source": false
+    },
+    {
+      "id": "TAA1",
+      "type": "GENE",
+      "full_name": "TRYPTOPHAN AMINOTRANSFERASE OF ARABIDOPSIS 1",
+      "description": "IPA biosynthesis step (Trp to IPA); rate-limiting for local IAA production",
+      "is_source": true
+    },
+    {
+      "id": "TAR2",
+      "type": "GENE",
+      "full_name": "TRYPTOPHAN AMINOTRANSFERASE RELATED 2",
+      "description": "TAA1 paralog; N- and ethylene-induced auxin biosynthesis",
+      "is_source": false
+    },
+    {
+      "id": "YUC4",
+      "type": "GENE",
+      "full_name": "YUCCA 4",
+      "description": "Flavin monooxygenase converting IPA to IAA (represents YUC family)",
+      "is_source": true
+    },
+    {
+      "id": "GH3",
+      "type": "GENE",
+      "full_name": "GRETCHEN HAGEN 3 (composite)",
+      "description": "IAA-amino-acid conjugation - auxin inactivation",
+      "is_source": true
+    },
+    {
+      "id": "DAO1",
+      "type": "GENE",
+      "full_name": "DIOXYGENASE FOR AUXIN OXIDATION 1",
+      "description": "Oxidative IAA catabolism",
+      "is_source": true
+    },
+    {
+      "id": "AHK",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "AHK2/3/4 receptor family",
+      "description": "Composite of AHK2, AHK3, AHK4/CRE1 cytokinin receptors",
+      "is_source": false
+    },
+    {
+      "id": "ARR_B",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "ARR1/10/12 type-B ARR family",
+      "description": "Composite of type-B response regulators ARR1, ARR10, ARR12",
+      "is_source": false
+    },
+    {
+      "id": "IPT5",
+      "type": "GENE",
+      "full_name": "ISOPENTENYLTRANSFERASE 5",
+      "description": "CK biosynthesis (represents IPT3/5/7 family)",
+      "is_source": true
+    },
+    {
+      "id": "CKX2",
+      "type": "GENE",
+      "full_name": "CYTOKININ OXIDASE 2",
+      "description": "CK degradation (represents CKX1-7 family)",
+      "is_source": true
+    },
+    {
+      "id": "CHL1",
+      "type": "GENE",
+      "full_name": "CHLORATE RESISTANT 1 / NRT1.1 / NPF6.3",
+      "description": "Dual nitrate transceptor; drives NLP7/ANR1 and TAR2 modulation (aliases: NRT1.1, NPF6.3)",
+      "is_source": true
+    },
+    {
+      "id": "NLP7",
+      "type": "GENE",
+      "full_name": "NIN-LIKE PROTEIN 7",
+      "description": "Master nitrate-response TF; relays CHL1 signal to ANR1",
+      "is_source": false
+    },
+    {
+      "id": "ANR1",
+      "type": "GENE",
+      "full_name": "ARABIDOPSIS NITRATE REGULATED 1",
+      "description": "MADS TF required for LR elongation into nitrate-rich patches",
+      "is_source": false
+    },
+    {
+      "id": "CLE",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "CLE1/3/4/7 peptide family",
+      "description": "Composite of shoot-demand-N-responsive CLE peptides",
+      "is_source": false
+    },
+    {
+      "id": "CLV1",
+      "type": "GENE",
+      "full_name": "CLAVATA 1",
+      "description": "LRR-RLK receiving phloem CLE peptides in pericycle; represses LR",
+      "is_source": false
+    },
+    {
+      "id": "EIN2",
+      "type": "GENE",
+      "full_name": "ETHYLENE INSENSITIVE 2",
+      "description": "Central ethylene signalling integrator",
+      "is_source": false
+    },
+    {
+      "id": "CTR1",
+      "type": "GENE",
+      "full_name": "CONSTITUTIVE TRIPLE RESPONSE 1",
+      "description": "Raf-like kinase repressing EIN2 in absence of ethylene",
+      "is_source": true
+    },
+    {
+      "id": "ACS",
+      "type": "GENE",
+      "full_name": "ACC SYNTHASE (composite)",
+      "description": "Rate-limiting ethylene biosynthesis",
+      "is_source": true
+    },
+    {
+      "id": "ACO",
+      "type": "GENE",
+      "full_name": "ACC OXIDASE (composite)",
+      "description": "Final step ethylene biosynthesis",
+      "is_source": true
+    },
+    {
+      "id": "PYL8",
+      "type": "GENE",
+      "full_name": "PYR1-LIKE 8 / RCAR3",
+      "description": "ABA receptor (represents PYR/PYL/RCAR)",
+      "is_source": false
+    },
+    {
+      "id": "ABI1",
+      "type": "GENE",
+      "full_name": "ABSCISIC ACID INSENSITIVE 1 (composite PP2C)",
+      "description": "PP2C phosphatase repressing SnRK2 (represents ABI1/ABI2/HAB1/HAB2)",
+      "is_source": false
+    },
+    {
+      "id": "SNRK2",
+      "type": "GENE",
+      "full_name": "SNF1-RELATED PROTEIN KINASE 2 (composite)",
+      "description": "SnRK2 kinase activating ABF/ABI TFs",
+      "is_source": false
+    },
+    {
+      "id": "ABI4",
+      "type": "GENE",
+      "full_name": "ABI4 (AP2/ERF TF)",
+      "description": "ABA- and nitrate-responsive TF repressing LR",
+      "is_source": false
+    },
+    {
+      "id": "DELLA",
+      "type": "GENE",
+      "full_name": "DELLA family",
+      "description": "Composite of RGA/GAI/RGL1-3 - GA-destabilised repressors",
+      "is_source": false
+    },
+    {
+      "id": "D14",
+      "type": "GENE",
+      "full_name": "DWARF14 / AtD14",
+      "description": "SL receptor",
+      "is_source": false
+    },
+    {
+      "id": "MAX2",
+      "type": "GENE",
+      "full_name": "MORE AXILLARY GROWTH 2",
+      "description": "F-box protein for SL signalling",
+      "is_source": true
+    },
+    {
+      "id": "MAX1",
+      "type": "GENE",
+      "full_name": "MAX1 (CYP711A1)",
+      "description": "SL biosynthesis",
+      "is_source": true
+    },
+    {
+      "id": "MAX3",
+      "type": "GENE",
+      "full_name": "MAX3 (CCD7)",
+      "description": "SL biosynthesis - carotenoid cleavage",
+      "is_source": true
+    },
+    {
+      "id": "MAX4",
+      "type": "GENE",
+      "full_name": "MAX4 (CCD8)",
+      "description": "SL biosynthesis - carotenoid cleavage",
+      "is_source": true
+    }
+  ],
+  "edges": [
+    {
+      "source": "TAA1",
+      "target": "Auxin",
+      "sign": 1,
+      "edge_id": "N001",
+      "effect": "activation",
+      "mechanism": "TAA1 aminotransferase converts Trp to IPA in IAA biosynthesis pathway",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1108434108",
+          "title": "The main auxin biosynthesis pathway in Arabidopsis",
+          "authors": "Mashiguchi K, et al.",
+          "year": 2011,
+          "journal": "PNAS",
+          "evidence_sentence": "Trp is converted to IPA by TAA1/TARs, and then IPA is converted to IAA by the flavin monooxygenases (YUCCAs)",
+          "claim": "TAA1 produces IPA for auxin biosynthesis",
+          "verification": "pubmed_crosschecked",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "TAR2",
+      "target": "Auxin",
+      "sign": 1,
+      "edge_id": "N002",
+      "effect": "activation",
+      "mechanism": "TAR2 aminotransferase contributes to IAA biosynthesis under low N",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.12448",
+          "title": "TAR2 in low-nitrogen reprogramming of root architecture",
+          "authors": "Ma W, et al.",
+          "year": 2014,
+          "journal": "Plant Journal",
+          "evidence_sentence": "Low NO3- restored auxin accumulation in primordial of LRs via TAR2",
+          "claim": "TAR2 produces auxin under low-N",
+          "verification": "pubmed_crosschecked",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "YUC4",
+      "target": "Auxin",
+      "sign": 1,
+      "edge_id": "N003",
+      "effect": "activation",
+      "mechanism": "YUC4 flavin monooxygenase converts IPA to IAA",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root Development",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "First step in LR initiation involves formation of auxin maximum dependent on influx carrier AUX1 and activation of YUCCA4-mediated auxin biosynthesis",
+          "claim": "YUC4 produces auxin for LR initiation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "AUX1",
+      "target": "Auxin",
+      "sign": 1,
+      "edge_id": "N004",
+      "effect": "activation",
+      "mechanism": "AUX1 auxin influx carrier facilitates shoot-derived IAA loading into vasculature",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root Development",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "AUX1 facilitates loading of shoot-derived IAA into vascular system",
+          "claim": "AUX1 imports auxin",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GH3",
+      "target": "Auxin",
+      "sign": -1,
+      "edge_id": "N005",
+      "effect": "inhibition",
+      "mechanism": "GH3 acyl amidosynthetases conjugate IAA to amino acids (inactive)",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root Development",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "higher levels of auxin led to expression of conjugating enzyme GH3",
+          "claim": "GH3 inactivates auxin",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "DAO1",
+      "target": "Auxin",
+      "sign": -1,
+      "edge_id": "N006",
+      "effect": "inhibition",
+      "mechanism": "DAO1 dioxygenase oxidizes IAA to inactive oxIAA",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root Development",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "AtDAO1 oxidize endogenous auxin",
+          "claim": "DAO1 degrades IAA",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Low_Nitrate",
+      "target": "TAR2",
+      "sign": 1,
+      "edge_id": "N007",
+      "effect": "activation",
+      "mechanism": "Low N stimulates TAR2 auxin biosynthesis gene",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling and RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "TAR2 is stimulated under low-nitrogen conditions",
+          "claim": "Low N activates TAR2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CHL1",
+      "target": "TAR2",
+      "sign": -1,
+      "edge_id": "N008",
+      "effect": "inhibition",
+      "mechanism": "NRT1.1 represses TAR2 auxin biosynthesis gene",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039941",
+          "title": "Auxin-Regulated LR Organogenesis",
+          "authors": "Cavallari N, Artner C, Benkova E",
+          "year": 2021,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "NRT1 controls auxin biosynthesis by repressing expression of TAR2",
+          "claim": "NRT1.1 represses TAR2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Auxin",
+      "target": "TIR1",
+      "sign": 1,
+      "edge_id": "N009",
+      "effect": "activation",
+      "mechanism": "Auxin binds TIR1/AFB F-box co-receptor to form SCF complex with Aux/IAA substrate",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.54740",
+          "title": "Genetic analysis of the Arabidopsis TIR1/AFB auxin receptors reveals both overlapping and specialized functions",
+          "authors": "Prigge MJ, et al.",
+          "year": 2020,
+          "journal": "eLife",
+          "evidence_sentence": "auxins are perceived by co-receptor complex consisting of TIR1/AFB... Formation leads to degradation of Aux/IAA protein",
+          "claim": "auxin activates TIR1 F-box function",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Low_Phosphate",
+      "target": "TIR1",
+      "sign": 1,
+      "edge_id": "N010",
+      "effect": "activation",
+      "mechanism": "Low Pi upregulates TIR1 to increase auxin sensitivity",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root Development",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "Phosphate deficiency due to signaling pathway enhancing sensitivity to auxin via up-regulation of TIR1 auxin receptor",
+          "claim": "Low Pi activates TIR1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "TIR1",
+      "target": "IAA14",
+      "sign": -1,
+      "edge_id": "N011",
+      "effect": "inhibition",
+      "mechanism": "SCF-TIR1 ubiquitinates IAA14 for 26S proteasomal degradation in presence of auxin",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root Development",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "Cold Spring Harbor Perspectives in Biology",
+          "evidence_sentence": "The auxin signal captured by TIR1/AFBs accelerates the degradation of Aux/IAA proteins such as IAA14/SLR",
+          "claim": "TIR1 targets IAA14 for degradation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "TIR1",
+      "target": "IAA28",
+      "sign": -1,
+      "edge_id": "N012",
+      "effect": "inhibition",
+      "mechanism": "SCF-TIR1 degradation of IAA28",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root Development",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "Cold Spring Harbor Perspectives in Biology",
+          "evidence_sentence": "TIR1/AFBs accelerates the degradation of Aux/IAA proteins such as IAA14/SLR, IAA3/SHY2, IAA19/MSG2, and IAA28",
+          "claim": "TIR1 degrades IAA28",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "IAA14",
+      "target": "ARF7",
+      "sign": -1,
+      "edge_id": "N013",
+      "effect": "inhibition",
+      "mechanism": "IAA14 physically binds ARF7 via PB1 domain to repress its transcriptional activity",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039941",
+          "title": "Auxin-Regulated Lateral Root Organogenesis",
+          "authors": "Cavallari N, Artner C, Benkova E",
+          "year": 2021,
+          "journal": "Cold Spring Harbor Perspectives in Biology",
+          "evidence_sentence": "auxin-regulated signaling modules...IAA14-ARF7-LBD16",
+          "claim": "IAA14 represses ARF7",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "IAA14",
+      "target": "ARF19",
+      "sign": -1,
+      "edge_id": "N014",
+      "effect": "inhibition",
+      "mechanism": "IAA14 physically binds ARF19 to repress its activity",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20030486",
+          "title": "Interplay of Auxin and Cytokinin in Lateral Root Development",
+          "authors": "Jing H, Strader LC",
+          "year": 2019,
+          "journal": "IJMS",
+          "evidence_sentence": "SLR/IAA14-ARF7 and ARF19 in cortex and epidermis regulate pathways enabling separation",
+          "claim": "IAA14 represses ARF19",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "IAA28",
+      "target": "ARF7",
+      "sign": -1,
+      "edge_id": "N015",
+      "effect": "inhibition",
+      "mechanism": "IAA28 represses ARF6/7/8/19 in basal meristem for founder cell specification",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root Development",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "GATA23 activated at specific pre-branch sites through IAA28-ARF 6/7/8/19-dependent pathway",
+          "claim": "IAA28 represses ARF7 in founder cells",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "IAA28",
+      "target": "ARF19",
+      "sign": -1,
+      "edge_id": "N016",
+      "effect": "inhibition",
+      "mechanism": "IAA28 represses ARF19 activity in basal meristem",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root Development",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "IAA28-ARF 6/7/8/19-dependent pathway",
+          "claim": "IAA28 represses ARF19",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ARF7",
+      "target": "LBD",
+      "sign": 1,
+      "edge_id": "N017",
+      "effect": "activation",
+      "mechanism": "ARF7 directly binds LBD16 promoter to activate transcription as primary auxin response [Edge represents composite family; evidence drawn from curated E018 (ARF7->LBD16).]",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.047761",
+          "title": "ARF7 and ARF19 Regulate LR Formation via Direct Activation of LBD/ASL Genes",
+          "authors": "Okushima Y, et al.",
+          "year": 2007,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "recombinant GST-ARF7 protein, but not GST alone, bound to the single LBD16 promoter",
+          "claim": "ARF7 directly activates LBD16",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ARF19",
+      "target": "LBD",
+      "sign": 1,
+      "edge_id": "N018",
+      "effect": "activation",
+      "mechanism": "ARF19 binds LBD16 promoter (minor contribution vs ARF7) [Edge represents composite family; evidence drawn from curated E021 (ARF19->LBD16).]",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.047761",
+          "title": "ARF7/ARF19 direct activation of LBD/ASL",
+          "authors": "Okushima Y, et al.",
+          "year": 2007,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "ARF19 directly regulates both genes, but LBD16 less so",
+          "claim": "ARF19 activates LBD16",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ARF7",
+      "target": "PLT",
+      "sign": 1,
+      "edge_id": "N019",
+      "effect": "activation",
+      "mechanism": "ARF7 activates PLT3 in incipient LR primordia [Edge represents composite family; evidence drawn from curated E034 (ARF7->PLT3).]",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1714410114",
+          "title": "PLETHORA orchestrate de novo organ patterning",
+          "authors": "Du Y, Scheres B",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "upstream auxin response factors ARF7 and ARF19 required to activate expression of early PLT genes",
+          "claim": "ARF7 activates PLT3",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ARF19",
+      "target": "PLT",
+      "sign": 1,
+      "edge_id": "N020",
+      "effect": "activation",
+      "mechanism": "ARF19 redundantly activates PLT3 with ARF7 [Edge represents composite family; evidence drawn from curated E037 (ARF19->PLT3).]",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1714410114",
+          "title": "PLETHORA orchestrate de novo organ patterning",
+          "authors": "Du Y, Scheres B",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "ARF7 and ARF19 required to activate expression of early PLT genes",
+          "claim": "ARF19 activates PLT3",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "LBD",
+      "target": "PUCHI",
+      "sign": 1,
+      "edge_id": "N021",
+      "effect": "activation",
+      "mechanism": "LBD16 upregulates PUCHI in newly developed LRPs [Edge represents composite family; evidence drawn from curated E026 (LBD16->PUCHI).]",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root Development",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "LBD16 in turn up-regulates PUCHI, auxin-inducible transcription factor expressed within newly developed LRPs",
+          "claim": "LBD16 activates PUCHI",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "LBD",
+      "target": "LAX3",
+      "sign": 1,
+      "edge_id": "N022",
+      "effect": "activation",
+      "mechanism": "LBD29 directly activates LAX3 auxin influx carrier for cell separation [Edge represents composite family; evidence drawn from curated E027 (LBD29->LAX3).]",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root Development",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "LAX3 is downstream target of LBD29, which is direct target of ARF7",
+          "claim": "LBD29 activates LAX3",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PLT",
+      "target": "PIN",
+      "sign": 1,
+      "edge_id": "N023",
+      "effect": "activation",
+      "mechanism": "PLT controls PIN1 expression and polar membrane localization in primordia [Edge represents composite family; evidence drawn from curated E041 (PLT3->PIN1).]",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1714410114",
+          "title": "PLETHORA orchestrate organ patterning",
+          "authors": "Du Y, Scheres B",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "from stage II onward, polar localization on plasma membrane of PIN1 impaired in mutant",
+          "claim": "PLT3 activates PIN1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "LBD",
+      "target": "Lateral_Root_Density",
+      "sign": 1,
+      "edge_id": "N024",
+      "effect": "activation",
+      "mechanism": "LBD16 required for asymmetric division initiating LR primordium [Edge represents composite family; evidence drawn from curated E029 (LBD16->Lateral_Root_Density).]",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.106.047761",
+          "title": "ARF7/ARF19 regulate LBD/ASL",
+          "authors": "Okushima Y, et al.",
+          "year": 2007,
+          "journal": "The Plant Cell",
+          "evidence_sentence": "overexpression of LBD16 and LBD29 induced lateral root formation in the absence of ARF7 and ARF19",
+          "claim": "LBD16 positively regulates LR density",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PLT",
+      "target": "Lateral_Root_Density",
+      "sign": 1,
+      "edge_id": "N025",
+      "effect": "activation",
+      "mechanism": "PLT3 required for LR primordium outgrowth and proper spacing; loss causes clustering [Edge represents composite family; evidence drawn from curated E045 (PLT3->Lateral_Root_Density).]",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1714410114",
+          "title": "PLETHORA orchestrate patterning",
+          "authors": "Du Y, Scheres B",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "periclinal cell divisions defects; only ~3% primordia emerged in plt3plt5plt7",
+          "claim": "PLT3 required for emergence and correct LR density",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PUCHI",
+      "target": "Lateral_Root_Density",
+      "sign": 1,
+      "edge_id": "N026",
+      "effect": "activation",
+      "mechanism": "PUCHI controls LR primordium morphogenesis and spacing",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039941",
+          "title": "Auxin-Regulated LR Organogenesis",
+          "authors": "Cavallari N, Artner C, Benkova E",
+          "year": 2021,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "loss of PUCHI results in abnormally enlarged flank cells and clustering of LRP",
+          "claim": "PUCHI promotes correct LR morphology",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "LAX3",
+      "target": "Lateral_Root_Density",
+      "sign": 1,
+      "edge_id": "N027",
+      "effect": "activation",
+      "mechanism": "LAX3 required for LR emergence",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20030486",
+          "title": "Interplay of Auxin and Cytokinin in LR Development",
+          "authors": "Jing H, Strader LC",
+          "year": 2019,
+          "journal": "IJMS",
+          "evidence_sentence": "Disrupting auxin-inducible LAX3 expression phenocopied mutant, resulting in delayed lateral root emergence",
+          "claim": "LAX3 promotes LR emergence",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PIN",
+      "target": "Lateral_Root_Density",
+      "sign": 1,
+      "edge_id": "N028",
+      "effect": "activation",
+      "mechanism": "PIN2 mediates basipetal auxin reflux through epidermis [Edge represents composite family; evidence drawn from curated E066 (PIN2->Lateral_Root_Density).]",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039933",
+          "title": "Auxin in Root Development",
+          "authors": "Roychoudhry S, Kepinski S",
+          "year": 2022,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "Auxin is refluxed back by basipetal transport through the epidermis in a PIN2- and AUX1-dependent manner",
+          "claim": "PIN2 contributes to LR auxin supply",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ANR1",
+      "target": "Lateral_Root_Density",
+      "sign": 1,
+      "edge_id": "N029",
+      "effect": "activation",
+      "mechanism": "ANR1 MADS-box TF positively regulates LR elongation in nitrate patches",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling and RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "ANR1 MADS box gene plays key role; its underexpression prevents local stimulation of lateral root elongation by high nitrate availability",
+          "claim": "ANR1 promotes LR",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "IPT5",
+      "target": "Cytokinin",
+      "sign": 1,
+      "edge_id": "N030",
+      "effect": "activation",
+      "mechanism": "IPT5 isopentenyltransferase catalyses cytokinin biosynthesis",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20030486",
+          "title": "Interplay of Auxin and Cytokinin",
+          "authors": "Jing H, Strader LC",
+          "year": 2019,
+          "journal": "IJMS",
+          "evidence_sentence": "cytokinin biosynthesis enzyme IPT",
+          "claim": "IPT5 produces cytokinin",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CKX2",
+      "target": "Cytokinin",
+      "sign": -1,
+      "edge_id": "N031",
+      "effect": "inhibition",
+      "mechanism": "CKX2 degrades cytokinin",
+      "evidence": [
+        {
+          "doi": "10.1101/cshperspect.a039941",
+          "title": "Auxin-Regulated LR Organogenesis",
+          "authors": "Cavallari N, Artner C, Benkova E",
+          "year": 2021,
+          "journal": "CSHL Perspectives Biol",
+          "evidence_sentence": "CKX2 catalyzes degradation of cytokinins",
+          "claim": "CKX2 degrades cytokinin",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Cytokinin",
+      "target": "AHK",
+      "sign": 1,
+      "edge_id": "N032",
+      "effect": "activation",
+      "mechanism": "Cytokinin binds AHK2 histidine kinase receptor [Edge represents composite family; evidence drawn from curated E078 (Cytokinin->AHK2).]",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20030486",
+          "title": "Interplay of Auxin and Cytokinin in LR Development",
+          "authors": "Jing H, Strader LC",
+          "year": 2019,
+          "journal": "IJMS",
+          "evidence_sentence": "cytokinin biosynthesis enzyme IPT, degrading enzyme CKX, and signaling components AHK, ARR, and AHP6, are involved in LRs",
+          "claim": "Cytokinin activates AHK2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "AHK",
+      "target": "ARR_B",
+      "sign": 1,
+      "edge_id": "N033",
+      "effect": "activation",
+      "mechanism": "AHK phosphorelay via AHPs activates type-B ARR1 TF [Edge represents composite family; evidence drawn from curated E081 (AHK2->ARR1).]",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20030486",
+          "title": "Interplay of Auxin and Cytokinin",
+          "authors": "Jing H, Strader LC",
+          "year": 2019,
+          "journal": "IJMS",
+          "evidence_sentence": "AHK, ARR, and AHP6 are involved in LRs initiation and growth",
+          "claim": "AHK2 activates ARR1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ARR_B",
+      "target": "Lateral_Root_Density",
+      "sign": -1,
+      "edge_id": "N034",
+      "effect": "inhibition",
+      "mechanism": "ARR1 type-B mediates cytokinin inhibition of LR [Edge represents composite family; evidence drawn from curated E206 (ARR1->Lateral_Root_Density).]",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20030486",
+          "title": "Interplay of Auxin and Cytokinin",
+          "authors": "Jing H, Strader LC",
+          "year": 2019,
+          "journal": "IJMS",
+          "evidence_sentence": "ARRs required for cytokinin response display increased root branching",
+          "claim": "ARR1 inhibits LR",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CHL1",
+      "target": "NLP7",
+      "sign": 1,
+      "edge_id": "N035",
+      "effect": "activation",
+      "mechanism": "NRT1.1 activates Ca2+ signaling that phosphorylates NLP7",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling and RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "Nonphosphorylated form of NRT1.1 could activate Ca2+-CPKs-NLPs signaling pathway",
+          "claim": "NRT1.1 activates NLP7",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "NLP7",
+      "target": "ANR1",
+      "sign": 1,
+      "edge_id": "N036",
+      "effect": "activation",
+      "mechanism": "NLP7 activates ANR1 downstream of Ca2+-CPK phosphorylation",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling and RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "NLP and ANR1 subsequently controlling LR elongation",
+          "claim": "NLP7 activates ANR1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CHL1",
+      "target": "ANR1",
+      "sign": 1,
+      "edge_id": "N037",
+      "effect": "activation",
+      "mechanism": "NRT1.1 transceptor activates Ca2+-CPK-NLP7 axis to upregulate ANR1",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "Nitrate Signaling and RSA",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "ANR1, a transcription factor functioning downstream of NRT1.1",
+          "claim": "NRT1.1 activates ANR1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Low_Nitrate",
+      "target": "CLE",
+      "sign": 1,
+      "edge_id": "N038",
+      "effect": "activation",
+      "mechanism": "N deficiency (<100 uM NO3-) induces CLE3 transcription in pericycle [Edge represents composite family; evidence drawn from curated E217 (Low_Nitrate->CLE3).]",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1319953111",
+          "title": "CLE-CLV1 N module",
+          "authors": "Araya T, et al.",
+          "year": 2014,
+          "journal": "PNAS",
+          "evidence_sentence": "CLE1, -3, -4, and -7 were induced by N deficiency in roots, predominantly expressed in root pericycle cells",
+          "claim": "Low N activates CLE3",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CLE",
+      "target": "CLV1",
+      "sign": 1,
+      "edge_id": "N039",
+      "effect": "activation",
+      "mechanism": "CLE3 peptide (pericycle) diffuses apoplastically and binds CLV1 receptor on phloem companion cells [Edge represents composite family; evidence drawn from curated E211 (CLE3->CLV1).]",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1319953111",
+          "title": "CLE-CLAVATA1 peptide-receptor signaling module regulates the expansion of plant root systems in a nitrogen-dependent manner",
+          "authors": "Araya T, et al.",
+          "year": 2014,
+          "journal": "PNAS",
+          "evidence_sentence": "CLE peptides are hypothesized to be secreted from pericycle cells and transported through the apoplastic continuum to reach CLV1 in companion cells",
+          "claim": "CLE3 peptide activates CLV1 receptor",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CLV1",
+      "target": "Lateral_Root_Density",
+      "sign": -1,
+      "edge_id": "N040",
+      "effect": "inhibition",
+      "mechanism": "CLV1 phloem companion-cell receptor transduces CLE3 signal to repress LR emergence under low N",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1319953111",
+          "title": "CLE-CLV1 N module",
+          "authors": "Araya T, et al.",
+          "year": 2014,
+          "journal": "PNAS",
+          "evidence_sentence": "clv1 mutants showed progressive outgrowth of lateral root primordia into lateral roots under N-deficient conditions",
+          "claim": "CLV1 inhibits LR (removed in clv1)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ACS",
+      "target": "Ethylene",
+      "sign": 1,
+      "edge_id": "N041",
+      "effect": "activation",
+      "mechanism": "ACS synthesises ACC from SAM",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2008.03495.x",
+          "title": "Ethylene regulates LR formation",
+          "authors": "Negi S, et al.",
+          "year": 2008,
+          "journal": "Plant J",
+          "evidence_sentence": "ACC treatments significantly enhance radiolabeled indole-3-acetic acid (IAA) transport",
+          "claim": "ACS produces ACC/ethylene",
+          "verification": "pubmed_crosschecked",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "ACO",
+      "target": "Ethylene",
+      "sign": 1,
+      "edge_id": "N042",
+      "effect": "activation",
+      "mechanism": "ACO oxidises ACC to ethylene",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2008.03495.x",
+          "title": "Ethylene regulates LR formation",
+          "authors": "Negi S, et al.",
+          "year": 2008,
+          "journal": "Plant J",
+          "evidence_sentence": "precursor ACC negatively affects IAA synthesis",
+          "claim": "ACO produces ethylene",
+          "verification": "pubmed_crosschecked",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Ethylene",
+      "target": "EIN2",
+      "sign": 1,
+      "edge_id": "N043",
+      "effect": "activation",
+      "mechanism": "Ethylene perception via ETR1 activates EIN2",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2008.03495.x",
+          "title": "Ethylene regulates LR formation and auxin transport",
+          "authors": "Negi S, et al.",
+          "year": 2008,
+          "journal": "Plant J",
+          "evidence_sentence": "Mutations that block ethylene responses, etr1-3 and ein2-5, enhance root formation",
+          "claim": "Ethylene activates EIN2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CTR1",
+      "target": "EIN2",
+      "sign": -1,
+      "edge_id": "N044",
+      "effect": "inhibition",
+      "mechanism": "CTR1 kinase phosphorylates EIN2 to inhibit it in absence of ethylene",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2008.03495.x",
+          "title": "Ethylene regulates LR formation",
+          "authors": "Negi S, et al.",
+          "year": 2008,
+          "journal": "Plant J",
+          "evidence_sentence": "ctr1-1, a constitutive ethylene-signaling mutant",
+          "claim": "CTR1 represses EIN2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "EIN2",
+      "target": "Lateral_Root_Density",
+      "sign": -1,
+      "edge_id": "N045",
+      "effect": "inhibition",
+      "mechanism": "EIN2 required for ethylene-mediated LR inhibition",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2008.03495.x",
+          "title": "Ethylene regulates LR formation",
+          "authors": "Negi S, et al.",
+          "year": 2008,
+          "journal": "Plant J",
+          "evidence_sentence": "etr1-3 and ein2-5 have increased numbers of lateral roots",
+          "claim": "EIN2 inhibits LR density",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ABA",
+      "target": "PYL8",
+      "sign": 1,
+      "edge_id": "N046",
+      "effect": "activation",
+      "mechanism": "ABA binds PYL8 receptor to activate signaling",
+      "evidence": [
+        {
+          "doi": "10.1126/scisignal.2005051",
+          "title": "PYL8 Promotes LR Growth",
+          "authors": "Zhao Y, et al.",
+          "year": 2014,
+          "journal": "Science Signaling",
+          "evidence_sentence": "ABA enhances effects of PYL8 on MYB73 and MYB77 activities in presence of IAA",
+          "claim": "ABA activates PYL8",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PYL8",
+      "target": "ABI1",
+      "sign": -1,
+      "edge_id": "N047",
+      "effect": "inhibition",
+      "mechanism": "PYL8-ABA complex inhibits ABI1 PP2C phosphatase",
+      "evidence": [
+        {
+          "doi": "10.3390/genes11060633",
+          "title": "PYL inhibits PP2C",
+          "authors": "Asim M, et al.",
+          "year": 2020,
+          "journal": "Genes",
+          "evidence_sentence": "PYR1 and PYL proteins are ABA receptors that interact with and inhibit clade-A protein phosphatase type 2Cs (PP2Cs)",
+          "claim": "PYL8 inhibits ABI1",
+          "verification": "pubmed_crosschecked",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "ABI1",
+      "target": "SNRK2",
+      "sign": -1,
+      "edge_id": "N048",
+      "effect": "inhibition",
+      "mechanism": "ABI1 PP2C dephosphorylates and inactivates SnRK2 kinases",
+      "evidence": [
+        {
+          "doi": "10.1126/scisignal.2005051",
+          "title": "PYL8 Promotes LR Growth",
+          "authors": "Zhao Y, et al.",
+          "year": 2014,
+          "journal": "Science Signaling",
+          "evidence_sentence": "Lateral root growth of snrk2.2/3/6 mutant seedlings was less sensitive than wild-type to ABA inhibition",
+          "claim": "ABI1 represses SnRK2",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SNRK2",
+      "target": "ABI4",
+      "sign": 1,
+      "edge_id": "N049",
+      "effect": "activation",
+      "mechanism": "SnRK2 kinases activate downstream ABI TFs",
+      "evidence": [
+        {
+          "doi": "10.1126/scisignal.2005051",
+          "title": "PYL8 Promotes LR Growth",
+          "authors": "Zhao Y, et al.",
+          "year": 2014,
+          "journal": "Science Signaling",
+          "evidence_sentence": "LR quiescence controlled by core ABA signaling through PYL receptors, PP2C co-receptors, SnRK2 protein kinases, ABI4 transcription factor",
+          "claim": "SnRK2 activates ABI4",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ABI4",
+      "target": "Lateral_Root_Density",
+      "sign": -1,
+      "edge_id": "N050",
+      "effect": "inhibition",
+      "mechanism": "ABI4 inhibits LR initiation and elongation via PIN1 reduction",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.074641",
+          "title": "ABI4 Mediates ABA/CK Inhibition of LR",
+          "authors": "Shkolnik-Inbar D, Bar-Zvi D",
+          "year": 2010,
+          "journal": "Plant Cell",
+          "evidence_sentence": "ABI4 inhibits both LR initiation and the elongation of emerged LRs",
+          "claim": "ABI4 inhibits LR density",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GA",
+      "target": "DELLA",
+      "sign": -1,
+      "edge_id": "N051",
+      "effect": "inhibition",
+      "mechanism": "GA-GID1 complex triggers DELLA ubiquitination and degradation",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1469-8137.2011.03723.x",
+          "title": "GA signaling mediates LR inhibition in response to K+-deprivation",
+          "authors": "Yuan TT, et al.",
+          "year": 2014,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "gibberellin pathway is essential for the root response to low K stress in Arabidopsis",
+          "claim": "GA degrades DELLA",
+          "verification": "pubmed_crosschecked",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "DELLA",
+      "target": "Lateral_Root_Density",
+      "sign": -1,
+      "edge_id": "N052",
+      "effect": "inhibition",
+      "mechanism": "DELLA represses LR development under low-K",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1469-8137.2011.03723.x",
+          "title": "GA signaling mediates LR inhibition",
+          "authors": "Yuan TT, et al.",
+          "year": 2014,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Gibberellin signaling mediates lateral root inhibition in response to K+-deprivation",
+          "claim": "DELLA inhibits LR",
+          "verification": "pubmed_crosschecked",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "MAX1",
+      "target": "Strigolactone",
+      "sign": 1,
+      "edge_id": "N053",
+      "effect": "activation",
+      "mechanism": "MAX1 cytochrome P450 oxidises carlactone to carlactonoic acid",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.13681",
+          "title": "Strigolactone and RSA",
+          "authors": "Richmond BL, et al.",
+          "year": 2022,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "RH length decreased in rac-GR24-treated max1-1",
+          "claim": "MAX1 produces SL",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "MAX3",
+      "target": "Strigolactone",
+      "sign": 1,
+      "edge_id": "N054",
+      "effect": "activation",
+      "mechanism": "MAX3/CCD7 cleaves carotenoid precursor in SL biosynthesis",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.13681",
+          "title": "Strigolactone and RSA",
+          "authors": "Richmond BL, et al.",
+          "year": 2022,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "LR number significantly lower with GR24 treatment in max3-9",
+          "claim": "MAX3 produces SL",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "MAX4",
+      "target": "Strigolactone",
+      "sign": 1,
+      "edge_id": "N055",
+      "effect": "activation",
+      "mechanism": "MAX4/CCD8 second SL biosynthesis step",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.13681",
+          "title": "Strigolactone and RSA",
+          "authors": "Richmond BL, et al.",
+          "year": 2022,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "max4-1 had significantly shorter primary root length than Col-0",
+          "claim": "MAX4 produces SL",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Strigolactone",
+      "target": "D14",
+      "sign": 1,
+      "edge_id": "N056",
+      "effect": "activation",
+      "mechanism": "SL binds D14 receptor for signaling",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.13681",
+          "title": "Strigolactone and RSA",
+          "authors": "Richmond BL, et al.",
+          "year": 2022,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "decrease in LR length with rac-GR24 addition was seen in Col-0 and d14-1",
+          "claim": "SL activates D14",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "D14",
+      "target": "Lateral_Root_Density",
+      "sign": -1,
+      "edge_id": "N057",
+      "effect": "inhibition",
+      "mechanism": "D14 strigolactone receptor mediates SL-dependent LR inhibition",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.13681",
+          "title": "Strigolactone and RSA in Arabidopsis",
+          "authors": "Richmond BL, et al.",
+          "year": 2022,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "Significant decrease in LR length with rac-GR24 addition was seen in Col-0 and d14-1, but not kai2-2",
+          "claim": "D14 mediates SL inhibition of LR",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "MAX2",
+      "target": "Lateral_Root_Density",
+      "sign": -1,
+      "edge_id": "N058",
+      "effect": "inhibition",
+      "mechanism": "MAX2 F-box integrates SL and karrikin signaling to inhibit LR",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.13681",
+          "title": "Strigolactone and RSA",
+          "authors": "Richmond BL, et al.",
+          "year": 2022,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "rac-GR24 effect maintained in max1, max3, max4, but MAX2-dependent role",
+          "claim": "MAX2 inhibits LR",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    }
+  ]
+}

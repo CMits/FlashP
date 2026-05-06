@@ -1,0 +1,143 @@
+{
+  "cluster": "C3_GA_biosynthesis",
+  "papers": [
+    {
+      "doi": "10.7717/peerj.15924",
+      "title": "Wheat gibberellin oxidase genes and their functions in regulating tillering",
+      "authors": "Wang T, Li J, Jiang Y, Zhang J, Ni Y, Zhang P, Yao Z, Jiao Z, Li H, Li L, Niu Y, Li Q, Yin G, Niu J",
+      "year": 2023,
+      "journal": "PeerJ",
+      "status": "read",
+      "pmc_id": "PMC10476609"
+    },
+    {
+      "doi": "10.1007/s00425-005-0104-0",
+      "title": "Function and transcript analysis of gibberellin-biosynthetic enzymes in wheat",
+      "authors": "Appleford NEJ, Evans DJ, Lenton JR, Gaskin P, Croker SJ, Devos KM, Phillips AL, Hedden P",
+      "year": 2006,
+      "journal": "Planta",
+      "status": "read"
+    },
+    {
+      "doi": "10.1093/jxb/eraf151",
+      "title": "GIBBERELLIN 3-OXIDASE genes regulate height and grain size in bread wheat",
+      "authors": "Phillips AL, Huttly AK, Alarcón-Reverte R, et al",
+      "year": 2025,
+      "journal": "Journal of Experimental Botany",
+      "status": "read"
+    }
+  ],
+  "edges": [
+    {
+      "source": "TaGA20ox",
+      "target": "Gibberellin",
+      "sign": 1,
+      "mechanism": "GA 20-oxidase catalyzes GA12→GA9 and GA53→GA20 conversions; major regulatory site of bioactive GA production; expressed in elongating nodes/ears",
+      "evidence_doi": "10.1007/s00425-005-0104-0",
+      "evidence_sentence": "GA 20-oxidase and 3-oxidase are major sites of regulation in GA biosynthesis; enzymes catalyze multi-step reactions, including conversions of GA12-GA9, and GA53-GA20"
+    },
+    {
+      "source": "TaGA3ox",
+      "target": "Gibberellin",
+      "sign": 1,
+      "mechanism": "GA 3-oxidase catalyses 3β-hydroxylation of GA20 to GA1 (bioactive); TaGA3ox2 essential for normal development",
+      "evidence_doi": "10.1093/jxb/eraf151",
+      "evidence_sentence": "GA3OX3 catalyses the 3β-hydroxylation of GA20 to GA1"
+    },
+    {
+      "source": "Gibberellin",
+      "target": "TaGA20ox",
+      "sign": -1,
+      "mechanism": "Negative GA feedback: GA3 treatment reduces TaGA20ox-A2/B2 expression",
+      "evidence_doi": "10.7717/peerj.15924",
+      "evidence_sentence": "exogenous GA3 reduces the expressions of GA20oxs and GA3oxs, and increases the expressions of GA2oxs"
+    },
+    {
+      "source": "Gibberellin",
+      "target": "TaGA3ox",
+      "sign": -1,
+      "mechanism": "Negative feedback: GA3 decreases TaGA3ox-B2/D2 expression",
+      "evidence_doi": "10.7717/peerj.15924",
+      "evidence_sentence": "GA3 → TaGA3ox-B2, TaGA3ox-D2 continuously decreased"
+    },
+    {
+      "source": "Gibberellin",
+      "target": "TaGA2ox",
+      "sign": 1,
+      "mechanism": "Positive feedforward: GA3 increases TaGA2ox expression (GA catabolism homeostatic loop)",
+      "evidence_doi": "10.7717/peerj.15924",
+      "evidence_sentence": "exogenous GA3 increases the expressions of GA2oxs"
+    },
+    {
+      "source": "Rht-B1",
+      "target": "TaGA20ox",
+      "sign": 1,
+      "mechanism": "DELLA triggers GA biosynthesis upregulation (negative feedback when DELLA accumulates); Rht-B1 stabilized in dwarf → elevated GA biosynthesis genes",
+      "evidence_doi": "10.7717/peerj.15924",
+      "evidence_sentence": "DELLA protein signaling alters GA oxidase gene transcription through GA-GID1-DELLA tricomplex"
+    },
+    {
+      "source": "TaGA3ox",
+      "target": "Plant_Height",
+      "sign": 1,
+      "mechanism": "ga3ox2 triple mutant severely dwarfed; bioactive GA1 deficient",
+      "evidence_doi": "10.1093/jxb/eraf151",
+      "evidence_sentence": "ga3ox2 triple mutant: severely dwarfed, infertile, compact spikes with fewer spikelets"
+    },
+    {
+      "source": "TaGA1ox1",
+      "target": "Gibberellin",
+      "sign": -1,
+      "mechanism": "GA1ox1-B1 catalyses 1β-hydroxylation GA9→GA61 and GA20→GA60, removing precursors from bioactive pool; ga1ox1 accumulates bioactive GA",
+      "evidence_doi": "10.1093/jxb/eraf151",
+      "evidence_sentence": "GA1OX1-B1: Catalyzes GA9→GA61 and GA20→GA60 (1-hydroxylation preceding 3-hydroxylation); ga1ox1 Mutant: Bioactive GA1/GA4 extremely high; 10.7 cm taller in 2021 field trial"
+    }
+  ],
+  "perturbations": [
+    {
+      "gene": "TaGA3ox2",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "magnitude": "strong",
+      "evidence_doi": "10.1093/jxb/eraf151",
+      "evidence_sentence": "ga3ox2 triple mutant: GA1 levels ~3-fold lower than wild-type in seedlings; severely dwarfed, infertile",
+      "notes": "Triple homeolog mutant; GA3 rescue restores height and fertility"
+    },
+    {
+      "gene": "TaGA3ox3",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "magnitude": "slight",
+      "evidence_doi": "10.1093/jxb/eraf151",
+      "evidence_sentence": "ga3ox3 Mutants: 3.0-4.5 cm shorter than wild-type; grain width/TGW reduced",
+      "notes": "Field phenotype: all 4 lowest internodes shorter"
+    },
+    {
+      "gene": "TaGA1ox1-B1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "magnitude": "moderate",
+      "evidence_doi": "10.1093/jxb/eraf151",
+      "evidence_sentence": "ga1ox1 Mutant: Bioactive GA1/GA4 extremely high; 10.7 cm taller in 2021 field trial; 1.2 cm taller in 2023",
+      "notes": "Loss blocks GA catabolism by-path; increases bioactive GA pool"
+    },
+    {
+      "gene": "TaGA3ox2_plus_GA3",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "unchanged",
+      "magnitude": "",
+      "evidence_doi": "10.1093/jxb/eraf151",
+      "evidence_sentence": "twice-weekly sprays of 10 μM GA3 almost completely restored the height and fertility",
+      "notes": "Chemical rescue of ga3ox2 dwarf"
+    },
+    {
+      "gene": "GA3_treatment",
+      "perturbation_type": "treatment",
+      "expected_direction": "increased",
+      "magnitude": "moderate",
+      "evidence_doi": "10.7717/peerj.15924",
+      "evidence_sentence": "continuous GA3 treatment significantly increased the tiller number",
+      "notes": "Exogenous GA3 spray on wild-type wheat"
+    }
+  ]
+}

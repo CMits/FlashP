@@ -1,0 +1,705 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lycopene_Titer",
+    "species": "Escherichia coli",
+    "created": "2026-04-21",
+    "iteration": 3,
+    "total_nodes": 62,
+    "alias_annotations": {
+      "PGI": [
+        "pgi"
+      ],
+      "ZWF": [
+        "zwf"
+      ],
+      "GAPA": [
+        "gapA"
+      ],
+      "PYKA": [
+        "pykA"
+      ],
+      "PYKF": [
+        "pykF"
+      ],
+      "PPC": [
+        "ppc"
+      ],
+      "PPS": [
+        "pps",
+        "ppsA"
+      ],
+      "EDD": [
+        "edd"
+      ],
+      "EDA": [
+        "eda"
+      ],
+      "GND": [
+        "gnd"
+      ],
+      "GDHA": [
+        "gdhA"
+      ],
+      "ACEE": [
+        "aceE"
+      ],
+      "PTA": [
+        "pta"
+      ],
+      "LDH": [
+        "ldh",
+        "ldhA"
+      ],
+      "DXS": [
+        "dxs"
+      ],
+      "DXR": [
+        "dxr",
+        "ispC"
+      ],
+      "IDI": [
+        "idi"
+      ],
+      "ATOB": [
+        "atoB",
+        "MvaE_upper"
+      ],
+      "HMGS": [
+        "hmgs",
+        "MvaS"
+      ],
+      "HMGR": [
+        "hmgR",
+        "tHMGR",
+        "MvaE_lower"
+      ],
+      "MVK": [
+        "mvk",
+        "MvaK1",
+        "ERG12"
+      ],
+      "MVD": [
+        "mvd",
+        "MvaD",
+        "PMD",
+        "ERG19"
+      ],
+      "ISPA": [
+        "ispA"
+      ],
+      "ISPB": [
+        "ispB"
+      ],
+      "CRTE": [
+        "crtE"
+      ],
+      "CRTB": [
+        "crtB"
+      ],
+      "CRTI": [
+        "crtI"
+      ],
+      "RPOS": [
+        "rpoS"
+      ],
+      "CRL": [
+        "crl"
+      ],
+      "HNR": [
+        "hnr",
+        "rssB"
+      ],
+      "ARCA": [
+        "arcA"
+      ],
+      "FNR": [
+        "fnr"
+      ],
+      "SOXR": [
+        "soxR"
+      ],
+      "SOXS": [
+        "soxS"
+      ],
+      "CRA": [
+        "cra",
+        "fruR"
+      ],
+      "NRI": [
+        "ntrC",
+        "glnG"
+      ],
+      "KATE": [
+        "katE"
+      ],
+      "PLSB": [
+        "plsB"
+      ],
+      "ALMGS": [
+        "Acholeplasma_MGS"
+      ],
+      "Dxr_alias_noted": "Dxr (= ispC) is now a network node as DXR (iteration 2). Curated source string 'Dxr' maps to network id 'DXR'. SodA/CRP/DgkA curated-edges remain in curated_edges.json (in_model=true) but are NOT in this network -- adding them would violate either the 7-input Lycopene_Titer cap (if added as direct Lyc activators) or the no-floating-nodes rule (if added without their only curated direct edge). See build_log_iteration_2.json S003 for full rejection rationale."
+    }
+  },
+  "annotations": [
+    {
+      "node_id": "Glucose",
+      "full_name": "Glucose",
+      "type": "ENVIRONMENT",
+      "description": "Primary carbon source entering PTS then EMP glycolysis; feeds G3P and Pyruvate pools that are the MEP substrate.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 3
+    },
+    {
+      "node_id": "Glycerol",
+      "full_name": "Glycerol",
+      "type": "ENVIRONMENT",
+      "description": "Alternative carbon source; phosphorylated to G3P via glycerol kinase, boosting the G3P pool relative to pyruvate.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "Xylose",
+      "full_name": "Xylose",
+      "type": "ENVIRONMENT",
+      "description": "Alternative carbon source feeding PPP then EMP; supplies G3P and pyruvate to MEP.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 2
+    },
+    {
+      "node_id": "IPTG",
+      "full_name": "IPTG induction",
+      "type": "ENVIRONMENT",
+      "description": "Lac-operon inducer for trc/lac/T7-driven Dxs, Idi, CrtE, CrtB, CrtI cassettes. Dose-response titration input.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 5
+    },
+    {
+      "node_id": "Arabinose",
+      "full_name": "Arabinose induction",
+      "type": "ENVIRONMENT",
+      "description": "pBAD-system inducer for MEP and IspA cassettes.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 4
+    },
+    {
+      "node_id": "Plasmid_Copy_Number",
+      "full_name": "Plasmid copy number",
+      "type": "ENVIRONMENT",
+      "description": "Effective plasmid dosage (pUC~500, pBR322~20, pACYC~15) gating heterologous enzyme expression ceiling.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 5
+    },
+    {
+      "node_id": "Oxygen_Level",
+      "full_name": "Dissolved oxygen",
+      "type": "ENVIRONMENT",
+      "description": "Aerobic vs microaerobic growth \u2014 low O2 de-represses ArcA/FNR, limits ROS, altering carotenoid yield.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 3
+    },
+    {
+      "node_id": "Temperature",
+      "full_name": "Culture temperature",
+      "type": "ENVIRONMENT",
+      "description": "30 degC is typically optimal for heterologous carotenoid synthesis; 37 degC lowers soluble enzyme expression and pigment stability.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "G3P",
+      "full_name": "Glyceraldehyde-3-phosphate",
+      "type": "METABOLITE",
+      "description": "DXS substrate pool fed by glycolysis (Pgi) and the ED shortcut (Edd/Eda); drained by Zwf (PPP) and GapA (lower glycolysis).",
+      "is_source": false,
+      "in_degree": 10,
+      "out_degree": 1
+    },
+    {
+      "node_id": "Pyruvate",
+      "full_name": "Pyruvate",
+      "type": "METABOLITE",
+      "description": "DXS second substrate and Acetyl-CoA precursor. Net pyruvate level is the dominant flux knob for MEP (Farmer 2000).",
+      "is_source": false,
+      "in_degree": 10,
+      "out_degree": 1
+    },
+    {
+      "node_id": "Acetyl_CoA",
+      "full_name": "Acetyl-CoA",
+      "type": "METABOLITE",
+      "description": "TCA and MVA precursor. Produced by AceE (PDH); drained by Ppc (anaplerosis) and Pta (acetate).",
+      "is_source": false,
+      "in_degree": 3,
+      "out_degree": 1
+    },
+    {
+      "node_id": "Acetyl_P",
+      "full_name": "Acetyl phosphate",
+      "type": "METABOLITE",
+      "description": "Signal intermediate upstream of NRI (NtrC phosphorylation proxy).",
+      "is_source": false,
+      "in_degree": 1,
+      "out_degree": 1
+    },
+    {
+      "node_id": "NADPH",
+      "full_name": "NADPH",
+      "type": "METABOLITE",
+      "description": "Reducing cofactor used by HMGR (MVA) and CrtI (four-step desaturation). Produced by Gnd (PPP oxidative) and drained by GdhA.",
+      "is_source": false,
+      "in_degree": 2,
+      "out_degree": 4
+    },
+    {
+      "node_id": "ATP",
+      "full_name": "ATP cofactor",
+      "type": "METABOLITE",
+      "description": "Phosphate-donor cofactor for MVK (MVA kinase step). Treated as a supply source for cofactor gating.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "Mevalonate",
+      "full_name": "Mevalonate",
+      "type": "METABOLITE",
+      "description": "MVA intermediate pool; substrate for MVK/PMK/MVD chain to IPP.",
+      "is_source": false,
+      "in_degree": 5,
+      "out_degree": 1
+    },
+    {
+      "node_id": "IPP",
+      "full_name": "Isopentenyl pyrophosphate",
+      "type": "METABOLITE",
+      "description": "Universal C5 isoprenoid monomer produced by both MEP (via Dxs/Idi) and MVA (via MVK/MVD). Substrate for IspA.",
+      "is_source": false,
+      "in_degree": 7,
+      "out_degree": 2
+    },
+    {
+      "node_id": "DMAPP",
+      "full_name": "Dimethylallyl pyrophosphate",
+      "type": "METABOLITE",
+      "description": "C5 allylic isomer of IPP produced by Idi and MEP terminal (IspH). Partner of IPP for IspA-catalysed GPP/FPP synthesis.",
+      "is_source": false,
+      "in_degree": 2,
+      "out_degree": 1
+    },
+    {
+      "node_id": "GPP",
+      "full_name": "Geranyl pyrophosphate",
+      "type": "METABOLITE",
+      "description": "C10 prenyl intermediate from IspA. Feedback inhibits MVK; at high levels is toxic to lycopene titer (Chen 2022).",
+      "is_source": false,
+      "in_degree": 1,
+      "out_degree": 2
+    },
+    {
+      "node_id": "FPP",
+      "full_name": "Farnesyl pyrophosphate",
+      "type": "METABOLITE",
+      "description": "C15 branch-point metabolite. Feeds CrtE (productive) and IspB (ubiquinone, competing sink).",
+      "is_source": false,
+      "in_degree": 4,
+      "out_degree": 3
+    },
+    {
+      "node_id": "GGPP",
+      "full_name": "Geranylgeranyl pyrophosphate",
+      "type": "METABOLITE",
+      "description": "C20 precursor; condensed by CrtB to phytoene.",
+      "is_source": false,
+      "in_degree": 2,
+      "out_degree": 2
+    },
+    {
+      "node_id": "Phytoene",
+      "full_name": "Phytoene",
+      "type": "METABOLITE",
+      "description": "Colourless C40 carotenoid; CrtI desaturates to lycopene through four steps.",
+      "is_source": false,
+      "in_degree": 2,
+      "out_degree": 1
+    },
+    {
+      "node_id": "ROS",
+      "full_name": "Reactive oxygen species",
+      "type": "METABOLITE",
+      "description": "Superoxide / peroxide / singlet-oxygen pool. Oxidatively degrades lycopene; quenched by lycopene itself (Bongers 2015).",
+      "is_source": false,
+      "in_degree": 3,
+      "out_degree": 1
+    },
+    {
+      "node_id": "PGI",
+      "full_name": "Phosphoglucose isomerase (pgi)",
+      "type": "GENE",
+      "description": "Glucose-6-P to fructose-6-P isomerase \u2014 gateway into EMP glycolysis. Knockout redirects flux through PPP and ED.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 2
+    },
+    {
+      "node_id": "ZWF",
+      "full_name": "Glucose-6-P dehydrogenase (zwf)",
+      "type": "GENE",
+      "description": "PPP entry enzyme. Delta-zwf increases EMP flux and raises lycopene ~130% (Sung 2013).",
+      "is_source": false,
+      "in_degree": 1,
+      "out_degree": 1
+    },
+    {
+      "node_id": "GAPA",
+      "full_name": "Glyceraldehyde-3-P dehydrogenase (gapA)",
+      "type": "GENE",
+      "description": "Lower-glycolysis enzyme draining G3P to 1,3-bisPG. RBS-down gapA raises G3P pool for MEP (Farmer 2000).",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "PYKA",
+      "full_name": "Pyruvate kinase II (pykA)",
+      "type": "GENE",
+      "description": "PEP -> pyruvate kinase. Together with PykF sets pyruvate:G3P balance for MEP.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "PYKF",
+      "full_name": "Pyruvate kinase I (pykF)",
+      "type": "GENE",
+      "description": "Major pyruvate kinase. Delta-pykF can redirect PEP away from pyruvate.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "PPC",
+      "full_name": "PEP carboxylase (ppc)",
+      "type": "GENE",
+      "description": "PEP -> OAA anaplerotic branch. Diverts PEP from pyruvate/Acetyl-CoA supply.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "PPS",
+      "full_name": "PEP synthase (ppsA/pps)",
+      "type": "GENE",
+      "description": "Pyruvate -> PEP. Farmer 2000 classic: Pps OE rebalances pyruvate and G3P pools to improve isoprenoid precursor ratio.",
+      "is_source": false,
+      "in_degree": 2,
+      "out_degree": 2
+    },
+    {
+      "node_id": "EDD",
+      "full_name": "6-phosphogluconate dehydratase (edd)",
+      "type": "GENE",
+      "description": "Entner-Doudoroff dehydratase. With Eda gives 1:1 G3P:pyruvate stoichiometry matching DXS substrate needs (Li 2015).",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 2
+    },
+    {
+      "node_id": "EDA",
+      "full_name": "KDPG aldolase (eda)",
+      "type": "GENE",
+      "description": "Entner-Doudoroff aldolase. KDPG -> pyruvate + G3P, feeding MEP directly.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 2
+    },
+    {
+      "node_id": "GND",
+      "full_name": "6-phosphogluconate dehydrogenase (gnd)",
+      "type": "GENE",
+      "description": "PPP oxidative step producing Ru5P and NADPH. NADPH supplier for HMGR/CrtI cofactor demand.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "GDHA",
+      "full_name": "Glutamate dehydrogenase (gdhA)",
+      "type": "GENE",
+      "description": "Drains NADPH during ammonium assimilation. Delta-gdhA increases NADPH availability (Alper 2006 screen).",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "ACEE",
+      "full_name": "Pyruvate dehydrogenase E1 (aceE)",
+      "type": "GENE",
+      "description": "PDH E1 subunit converting pyruvate -> Acetyl-CoA. Transcriptionally repressed by ArcA and FNR under anaerobic conditions.",
+      "is_source": false,
+      "in_degree": 2,
+      "out_degree": 1
+    },
+    {
+      "node_id": "PTA",
+      "full_name": "Phosphotransacetylase (pta)",
+      "type": "GENE",
+      "description": "Drains Acetyl-CoA to acetyl-P (overflow acetate). Delta-pta can redirect Acetyl-CoA into MVA.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "LDH",
+      "full_name": "Lactate dehydrogenase (ldhA)",
+      "type": "GENE",
+      "description": "Drains pyruvate to lactate under microaerobic conditions. Minor sink.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "DXS",
+      "full_name": "DXP synthase (dxs)",
+      "type": "GENE",
+      "description": "MEP rate-limiting enzyme condensing pyruvate + G3P to DXP. The most-perturbed target in lycopene engineering (~3x OE boost). Substrate consumer: depletes G3P and Pyruvate at high OE (Wang 2009 MAGE non-monotonic dose-response).",
+      "is_source": false,
+      "in_degree": 2,
+      "out_degree": 3
+    },
+    {
+      "node_id": "DXR",
+      "full_name": "DXP reductoisomerase (dxr / ispC)",
+      "type": "GENE",
+      "description": "Second MEP step: reduces DXP to MEP using NADPH. Rate-limiting co-target with Dxs; combined dxs+dxr OE reaches ~16x lycopene (Wang 2020 review; canonical MEP node).",
+      "is_source": false,
+      "in_degree": 2,
+      "out_degree": 1
+    },
+    {
+      "node_id": "IDI",
+      "full_name": "IPP-DMAPP isomerase (idi)",
+      "type": "GENE",
+      "description": "Equilibrates IPP and DMAPP pools. Secondary rate-limiting for MEP; Idi OE on top of Dxs OE gives combined ~16x lycopene.",
+      "is_source": false,
+      "in_degree": 4,
+      "out_degree": 1
+    },
+    {
+      "node_id": "ATOB",
+      "full_name": "Acetoacetyl-CoA thiolase (atoB / MvaE-upper)",
+      "type": "GENE",
+      "description": "MVA upper: 2 Acetyl-CoA -> acetoacetyl-CoA. Source of MVA cassette.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "HMGS",
+      "full_name": "HMG-CoA synthase (HMGS / MvaS)",
+      "type": "GENE",
+      "description": "Acetoacetyl-CoA + Acetyl-CoA -> HMG-CoA.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "HMGR",
+      "full_name": "HMG-CoA reductase (HMGR / MvaE-lower / tHMGR)",
+      "type": "GENE",
+      "description": "HMG-CoA + 2 NADPH -> mevalonate. Truncated tHMGR variant used in many OE strains for improved soluble expression.",
+      "is_source": false,
+      "in_degree": 1,
+      "out_degree": 1
+    },
+    {
+      "node_id": "MVK",
+      "full_name": "Mevalonate kinase (MVK / ERG12 / MvaK1)",
+      "type": "GENE",
+      "description": "Mevalonate + ATP -> mevalonate-5-P. Major MVA downstream bottleneck; feedback inhibited by GPP/FPP/GGPP (Chen 2022).",
+      "is_source": false,
+      "in_degree": 5,
+      "out_degree": 1
+    },
+    {
+      "node_id": "MVD",
+      "full_name": "Mevalonate diphosphate decarboxylase (MVD / ERG19 / PMD)",
+      "type": "GENE",
+      "description": "Terminal MVA enzyme producing IPP from mevalonate-5-PP.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "ISPA",
+      "full_name": "FPP synthase (ispA)",
+      "type": "GENE",
+      "description": "Condenses IPP+DMAPP -> GPP, then IPP+GPP -> FPP. Supplies the FPP branch point.",
+      "is_source": false,
+      "in_degree": 1,
+      "out_degree": 2
+    },
+    {
+      "node_id": "ISPB",
+      "full_name": "Octaprenyl-PP synthase (ispB)",
+      "type": "GENE",
+      "description": "Essential competing sink: FPP -> octaprenyl-PP -> ubiquinone/menaquinone. RBS-down IspB gives modest lycopene gain (cannot KO).",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "CRTE",
+      "full_name": "GGPP synthase (crtE, Pantoea/Erwinia)",
+      "type": "GENE",
+      "description": "Heterologous: FPP + IPP -> GGPP. Plasmid-encoded, IPTG-inducible.",
+      "is_source": false,
+      "in_degree": 2,
+      "out_degree": 1
+    },
+    {
+      "node_id": "CRTB",
+      "full_name": "Phytoene synthase (crtB, Pantoea/Erwinia)",
+      "type": "GENE",
+      "description": "Heterologous: two GGPP -> phytoene.",
+      "is_source": false,
+      "in_degree": 2,
+      "out_degree": 1
+    },
+    {
+      "node_id": "CRTI",
+      "full_name": "Phytoene desaturase (crtI, Pantoea/Erwinia)",
+      "type": "GENE",
+      "description": "Heterologous four-step desaturase: phytoene -> lycopene. NADPH cofactor dependence.",
+      "is_source": false,
+      "in_degree": 3,
+      "out_degree": 1
+    },
+    {
+      "node_id": "RPOS",
+      "full_name": "Sigma-S / stationary-phase factor (rpoS)",
+      "type": "GENE",
+      "description": "Sigma-S stress-response factor. Activates KatE and contributes to carotenoid accumulation (Alper 2005; Bongers 2015 reinterprets as ROS route).",
+      "is_source": false,
+      "in_degree": 2,
+      "out_degree": 1
+    },
+    {
+      "node_id": "CRL",
+      "full_name": "Sigma-S chaperone (crl)",
+      "type": "GENE",
+      "description": "Post-translationally stabilises RpoS holoenzyme assembly.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "HNR",
+      "full_name": "Hnr / RssB proteolysis adaptor (hnr)",
+      "type": "GENE",
+      "description": "Adaptor targeting RpoS for ClpXP degradation. Delta-hnr increases RpoS and lycopene.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "ARCA",
+      "full_name": "Anoxic response regulator (arcA)",
+      "type": "GENE",
+      "description": "Two-component response regulator repressed by high oxygen; represses aerobic TCA including AceE.",
+      "is_source": false,
+      "in_degree": 1,
+      "out_degree": 1
+    },
+    {
+      "node_id": "FNR",
+      "full_name": "Anaerobic regulator FNR (fnr)",
+      "type": "GENE",
+      "description": "Oxygen-sensing [4Fe-4S] TF; represses aerobic metabolism genes including AceE under anoxia.",
+      "is_source": false,
+      "in_degree": 1,
+      "out_degree": 1
+    },
+    {
+      "node_id": "SOXR",
+      "full_name": "Superoxide-response sensor (soxR)",
+      "type": "GENE",
+      "description": "[2Fe-2S] sensor of oxidative stress that activates SoxS.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "SOXS",
+      "full_name": "Superoxide-response regulator (soxS)",
+      "type": "GENE",
+      "description": "AraC-family TF induced by SoxR; upregulates Zwf (PPP oxidative) for NADPH demand.",
+      "is_source": false,
+      "in_degree": 1,
+      "out_degree": 1
+    },
+    {
+      "node_id": "CRA",
+      "full_name": "Catabolite repressor/activator (cra/fruR)",
+      "type": "GENE",
+      "description": "LacI-family TF; activates gluconeogenic genes including pps under glycolytic-substrate limitation.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "NRI",
+      "full_name": "NRI / NtrC (glnG)",
+      "type": "GENE",
+      "description": "Nitrogen-regulatory response regulator phosphorylated in response to Acetyl-P signalling; induces Pps and Idi in Alper 2005 screen.",
+      "is_source": false,
+      "in_degree": 1,
+      "out_degree": 2
+    },
+    {
+      "node_id": "KATE",
+      "full_name": "Catalase HP-II (katE)",
+      "type": "GENE",
+      "description": "Sigma-S-induced hydrogen peroxide catalase. OE reduces oxidative lycopene degradation and collapses strain-level titer variation (Bongers 2015).",
+      "is_source": false,
+      "in_degree": 1,
+      "out_degree": 1
+    },
+    {
+      "node_id": "Lycopene_Titer",
+      "full_name": "Lycopene titer",
+      "type": "PHENOTYPE",
+      "description": "Accumulated lycopene mass per cell biomass (mg/g DCW) or per volume. Metabolic-flux endpoint.",
+      "is_source": false,
+      "in_degree": 8,
+      "out_degree": 1
+    },
+    {
+      "node_id": "ENVELOPE_STRESS",
+      "full_name": "Outer-membrane / envelope stress composite",
+      "type": "PROTEIN_COMPLEX",
+      "description": "Composite node collapsing envelope-biogenesis genes WaaC, WaaF, Lpp, NlpI, MlaE, TolA (Alper 2005 / Zhu 2022 / Bongers review). KO of any member disrupts outer-membrane integrity, which paradoxically INCREASES lycopene accumulation via membrane-permeability / storage-capacity changes. Modelled as single source node with -1 inhibition on Lycopene_Titer because all member KOs act in the same direction and through related envelope-integrity mechanism.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    },
+    {
+      "node_id": "MEMBRANE_STORAGE",
+      "full_name": "Membrane lipid-biogenesis storage composite",
+      "type": "PROTEIN_COMPLEX",
+      "description": "Composite node collapsing membrane-biogenesis enzymes PlsB (G3P acyltransferase), PlsC (1-acyl-G3P acyltransferase), DgkA (diacylglycerol kinase) and Almgs (monoglucosyl-diacylglycerol synthase). OE of any member increases membrane phospholipid/glycolipid content, expanding the hydrophobic reservoir where lycopene is sequestered (Hu 2018, Wang 2020). All four act as +1 activators of Lycopene_Titer through the same hydrophobic-storage mechanism.",
+      "is_source": true,
+      "in_degree": 0,
+      "out_degree": 1
+    }
+  ]
+}

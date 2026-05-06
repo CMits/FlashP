@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Hypocotyl_Length",
+    "species": "Arabidopsis thaliana",
+    "iteration": 2,
+    "responding_to": "judge_review_iteration_1.json",
+    "created": "2026-04-19",
+    "snapshot_of_previous": "network/iteration_1/",
+    "totals_before": {"nodes": 46, "edges": 82, "sources": 10, "source_pct": 21.7},
+    "totals_after":  {"nodes": 54, "edges": 103, "sources": 12, "source_pct": 22.2}
+  },
+  "applied": [
+    {"suggestion_id": "S001", "priority": "high", "action": "added_node+edge",
+     "details": "Added TOC1 (GENE, source) + TOC1 -> PIF4 (-1, E217). Clock repression of PIF4 at dawn."},
+    {"suggestion_id": "S002", "priority": "high", "action": "added_node+3_edges",
+     "details": "Added GI (GENE) + GI -> PIF4 (-1, E118) + ELF3_EC -> GI (-1, E098 via ELF3 evidence) + PIF4 -> GI (+1, E168). The PIF4 -> GI edge closes a SAFE negative feedback loop (PIF4 up -> GI up -> PIF4 down) documented in Nohales 2019."},
+    {"suggestion_id": "S003", "priority": "medium", "action": "added_node+3_edges+removed_1",
+     "details": "Added HSFA1D (GENE) as thermomorphogenesis intermediate. Removed Temperature -> PIF4 (+1) direct edge. Added Temperature -> HSFA1D (+1, E220), HSFA1D -> PIF4 (+1, E129), COP1 -> HSFA1D (+1, E056), BIN2 -> HSFA1D (-1, E032). Temperature signal now routes through HSFA1D instead of bypassing the mechanism."},
+    {"suggestion_id": "S004", "priority": "medium", "action": "added_node+4_edges",
+     "details": "Added BBX11 (GENE). Added PHYB -> BBX11 (+1, E279), CRY1 -> BBX11 (+1, E280), BBX21 -> BBX11 (+1, E276), BBX11 -> HY5 (+1, E274). Intentionally EXCLUDED HY5 -> BBX11 (+1, E275) to prevent positive-feedback loop (Trap 1)."},
+    {"suggestion_id": "S005", "priority": "medium", "action": "added_edge",
+     "details": "Added BIN2 -> PIF3 (-1, E034). Completes BIN2 Multi-Output Scaffold. BIN2 -> PIF4 (E035) deferred this iteration because PIF4 inhibitor count was already at cap-7 after adding TOC1/GI; PIF3 chosen as the PIF representative for BR-PIF crosstalk."},
+    {"suggestion_id": "S006", "priority": "medium", "action": "added_2_edges",
+     "details": "Added SPA1 -> HY5 (-1, E211) and SPA1 -> BIN2 (-1, E209). SPA1 Multi-Output Scaffold completed; spa1 spa2 spa3 spa4 quadruple mutant short-hypocotyl phenotype now modellable."},
+    {"suggestion_id": "S007", "priority": "medium", "action": "added_node+edge",
+     "details": "Added CPD (GENE, source) + CPD -> BR (+1, E061). Third canonical BR biosynthesis enzyme; cpd null dwarfs now modellable."},
+    {"suggestion_id": "S008", "priority": "medium", "action": "added_node+2_edges",
+     "details": "Added FHY1 (GENE). Added PHYA -> FHY1 (+1, using FHY1->phyA E292 evidence — phyA-FHY1 mutual induction is documented in the same papers) + FHY1 -> HFR1 (+1, E304). FHL not added in this iteration (minimal viable phyA accessory). FHY1 -> PHYA reverse arm excluded to avoid positive-feedback loop."},
+    {"suggestion_id": "S009", "priority": "low", "action": "added_edge",
+     "details": "Added PIF5 -> HFR1 (+1, E283). Shade-induced HFR1 negative feedback brake on PIF4 (Motif 2)."},
+    {"suggestion_id": "S010", "priority": "low", "action": "added_2_nodes+4_edges",
+     "details": "Added HYH (GENE) + COP1 -> HYH (-1, E058) + HYH -> Hypocotyl_Length (-1, E133). Added BBX25 (GENE) + COP1 -> BBX25 (-1, E311) + BBX25 -> HY5 (-1, E308). COP1 Multi-Output Scaffold completed (now targets HY5, HYH, HFR1, BBX21, BBX25, BIN2, HSFA1D = 7 outputs)."}
+  ],
+  "rejected": [
+    {"suggestion_id": "S005_partial", "priority": "medium", "reason": "BIN2 -> PIF4 (-1, E035) deferred because PIF4 inhibitor count was already at cap 7 (PHYB, CRY1, HFR1, ELF3_EC, DELLA, TOC1, GI) after applying S001/S002. BIN2 -> PIF3 (-1, E034) applied as proxy for BR-PIF crosstalk. BIN2 -> PIF4 can be added in a later iteration by dropping a less-essential PIF4 inhibitor (e.g., CRY1->PIF4, since CRY1 signal still reaches PIF4 via CRY1->COP1->HFR1)."},
+    {"suggestion_id": "S011", "priority": "low", "reason": "literature_gap suggestion - not actionable by BUILDER (Step 1 curation)."},
+    {"suggestion_id": "S012", "priority": "low", "reason": "literature_gap suggestion - not actionable by BUILDER (Step 1 curation)."}
+  ],
+  "edges_removed": [
+    {"edge": "Temperature -> PIF4 (+1)", "reason": "Replaced by Temperature -> HSFA1D -> PIF4 cascade per S003."},
+    {"edge": "UVR8 -> PIF4 (-1)", "reason": "Removed to keep PIF4 inhibitor count at cap 7 after adding TOC1 and GI. UV-B signal still reaches PIF4 via UVR8 -> COP1 -> HY5/HFR1 and UVR8 -> PIF5 parallel paths."}
+  ],
+  "fan_in_audit_after_iter2": {
+    "max_inhibitors": {"PIF4": 7, "COP1": 5, "BIN2": 4, "HY5": 4, "Hypocotyl_Length": 4},
+    "max_activators": {"Hypocotyl_Length": 5, "PIF4": 3, "HY5": 3, "BR": 3},
+    "phenotype": {"activators": 5, "inhibitors": 4, "total_direct_edges": 9}
+  },
+  "perception_gate_audit_after_iter2": {
+    "BR": "exactly 1 outgoing -> BRI1 (clean)",
+    "GA4": "exactly 1 outgoing -> GID1 (clean)",
+    "Auxin": "exactly 1 outgoing -> TIR1 (clean)",
+    "Ethylene": "exactly 1 outgoing -> CTR1 (clean)",
+    "ABA": "4 outgoing (GA3OX1-, GA20OX1-, GA2OX1+, DELLA+) - ABA is hormone INPUT, not gated"
+  },
+  "positive_feedback_audit_after_iter2": {
+    "PIF4_GI_loop": "PIF4 -> GI (+) AND GI -> PIF4 (-) => NEGATIVE feedback (stabilizing). SAFE.",
+    "BBX11_HY5_potential": "BBX11 -> HY5 (+) kept; HY5 -> BBX11 (+) intentionally NOT added to prevent positive feedback.",
+    "FHY1_PHYA_potential": "PHYA -> FHY1 (+) kept; FHY1 -> PHYA (+) intentionally NOT added.",
+    "all_other_loops_broken_iter1": "ARF6<->BZR1, ARF6<->PIF4, PIFs<->PHYB, PIF4->BAK1 loops all remain broken as documented in BIOLOGY_PROSE.md"
+  },
+  "qa_results": {
+    "check_network_structure": "ALL 5 CHECKS PASSED (exit 0)",
+    "schema_validation": "ALL PASS",
+    "totals": "54 nodes, 103 edges, 12 sources (22.2%)"
+  }
+}

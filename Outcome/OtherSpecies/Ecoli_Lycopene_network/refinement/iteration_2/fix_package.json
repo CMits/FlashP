@@ -1,0 +1,111 @@
+{
+  "iteration": 2,
+  "date": "2026-04-21",
+  "rationale": "Re-diagnosis after iter 1 (best method now RWR @ 77.0%). Inspection of 20 RWR failures revealed a systematic ENCODING BUG affecting 8 source-node tests: the reconciler used `exogenous_supply=0.0` to encode 'source absent' but the FLASH-P source formula is `Node = gene_modifier + exogenous_supply`. Default gene_modifier=1.0, default exogenous_supply=0.0, so `exogenous_supply=0.0` is a NO-OP — the source stays at baseline value 1.0 instead of going to 0. This affects T052 (IPTG_absent), T054 (Arabinose_absent), T059/T060 (Temperature low), T062 (Microaerobic), T088 (CrtE_noIPTG component), T055 (Glucose_carbon which was mistakenly set to 2.0), and T057 (Xylose with Glucose=0 no-op). Fix: convert these perturbations to use gene_modifier instead of exogenous_supply. No DOIs needed — these are encoding fixes per Hard Rule 7 (encoding before structural) and REFINEMENT_AGENT.md §11 encoding-fix patterns. Expected gain: 6-8 tests recovered, estimated +7-9% on RWR best method.",
+  "fixes": [
+    {
+      "action": "encoding_test",
+      "test_id": "T052",
+      "description": "Fix IPTG_absent: exogenous_supply=0.0 is a no-op on the source formula Node=gm+exog. Use gene_modifier=0.0 to zero IPTG.",
+      "reason": "Source-node formula is additive. Default gm=1.0, exog=0.0. Setting exog=0.0 explicitly leaves IPTG at 1.0 (baseline). To set IPTG=0 (absent), must use gene_modifier=0.0.",
+      "biological_justification": "IPTG absent means no lacI de-repression, so any IPTG-inducible promoters on DXS/IDI/CRTEBI stay off. Encoded as IPTG=0.",
+      "updates": {
+        "gene_modifiers": {"IPTG": 0.0},
+        "exogenous_supply": {},
+        "perturbations": [{"node": "IPTG", "modifier_type": "gene_modifier", "value": 0.0}],
+        "notes": "IPTG absent (no induction). Encoded as IPTG gene_modifier=0.0 (iter 2 fix)."
+      }
+    },
+    {
+      "action": "encoding_test",
+      "test_id": "T054",
+      "description": "Fix Arabinose_absent: convert to gene_modifier=0.0.",
+      "reason": "Same no-op issue as T052.",
+      "biological_justification": "Arabinose absent means no pBAD induction; any araBAD-controlled enzymes stay off. Encoded as Arabinose=0.",
+      "updates": {
+        "gene_modifiers": {"Arabinose": 0.0},
+        "exogenous_supply": {},
+        "perturbations": [{"node": "Arabinose", "modifier_type": "gene_modifier", "value": 0.0}],
+        "notes": "Arabinose absent. Encoded as Arabinose gene_modifier=0.0 (iter 2 fix)."
+      }
+    },
+    {
+      "action": "encoding_test",
+      "test_id": "T055",
+      "description": "Fix Glucose_carbon baseline: this test is the control (glucose-fed baseline), should have no perturbation. Previous encoding set Glucose exog=1.0, doubling it.",
+      "reason": "The network baseline assumes glucose as carbon source; this test just confirms baseline. Any perturbation here creates spurious signal.",
+      "biological_justification": "T055 is a control condition matching WT baseline. Expected=unchanged is satisfied by empty perturbation list.",
+      "updates": {
+        "gene_modifiers": {},
+        "exogenous_supply": {},
+        "perturbations": [],
+        "notes": "Glucose-fed baseline (control, no perturbation). iter 2 fix."
+      }
+    },
+    {
+      "action": "encoding_test",
+      "test_id": "T057",
+      "description": "Fix Xylose_carbon: switch Glucose to gene_modifier=0.0 (absent) so the switch is represented.",
+      "reason": "Glucose exog=0.0 was a no-op, so Glucose remained at baseline=1.0 while Xylose was doubled. The carbon-source switch wasn't actually encoded.",
+      "biological_justification": "Xylose sole carbon source: Glucose=0, Xylose=1 (baseline of the Xylose source). Lowering total C-source activation of G3P predicts modest decrease, matching expected=decreased.",
+      "updates": {
+        "gene_modifiers": {"Glucose": 0.0},
+        "exogenous_supply": {"Xylose": 1.0},
+        "perturbations": [{"node": "Glucose", "modifier_type": "gene_modifier", "value": 0.0}, {"node": "Xylose", "modifier_type": "exogenous_supply", "value": 1.0}],
+        "notes": "Xylose as sole C source: Glucose gm=0.0, Xylose exog=1.0 (Xylose=1+1=2). iter 2 fix."
+      }
+    },
+    {
+      "action": "encoding_test",
+      "test_id": "T059",
+      "description": "Fix Temperature_28: use gene_modifier=0.0 to represent low temperature.",
+      "reason": "Same no-op issue. Temperature exog=0.0 leaves Temperature=1.0. Low-temp encoding requires gm=0.0.",
+      "biological_justification": "28C is lower than the baseline 30-37C convention. Temperature node has Temperature->Lycopene_Titer(-1), so low Temperature relieves inhibition -> predicts increased, matching expected.",
+      "updates": {
+        "gene_modifiers": {"Temperature": 0.0},
+        "exogenous_supply": {},
+        "perturbations": [{"node": "Temperature", "modifier_type": "gene_modifier", "value": 0.0}],
+        "notes": "28C growth (low temperature). Encoded as Temperature gm=0.0 (iter 2 fix)."
+      }
+    },
+    {
+      "action": "encoding_test",
+      "test_id": "T060",
+      "description": "Fix Temperature_shift_37to25: gene_modifier=0.0 for the post-shift low-temp state.",
+      "reason": "Same no-op issue.",
+      "biological_justification": "37 -> 25C shift represents movement to a low-temperature production phase; same reasoning as T059.",
+      "updates": {
+        "gene_modifiers": {"Temperature": 0.0},
+        "exogenous_supply": {},
+        "perturbations": [{"node": "Temperature", "modifier_type": "gene_modifier", "value": 0.0}],
+        "notes": "37->25C shift, encoded at low-temp state Temperature gm=0.0 (iter 2 fix)."
+      }
+    },
+    {
+      "action": "encoding_test",
+      "test_id": "T062",
+      "description": "Fix Microaerobic: Oxygen_Level gene_modifier=0.3 (reduced oxygen).",
+      "reason": "exog=0.3 made Oxygen_Level=1.3 (HIGHER than baseline) which is backwards. Microaerobic = reduced oxygen = gm=0.3.",
+      "biological_justification": "Microaerobic growth has lower dissolved oxygen than the aerobic baseline (1.0).",
+      "updates": {
+        "gene_modifiers": {"Oxygen_Level": 0.3},
+        "exogenous_supply": {},
+        "perturbations": [{"node": "Oxygen_Level", "modifier_type": "gene_modifier", "value": 0.3}],
+        "notes": "Microaerobic growth. Encoded as Oxygen_Level gm=0.3 (iter 2 fix)."
+      }
+    },
+    {
+      "action": "encoding_test",
+      "test_id": "T088",
+      "description": "Fix CrtE_Pagglomerans_OE_noIPTG: IPTG component must use gene_modifier=0.0 so the 'no IPTG' part of the test is actually encoded.",
+      "reason": "IPTG exog=0.0 was a no-op, so the test was effectively equivalent to CrtE OE WITH IPTG. The 'no IPTG' distinguishing feature is lost.",
+      "biological_justification": "P.agglomerans CrtE is expressed from a constitutive promoter (not IPTG-controlled). The test probes whether constitutive CrtE OE in an IPTG-naive background increases lycopene. Encoded: CRTE gm=2.0 (OE) AND IPTG gm=0.0 (no induction of endogenous IPTG-controlled genes).",
+      "updates": {
+        "gene_modifiers": {"CRTE": 2.0, "IPTG": 0.0},
+        "exogenous_supply": {},
+        "perturbations": [{"node": "CRTE", "modifier_type": "gene_modifier", "value": 2.0}, {"node": "IPTG", "modifier_type": "gene_modifier", "value": 0.0}],
+        "notes": "CrtE OE from constitutive promoter (no IPTG induction of endogenous crtEBI). iter 2 fix."
+      }
+    }
+  ]
+}

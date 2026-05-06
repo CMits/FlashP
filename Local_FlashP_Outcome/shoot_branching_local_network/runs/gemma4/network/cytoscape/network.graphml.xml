@@ -1,0 +1,236 @@
+<?xml version="1.0" ?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="node_type" for="node" attr.name="type" attr.type="string"/>
+  <key id="node_label" for="node" attr.name="label" attr.type="string"/>
+  <key id="node_color" for="node" attr.name="color" attr.type="string"/>
+  <key id="edge_sign" for="edge" attr.name="sign" attr.type="string"/>
+  <key id="edge_color" for="edge" attr.name="color" attr.type="string"/>
+  <key id="edge_confidence" for="edge" attr.name="confidence" attr.type="string"/>
+  <key id="edge_mechanism" for="edge" attr.name="mechanism" attr.type="string"/>
+  <key id="edge_doi" for="edge" attr.name="doi" attr.type="string"/>
+  <key id="edge_evidence" for="edge" attr.name="evidence_sentence" attr.type="string"/>
+  <key id="graph_version" for="graph" attr.name="flash_p_version" attr.type="string"/>
+  <graph id="G" edgedefault="directed">
+    <data key="graph_version">1.0.4</data>
+    <node id="Auxin">
+      <data key="node_type">HORMONE</data>
+      <data key="node_label">Auxin</data>
+      <data key="node_color">#90EE90</data>
+    </node>
+    <node id="BRC1">
+      <data key="node_type">GENE</data>
+      <data key="node_label">BRC1</data>
+      <data key="node_color">#6495ED</data>
+    </node>
+    <node id="Cytokinin">
+      <data key="node_type">HORMONE</data>
+      <data key="node_label">Cytokinin</data>
+      <data key="node_color">#90EE90</data>
+    </node>
+    <node id="D53">
+      <data key="node_type">GENE</data>
+      <data key="node_label">D53</data>
+      <data key="node_color">#6495ED</data>
+    </node>
+    <node id="Decapitation">
+      <data key="node_type">ENVIRONMENT</data>
+      <data key="node_label">Decapitation</data>
+      <data key="node_color">#87CEEB</data>
+    </node>
+    <node id="FT">
+      <data key="node_type">GENE</data>
+      <data key="node_label">FT</data>
+      <data key="node_color">#6495ED</data>
+    </node>
+    <node id="GA">
+      <data key="node_type">HORMONE</data>
+      <data key="node_label">GA</data>
+      <data key="node_color">#90EE90</data>
+    </node>
+    <node id="MAX2">
+      <data key="node_type">GENE</data>
+      <data key="node_label">MAX2</data>
+      <data key="node_color">#6495ED</data>
+    </node>
+    <node id="SMXL678">
+      <data key="node_type">PROTEIN_COMPLEX</data>
+      <data key="node_label">SMXL678</data>
+      <data key="node_color">#DDA0DD</data>
+    </node>
+    <node id="Shoot_Branching">
+      <data key="node_type">PHENOTYPE</data>
+      <data key="node_label">Shoot_Branching</data>
+      <data key="node_color">#FF6347</data>
+    </node>
+    <node id="Strigolactone">
+      <data key="node_type">HORMONE</data>
+      <data key="node_label">Strigolactone</data>
+      <data key="node_color">#90EE90</data>
+    </node>
+    <node id="Sucrose">
+      <data key="node_type">METABOLITE</data>
+      <data key="node_label">Sucrose</data>
+      <data key="node_color">#FFD700</data>
+    </node>
+    <edge id="e0" source="BRC1" target="Shoot_Branching">
+      <data key="edge_sign">negative</data>
+      <data key="edge_color">#DC143C</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">BRC1 inhibits shoot branching</data>
+      <data key="edge_doi">10.1105/tpc.106.048934</data>
+      <data key="edge_evidence">BRC1 is expressed in developing buds, where it arrests bud development.</data>
+    </edge>
+    <edge id="e1" source="Auxin" target="BRC1">
+      <data key="edge_sign">positive</data>
+      <data key="edge_color">#228B22</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">Auxin promotes BRC1 expression</data>
+      <data key="edge_doi">10.1105/tpc.106.048934</data>
+      <data key="edge_evidence">Mutant and expression analyses suggest that BRC1 is downstream of the MORE AXILLARY GROWTH pathway and that it is required for auxin-induced apical dominance.</data>
+    </edge>
+    <edge id="e2" source="Decapitation" target="BRC1">
+      <data key="edge_sign">negative</data>
+      <data key="edge_color">#DC143C</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">Decapitation inhibits BRC1 expression</data>
+      <data key="edge_doi">10.1105/tpc.106.048934</data>
+      <data key="edge_evidence">BRC1 was downregulated significantly in decapitated plants at 1 h after decapitation</data>
+    </edge>
+    <edge id="e3" source="Sucrose" target="MAX2">
+      <data key="edge_sign">negative</data>
+      <data key="edge_color">#DC143C</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">Sucrose inhibits MAX2 expression</data>
+      <data key="edge_doi">10.1093/jxb/erv047</data>
+      <data key="edge_evidence">Sucrose downregulated both RwMAX2, involved in the strigolactone-transduction pathway</data>
+    </edge>
+    <edge id="e4" source="Sucrose" target="BRC1">
+      <data key="edge_sign">negative</data>
+      <data key="edge_color">#DC143C</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">Sucrose inhibits BRC1 expression</data>
+      <data key="edge_doi">10.1093/jxb/erv047</data>
+      <data key="edge_evidence">and RhBRC1, a repressor of branching, at an early stage.</data>
+    </edge>
+    <edge id="e5" source="Auxin" target="Cytokinin">
+      <data key="edge_sign">negative</data>
+      <data key="edge_color">#DC143C</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">Auxin inhibits Cytokinin</data>
+      <data key="edge_doi">10.1016/j.tplants.2018.12.001</data>
+      <data key="edge_evidence">Auxin inhibits bud outgrowth by inducing strigolactone and inhibiting cytokinin</data>
+    </edge>
+    <edge id="e6" source="Cytokinin" target="Shoot_Branching">
+      <data key="edge_sign">positive</data>
+      <data key="edge_color">#228B22</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">Cytokinin promotes shoot branching</data>
+      <data key="edge_doi">10.1016/j.tplants.2018.12.001</data>
+      <data key="edge_evidence">Cytokinin promotes bud outgrowth when supplied exogenously to axillary buds</data>
+    </edge>
+    <edge id="e7" source="Cytokinin" target="BRC1">
+      <data key="edge_sign">negative</data>
+      <data key="edge_color">#DC143C</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">Cytokinin inhibits BRC1 expression</data>
+      <data key="edge_doi">10.1016/j.tplants.2018.12.001</data>
+      <data key="edge_evidence">Cytokinin negatively regulates BRC1/TB1 expression in both monocots and dicots</data>
+    </edge>
+    <edge id="e8" source="Strigolactone" target="BRC1">
+      <data key="edge_sign">positive</data>
+      <data key="edge_color">#228B22</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">Strigolactone promotes BRC1 expression</data>
+      <data key="edge_doi">10.1016/j.tplants.2018.12.001</data>
+      <data key="edge_evidence">whereas strigolactone positively regulates BRC1 expression in dicots.</data>
+    </edge>
+    <edge id="e9" source="SMXL678" target="BRC1">
+      <data key="edge_sign">negative</data>
+      <data key="edge_color">#DC143C</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">SMXL6/7/8 inhibit BRC1 expression</data>
+      <data key="edge_doi">10.1016/j.tplants.2018.12.001</data>
+      <data key="edge_evidence">D53/SMXL6/7/8 are available to inhibit transcriptional activation of genes, including BRC1 in dicots.</data>
+    </edge>
+    <edge id="e10" source="GA" target="BRC1">
+      <data key="edge_sign">negative</data>
+      <data key="edge_color">#DC143C</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">GA inhibits BRC1 expression</data>
+      <data key="edge_doi">10.1016/j.tplants.2018.12.001</data>
+      <data key="edge_evidence">Gibberellin (GA) inhibits expression of BRC1</data>
+    </edge>
+    <edge id="e11" source="Auxin" target="Shoot_Branching">
+      <data key="edge_sign">negative</data>
+      <data key="edge_color">#DC143C</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">Auxin inhibits shoot branching</data>
+      <data key="edge_doi">10.1016/j.devcel.2005.01.009</data>
+      <data key="edge_evidence">Auxin, derived from the primary shoot apex, is pumped down the plant in the polar transport stream and inhibits the outgrowth of axillary buds.</data>
+    </edge>
+    <edge id="e12" source="MAX2" target="Shoot_Branching">
+      <data key="edge_sign">negative</data>
+      <data key="edge_color">#DC143C</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">MAX2 suppresses shoot branching</data>
+      <data key="edge_doi">10.1105/tpc.114.122903</data>
+      <data key="edge_evidence">Like MAX2, D14 is required locally in the aerial part of the plant to suppress shoot branching.</data>
+    </edge>
+    <edge id="e13" source="MAX2" target="BRC1">
+      <data key="edge_sign">positive</data>
+      <data key="edge_color">#228B22</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">MAX2 promotes BRC1 expression</data>
+      <data key="edge_doi">10.3390/plants3020223</data>
+      <data key="edge_evidence">MAX2 was also shown to promote expression of negative branching integrators such as BRC1 [144,145].</data>
+    </edge>
+    <edge id="e14" source="FT" target="Shoot_Branching">
+      <data key="edge_sign">positive</data>
+      <data key="edge_color">#228B22</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">FT promotes shoot branching</data>
+      <data key="edge_doi">10.1111/nph.17006</data>
+      <data key="edge_evidence">Increased vascular Tre6P levels enhanced branching and was accompanied by higher expression of FLOWERING LOCUS T (FT) and upregulation of sucrose transporters.</data>
+    </edge>
+    <edge id="e15" source="FT" target="BRC1">
+      <data key="edge_sign">negative</data>
+      <data key="edge_color">#DC143C</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">FT inhibits BRC1</data>
+      <data key="edge_doi">10.1111/nph.17006</data>
+      <data key="edge_evidence">In arabidopsis and wheat, the FT protein (also TSF in arabidopsis) has been shown to interact directly with BRC1, and this interaction leads to a reciprocal repressive effect, i.e. FT and BRC1 inhibit each other (Niwa et al., 2013; Dixon et al., 2018).</data>
+    </edge>
+    <edge id="e16" source="Auxin" target="BRC1">
+      <data key="edge_sign">negative</data>
+      <data key="edge_color">#DC143C</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">Auxin inhibits BRC1 transcription</data>
+      <data key="edge_doi">10.1242/dev.145649</data>
+      <data key="edge_evidence">Together, these data suggest that an apically derived signal, such as auxin, moving basipetally in the stem regulates BRC1 transcription.</data>
+    </edge>
+    <edge id="e17" source="Strigolactone" target="Shoot_Branching">
+      <data key="edge_sign">negative</data>
+      <data key="edge_color">#DC143C</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">Strigolactone inhibits shoot branching</data>
+      <data key="edge_doi">10.1242/dev.145649</data>
+      <data key="edge_evidence">The canalization-based model can also explain how the plant hormone strigolactone (SL) inhibits branching.</data>
+    </edge>
+    <edge id="e18" source="MAX2" target="SMXL678">
+      <data key="edge_sign">negative</data>
+      <data key="edge_color">#DC143C</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">MAX2 recruits SMXL6 for degradation</data>
+      <data key="edge_doi">10.1038/nature19073</data>
+      <data key="edge_evidence">MAX2/D3 encodes an F-box protein, which interacts with D14 in a SL-dependent manner and recruits various repressors (such as rice D53 and Arabidopsis SMXL6/7/8) for 26S proteasome-mediated degradation</data>
+    </edge>
+    <edge id="e19" source="D53" target="Shoot_Branching">
+      <data key="edge_sign">negative</data>
+      <data key="edge_color">#DC143C</data>
+      <data key="edge_confidence">MEDIUM</data>
+      <data key="edge_mechanism">D53 represses SL signalling, which inhibits shoot branching</data>
+      <data key="edge_doi">10.1038/nature12878</data>
+      <data key="edge_evidence">Our combined genetic and biochemical data reveal that D53 acts as a repressor of the SL signalling pathway, whose hormone-induced degradation represents a key molecular link between SL perception and responses.</data>
+    </edge>
+  </graph>
+</graphml>

@@ -1,0 +1,49 @@
+{
+  "iteration": 1,
+  "date": "2026-04-20",
+  "fixes": [
+    {
+      "iteration": 1,
+      "action": "sign_change",
+      "description": "Flip IPI1 -> IPA1 edge from -1 (inhibition) to +1 (activation)",
+      "reason": "T058 (IPI1 KO) and T059 (IPI1 OE) fail with opposite-sign predictions; paper states IPI1 stabilises IPA1 in shoot apex (not degrades)",
+      "biological_justification": "IPI1 RING E3 ligase is tissue-specific: in shoot apex it stabilises OsSPL14/IPA1 via K63-linked polyubiquitination, while in panicle it may promote degradation. ipi1-CRISPR mutants show reduced IPA1 and increased tillers, consistent with the +1 sign.",
+      "source": "IPI1",
+      "target": "IPA1",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 1,
+      "action": "edge_addition",
+      "description": "Add HK4 -> TB1 (-1) representing direct CK receptor repression of OsTB1",
+      "reason": "T039 (HK4 KO), T152 (ohk4_ipa1), T200 (OsHK3_OsHK4) all fail because HK4 KO only propagates through HK4->AHP->RR21->IPA1->TB1(+1) giving TB1 DOWN, when biology requires TB1 UP",
+      "biological_justification": "Chun et al. 2023 showed ohk4 exhibits reduced tillering with de-repressed OsTB1, mediated by CK-receptor-phosphorelay-activated B-type response regulators binding and repressing the OsTB1 promoter in axillary meristems.",
+      "source": "HK4",
+      "target": "TB1",
+      "sign": -1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "Re-encode T075 DST-reg1 from gm=2.0 (GOF) to gm=0.5 (semi-dominant LOF)",
+      "reason": "T075 fails at ratio 0.725; the reg1 allele is a semi-dominant LOF that REDUCES DST binding to OsCKX2 promoter (not a canonical GOF of DST function), producing reduced CKX2 and elevated CK.",
+      "biological_justification": "Li et al. 2013 PNAS characterised reg1 as a missense allele with reduced DNA-binding, leading to decreased CKX2 transcription, higher CK, and modestly increased tillers. The correct encoding is a knockdown of DST function (gm=0.5).",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 0.5
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 77.0,
+    "ode_accuracy": 76.4,
+    "rwr_accuracy": 60.0,
+    "kept": true,
+    "reason": "Best-method accuracy 75.2% -> 77.0% (+1.8%); 5 tests fixed (T039,T058,T059,T075,T200), 2 broken (T096,T169), net +3."
+  }
+}

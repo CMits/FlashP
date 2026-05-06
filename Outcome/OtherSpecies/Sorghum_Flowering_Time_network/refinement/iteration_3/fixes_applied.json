@@ -1,0 +1,28 @@
+{
+  "iteration": 3,
+  "date": "2026-04-21",
+  "fixes": [
+    {
+      "iteration": 3,
+      "action": "perturbation_encoding",
+      "description": "Added comparison_baseline='epistasis' with network_baseline_modifiers={Photoperiod_LD: 0.0} to all 8 SD-condition tests (T002, T010, T015, T055, T056, T073, T076, T077). The validator now compares each mutant-under-SD perturbation against a WT-under-SD baseline rather than against the default WT-under-LD-permissive baseline.",
+      "reason": "SD tests use gene_modifier={Photoperiod_LD: 0.0} to represent short-day conditions. In iter 2 these tests compared to the default WT baseline (all sources=1.0, LD-like). That mixed two changes (photoperiod off AND gene KO) into one comparison, producing strong 'decreased' predictions where biology said 'unchanged' (T010 SbPhyC SD, T076 SbGhd7 SD, T077 Ma2_SMYD SD) or 'increased' (T015 SbGI SD). Using epistasis baseline with Photoperiod_LD=0 isolates the gene-KO effect: both baseline and perturbed cascades have LD=0, so the cascade collapse is common-mode and subtracts away. The gene KO's residual effect then matches biology.",
+      "biological_justification": "Biological comparison convention: sbphyC under SD is compared to WT under SD (not to WT under LD). The paper-reported effects ('unchanged' for photoperiod-insensitive backgrounds in SD, 'increased' for sbgi SD) are relative to SD controls in the same experiment. The algebraic framework's default WT baseline assumes permissive (LD-equivalent) conditions, which mixes photoperiod with gene effects. Epistasis baseline encodes the paired SD-vs-SD comparison used in the underlying papers.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "baseline_modifiers",
+      "value": null,
+      "affected_tests": ["T002", "T010", "T015", "T055", "T056", "T073", "T076", "T077"],
+      "doi": "n/a (encoding fix)",
+      "predicted_impact": "+2-4 tests across methods; expected to fix T010/T015/T076/T077."
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 88.3,
+    "ode_accuracy": 84.4,
+    "rwr_accuracy": 87.0,
+    "kept": true,
+    "reason": "Best-method (RWR) improved from 85.7% to 87.0% (+1.3%, above 0.5% threshold). Algebraic +2.6% (gained T015, T076), ODE +5.2% (gained T010, T015, T056, T076), RWR +1.3% (gained T015). Zero regressions on any method."
+  }
+}

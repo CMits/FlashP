@@ -1,0 +1,442 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "shoot_branching",
+    "phenotype_node": "Shoot_Branching",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-18",
+    "iteration": 4,
+    "total_equations": 38,
+    "refinement_iteration": 1
+  },
+  "parameters": {
+    "epsilon": 0.1,
+    "K": 10.0,
+    "activator_floor": 0.01,
+    "damping": 0.7,
+    "direction_threshold": 0.05,
+    "max_iterations": 100,
+    "convergence_tolerance": 0.0001
+  },
+  "equations": [
+    {
+      "node": "Decapitation",
+      "type": "ENVIRONMENT",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Decapitation = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Low_R_FR",
+      "type": "ENVIRONMENT",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Low_R_FR = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Nitrogen",
+      "type": "ENVIRONMENT",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Nitrogen = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Photoperiod",
+      "type": "ENVIRONMENT",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Photoperiod = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Sucrose",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "Decapitation"
+      ],
+      "inhibitors": [],
+      "formula": "Sucrose = max(Decapitation, 0.01)^(1/1) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "miR156",
+      "type": "REGULATORY_RNA",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "miR156 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MAX2",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "Sucrose"
+      ],
+      "formula": "MAX2 = 1.0 * min(1/max(Sucrose, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ABA2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABA2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "D27",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "D27 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MAX1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "GA"
+      ],
+      "formula": "MAX1 = 1.0 * min(1/max(GA, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "LBO",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LBO = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Auxin",
+      "type": "HORMONE",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "Decapitation"
+      ],
+      "formula": "Auxin = 1.0 * min(1/max(Decapitation, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CCD7",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "Auxin"
+      ],
+      "inhibitors": [],
+      "formula": "CCD7 = max(Auxin, 0.01)^(1/1) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CCD8",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "Auxin"
+      ],
+      "inhibitors": [],
+      "formula": "CCD8 = max(Auxin, 0.01)^(1/1) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Strigolactone",
+      "type": "HORMONE",
+      "is_source": false,
+      "activators": [
+        "CCD7",
+        "CCD8",
+        "D27",
+        "MAX1",
+        "LBO"
+      ],
+      "inhibitors": [
+        "Decapitation",
+        "Sucrose",
+        "Nitrogen"
+      ],
+      "formula": "Strigolactone = (max(CCD7, 0.01) * max(CCD8, 0.01) * max(D27, 0.01) * max(MAX1, 0.01) * max(LBO, 0.01))^(1/5) * min(1/max(Decapitation * Sucrose * Nitrogen, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "D14",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "Strigolactone"
+      ],
+      "inhibitors": [
+        "D14"
+      ],
+      "formula": "D14 = max(Strigolactone, 0.01)^(1/1) * min(1/max(D14, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SMXL678",
+      "type": "PROTEIN_COMPLEX",
+      "is_source": false,
+      "activators": [
+        "FHY3"
+      ],
+      "inhibitors": [
+        "D14",
+        "MAX2"
+      ],
+      "formula": "SMXL678 = max(FHY3, 0.01)^(1/1) * min(1/max(D14 * MAX2, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BES1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "MAX2"
+      ],
+      "formula": "BES1 = 1.0 * min(1/max(MAX2, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GA",
+      "type": "HORMONE",
+      "is_source": false,
+      "activators": [
+        "Auxin"
+      ],
+      "inhibitors": [
+        "GA2OX"
+      ],
+      "formula": "GA = max(Auxin, 0.01)^(1/1) * min(1/max(GA2OX, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GA2OX",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "GA"
+      ],
+      "inhibitors": [],
+      "formula": "GA2OX = max(GA, 0.01)^(1/1) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DELLA",
+      "type": "PROTEIN_COMPLEX",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "GA"
+      ],
+      "formula": "DELLA = 1.0 * min(1/max(GA, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SPL9",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "SMXL678",
+        "DELLA",
+        "miR156",
+        "FHY3"
+      ],
+      "formula": "SPL9 = 1.0 * min(1/max(SMXL678 * DELLA * miR156 * FHY3, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BRC1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "Low_R_FR",
+        "SPL9",
+        "Auxin"
+      ],
+      "inhibitors": [
+        "SMXL678",
+        "Cytokinin",
+        "BES1",
+        "FT",
+        "Sucrose",
+        "TIE1",
+        "Decapitation"
+      ],
+      "formula": "BRC1 = (max(Low_R_FR, 0.01) * max(SPL9, 0.01) * max(Auxin, 0.01))^(1/3) * min(1/max(SMXL678 * Cytokinin * BES1 * FT * Sucrose * TIE1 * Decapitation, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "IPT",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "Nitrogen",
+        "Decapitation"
+      ],
+      "inhibitors": [
+        "Auxin"
+      ],
+      "formula": "IPT = (max(Nitrogen, 0.01) * max(Decapitation, 0.01))^(1/2) * min(1/max(Auxin, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CKX9",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "Strigolactone"
+      ],
+      "inhibitors": [],
+      "formula": "CKX9 = max(Strigolactone, 0.01)^(1/1) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Cytokinin",
+      "type": "HORMONE",
+      "is_source": false,
+      "activators": [
+        "IPT",
+        "Sucrose"
+      ],
+      "inhibitors": [
+        "CKX9"
+      ],
+      "formula": "Cytokinin = (max(IPT, 0.01) * max(Sucrose, 0.01))^(1/2) * min(1/max(CKX9, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PIN1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "SMXL678",
+        "Auxin",
+        "Cytokinin",
+        "CAMEL",
+        "Sucrose"
+      ],
+      "inhibitors": [],
+      "formula": "PIN1 = (max(SMXL678, 0.01) * max(Auxin, 0.01) * max(Cytokinin, 0.01) * max(CAMEL, 0.01) * max(Sucrose, 0.01))^(1/5) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PIN3",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "Cytokinin",
+        "Nitrogen"
+      ],
+      "inhibitors": [
+        "BRC1"
+      ],
+      "formula": "PIN3 = (max(Cytokinin, 0.01) * max(Nitrogen, 0.01))^(1/2) * min(1/max(BRC1, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FHY3",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "Low_R_FR"
+      ],
+      "formula": "FHY3 = 1.0 * min(1/max(Low_R_FR, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "T6P",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "Sucrose"
+      ],
+      "inhibitors": [],
+      "formula": "T6P = max(Sucrose, 0.01)^(1/1) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FT",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "T6P",
+        "Photoperiod"
+      ],
+      "inhibitors": [],
+      "formula": "FT = (max(T6P, 0.01) * max(Photoperiod, 0.01))^(1/2) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "HB21",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "BRC1",
+        "Low_R_FR"
+      ],
+      "inhibitors": [
+        "Sucrose"
+      ],
+      "formula": "HB21 = (max(BRC1, 0.01) * max(Low_R_FR, 0.01))^(1/2) * min(1/max(Sucrose, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NCED3",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "HB21",
+        "Low_R_FR"
+      ],
+      "inhibitors": [],
+      "formula": "NCED3 = (max(HB21, 0.01) * max(Low_R_FR, 0.01))^(1/2) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ABA",
+      "type": "HORMONE",
+      "is_source": false,
+      "activators": [
+        "NCED3",
+        "ABA2"
+      ],
+      "inhibitors": [],
+      "formula": "ABA = (max(NCED3, 0.01) * max(ABA2, 0.01))^(1/2) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TIE1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "ARR1"
+      ],
+      "inhibitors": [],
+      "formula": "TIE1 = max(ARR1, 0.01)^(1/1) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ARR1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "Cytokinin"
+      ],
+      "inhibitors": [],
+      "formula": "ARR1 = max(Cytokinin, 0.01)^(1/1) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CAMEL",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "Auxin"
+      ],
+      "inhibitors": [],
+      "formula": "CAMEL = max(Auxin, 0.01)^(1/1) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Shoot_Branching",
+      "type": "PHENOTYPE",
+      "is_source": false,
+      "activators": [
+        "Cytokinin",
+        "PIN1",
+        "PIN3",
+        "T6P",
+        "Sucrose"
+      ],
+      "inhibitors": [
+        "BRC1",
+        "ABA",
+        "ARR1"
+      ],
+      "formula": "Shoot_Branching = (max(Cytokinin, 0.01) * max(PIN1, 0.01) * max(PIN3, 0.01) * max(T6P, 0.01) * max(Sucrose, 0.01))^(1/5) * min(1/max(BRC1 * ABA * ARR1, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    }
+  ]
+}

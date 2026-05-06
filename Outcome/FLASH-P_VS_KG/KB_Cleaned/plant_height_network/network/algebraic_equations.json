@@ -1,0 +1,1875 @@
+{
+  "metadata": {
+    "flash_p_version": "1.0-YOLO",
+    "phenotype": "plant_height",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-02",
+    "total_equations": 206,
+    "parameters": {
+      "epsilon": 0.1,
+      "K": 10.0,
+      "activator_floor": 0.01,
+      "damping": 0.7,
+      "direction_threshold": 0.05,
+      "max_iterations": 50,
+      "convergence_tolerance": 0.0001
+    }
+  },
+  "equations": [
+    {
+      "node": "blue light attenuati",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "blue light attenuati = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Plant_Height",
+      "type": "PHENOTYPE",
+      "is_source": false,
+      "activators": [
+        "blue light attenuati",
+        "ASKTHETA",
+        "FD",
+        "IBH1",
+        "CBP60B",
+        "Propiconazole",
+        "MOS3",
+        "ATGA20OX3",
+        "ATNUP62",
+        "Phytoplasma infectio",
+        "CWPO",
+        "PSS1",
+        "ATMYB63",
+        "Gibberellin",
+        "ATMYB118",
+        "ALD1",
+        "CRWN1",
+        "Constitutive express",
+        "Test compounds",
+        "A mutation",
+        "VHYNP",
+        "VUP1",
+        "ATFKBP42",
+        "DGDG",
+        "ATERF6",
+        "inhibition of cell e",
+        "DR1",
+        "ATMMS21",
+        "MOT1",
+        "ABS1",
+        "ATIWS1",
+        "CsCBF3 overexpressio",
+        "SA",
+        "defects in cytokines",
+        "GH3",
+        "ATDDF1",
+        "Overexpression of Dc",
+        "DICE1",
+        "Brassinolide",
+        "CDKF",
+        "ARR2",
+        "Overexpression of Ml",
+        "SHL",
+        "R3",
+        "ALA4",
+        "LOP1",
+        "azole derivatives",
+        "ATDDF2",
+        "ATWIND1",
+        "Knocking-out both At",
+        "ATNUP160",
+        "pht4;1-1",
+        "ATSIZ1",
+        "null mutations in c3",
+        "MIR159",
+        "WT",
+        "GSF",
+        "Increased expression",
+        "IX",
+        "AT-HSC70-1",
+        "restoration of ligni",
+        "ATSEC8",
+        "\u03b2-estradiol treatmen",
+        "RPS4",
+        "FM",
+        "CAMTA1",
+        "ANQ1",
+        "AUTOIMMUNITY",
+        "Auxin",
+        "ATLMCO4",
+        "Inability to salvage",
+        "brassinazole treatme",
+        "BNCHMP7",
+        "SWEETIE",
+        "Reduced cellulose an",
+        "FHY3",
+        "DFL1",
+        "DELLA",
+        "CAC3",
+        "Genetic lesion",
+        "CK",
+        "S891D",
+        "GA2OX",
+        "CRWN",
+        "ATIAMT1",
+        "S2LB",
+        "PP4R3",
+        "DEXAMETHASONE",
+        "BR6OX2",
+        "ATSWI3B",
+        "ATMPK4",
+        "METHOTREXATE",
+        "MED33B",
+        "Deficiency of thermo",
+        "ANAC104",
+        "vamp721vamp722 doubl",
+        "development of MrCBF",
+        "GA2OX5",
+        "PS",
+        "35S:PvTDIFL1 transge",
+        "ABCB25",
+        "Actin from Candida a",
+        "ALDH5F1",
+        "AUR3",
+        "ATLAC17",
+        "overexpression of Pt",
+        "DAF1",
+        "LL",
+        "5FU",
+        "ATGA2OX4",
+        "ATMKK7",
+        "ATC4H",
+        "BSL2",
+        "ATFTSH4",
+        "AVR2",
+        "A. thaliana",
+        "ATMSH1",
+        "WAK2CTAP",
+        "PEAMT1",
+        "CTR1",
+        "Genetic incompatibil",
+        "Actin from Saccharom",
+        "RG",
+        "ADENINE",
+        "BAHD",
+        "Overexpression of mi",
+        "loss of all ERfs",
+        "DWF4",
+        "over-expression of P",
+        "SCYL2A",
+        "ATEDEM1",
+        "ASL19",
+        "CPL4",
+        "YCZ",
+        "Mutation of exocyst ",
+        "HPY2",
+        "Ethylene",
+        "High-salinity stress",
+        "ATPAT10",
+        "ATRIN4",
+        "LAC11",
+        "LRR",
+        "GA20OX1",
+        "differential accumul",
+        "nerd1-1 sec8-6 doubl",
+        "EBS1",
+        "CBFS",
+        "C4H",
+        "ATMYB24",
+        "ATGA2OX3",
+        "CENH3",
+        "AtPHT4;1",
+        "BRI1",
+        "CTP",
+        "TENGU",
+        "AT2353",
+        "ATCBF3",
+        "ATKH27",
+        "puf2 rha1 double mut",
+        "ATDOF5.4",
+        "PHT4;6",
+        "knockout of four of ",
+        "RIN13",
+        "Turnip Mosaic Virus",
+        "SCYL2B",
+        "ATXR3",
+        "ARAKIN",
+        "NHP",
+        "2F-Fuc",
+        "EXO84B",
+        "ATMYB58",
+        "snc1/eds1-2 double m",
+        "TSBAHD"
+      ],
+      "inhibitors": [
+        "sup6-1",
+        "PAD",
+        "LUX",
+        "TKBAHDH",
+        "E138K",
+        "FMO1",
+        "transgenic plant(s) ",
+        "CCD7",
+        "MOS11",
+        "ATOS9",
+        "KAK",
+        "ATCRT3",
+        "sup6-2",
+        "THF",
+        "A. thaliana overexpr",
+        "ATICS1",
+        "Overexpression of Na",
+        "EDS",
+        "PRE1",
+        "ATEDS1",
+        "Growth at 28\u00b0C",
+        "ATPAD4",
+        "BL",
+        "BES1",
+        "ATNPR1",
+        "ET",
+        "SUMM2",
+        "JA",
+        "mutant TkBAHD allele",
+        "BTL1",
+        "MKS1",
+        "ATWRKY52"
+      ],
+      "formula": "Plant_Height = (max(blue light attenuati, 0.01) * max(ASKTHETA, 0.01) * max(FD, 0.01) * max(IBH1, 0.01) * max(CBP60B, 0.01) * max(Propiconazole, 0.01) * max(MOS3, 0.01) * max(ATGA20OX3, 0.01) * max(ATNUP62, 0.01) * max(Phytoplasma infectio, 0.01) * max(CWPO, 0.01) * max(PSS1, 0.01) * max(ATMYB63, 0.01) * max(Gibberellin, 0.01) * max(ATMYB118, 0.01) * max(ALD1, 0.01) * max(CRWN1, 0.01) * max(Constitutive express, 0.01) * max(Test compounds, 0.01) * max(A mutation, 0.01) * max(VHYNP, 0.01) * max(VUP1, 0.01) * max(ATFKBP42, 0.01) * max(DGDG, 0.01) * max(ATERF6, 0.01) * max(inhibition of cell e, 0.01) * max(DR1, 0.01) * max(ATMMS21, 0.01) * max(MOT1, 0.01) * max(ABS1, 0.01) * max(ATIWS1, 0.01) * max(CsCBF3 overexpressio, 0.01) * max(SA, 0.01) * max(defects in cytokines, 0.01) * max(GH3, 0.01) * max(ATDDF1, 0.01) * max(Overexpression of Dc, 0.01) * max(DICE1, 0.01) * max(Brassinolide, 0.01) * max(CDKF, 0.01) * max(ARR2, 0.01) * max(Overexpression of Ml, 0.01) * max(SHL, 0.01) * max(R3, 0.01) * max(ALA4, 0.01) * max(LOP1, 0.01) * max(azole derivatives, 0.01) * max(ATDDF2, 0.01) * max(ATWIND1, 0.01) * max(Knocking-out both At, 0.01) * max(ATNUP160, 0.01) * max(pht4;1-1, 0.01) * max(ATSIZ1, 0.01) * max(null mutations in c3, 0.01) * max(MIR159, 0.01) * max(WT, 0.01) * max(GSF, 0.01) * max(Increased expression, 0.01) * max(IX, 0.01) * max(AT-HSC70-1, 0.01) * max(restoration of ligni, 0.01) * max(ATSEC8, 0.01) * max(\u03b2-estradiol treatmen, 0.01) * max(RPS4, 0.01) * max(FM, 0.01) * max(CAMTA1, 0.01) * max(ANQ1, 0.01) * max(AUTOIMMUNITY, 0.01) * max(Auxin, 0.01) * max(ATLMCO4, 0.01) * max(Inability to salvage, 0.01) * max(brassinazole treatme, 0.01) * max(BNCHMP7, 0.01) * max(SWEETIE, 0.01) * max(Reduced cellulose an, 0.01) * max(FHY3, 0.01) * max(DFL1, 0.01) * max(DELLA, 0.01) * max(CAC3, 0.01) * max(Genetic lesion, 0.01) * max(CK, 0.01) * max(S891D, 0.01) * max(GA2OX, 0.01) * max(CRWN, 0.01) * max(ATIAMT1, 0.01) * max(S2LB, 0.01) * max(PP4R3, 0.01) * max(DEXAMETHASONE, 0.01) * max(BR6OX2, 0.01) * max(ATSWI3B, 0.01) * max(ATMPK4, 0.01) * max(METHOTREXATE, 0.01) * max(MED33B, 0.01) * max(Deficiency of thermo, 0.01) * max(ANAC104, 0.01) * max(vamp721vamp722 doubl, 0.01) * max(development of MrCBF, 0.01) * max(GA2OX5, 0.01) * max(PS, 0.01) * max(35S:PvTDIFL1 transge, 0.01) * max(ABCB25, 0.01) * max(Actin from Candida a, 0.01) * max(ALDH5F1, 0.01) * max(AUR3, 0.01) * max(ATLAC17, 0.01) * max(overexpression of Pt, 0.01) * max(DAF1, 0.01) * max(LL, 0.01) * max(5FU, 0.01) * max(ATGA2OX4, 0.01) * max(ATMKK7, 0.01) * max(ATC4H, 0.01) * max(BSL2, 0.01) * max(ATFTSH4, 0.01) * max(AVR2, 0.01) * max(A. thaliana, 0.01) * max(ATMSH1, 0.01) * max(WAK2CTAP, 0.01) * max(PEAMT1, 0.01) * max(CTR1, 0.01) * max(Genetic incompatibil, 0.01) * max(Actin from Saccharom, 0.01) * max(RG, 0.01) * max(ADENINE, 0.01) * max(BAHD, 0.01) * max(Overexpression of mi, 0.01) * max(loss of all ERfs, 0.01) * max(DWF4, 0.01) * max(over-expression of P, 0.01) * max(SCYL2A, 0.01) * max(ATEDEM1, 0.01) * max(ASL19, 0.01) * max(CPL4, 0.01) * max(YCZ, 0.01) * max(Mutation of exocyst , 0.01) * max(HPY2, 0.01) * max(Ethylene, 0.01) * max(High-salinity stress, 0.01) * max(ATPAT10, 0.01) * max(ATRIN4, 0.01) * max(LAC11, 0.01) * max(LRR, 0.01) * max(GA20OX1, 0.01) * max(differential accumul, 0.01) * max(nerd1-1 sec8-6 doubl, 0.01) * max(EBS1, 0.01) * max(CBFS, 0.01) * max(C4H, 0.01) * max(ATMYB24, 0.01) * max(ATGA2OX3, 0.01) * max(CENH3, 0.01) * max(AtPHT4;1, 0.01) * max(BRI1, 0.01) * max(CTP, 0.01) * max(TENGU, 0.01) * max(AT2353, 0.01) * max(ATCBF3, 0.01) * max(ATKH27, 0.01) * max(puf2 rha1 double mut, 0.01) * max(ATDOF5.4, 0.01) * max(PHT4;6, 0.01) * max(knockout of four of , 0.01) * max(RIN13, 0.01) * max(Turnip Mosaic Virus, 0.01) * max(SCYL2B, 0.01) * max(ATXR3, 0.01) * max(ARAKIN, 0.01) * max(NHP, 0.01) * max(2F-Fuc, 0.01) * max(EXO84B, 0.01) * max(ATMYB58, 0.01) * max(snc1/eds1-2 double m, 0.01) * max(TSBAHD, 0.01))^(1/173) * min(1/max(sup6-1 * PAD * LUX * TKBAHDH * E138K * FMO1 * transgenic plant(s)  * CCD7 * MOS11 * ATOS9 * KAK * ATCRT3 * sup6-2 * THF * A. thaliana overexpr * ATICS1 * Overexpression of Na * EDS * PRE1 * ATEDS1 * Growth at 28\u00b0C * ATPAD4 * BL * BES1 * ATNPR1 * ET * SUMM2 * JA * mutant TkBAHD allele * BTL1 * MKS1 * ATWRKY52, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ASKTHETA",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ASKTHETA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FD",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FD = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "IBH1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "IBH1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CBP60B",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CBP60B = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Propiconazole",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Propiconazole = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "sup6-1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "sup6-1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PAD",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PAD = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MOS3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MOS3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATGA20OX3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATGA20OX3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATNUP62",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATNUP62 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Phytoplasma infectio",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Phytoplasma infectio = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CWPO",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CWPO = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PSS1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PSS1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATMYB63",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMYB63 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Gibberellin",
+      "type": "HORMONE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Gibberellin = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATMYB118",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMYB118 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "LUX",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LUX = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ALD1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ALD1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CRWN1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CRWN1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Constitutive express",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Constitutive express = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Test compounds",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Test compounds = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "A mutation",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "A mutation = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "VHYNP",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "VHYNP = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "VUP1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "VUP1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATFKBP42",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATFKBP42 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DGDG",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DGDG = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATERF6",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATERF6 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "inhibition of cell e",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "inhibition of cell e = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DR1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DR1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATMMS21",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMMS21 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TKBAHDH",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TKBAHDH = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "E138K",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "E138K = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MOT1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MOT1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ABS1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABS1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FMO1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FMO1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATIWS1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATIWS1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "transgenic plant(s) ",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "transgenic plant(s)  = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CsCBF3 overexpressio",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CsCBF3 overexpressio = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SA",
+      "type": "HORMONE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "defects in cytokines",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "defects in cytokines = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GH3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GH3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATDDF1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATDDF1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Overexpression of Dc",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Dc = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DICE1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DICE1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Brassinolide",
+      "type": "HORMONE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Brassinolide = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CDKF",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CDKF = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ARR2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ARR2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Overexpression of Ml",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Ml = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SHL",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SHL = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "R3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "R3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CCD7",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CCD7 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ALA4",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ALA4 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "LOP1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LOP1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "azole derivatives",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "azole derivatives = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MOS11",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MOS11 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATDDF2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATDDF2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATWIND1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATWIND1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Knocking-out both At",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Knocking-out both At = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATOS9",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATOS9 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATNUP160",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATNUP160 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "pht4;1-1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "pht4;1-1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "KAK",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "KAK = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATSIZ1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATSIZ1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "null mutations in c3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "null mutations in c3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MIR159",
+      "type": "REGULATORY_RNA",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MIR159 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "WT",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "WT = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GSF",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GSF = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Increased expression",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Increased expression = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "IX",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "IX = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AT-HSC70-1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AT-HSC70-1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "restoration of ligni",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "restoration of ligni = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATSEC8",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATSEC8 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "\u03b2-estradiol treatmen",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "\u03b2-estradiol treatmen = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "RPS4",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RPS4 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FM",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FM = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATCRT3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATCRT3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CAMTA1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CAMTA1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ANQ1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ANQ1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AUTOIMMUNITY",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AUTOIMMUNITY = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Auxin",
+      "type": "HORMONE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Auxin = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATLMCO4",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATLMCO4 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Inability to salvage",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Inability to salvage = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "brassinazole treatme",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "brassinazole treatme = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BNCHMP7",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BNCHMP7 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "sup6-2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "sup6-2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SWEETIE",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SWEETIE = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Reduced cellulose an",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Reduced cellulose an = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FHY3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FHY3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DFL1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DFL1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "THF",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "THF = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DELLA",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DELLA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CAC3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CAC3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Genetic lesion",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Genetic lesion = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "A. thaliana overexpr",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "A. thaliana overexpr = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CK",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CK = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATICS1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATICS1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "S891D",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "S891D = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GA2OX",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GA2OX = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CRWN",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CRWN = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Overexpression of Na",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Na = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATIAMT1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATIAMT1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "S2LB",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "S2LB = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PP4R3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PP4R3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DEXAMETHASONE",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DEXAMETHASONE = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "EDS",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EDS = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BR6OX2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BR6OX2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PRE1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PRE1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATSWI3B",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATSWI3B = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATMPK4",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMPK4 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "METHOTREXATE",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "METHOTREXATE = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MED33B",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MED33B = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Deficiency of thermo",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Deficiency of thermo = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ANAC104",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ANAC104 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "vamp721vamp722 doubl",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "vamp721vamp722 doubl = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "development of MrCBF",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "development of MrCBF = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATEDS1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATEDS1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GA2OX5",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GA2OX5 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PS",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PS = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Growth at 28\u00b0C",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Growth at 28\u00b0C = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "35S:PvTDIFL1 transge",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "35S:PvTDIFL1 transge = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ABCB25",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABCB25 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Actin from Candida a",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Actin from Candida a = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATPAD4",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATPAD4 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ALDH5F1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ALDH5F1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AUR3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AUR3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATLAC17",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATLAC17 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "overexpression of Pt",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "overexpression of Pt = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DAF1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DAF1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "LL",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LL = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "5FU",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "5FU = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATGA2OX4",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATGA2OX4 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATMKK7",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMKK7 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATC4H",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATC4H = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BL",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BL = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BSL2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BSL2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATFTSH4",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATFTSH4 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AVR2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AVR2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "A. thaliana",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "A. thaliana = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATMSH1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMSH1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "WAK2CTAP",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "WAK2CTAP = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PEAMT1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PEAMT1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CTR1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CTR1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Genetic incompatibil",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Genetic incompatibil = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Actin from Saccharom",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Actin from Saccharom = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "RG",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RG = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ADENINE",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ADENINE = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BAHD",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BAHD = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Overexpression of mi",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of mi = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "loss of all ERfs",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "loss of all ERfs = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DWF4",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DWF4 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BES1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BES1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "over-expression of P",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "over-expression of P = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SCYL2A",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SCYL2A = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATEDEM1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATEDEM1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATNPR1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATNPR1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ET",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ET = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ASL19",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ASL19 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CPL4",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CPL4 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "YCZ",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "YCZ = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Mutation of exocyst ",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Mutation of exocyst  = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "HPY2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HPY2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Ethylene",
+      "type": "HORMONE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Ethylene = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "High-salinity stress",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "High-salinity stress = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATPAT10",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATPAT10 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATRIN4",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATRIN4 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "LAC11",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LAC11 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SUMM2",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SUMM2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "LRR",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LRR = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GA20OX1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GA20OX1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "differential accumul",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "differential accumul = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "nerd1-1 sec8-6 doubl",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "nerd1-1 sec8-6 doubl = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "EBS1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EBS1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CBFS",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CBFS = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "C4H",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "C4H = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "JA",
+      "type": "HORMONE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "JA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATMYB24",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMYB24 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATGA2OX3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATGA2OX3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "mutant TkBAHD allele",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "mutant TkBAHD allele = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CENH3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CENH3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BTL1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BTL1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AtPHT4;1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AtPHT4;1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "BRI1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BRI1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CTP",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CTP = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TENGU",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TENGU = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AT2353",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AT2353 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATCBF3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATCBF3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATKH27",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATKH27 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "puf2 rha1 double mut",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "puf2 rha1 double mut = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATDOF5.4",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATDOF5.4 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PHT4;6",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PHT4;6 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "knockout of four of ",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "knockout of four of  = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "RIN13",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RIN13 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Turnip Mosaic Virus",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Turnip Mosaic Virus = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SCYL2B",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SCYL2B = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATXR3",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATXR3 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ARAKIN",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ARAKIN = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NHP",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NHP = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "2F-Fuc",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "2F-Fuc = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "EXO84B",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EXO84B = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATMYB58",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATMYB58 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "snc1/eds1-2 double m",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "snc1/eds1-2 double m = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TSBAHD",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TSBAHD = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MKS1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MKS1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATWRKY52",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATWRKY52 = gene_modifier + exogenous_supply"
+    }
+  ]
+}

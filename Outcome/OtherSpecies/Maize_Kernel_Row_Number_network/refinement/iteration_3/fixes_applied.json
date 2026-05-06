@@ -1,0 +1,29 @@
+{
+  "iteration": 3,
+  "date": "2026-04-20",
+  "fixes": [
+    {
+      "iteration": 3,
+      "action": "edge_removal",
+      "description": "(REVERTED) Attempted to remove FEA4 -> BA1 (+1) [N075]",
+      "reason": "T025 Abphyl2 dominant (ABPH2 GOF -> FEA4 partial reduction) still predicted decreased (ratio 0.85) because BA1 drops when FEA4 drops, collapsing AM. Hypothesis: remove FEA4 -> BA1 since ARF6/BIF2 are the primary direct regulators of BA1. Outcome: best-method accuracy unchanged (85.9%). Reverted.",
+      "biological_justification": "FEA4 -> BA1 was based on ChIP-seq + differential-expression correlation (Pautler 2015); ARF6 and BIF2 are the canonical direct regulators (Gallavotti 2008, Skirpan 2009). Removal would not have violated biology, but the <0.5% accuracy gain threshold led to revert per the §8 keep/revert rule.",
+      "source": "FEA4",
+      "target": "BA1",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 85.9,
+    "ode_accuracy": 80.3,
+    "rwr_accuracy": 80.3,
+    "kappa_algebraic": 0.7525,
+    "mcc_algebraic": 0.6568,
+    "kept": false,
+    "reason": "Best-method unchanged at 85.9% Algebraic (+0.0% < 0.5% threshold). REVERT.",
+    "edges_added": 0,
+    "edges_removed": 1
+  }
+}

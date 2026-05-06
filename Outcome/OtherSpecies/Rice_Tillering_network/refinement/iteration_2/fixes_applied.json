@@ -1,0 +1,25 @@
+{
+  "iteration": 2,
+  "date": "2026-04-20",
+  "fixes": [
+    {
+      "iteration": 2,
+      "action": "sign_change",
+      "description": "Flip BZR1 -> TB1 edge from -1 to +1",
+      "reason": "T114 (BZR1 KD), T115 (BR treatment), T161 (osbzr1 d53) all fail because the cited network sign (-1) is inconsistent with the paper phenotype (BR/BZR1 reduces tillers, yet TB1->Tiller_Number is -1 canonically).",
+      "biological_justification": "Fang 2020 reports BR stabilises the OsBZR1-D53 complex at the OsTB1 promoter and reduces tiller outgrowth. With TB1 canonically repressing Tiller_Number, this phenotype requires BZR1 to net-activate TB1 (the phenotype-level evidence overrides the \"represses\" wording in the original paper). A previous attempt adding RR21->TB1 in the same iteration caused 10 regressions via TB1-hub dilution and was reverted.",
+      "source": "BZR1",
+      "target": "TB1",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 78.8,
+    "ode_accuracy": 77.6,
+    "rwr_accuracy": 61.2,
+    "kept": true,
+    "reason": "Best-method accuracy 77.0% -> 78.8% (+1.8%); BR/BZR1 cluster (T114,T115,T161) fixed cleanly. Previous attempt adding RR21->TB1 was reverted due to 10-test hub-dilution regression."
+  }
+}

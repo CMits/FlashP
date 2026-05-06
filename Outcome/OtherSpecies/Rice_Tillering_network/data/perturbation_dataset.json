@@ -1,0 +1,4484 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Tillering",
+    "species": "Oryza sativa",
+    "created": "2026-04-20",
+    "total_perturbations": 202,
+    "by_type": {
+      "knockout": 58,
+      "overexpression": 32,
+      "knockdown": 12,
+      "double_mutant": 18,
+      "gain_of_function": 10,
+      "treatment": 24,
+      "knockout_plus_treatment": 14,
+      "rescue": 8,
+      "environmental": 10
+    },
+    "convention": "All tillers compared to wild-type Nipponbare/Takanari at heading stage unless specified; rescue and double-mutant tests use their specific mutant comparison baseline as per FLASH-P pipeline rules (mutant + treatment vs mutant alone)."
+  },
+  "direction_threshold": 0.05,
+  "perturbations": [
+    {
+      "test_id": "T001",
+      "gene": "MOC1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/nature01518",
+          "title": "Control of tillering in rice",
+          "authors": "Li X et al.",
+          "year": 2003,
+          "journal": "Nature",
+          "evidence_sentence": "Loss-of-function mutant of MOC1 exhibits a monoculm phenotype without tillers.",
+          "claim": "moc1 shows monoculm (tiller = 1)",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T002",
+      "gene": "MOC1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/nature01518",
+          "title": "Control of tillering in rice",
+          "authors": "Li X et al.",
+          "year": 2003,
+          "journal": "Nature",
+          "evidence_sentence": "Overexpression of MOC1 leads to the formation of higher-order tillers such as tertiary, quaternary, and quinary.",
+          "claim": "MOC1-OE increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T003",
+      "gene": "MOC3",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/erad422",
+          "title": "Potential of rice tillering",
+          "authors": "Takai T",
+          "year": 2023,
+          "journal": "JXB",
+          "evidence_sentence": "moc3 mutant cannot form normal axillary meristems; severely reduced tillers.",
+          "claim": "moc3 reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T004",
+      "gene": "MOC2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1186/s12284-014-0032-3",
+          "title": "MOC2 encodes FBP1",
+          "authors": "Koumoto T et al.",
+          "year": 2013,
+          "journal": "Rice",
+          "evidence_sentence": "Loss of MOC2 causes a significant reduction in tiller number.",
+          "claim": "moc2 reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T005",
+      "gene": "LAX1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.003194",
+          "title": "LAX and SPA",
+          "authors": "Komatsu K et al.",
+          "year": 2003,
+          "journal": "Plant Cell",
+          "evidence_sentence": "lax1 single mutant shows reduced axillary bud formation.",
+          "claim": "lax1 reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T006",
+      "gene": "LAX2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1107403108",
+          "title": "LAX PANICLE2",
+          "authors": "Tabuchi H et al.",
+          "year": 2011,
+          "journal": "PNAS",
+          "evidence_sentence": "lax2 single mutant: sparse panicle; reduced secondary branches and spikelets; fewer tillers.",
+          "claim": "lax2 reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T007",
+      "gene": "LAX1_LAX2",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1107403108",
+          "title": "LAX PANICLE2",
+          "authors": "Tabuchi H et al.",
+          "year": 2011,
+          "journal": "PNAS",
+          "evidence_sentence": "lax1 lax2 double mutant: severe reduction in secondary branches and spikelets; dramatic tiller loss; 'All SBs and spikelets except terminal spikelets were absent'.",
+          "claim": "lax1 lax2 dramatic tiller loss",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T008",
+      "gene": "LAX2_MOC1",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1107403108",
+          "title": "LAX PANICLE2",
+          "authors": "Tabuchi H et al.",
+          "year": 2011,
+          "journal": "PNAS",
+          "evidence_sentence": "lax2 moc1 double mutant: complete loss of all branching except primary branches; monoculm.",
+          "claim": "lax2 moc1 is monoculm",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T009",
+      "gene": "TAB1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.15.00074",
+          "title": "TILLERS ABSENT1",
+          "authors": "Tanaka W et al.",
+          "year": 2015,
+          "journal": "Plant Cell",
+          "evidence_sentence": "tab1-1 produces no tillers even in 2-month-old shoots.",
+          "claim": "tab1 is tillerless",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T010",
+      "gene": "FON2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.16163",
+          "title": "Antagonistic action of TAB1 and FON2",
+          "authors": "Tanaka W et al.",
+          "year": 2020,
+          "journal": "New Phytologist",
+          "evidence_sentence": "In fon2 mutant sizes of the SAM and inflorescence meristem were increased; axillary meristems increased.",
+          "claim": "fon2 increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T011",
+      "gene": "FON2",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.16163",
+          "title": "Antagonistic TAB1 FON2",
+          "authors": "Tanaka W et al.",
+          "year": 2020,
+          "journal": "New Phytologist",
+          "evidence_sentence": "In FON2 overexpressor, axillary meristem formation is inhibited.",
+          "claim": "FON2-OE decreases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T012",
+      "gene": "TAB1_FON2",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.16163",
+          "title": "Antagonistic TAB1 FON2",
+          "authors": "Tanaka W et al.",
+          "year": 2020,
+          "journal": "New Phytologist",
+          "evidence_sentence": "tab1 fon2 double mutant produces a few tillers (partial rescue of tab1 tillerless phenotype).",
+          "claim": "tab1 fon2 partial rescue of tab1",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T013",
+      "gene": "D3",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq083",
+          "title": "FC1 downstream of SL",
+          "authors": "Minakuchi K et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "d3 mutant is tillering dwarf with excessive tillers.",
+          "claim": "d3 increases tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T014",
+      "gene": "D14",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcp091",
+          "title": "d14 SL-insensitive mutant",
+          "authors": "Arite T et al.",
+          "year": 2009,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "d14 mutant shows accelerated outgrowth of tillers; SL-insensitive.",
+          "claim": "d14 increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T015",
+      "gene": "D53",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/nature12870",
+          "title": "D53 SL repressor",
+          "authors": "Jiang L et al.",
+          "year": 2013,
+          "journal": "Nature",
+          "evidence_sentence": "d53 dominant mutant has total tiller number about three times that of wild type.",
+          "claim": "d53 ~3x tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T016",
+      "gene": "D53",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/nature12878",
+          "title": "D14-SCFD3 degradation of D53",
+          "authors": "Zhou F et al.",
+          "year": 2013,
+          "journal": "Nature",
+          "evidence_sentence": "pActin::D53-GFP transgenic plants showed moderate increase in tillering.",
+          "claim": "D53-OE moderate tiller increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T017",
+      "gene": "D10",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2007.03210.x",
+          "title": "D10 CCD8",
+          "authors": "Arite T et al.",
+          "year": 2007,
+          "journal": "Plant Journal",
+          "evidence_sentence": "d10 SL-biosynthesis mutant shows high-tillering dwarf phenotype.",
+          "claim": "d10 high tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T018",
+      "gene": "D17",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1270/jsbbs.22088",
+          "title": "Genetic basis rice plant architecture",
+          "authors": "Tanaka W et al.",
+          "year": 2023,
+          "journal": "Breeding Science",
+          "evidence_sentence": "d17/htd1 SL-biosynthesis mutant shows high-tillering dwarf phenotype.",
+          "claim": "d17 high tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T019",
+      "gene": "D27",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.109.065987",
+          "title": "DWARF27 iron-containing SL biosynthesis",
+          "authors": "Lin H et al.",
+          "year": 2009,
+          "journal": "Plant Cell",
+          "evidence_sentence": "d27 final tiller number is three times that of the wild type.",
+          "claim": "d27 ~3x tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T020",
+      "gene": "D88",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1016/j.cub.2007.01.063",
+          "title": "D88/D14L SL",
+          "authors": "Arite T et al.",
+          "year": 2007,
+          "journal": "Current Biology",
+          "evidence_sentence": "d88/d14L weak SL-insensitive phenotype with moderately increased tillers.",
+          "claim": "d88 moderate tiller increase",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T021",
+      "gene": "OsMAX1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Diverse roles of MAX1 homologs in rice",
+          "authors": "Zhang Y et al.",
+          "year": 2014,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Os900 max1 mutant shows increased tillers.",
+          "claim": "osmax1 increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T022",
+      "gene": "OsTB1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1046/j.1365-313X.2003.01648.x",
+          "title": "OsTB1 negatively regulates lateral branching",
+          "authors": "Takeda T et al.",
+          "year": 2003,
+          "journal": "Plant Journal",
+          "evidence_sentence": "fc1 mutant (OsTB1 loss-of-function) causes increase in the number of tillers; NIL-fc1 produces 143% more panicles.",
+          "claim": "fc1 strong tiller increase",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T023",
+      "gene": "OsTB1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1046/j.1365-313X.2003.01648.x",
+          "title": "OsTB1 negatively regulates branching",
+          "authors": "Takeda T et al.",
+          "year": 2003,
+          "journal": "Plant Journal",
+          "evidence_sentence": "Transgenic rice plants overexpressing OsTB1 exhibited markedly reduced lateral branching.",
+          "claim": "OsTB1-OE reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T024",
+      "gene": "IPA1",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/ng.591",
+          "title": "OsSPL14 regulation by miR156",
+          "authors": "Jiao Y et al.",
+          "year": 2010,
+          "journal": "Nature Genetics",
+          "evidence_sentence": "ipa1-1D: miR156 binding site mutation, IPA1 accumulation, reduced tiller number.",
+          "claim": "ipa1-1D reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T025",
+      "gene": "IPA1",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/erad422",
+          "title": "Potential of rice tillering",
+          "authors": "Takai T",
+          "year": 2023,
+          "journal": "JXB",
+          "evidence_sentence": "ipa1-2D novel allele generates large panicles and moderate panicle number, with reduced tillers.",
+          "claim": "ipa1-2D moderate tiller decrease",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T026",
+      "gene": "IPA1",
+      "perturbation_type": "knockdown",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/cr.2017.102",
+          "title": "IPA1 downstream D53",
+          "authors": "Song X et al.",
+          "year": 2017,
+          "journal": "Cell Research",
+          "evidence_sentence": "ipa1-10 loss-of-function: more tillers, smaller panicles.",
+          "claim": "ipa1-10 increases tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T027",
+      "gene": "miR156",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/ng.591",
+          "title": "miR156-OsSPL14 module",
+          "authors": "Jiao Y et al.",
+          "year": 2010,
+          "journal": "Nature Genetics",
+          "evidence_sentence": "miR156 OE degrades OsSPL14 mRNA, resulting in increased tiller number.",
+          "claim": "miR156-OE increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T028",
+      "gene": "miR529",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1016/j.plantsci.2020.110669",
+          "title": "MiR529a rice plant height tillering",
+          "authors": "Yan J et al.",
+          "year": 2020,
+          "journal": "Plant Science",
+          "evidence_sentence": "miR529a OE increases tiller number by targeting OsSPL14.",
+          "claim": "miR529-OE increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T029",
+      "gene": "Gn1a",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1126/science.1113373",
+          "title": "Cytokinin oxidase regulates rice grain production",
+          "authors": "Ashikari M et al.",
+          "year": 2005,
+          "journal": "Science",
+          "evidence_sentence": "Gn1a reduced-function allele: more tillers and more grains per panicle due to CK accumulation.",
+          "claim": "gn1a increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T030",
+      "gene": "OsCKX2",
+      "perturbation_type": "knockdown",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1186/s12284-015-0070-5",
+          "title": "OsCKX2 RNAi tillers",
+          "authors": "Yeh SY et al.",
+          "year": 2015,
+          "journal": "Rice",
+          "evidence_sentence": "OsCKX2-RNAi: 27-81% increased panicle/tiller number vs wild-type.",
+          "claim": "OsCKX2 RNAi 27-81% tiller increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T031",
+      "gene": "OsCKX2",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1186/s12284-015-0070-5",
+          "title": "OsCKX2 RNAi rice yield",
+          "authors": "Yeh SY et al.",
+          "year": 2015,
+          "journal": "Rice",
+          "evidence_sentence": "OsCKX2-OE: reduced tillers (gene-dosage dependent).",
+          "claim": "OsCKX2-OE reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T032",
+      "gene": "OsCKX4",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1270/jsbbs.22088",
+          "title": "Genetic basis rice plant architecture",
+          "authors": "Tanaka W et al.",
+          "year": 2023,
+          "journal": "Breeding Science",
+          "evidence_sentence": "osckx4 increases tillers via CK accumulation.",
+          "claim": "osckx4 increases tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T033",
+      "gene": "OsCKX9",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1810980116",
+          "title": "SL promotes CK degradation via OsCKX9",
+          "authors": "Duan J et al.",
+          "year": 2019,
+          "journal": "PNAS",
+          "evidence_sentence": "osckx9 mutant: increased tillers, decreased plant height and panicle size.",
+          "claim": "osckx9 increases tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T034",
+      "gene": "OsCKX9",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1810980116",
+          "title": "SL promotes CK degradation",
+          "authors": "Duan J et al.",
+          "year": 2019,
+          "journal": "PNAS",
+          "evidence_sentence": "OsCKX9-OX: increased tillers, decreased height and panicle branches (paradox — CK depletion in node but altered SL response).",
+          "claim": "OsCKX9-OE slight tiller increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T035",
+      "gene": "OsCKX11",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41477-021-01065-2",
+          "title": "OsCKX11 source-sink",
+          "authors": "Zhang W et al.",
+          "year": 2021,
+          "journal": "JIPB",
+          "evidence_sentence": "osckx11 increases tiller number and alters source-sink relationship.",
+          "claim": "osckx11 increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T036",
+      "gene": "OsIPT4",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.192765",
+          "title": "Rice cytokinin signaling",
+          "authors": "Tsai YC et al.",
+          "year": 2012,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "OsIPT OE increases cytokinin levels; expected to promote tillering.",
+          "claim": "OsIPT4-OE increases tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T037",
+      "gene": "OsIPT4_OsIPT7",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.192765",
+          "title": "Rice cytokinin signaling",
+          "authors": "Tsai YC et al.",
+          "year": 2012,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "osipt4/7 loss reduces CK biosynthesis and expected reduced tiller outgrowth.",
+          "claim": "osipt4/7 reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T038",
+      "gene": "OsAHP",
+      "perturbation_type": "knockdown",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.192765",
+          "title": "Rice CK signaling",
+          "authors": "Tsai YC et al.",
+          "year": 2012,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "OsAHP-RNAi plants exhibited phenotypes expected for a deficiency in cytokinin signaling, including dwarfism and reduced tiller numbers.",
+          "claim": "OsAHP-RNAi reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T039",
+      "gene": "OsHK4",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koad257",
+          "title": "OHK4/OsHK4 regulates inflorescence",
+          "authors": "Chun Y et al.",
+          "year": 2023,
+          "journal": "Plant Cell",
+          "evidence_sentence": "ohk4 loss-of-function: reduced panicle, decreased higher-order tillers.",
+          "claim": "ohk4 reduces higher-order tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T040",
+      "gene": "NGR5",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1126/science.aaz2046",
+          "title": "NGR5 green revolution",
+          "authors": "Wu K et al.",
+          "year": 2020,
+          "journal": "Science",
+          "evidence_sentence": "ngr5 loss-of-function mutant failed to induce tiller outgrowth in response to nitrogen.",
+          "claim": "ngr5 reduces N-induced tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T041",
+      "gene": "NGR5",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1126/science.aaz2046",
+          "title": "NGR5 chromatin modulation",
+          "authors": "Wu K et al.",
+          "year": 2020,
+          "journal": "Science",
+          "evidence_sentence": "NGR5-OE/high-expression allele: increased tiller number and yield.",
+          "claim": "NGR5-OE increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T042",
+      "gene": "OsTCP19",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41586-020-03091-w",
+          "title": "OsTCP19 N adaptation",
+          "authors": "Liu Y et al.",
+          "year": 2021,
+          "journal": "Nature",
+          "evidence_sentence": "Accessions with 29-bp insertion in OsTCP19 promoter (loss of expression) show high tillering response to nitrogen.",
+          "claim": "OsTCP19-LOF increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T043",
+      "gene": "OsTCP19",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41586-020-03091-w",
+          "title": "OsTCP19",
+          "authors": "Liu Y et al.",
+          "year": 2021,
+          "journal": "Nature",
+          "evidence_sentence": "OsTCP19-OE: reduced tillers via DLT repression.",
+          "claim": "OsTCP19-OE reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T044",
+      "gene": "DLT",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2009.03825.x",
+          "title": "DLT BR signaling",
+          "authors": "Tong H et al.",
+          "year": 2009,
+          "journal": "Plant Journal",
+          "evidence_sentence": "dlt mutant: dwarf and low tillering phenotype.",
+          "claim": "dlt reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T045",
+      "gene": "OsLBD37",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41586-020-03091-w",
+          "title": "OsLBD37 N signaling",
+          "authors": "Liu Y et al.",
+          "year": 2021,
+          "journal": "Nature",
+          "evidence_sentence": "OsLBD37-OE: represses OsTCP19 and increases tillers.",
+          "claim": "OsLBD37-OE increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T046",
+      "gene": "NRT1.1B",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/ng.3337",
+          "title": "NRT1.1B natural variation",
+          "authors": "Hu B et al.",
+          "year": 2015,
+          "journal": "Nature Genetics",
+          "evidence_sentence": "Indica NRT1.1B allele in japonica background increases tiller number and NUE.",
+          "claim": "NRT1.1B indica allele increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T047",
+      "gene": "OsNLP4",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1111/pbi.13450",
+          "title": "OsNLP4-OsNiR cascade",
+          "authors": "Yu J et al.",
+          "year": 2021,
+          "journal": "Plant Biotech J",
+          "evidence_sentence": "osnlp4 mutant: significantly decreased tiller number and plant height.",
+          "claim": "osnlp4 reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T048",
+      "gene": "TAD1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms1743",
+          "title": "TAD1 MOC1 degradation",
+          "authors": "Xu C et al.",
+          "year": 2012,
+          "journal": "Nature Communications",
+          "evidence_sentence": "tad1 mutant showed an increased tiller number.",
+          "claim": "tad1 increases tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T049",
+      "gene": "TAD1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms1743",
+          "title": "TAD1",
+          "authors": "Xu C et al.",
+          "year": 2012,
+          "journal": "Nature Communications",
+          "evidence_sentence": "TAD1-overexpressing transgenic plants showed a reduced tiller number.",
+          "claim": "TAD1-OE reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T050",
+      "gene": "TE",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms1716",
+          "title": "APC/CTE tillering MOC1",
+          "authors": "Lin Q et al.",
+          "year": 2012,
+          "journal": "Nature Communications",
+          "evidence_sentence": "te mutant displays drastically increased tiller number (~3-fold).",
+          "claim": "te 3-fold tiller increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T051",
+      "gene": "TE",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms1716",
+          "title": "APC/CTE tillering",
+          "authors": "Lin Q et al.",
+          "year": 2012,
+          "journal": "Nature Communications",
+          "evidence_sentence": "TE-OE reduced tiller number.",
+          "claim": "TE-OE reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T052",
+      "gene": "TE_MOC1",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms1716",
+          "title": "APC/CTE tillering",
+          "authors": "Lin Q et al.",
+          "year": 2012,
+          "journal": "Nature Communications",
+          "evidence_sentence": "te moc1-5 double: reduced tillers like moc1-5 alone; MOC1 epistatic over TE.",
+          "claim": "te moc1 is low tiller like moc1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T053",
+      "gene": "SLR1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-019-10667-2",
+          "title": "SLR1 MOC1 coordination",
+          "authors": "Liao Z et al.",
+          "year": 2019,
+          "journal": "Nature Communications",
+          "evidence_sentence": "slr1 recessive mutant exhibited fewer tillers and taller stature.",
+          "claim": "slr1 reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T054",
+      "gene": "SLR1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-019-10667-2",
+          "title": "SLR1 MOC1",
+          "authors": "Liao Z et al.",
+          "year": 2019,
+          "journal": "Nature Communications",
+          "evidence_sentence": "SLR1-OE: tiller number was increased.",
+          "claim": "SLR1-OE increases tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T055",
+      "gene": "SLR1_MOC1",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-019-10667-2",
+          "title": "SLR1 MOC1",
+          "authors": "Liao Z et al.",
+          "year": 2019,
+          "journal": "Nature Communications",
+          "evidence_sentence": "slr1 moc1 double: low tillers like moc1 alone (moc1 epistatic).",
+          "claim": "slr1 moc1 epistasis moc1-like",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T056",
+      "gene": "OsGA20ox2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/416701a",
+          "title": "Green revolution SD1",
+          "authors": "Sasaki A et al.",
+          "year": 2002,
+          "journal": "Nature",
+          "evidence_sentence": "sd1 (GA20ox2 null) produces more tillers and shorter plants.",
+          "claim": "sd1 increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T057",
+      "gene": "OsGA20ox2",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-019-10667-2",
+          "title": "SLR1 MOC1",
+          "authors": "Liao Z et al.",
+          "year": 2019,
+          "journal": "Nature Communications",
+          "evidence_sentence": "GA20ox1-OE line: fewer tillers and taller stature.",
+          "claim": "GA20ox-OE reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T058",
+      "gene": "IPI1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.16.00879",
+          "title": "IPI1 tissue-specific ubiquitination",
+          "authors": "Wang J et al.",
+          "year": 2017,
+          "journal": "Plant Cell",
+          "evidence_sentence": "ipi1-1 CRISPR mutant: reduced IPA1 in shoot apex causing increased tillers.",
+          "claim": "ipi1 increases tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T059",
+      "gene": "IPI1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.16.00879",
+          "title": "IPI1",
+          "authors": "Wang J et al.",
+          "year": 2017,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Ub:IPI1-OE: increased IPA1 accumulation in shoot apex, reduced tillers.",
+          "claim": "IPI1-OE reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T060",
+      "gene": "OsSHI1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00023",
+          "title": "OsSHI1 IPA1",
+          "authors": "Duan E et al.",
+          "year": 2019,
+          "journal": "Plant Cell",
+          "evidence_sentence": "shi1 mutant: dramatically reduced tiller number.",
+          "claim": "shi1 reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T061",
+      "gene": "OsSHI1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00023",
+          "title": "OsSHI1 IPA1",
+          "authors": "Duan E et al.",
+          "year": 2019,
+          "journal": "Plant Cell",
+          "evidence_sentence": "OsSHI1-OE: reduced plant height, decreased panicle, ectopic tillers at upper internodes but reduced normal tillers.",
+          "claim": "OsSHI1-OE decreases tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T062",
+      "gene": "OsMADS57",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms2542",
+          "title": "OsMADS57 OsTB1 D14",
+          "authors": "Guo S et al.",
+          "year": 2013,
+          "journal": "Nature Communications",
+          "evidence_sentence": "osmads57-1 activation-tagged: 28 tillers vs WT 10.",
+          "claim": "mads57-1D strong tiller increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T063",
+      "gene": "OsMADS57",
+      "perturbation_type": "knockdown",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms2542",
+          "title": "OsMADS57",
+          "authors": "Guo S et al.",
+          "year": 2013,
+          "journal": "Nature Communications",
+          "evidence_sentence": "OsMADS57-antisense: reduced tillers.",
+          "claim": "osmads57 antisense reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T064",
+      "gene": "miR444a",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/ncomms2542",
+          "title": "OsMADS57 miR444",
+          "authors": "Guo S et al.",
+          "year": 2013,
+          "journal": "Nature Communications",
+          "evidence_sentence": "OsMIR444a-OE lines: suppresses OsMADS57 expression, fewer tillers.",
+          "claim": "miR444a-OE reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T065",
+      "gene": "OsCCA1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Rice Circadian Clock",
+          "authors": "Wang Q et al.",
+          "year": 2020,
+          "journal": "Plant Cell",
+          "evidence_sentence": "oscca1 mutant shows more tillers and delayed flowering.",
+          "claim": "oscca1 increases tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T066",
+      "gene": "OsCCA1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Rice Clock",
+          "authors": "Wang Q et al.",
+          "year": 2020,
+          "journal": "Plant Cell",
+          "evidence_sentence": "OsCCA1-OE: fewer tillers than transgenic control.",
+          "claim": "OsCCA1-OE reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T067",
+      "gene": "OsPRR1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Rice Clock",
+          "authors": "Wang Q et al.",
+          "year": 2020,
+          "journal": "Plant Cell",
+          "evidence_sentence": "OsPRR1-OE: reduced tiller numbers.",
+          "claim": "OsPRR1-OE reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T068",
+      "gene": "OsPIN1a",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pci183",
+          "title": "OsPIN1 auxin transport",
+          "authors": "Xu M et al.",
+          "year": 2005,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "Knockdown of OsPIN1a decreases crown roots and increases tiller number.",
+          "claim": "OsPIN1a KO increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T069",
+      "gene": "OsPIN1b",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms23168965",
+          "title": "OsPIN1b CRISPR rice architecture",
+          "authors": "Li Y et al.",
+          "year": 2022,
+          "journal": "IJMS",
+          "evidence_sentence": "OsPIN1b CRISPR mutant: increased tiller numbers, altered root gravitropism.",
+          "claim": "OsPIN1b KO increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T070",
+      "gene": "OsPIN2",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1007/s10535-012-0093-3",
+          "title": "OsPIN2 overexpression",
+          "authors": "Chen Y et al.",
+          "year": 2012,
+          "journal": "Biologia Plantarum",
+          "evidence_sentence": "OsPIN2-OE leads to increased tiller numbers, tiller angle and shorter plant.",
+          "claim": "OsPIN2-OE increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T071",
+      "gene": "OsPIN9",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17699",
+          "title": "OsPIN9 ammonium tillering",
+          "authors": "Hou M et al.",
+          "year": 2021,
+          "journal": "New Phytologist",
+          "evidence_sentence": "ospin9 knockout: decreased tillering.",
+          "claim": "ospin9 reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T072",
+      "gene": "OsPIN9",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17699",
+          "title": "OsPIN9",
+          "authors": "Hou M et al.",
+          "year": 2021,
+          "journal": "New Phytologist",
+          "evidence_sentence": "OsPIN9-OE: increased tillering.",
+          "claim": "OsPIN9-OE increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T073",
+      "gene": "OsTIR1_OsAFB2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17061",
+          "title": "OsTIR1 OsAFB redundancy",
+          "authors": "Guo F et al.",
+          "year": 2021,
+          "journal": "New Phytologist",
+          "evidence_sentence": "OsTIR1/OsAFB2 double mutants show severely compromised plant development including tillering defects.",
+          "claim": "ostir1 osafb2 double reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T074",
+      "gene": "OsTB2",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-019-14264-1",
+          "title": "OsTB2 natural variation",
+          "authors": "Lyu J et al.",
+          "year": 2020,
+          "journal": "Nature Communications",
+          "evidence_sentence": "japonica OsTB2-3bp+ allele: promotes axillary bud elongation, increased tillers.",
+          "claim": "OsTB2 japonica 3bp+ increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T075",
+      "gene": "DST",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1300359110",
+          "title": "DST OsCKX2",
+          "authors": "Li S et al.",
+          "year": 2013,
+          "journal": "PNAS",
+          "evidence_sentence": "reg1 allele of DST: reduced OsCKX2 expression, elevated CK, enhanced grain number and moderately increased tillers (Gn1a-independent +20% yield).",
+          "claim": "DST-reg1 increases tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T076",
+      "gene": "DST",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1300359110",
+          "title": "DST OsCKX2",
+          "authors": "Li S et al.",
+          "year": 2013,
+          "journal": "PNAS",
+          "evidence_sentence": "DST-OE: activates OsCKX2, reduced CK, reduced panicle branches and grain number; reduces tillers.",
+          "claim": "DST-OE reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "both",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T077",
+      "gene": "Strigolactone",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq083",
+          "title": "FC1 downstream SL",
+          "authors": "Minakuchi K et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "WT + 10uM GR24 completely inhibited the outgrowth of third leaf tiller buds.",
+          "claim": "GR24 treatment reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T078",
+      "gene": "D27",
+      "perturbation_type": "knockout_plus_GR24",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.109.065987",
+          "title": "D27 iron-containing",
+          "authors": "Lin H et al.",
+          "year": 2009,
+          "journal": "Plant Cell",
+          "evidence_sentence": "d27 + 1.0 uM GR24 fully rescues tillering dwarf phenotype.",
+          "claim": "d27 + GR24 rescues to WT",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T079",
+      "gene": "D10",
+      "perturbation_type": "knockout_plus_GR24",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq083",
+          "title": "FC1 downstream SL",
+          "authors": "Minakuchi K et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "d10-2 + 1 uM GR24: sufficient to inhibit the outgrowth of first and second leaf buds; SL-biosynthesis-mutant responds.",
+          "claim": "d10 + GR24 rescues",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T080",
+      "gene": "D17",
+      "perturbation_type": "knockout_plus_GR24",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq083",
+          "title": "FC1 downstream SL",
+          "authors": "Minakuchi K et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "d17 SL-biosynthesis mutant + GR24: phenotype rescued; SL-responsive.",
+          "claim": "d17 + GR24 rescues",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T081",
+      "gene": "D3",
+      "perturbation_type": "knockout_plus_GR24",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq083",
+          "title": "FC1 downstream SL",
+          "authors": "Minakuchi K et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "d3-2 + 10uM GR24: tillers not suppressed; SL-insensitive.",
+          "claim": "d3 + GR24 no rescue",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T082",
+      "gene": "D14",
+      "perturbation_type": "knockout_plus_GR24",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq083",
+          "title": "FC1 downstream SL",
+          "authors": "Minakuchi K et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "d14 + GR24 treatment: axillary buds still grow (SL-insensitive).",
+          "claim": "d14 + GR24 no rescue",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T083",
+      "gene": "D53",
+      "perturbation_type": "gain_of_function_plus_GR24",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "evidence": [
+        {
+          "doi": "10.1038/nature12870",
+          "title": "D53 SL repressor",
+          "authors": "Jiang L et al.",
+          "year": 2013,
+          "journal": "Nature",
+          "evidence_sentence": "d53 is resistant to exogenous application of GR24.",
+          "claim": "d53 + GR24 no rescue",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T084",
+      "gene": "FC1",
+      "perturbation_type": "knockout_plus_GR24",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq083",
+          "title": "FC1 downstream SL",
+          "authors": "Minakuchi K et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "fc1 + 10uM GR24: third and fourth leaf tiller buds were not affected (SL-insensitive via FC1 requirement).",
+          "claim": "fc1 + GR24 no rescue",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T085",
+      "gene": "Cytokinin",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq083",
+          "title": "FC1 downstream SL",
+          "authors": "Minakuchi K et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "BAP (cytokinin) treatment suppresses FC1 expression and promotes tiller bud outgrowth.",
+          "claim": "BAP cytokinin increases tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T086",
+      "gene": "Auxin_IAA",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq083",
+          "title": "FC1 downstream SL",
+          "authors": "Minakuchi K et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "Apical IAA application suppresses bud outgrowth via BRC1/FC1 induction.",
+          "claim": "IAA inhibits tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T087",
+      "gene": "Auxin_NAA",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pci183",
+          "title": "OsPIN1 auxin NAA",
+          "authors": "Xu M et al.",
+          "year": 2005,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "NAA treatment rescued OsPIN1 RNAi phenotype and suppressed WT tillering.",
+          "claim": "NAA reduces tillers in WT",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T088",
+      "gene": "TIBA",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.109.065987",
+          "title": "D27 rice",
+          "authors": "Lin H et al.",
+          "year": 2009,
+          "journal": "Plant Cell",
+          "evidence_sentence": "NPA (auxin transport inhibitor, similar to TIBA) treatment largely rescued tiller number; blocks polar auxin transport.",
+          "claim": "TIBA/NPA increases tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T089",
+      "gene": "Gibberellin",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-019-10667-2",
+          "title": "SLR1 MOC1",
+          "authors": "Liao Z et al.",
+          "year": 2019,
+          "journal": "Nature Communications",
+          "evidence_sentence": "GA (10^-5 M) 1 month treatment: decreased tiller number.",
+          "claim": "GA3 reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T090",
+      "gene": "PBZ",
+      "perturbation_type": "inhibitor_PBZ",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-019-10667-2",
+          "title": "SLR1 MOC1",
+          "authors": "Liao Z et al.",
+          "year": 2019,
+          "journal": "Nature Communications",
+          "evidence_sentence": "PBZ (paclobutrazol, GA inhibitor) significantly increased tiller number and decreased plant height.",
+          "claim": "PBZ increases tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T091",
+      "gene": "Nitrogen_high",
+      "perturbation_type": "high_nitrate_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1126/science.aaz2046",
+          "title": "NGR5 nitrogen",
+          "authors": "Wu K et al.",
+          "year": 2020,
+          "journal": "Science",
+          "evidence_sentence": "High nitrogen fertilization causes downregulation of OsTB1 via NGR5-PRC2 H3K27me3 and promotes tiller formation.",
+          "claim": "High N increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T092",
+      "gene": "Nitrogen_low",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1126/science.aaz2046",
+          "title": "NGR5",
+          "authors": "Wu K et al.",
+          "year": 2020,
+          "journal": "Science",
+          "evidence_sentence": "Low nitrogen: reduced tillers, NGR5 not accumulated.",
+          "claim": "Low N reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T093",
+      "gene": "NGR5_plus_N",
+      "perturbation_type": "knockout_plus_treatment",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "evidence": [
+        {
+          "doi": "10.1126/science.aaz2046",
+          "title": "NGR5 green revolution",
+          "authors": "Wu K et al.",
+          "year": 2020,
+          "journal": "Science",
+          "evidence_sentence": "ngr5 + high N: no tiller response to nitrogen (N-insensitive) compared to ngr5 alone.",
+          "claim": "ngr5 insensitive to high N",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T094",
+      "gene": "Phosphate_low",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq084",
+          "title": "SL under P deficiency",
+          "authors": "Umehara M et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "Low P conditions elevate SL biosynthesis genes D10/D17 and reduce tiller bud outgrowth.",
+          "claim": "Low P reduces tillers (via SL)",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T095",
+      "gene": "d53_ipa1_1D",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/cr.2017.102",
+          "title": "IPA1 downstream D53",
+          "authors": "Song X et al.",
+          "year": 2017,
+          "journal": "Cell Research",
+          "evidence_sentence": "ipa1-1D significantly suppressed the high tillering phenotype of d53.",
+          "claim": "d53 ipa1-1D suppression of d53 high-tiller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T096",
+      "gene": "d27_ipa1_1D",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/cr.2017.102",
+          "title": "IPA1 D53",
+          "authors": "Song X et al.",
+          "year": 2017,
+          "journal": "Cell Research",
+          "evidence_sentence": "ipa1-1D could repress the high-tillering phenotype of d27.",
+          "claim": "d27 ipa1-1D suppression of d27 high-tiller",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T097",
+      "gene": "d3_FC1_OX",
+      "perturbation_type": "FC1_OE_in_d3_background",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq083",
+          "title": "FC1 downstream SL",
+          "authors": "Minakuchi K et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "35S-FC1/d3-2 lines showed partial rescue of d3 defects (plant height, tiller number, stem thickness).",
+          "claim": "FC1-OE in d3 partial rescue to fewer tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T098",
+      "gene": "D53_RNAi_in_d3",
+      "perturbation_type": "knockdown_in_d3_background",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/nature12870",
+          "title": "D53",
+          "authors": "Jiang L et al.",
+          "year": 2013,
+          "journal": "Nature",
+          "evidence_sentence": "D53-RNAi in d3 background obviously reduced the tiller number.",
+          "claim": "D53-RNAi rescues d3 high tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T099",
+      "gene": "D53_RNAi_in_d14",
+      "perturbation_type": "knockdown_in_d14_background",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/nature12878",
+          "title": "D14-SCFD3",
+          "authors": "Zhou F et al.",
+          "year": 2013,
+          "journal": "Nature",
+          "evidence_sentence": "D53-RNAi in d14 background: tiller number restored to nearly wild type levels.",
+          "claim": "D53-RNAi rescues d14 high tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T100",
+      "gene": "d14_d53",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/nature12878",
+          "title": "D14-SCFD3",
+          "authors": "Zhou F et al.",
+          "year": 2013,
+          "journal": "Nature",
+          "evidence_sentence": "d14 d53 double mutant showed dwarf tillering phenotype resembling d14 and d53 parental plants (no additive effect, epistatic).",
+          "claim": "d14 d53 epistasis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T101",
+      "gene": "d3_d53",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/nature12878",
+          "title": "D14-SCFD3",
+          "authors": "Zhou F et al.",
+          "year": 2013,
+          "journal": "Nature",
+          "evidence_sentence": "d3 d53 double: dwarf tillering phenotype resembling d3; d3 phenotype epistatic over d53.",
+          "claim": "d3 d53 d3-like epistatic",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T102",
+      "gene": "d27_d10",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.109.065987",
+          "title": "D27",
+          "authors": "Lin H et al.",
+          "year": 2009,
+          "journal": "Plant Cell",
+          "evidence_sentence": "d27d10 double mutant showed similar tiller number and plant height to d10 (d10 epistatic).",
+          "claim": "d27 d10 epistasis, d10-like",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T103",
+      "gene": "lax1_moc1",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.108.065425",
+          "title": "LAX1 regulation",
+          "authors": "Oikawa T, Kyozuka J",
+          "year": 2009,
+          "journal": "Plant Cell",
+          "evidence_sentence": "lax1 moc1 double mutant shows enhanced suppression of axillary meristem formation.",
+          "claim": "lax1 moc1 stronger reduction",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T104",
+      "gene": "Sucrose",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17834",
+          "title": "Sucrose D53 tillering",
+          "authors": "Patil SB et al.",
+          "year": 2022,
+          "journal": "New Phytologist",
+          "evidence_sentence": "Exogenous sucrose promotes D53 accumulation and tillering in rice.",
+          "claim": "Sucrose increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T105",
+      "gene": "Sucrose_d53",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17834",
+          "title": "Sucrose D53",
+          "authors": "Patil SB et al.",
+          "year": 2022,
+          "journal": "New Phytologist",
+          "evidence_sentence": "Sucrose effect on tillering partially depends on D53; d53 does not further increase with sucrose.",
+          "claim": "d53 + sucrose no further increase",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T106",
+      "gene": "Decapitation",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Rice Clock SL sugar",
+          "authors": "Wang Q et al.",
+          "year": 2020,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Panicle removal (decapitation, DeP): increased sugar content, reduced OsCCA1 expression, threefold tiller increase.",
+          "claim": "Decapitation increases tillers 3x",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T107",
+      "gene": "Defoliation",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Rice Clock",
+          "authors": "Wang Q et al.",
+          "year": 2020,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Leaf removal (defoliation, DeF): decreased sugars, elevated OsCCA1, reduced tillers.",
+          "claim": "Defoliation reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T108",
+      "gene": "GT1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcs122",
+          "title": "GT1 grassy tiller",
+          "authors": "Whipple CJ et al.",
+          "year": 2011,
+          "journal": "PNAS",
+          "evidence_sentence": "gt1 mutant: increased tiller bud outgrowth.",
+          "claim": "gt1 increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T109",
+      "gene": "PROG1",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/nature25427",
+          "title": "PROG1 cluster domestication",
+          "authors": "Wu Y et al.",
+          "year": 2018,
+          "journal": "Nature",
+          "evidence_sentence": "~110 kb deletion eliminating PROG1 cluster increased tiller number (domestication).",
+          "claim": "prog1 domestication increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T110",
+      "gene": "TIG1",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-019-09359-5",
+          "title": "TIG1 tiller angle",
+          "authors": "Zhang B et al.",
+          "year": 2019,
+          "journal": "Nature Communications",
+          "evidence_sentence": "tig1 allele: pleiotropic effects including altered tiller number.",
+          "claim": "tig1 slight tiller change",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T111",
+      "gene": "OsAAP3",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1111/pbi.12907",
+          "title": "OsAAP3 amino acid tillers",
+          "authors": "Lu K et al.",
+          "year": 2018,
+          "journal": "Plant Biotech J",
+          "evidence_sentence": "Knocking out OsAAP3 can promote growth of buds and effective tillers.",
+          "claim": "osaap3 increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T112",
+      "gene": "OsAAP5",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.19.00034",
+          "title": "OsAAP5 CK tillering",
+          "authors": "Wang S et al.",
+          "year": 2019,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "OsAAP5-OE: altered amino acid levels affect CK biosynthesis; reduced tillers.",
+          "claim": "OsAAP5-OE reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T113",
+      "gene": "GS1_2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcx022",
+          "title": "GS1;2 tiller",
+          "authors": "Ohashi M et al.",
+          "year": 2017,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "gs1;2 mutant: reduced tiller bud growth due to reduced CK production.",
+          "claim": "gs1;2 reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T114",
+      "gene": "OsBZR1",
+      "perturbation_type": "knockdown",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2019.12.005",
+          "title": "OsBZR1 D53",
+          "authors": "Fang Z et al.",
+          "year": 2020,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "osbzr1 loss: failure to recruit D53 to OsTB1 promoter; increased tiller outgrowth.",
+          "claim": "osbzr1 increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T115",
+      "gene": "Brassinosteroid",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2019.12.005",
+          "title": "BR SL D53",
+          "authors": "Fang Z et al.",
+          "year": 2020,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "Exogenous BR stabilizes OsBZR1-D53 complex, representing OsTB1 and reducing tiller outgrowth.",
+          "claim": "BR reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T116",
+      "gene": "OsAAP7",
+      "perturbation_type": "knockdown",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1186/s12284-022-00574-4",
+          "title": "OsAAP7 amino acid tillering",
+          "authors": "Wang S et al.",
+          "year": 2022,
+          "journal": "Rice",
+          "evidence_sentence": "Blocking of OsAAP7 promoted tillering and yield by determining basic and neutral amino acids accumulation.",
+          "claim": "osaap7 increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T117",
+      "gene": "OsVIL2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1007/s12284-019-0344-4",
+          "title": "OsVIL2 axillary buds",
+          "authors": "Yoon J et al.",
+          "year": 2019,
+          "journal": "Rice",
+          "evidence_sentence": "osvil2 shows defective axillary bud outgrowth, reduced tillers.",
+          "claim": "osvil2 reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T118",
+      "gene": "TN1",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41477-023-01409-w",
+          "title": "Tn1a natural variation tillering",
+          "authors": "Wu K et al.",
+          "year": 2023,
+          "journal": "Nature Plants",
+          "evidence_sentence": "Natural variation in Tn1a promoter increases rice tillering via TIF1 interaction.",
+          "claim": "Tn1a variant increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T119",
+      "gene": "DEP1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.113.113639",
+          "title": "IPA1 binding analysis",
+          "authors": "Lu Z et al.",
+          "year": 2013,
+          "journal": "Plant Cell",
+          "evidence_sentence": "dep1 mutant: reduced panicle length, reduced grain number, altered tiller number.",
+          "claim": "dep1 reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T120",
+      "gene": "ASN1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20010130",
+          "title": "Asparagine synthetase tillering",
+          "authors": "Luo L et al.",
+          "year": 2019,
+          "journal": "IJMS",
+          "evidence_sentence": "asn1 mutant reduces asparagine concentration and inhibits tiller outgrowth.",
+          "claim": "asn1 reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T121",
+      "gene": "OsTB1_d3",
+      "perturbation_type": "FC1_OE_in_d3_background",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq083",
+          "title": "FC1 downstream SL",
+          "authors": "Minakuchi K et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "Overexpression of OsTB1 partially suppressed the tiller-overproducing phenotype of dwarf3 (d3).",
+          "claim": "OsTB1-OE/d3 partial suppression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T122",
+      "gene": "D10_D3",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq083",
+          "title": "FC1 downstream SL",
+          "authors": "Minakuchi K et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "d10 d3 double: high-tillering dwarf like each single mutant (parallel pathways converge).",
+          "claim": "d10 d3 epistasis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T123",
+      "gene": "D14_D53",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/nature12878",
+          "title": "D14-SCFD3",
+          "authors": "Zhou F et al.",
+          "year": 2013,
+          "journal": "Nature",
+          "evidence_sentence": "d14 d53 double: resembling d14 and d53 parental plants.",
+          "claim": "d14 d53 epistasis",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T124",
+      "gene": "Kinetin",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq083",
+          "title": "FC1 downstream SL",
+          "authors": "Minakuchi K et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "Kinetin (cytokinin) treatment suppresses FC1 expression and promotes bud outgrowth.",
+          "claim": "Kinetin increases tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T125",
+      "gene": "BAP",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq083",
+          "title": "FC1 SL",
+          "authors": "Minakuchi K et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "BAP treatment clearly suppressed FC1 expression in a concentration-dependent manner and promoted bud outgrowth.",
+          "claim": "BAP increases tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T126",
+      "gene": "NPF7.7",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2018.00300",
+          "title": "NPF7.7 tillers",
+          "authors": "Huang W et al.",
+          "year": 2018,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "NPF7.7-OE increases effective tiller number by enhancing N uptake.",
+          "claim": "NPF7.7-OE increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T127",
+      "gene": "NPF7.1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1016/j.plantsci.2019.01.019",
+          "title": "NPF7 tillering",
+          "authors": "Huang W et al.",
+          "year": 2019,
+          "journal": "Plant Science",
+          "evidence_sentence": "NPF7.1-OE promotes rice axillary buds outgrowth.",
+          "claim": "NPF7.1-OE increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T128",
+      "gene": "NPF7.4",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1016/j.plantsci.2019.01.019",
+          "title": "NPF7 tillering",
+          "authors": "Huang W et al.",
+          "year": 2019,
+          "journal": "Plant Science",
+          "evidence_sentence": "npf7.4 knockout promotes rice axillary buds outgrowth.",
+          "claim": "npf7.4 knockout increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T129",
+      "gene": "OsMAX1_d14",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1111/j.1365-313X.2007.03210.x",
+          "title": "D10 CCD8 review cross",
+          "authors": "Arite T et al.",
+          "year": 2007,
+          "journal": "Plant Journal",
+          "evidence_sentence": "SL biosynthesis mutant combinations give similar high-tiller phenotype (d10 d14 etc).",
+          "claim": "osmax1 d14 high tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T130",
+      "gene": "FON1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/erad422",
+          "title": "Rice tillering potential",
+          "authors": "Takai T",
+          "year": 2023,
+          "journal": "JXB",
+          "evidence_sentence": "fon1 mutant forms axillary buds normally but fails to elongate tiller buds.",
+          "claim": "fon1 reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T131",
+      "gene": "OsARF12_17_25",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koab175",
+          "title": "OsARF triple mutant",
+          "authors": "Huang G et al.",
+          "year": 2021,
+          "journal": "Plant Cell",
+          "evidence_sentence": "osarf12 osarf17 osarf25 triple mutant: altered tiller angle and increased tillers.",
+          "claim": "osarf triple increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T132",
+      "gene": "OsIAA",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2024.1516884",
+          "title": "Auxin rice review",
+          "authors": "Chandran AKN et al.",
+          "year": 2025,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "OsIAA stabilized variants block auxin signaling, partially derepress bud outgrowth.",
+          "claim": "Stabilized OsIAA slight tiller increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T133",
+      "gene": "OsYUC",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2024.1516884",
+          "title": "Auxin rice review",
+          "authors": "Chandran AKN et al.",
+          "year": 2025,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "OsYUCCA mutants: reduced auxin synthesis affects crown roots and altered tiller dynamics.",
+          "claim": "osyucca alters tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T134",
+      "gene": "OsTAR2",
+      "perturbation_type": "knockdown",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2024.1516884",
+          "title": "Auxin rice review",
+          "authors": "Chandran AKN et al.",
+          "year": 2025,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "OsTAR2 loss reduces IAA biosynthesis, affecting architecture and tiller number.",
+          "claim": "ostar2 reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T135",
+      "gene": "OsLAX1_OsLAX2_OsLAX3",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1007/s00299-015-1810-y",
+          "title": "OsAUX/LAX rice",
+          "authors": "Zhao H et al.",
+          "year": 2015,
+          "journal": "Plant Cell Reports",
+          "evidence_sentence": "oslax1/2/3 triple mutant: strongly reduced axillary meristem formation.",
+          "claim": "oslax triple reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T136",
+      "gene": "ipa1_1D_d53",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/cr.2017.102",
+          "title": "IPA1 D53",
+          "authors": "Song X et al.",
+          "year": 2017,
+          "journal": "Cell Research",
+          "evidence_sentence": "d53 ipa1-1D double: IPA1 accumulation suppresses d53 high tillering.",
+          "claim": "ipa1-1D/d53 double suppresses d53 high-tillering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T137",
+      "gene": "Ub_IPI1_in_ipa1_1D",
+      "perturbation_type": "combined_transgenic",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.16.00879",
+          "title": "IPI1 tissue-specific",
+          "authors": "Wang J et al.",
+          "year": 2017,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Ub:IPI1 in ipa1-1D background: reverted thick culm and panicle size phenotypes of ipa1-1D (IPI1 dominant).",
+          "claim": "IPI1-OE suppresses ipa1-1D phenotype",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T138",
+      "gene": "OsSHI1_OE_IPA1_OE",
+      "perturbation_type": "combined_transgenic",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00023",
+          "title": "OsSHI1 IPA1",
+          "authors": "Duan E et al.",
+          "year": 2019,
+          "journal": "Plant Cell",
+          "evidence_sentence": "OsSHI1-OE/35S:IPA1-Flag double OE: recovered tiller development relative to 35S:IPA1 alone (OsSHI1 inhibits IPA1).",
+          "claim": "OsSHI1-OE partially rescues IPA1-OE reduced tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T139",
+      "gene": "CK_plus_d3",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq083",
+          "title": "FC1 downstream SL",
+          "authors": "Minakuchi K et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "With or without BAP treatment, levels of FC1 mRNA in d3 and d10 were not significantly different; BAP acts independently of SL but d3 background already high-tillering.",
+          "claim": "d3 + BAP slight further increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T140",
+      "gene": "T6P_elevation",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.18000",
+          "title": "Sucrose SL bud",
+          "authors": "Finlayson SA",
+          "year": 2022,
+          "journal": "New Phytologist",
+          "evidence_sentence": "T6P signaling (via TPS overexpression or sucrose) promotes bud outgrowth.",
+          "claim": "T6P elevation increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T141",
+      "gene": "Orobanchol",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcq084",
+          "title": "P deficiency SL",
+          "authors": "Umehara M et al.",
+          "year": 2010,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "Exogenous orobanchol (natural rice SL) inhibits tiller outgrowth similar to GR24.",
+          "claim": "Orobanchol reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T142",
+      "gene": "rac_GR24",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/nature07271",
+          "title": "SLs shoot branching",
+          "authors": "Umehara M et al.",
+          "year": 2008,
+          "journal": "Nature",
+          "evidence_sentence": "rac-GR24 synthetic SL: inhibits axillary bud outgrowth in WT.",
+          "claim": "rac-GR24 reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T143",
+      "gene": "D53_dRNAi",
+      "perturbation_type": "knockdown",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/nature12870",
+          "title": "D53 SL",
+          "authors": "Jiang L et al.",
+          "year": 2013,
+          "journal": "Nature",
+          "evidence_sentence": "Reducing D53 expression in d53 background drastically reduced the tiller number.",
+          "claim": "D53-RNAi/d53 reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T144",
+      "gene": "WT_control",
+      "perturbation_type": "control",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "evidence": [
+        {
+          "doi": "10.1038/nature01518",
+          "title": "MOC1",
+          "authors": "Li X et al.",
+          "year": 2003,
+          "journal": "Nature",
+          "evidence_sentence": "Wild-type Nipponbare produces characteristic 10-15 tillers at heading stage (baseline).",
+          "claim": "WT baseline tiller number",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T145",
+      "gene": "MOC1_d10",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/nature01518",
+          "title": "MOC1",
+          "authors": "Li X et al.",
+          "year": 2003,
+          "journal": "Nature",
+          "evidence_sentence": "moc1 d10 double mutant: monoculm (moc1 epistatic over high-tillering d10).",
+          "claim": "moc1 d10 monoculm moc1-epistatic",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T146",
+      "gene": "osckx9_d27",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1810980116",
+          "title": "SL CK OsCKX9",
+          "authors": "Duan J et al.",
+          "year": 2019,
+          "journal": "PNAS",
+          "evidence_sentence": "osckx9 d27 double mutant: intermediate phenotype between singles.",
+          "claim": "osckx9 d27 intermediate tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T147",
+      "gene": "D14_IPA1_OX",
+      "perturbation_type": "combined_transgenic",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/cr.2017.102",
+          "title": "IPA1 D53",
+          "authors": "Song X et al.",
+          "year": 2017,
+          "journal": "Cell Research",
+          "evidence_sentence": "Upon SL treatment, tiller number is unchanged in ipa1-10 (loss-of-function) and d14 ipa1-10; IPA1 required for SL-mediated tiller inhibition.",
+          "claim": "d14 + IPA1-OE rescues via IPA1 downstream",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T148",
+      "gene": "OsCCA1_d14",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Rice Clock",
+          "authors": "Wang Q et al.",
+          "year": 2020,
+          "journal": "Plant Cell",
+          "evidence_sentence": "oscca1 d14 double: genetic data confirm D14 acts downstream; phenotype like d14.",
+          "claim": "oscca1 d14 d14-like",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T149",
+      "gene": "OsCCA1_ostb1",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Rice Clock",
+          "authors": "Wang Q et al.",
+          "year": 2020,
+          "journal": "Plant Cell",
+          "evidence_sentence": "oscca1 ostb1 double: phenotype resembles ostb1 single mutant (ostb1 epistatic).",
+          "claim": "oscca1 ostb1 ostb1-like",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T150",
+      "gene": "shi1_ipa1",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00023",
+          "title": "OsSHI1 IPA1",
+          "authors": "Duan E et al.",
+          "year": 2019,
+          "journal": "Plant Cell",
+          "evidence_sentence": "shi1 ipa1 double: phenotype resembles ipa1 single (ipa1 downstream of shi1).",
+          "claim": "shi1 ipa1 ipa1-like",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T151",
+      "gene": "shi1_dep1",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.19.00023",
+          "title": "OsSHI1 IPA1",
+          "authors": "Duan E et al.",
+          "year": 2019,
+          "journal": "Plant Cell",
+          "evidence_sentence": "shi1 dep1 double: phenotype resembles dep1 single (dep1 downstream).",
+          "claim": "shi1 dep1 dep1-like",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T152",
+      "gene": "ohk4_ipa1",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koad257",
+          "title": "OHK4 IPA1",
+          "authors": "Chun Y et al.",
+          "year": 2023,
+          "journal": "Plant Cell",
+          "evidence_sentence": "ohk4 ipa1 double: phenotype similar to ipa1; IPA1 is downstream of OsHK4 in panicle feedback.",
+          "claim": "ohk4 ipa1 ipa1-like",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T153",
+      "gene": "OsRR21_OE_in_ohk4",
+      "perturbation_type": "combined_transgenic",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koad257",
+          "title": "OHK4 IPA1",
+          "authors": "Chun Y et al.",
+          "year": 2023,
+          "journal": "Plant Cell",
+          "evidence_sentence": "OsRR21-OE in ohk4 background: partial rescue of panicle and tiller defects.",
+          "claim": "OsRR21-OE/ohk4 partial rescue",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T154",
+      "gene": "NGR5_OE_plus_GA",
+      "perturbation_type": "gain_of_function_plus_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1126/science.aaz2046",
+          "title": "NGR5 Green Revolution",
+          "authors": "Wu K et al.",
+          "year": 2020,
+          "journal": "Science",
+          "evidence_sentence": "NGR5-OE + GA treatment: GA-induced NGR5 degradation partially counteracts OE effect.",
+          "claim": "NGR5-OE + GA partial reduction vs NGR5-OE alone",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T155",
+      "gene": "NGR5_OE_plus_N",
+      "perturbation_type": "gain_of_function_plus_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1126/science.aaz2046",
+          "title": "NGR5",
+          "authors": "Wu K et al.",
+          "year": 2020,
+          "journal": "Science",
+          "evidence_sentence": "NGR5-high-expression allele + high nitrogen: maximal tiller number and yield (synergy).",
+          "claim": "NGR5-OE + N maximal tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T156",
+      "gene": "Nitrogen_low_plus_d53",
+      "perturbation_type": "gain_of_function_plus_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2022.1081740",
+          "title": "SL N tiller review",
+          "authors": "Luo L et al.",
+          "year": 2022,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "Under low N, d53 mutant still shows more tillers than WT; d53 partially insensitive to N-status.",
+          "claim": "d53 + low N still high tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T157",
+      "gene": "Nitrogen_low_plus_d3",
+      "perturbation_type": "knockout_plus_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1016/j.plantsci.2018.02.020",
+          "title": "SL nitrogen",
+          "authors": "Luo L et al.",
+          "year": 2018,
+          "journal": "Plant Science",
+          "evidence_sentence": "Under N-deficient conditions, tiller number reduced in both WT and d3 and d10; N effect partially SL-independent.",
+          "claim": "d3 + low N reduced vs d3 alone",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T158",
+      "gene": "ngr5_plus_GR24",
+      "perturbation_type": "loss_of_function_plus_GR24",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1126/science.aaz2046",
+          "title": "NGR5",
+          "authors": "Wu K et al.",
+          "year": 2020,
+          "journal": "Science",
+          "evidence_sentence": "ngr5 + GR24: SL signaling intact but N response absent; tillers reduced similar to GR24 alone (N-insensitive but SL-sensitive).",
+          "claim": "ngr5 + GR24 reduced tillers (SL intact)",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T159",
+      "gene": "Shade_low_light",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Rice Clock",
+          "authors": "Wang Q et al.",
+          "year": 2020,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Shading reduces photosynthesis and sucrose, reducing tillers via increased OsCCA1.",
+          "claim": "Shade reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T160",
+      "gene": "Drought",
+      "perturbation_type": "drought_stress",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcs122",
+          "title": "Drought stress tillering",
+          "authors": "Xie X et al.",
+          "year": 2012,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "Drought stress increases ABA and decreases tillers via NCED1 induction.",
+          "claim": "Drought reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T161",
+      "gene": "OsBZR1_d53",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2019.12.005",
+          "title": "BR SL D53 BZR1",
+          "authors": "Fang Z et al.",
+          "year": 2020,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "bzr1 d53 double: high-tillering like d53 (d53 epistatic for tiller count).",
+          "claim": "bzr1 d53 d53-like",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T162",
+      "gene": "ngr5_plus_PBZ",
+      "perturbation_type": "knockout_plus_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1126/science.aaz2046",
+          "title": "NGR5",
+          "authors": "Wu K et al.",
+          "year": 2020,
+          "journal": "Science",
+          "evidence_sentence": "ngr5 + PBZ: GA blockade stabilizes SLR1 but no NGR5 to convert signal; moderate tiller increase via SLR1-MOC1 axis.",
+          "claim": "ngr5 + PBZ moderate increase via SLR1-MOC1",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T163",
+      "gene": "SLR1_OE_plus_GA",
+      "perturbation_type": "gain_of_function_plus_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-019-10667-2",
+          "title": "SLR1 MOC1",
+          "authors": "Liao Z et al.",
+          "year": 2019,
+          "journal": "Nature Communications",
+          "evidence_sentence": "SLR1-OE resistant to GA degradation: retains high tiller phenotype with GA treatment.",
+          "claim": "SLR1-OE + GA still high tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T164",
+      "gene": "GS_plus_NH4",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17699",
+          "title": "OsPIN9 NH4",
+          "authors": "Hou M et al.",
+          "year": 2021,
+          "journal": "New Phytologist",
+          "evidence_sentence": "Ammonium supply promotes tillers via OsPIN9 induction and CK production.",
+          "claim": "NH4+ increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T165",
+      "gene": "RCN127",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1111/pbi.14419",
+          "title": "RCN127 F-box OsTB1",
+          "authors": "Li Y et al.",
+          "year": 2024,
+          "journal": "Plant Biotech J",
+          "evidence_sentence": "RCN127 F-box protein enhances rice tillering by mediating degradation of OsTB1 and OsTCP19.",
+          "claim": "RCN127-OE increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T166",
+      "gene": "OsSTP15",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19411",
+          "title": "OsSTP15 sugar transporter",
+          "authors": "Li M et al.",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "osstp15 knockout: increased tiller number due to higher sugar content in shoot base.",
+          "claim": "osstp15 increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T167",
+      "gene": "miR396",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1111/pbi.13029",
+          "title": "miR396 GRF tiller",
+          "authors": "Gao F et al.",
+          "year": 2019,
+          "journal": "Plant Biotech J",
+          "evidence_sentence": "miR396 OE targets OsGRF TFs affecting panicle and tillers indirectly.",
+          "claim": "miR396-OE slight tiller decrease",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T168",
+      "gene": "GR24_plus_sucrose",
+      "perturbation_type": "combined",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17834",
+          "title": "Sucrose D53",
+          "authors": "Patil SB et al.",
+          "year": 2022,
+          "journal": "New Phytologist",
+          "evidence_sentence": "Sucrose antagonizes GR24 inhibition of tillering by stabilizing D53.",
+          "claim": "GR24 + sucrose tillers rise vs GR24 alone",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T169",
+      "gene": "DeP_plus_GR24",
+      "perturbation_type": "combined",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.20.00289",
+          "title": "Rice Clock SL",
+          "authors": "Wang Q et al.",
+          "year": 2020,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Decapitation + GR24: GR24 partially blocks tiller outgrowth induced by decapitation (SL acts downstream of sugar signal).",
+          "claim": "DeP + GR24 reduced vs DeP alone",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T170",
+      "gene": "D14_d53_plus_GR24",
+      "perturbation_type": "combined",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "evidence": [
+        {
+          "doi": "10.1038/nature12870",
+          "title": "D53",
+          "authors": "Jiang L et al.",
+          "year": 2013,
+          "journal": "Nature",
+          "evidence_sentence": "d14 d53 + GR24: GR24 does not reduce tillers (SL signaling blocked at receptor + repressor levels).",
+          "claim": "d14 d53 + GR24 SL-insensitive",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T171",
+      "gene": "TAD1_SLR1_OE",
+      "perturbation_type": "combined_transgenic",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-019-10667-2",
+          "title": "SLR1 MOC1",
+          "authors": "Liao Z et al.",
+          "year": 2019,
+          "journal": "Nature Communications",
+          "evidence_sentence": "SLR1-OE in tad1 background: tiller number additively elevated (both stabilize MOC1).",
+          "claim": "SLR1-OE + tad1 higher tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T172",
+      "gene": "OsHK6",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.192765",
+          "title": "CK signaling",
+          "authors": "Tsai YC et al.",
+          "year": 2012,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "OsHK6 is cytokinin receptor; loss slightly reduces CK signaling and tillers.",
+          "claim": "oshk6 slight tiller decrease",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T173",
+      "gene": "OsRR_typeA_OE",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.192765",
+          "title": "CK signaling",
+          "authors": "Tsai YC et al.",
+          "year": 2012,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "OsRR type-A OE: negative feedback on CK signaling reduces tillers.",
+          "claim": "OsRR-A-OE slight tiller decrease",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T174",
+      "gene": "OsWOX4",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.15.00074",
+          "title": "TAB1 axillary meristem",
+          "authors": "Tanaka W et al.",
+          "year": 2015,
+          "journal": "Plant Cell",
+          "evidence_sentence": "OsWOX4 plays role in maintaining axillary meristem after establishment; loss reduces tiller maintenance.",
+          "claim": "oswox4 reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T175",
+      "gene": "MP3_allele",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/erad422",
+          "title": "Rice tillering potential",
+          "authors": "Takai T",
+          "year": 2023,
+          "journal": "JXB",
+          "evidence_sentence": "MP3 allele of OsTB1/FC1: moderately increased tiller/panicle number without compromising spikelet.",
+          "claim": "MP3 slight tiller increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T176",
+      "gene": "ASN1_plus_N",
+      "perturbation_type": "knockout_plus_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20010130",
+          "title": "Asparagine synthetase",
+          "authors": "Luo L et al.",
+          "year": 2019,
+          "journal": "IJMS",
+          "evidence_sentence": "asn1 + high N: failed to increase tillers normally seen with high N (Asn essential for N signaling to buds).",
+          "claim": "asn1 + N no tiller increase",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T177",
+      "gene": "OsVIL2_ostb1",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1007/s12284-019-0344-4",
+          "title": "OsVIL2 axillary",
+          "authors": "Yoon J et al.",
+          "year": 2019,
+          "journal": "Rice",
+          "evidence_sentence": "osvil2 ostb1 double: complex phenotype, reduced overall tillers.",
+          "claim": "osvil2 ostb1 reduced tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T178",
+      "gene": "Cold_stress",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.17.00748",
+          "title": "Cold OsMADS57 OsTB1",
+          "authors": "Chen R et al.",
+          "year": 2018,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Cold stress: OsMADS57+OsTB1 switch to defense/cold mode, reducing D14 expression and tiller outgrowth.",
+          "claim": "Cold reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T179",
+      "gene": "ACC_ethylene",
+      "perturbation_type": "acc_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcs122",
+          "title": "SL CK auxin rice",
+          "authors": "Xie X et al.",
+          "year": 2012,
+          "journal": "Plant Cell Physiology",
+          "evidence_sentence": "ACC (ethylene precursor) treatment slightly reduces tiller outgrowth in rice.",
+          "claim": "ACC slight tiller decrease",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T180",
+      "gene": "OsIPT7",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.192765",
+          "title": "Rice CK metabolism",
+          "authors": "Tsai YC et al.",
+          "year": 2012,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "OsIPT7-OE increases cytokinin levels and promotes tillering.",
+          "claim": "OsIPT7-OE increases tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T181",
+      "gene": "Tillers_at_heading_WT",
+      "perturbation_type": "control",
+      "expected_direction": "unchanged",
+      "expected_magnitude": "",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/erad422",
+          "title": "Rice tillering potential",
+          "authors": "Takai T",
+          "year": 2023,
+          "journal": "JXB",
+          "evidence_sentence": "Takanari wild-type at 12th leaf: 10 tillers (4 primary, 6 secondary) baseline reference.",
+          "claim": "WT Takanari 10 tillers baseline",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T182",
+      "gene": "NIL_MP3",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/erad422",
+          "title": "Rice tillering potential",
+          "authors": "Takai T",
+          "year": 2023,
+          "journal": "JXB",
+          "evidence_sentence": "NIL-MP3 at 12th leaf: 13 tillers (5 primary, 8 secondary) +28% panicles vs Takanari.",
+          "claim": "NIL-MP3 +28% panicles",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T183",
+      "gene": "NIL_fc1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/erad422",
+          "title": "Rice tillering potential",
+          "authors": "Takai T",
+          "year": 2023,
+          "journal": "JXB",
+          "evidence_sentence": "NIL-fc1 at 12th leaf: 31 tillers (7 primary, 17 secondary, 7 tertiary) +143% panicles vs Takanari; thinner lighter tillers cause lodging.",
+          "claim": "NIL-fc1 +143% panicles",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T184",
+      "gene": "P_deficient_NIL_MP3",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/erad422",
+          "title": "Rice tillering",
+          "authors": "Takai T",
+          "year": 2023,
+          "journal": "JXB",
+          "evidence_sentence": "NIL-MP3 in P-deficient soil still tended to produce more tillers than Takanari.",
+          "claim": "NIL-MP3 + low P still more tillers than Takanari low P",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T185",
+      "gene": "Elevated_CO2_NIL_MP3",
+      "perturbation_type": "environmental",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/erad422",
+          "title": "Rice tillering",
+          "authors": "Takai T",
+          "year": 2023,
+          "journal": "JXB",
+          "evidence_sentence": "MP3 further enhances above-ground biomass by 3.5% at elevated CO2 (579 umol/mol).",
+          "claim": "MP3 + elevated CO2 +3.5% biomass",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T186",
+      "gene": "OsYUCCA1_OE",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2024.1516884",
+          "title": "Auxin rice review",
+          "authors": "Chandran AKN et al.",
+          "year": 2025,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "OsYUCCA1-OE elevates auxin, reduces tillers via enhanced apical dominance.",
+          "claim": "OsYUCCA1-OE reduces tillers",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa"
+    },
+    {
+      "test_id": "T187",
+      "gene": "OsVIL2",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.14348/molcells.2019.0141",
+          "title": "OsVIL2 axillary buds",
+          "authors": "Yoon J et al.",
+          "year": 2019,
+          "journal": "Molecules and Cells",
+          "evidence_sentence": "Tiller number of double mutant osvil2 ostb1 was similar to that of ostb1, suggesting that osvil2 is epistatic to ostb1.",
+          "claim": "osvil2 ostb1 ostb1-like (epistatic)",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa",
+      "discovery_source": "literature_judge"
+    },
+    {
+      "test_id": "T188",
+      "gene": "OsGATA8",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41588-024-01795-7",
+          "title": "OsGATA8 N tiller",
+          "authors": "Wang B et al.",
+          "year": 2024,
+          "journal": "Nature Genetics",
+          "evidence_sentence": "OsGATA8-L haplotype shows reduced productive tiller proportion via failure to repress OsTCP19.",
+          "claim": "OsGATA8 LOF reduces productive tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa",
+      "discovery_source": "literature_judge"
+    },
+    {
+      "test_id": "T189",
+      "gene": "OsGATA8_H",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41588-024-01795-7",
+          "title": "OsGATA8 N tiller",
+          "authors": "Wang B et al.",
+          "year": 2024,
+          "journal": "Nature Genetics",
+          "evidence_sentence": "The OsGATA8-H haplotype is identified as a high-NUE haplotype with enhanced nitrogen uptake and a higher proportion of productive tillers.",
+          "claim": "OsGATA8-H increases productive tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa",
+      "discovery_source": "literature_judge"
+    },
+    {
+      "test_id": "T190",
+      "gene": "Os1900",
+      "perturbation_type": "knockout_CRISPR",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-023-38670-8",
+          "title": "Os1900 N tiller",
+          "authors": "Ito S et al.",
+          "year": 2023,
+          "journal": "Nature Communications",
+          "evidence_sentence": "CRISPR/Cas9 mutants of Os1900 (and Os5100) show altered SL biosynthesis and tillering responses.",
+          "claim": "os1900 KO increases tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa",
+      "discovery_source": "literature_judge"
+    },
+    {
+      "test_id": "T191",
+      "gene": "Os1900_promoter_mut",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-023-38670-8",
+          "title": "Os1900 N tiller",
+          "authors": "Ito S et al.",
+          "year": 2023,
+          "journal": "Nature Communications",
+          "evidence_sentence": "Os1900 promoter mutations alone can increase tiller numbers and grain yields even under minor-fertilizer conditions.",
+          "claim": "Os1900 promoter LOF increases tillers under low N",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa",
+      "discovery_source": "literature_judge"
+    },
+    {
+      "test_id": "T192",
+      "gene": "DTN1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19921",
+          "title": "DTN1 sucrose NGR5",
+          "authors": "Wen Z et al.",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "Deficiency of DTN1 results in reduced photosynthetic rate and decreased contents of sucrose; reduced tiller number in dtn1 mutant.",
+          "claim": "dtn1 reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa",
+      "discovery_source": "literature_judge"
+    },
+    {
+      "test_id": "T193",
+      "gene": "DTN1_plus_Sucrose",
+      "perturbation_type": "knockout_plus_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "slight",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19921",
+          "title": "DTN1 sucrose NGR5",
+          "authors": "Wen Z et al.",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "Reduced tiller number in dtn1 mutant could be partially rescued by exogenous sucrose treatment.",
+          "claim": "dtn1 + sucrose partial rescue",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa",
+      "discovery_source": "literature_judge"
+    },
+    {
+      "test_id": "T194",
+      "gene": "NGR5_OE_in_dtn1",
+      "perturbation_type": "combined_transgenic",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19921",
+          "title": "DTN1 sucrose NGR5",
+          "authors": "Wen Z et al.",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "Overexpression of NGR5 in the dtn1-2 could partially rescue the reduced tiller number.",
+          "claim": "NGR5-OE/dtn1 partial rescue",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa",
+      "discovery_source": "literature_judge"
+    },
+    {
+      "test_id": "T195",
+      "gene": "T20",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2020.10.001",
+          "title": "T20 Z-ISO SL ABA tillering",
+          "authors": "Wei H et al.",
+          "year": 2020,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "Researchers identified a high-tillering mutant tillering20 (t20), which could be restored to the wild type by treatment with the strigolactone analog rac-GR24.",
+          "claim": "t20 high tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa",
+      "discovery_source": "literature_judge"
+    },
+    {
+      "test_id": "T196",
+      "gene": "T20_plus_GR24",
+      "perturbation_type": "knockout_plus_GR24",
+      "expected_direction": "decreased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2020.10.001",
+          "title": "T20 Z-ISO SL ABA tillering",
+          "authors": "Wei H et al.",
+          "year": 2020,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "t20 high tillering could be restored to the wild type by treatment with the strigolactone analog rac-GR24.",
+          "claim": "t20 + GR24 rescues to WT",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa",
+      "discovery_source": "literature_judge"
+    },
+    {
+      "test_id": "T197",
+      "gene": "T20_plus_ABA",
+      "perturbation_type": "knockout_plus_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2020.10.001",
+          "title": "T20 Z-ISO SL ABA tillering",
+          "authors": "Wei H et al.",
+          "year": 2020,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "ABA treatment significantly reduced the number of basal tillers in both t20 and wild-type plants.",
+          "claim": "t20 + ABA reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa",
+      "discovery_source": "literature_judge"
+    },
+    {
+      "test_id": "T198",
+      "gene": "ABA",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2020.10.001",
+          "title": "T20 Z-ISO SL ABA tillering",
+          "authors": "Wei H et al.",
+          "year": 2020,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "ABA treatment significantly reduced the number of basal tillers in both t20 and wild-type plants.",
+          "claim": "exogenous ABA reduces tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa",
+      "discovery_source": "literature_judge"
+    },
+    {
+      "test_id": "T199",
+      "gene": "OsDRM1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1016/j.jplph.2023.154115",
+          "title": "OsDRM1 axillary bud dormancy",
+          "authors": "Sasi M et al.",
+          "year": 2023,
+          "journal": "Journal of Plant Physiology",
+          "evidence_sentence": "Overexpression of OsDRM1 in transgenic plants delayed axillary bud outgrowth by suppressing cell division within the buds.",
+          "claim": "OsDRM1-OE delayed bud outgrowth (lower tillers)",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa",
+      "discovery_source": "literature_judge"
+    },
+    {
+      "test_id": "T200",
+      "gene": "OsHK3_OsHK4",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koad257",
+          "title": "OHK4 IPA1 feedback",
+          "authors": "Chun Y et al.",
+          "year": 2023,
+          "journal": "Plant Cell",
+          "evidence_sentence": "The plant heights of ohk3 ohk4 and ohk4 ohk5 double mutants were slightly but significantly reduced, while the tiller numbers varied.",
+          "claim": "oshk3 oshk4 reduces tillers/height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa",
+      "discovery_source": "literature_judge"
+    },
+    {
+      "test_id": "T201",
+      "gene": "OsGATA8_plus_high_N",
+      "perturbation_type": "knockout_plus_treatment",
+      "expected_direction": "decreased",
+      "expected_magnitude": "moderate",
+      "evidence": [
+        {
+          "doi": "10.1038/s41588-024-01795-7",
+          "title": "OsGATA8 N tiller",
+          "authors": "Wang B et al.",
+          "year": 2024,
+          "journal": "Nature Genetics",
+          "evidence_sentence": "Excessive nitrogen promotes the formation of nonproductive tillers; OsGATA8-L (loss) accessions show reduced productive tillering even under high N.",
+          "claim": "OsGATA8 LOF + high N still reduces productive tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa",
+      "discovery_source": "literature_judge"
+    },
+    {
+      "test_id": "T202",
+      "gene": "Os1900_plus_high_N",
+      "perturbation_type": "knockout_plus_treatment",
+      "expected_direction": "increased",
+      "expected_magnitude": "strong",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-023-38670-8",
+          "title": "Os1900 N tiller",
+          "authors": "Ito S et al.",
+          "year": 2023,
+          "journal": "Nature Communications",
+          "evidence_sentence": "Os1900 mutants escape N-induced SL biosynthesis and remain high-tillering even under high fertilizer.",
+          "claim": "os1900 + high N still high tillers",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "condition": "normal",
+      "species": "Oryza sativa",
+      "discovery_source": "literature_judge"
+    }
+  ]
+}

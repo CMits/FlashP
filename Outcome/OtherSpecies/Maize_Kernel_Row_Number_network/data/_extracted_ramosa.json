@@ -1,0 +1,36 @@
+{
+  "cluster": "C3_Ramosa",
+  "papers": [
+    {"doi":"10.1038/nature03892","title":"Architecture of floral branch systems in maize and related grasses","authors":"Vollbrecht E, Springer PS, Goh L, Buckler ES, Martienssen R","year":2005,"journal":"Nature","status":"read","full_text_read":true},
+    {"doi":"10.1038/nature04725","title":"A trehalose metabolic enzyme controls inflorescence architecture in maize","authors":"Satoh-Nagasawa N, Nagasawa N, Malcomber S, Sakai H, Jackson D","year":2006,"journal":"Nature","status":"read","full_text_read":false},
+    {"doi":"10.1242/dev.051748","title":"The control of axillary meristem fate in the maize ramosa pathway","authors":"Gallavotti A, Long JA, Stanfield S, Yang X, Jackson D, Vollbrecht E, Schmidt RJ","year":2010,"journal":"Development","status":"read","full_text_read":true},
+    {"doi":"10.1104/pp.18.00913","title":"RAMOSA1 ENHANCER LOCUS2-Mediated Transcriptional Repression Regulates Vegetative and Reproductive Architecture","authors":"Liu X, Galli M, Camehl I, Gallavotti A","year":2019,"journal":"Plant Physiology","status":"read","full_text_read":true},
+    {"doi":"10.1101/gr.166397.113","title":"Regulatory modules controlling maize inflorescence architecture","authors":"Eveland AL, Goldshmidt A, Pautler M, Morohashi K, Liseron-Monfils C, Lewis MW, Kumari S, Hiraga S, Yang F, Unger-Wallace E, Olson A, Hake S, Vollbrecht E, Grotewold E, Ware D, Jackson D","year":2014,"journal":"Genome Research","status":"read","full_text_read":true}
+  ],
+  "edges": [
+    {"source":"RA2","target":"RA1","sign":1,"doi":"10.1038/nature03892","ev":"ra1 expression is reduced in ra2 mutants; ra2 acts upstream of ra1"},
+    {"source":"RA3","target":"RA1","sign":1,"doi":"10.1038/nature04725","ev":"RA3 functions through the predicted transcriptional regulator RAMOSA1 (RA1)"},
+    {"source":"RA1","target":"SPM_Determinacy","sign":1,"doi":"10.1038/nature03892","ev":"RA1 imposes determinacy on spikelet pair meristems"},
+    {"source":"RA1","target":"REL2","sign":1,"doi":"10.1104/pp.18.00913","ev":"REL2 and RA1 physically interact through CTLH domain; RA1 recruits REL2 via EAR motifs"},
+    {"source":"REL2","target":"Ear_Branching","sign":-1,"doi":"10.1242/dev.051748","ev":"rel2;ra1-RS double mutants had highly branched ears"},
+    {"source":"RA1","target":"Ear_Branching","sign":-1,"doi":"10.1038/nature03892","ev":"The ear is usually unbranched, is highly branched in ra1 mutants"},
+    {"source":"RA2","target":"Ear_Branching","sign":-1,"doi":"10.1242/dev.051748","ev":"rel2;ra2 double mutant shows enhanced ear branching relative to single mutants"},
+    {"source":"RA3","target":"T6P","sign":-1,"doi":"10.1038/nature04725","ev":"RA3 encodes a trehalose-6-phosphate phosphatase expressed in discrete domains subtending axillary inflorescence meristems"},
+    {"source":"T6P","target":"SPM_Determinacy","sign":-1,"doi":"10.1038/nature04725","ev":"RA3 regulates inflorescence branching by modification of a sugar signal that moves into axillary meristems"},
+    {"source":"RA1","target":"KN1","sign":1,"doi":"10.1101/gr.166397.113","ev":"RA1 binds KN1's regulatory intron; RA1 and KN1 share 189 overlapping target peaks"},
+    {"source":"FEA4","target":"RA1","sign":1,"doi":"10.1105/tpc.114.132506","ev":"FEA4 binds and activates RA1 which imposes determinacy on axillary branches"},
+    {"source":"FEA4","target":"RA3","sign":1,"doi":"10.1105/tpc.114.132506","ev":"RAMOSA3 downregulated (P=1.79e-15) in fea4 mutants"},
+    {"source":"REL2","target":"IM_Size","sign":-1,"doi":"10.1104/pp.18.00913","ev":"rel2 ears showed increased kernel rows, with IM size ~16% enlarged relative to wild-type"},
+    {"source":"REL2","target":"Kernel_Row_Number","sign":-1,"doi":"10.1104/pp.18.00913","ev":"rel2 ears showed increased kernel rows"},
+    {"source":"SPM_Determinacy","target":"Kernel_Row_Number","sign":1,"doi":"10.1038/nature03892","ev":"spikelet-pair meristem determinacy sets the ordered rows; loss leads to branching, reduced rows"}
+  ],
+  "perturbations": [
+    {"gene":"ra1","type":"knockout","direction":"decreased","mag":"strong","doi":"10.1038/nature03892","ev":"The ear, which is usually unbranched, is highly branched in ra1 mutants, resulting in reduced fertility"},
+    {"gene":"ra2","type":"knockout","direction":"decreased","mag":"strong","doi":"10.1038/nature03892","ev":"ra2 loss-of-function gives abnormal branching in ears (reduced/disordered rows)"},
+    {"gene":"ra3","type":"knockout","direction":"decreased","mag":"strong","doi":"10.1038/nature04725","ev":"in ra3 plants the inflorescence branching pattern is disturbed, with ears producing abnormally shaped long branches at their bases"},
+    {"gene":"rel2","type":"knockout","direction":"increased","mag":"moderate","doi":"10.1104/pp.18.00913","ev":"rel2 ears showed increased kernel rows with ~16% enlarged IM"},
+    {"gene":"rel2;ra1","type":"double_knockout","direction":"decreased","mag":"strong","doi":"10.1242/dev.051748","ev":"rel2;ra1-RS double mutants had highly branched ears; spikelet-pair meristems convert to branch meristems"},
+    {"gene":"rel2;ra2","type":"double_knockout","direction":"decreased","mag":"strong","doi":"10.1242/dev.051748","ev":"rel2;ra2 double mutant shows enhanced ear branching relative to single mutants"},
+    {"gene":"rel2;ra1;ra2","type":"triple_knockout","direction":"decreased","mag":"strong","doi":"10.1242/dev.051748","ev":"massive proliferation of branches with primary, secondary, and tertiary indeterminate structures"}
+  ]
+}

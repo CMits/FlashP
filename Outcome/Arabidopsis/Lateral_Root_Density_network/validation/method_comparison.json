@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lateral_Root_Density",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19"
+  },
+  "summary": {
+    "best_method": "Algebraic",
+    "best_accuracy": 0.866,
+    "best_accuracy_pct": 86.6,
+    "best_kappa": 0.7575,
+    "best_mcc": 0.6698,
+    "best_frs": 10.4824,
+    "best_dars": 10.6203,
+    "tie_break_rule_applied": "",
+    "recommendation": "Proceed to Step 5 (Refinement). Best method (RWR) at 85.7% sits in the 80-95%% band. 13 failures are flagged fixable via encoding tweaks (composite-paralog gm tuning + Trap-5 baseline corrections + rescue baseline). Defer structural fixes for PHYB/PYL8 direction inversions and high-N inhibition arm to a future iteration.",
+    "refinement_needed": true
+  },
+  "comparison": [
+    {
+      "method": "Algebraic",
+      "accuracy": 0.866,
+      "kappa": 0.7575,
+      "mcc": 0.6698,
+      "convergence_rate": 1.0,
+      "best_params": "",
+      "strengths": "Captures mass-action steady-state directly; transparent ratios for diagnosis.",
+      "weaknesses": "Composite-member single-paralog encoding (gm=0.997) is too conservative for major LR TFs (LBD/PIN/AFB), producing ratio\u22481.0 'no propagation' on 8 single-KO tests. Rescue tests with mutant baseline + no exogenous_supply collapse to ratio=1.0.",
+      "failures": [
+        "T002",
+        "T030",
+        "T056",
+        "T065",
+        "T066",
+        "T069",
+        "T070",
+        "T082",
+        "T086",
+        "T096",
+        "T097",
+        "T100",
+        "T101",
+        "T102",
+        "T115",
+        "T116"
+      ]
+    },
+    {
+      "method": "ODE",
+      "accuracy": 0.866,
+      "kappa": 0.7471,
+      "mcc": 0.6435,
+      "convergence_rate": 1.0,
+      "best_params": "K=1.0, n=2",
+      "strengths": "Hill kinetics provides smoother propagation; converges 100%; recovers some borderline cases.",
+      "weaknesses": "Composite-collapse failures persist; high-N (T082) inversion present; T155/T156 ODE borderlines on phospho-variant encoding.",
+      "failures": [
+        "T002",
+        "T056",
+        "T065",
+        "T066",
+        "T069",
+        "T070",
+        "T086",
+        "T096",
+        "T097",
+        "T100",
+        "T101",
+        "T102",
+        "T115",
+        "T122",
+        "T155",
+        "T156"
+      ]
+    },
+    {
+      "method": "RWR",
+      "accuracy": 0.866,
+      "kappa": 0.7457,
+      "mcc": 0.5897,
+      "convergence_rate": 1.0,
+      "best_params": "alpha=0.5",
+      "strengths": "Signed-graph propagation handles cascade amplification more gracefully; highest baseline accuracy (85.7%); 100% convergence and alpha-insensitive.",
+      "weaknesses": "Cannot enforce perception-gate motif (T122/T123 fail under Trap-5 encoding); same direction inversions on PHYB and PYL8 paths.",
+      "failures": [
+        "T002",
+        "T056",
+        "T065",
+        "T066",
+        "T069",
+        "T070",
+        "T082",
+        "T086",
+        "T096",
+        "T097",
+        "T100",
+        "T101",
+        "T102",
+        "T122",
+        "T123",
+        "T142"
+      ]
+    }
+  ]
+}

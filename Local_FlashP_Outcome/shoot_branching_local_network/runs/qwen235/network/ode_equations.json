@@ -1,0 +1,299 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "shoot_branching",
+    "phenotype_node": "Shoot_Branching",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-05-03",
+    "iteration": 1,
+    "curated_edges_source": "390-edge repository",
+    "total_nodes": 31,
+    "total_edges": 55,
+    "source_nodes": 14,
+    "source_percentage": 45.2,
+    "builder_model": "awaescher/qwen3-235b-2507-unsloth-q3-k-xl",
+    "build_method": "raw qwen3 output, no polish",
+    "total_equations": 32,
+    "default_parameters": {
+      "K": 1.0,
+      "n": 2
+    }
+  },
+  "equations": [
+    {
+      "node": "Auxin",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Auxin = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BRC1",
+      "activators": [
+        "Auxin",
+        "MAX_Pathway",
+        "Strigolactone",
+        "MAX2",
+        "SPL9",
+        "Strigolactones"
+      ],
+      "inhibitors": [
+        "Decapitation",
+        "Cytokinin",
+        "Cytokinins",
+        "Auxin",
+        "SMXL678",
+        "SMXL6",
+        "FHY3",
+        "FT"
+      ],
+      "formula": "BRC1 = ((Auxin^2 * (1.0+1) / (1.0 + Auxin^2)) * (MAX_Pathway^2 * (1.0+1) / (1.0 + MAX_Pathway^2)) * (Strigolactone^2 * (1.0+1) / (1.0 + Strigolactone^2)) * (MAX2^2 * (1.0+1) / (1.0 + MAX2^2)) * (SPL9^2 * (1.0+1) / (1.0 + SPL9^2)) * (Strigolactones^2 * (1.0+1) / (1.0 + Strigolactones^2))) * (((1.0+1) / (1.0 + Decapitation^2)) * ((1.0+1) / (1.0 + Cytokinin^2)) * ((1.0+1) / (1.0 + Cytokinins^2)) * ((1.0+1) / (1.0 + Auxin^2)) * ((1.0+1) / (1.0 + SMXL678^2)) * ((1.0+1) / (1.0 + SMXL6^2)) * ((1.0+1) / (1.0 + FHY3^2)) * ((1.0+1) / (1.0 + FT^2))) * gene_modifier + exogenous"
+    },
+    {
+      "node": "CCD7",
+      "activators": [
+        "D27"
+      ],
+      "inhibitors": [],
+      "formula": "CCD7 = ((D27^2 * (1.0+1) / (1.0 + D27^2))) * (1.0) * gene_modifier + exogenous"
+    },
+    {
+      "node": "CCD8",
+      "activators": [
+        "CCD7"
+      ],
+      "inhibitors": [],
+      "formula": "CCD8 = ((CCD7^2 * (1.0+1) / (1.0 + CCD7^2))) * (1.0) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Cytokinin",
+      "activators": [
+        "Sucrose"
+      ],
+      "inhibitors": [
+        "Auxin",
+        "OsCKX9"
+      ],
+      "formula": "Cytokinin = ((Sucrose^2 * (1.0+1) / (1.0 + Sucrose^2))) * (((1.0+1) / (1.0 + Auxin^2)) * ((1.0+1) / (1.0 + OsCKX9^2))) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Cytokinins",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Cytokinins = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "D14",
+      "activators": [],
+      "inhibitors": [
+        "Strigolactone",
+        "MAX2"
+      ],
+      "formula": "D14 = (1.0) * (((1.0+1) / (1.0 + Strigolactone^2)) * ((1.0+1) / (1.0 + MAX2^2))) * gene_modifier + exogenous"
+    },
+    {
+      "node": "D27",
+      "activators": [
+        "Auxin"
+      ],
+      "inhibitors": [],
+      "formula": "D27 = ((Auxin^2 * (1.0+1) / (1.0 + Auxin^2))) * (1.0) * gene_modifier + exogenous"
+    },
+    {
+      "node": "D53",
+      "activators": [],
+      "inhibitors": [
+        "Strigolactones"
+      ],
+      "formula": "D53 = (1.0) * (((1.0+1) / (1.0 + Strigolactones^2))) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Decapitation",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Decapitation = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FHY3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FHY3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FT",
+      "activators": [
+        "Tre6P"
+      ],
+      "inhibitors": [],
+      "formula": "FT = ((Tre6P^2 * (1.0+1) / (1.0 + Tre6P^2))) * (1.0) * gene_modifier + exogenous"
+    },
+    {
+      "node": "HXK1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HXK1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "IPT3",
+      "activators": [
+        "HXK1"
+      ],
+      "inhibitors": [],
+      "formula": "IPT3 = ((HXK1^2 * (1.0+1) / (1.0 + HXK1^2))) * (1.0) * gene_modifier + exogenous"
+    },
+    {
+      "node": "MAX1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MAX1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MAX2",
+      "activators": [
+        "D14"
+      ],
+      "inhibitors": [
+        "HXK1"
+      ],
+      "formula": "MAX2 = ((D14^2 * (1.0+1) / (1.0 + D14^2))) * (((1.0+1) / (1.0 + HXK1^2))) * gene_modifier + exogenous"
+    },
+    {
+      "node": "MAX3",
+      "activators": [
+        "Auxin"
+      ],
+      "inhibitors": [],
+      "formula": "MAX3 = ((Auxin^2 * (1.0+1) / (1.0 + Auxin^2))) * (1.0) * gene_modifier + exogenous"
+    },
+    {
+      "node": "MAX4",
+      "activators": [
+        "Auxin"
+      ],
+      "inhibitors": [],
+      "formula": "MAX4 = ((Auxin^2 * (1.0+1) / (1.0 + Auxin^2))) * (1.0) * gene_modifier + exogenous"
+    },
+    {
+      "node": "MAX_Pathway",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MAX_Pathway = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "OsCKX9",
+      "activators": [
+        "Strigolactone"
+      ],
+      "inhibitors": [
+        "D53"
+      ],
+      "formula": "OsCKX9 = ((Strigolactone^2 * (1.0+1) / (1.0 + Strigolactone^2))) * (((1.0+1) / (1.0 + D53^2))) * gene_modifier + exogenous"
+    },
+    {
+      "node": "SMAX1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SMAX1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SMXL6",
+      "activators": [
+        "FHY3"
+      ],
+      "inhibitors": [
+        "MAX2"
+      ],
+      "formula": "SMXL6 = ((FHY3^2 * (1.0+1) / (1.0 + FHY3^2))) * (((1.0+1) / (1.0 + MAX2^2))) * gene_modifier + exogenous"
+    },
+    {
+      "node": "SMXL678",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SMXL678 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SMXL7",
+      "activators": [],
+      "inhibitors": [
+        "D14",
+        "MAX2"
+      ],
+      "formula": "SMXL7 = (1.0) * (((1.0+1) / (1.0 + D14^2)) * ((1.0+1) / (1.0 + MAX2^2))) * gene_modifier + exogenous"
+    },
+    {
+      "node": "SMXL8",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SMXL8 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SPL9",
+      "activators": [],
+      "inhibitors": [
+        "SMXL6"
+      ],
+      "formula": "SPL9 = (1.0) * (((1.0+1) / (1.0 + SMXL6^2))) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Shoot_Branching",
+      "activators": [
+        "Cytokinin",
+        "HXK1",
+        "Sucrose",
+        "VInv",
+        "SMXL6",
+        "SMXL7",
+        "SMXL8",
+        "SMAX1",
+        "FHY3",
+        "Tre6P",
+        "FT"
+      ],
+      "inhibitors": [
+        "BRC1",
+        "D14",
+        "MAX2",
+        "Strigolactones"
+      ],
+      "formula": "Shoot_Branching = ((Cytokinin^2 * (1.0+1) / (1.0 + Cytokinin^2)) * (HXK1^2 * (1.0+1) / (1.0 + HXK1^2)) * (Sucrose^2 * (1.0+1) / (1.0 + Sucrose^2)) * (VInv^2 * (1.0+1) / (1.0 + VInv^2)) * (SMXL6^2 * (1.0+1) / (1.0 + SMXL6^2)) * (SMXL7^2 * (1.0+1) / (1.0 + SMXL7^2)) * (SMXL8^2 * (1.0+1) / (1.0 + SMXL8^2)) * (SMAX1^2 * (1.0+1) / (1.0 + SMAX1^2)) * (FHY3^2 * (1.0+1) / (1.0 + FHY3^2)) * (Tre6P^2 * (1.0+1) / (1.0 + Tre6P^2)) * (FT^2 * (1.0+1) / (1.0 + FT^2))) * (((1.0+1) / (1.0 + BRC1^2)) * ((1.0+1) / (1.0 + D14^2)) * ((1.0+1) / (1.0 + MAX2^2)) * ((1.0+1) / (1.0 + Strigolactones^2))) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Strigolactone",
+      "activators": [
+        "CCD8",
+        "MAX1",
+        "MAX3",
+        "MAX4",
+        "Auxin"
+      ],
+      "inhibitors": [],
+      "formula": "Strigolactone = ((CCD8^2 * (1.0+1) / (1.0 + CCD8^2)) * (MAX1^2 * (1.0+1) / (1.0 + MAX1^2)) * (MAX3^2 * (1.0+1) / (1.0 + MAX3^2)) * (MAX4^2 * (1.0+1) / (1.0 + MAX4^2)) * (Auxin^2 * (1.0+1) / (1.0 + Auxin^2))) * (1.0) * gene_modifier + exogenous"
+    },
+    {
+      "node": "Strigolactones",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Strigolactones = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Sucrose",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Sucrose = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Tre6P",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Tre6P = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "VInv",
+      "activators": [
+        "Cytokinin",
+        "Sucrose"
+      ],
+      "inhibitors": [],
+      "formula": "VInv = ((Cytokinin^2 * (1.0+1) / (1.0 + Cytokinin^2)) * (Sucrose^2 * (1.0+1) / (1.0 + Sucrose^2))) * (1.0) * gene_modifier + exogenous"
+    }
+  ]
+}

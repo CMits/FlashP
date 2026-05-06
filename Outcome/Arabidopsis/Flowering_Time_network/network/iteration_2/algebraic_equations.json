@@ -1,0 +1,472 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Flowering_Time",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-18",
+    "total_equations": 42
+  },
+  "parameters": {
+    "epsilon": 0.1,
+    "K": 10.0,
+    "activator_floor": 0.01,
+    "damping": 0.7,
+    "direction_threshold": 0.05,
+    "max_iterations": 100,
+    "convergence_tolerance": 0.0001
+  },
+  "equations": [
+    {
+      "node": "Long_Day",
+      "type": "ENVIRONMENT",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Long_Day = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Blue_Light",
+      "type": "ENVIRONMENT",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Blue_Light = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Cold",
+      "type": "ENVIRONMENT",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Cold = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Vernalization",
+      "type": "ENVIRONMENT",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Vernalization = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Warm_Temperature",
+      "type": "ENVIRONMENT",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Warm_Temperature = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FRI",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FRI = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PRC2",
+      "type": "PROTEIN_COMPLEX",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PRC2 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SLY1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SLY1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GA20OX",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GA20OX = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GA2OX",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GA2OX = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FCA",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FCA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FPA",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FPA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FLD",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FLD = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FVE",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FVE = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "LD",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LD = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GI",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GI = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Sucrose",
+      "type": "METABOLITE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Sucrose = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TPS1",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TPS1 = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "miR156",
+      "type": "REGULATORY_RNA",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "Sucrose"
+      ],
+      "formula": "miR156 = 1.0 * min(1/max(Sucrose, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "T6P",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "Sucrose",
+        "TPS1"
+      ],
+      "inhibitors": [],
+      "formula": "T6P = (max(Sucrose, 0.01) * max(TPS1, 0.01))^(1/2) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FKF1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "Blue_Light",
+        "GI"
+      ],
+      "inhibitors": [],
+      "formula": "FKF1 = (max(Blue_Light, 0.01) * max(GI, 0.01))^(1/2) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CDF1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "FKF1",
+        "GI"
+      ],
+      "formula": "CDF1 = 1.0 * min(1/max(FKF1 * GI, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CO",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "Long_Day",
+        "GI",
+        "FKF1"
+      ],
+      "inhibitors": [
+        "CDF1",
+        "DELLA"
+      ],
+      "formula": "CO = (max(Long_Day, 0.01) * max(GI, 0.01) * max(FKF1, 0.01))^(1/3) * min(1/max(CDF1 * DELLA, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "VIN3",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "Cold",
+        "Vernalization"
+      ],
+      "inhibitors": [],
+      "formula": "VIN3 = (max(Cold, 0.01) * max(Vernalization, 0.01))^(1/2) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FLC",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "FRI",
+        "SVP"
+      ],
+      "inhibitors": [
+        "VIN3",
+        "PRC2",
+        "FCA",
+        "FPA",
+        "FLD",
+        "FVE",
+        "LD"
+      ],
+      "formula": "FLC = (max(FRI, 0.01) * max(SVP, 0.01))^(1/2) * min(1/max(VIN3 * PRC2 * FCA * FPA * FLD * FVE * LD, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SVP",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "Warm_Temperature",
+        "FCA",
+        "FVE",
+        "SOC1"
+      ],
+      "formula": "SVP = 1.0 * min(1/max(Warm_Temperature * FCA * FVE * SOC1, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PIF4",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "Warm_Temperature"
+      ],
+      "inhibitors": [
+        "DELLA",
+        "GI"
+      ],
+      "formula": "PIF4 = max(Warm_Temperature, 0.01)^(1/1) * min(1/max(DELLA * GI, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Gibberellin",
+      "type": "HORMONE",
+      "is_source": false,
+      "activators": [
+        "GA20OX"
+      ],
+      "inhibitors": [
+        "GA2OX"
+      ],
+      "formula": "Gibberellin = max(GA20OX, 0.01)^(1/1) * min(1/max(GA2OX, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GID1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "Gibberellin"
+      ],
+      "inhibitors": [],
+      "formula": "GID1 = max(Gibberellin, 0.01)^(1/1) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DELLA",
+      "type": "PROTEIN_COMPLEX",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "GID1",
+        "SLY1"
+      ],
+      "formula": "DELLA = 1.0 * min(1/max(GID1 * SLY1, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SPL9",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "DELLA",
+        "miR156"
+      ],
+      "formula": "SPL9 = 1.0 * min(1/max(DELLA * miR156, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "miR172",
+      "type": "REGULATORY_RNA",
+      "is_source": false,
+      "activators": [
+        "SPL9"
+      ],
+      "inhibitors": [],
+      "formula": "miR172 = max(SPL9, 0.01)^(1/1) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AP2",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "miR172",
+        "SOC1"
+      ],
+      "formula": "AP2 = 1.0 * min(1/max(miR172 * SOC1, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FT",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "CO",
+        "PIF4",
+        "FKF1",
+        "GI",
+        "Warm_Temperature",
+        "T6P"
+      ],
+      "inhibitors": [
+        "FLC",
+        "SVP",
+        "CDF1"
+      ],
+      "formula": "FT = (max(CO, 0.01) * max(PIF4, 0.01) * max(FKF1, 0.01) * max(GI, 0.01) * max(Warm_Temperature, 0.01) * max(T6P, 0.01))^(1/6) * min(1/max(FLC * SVP * CDF1, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FUL",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "FT",
+        "SPL9"
+      ],
+      "inhibitors": [],
+      "formula": "FUL = (max(FT, 0.01) * max(SPL9, 0.01))^(1/2) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FD",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "FT",
+        "TFL1"
+      ],
+      "inhibitors": [],
+      "formula": "FD = (max(FT, 0.01) * max(TFL1, 0.01))^(1/2) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SOC1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "FT",
+        "FD",
+        "SPL9"
+      ],
+      "inhibitors": [
+        "FLC",
+        "SVP",
+        "DELLA",
+        "AP2",
+        "TFL1"
+      ],
+      "formula": "SOC1 = (max(FT, 0.01) * max(FD, 0.01) * max(SPL9, 0.01))^(1/3) * min(1/max(FLC * SVP * DELLA * AP2 * TFL1, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AGL24",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "SOC1",
+        "Vernalization"
+      ],
+      "inhibitors": [],
+      "formula": "AGL24 = (max(SOC1, 0.01) * max(Vernalization, 0.01))^(1/2) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "AP1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "FT",
+        "FD",
+        "SOC1",
+        "LFY",
+        "SPL9",
+        "FUL"
+      ],
+      "inhibitors": [
+        "AP2",
+        "TFL1"
+      ],
+      "formula": "AP1 = (max(FT, 0.01) * max(FD, 0.01) * max(SOC1, 0.01) * max(LFY, 0.01) * max(SPL9, 0.01) * max(FUL, 0.01))^(1/6) * min(1/max(AP2 * TFL1, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "LFY",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "FT",
+        "SOC1",
+        "AGL24",
+        "SPL9"
+      ],
+      "inhibitors": [
+        "DELLA",
+        "TFL1"
+      ],
+      "formula": "LFY = (max(FT, 0.01) * max(SOC1, 0.01) * max(AGL24, 0.01) * max(SPL9, 0.01))^(1/4) * min(1/max(DELLA * TFL1, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "TFL1",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "AP1"
+      ],
+      "formula": "TFL1 = 1.0 * min(1/max(AP1, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Flowering_Time",
+      "type": "PHENOTYPE",
+      "is_source": false,
+      "activators": [
+        "AP1",
+        "LFY",
+        "SOC1",
+        "FUL"
+      ],
+      "inhibitors": [
+        "TFL1"
+      ],
+      "formula": "Flowering_Time = (max(AP1, 0.01) * max(LFY, 0.01) * max(SOC1, 0.01) * max(FUL, 0.01))^(1/4) * min(1/max(TFL1, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    }
+  ]
+}

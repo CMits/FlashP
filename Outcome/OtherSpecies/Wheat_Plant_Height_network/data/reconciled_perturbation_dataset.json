@@ -1,0 +1,2316 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Plant_Height",
+    "species": "Triticum aestivum",
+    "created": "2026-04-20",
+    "total_tests": 54,
+    "in_network": 53,
+    "not_in_network": 1,
+    "phenotype_node": "Plant_Height",
+    "convention": "Rht-B1b/D1b GOF stabilised-DELLA alleles encoded as RHT_B1/RHT_D1 gm=2.0; Rht-B1c severe allele gm=2.5; mild Rht-B1d gm=1.5. Trap-3 tests (Rht + GA3) encoded with baseline='mutant' and expected='unchanged' (stabilised DELLA cannot be degraded by exogenous GA). Biosynthesis-KO + exogenous hormone rescues encoded baseline='mutant' expected='increased'. BR signalling KO (TaBRI1) + BL encoded baseline='mutant' expected='unchanged' (Trap-5-like). Environment treatments on source nodes (Gibberellin, Brassinosteroid, Auxin, Nitrogen) use exogenous_supply. Chemical inhibitors (PAC, Brz) encoded via mechanism_mapping to TAGA20OX or TADWF4 with gm=0.1. Homeolog-single KOs of redundant composites use gm=0.997."
+  },
+  "direction_threshold": 0.05,
+  "perturbations": [
+    {
+      "test_id": "T001",
+      "gene": "Rht-B1b",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RHT_B1"
+      ],
+      "gene_modifiers": {
+        "RHT_B1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT_B1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Rht-B1b = GAIN-OF-FUNCTION stabilised DELLA (Rht-B1 homeolog B); encoded gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.183657",
+          "title": "Molecular Characterization of Rht-1 Dwarfing Genes in Hexaploid Wheat",
+          "authors": "Pearce S, Saville R, Vaughan SP, Chandler PM, Wilhelm EP, Sparks CA, Al-Kaff N, Korolev A, Boulton MI, Phillips AL, Hedden P, Nicholson P, Thomas SG",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "the Rht-B1b and Rht-D1b alleles produce only about a 20% reduction in height",
+          "claim": "Rht-B1b semidwarf allele reduces height 20%",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.3389/fpls.2019.00051",
+          "title": "The Impact of the Wheat Rht-B1b Semi-Dwarfing Allele on Photosynthesis and Seed Development Under Field Conditions",
+          "authors": "Jobson EM, Johnston RE, Oiestad AJ, Martin JM, Giroux MJ",
+          "year": 2019,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "Plant height (cm) 95.0 (Rht-B1a) vs 73.1 (Rht-B1b), -23% reduction significant",
+          "claim": "Rht-B1b reduces height 23% in Montana field trial",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Rht-B1b = GAIN-OF-FUNCTION stabilised DELLA (Rht-B1 homeolog B); encoded gm=2.0",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T002",
+      "gene": "Rht-D1b",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RHT_D1"
+      ],
+      "gene_modifiers": {
+        "RHT_D1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT_D1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Rht-D1b = GAIN-OF-FUNCTION stabilised DELLA (Rht-B1 homeolog D); encoded gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.183657",
+          "title": "Molecular Characterization of Rht-1 Dwarfing Genes in Hexaploid Wheat",
+          "authors": "Pearce S, Saville R, Vaughan SP, Chandler PM, Wilhelm EP, Sparks CA, Al-Kaff N, Korolev A, Boulton MI, Phillips AL, Hedden P, Nicholson P, Thomas SG",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "the Rht-B1b and Rht-D1b alleles produce only about a 20% reduction in height",
+          "claim": "Rht-D1b produces ~20% height reduction",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Rht-D1b = GAIN-OF-FUNCTION stabilised DELLA (Rht-B1 homeolog D); encoded gm=2.0",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T003",
+      "gene": "Rht-B1c",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RHT_B1"
+      ],
+      "gene_modifiers": {
+        "RHT_B1": 2.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT_B1",
+          "modifier_type": "gene_modifier",
+          "value": 2.5
+        }
+      ],
+      "notes": "Rht-B1c = severe stabilised-DELLA allele (stronger than Rht-B1b); encoded gm=2.5",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.183657",
+          "title": "Molecular Characterization of Rht-1 Dwarfing Genes in Hexaploid Wheat",
+          "authors": "Pearce S, Saville R, Vaughan SP, Chandler PM, Wilhelm EP, Sparks CA, Al-Kaff N, Korolev A, Boulton MI, Phillips AL, Hedden P, Nicholson P, Thomas SG",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Rht-B1c and Rht-D1c are about half the size of the appropriate tall controls",
+          "claim": "Rht-B1c severe dwarf (~50% height reduction)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Rht-B1c = severe stabilised-DELLA allele (stronger than Rht-B1b); encoded gm=2.5",
+      "expected_magnitude": "strong",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T004",
+      "gene": "Rht-D1c",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RHT_D1"
+      ],
+      "gene_modifiers": {
+        "RHT_D1": 2.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT_D1",
+          "modifier_type": "gene_modifier",
+          "value": 2.5
+        }
+      ],
+      "notes": "Rht-D1c = severe stabilised-DELLA allele on D genome; encoded gm=2.5",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.183657",
+          "title": "Molecular Characterization of Rht-1 Dwarfing Genes in Hexaploid Wheat",
+          "authors": "Pearce S, Saville R, Vaughan SP, Chandler PM, Wilhelm EP, Sparks CA, Al-Kaff N, Korolev A, Boulton MI, Phillips AL, Hedden P, Nicholson P, Thomas SG",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "the extreme dwarfism of Rht-D1c is due to overexpression of the semidwarfing Rht-D1b allele, caused by an increase in gene copy number",
+          "claim": "Rht-D1c extreme dwarf via gene amplification",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Rht-D1c = severe stabilised-DELLA allele on D genome; encoded gm=2.5",
+      "expected_magnitude": "strong",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T005",
+      "gene": "Rht-B1d",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RHT_B1"
+      ],
+      "gene_modifiers": {
+        "RHT_B1": 1.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT_B1",
+          "modifier_type": "gene_modifier",
+          "value": 1.5
+        }
+      ],
+      "notes": "Rht-B1d = mild stabilised-DELLA allele; encoded gm=1.5 (slight)",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.183657",
+          "title": "Molecular Characterization of Rht-1 Dwarfing Genes in Hexaploid Wheat",
+          "authors": "Pearce S, Saville R, Vaughan SP, Chandler PM, Wilhelm EP, Sparks CA, Al-Kaff N, Korolev A, Boulton MI, Phillips AL, Hedden P, Nicholson P, Thomas SG",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Plants carrying the Rht-B1d mutation are less severely dwarfed than those carrying Rht-B1b alone",
+          "claim": "Rht-B1d milder dwarf than Rht-B1b",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Rht-B1d = mild stabilised-DELLA allele; encoded gm=1.5 (slight)",
+      "expected_magnitude": "slight",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T006",
+      "gene": "Rht-B1e",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RHT_B1"
+      ],
+      "gene_modifiers": {
+        "RHT_B1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT_B1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Rht-B1e = moderate stabilised-DELLA allele; encoded gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.183657",
+          "title": "Molecular Characterization of Rht-1 Dwarfing Genes in Hexaploid Wheat",
+          "authors": "Pearce S, Saville R, Vaughan SP, Chandler PM, Wilhelm EP, Sparks CA, Al-Kaff N, Korolev A, Boulton MI, Phillips AL, Hedden P, Nicholson P, Thomas SG",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "it is likely that the Rht-B1e mutation confers its GA-insensitive semidwarf phenotype in a manner analogous to Rht-B1b",
+          "claim": "Rht-B1e semidwarf (K61 stop codon)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Rht-B1e = moderate stabilised-DELLA allele; encoded gm=2.0",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T007",
+      "gene": "Rht-B1b+Rht-D1b",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RHT_B1",
+        "RHT_D1"
+      ],
+      "gene_modifiers": {
+        "RHT_B1": 2.0,
+        "RHT_D1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT_B1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "RHT_D1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Double Rht-B1b + Rht-D1b; both DELLA homeologs stabilised, additive dwarfing",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.16652",
+          "title": "Green Revolution dwarfing Rht genes negatively affected wheat floral traits related to cross-pollination efficiency",
+          "authors": "Schierenbeck M, Alqudah AM, Lantos E, Avogadro EG, Simon MR, Borner A",
+          "year": 2024,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "The Rht1+2 combination produced reductions up to 64% compared to the tall variety",
+          "claim": "Rht-B1b+Rht-D1b double dwarf; up to 64% reduction",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Double Rht-B1b + Rht-D1b; both DELLA homeologs stabilised, additive dwarfing",
+      "expected_magnitude": "strong",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T008",
+      "gene": "Rht-B1a",
+      "perturbation_type": "control",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Rht-B1a WT allele control \u2014 no modifications",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.183657",
+          "title": "Molecular Characterization of Rht-1 Dwarfing Genes in Hexaploid Wheat",
+          "authors": "Pearce S, Saville R, Vaughan SP, Chandler PM, Wilhelm EP, Sparks CA, Al-Kaff N, Korolev A, Boulton MI, Phillips AL, Hedden P, Nicholson P, Thomas SG",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "wild-type alleles designated as Rht-A1a, Rht-B1a, and Rht-D1a",
+          "claim": "Tall WT allele",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "control",
+      "reconciliation_note": "Rht-B1a WT allele control \u2014 no modifications",
+      "expected_magnitude": "",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T009",
+      "gene": "Rht-D1a",
+      "perturbation_type": "control",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Rht-D1a WT allele control \u2014 no modifications",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.183657",
+          "title": "Molecular Characterization of Rht-1 Dwarfing Genes in Hexaploid Wheat",
+          "authors": "Pearce S, Saville R, Vaughan SP, Chandler PM, Wilhelm EP, Sparks CA, Al-Kaff N, Korolev A, Boulton MI, Phillips AL, Hedden P, Nicholson P, Thomas SG",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Rht-D1a (tall)",
+          "claim": "Tall WT allele",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "control",
+      "reconciliation_note": "Rht-D1a WT allele control \u2014 no modifications",
+      "expected_magnitude": "",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T010",
+      "gene": "Rht-B1c_ovg_suppressor",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "RHT_B1"
+      ],
+      "gene_modifiers": {
+        "RHT_B1": 1.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT_B1",
+          "modifier_type": "gene_modifier",
+          "value": 1.0
+        }
+      ],
+      "notes": "Rht-B1c overgrowth suppressor (ovg): loss-of-function of the Rht-B1c allele restores WT-like DELLA; baseline=Rht-B1c alone (gm=2.5), perturbed=RHT_B1 restored to 1.0",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/erw471",
+          "title": "Differential coupling of gibberellin responses by Rht-B1c suppressor alleles and Rht-B1b in wheat highlights a unique role for the DELLA N-terminus in dormancy",
+          "authors": "Van De Velde K, Chandler PM, Van Der Straeten D, Rohde A",
+          "year": 2017,
+          "journal": "Journal of Experimental Botany",
+          "evidence_sentence": "Rht-B1c.22 (tall): stem length 15-22% longer than Rht-B1b",
+          "claim": "ovg suppressor restores tall stature in Rht-B1c background",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "epistasis",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Rht-B1c overgrowth suppressor (ovg): loss-of-function of the Rht-B1c allele restores WT-like DELLA; baseline=Rht-B1c alone (gm=2.5), perturbed=RHT_B1 restored to 1.0",
+      "expected_magnitude": "slight",
+      "species": "Triticum aestivum",
+      "baseline_modifiers": {
+        "RHT_B1": 2.5
+      },
+      "baseline_exogenous": {}
+    },
+    {
+      "test_id": "T011",
+      "gene": "PLATZ-A1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PLATZ_A1"
+      ],
+      "gene_modifiers": {
+        "PLATZ_A1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PLATZ_A1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "PLATZ-A1 knockout \u2192 direct mapping",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.2300203120",
+          "title": "Wheat plant height locus RHT25 encodes a PLATZ transcription factor that interacts with DELLA (RHT1)",
+          "authors": "Zhang Z, Belcram H, Gornicki P, Charles M, Just J, Huneau C, Magdelenat G, Couloux A, Samain S, Gill BS, Rasmussen JB, Barbe V, Faris JD, Chalhoub B",
+          "year": 2023,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "combined platz1 mutant showed a significant reduction in plant height (12.7%), peduncle length (18.7%)",
+          "claim": "PLATZ-A1 LOF reduces height 12.7%",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "PLATZ-A1 knockout \u2192 direct mapping",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T012",
+      "gene": "PLATZ-A1",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "PLATZ_A1"
+      ],
+      "gene_modifiers": {
+        "PLATZ_A1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PLATZ_A1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "PLATZ-A1 overexpression \u2192 direct mapping",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.2300203120",
+          "title": "Wheat plant height locus RHT25 encodes a PLATZ transcription factor that interacts with DELLA (RHT1)",
+          "authors": "Zhang Z, Belcram H, Gornicki P, Charles M, Just J, Huneau C, Magdelenat G, Couloux A, Samain S, Gill BS, Rasmussen JB, Barbe V, Faris JD, Chalhoub B",
+          "year": 2023,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "UBI::PLATZ1 overexpression: Taller plants; longer peduncles; male sterile",
+          "claim": "PLATZ-A1 OE increases height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "PLATZ-A1 overexpression \u2192 direct mapping",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T013",
+      "gene": "TaGA3ox2",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TAGA3OX"
+      ],
+      "gene_modifiers": {
+        "TAGA3OX": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TAGA3OX",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "TaGA3ox2 triple homeolog KO (severe biosynthesis loss); TAGA3OX is the composite family node",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/eraf151",
+          "title": "GIBBERELLIN 3-OXIDASE genes regulate height and grain size in bread wheat",
+          "authors": "Phillips AL, Huttly AK, Alarcon-Reverte R, et al",
+          "year": 2025,
+          "journal": "Journal of Experimental Botany",
+          "evidence_sentence": "ga3ox2 triple mutant: GA1 levels ~3-fold lower than wild-type in seedlings; severely dwarfed, infertile",
+          "claim": "TaGA3ox2 triple-KO severely dwarfed",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "TaGA3ox2 triple homeolog KO (severe biosynthesis loss); TAGA3OX is the composite family node",
+      "expected_magnitude": "strong",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T014",
+      "gene": "TaGA3ox3",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TAGA3OX"
+      ],
+      "gene_modifiers": {
+        "TAGA3OX": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TAGA3OX",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "TaGA3ox3 triple KO = slight dwarf; paralog with milder contribution to bioactive-GA pool; encoded as KD on composite TAGA3OX",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/eraf151",
+          "title": "GIBBERELLIN 3-OXIDASE genes regulate height and grain size in bread wheat",
+          "authors": "Phillips AL, Huttly AK, Alarcon-Reverte R, et al",
+          "year": 2025,
+          "journal": "Journal of Experimental Botany",
+          "evidence_sentence": "ga3ox3 Mutants: 3.0-4.5 cm shorter than wild-type; grain width/TGW reduced",
+          "claim": "TaGA3ox3 triple-KO modest dwarf",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "TaGA3ox3 triple KO = slight dwarf; paralog with milder contribution to bioactive-GA pool; encoded as KD on composite TAGA3OX",
+      "expected_magnitude": "slight",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T015",
+      "gene": "TaGA1ox1-B1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "TAGA1OX1"
+      ],
+      "gene_modifiers": {
+        "TAGA1OX1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TAGA1OX1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "TaGA1ox1-B1 KO \u2192 loss of GA-inactivating oxidase \u2192 more bioactive GA \u2192 taller; matches TAGA1OX1 \u2192 (-1) Gibberellin edge",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/eraf151",
+          "title": "GIBBERELLIN 3-OXIDASE genes regulate height and grain size in bread wheat",
+          "authors": "Phillips AL, Huttly AK, Alarcon-Reverte R, et al",
+          "year": 2025,
+          "journal": "Journal of Experimental Botany",
+          "evidence_sentence": "ga1ox1 Mutant: Bioactive GA1/GA4 extremely high; 10.7 cm taller in 2021 field trial",
+          "claim": "TaGA1ox1 LOF taller plants",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "TaGA1ox1-B1 KO \u2192 loss of GA-inactivating oxidase \u2192 more bioactive GA \u2192 taller; matches TAGA1OX1 \u2192 (-1) Gibberellin edge",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T016",
+      "gene": "TaGA3ox2_plus_GA3",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "TAGA3OX"
+      ],
+      "gene_modifiers": {
+        "TAGA3OX": 0.0
+      },
+      "exogenous_supply": {
+        "Gibberellin": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "TAGA3OX",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "Gibberellin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "TaGA3ox2 triple KO + exogenous GA3: biosynthesis rescue. Convention: baseline=mutant alone (TAGA3OX gm=0.0); expected=increased vs mutant (raw expected=unchanged was reported vs WT)",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/eraf151",
+          "title": "GIBBERELLIN 3-OXIDASE genes regulate height and grain size in bread wheat",
+          "authors": "Phillips AL, Huttly AK, Alarcon-Reverte R, et al",
+          "year": 2025,
+          "journal": "Journal of Experimental Botany",
+          "evidence_sentence": "twice-weekly sprays of 10 \u03bcM GA3 almost completely restored the height and fertility",
+          "claim": "GA3 spray rescues ga3ox2 dwarf",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "mutant",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "TaGA3ox2 triple KO + exogenous GA3: biosynthesis rescue. Convention: baseline=mutant alone (TAGA3OX gm=0.0); expected=increased vs mutant (raw expected=unchanged was reported vs WT)",
+      "expected_magnitude": "",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T017",
+      "gene": "WT_plus_GA3",
+      "perturbation_type": "treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Gibberellin"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Gibberellin": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Gibberellin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "WT + GA3 treatment \u2192 Gibberellin exogenous_supply=1.0",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.185272",
+          "title": "Dominant and Pleiotropic Effects of a GAI Gene in Wheat Results from a Lack of Interaction between DELLA and GID1",
+          "authors": "Wu J, Kong X, Wan J, Liu X, Zhang X, Guo X, Zhou R, Zhao G, Jing R, Fu X, Jia J",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Wild-type seedlings increased 30% with GA3 treatment",
+          "claim": "Exogenous GA3 promotes elongation in WT",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "WT + GA3 treatment \u2192 Gibberellin exogenous_supply=1.0",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T018",
+      "gene": "Rht-B1c_plus_GA3",
+      "perturbation_type": "gain_of_function_plus_treatment",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "RHT_B1"
+      ],
+      "gene_modifiers": {
+        "RHT_B1": 2.5
+      },
+      "exogenous_supply": {
+        "Gibberellin": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "RHT_B1",
+          "modifier_type": "gene_modifier",
+          "value": 2.5
+        },
+        {
+          "node": "Gibberellin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "TRAP-3 test: Rht-B1c + GA3. Stabilised DELLA cannot be degraded even at high GA; baseline=mutant (Rht-B1c alone); expected=unchanged vs mutant",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.185272",
+          "title": "Dominant and Pleiotropic Effects of a GAI Gene in Wheat Results from a Lack of Interaction between DELLA and GID1",
+          "authors": "Wu J, Kong X, Wan J, Liu X, Zhang X, Guo X, Zhou R, Zhao G, Jing R, Fu X, Jia J",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Rht-B1c showed only 5% non-significant increase, confirming complete GA insensitivity",
+          "claim": "GA3 cannot rescue Rht-B1c dwarf",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "mutant",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "TRAP-3 test: Rht-B1c + GA3. Stabilised DELLA cannot be degraded even at high GA; baseline=mutant (Rht-B1c alone); expected=unchanged vs mutant",
+      "expected_magnitude": "",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T019",
+      "gene": "Rht18",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RHT18"
+      ],
+      "gene_modifiers": {
+        "RHT18": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT18",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Rht18 = GA-responsive dwarf via elevated TaGA2ox-A9; GOF encoded as gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.18.00023",
+          "title": "Rht18 Semidwarfism in Wheat Is Due to Increased GA 2-oxidaseA9 Expression and Reduced GA Content",
+          "authors": "Ford BA, Foo E, Sharwood R, Karafiatova M, Vrana J, MacMillan C, Nichols DS, Steuernagel B, Uauy C, Dolezel J, Chandler PM, Spielmeyer W",
+          "year": 2018,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Rht18, a dominant and gibberellin (GA) responsive mutant, is genetically and functionally distinct from the widely used GA-insensitive semidwarfing genes",
+          "claim": "Rht18 dominant GA-responsive dwarf via TaGA2ox-A9",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Rht18 = GA-responsive dwarf via elevated TaGA2ox-A9; GOF encoded as gm=2.0",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T020",
+      "gene": "Rht24b",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RHT24"
+      ],
+      "gene_modifiers": {
+        "RHT24": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT24",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Rht24b = GOF allele of Rht24 (elevated TaGA2ox-A9); gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.17808",
+          "title": "Rht24b, an ancient variation of TaGA2ox-A9, reduces plant height without yield penalty in wheat",
+          "authors": "Tian X, Xia X, Xu D, Liu Y, Xie L, Hassan MA, Song J, Li F, Wang D, Zhang Y, Hao Y, Li G, Chu C, He Z, Cao S",
+          "year": 2022,
+          "journal": "New Phytologist",
+          "evidence_sentence": "Rht24b reduced plant height, but had no yield penalty; it significantly increased nitrogen use efficiency, photosynthetic rate and the expression of related genes",
+          "claim": "Rht24b moderate dwarf; TaGA2ox-A9 variant",
+          "verification": "abstract_read",
+          "full_text_read": false
+        },
+        {
+          "doi": "10.1111/tpj.13726",
+          "title": "A modern Green Revolution gene for reduced height in wheat",
+          "authors": "Wurschum T, Langer SM, Longin CFH, Tucker MR, Leiser WL",
+          "year": 2017,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "exerting an allele substitution effect of -8.8 cm",
+          "claim": "Rht24 allele -8.8 cm",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Rht24b = GOF allele of Rht24 (elevated TaGA2ox-A9); gm=2.0",
+      "expected_magnitude": "slight",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T021",
+      "gene": "Rht12",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RHT12"
+      ],
+      "gene_modifiers": {
+        "RHT12": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT12",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Rht12 = GOF elevating TaGA2ox-A13 \u2192 more GA catabolism \u2192 dwarf; gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/eraa443",
+          "title": "Overgrowth mutants determine the causal role of gibberellin GA2oxidaseA13 in Rht12 dwarfism of wheat",
+          "authors": "Buss W, Ford BA, Foo E, Spielmeyer W",
+          "year": 2020,
+          "journal": "Journal of Experimental Botany",
+          "evidence_sentence": "Rht12 dwarf plants screened for tall suppressors; suppressors carry loss-of-function mutations in GA2oxidaseA13",
+          "claim": "Rht12 severe GA-responsive dwarf; TaGA2oxA13",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Rht12 = GOF elevating TaGA2ox-A13 \u2192 more GA catabolism \u2192 dwarf; gm=2.0",
+      "expected_magnitude": "strong",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T022",
+      "gene": "Rht14",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RHT18"
+      ],
+      "gene_modifiers": {
+        "RHT18": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT18",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Rht14 is a GA-responsive dwarf on 6A via elevated TaGA2ox; not a separate network node. Closest proxy in network is Rht18 (same mechanism family)",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/eraa443",
+          "title": "Overgrowth mutants determine the causal role of gibberellin GA2oxidaseA13 in Rht12 dwarfism of wheat",
+          "authors": "Buss W, Ford BA, Foo E, Spielmeyer W",
+          "year": 2020,
+          "journal": "Journal of Experimental Botany",
+          "evidence_sentence": "Rht12, Rht18, and Rht14 share the same height-reducing mechanism",
+          "claim": "Rht14 GA-responsive dwarf allelic with Rht18",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "Rht14 is a GA-responsive dwarf on 6A via elevated TaGA2ox; not a separate network node. Closest proxy in network is Rht18 (same mechanism family)",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T023",
+      "gene": "Rht12_overgrowth_rev",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "RHT12"
+      ],
+      "gene_modifiers": {
+        "RHT12": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT12",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Rht12 overgrowth revertant: LOF mutation in TaGA2ox-A13 within an Rht12 (GOF) background. baseline=Rht12 OE parent (gm=2.0); perturbed=RHT12 reverted to gm=0.0; expected=increased vs parent",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/eraa443",
+          "title": "Overgrowth mutants determine the causal role of gibberellin GA2oxidaseA13 in Rht12 dwarfism of wheat",
+          "authors": "Buss W, Ford BA, Foo E, Spielmeyer W",
+          "year": 2020,
+          "journal": "Journal of Experimental Botany",
+          "evidence_sentence": "tall overgrowth individuals contain loss-of-function mutations in GA2oxidaseA13",
+          "claim": "TaGA2oxA13 LOF reverts Rht12 to tall",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "epistasis",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Rht12 overgrowth revertant: LOF mutation in TaGA2ox-A13 within an Rht12 (GOF) background. baseline=Rht12 OE parent (gm=2.0); perturbed=RHT12 reverted to gm=0.0; expected=increased vs parent",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum",
+      "baseline_modifiers": {
+        "RHT12": 2.0
+      },
+      "baseline_exogenous": {}
+    },
+    {
+      "test_id": "T024",
+      "gene": "Rht8",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RHT8"
+      ],
+      "gene_modifiers": {
+        "RHT8": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT8",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "Rht8c = hypomorphic TaGRP2 allele causing modest GA reduction; encoded as gm=0.5",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2022.01.013",
+          "title": "A natural variation in Ribonuclease H-like gene underlies Rht8 to confer Green Revolution trait in wheat",
+          "authors": "Chai L, Xin M, Dong C, Chen Z, Zhai H, Zhuang J, Cheng X, Wang N, Geng J, Wang X, Jiang H, Hu Z, Xin M, Yao Y, Ni Z, Sun Q, Peng H",
+          "year": 2022,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "The Reduced height 8 (Rht8) semi-dwarfing gene reduces stature of wheat and improves lodging resistance, without compromising grain yield",
+          "claim": "Rht8 semidwarf allele; RNHL-D1 LOF",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Rht8c = hypomorphic TaGRP2 allele causing modest GA reduction; encoded as gm=0.5",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T025",
+      "gene": "Rht13",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RHT13"
+      ],
+      "gene_modifiers": {
+        "RHT13": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT13",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Rht13 GOF = elevated PR gene expression / NLR-like dwarfism; gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.2209875119",
+          "title": "An autoactive NB-LRR gene causes Rht13 dwarfism in wheat",
+          "authors": "Borrill P, Mago R, Xu T, Ford B, Williams SJ, Derkx A, Bovill WD, Hyles J, Bhatt D, Xia XC, MacMillan C, Park RF, Karafiatova M, Dolezel J, Ayliffe M, Lagudah E, Spielmeyer W",
+          "year": 2022,
+          "journal": "Proceedings of the National Academy of Sciences USA",
+          "evidence_sentence": "Rht-B13b plants exhibited approximately 17-34% height reduction primarily through shortened peduncle development",
+          "claim": "Rht-B13b NB-LRR autoactive dwarf; 17-34% reduction",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Rht13 GOF = elevated PR gene expression / NLR-like dwarfism; gm=2.0",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T026",
+      "gene": "TaBRI1_triple",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TABRI1"
+      ],
+      "gene_modifiers": {
+        "TABRI1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TABRI1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "TaBRI1 triple homeolog KO \u2192 severe BR-insensitive dwarf; gm=0.0",
+      "evidence": [
+        {
+          "doi": "10.1186/s12870-025-06762-w",
+          "title": "Induced variation in BRASSINOSTEROID INSENSITIVE 1 (BRI1) confers a compact wheat architecture",
+          "authors": "Gill MS, Phillips AL, Tarkowska D, et al",
+          "year": 2025,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "Triple mutants (with premature stop codons in all three TaBRI1 homoeologues) produced severe dwarfism, malformed leaves and sterility",
+          "claim": "TaBRI1 triple-KO severe dwarf",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "TaBRI1 triple homeolog KO \u2192 severe BR-insensitive dwarf; gm=0.0",
+      "expected_magnitude": "strong",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T027",
+      "gene": "TaBRI1-A1_missense",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TABRI1"
+      ],
+      "gene_modifiers": {
+        "TABRI1": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TABRI1",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "TaBRI1-A1 missense (single homeolog, partial LOF); gm=0.5",
+      "evidence": [
+        {
+          "doi": "10.1186/s12870-025-06762-w",
+          "title": "Induced variation in BRASSINOSTEROID INSENSITIVE 1 (BRI1) confers a compact wheat architecture",
+          "authors": "Gill MS, Phillips AL, Tarkowska D, et al",
+          "year": 2025,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "Missense mutants in TaBRI1-A1 proved most promising: the less severe variant was 35% shorter than the wild type",
+          "claim": "TaBRI1-A1 missense reduces height 35%",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "TaBRI1-A1 missense (single homeolog, partial LOF); gm=0.5",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T028",
+      "gene": "TaZnF-B",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TAZNF"
+      ],
+      "gene_modifiers": {
+        "TAZNF": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TAZNF",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "TaZnF-B LOF \u2192 derepressed TABKI1 \u2192 impaired BR signalling; gm=0.0",
+      "evidence": [
+        {
+          "doi": "10.1038/s41586-023-06023-6",
+          "title": "Reducing brassinosteroid signalling enhances grain yield in semi-dwarf wheat",
+          "authors": "Song L, Liu J, Cao B, Liu B, Zhang X, Chen Z, Dong C, Liu X, Zhang Z, Wang W, Chai L, Liu J, Zhu J, Cui S, He F, Peng H, Hu Z, Su Z, Guo W, Xin M, Yao Y, Yan Y, Song Y, Bai G, Sun Q, Ni Z",
+          "year": 2023,
+          "journal": "Nature",
+          "evidence_sentence": "znf-bb (single): Shorter (8.4 cm); Slight reduction; no pleiotropy",
+          "claim": "TaZnF-B LOF reduces height 8.4cm",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "TaZnF-B LOF \u2192 derepressed TABKI1 \u2192 impaired BR signalling; gm=0.0",
+      "expected_magnitude": "slight",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T029",
+      "gene": "Rht-B1b+TaZnF-B_double",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "RHT_B1",
+        "TAZNF"
+      ],
+      "gene_modifiers": {
+        "RHT_B1": 2.0,
+        "TAZNF": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT_B1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "TAZNF",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Rht-B1b + TaZnF-B double mutant; paper reports phenotype similar to WT (epistatic suppression); expected=unchanged vs WT",
+      "evidence": [
+        {
+          "doi": "10.1038/s41586-023-06023-6",
+          "title": "Reducing brassinosteroid signalling enhances grain yield in semi-dwarf wheat",
+          "authors": "Song L, Liu J, Cao B, Liu B, Zhang X, Chen Z, Dong C, Liu X, Zhang Z, Wang W, Chai L, Liu J, Zhu J, Cui S, He F, Peng H, Hu Z, Su Z, Guo W, Xin M, Yao Y, Yan Y, Song Y, Bai G, Sun Q, Ni Z",
+          "year": 2023,
+          "journal": "Nature",
+          "evidence_sentence": "znf-bb rht1-bb (double): Similar to WT; Longer spikes, larger grains",
+          "claim": "r-e-z double mutation similar to WT height with larger grains",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Rht-B1b + TaZnF-B double mutant; paper reports phenotype similar to WT (epistatic suppression); expected=unchanged vs WT",
+      "expected_magnitude": "",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T030",
+      "gene": "TaD11-2A",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TAD11"
+      ],
+      "gene_modifiers": {
+        "TAD11": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TAD11",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "TaD11-2A single-homeolog KO with detectable moderate dwarfing; encoded gm=0.5 (partial) rather than composite gm=0.997 because phenotype is significant",
+      "evidence": [
+        {
+          "doi": "10.1007/s00122-022-04158-0",
+          "title": "The brassinosteroid biosynthesis gene TaD11-2A controls grain size and its elite haplotype improves wheat grain yields",
+          "authors": "Xu H, Sun H, Dong J, et al",
+          "year": 2022,
+          "journal": "Theoretical and Applied Genetics",
+          "evidence_sentence": "The tad11-2a-1 mutant displayed dwarfism, smaller grains, sensitivity to 24-epiBL, and reduced endogenous BR contents",
+          "claim": "TaD11-2A LOF dwarfism; reduced BR",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "TaD11-2A single-homeolog KO with detectable moderate dwarfing; encoded gm=0.5 (partial) rather than composite gm=0.997 because phenotype is significant",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T031",
+      "gene": "VRN1_single_ko",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "VRN1"
+      ],
+      "gene_modifiers": {
+        "VRN1": 0.9
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "VRN1",
+          "modifier_type": "gene_modifier",
+          "value": 0.9
+        }
+      ],
+      "notes": "VRN1 single-homeolog KO in Fielder - Liu 2025 reports 3.7-5 cm height reduction (~4%). Composite gm loosened from 0.997 convention to 0.9 to reflect paper-specific dosage sensitivity while preserving 'slight decrease' magnitude class.",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2025.101325",
+          "title": "VRN1 regulates heading and plant height in wheat by activating gibberellin biosynthesis",
+          "authors": "Liu T, Li D, Xie Z, et al",
+          "year": 2025,
+          "journal": "Plant Communications",
+          "evidence_sentence": "the plant height of these mutants was reduced by 3.7-5 cm compared with that of Fielder",
+          "claim": "VRN1-5A/B/D single homeolog KO reduces height 3.7-5 cm",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_member",
+      "reconciliation_note": "VRN1 single-homeolog KO in Fielder - Liu 2025 reports 3.7-5 cm reduction (~4%); gm loosened from 0.997 to 0.9 to reflect paper-specific dosage sensitivity.",
+      "expected_magnitude": "slight",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T032",
+      "gene": "VRN1_triple_ko",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "VRN1"
+      ],
+      "gene_modifiers": {
+        "VRN1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "VRN1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "VRN1 triple homeolog KO \u2192 full loss \u2192 strong dwarf",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2025.101325",
+          "title": "VRN1 regulates heading and plant height in wheat by activating gibberellin biosynthesis",
+          "authors": "Liu T, Li D, Xie Z, et al",
+          "year": 2025,
+          "journal": "Plant Communications",
+          "evidence_sentence": "VRN1-5A/5B/5D redundantly regulate heading date and plant height in wheat",
+          "claim": "VRN1 triple-KO delays flowering and dwarfs",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "VRN1 triple homeolog KO \u2192 full loss \u2192 strong dwarf",
+      "expected_magnitude": "strong",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T033",
+      "gene": "TaGRF4_oe",
+      "perturbation_type": "overexpression",
+      "expected_direction": "unchanged",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "TaGRF4 OE; Li et al. 2018 explicitly state GRF4 OE increases yield 'without increasing mature plant height'. TAGRF4 removed from network in refinement iteration 1 because its DELLA interaction is post-translational competition (protein binding), not transcriptional regulation of DELLA levels - an algebraic-framework mismatch. Test now untestable in this network.",
+      "evidence": [
+        {
+          "doi": "10.1038/s41586-018-0415-5",
+          "title": "Modulating plant growth-metabolism coordination for sustainable agriculture",
+          "authors": "Li S, Tian Y, Wu K, Ye Y, Yu J, Zhang J, Liu Q, Hu M, Li H, Tong Y, Harberd NP, Fu X",
+          "year": 2018,
+          "journal": "Nature",
+          "evidence_sentence": "increased GRF4 abundance boosts grain yield and NUE of rice and wheat GRVs without increasing mature plant height",
+          "claim": "GRF4 OE does not increase mature height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "TaGRF4 removed from network.json in refinement iteration 1 - Li 2018 states OE does not increase mature height; DELLA interaction is post-translational competition not transcriptional, framework-mismatch. Retained in curated_edges.json as a DELLA-interacting factor.",
+      "expected_magnitude": "",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T034",
+      "gene": "Rht3",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RHT_B1"
+      ],
+      "gene_modifiers": {
+        "RHT_B1": 2.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT_B1",
+          "modifier_type": "gene_modifier",
+          "value": 2.5
+        }
+      ],
+      "notes": "Rht3 = alias for the Rht-B1c severe-dwarf allele; encoded gm=2.5",
+      "evidence": [
+        {
+          "doi": "10.1186/s12870-025-07556-w",
+          "title": "Molecular characteristics and regulatory effects of dwarfing Rht genes in Triticum aestivum L",
+          "authors": "Wang YR, Shi J, He YY, et al",
+          "year": 2025,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "Rht3 | 4BS | GA-insensitive (DELLA) | ~64% reduction",
+          "claim": "Rht3 severe dwarf; = Rht-B1c Tom Thumb allele",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "Rht3 = alias for the Rht-B1c severe-dwarf allele; encoded gm=2.5",
+      "expected_magnitude": "strong",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T035",
+      "gene": "Rht4",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RHT_D1"
+      ],
+      "gene_modifiers": {
+        "RHT_D1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT_D1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Rht4 = alias for a Rht-D1 semidwarf allele; encoded gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.1186/s12870-025-07556-w",
+          "title": "Molecular characteristics and regulatory effects of dwarfing Rht genes in Triticum aestivum L",
+          "authors": "Wang YR, Shi J, He YY, et al",
+          "year": 2025,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "Rht4 | 2BL | GA-responsive | ~12% reduction",
+          "claim": "Rht4 slight dwarf; GA-responsive; 2BL",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "Rht4 = alias for a Rht-D1 semidwarf allele; encoded gm=2.0",
+      "expected_magnitude": "slight",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T036",
+      "gene": "Rht5",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Rht5 is a distinct GA-insensitive dwarf locus on 3BS (not Rht-B1/D1). The underlying gene is not resolved in the current network; flagged as not_in_network",
+      "evidence": [
+        {
+          "doi": "10.1186/s12870-025-07556-w",
+          "title": "Molecular characteristics and regulatory effects of dwarfing Rht genes in Triticum aestivum L",
+          "authors": "Wang YR, Shi J, He YY, et al",
+          "year": 2025,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "Rht5 | 3BS | GA-responsive (P450) | ~50% reduction",
+          "claim": "Rht5 severe dwarf; GA-responsive; 3BS",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "Rht5 is a distinct GA-insensitive dwarf locus on 3BS (not Rht-B1/D1). The underlying gene is not resolved in the current network; flagged as not_in_network",
+      "expected_magnitude": "strong",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T037",
+      "gene": "Rht-B1b_transgenic_OE",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RHT_B1"
+      ],
+      "gene_modifiers": {
+        "RHT_B1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT_B1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Transgenic OE of Rht-B1b (GOF stabilised DELLA) \u2192 severe dwarfing",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2021.01.002",
+          "title": "N-terminal truncated RHT-1 proteins generated by translational reinitiation cause semi-dwarfing of wheat Green Revolution alleles",
+          "authors": "Van De Velde K, Thomas SG, Heyse F, Kaspar R, Van Der Straeten D, Rohde A",
+          "year": 2021,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "Expression of these N-terminal truncated proteins in transgenic lines demonstrated their ability to cause strong dwarfism",
+          "claim": "N-terminal truncated RHT-1 OE causes strong dwarfism",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Transgenic OE of Rht-B1b (GOF stabilised DELLA) \u2192 severe dwarfing",
+      "expected_magnitude": "strong",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T038",
+      "gene": "NAA_treatment",
+      "perturbation_type": "treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Auxin"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Auxin": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Auxin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "NAA (synthetic auxin) treatment \u2192 Auxin exogenous_supply=1.0",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2018.01395",
+          "title": "Characterization and Expression Patterns of Auxin Response Factors in Wheat",
+          "authors": "Qiao L, Zhang W, Li X, Zhang L, Zhang X, Li X, Guo H, Ren Y, Zheng J, Chang Z",
+          "year": 2018,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "Wheat seedlings treated with 10 \u03bcM \u03b1-naphthaleneacetic acid (synthetic auxin) showed differential upregulation and downregulation of specific TaARF members within 0.5-3 hours post-treatment",
+          "claim": "Auxin treatment activates ARFs",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "NAA (synthetic auxin) treatment \u2192 Auxin exogenous_supply=1.0",
+      "expected_magnitude": "slight",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T039",
+      "gene": "TaARF4-B_haplotype",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TAARF4"
+      ],
+      "gene_modifiers": {
+        "TAARF4": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TAARF4",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "TaARF4-B haplotype = partial LOF of TaARF4 B homeolog; encoded gm=0.5",
+      "evidence": [
+        {
+          "doi": "10.1093/aob/mcy218",
+          "title": "TaARF4 genes are linked to root growth and plant height in wheat",
+          "authors": "Wang J, Wang R, Mao X, Li L, Chang X, Zhang X, Jing R",
+          "year": 2019,
+          "journal": "Annals of Botany",
+          "evidence_sentence": "TaARF4-B was strongly associated with PH and root depth at the tillering, jointing and grain fill stages",
+          "claim": "TaARF4-B variant haplotype associates with short plants",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "TaARF4-B haplotype = partial LOF of TaARF4 B homeolog; encoded gm=0.5",
+      "expected_magnitude": "slight",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T040",
+      "gene": "Rht-B1b_plus_GA3",
+      "perturbation_type": "gain_of_function_plus_treatment",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "RHT_B1"
+      ],
+      "gene_modifiers": {
+        "RHT_B1": 2.0
+      },
+      "exogenous_supply": {
+        "Gibberellin": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "RHT_B1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        },
+        {
+          "node": "Gibberellin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "TRAP-3 test: Rht-B1b + GA3. Stabilised DELLA cannot be degraded even at high GA; baseline=mutant (Rht-B1b alone); expected=unchanged vs mutant. Raw expected=decreased was reported vs WT.",
+      "evidence": [
+        {
+          "doi": "10.1093/plphys/kiad636",
+          "title": "Two open reading frames of Rht-B1b acting as brake and throttle contributed to wheat Green Revolution",
+          "authors": "Chen Y, Yang Z, Wang H, Xia C, Zhang L, Sun J, Kong X, Liu X",
+          "year": 2023,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "GA treatment failed to promote coleoptile elongation in Rht-B1b-containing lines, confirming the proteins function independently of GA-induced degradation pathways",
+          "claim": "GA3 cannot rescue Rht-B1b dwarf (GA-insensitive)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "mutant",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "TRAP-3 test: Rht-B1b + GA3. Stabilised DELLA cannot be degraded even at high GA; baseline=mutant (Rht-B1b alone); expected=unchanged vs mutant. Raw expected=decreased was reported vs WT.",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T041",
+      "gene": "Paclobutrazol_treatment",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TAGA20OX"
+      ],
+      "gene_modifiers": {
+        "TAGA20OX": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TAGA20OX",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "Paclobutrazol: GA-biosynthesis inhibitor (targets ent-kaurene oxidase, functionally reducing GA20ox output). Mapped to TAGA20OX gm=0.1",
+      "evidence": [
+        {
+          "doi": "10.1093/jxb/eraf151",
+          "title": "GIBBERELLIN 3-OXIDASE genes regulate height and grain size in bread wheat",
+          "authors": "Phillips AL, Huttly AK, Alarcon-Reverte R, et al",
+          "year": 2025,
+          "journal": "Journal of Experimental Botany",
+          "evidence_sentence": "GA biosynthetic genes are essential for normal height; chemical inhibition with paclobutrazol (GA biosynthesis inhibitor) phenocopies ga3ox2 dwarf",
+          "claim": "Paclobutrazol blocks GA biosynthesis and reduces height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Paclobutrazol: GA-biosynthesis inhibitor (targets ent-kaurene oxidase, functionally reducing GA20ox output). Mapped to TAGA20OX gm=0.1",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T042",
+      "gene": "Brassinazole_treatment",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TADWF4"
+      ],
+      "gene_modifiers": {
+        "TADWF4": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TADWF4",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "Brassinazole: inhibitor of DWF4 (BR biosynthesis). Mapped to TADWF4 gm=0.1",
+      "evidence": [
+        {
+          "doi": "10.1007/s00122-022-04158-0",
+          "title": "The brassinosteroid biosynthesis gene TaD11-2A controls grain size and its elite haplotype improves wheat grain yields",
+          "authors": "Xu H, Sun H, Dong J, et al",
+          "year": 2022,
+          "journal": "Theoretical and Applied Genetics",
+          "evidence_sentence": "reduced BR biosynthesis resulted in smaller grains and stunted growth",
+          "claim": "Brassinazole (BR biosynthesis inhibitor) reduces height",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Brassinazole: inhibitor of DWF4 (BR biosynthesis). Mapped to TADWF4 gm=0.1",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T043",
+      "gene": "Brassinolide_treatment",
+      "perturbation_type": "treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Brassinosteroid"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Brassinosteroid": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Brassinosteroid",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Brassinolide (BL) treatment \u2192 Brassinosteroid exogenous_supply=1.0",
+      "evidence": [
+        {
+          "doi": "10.1186/s12870-025-06762-w",
+          "title": "Induced variation in BRASSINOSTEROID INSENSITIVE 1 (BRI1) confers a compact wheat architecture",
+          "authors": "Gill MS, Phillips AL, Tarkowska D, et al",
+          "year": 2025,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "24-epiBL treatment on WT wheat promotes BR signaling and elongation",
+          "claim": "Exogenous brassinolide promotes stem elongation in WT",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Brassinolide (BL) treatment \u2192 Brassinosteroid exogenous_supply=1.0",
+      "expected_magnitude": "slight",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T044",
+      "gene": "TaBRI1_triple_plus_BL",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "TABRI1"
+      ],
+      "gene_modifiers": {
+        "TABRI1": 0.0
+      },
+      "exogenous_supply": {
+        "Brassinosteroid": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "TABRI1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "Brassinosteroid",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Trap-5 analog: TaBRI1 triple KO + BL. BR receptor missing \u2192 exogenous BL cannot be perceived \u2192 unchanged vs mutant. Raw expected=decreased was reported vs WT.",
+      "evidence": [
+        {
+          "doi": "10.1186/s12870-025-06762-w",
+          "title": "Induced variation in BRASSINOSTEROID INSENSITIVE 1 (BRI1) confers a compact wheat architecture",
+          "authors": "Gill MS, Phillips AL, Tarkowska D, et al",
+          "year": 2025,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "Triple mutants produced severe dwarfism; BR application unable to rescue BR-insensitive phenotype",
+          "claim": "TaBRI1 triple-KO insensitive to exogenous BR",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "mutant",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Trap-5 analog: TaBRI1 triple KO + BL. BR receptor missing \u2192 exogenous BL cannot be perceived \u2192 unchanged vs mutant. Raw expected=decreased was reported vs WT.",
+      "expected_magnitude": "strong",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T045",
+      "gene": "TaDWF4",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "TADWF4"
+      ],
+      "gene_modifiers": {
+        "TADWF4": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TADWF4",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "TaDWF4 overexpression \u2192 more BR biosynthesis \u2192 taller",
+      "evidence": [
+        {
+          "doi": "10.1038/s42003-022-03139-9",
+          "title": "Over-expression of TaDWF4 increases wheat productivity under low and sufficient nitrogen through enhanced carbon assimilation",
+          "authors": "Milner MJ, Swarbreck SM, Craze M, Bowden S, Griffiths H, Bentley AR, Wallington EJ",
+          "year": 2022,
+          "journal": "Communications Biology",
+          "evidence_sentence": "Overexpression of TaDWF4-B in cv. Fielder led to significantly increased growth compared to the WT even under low N conditions",
+          "claim": "TaDWF4 OE increases plant biomass/height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "TaDWF4 overexpression \u2192 more BR biosynthesis \u2192 taller",
+      "expected_magnitude": "strong",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T046",
+      "gene": "TaERF-A1_oe",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "TAERF_A1"
+      ],
+      "gene_modifiers": {
+        "TAERF_A1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TAERF_A1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "TaERF-A1 OE \u2192 activates PIF \u2192 taller",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2024.101194",
+          "title": "Natural variation in TaERF-A1 confers semi-dwarf and lodging-resistant plant architecture in wheat",
+          "authors": "Li L, Sheng X, Zhang H, Chen J, Zhu R, Wang C, Ren Y, Lin Y, Chen D, Lv L, Zhang Q, Wang Y, Wang H",
+          "year": 2024,
+          "journal": "Plant Communications",
+          "evidence_sentence": "Overexpression of TaPIF4 produced significantly greater plant height and longer spike length",
+          "claim": "TaERF-A1 OE increases plant height through TaPIF4",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "TaERF-A1 OE \u2192 activates PIF \u2192 taller",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T047",
+      "gene": "TaERF-A1_JD6",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TAERF_A1"
+      ],
+      "gene_modifiers": {
+        "TAERF_A1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TAERF_A1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "TaERF-A1 JD6 LOF allele \u2192 less PIF activation \u2192 shorter",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2024.101194",
+          "title": "Natural variation in TaERF-A1 confers semi-dwarf and lodging-resistant plant architecture in wheat",
+          "authors": "Li L, Sheng X, Zhang H, Chen J, Zhu R, Wang C, Ren Y, Lin Y, Chen D, Lv L, Zhang Q, Wang Y, Wang H",
+          "year": 2024,
+          "journal": "Plant Communications",
+          "evidence_sentence": "TaERF-A1JD6 protein accumulates at lower levels; Ser178-Phe (S178F) substitution influences the stability; considerably less effective at activating TaPIF4 expression, producing semi-dwarfism",
+          "claim": "TaERF-A1 JD6 (F178S) natural variant reduces plant height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "TaERF-A1 JD6 LOF allele \u2192 less PIF activation \u2192 shorter",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T048",
+      "gene": "TaPIF4_oe",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "PIF"
+      ],
+      "gene_modifiers": {
+        "PIF": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PIF",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "TaPIF4 OE mapped to PIF composite node (family represents TaPIF class)",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2024.101194",
+          "title": "Natural variation in TaERF-A1 confers semi-dwarf and lodging-resistant plant architecture in wheat",
+          "authors": "Li L, Sheng X, Zhang H, Chen J, Zhu R, Wang C, Ren Y, Lin Y, Chen D, Lv L, Zhang Q, Wang Y, Wang H",
+          "year": 2024,
+          "journal": "Plant Communications",
+          "evidence_sentence": "Overexpression of TaPIF4 produced significantly greater plant height and longer spike length",
+          "claim": "TaPIF4 OE increases plant height",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "TaPIF4 OE mapped to PIF composite node (family represents TaPIF class)",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T049",
+      "gene": "TaPIF4_ko",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PIF"
+      ],
+      "gene_modifiers": {
+        "PIF": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PIF",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "TaPIF4 KO mapped to PIF composite node",
+      "evidence": [
+        {
+          "doi": "10.1016/j.xplc.2024.101194",
+          "title": "Natural variation in TaERF-A1 confers semi-dwarf and lodging-resistant plant architecture in wheat",
+          "authors": "Li L, Sheng X, Zhang H, Chen J, Zhu R, Wang C, Ren Y, Lin Y, Chen D, Lv L, Zhang Q, Wang Y, Wang H",
+          "year": 2024,
+          "journal": "Plant Communications",
+          "evidence_sentence": "TaPIF4 knockout reduced these traits",
+          "claim": "TaPIF4 KO reduces plant height and spike length",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "TaPIF4 KO mapped to PIF composite node",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T050",
+      "gene": "TaOSCA1.4_RNAi",
+      "perturbation_type": "knockdown",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "TAOSCA1_4"
+      ],
+      "gene_modifiers": {
+        "TAOSCA1_4": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TAOSCA1_4",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "TaOSCA1.4 RNAi \u2192 Ca2+ channel knockdown; gm=0.1",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2024.1381243",
+          "title": "Cloning a novel reduced-height (Rht) gene TaOSCA1.4 from a QTL in wheat",
+          "authors": "Lv K, Song J, Zhang Q, Li M, Mu W, Ma C, Wu J, Wang X, Sun J, Cui F",
+          "year": 2024,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "the average PHs of the wild-type (WT), RNAi lines 1 (Ri-1) and 2 (Ri-2) were 94.6, 83.6 and 79.2 cm, respectively",
+          "claim": "TaOSCA1.4 RNAi reduces plant height 11-16%",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "TaOSCA1.4 RNAi \u2192 Ca2+ channel knockdown; gm=0.1",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T051",
+      "gene": "Ppd-D1a",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "PPD_D1"
+      ],
+      "gene_modifiers": {
+        "PPD_D1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "PPD_D1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Ppd-D1a = photoperiod-insensitive GOF allele (broader expression \u2192 stronger output); PPD_D1 \u2192 (-1) Plant_Height, so GOF \u2192 slight decrease",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2018.01312",
+          "title": "The Photoperiod-Insensitive Allele Ppd-D1a Promotes Earlier Flowering in Rht12 Dwarf Plants of Bread Wheat",
+          "authors": "Chen Z, Cheng X, Chai L, Wang Z, Du D, Wang Z, Bian R, Zhao A, Xin M, Guo W, Hu Z, Peng H, Yao Y, Sun Q, Ni Z",
+          "year": 2018,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "Ppd-D1a showed a significant reduction effect (9.7 cm, 10.2%) on plant height, though much weaker than Rht12",
+          "claim": "Ppd-D1a dominant allele reduces plant height ~10%",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "Ppd-D1a = photoperiod-insensitive GOF allele (broader expression \u2192 stronger output); PPD_D1 \u2192 (-1) Plant_Height, so GOF \u2192 slight decrease",
+      "expected_magnitude": "slight",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T052",
+      "gene": "Rht12b",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RHT12"
+      ],
+      "gene_modifiers": {
+        "RHT12": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RHT12",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Rht12b = allelic variant of Rht12 (GOF elevating TaGA2ox-A13); gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.1007/s00122-023-04502-y",
+          "title": "Rht12b, a widely used ancient allele of TaGA2oxA13, reduces plant height and enhances yield potential in wheat",
+          "authors": "Zhang H, Xu W, Wang H, Hu L, Li Y, Qi X, Zhang L, Li C, Hua X",
+          "year": 2023,
+          "journal": "Theoretical and Applied Genetics",
+          "evidence_sentence": "The dwarfing allele Rht12b reduced plant height by 5.4-8.2 cm",
+          "claim": "Rht12b reduces plant height 5.4-8.2 cm",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "family_member",
+      "reconciliation_note": "Rht12b = allelic variant of Rht12 (GOF elevating TaGA2ox-A13); gm=2.0",
+      "expected_magnitude": "slight",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T053",
+      "gene": "High_Nitrate_treatment",
+      "perturbation_type": "high_nitrate_treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Nitrogen"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Nitrogen": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Nitrogen",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "High nitrate treatment \u2192 Nitrogen exogenous_supply=1.0 (nitrogen is an ENVIRONMENT source node)",
+      "evidence": [
+        {
+          "doi": "10.1016/j.cub.2021.09.024",
+          "title": "Nitrate signaling promotes plant growth by upregulating gibberellin biosynthesis and destabilization of DELLA proteins",
+          "authors": "Camut L, Gallova B, Jilli L, Sirlin-Josserand M, Carrera E, Sakvarelidze-Achard L, Zumsteg J, Heintz D, Leonhardt N, Lange MJP, Lange T, Davi\u00e8re JM, Achard P",
+          "year": 2021,
+          "journal": "Current Biology",
+          "evidence_sentence": "nitrate reduces the abundance of DELLAs by increasing GA contents through activation of GA metabolism gene expression",
+          "claim": "High nitrate increases plant growth via GA/DELLA axis",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "High nitrate treatment \u2192 Nitrogen exogenous_supply=1.0 (nitrogen is an ENVIRONMENT source node)",
+      "expected_magnitude": "slight",
+      "species": "Triticum aestivum"
+    },
+    {
+      "test_id": "T054",
+      "gene": "Low_Nitrogen",
+      "perturbation_type": "environmental",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "Nitrogen"
+      ],
+      "gene_modifiers": {
+        "Nitrogen": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "Nitrogen",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "Low-nitrogen stress encoded as reduced Nitrogen source level (gm=0.1)",
+      "evidence": [
+        {
+          "doi": "10.1016/j.cub.2021.09.024",
+          "title": "Nitrate signaling promotes plant growth by upregulating gibberellin biosynthesis and destabilization of DELLA proteins",
+          "authors": "Camut L, Gallova B, Jilli L, Sirlin-Josserand M, Carrera E, Sakvarelidze-Achard L, Zumsteg J, Heintz D, Leonhardt N, Lange MJP, Lange T, Davi\u00e8re JM, Achard P",
+          "year": 2021,
+          "journal": "Current Biology",
+          "evidence_sentence": "the growth restraint conferred by nitrate deficiency is partially rescued in global-DELLA mutant",
+          "claim": "Nitrogen deficiency restrains plant growth via DELLA accumulation",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Plant_Height",
+      "comparison_baseline": "WT",
+      "condition": "normal",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Low-nitrogen stress encoded as reduced Nitrogen source level (gm=0.1)",
+      "expected_magnitude": "moderate",
+      "species": "Triticum aestivum"
+    }
+  ]
+}

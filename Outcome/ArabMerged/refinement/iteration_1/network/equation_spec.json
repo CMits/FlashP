@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "default_activation": "geomean",
+  "default_inhibition": "bounded_inverse",
+  "default_params": {
+    "epsilon": 0.1,
+    "K_inhibition": 10.0,
+    "activator_floor": 0.01
+  },
+  "propagation_params": {
+    "damping": 0.7,
+    "max_iterations": 500,
+    "convergence_tolerance": 0.0001,
+    "activator_floor": 0.01
+  },
+  "discovery_metadata": {
+    "discovered_by": "merge_arabidopsis_v2",
+    "notes": "max_iterations raised from 100 to 500 to handle the dense merged-network dynamics (avg 2.10 regulators/node, bidirectional paths create slow convergence)."
+  },
+  "node_equations": {}
+}

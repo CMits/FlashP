@@ -1,0 +1,49 @@
+{
+  "iteration": 3,
+  "date": "2026-04-21",
+  "fixes": [
+    {
+      "iteration": 3,
+      "action": "perturbation_encoding",
+      "description": "Revert Microaerobic to mild Oxygen perturbation: exogenous_supply=0.3 (Oxygen_Level=1.3). iter 2 fix (gm=0.3) made alg ratio jump to 9.97 at the bounded-inverse cap, over-predicting a strong increase when the paper reports unchanged.",
+      "reason": "Oxygen_Level gm=0.3 crashes ROS (which has Oxygen_Level as sole activator), and the release of ROS's inhibition on Lycopene saturates at K=10. Keeping the exog=0.3 convention (Oxygen=1.3, mild) better fits the modest microaerobic effect reported in the literature.",
+      "biological_justification": "Microaerobic growth does perturb oxygen-responsive regulators (ArcA, FNR) but the reported lycopene yield change in Ma 2020 is within noise — a mild Oxygen perturbation better matches this.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "exogenous_supply",
+      "value": 0.3
+    },
+    {
+      "iteration": 3,
+      "action": "perturbation_encoding",
+      "description": "Remove the IPTG=0 part of T088 encoding. iter 2 fix crashed CRTE activation because IPTG is a CRTE activator in the network. Leave only CRTE OE (gm=2.0).",
+      "reason": "The test probes a constitutive-promoter CrtE variant whose expression is IPTG-independent. The network, however, wires CRTE with IPTG as an activator; there is no way to represent 'constitutive CrtE that does not need IPTG' in the current framework. Removing IPTG=0 makes the test behave as plain CRTE OE (baseline IPTG present), which preserves the activation cascade. Framework limitation acknowledged for the IPTG-independence aspect.",
+      "biological_justification": "P.agglomerans crtE under a constitutive promoter should increase lycopene regardless of IPTG. The model cannot represent IPTG-independence at the node level; removing IPTG=0 component is the closest the encoding can get to 'CrtE OE'.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 2.0
+    },
+    {
+      "iteration": 3,
+      "action": "perturbation_encoding",
+      "description": "Revise Xylose_carbon: keep Xylose at baseline gm=1.0 (no OE), set Glucose gm=0.0 (absent). iter 2 fix left Xylose=2 (doubled) which elevated G3P activation too far.",
+      "reason": "A carbon-source switch is not an OE of the replacement carbon — it is simply Glucose absent, replacement present at normal activity. With Xylose at baseline 1.0 and Glucose at 0, total G3P activation has ONE activator at floor (Glucose=0.01) and the rest at 1, giving geometric-mean drop of ~50%.",
+      "biological_justification": "Xylose as sole C source means all C entering via xylose catabolism at a single level, not doubled. Glucose absent, so Glucose activator of G3P drops.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 0.0
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 69.8,
+    "ode_accuracy": 75.6,
+    "rwr_accuracy": 84.9,
+    "kept": true,
+    "reason": "Best-method gained +2.3% (from 82.6% to 84.9%)"
+  }
+}

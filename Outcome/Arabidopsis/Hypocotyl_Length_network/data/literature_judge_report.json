@@ -1,0 +1,275 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "hypocotyl_length",
+    "phenotype_node": "Hypocotyl_Length",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "judge_model": "Claude Opus 4.7 (1M context)",
+    "step_1_snapshot_location": "data/_step1_snapshot/"
+  },
+  "summary": {
+    "step_1_counts": {"papers": 75, "edges": 244, "perturbations": 123},
+    "step_1_5_additions": {"papers": 10, "edges": 74, "perturbations": 37, "evidence_appended_to_existing_edges": 2},
+    "merged_totals": {"papers": 85, "edges": 318, "perturbations": 160, "high_confidence_edges": 290, "medium_confidence_edges": 28},
+    "gaps_flagged": 13,
+    "gaps_closed": 11,
+    "gaps_partially_closed": 1,
+    "gaps_open": 1,
+    "verdict": "gaps_closed_with_residual"
+  },
+  "canonical_checklist": {
+    "pathways": [
+      "Phytochrome signaling (phyA far-red, phyB/C/D/E red, COP1/SPA degradation, HY5 stabilization, PIF phosphorylation/degradation)",
+      "Cryptochrome signaling (CRY1/CRY2 blue, COP1/SPA, HY5)",
+      "UV-B signaling (UVR8 monomerization → COP1 → HY5/HYH; RUP1/RUP2 negative feedback)",
+      "Phototropin signaling (PHOT1/PHOT2 — minor for hypocotyl elongation, primarily phototropism)",
+      "Brassinosteroid (BRI1/BAK1, BIN2 GSK3, BZR1/BES1; biosynthesis: DET2, DWF4, CPD; catabolism: BAS1/CYP734A1, SOB7/CYP72C1)",
+      "Gibberellin (biosynthesis GA20ox/GA3ox, catabolism GA2ox; GID1A/B/C receptor; DELLA proteins RGA, GAI, RGL1-3; SCF^SLY1 degradation)",
+      "Auxin (YUC/TAA1 biosynthesis, GH3 conjugation, TIR1/AFB receptors, Aux/IAA repressors, ARF6/7/8 TFs, PIN efflux carriers)",
+      "Ethylene (triple response in dark): ETR receptors, CTR1, EIN2, EIN3/EIL1, ERF1, EBF1/2 negative feedback",
+      "Temperature / thermomorphogenesis: PIF4 master regulator; ELF3 (Evening Complex), HSFA1d, RCB-HMR, TCP5/13/17, phyB thermal reversion, PIF4→YUC8/SAUR auxin amplification",
+      "Shade avoidance (low R:FR): PIF7 nuclear accumulation, HFR1 antagonist, PAR1/PAR2, ATHB2/ATHB4/HAT1/HAT2/HAT3 HD-Zip II family, BBX24",
+      "Circadian clock control: CCA1, LHY, TOC1, PRR5/7/9, Evening Complex (ELF3/ELF4/LUX), GI; gating of PIF activity",
+      "ABA (stress antagonism of elongation): ABA represses GA biosynthesis, stabilizes DELLA, represses YUC, represses PIF activity"
+    ],
+    "hubs": [
+      "HY5 (master photomorphogenic TF)",
+      "COP1 (E3 ligase hub in dark)",
+      "SPA1-4 (COP1 partners)",
+      "PIF1/3/4/5/7 (skotomorphogenesis + thermo + shade TFs)",
+      "BZR1, BES1 (BR TFs)",
+      "DELLA (RGA, GAI, RGL1-3)",
+      "phyB, phyA (red and far-red photoreceptors)",
+      "CRY1, CRY2 (blue-light photoreceptors)",
+      "UVR8 (UV-B receptor)",
+      "BBX21, BBX22, BBX24, BBX25, BBX11 (HY5 cofactors)",
+      "HFR1, LAF1, FHY1/FHL (phyA signaling components)",
+      "ARF6/8 (auxin elongation TFs)",
+      "ELF3/ELF4/LUX (Evening Complex)",
+      "TOC1, GI (circadian clock thermomorphogenesis modulators)",
+      "BRI1/BAK1/BIN2 (BR cascade)"
+    ],
+    "canonical_mutants": [
+      "phyA, phyB, phyA phyB, cry1, cry2, cry1 cry2, uvr8, phot1 phot2",
+      "cop1 (constitutively photomorphogenic in dark), spaQ (spa1;2;3;4), hy5, hyh, hy5 hyh, det1, det2, cop10",
+      "pif1, pif3, pif4, pif5, pif7, pifQ (pif1;3;4;5); PIF OE",
+      "bri1, det2, dwf4, cpd, bin2-1 (dominant GOF), bzr1-1D, bes1-D; BL treatment, brassinazole (Brz)",
+      "ga1, ga2, ga3, ga20ox, della pentuple (gai rga rgl1 rgl2 rgl3), sly1, gid1a gid1b gid1c; GA3, paclobutrazol (PAC)",
+      "yuc2 yuc5 yuc8 yuc9, tir1 afb2 afb3, arf6 arf8; IAA/NAA/picloram, NPA",
+      "etr1, ein2, ein3, ctr1; ACC, AVG",
+      "WT + low R:FR vs high R:FR; hfr1, pif7",
+      "WT 22 vs 28°C; pif4 at warm, elf3 at warm, xbat31",
+      "cca1 lhy, toc1, elf3, lux, gi"
+    ],
+    "environmental_inputs": [
+      "Light: continuous white, red (R), far-red (FR), blue (B), UV-B, dark",
+      "Temperature: 20-22°C vs 27-28°C",
+      "R:FR ratio: high (sun) vs low (shade)"
+    ],
+    "crosstalk": [
+      "PIF4 ↔ BZR1 direct binding (BR-light integration)",
+      "PIF ↔ DELLA interaction (GA-light integration)",
+      "phyB ↔ BIN2 (light modulation of BR signaling)",
+      "HY5 ↔ BBX module (BBX11/21/22 positive, BBX24/25 negative)",
+      "PIF4 → YUC8 / SAUR (auxin amplification in thermomorphogenesis)",
+      "COP1 degrades both HY5 AND BBX21 (dark-integrator)",
+      "ABA → DELLA stabilization → PIF inhibition → reduced YUC → reduced auxin (ABA-GA-auxin axis)"
+    ]
+  },
+  "gaps": [
+    {
+      "id": "G001",
+      "type": "hub_underrepresented",
+      "severity": "high",
+      "node": "HY5",
+      "step_1_in_degree": 5,
+      "step_1_out_degree": 2,
+      "expected_edges_min": 12,
+      "biological_justification": "HY5 is the master photomorphogenic TF with hundreds of ChIP-seq targets. Step 1 captured COP1/SPA-mediated degradation but missed the BBX11 positive feedback loop and most direct downstream targets (BBX22, RUP1/RUP2).",
+      "search_queries": ["HY5 ChIP-seq direct targets BBX22 HFR1 LAF1 photomorphogenesis Arabidopsis", "BBX11 HY5 positive feedback Arabidopsis"],
+      "papers_read": ["10.1016/j.xplc.2020.100045", "10.1105/tpc.113.109751"],
+      "edges_added": ["E245-E248: HY5↔BBX11 positive feedback", "E249: HY5→BBX22", "E250-E251: HY5→RUP1/RUP2"],
+      "perturbations_added": ["BBX11 KO/OE, BBX11_BBX21 double, BBX25 KO/OE, BBX24_BBX25 double"],
+      "closed": true
+    },
+    {
+      "id": "G002",
+      "type": "pathway_missing",
+      "severity": "high",
+      "pathway": "phyA signaling (FHY1, FHL, FHY3, FAR1, LAF1)",
+      "biological_justification": "phyA is the canonical far-red photoreceptor. Step 1 captured phyA→Hypocotyl but completely missed the FHY1/FHL nuclear-import adapters, the FHY3/FAR1 transcription factors that drive FHY1/FHL expression, and downstream LAF1/HFR1 effector TFs. Without these, BUILDER cannot model far-red HIR signaling.",
+      "search_queries": ["FHY1 FHL FHY3 FAR1 phyA hypocotyl Arabidopsis nuclear import"],
+      "papers_read": ["10.1371/journal.pgen.1000143", "10.1105/tpc.109.067215"],
+      "edges_added": ["phyA↔FHY1, FHY1→phyA nuclear import, FHY3/FAR1→FHY1/FHL transcription, FHY1/FHL→LAF1/HFR1 complex assembly, LAF1→Hypocotyl"],
+      "perturbations_added": ["fhy1, fhy1 FHL RNAi, fhy3, far1, hfr1, LAF1 RNAi"],
+      "closed": true
+    },
+    {
+      "id": "G003",
+      "type": "receptor_missing",
+      "severity": "high",
+      "pathway": "UV-B negative feedback (RUP1, RUP2)",
+      "biological_justification": "Step 1 captured UVR8→COP1→HY5 forward signaling but missed the canonical negative feedback loop: UV-B/UVR8/HY5 induce RUP1/RUP2 transcription, which directly bind UVR8 to drive its redimerization and terminate signaling. rup1 rup2 double is hypersensitive to UV-B.",
+      "search_queries": ["RUP1 RUP2 UVR8 UV-B negative feedback Arabidopsis hypocotyl"],
+      "papers_read": ["10.1073/pnas.0914532107"],
+      "edges_added": ["Light→RUP1/RUP2, HY5→RUP1/RUP2, RUP1/RUP2→UVR8 (inhibition), RUP1/RUP2→Hypocotyl_Length"],
+      "perturbations_added": ["rup1 rup2 double KO, RUP2 OE, rup2 single KO"],
+      "closed": true
+    },
+    {
+      "id": "G004",
+      "type": "pathway_missing",
+      "severity": "high",
+      "pathway": "Shade avoidance HD-Zip II module (ATHB2, ATHB4, HAT1/2/3)",
+      "biological_justification": "Step 1 had PIF7-shade and HFR1/PAR1 antagonism but completely missed the HD-Zip II shade transcription factors (ATHB2, ATHB4, HAT1, HAT2, HAT3) that are direct PIF targets and major shade-induced elongation effectors. Also missed PIN3/PIN4/PIN7 auxin transport for shade.",
+      "search_queries": ["ATHB2 ATHB4 PAR2 shade avoidance Arabidopsis hypocotyl HD-ZIP"],
+      "papers_read": ["10.3390/plants7040102"],
+      "edges_added": ["PIF4→ATHB2, PIF5→HFR1, ATHB2/ATHB4/HAT1/HAT2/HAT3→Hypocotyl, REV→ATHB2"],
+      "perturbations_added": ["athb2 KO/OE, athb4 OE, hat3 athb4 double, pin3 pin4 pin7 triple"],
+      "closed": true
+    },
+    {
+      "id": "G005",
+      "type": "receptor_missing",
+      "severity": "high",
+      "node": "GID1A, GID1B, GID1C (individual GA receptors)",
+      "biological_justification": "Step 1 had a generic GID1→DELLA edge but the three Arabidopsis GA receptors GID1A/B/C were absent as individual nodes. The triple gid1a gid1b gid1c is a canonical extreme-dwarf GA-insensitive mutant; individual receptors have non-redundant roles (GID1A primary for stem; GID1B highest DELLA affinity).",
+      "search_queries": ["GID1a GID1b GID1c Arabidopsis triple mutant DELLA hypocotyl receptor"],
+      "papers_read": ["10.1105/tpc.106.047415"],
+      "edges_added": ["GA4→GID1A/B/C, GID1A/B/C→RGA degradation, GID1A→GAI, GID1A/B/C→Hypocotyl"],
+      "perturbations_added": ["gid1a gid1c double, gid1a gid1b double, gid1b gid1c double"],
+      "closed": true
+    },
+    {
+      "id": "G007",
+      "type": "degradation_missing",
+      "severity": "medium",
+      "pathway": "Brassinosteroid catabolism (BAS1, SOB7)",
+      "biological_justification": "Step 1 captured BR biosynthesis (DET2, DWF4, CPD) and signaling but BAS1/CYP734A1 had only 1 generic edge and SOB7/CYP72C1 was absent. These two P450 catabolic enzymes are tightly coupled to phyB signaling (overexpression rescues phyB-4 long hypocotyl).",
+      "search_queries": ["SOB7 BAS1 CYP734A1 CYP72B1 brassinosteroid catabolism Arabidopsis hypocotyl"],
+      "papers_read": ["10.1534/g3.112.004580"],
+      "edges_added": ["phyB→BAS1, BAS1→BR (inhibition), SOB7→BR (inhibition), BAS1/SOB7→Hypocotyl"],
+      "perturbations_added": ["bas1 KO/OE, sob7 KO, bas1 sob7 double"],
+      "closed": true
+    },
+    {
+      "id": "G009",
+      "type": "mutant_missing",
+      "severity": "medium",
+      "missing_mutants": ["pifQ (canonical name)", "PHOT1_PHOT2", "MG132", "AVG"],
+      "biological_justification": "Step 1 had the equivalent quadruple under the gene-list label PIF1_PIF3_PIF4_PIF5 but lacked the canonical 'pifQ' shorthand needed for cross-referencing. Phototropin and chemical treatment perturbations also absent.",
+      "search_queries": ["pifQ pif1 pif3 pif4 pif5 quadruple Arabidopsis dark photomorphogenic"],
+      "papers_read": [],
+      "perturbations_added": ["pifQ (quadruple_knockout), PHOT1_PHOT2 double, MG132_treatment, AVG_treatment"],
+      "closed": true
+    },
+    {
+      "id": "G010",
+      "type": "crosstalk_missing",
+      "severity": "medium",
+      "description": "ABA-DELLA-PIF-auxin axis (ABA inhibition of hypocotyl)",
+      "biological_justification": "ABA is a well-documented elongation inhibitor that acts via reduced GA biosynthesis (GA3ox/GA20ox down, GA2ox up), DELLA stabilization, PIF repression, and reduced YUC auxin biosynthesis. Step 1 had no ABA edges at all.",
+      "search_queries": ["ABA hypocotyl ABI3 ABI5 Arabidopsis elongation"],
+      "papers_read": ["10.1093/aobpla/ply061"],
+      "edges_added": ["ABA→GA3ox1/GA20ox1 (negative), ABA→GA2ox1 (positive), ABA→DELLA stabilization, ABA→YUC3, ABA→Hypocotyl"],
+      "perturbations_added": ["ABA_treatment exogenous"],
+      "closed": true
+    },
+    {
+      "id": "G012",
+      "type": "hub_underrepresented",
+      "severity": "medium",
+      "node": "BBX module (BBX22, BBX24, BBX25, BBX11)",
+      "biological_justification": "Step 1 had BBX21/BBX22/BBX24 as Hypocotyl edges but the BBX25 negative regulator and BBX11 positive feedback hub were absent. BBX25 forms inactive heterodimer with HY5 to repress photomorphogenesis; BBX11 directly activates HY5 forming a positive feedback loop.",
+      "search_queries": ["BBX25 HY5 BBX22 BBX11 photomorphogenesis Arabidopsis"],
+      "papers_read": ["10.1105/tpc.113.109751"],
+      "edges_added": ["BBX25/BBX24→HY5 (inhibition), HY5→BBX22, COP1→BBX25, BBX22→Hypocotyl, BBX25→Hypocotyl"],
+      "perturbations_added": ["bbx25 KO/OE, bbx24 bbx25 double"],
+      "closed": true
+    },
+    {
+      "id": "G013",
+      "type": "crosstalk_missing",
+      "severity": "medium",
+      "description": "TCP-PIF4-CRY1 thermomorphogenesis cofactor module",
+      "biological_justification": "TCP5/13/17 are PIF4 transcriptional cofactors required for thermomorphogenesis. CRY1 sequesters TCP17 at low temperature; warm temperature releases TCP17 to enhance PIF4 activity at YUC8/IAA19. This crosstalk loop was entirely missing from Step 1.",
+      "search_queries": ["TCP17 PIF4 thermomorphogenesis Arabidopsis hypocotyl temperature"],
+      "papers_read": ["10.1016/j.isci.2019.04.002"],
+      "edges_added": ["TCP5/13/17→PIF4 (cofactor), TCP17→YUC8/IAA19, CRY1→TCP17 (inhibition), TCP17→Hypocotyl"],
+      "perturbations_added": ["tcp5 tcp13 tcp17 triple, TCP5/TCP13/TCP17 OE, tcp17 single"],
+      "closed": true
+    },
+    {
+      "id": "G006",
+      "type": "bidirectional_one_sided",
+      "severity": "medium",
+      "nodes": ["DET1", "PAR1", "SPA1", "PRR5", "LHY"],
+      "biological_justification": "Step 1 had these 5 nodes with 3-5 outgoing edges each but zero upstream regulators. DET1's CDD complex partners (COP10, DDB1A/B), SPA1 transcriptional regulation, and clock interconnections (CCA1/LHY→PRR5) were missing.",
+      "search_queries": ["CCA1 LHY PRR5 PRR7 PRR9 morning loop transcription Arabidopsis"],
+      "papers_read": [],
+      "edges_added": ["CCA1→PRR5/PRR7/PRR9, LHY→PRR5/PRR7/PRR9 (added in B5 gap-fill batch during Step 1)"],
+      "perturbations_added": [],
+      "closed": "partial",
+      "unclosable_reason": "DET1, PAR1, SPA1 still source-only after merge — these are constitutively expressed regulators with sparse promoter-level regulation in literature; documented as residual gaps for BUILDER."
+    },
+    {
+      "id": "G014",
+      "type": "extraction_shallow",
+      "severity": "low",
+      "node": "PMC3489987 (phyB inhibits PIF binding paper) extracted only 1 edge in Step 1",
+      "biological_justification": "Step 1 read this paper full-text but extracted only 1 edge. The paper has 5+ edges in its Results section (Pfr-phyB binds PIF1/PIF3, sequesters PIF1 from target, PIF3→PIL1 repression, etc.). Most of these edges were captured from sister papers (PMC2276449, PMC6048787) so this is only a documentation issue, not a coverage gap.",
+      "search_queries": [],
+      "papers_read": [],
+      "edges_added": [],
+      "closed": "redundant",
+      "unclosable_reason": "Same edges captured from related papers; no new biology missed."
+    },
+    {
+      "id": "G011",
+      "type": "pathway_missing",
+      "severity": "low",
+      "description": "PIN1/PIN3 auxin transport in hypocotyl elongation",
+      "biological_justification": "Step 1 had no PIN auxin efflux carriers. PIN3 is canonical for shade-induced lateral auxin redistribution. Partially closed via shade pathway paper (PMC6313891) which adds PIN3_PIN4_PIN7 triple perturbation, but PIN→Hypocotyl edges per individual carrier remain implicit.",
+      "search_queries": ["PIN auxin transport hypocotyl Arabidopsis"],
+      "papers_read": [],
+      "edges_added": [],
+      "perturbations_added": ["pin3 pin4 pin7 triple (from G004 paper)"],
+      "closed": "partial",
+      "unclosable_reason": "Individual PIN1/PIN3 → Hypocotyl edges not extracted; relies on broader shade-paper coverage. Documented for BUILDER as a residual."
+    }
+  ],
+  "bidirectional_audit": {
+    "source_only_nodes_before": ["DET1 (5)", "LHY (3)", "Light (8)", "PAR1 (4)", "PRR5 (3)", "SPA1 (4)", "Temperature (6)"],
+    "source_only_nodes_after": ["Light (10)", "Temperature (6)", "ABA (6)", "DET1 (6)", "SPA1 (4)", "PAR1 (4)", "GA4_hormone (4)", "PRR5 (3)", "FHY3 (3)", "LHY (3)", "FAR1 (3)"],
+    "interpretation": "Source-only count rose from 7 to 11 because the merge introduced new nodes (FHY3, FAR1, ABA, GA4_hormone) whose own upstream regulators were not curated in this round. Light and Temperature are environmental inputs and correctly remain source-only. DET1/SPA1/PAR1/PRR5/LHY remain genuine bidirectional gaps (G006). The new ABA node should ideally have NCED/ABA biosynthesis upstream — flagged for BUILDER."
+  },
+  "extraction_density_audit": {
+    "step_1_mean_edges_per_full_text_paper": 9.42,
+    "step_1_papers_with_zero_edges": 0,
+    "step_1_papers_with_one_edge": 1,
+    "step_1_5_papers_re_read": [],
+    "step_1_5_edges_recovered_from_re_read": 0,
+    "comment": "Step 1 extraction density was already excellent (9.42 edges/paper). Only one paper (PMC3489987 / 10.1111/j.1365-313X.2012.05114.x) extracted 1 edge, but the same biology was independently captured from sibling papers PMC2276449 and PMC6048787, so re-reading was not necessary. New papers (10) added in second round averaged ~7.4 edges/paper."
+  },
+  "residual_gaps_for_builder": [
+    "DET1 has 6 outgoing edges but 0 incoming — its regulation by COP10/DDB1A/B in the CDD ubiquitin-ligase complex was not curated; treat DET1 as constitutively-expressed source node.",
+    "SPA1 has 4 outgoing edges but 0 incoming — SPA1 is mostly post-translationally regulated (CRY1/CRY2 binding); no transcriptional upstream curated; flag as `literature_gap` source node.",
+    "PAR1 has 4 outgoing edges but 0 incoming — PIF-mediated activation is mentioned in shade reviews but no specific Arabidopsis paper has clean PIF→PAR1 edge in the curated set.",
+    "ABA hormone has 6 outgoing edges but 0 incoming — NCED biosynthesis enzymes not curated for hypocotyl context; treat ABA as input/source.",
+    "GA4_hormone has 4 outgoing but the upstream is the GA20ox/GA3ox enzymes (separate nodes); BUILDER should include GA biosynthesis chain GA20ox1→GA4_hormone→GID1→DELLA degradation rather than treating GA4_hormone as source.",
+    "PIN1/PIN3 individual auxin efflux carriers not curated as separate nodes; only pin3 pin4 pin7 triple perturbation captured — shade-induced lateral auxin redistribution mechanism is implicit in PIF→YUC edges.",
+    "Phototropin (PHOT1/PHOT2) signaling minimally captured (one perturbation only) — phototropins primarily regulate phototropism/stomatal opening, not bulk hypocotyl elongation, so this is a low-priority gap.",
+    "FHY3/FAR1 themselves lack curated upstream regulators — they autoregulate and are positively regulated by HY5, but those autoregulatory loops were not extracted in this round.",
+    "BR biosynthesis missing the full enzymatic chain: only DWF4/CPD/DET2/BAS1/SOB7 captured; ROT3/CYP90C1, BR6ox1/CYP85A1 absent."
+  ],
+  "id_provenance": {
+    "step_1_edge_id_range": "E001-E244",
+    "literature_judge_edge_id_range": "E245-E318",
+    "step_1_test_id_range": "T001-T123",
+    "literature_judge_test_id_range": "T124-T160",
+    "step_1_paper_count_in_merged_file": 75,
+    "literature_judge_paper_count_in_merged_file": 10,
+    "preservation_check": "All Step 1 IDs verified present in merged files (E001-E244 ⊂ merged edge IDs; T001-T123 ⊂ merged test IDs)."
+  }
+}

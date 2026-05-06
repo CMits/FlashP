@@ -1,0 +1,285 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "flowering_time",
+    "species": "Sorghum bicolor",
+    "created": "2026-04-20"
+  },
+  "pipeline_version": "2.0",
+  "network_directory": "OtherSpecies\\Sorghum_Flowering_Time_network",
+  "steps": [
+    {
+      "step": 5,
+      "step_name": "Refinement",
+      "started": "2026-04-20T23:48:37.244410+00:00",
+      "completed": "2026-04-20T23:48:37.244410+00:00",
+      "model": "claude-opus-4-7",
+      "model_version": "",
+      "flash_p_version": "2.0",
+      "inputs": [
+        {
+          "path": "validation/script_validation_results.json",
+          "checksum_sha256": "696fd3f89198a850f56be80476233ed17818b4ef0d4346c2fac4697f4cd69cf3",
+          "size_bytes": 71078,
+          "created": "2026-04-20T23:36:51.468139+00:00"
+        },
+        {
+          "path": "validation/ode_validation_results.json",
+          "checksum_sha256": "b19718eddfc934cf5ece80274468df97d0e18e9b785a48a4e41c5d1b442e0795",
+          "size_bytes": 71705,
+          "created": "2026-04-20T23:37:14.751266+00:00"
+        },
+        {
+          "path": "validation/rwr_validation_results.json",
+          "checksum_sha256": "dbf1ee85766a244a38cfd35f03d9252013e5bf904b32f234fb1833fc58be7f83",
+          "size_bytes": 71160,
+          "created": "2026-04-20T23:37:25.543285+00:00"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "refinement/refinement_report.json",
+          "checksum_sha256": "dcc4843e9df6b243149446b35d6c1e0f4122d05d947a9f22c7e05b5eda48ce1a",
+          "size_bytes": 14577,
+          "created": "2026-04-20T23:41:33.440288+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/algebraic_steady_states.json",
+          "checksum_sha256": "c19183e44a5c1664d36803823fdc2ecd7ea9f33ce3cdae2a0dc72c8139210eb5",
+          "size_bytes": 159749,
+          "created": "2026-04-20T23:24:12.577059+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/algebraic_validation_results.json",
+          "checksum_sha256": "549ae4a1efd9c1005c8fc4211b841e705dabb50aeb7c67382e8f8b436f311b1d",
+          "size_bytes": 71103,
+          "created": "2026-04-20T23:24:12.455192+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/equations_snapshot.json",
+          "checksum_sha256": "8cc3a0ea15918b16a25f1fe7503823d3b8ed321cbf03f132da3915498e669998",
+          "size_bytes": 10788,
+          "created": "2026-04-20T23:21:33.848687+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/fixes_applied.json",
+          "checksum_sha256": "ccfc9ab53e69986ac973e37fd949e8b40331bebfffb9b86b09a1f06b926f77e8",
+          "size_bytes": 2988,
+          "created": "2026-04-20T23:24:38.072245+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/network_snapshot.json",
+          "checksum_sha256": "8a730fe8bc3943aac1ffff21223920692c7bac34e9f74d142f6e1637514a68f5",
+          "size_bytes": 94869,
+          "created": "2026-04-20T23:21:33.760501+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/ode_sensitivity.json",
+          "checksum_sha256": "018de617f7905481810b81660f0b5a9328ecfd905f9a87a5a70f6d518f79a121",
+          "size_bytes": 79953,
+          "created": "2026-04-20T23:24:12.941591+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/ode_steady_states.json",
+          "checksum_sha256": "3cef1c42fb5c7103b8c295e1b9a7a58b2fcadf111553f8d1142bf15b1a4a8ce0",
+          "size_bytes": 159976,
+          "created": "2026-04-20T23:24:13.057156+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/ode_validation_results.json",
+          "checksum_sha256": "f2e57cc8e058badf6b1e065bdb135e7e2abed008b6697a956239e51f1338f964",
+          "size_bytes": 71712,
+          "created": "2026-04-20T23:24:12.824503+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/reconciled_perturbation_dataset_snapshot.json",
+          "checksum_sha256": "7084c267ee5e4d1a32b7a79861428873fd4dae00de62e1c9d2b929170d1f3b0f",
+          "size_bytes": 131819,
+          "created": "2026-04-20T23:24:13.734923+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/rwr_sensitivity.json",
+          "checksum_sha256": "8edb7e8b18220e855675ed725eb4cf98cb3aecae4da8ac3a3000cd7ee0b42e6e",
+          "size_bytes": 77540,
+          "created": "2026-04-20T23:24:13.339451+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/rwr_steady_states.json",
+          "checksum_sha256": "a48c01dca8d685127f33d7caef906c8701edfb0e7521baf7d79046203813de2b",
+          "size_bytes": 98286,
+          "created": "2026-04-20T23:24:13.482292+00:00"
+        },
+        {
+          "path": "refinement/iteration_1/rwr_validation_results.json",
+          "checksum_sha256": "cae9f18c486a764f0f0798e250e1a6406abc28969a1dec99ecc942f090e67a3f",
+          "size_bytes": 71194,
+          "created": "2026-04-20T23:24:13.240015+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/algebraic_steady_states.json",
+          "checksum_sha256": "cdd1067d30c8f4c4a2a7c381ae8f2e6d6addb779c875d089aadfe2a15d20fbeb",
+          "size_bytes": 159628,
+          "created": "2026-04-20T23:35:42.463660+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/algebraic_validation_results.json",
+          "checksum_sha256": "21c7a65fb5793a1829795c10685a77c5ba97e73535b0ba78eada9d4d5f8f5ac6",
+          "size_bytes": 70992,
+          "created": "2026-04-20T23:35:42.324544+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/equations_snapshot.json",
+          "checksum_sha256": "32acac1def391d0a1530297dc4259b25c88da7f6564dd9f085deb98062281b0a",
+          "size_bytes": 10810,
+          "created": "2026-04-20T23:30:12.012693+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/fixes_applied.json",
+          "checksum_sha256": "d74e2d6ac5164e4bdde6daa43df8d87f36646056a15f721ca3ade77a04ca1ea4",
+          "size_bytes": 4586,
+          "created": "2026-04-20T23:36:20.487352+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/network_snapshot.json",
+          "checksum_sha256": "ab6a71588880da6e1f28c0d6522f4da9485e4311b47bede30d005dae552e5f4b",
+          "size_bytes": 96383,
+          "created": "2026-04-20T23:30:11.911658+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/ode_sensitivity.json",
+          "checksum_sha256": "7b9106a2971a321c25dd1cf95c3f591d323ee9917c039daebc0343bd115d8ed0",
+          "size_bytes": 79849,
+          "created": "2026-04-20T23:35:43.045089+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/ode_steady_states.json",
+          "checksum_sha256": "09a88d767b0314ed34463494b9932c882264abffdab087c65add003f15a9b8c8",
+          "size_bytes": 159890,
+          "created": "2026-04-20T23:35:43.257163+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/ode_validation_results.json",
+          "checksum_sha256": "cc7d57b02424f216db2199ece92c89068c1b02441d1944445006b6daf5e1d655",
+          "size_bytes": 71616,
+          "created": "2026-04-20T23:35:42.740883+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/reconciled_perturbation_dataset_snapshot.json",
+          "checksum_sha256": "6ad40b88fda5f97274928ea4a9c81483cbb73906dacd405bfc7cb0edd5f88b80",
+          "size_bytes": 131509,
+          "created": "2026-04-20T23:35:44.465874+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/rwr_sensitivity.json",
+          "checksum_sha256": "5e859597133e7a2d4ec4a2bf073ed882b25063ebae1bb03708bbfafc52af5e97",
+          "size_bytes": 77408,
+          "created": "2026-04-20T23:35:43.799358+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/rwr_steady_states.json",
+          "checksum_sha256": "0f37ab9f4d22e39174d5386f9bcac33667b6879a95ee6420aca67fdc4b7a0e8e",
+          "size_bytes": 98132,
+          "created": "2026-04-20T23:35:44.069553+00:00"
+        },
+        {
+          "path": "refinement/iteration_2/rwr_validation_results.json",
+          "checksum_sha256": "78282ea3fe045eede02046673c9824222703353ac584b161af384a4c58f11720",
+          "size_bytes": 71068,
+          "created": "2026-04-20T23:35:43.557807+00:00"
+        },
+        {
+          "path": "refinement/iteration_3/algebraic_steady_states.json",
+          "checksum_sha256": "0887450af3ab2590065e810293b6d2b11e8bd1d052ab8095681021433af9fff1",
+          "size_bytes": 159669,
+          "created": "2026-04-20T23:37:39.439049+00:00"
+        },
+        {
+          "path": "refinement/iteration_3/algebraic_validation_results.json",
+          "checksum_sha256": "696fd3f89198a850f56be80476233ed17818b4ef0d4346c2fac4697f4cd69cf3",
+          "size_bytes": 71078,
+          "created": "2026-04-20T23:37:39.321389+00:00"
+        },
+        {
+          "path": "refinement/iteration_3/equations_snapshot.json",
+          "checksum_sha256": "32acac1def391d0a1530297dc4259b25c88da7f6564dd9f085deb98062281b0a",
+          "size_bytes": 10810,
+          "created": "2026-04-20T23:36:50.922530+00:00"
+        },
+        {
+          "path": "refinement/iteration_3/fixes_applied.json",
+          "checksum_sha256": "02663042b82a7049ce2d06c255eef118627240d470197a5b1ec53f7622991f09",
+          "size_bytes": 2362,
+          "created": "2026-04-20T23:38:12.604461+00:00"
+        },
+        {
+          "path": "refinement/iteration_3/network_snapshot.json",
+          "checksum_sha256": "ab6a71588880da6e1f28c0d6522f4da9485e4311b47bede30d005dae552e5f4b",
+          "size_bytes": 96383,
+          "created": "2026-04-20T23:36:50.737444+00:00"
+        },
+        {
+          "path": "refinement/iteration_3/ode_sensitivity.json",
+          "checksum_sha256": "727c4e1f1825c93337b39a2697bfdd4830e4b7a87a4f059c808e0bd23e657ddc",
+          "size_bytes": 79938,
+          "created": "2026-04-20T23:37:39.828162+00:00"
+        },
+        {
+          "path": "refinement/iteration_3/ode_steady_states.json",
+          "checksum_sha256": "195073147b5bbc2ce48d120bb0b2c9533efef3686278cd94697ab4e2ed194c10",
+          "size_bytes": 159936,
+          "created": "2026-04-20T23:37:40.144786+00:00"
+        },
+        {
+          "path": "refinement/iteration_3/ode_validation_results.json",
+          "checksum_sha256": "b19718eddfc934cf5ece80274468df97d0e18e9b785a48a4e41c5d1b442e0795",
+          "size_bytes": 71705,
+          "created": "2026-04-20T23:37:39.681664+00:00"
+        },
+        {
+          "path": "refinement/iteration_3/reconciled_perturbation_dataset_snapshot.json",
+          "checksum_sha256": "78044d5f3ca759d36c84880112a537c1374a7004db8bd81605e02ea22430a685",
+          "size_bytes": 132205,
+          "created": "2026-04-20T23:36:51.087092+00:00"
+        },
+        {
+          "path": "refinement/iteration_3/rwr_sensitivity.json",
+          "checksum_sha256": "51d86f736fa05ccdeb9aaf22cc53cf5b01e5832dae28097ed5c2bebcce4bf699",
+          "size_bytes": 77493,
+          "created": "2026-04-20T23:37:40.721820+00:00"
+        },
+        {
+          "path": "refinement/iteration_3/rwr_steady_states.json",
+          "checksum_sha256": "9dd7598ea951d1acd4a340ef23d0f317b8400cddee94be577e926401fac23ff8",
+          "size_bytes": 98135,
+          "created": "2026-04-20T23:37:40.834353+00:00"
+        },
+        {
+          "path": "refinement/iteration_3/rwr_validation_results.json",
+          "checksum_sha256": "dbf1ee85766a244a38cfd35f03d9252013e5bf904b32f234fb1833fc58be7f83",
+          "size_bytes": 71160,
+          "created": "2026-04-20T23:37:40.599130+00:00"
+        },
+        {
+          "path": "refinement/refined_equations.json",
+          "checksum_sha256": "32acac1def391d0a1530297dc4259b25c88da7f6564dd9f085deb98062281b0a",
+          "size_bytes": 10810,
+          "created": "2026-04-20T23:38:24.575272+00:00"
+        },
+        {
+          "path": "refinement/refined_network.json",
+          "checksum_sha256": "ab6a71588880da6e1f28c0d6522f4da9485e4311b47bede30d005dae552e5f4b",
+          "size_bytes": 96383,
+          "created": "2026-04-20T23:38:24.466741+00:00"
+        },
+        {
+          "path": "refinement/refinement_report.json",
+          "checksum_sha256": "dcc4843e9df6b243149446b35d6c1e0f4122d05d947a9f22c7e05b5eda48ce1a",
+          "size_bytes": 14577,
+          "created": "2026-04-20T23:41:33.440288+00:00"
+        }
+      ],
+      "notes": ""
+    }
+  ],
+  "current_step": 5
+}

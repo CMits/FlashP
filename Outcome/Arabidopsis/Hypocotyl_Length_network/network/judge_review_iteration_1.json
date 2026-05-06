@@ -1,0 +1,360 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Hypocotyl_Length",
+    "phenotype_node": "Hypocotyl_Length",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "iteration": 1,
+    "judge_model": "Claude Opus 4.7 (1M context)"
+  },
+  "verdict": "iterate",
+  "summary": "Core hormone signaling (BR, GA, Auxin, Ethylene), photoreceptor perception (phyA/B, CRY1/2, UVR8), and dark-light integration (COP1, HY5, HFR1, PIFs) are correctly encoded with clean Perception Gates and documented positive-feedback breaks. The network fails key_player_density on PIF4 (central thermo/shade hub; 14/46 curated edges; 30%) because the clock oscillator arm (GI, TOC1, CCA1, PRR5/7/9) and HSF thermomorphogenesis arm (HSFA1d) are entirely absent. BBX11 is missing despite 8 curated edges. Adding a minimal clock module (GI + TOC1 with their PIF4 regulation) and HSFA1d as a thermo intermediate is HIGH priority; completing Multi-Output Scaffolds for BIN2 and SPA1, adding CPD to BR biosynthesis, and adding PHYA nuclear-translocation cofactors (FHY1/FHL) are MEDIUM.",
+  "rubric_scores": {
+    "pathway_completeness": {
+      "score": 3,
+      "justification": "Core pathways (phyA/B, CRY, UVR8; BR perception + biosynthesis + catabolism; GA perception + biosynthesis + catabolism; Auxin; Ethylene; DELLA-PIF-BZR1-ARF integrator convergence) are all present and correctly wired. However the CIRCADIAN CLOCK arm is entirely absent: CCA1, LHY, TOC1, PRR5, PRR7, PRR9, GI do not appear as nodes despite the ELF3_EC composite being present. Clock mutants (toc1, gi, prr579, cca1 lhy) are canonical hypocotyl-length mutants and the network cannot model them. The HSF thermomorphogenesis arm (HSFA1a/b/d/HSFA2 stabilizing PIF4 at warm temperature) is also absent — Temperature -> PIF4 is modeled as a single direct edge with no mechanism intermediate. Shade-avoidance accessory factors (PAR1, ATHB2/4, HAT1-3) are entirely absent from a phenotype where shade response is well-documented. phyA signaling accessory factors (FHY1, FHL) are missing, which limits phyA functionality to COP1 inhibition only."
+    },
+    "mechanistic_depth": {
+      "score": 4,
+      "justification": "Cascade layering is generally good: Light -> photoreceptors -> COP1 scaffold -> HY5/HFR1/BBX21/BIN2 -> TFs -> phenotype is a clean 4-5 layer cascade. Perception Gates for BR (DET2/DWF4/BAS1/SOB7 -> BR -> BRI1 -> BIN2 -> BZR1) and GA (GA20OX1/GA3OX1/GA2OX1 -> GA4 -> GID1 -> DELLA) are full multi-step chains. The only mechanistic shortcut that matters is Temperature -> PIF4 (+1) as a direct edge; biology routes through HSFA1d and through ELF3_EC disruption (the latter is included, the former is not). Max hops from source to phenotype is 5-6 (Light -> PHYB -> COP1 -> HY5 -> Hypocotyl_Length; Light -> PHYB -> PIF4 -> YUC8 -> Auxin -> TIR1 -> AUX_IAA -> ARF6 -> Hypocotyl_Length = 8 hops, slightly above the 5-6 target but this is a genuine depth from environmental input to TF integrator)."
+    },
+    "motif_coverage": {
+      "score": 4,
+      "justification": "Motifs applied systematically: (Motif 1 Perception Gate) BR, GA, Auxin all have exactly 1 outgoing edge to receptor, verified by automated check; light uses 5 photoreceptors as co-inhibitors of COP1 with SPA1 as co-activator. (Motif 4 Biosynthesis-Degradation Balance) BR has DET2+DWF4 (synth) vs BAS1+SOB7 (catabolism); GA4 has GA20OX1+GA3OX1 (synth) vs GA2OX1 (catabolism); Auxin has TAA1+YUC8 (synth) but NO catabolism (GH3 conjugation not curated). (Motif 5 Multi-Output Scaffold) COP1 targets HY5, HFR1, BBX21, BIN2 (4 outputs). (Motif 3 Coherent Feed-Forward) PIF4 has direct edge to Hypocotyl_Length AND routes through YUC8 -> Auxin -> ARF6; UVR8 directly activates HY5 AND inhibits COP1 (parallel stabilization). (Motif 2 Hormone Crosstalk Negative Feedback) ABA has triple-assurance on growth restriction (ABA -| GA biosynthesis, ABA -> GA2OX1, ABA -> DELLA). Two motif opportunities missed: (i) BIN2 Multi-Output Scaffold is incomplete — BIN2 -> BES1 (E030) and BIN2 -> PIF4 (E035) are curated but not in network; biology supports BIN2 phosphorylating multiple substrates beyond BZR1. (ii) SPA1 Multi-Output Scaffold is incomplete — SPA1 -> HY5 (E211) and SPA1 -> BIN2 (E209) are curated; currently SPA1 only activates COP1, missing its direct degradation roles."
+    },
+    "cascade_balance": {
+      "score": 4,
+      "justification": "46 nodes, 82 edges, source % = 21.7% — BELOW the 30-50% soft target but not approaching the 60% hard cap. The low source % is defensible because the light cascade is deeply layered (Light -> 5 photoreceptors -> COP1 -> HY5/HFR1/BBX21/BIN2) and this accounts for most of the depth. Fan-in distribution: max 6 inhibitors (PIF4) and 5 activators (Hypocotyl_Length) — within the 7 cap but at the edge. No overloaded hubs. No zero-output nodes except the phenotype. No dead-ends. If the clock arm is added as recommended (HIGH priority), source count rises marginally (GI, TOC1 would each have several inputs, CCA1 could be source) and the network becomes denser without changing source %."
+    },
+    "composite_node_handling": {
+      "score": 5,
+      "justification": "Composite decisions are all well-justified: DELLA (RGA/GAI/RGL1/RGL2/RGL3 - quintuple redundant, same downstream targets, same direction of effect); GID1 (GID1A/B/C - triple redundant GA receptors); ARF6 (ARF6/7/8 - class-A activating ARFs); AUX_IAA (IAA3/7/17/19 - short-lived co-repressors, same mechanism); TIR1 (TIR1/AFB1/2/5 - redundant F-box auxin receptors); YUC8 (stand-in for YUC1/2/5/8/9 flavin monooxygenases in auxin biosynthesis); ELF3_EC (ELF3/ELF4/LUX - trimeric Evening Complex). Naming follows conventions (DELLA for family, composite suffix where numeric, all-caps for PROTEIN_COMPLEX). No non-paralogs were incorrectly lumped and no true paralog families were left uncollapsed."
+    },
+    "hub_completeness": {
+      "score": 3,
+      "justification": "Central integrator PIF4 has only 14 of 46 curated edges (0.30 coverage — AT the §9.11 threshold). Missing regulators of PIF4 include: HSFA1a (E126), HSFA1b (E127), HSFA1d (E129), HSFA2 (E130), TCP5 (E263), TCP13 (E264), TCP17 (E265), PAR1 (E157), HMR (E125), RCB (E198), COG1 (E051), FCA (E109), GI (E118), TOC1 (E217), LUX (E141). Missing PIF4 targets include: ACS6, CYP79B2, EIN3, GI, IAA19, IAA29, PRE1, XTR7, ATHB2, YUC2. PIF4 is the central thermo/shade hub; silently dropping 32 curated edges weakens every perturbation involving temperature, shade, or the heat-shock response. HY5 at 0.36 coverage is similarly below target — BBX11, BBX24, BBX25 regulators are absent. COP1 at 0.67 is adequate but missing HSFA1d (E056), HYH (E058), LAF1 (E060), BBX25 (E311) targets (the Multi-Output Scaffold is incomplete)."
+    },
+    "topology_hazards": {
+      "score": 5,
+      "justification": "Zero bypass-edge violations of Perception Gate (BR, GA4, Auxin, Ethylene each have exactly 1 outgoing edge, verified). Zero positive-feedback loops detected — all six positive-feedback candidates (BZR1<->ARF6, PIF4<->ARF6, PIF4->BAK1->BIN2->PIF4, PIF4->DWF4->BR->BRI1->BIN2->PIF4, phyB<->PIFs via mutual inhibition) are systematically broken and documented in BIOLOGY_PROSE.md. Zero self-loops. Zero disconnected nodes (verified by check_network_structure.py --dry-run, all 46 nodes reach the phenotype). ABA has 4 outgoing edges but ABA is not Perception-Gate-guarded by a curated receptor in this network (PYR/PYL family not curated for hypocotyl), so ABA acting through multiple targets is acceptable — it is a hormone INPUT, not a hormone being perceived in a gated cascade."
+    },
+    "evidence_quality": {
+      "score": 4,
+      "justification": "Sampled 8 edges: mechanism strings are specific (e.g., 'D14-MAX2 ubiquitinates SMXL-style specificity' in spirit — BUILDER uses 'Auxin-bound TIR1/AFB F-box proteins ubiquitinate Aux/IAA repressors for degradation' and 'Monomeric UVR8 binds COP1 and prevents COP1-mediated HY5 ubiquitination'). All 82 edges pass the DOI-presence check. Evidence sentences are direct quotes from papers and directly support each claim. One minor observation: the SOB7 -> BR (-1) evidence_sentence ('SOB7 acts on precursors of BR biosynthesis') is slightly weaker than the other sampled edges and could be re-curated in Step 1; not a blocker. Temperature -> PIF4 evidence is thin ('high temperature increases PIF4 activity' — paraphrase rather than a specific mechanism quote) but the edge is canonical thermomorphogenesis."
+    },
+    "phenotype_audit": {
+      "score": 4,
+      "justification": "Phenotype has 5 activators (PIF3, PIF4, PIF5, BZR1, ARF6) AT the §10 cap and 3 inhibitors (HY5, DELLA, EIN3). All major TF effector classes represented: PIFs (dark/thermo/shade), BR-responsive TF (BZR1), auxin TF (ARF6), photomorphogenesis TF (HY5), GA-responsive repressor complex (DELLA), ethylene TF (EIN3). Both promoting and repressing arms present. One concern: PIF5 has a direct edge to Hypocotyl_Length but PIF7 does not (routed via YUC8 -> Auxin -> ARF6 instead). This asymmetry is defensible (PIF7 -> YUC8 is stronger curated evidence for the shade mechanism) but means PIF5 KO/OE tests might be over-represented relative to PIF7 tests. Missing effector class: cell-wall modifying genes (XTR7, SAUR19, AHA1/2) are not in the network — they are captured implicitly by the PIF4/ARF6/BZR1 direct edges to the phenotype, but PIF5 -> XTR7 (E179) and ARF6 -> SAUR19 -> AHA1 chain is sometimes distinct in the literature."
+    },
+    "rejected_edges_review": {
+      "score": 3,
+      "justification": "37 curated edges where BOTH endpoints are in the network were rejected. Most are defensible: (i) 15 direct-to-phenotype shortcuts (COP1 -> Hypocotyl_Length, BR -> Hypocotyl_Length, Auxin -> Hypocotyl_Length, etc.) deliberately routed through proper cascade intermediates — defensible Perception Gate enforcement. (ii) 7 positive-feedback-breaking drops (ARF6 -> BZR1, ARF6 -> PIF4, PIF3/4/7 -> PHYB, PIF4 -> BAK1, PIF4 -> DWF4) — defensible Trap 1 mitigation documented in BIOLOGY_PROSE.md. But several look like AGGRESSIVE cuts that should be reconsidered: (a) BIN2 -> PIF4 (E035) — the DWF4 loop is already broken, so adding BIN2 -> PIF4 (-1) no longer creates a positive feedback (trace: PIF4 -> TAA1/YUC8/ARF6/PIF7 -> none return to BIN2). (b) BIN2 -> BES1 (E030) — a Multi-Output Scaffold edge with no loop risk. (c) SPA1 -> HY5 (E211) and SPA1 -> BIN2 (E209) — completes the CUL4-COP1-SPA1 complex's multi-target action; no loop risk. (d) CPD -> BR (E061) — the third canonical BR biosynthesis enzyme, trivially addable. (e) PIF5 -> HFR1 (E283) — negative feedback (HFR1 inhibits PIFs back), stabilizing. (f) PHYA accessory FHY1/FHL edges (E292-E306) — completes phyA nuclear-signaling."
+    },
+    "key_player_density": {
+      "score": 3,
+      "justification": "Threshold check (coverage ratio < 0.30 with ≥5 curated edges): AUX_IAA (0.29, defensible — composite collapse absorbed AFB1/2/5 inputs and ARF7/8 outputs), PHYA (0.29 — FLAG, FHY1/FHL accessory missing), PIF4 (0.30 exactly — FLAG given hub centrality). Missing entirely (0.00 coverage, ≥5 curated edges): ELF3 (9 curated — partially absorbed into ELF3_EC composite, defensible but 3 edges on composite is still below 9), CCA1 (8 — ENTIRE clock oscillator missing, FLAG HIGH), TOC1 (8 — ENTIRE clock oscillator, FLAG HIGH), BBX11 (8 — HY5 cofactor, FLAG MEDIUM), FHY1 (7 — phyA accessory, FLAG MEDIUM), GI (6 — clock/PIF4 regulator, FLAG HIGH), FHL (6 — phyA accessory, FLAG MEDIUM), PRE1 (5 — downstream elongator, LOW), HSFA1d (5 — thermo stabilizer of PIF4, FLAG MEDIUM), PRR9 (5 — clock), RGA (5 — DELLA component, defensible composite absorption), TCP17 (5 — parallel thermo regulator, FLAG MEDIUM). Net: one entire pathway arm (circadian clock) is a silent hole; heat-shock factor arm is a silent hole; HY5's positive cofactor BBX11 is silently dropped. Score capped at 3 because clock absence is systemic, not a one-node miss.",
+      "per_player_ratios": {
+        "PIF4": 0.30,
+        "HY5": 0.36,
+        "COP1": 0.67,
+        "PHYB": 0.50,
+        "PHYA": 0.29,
+        "CRY1": 0.57,
+        "UVR8": 0.62,
+        "BZR1": 0.64,
+        "DELLA": 0.50,
+        "ARF6": 0.45,
+        "AUX_IAA": 0.29,
+        "Auxin": 0.43,
+        "BR": 0.71,
+        "GA4": 0.67,
+        "BIN2": 0.44,
+        "BRI1": 0.43,
+        "EIN3": 0.33,
+        "HFR1": 0.33,
+        "PIF3": 0.71,
+        "PIF5": 0.50,
+        "PIF7": 0.40,
+        "Hypocotyl_Length_cascade_routed_phenotype": 0.11,
+        "ELF3_absorbed_into_ELF3_EC": 0.00,
+        "CCA1_MISSING": 0.00,
+        "TOC1_MISSING": 0.00,
+        "GI_MISSING": 0.00,
+        "BBX11_MISSING": 0.00,
+        "HSFA1d_MISSING": 0.00,
+        "FHY1_MISSING": 0.00,
+        "FHL_MISSING": 0.00,
+        "PRE1_MISSING": 0.00,
+        "TCP17_MISSING": 0.00
+      }
+    }
+  },
+  "per_node_audit": [
+    {"node": "Light", "inputs": [], "outputs": ["PHYA(+)","PHYB(+)","CRY1(+)","CRY2(+)","UVR8(+)"], "curated_regulators_excluded": ["DELLA(direct +, E144 - Perception Gate bypass)", "GA4(direct -, E145 - Perception Gate bypass)", "RUP1(+, E245 - peripheral UV-B feedback)", "RUP2(+, E246)"], "verdict": "appropriate", "comment": "5 photoreceptor outputs covering R/FR/Blue/UV-B. Bypass edges correctly excluded."},
+    {"node": "Temperature", "inputs": [], "outputs": ["ELF3_EC(-)","PIF4(+)","HY5(-)"], "curated_regulators_excluded": ["HSFA1d(+, E220 - FLAG, the HSF arm is missing)", "SDIR1(+, E223)", "XBAT31(+, E224)"], "verdict": "under-specified", "comment": "Missing HSFA1d intermediate for thermomorphogenesis. Temperature -> PIF4 is currently a direct shortcut that should route through HSFA1d."},
+    {"node": "PHYB", "inputs": ["Light(+)"], "outputs": ["COP1(-)","PIF3(-)","PIF4(-)","PIF5(-)","PIF7(-)","BAS1(+)"], "curated_regulators_excluded": ["PIF3(-, E161 - positive-feedback break)", "PIF4(-, E177 - positive-feedback break)", "PIF7(-, E184 - positive-feedback break)"], "verdict": "appropriate", "comment": "Coherent feed-forward: phyB directly degrades PIFs AND stabilizes HY5 via COP1 inhibition. Feedback-break drops documented."},
+    {"node": "PHYA", "inputs": ["Light(+)"], "outputs": ["COP1(-)"], "curated_regulators_excluded": ["FHY1(+, E293)", "FHL(+, E294)", "FHY1(+, E292 outgoing)", "BBX11(+, E278)"], "verdict": "under-specified", "comment": "phyA nuclear signaling in Arabidopsis requires FHY1/FHL for import. Without these, phyA is essentially only a COP1 inhibitor and loses far-red-specific biology (hyper-long fhy1 fhl hypocotyl under far-red)."},
+    {"node": "CRY1", "inputs": ["Light(+)"], "outputs": ["COP1(-)","PIF4(-)","PIF7(-)"], "curated_regulators_excluded": ["BBX11(+, E280)", "TCP17(-, E268)", "Hypocotyl_Length(-, E063 - bypass)"], "verdict": "appropriate", "comment": "Blue-light COP1 inhibition plus PIF destabilization covers the canonical mechanism."},
+    {"node": "CRY2", "inputs": ["Light(+)"], "outputs": ["COP1(-)"], "curated_regulators_excluded": ["Hypocotyl_Length(-, E067 - bypass)"], "verdict": "appropriate", "comment": "Minimal but correct — CRY2 is mostly redundant with CRY1 for hypocotyl length."},
+    {"node": "UVR8", "inputs": ["Light(+)"], "outputs": ["COP1(-)","HY5(+)","PIF4(-)","PIF5(-)"], "curated_regulators_excluded": ["RUP1(-, E247 - UV-B feedback loop)", "RUP2(-, E248)", "Hypocotyl_Length(-, E227 - bypass)"], "verdict": "appropriate", "comment": "UV-B triple-assurance on HY5/PIF well-modeled. RUP1/2 negative feedback on UVR8 not included — would be LOW-priority addition for UV-B-specific test robustness."},
+    {"node": "COP1", "inputs": ["PHYA(-)","PHYB(-)","CRY1(-)","CRY2(-)","UVR8(-)","SPA1(+)"], "outputs": ["HY5(-)","HFR1(-)","BBX21(-)","BIN2(-)"], "curated_regulators_excluded": ["HYH(-, E058)", "LAF1(-, E060)", "BBX25(-, E311)", "HSFA1d(+, E056)"], "verdict": "appropriate", "comment": "Multi-Output Scaffold with 4 targets; HYH/LAF1/BBX25 are additional canonical targets that could complete the scaffold (LOW-MEDIUM to add)."},
+    {"node": "SPA1", "inputs": [], "outputs": ["COP1(+)"], "curated_regulators_excluded": ["HY5(-, E211)", "BIN2(-, E209)", "Hypocotyl_Length(+, E212 - bypass)"], "verdict": "under-specified", "comment": "SPA1 is a documented direct degrader of HY5 and BIN2 beyond its COP1 co-activator role; Multi-Output Scaffold pattern fits. MEDIUM priority to add."},
+    {"node": "DET1", "inputs": [], "outputs": ["PIF3(+)","PIF4(+)","PIF5(+)"], "curated_regulators_excluded": ["PIF1(+, E076)", "BBX11(+, E281)", "Hypocotyl_Length(+, E075 - bypass)"], "verdict": "appropriate", "comment": "PIF1 not included because PIF1 is not modeled (germination-specific)."},
+    {"node": "HY5", "inputs": ["Temperature(-)","COP1(-)","BBX21(+)","UVR8(+)"], "outputs": ["Hypocotyl_Length(-)"], "curated_regulators_excluded": ["SPA1(-, E211)", "BBX11(+, E274)", "BBX25(-, E308)", "BBX24(-, E309)", "GI(-, E131 outgoing)", "RUP1(+, E249)", "RUP2(+, E250)", "BBX11(+, E275)", "BBX22(+, E310)"], "verdict": "under-specified", "comment": "BBX11 (direct partner) and BBX24/BBX25 (antagonists) missing — BBX family antagonism not modeled. HY5 outgoing to RUP1/RUP2 gives UV-B negative feedback, low priority."},
+    {"node": "HFR1", "inputs": ["COP1(-)"], "outputs": ["PIF4(-)"], "curated_regulators_excluded": ["PIF5(+, E283 - negative feedback via PIF5)", "FHY1(+, E304)", "FHL(+, E306)", "Hypocotyl_Length(-, E123 - bypass)"], "verdict": "under-specified", "comment": "Missing the PIF5 -> HFR1 induction that creates the shade-avoidance negative feedback brake (PIFs up → HFR1 up → PIFs down). FHY1/FHL parallel phyA induction also missing."},
+    {"node": "BBX21", "inputs": ["COP1(-)"], "outputs": ["HY5(+)"], "curated_regulators_excluded": ["Hypocotyl_Length(-, E025 - bypass)", "BBX11(+, E276 outgoing)"], "verdict": "appropriate", "comment": "Minimal role as HY5 cofactor is captured."},
+    {"node": "PIF3", "inputs": ["PHYB(-)","DET1(+)","DELLA(-)","EIN3(+)"], "outputs": ["Hypocotyl_Length(+)"], "curated_regulators_excluded": ["BIN2(-, E034 - BR-PIF crosstalk)", "PHYB(-, E161 - feedback break)"], "verdict": "appropriate", "comment": "4-input integrator, direct phenotype edge. BIN2 -> PIF3 could be added without creating positive feedback."},
+    {"node": "PIF4", "inputs": ["Temperature(+)","UVR8(-)","PHYB(-)","CRY1(-)","DET1(+)","HFR1(-)","ELF3_EC(-)","BZR1(+)","DELLA(-)"], "outputs": ["YUC8(+)","TAA1(+)","ARF6(+)","PIF7(+)","Hypocotyl_Length(+)"], "curated_regulators_excluded": ["ARF6(+, E011 - feedback break)", "BIN2(-, E035)", "COG1(+, E051)", "ELF3(-, E099 - absorbed)", "ELF4(-, E105 - absorbed)", "FCA(-, E109)", "GI(-, E118 - CLOCK)", "HMR(+, E125)", "HSFA1a(+, E126 - HSF)", "HSFA1b(+, E127 - HSF)", "HSFA1d(+, E129 - HSF)", "HSFA2(+, E130 - HSF)", "LUX(-, E141 - absorbed)", "PAR1(-, E157)", "RCB(+, E198)", "TOC1(-, E217 - CLOCK)", "TCP5(+, E263)", "TCP13(+, E264)", "TCP17(+, E265)"], "verdict": "under-specified", "comment": "CENTRAL HUB with 14/46 curated edges (30%). Missing entire HSF thermo-stabilization arm (E126/E127/E129/E130) and entire clock-gating arm (GI E118, TOC1 E217). BIN2 -> PIF4 can be added without positive-feedback risk now that PIF4 -> DWF4 is dropped. TCP17 could be added as parallel thermo-regulator."},
+    {"node": "PIF5", "inputs": ["UVR8(-)","PHYB(-)","DET1(+)","ELF3_EC(-)"], "outputs": ["Hypocotyl_Length(+)"], "curated_regulators_excluded": ["COG1(+, E052)", "ELF3(-, E100 - absorbed)", "HFR1(+, E283 outgoing)", "XTR7(+, E179)", "YUC5(+, E291)"], "verdict": "appropriate", "comment": "Could route through YUC8 composite (PIF5 -> YUC5 = YUC8 composite) as parallel to PIF4/PIF7. LOW priority."},
+    {"node": "PIF7", "inputs": ["PHYB(-)","CRY1(-)","PIF4(+)"], "outputs": ["YUC8(+)"], "curated_regulators_excluded": ["14-3-3(-, E001 - naming regex)", "PHYB(-, E184 - feedback break)", "Hypocotyl_Length(+, E180)", "IAA19(+, E181)", "IAA29(+, E182)"], "verdict": "appropriate", "comment": "Shade primary responder correctly routed through YUC8 auxin biosynthesis (Motif 3 coherent feed-forward)."},
+    {"node": "ELF3_EC", "inputs": ["Temperature(-)"], "outputs": ["PIF4(-)","PIF5(-)"], "curated_regulators_excluded": ["ELF3(+, E094 - composite member)", "ELF4(+, E103)", "LUX(+, E139)", "GI(-, E98 outgoing)"], "verdict": "appropriate", "comment": "Composite correctly handles ELF3+ELF4+LUX. elf3, elf4, lux single mutants all map to ELF3_EC gene_modifier=0."},
+    {"node": "DET2", "inputs": [], "outputs": ["BR(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "BR biosynthesis source; no curated upstream."},
+    {"node": "DWF4", "inputs": ["BZR1(-)"], "outputs": ["BR(+)"], "curated_regulators_excluded": ["PIF4(+, E166 - positive-feedback break)"], "verdict": "appropriate", "comment": "BZR1 negative auto-feedback kept; PIF4 amplification correctly dropped to break positive loop."},
+    {"node": "CPD", "inputs": [], "outputs": [], "curated_regulators_excluded": [], "verdict": "missing_node", "comment": "CPD is curated as BR -> +1 biosynthesis (E061) but is NOT in the network at all. This is an omission — DET2, DWF4 are present but CPD (the third canonical biosynthesis enzyme) is missing. cpd mutants have severe dwarf phenotype. MEDIUM priority to add."},
+    {"node": "BAS1", "inputs": ["PHYB(+)"], "outputs": ["BR(-)"], "curated_regulators_excluded": ["Hypocotyl_Length(-, E272 - bypass)"], "verdict": "appropriate", "comment": "BR catabolism under phyB/light control correctly encoded."},
+    {"node": "SOB7", "inputs": [], "outputs": ["BR(-)"], "curated_regulators_excluded": ["Hypocotyl_Length(-, E273 - bypass)"], "verdict": "appropriate", "comment": "Parallel BR catabolism enzyme."},
+    {"node": "BR", "inputs": ["DET2(+)","DWF4(+)","BAS1(-)","SOB7(-)"], "outputs": ["BRI1(+)"], "curated_regulators_excluded": ["CPD(+, E061)", "Hypocotyl_Length(+, E037 - Perception Gate bypass)"], "verdict": "under-specified", "comment": "Biosynthesis arm missing CPD. Add CPD -> BR (+1)."},
+    {"node": "BRI1", "inputs": ["BR(+)"], "outputs": ["BIN2(-)"], "curated_regulators_excluded": ["BAK1(+, E038)", "BSK1(+, E039)"], "verdict": "appropriate", "comment": "Perception Gate receptor. BAK1 kept as source co-inhibitor intentionally to avoid PIF4->BAK1 positive-feedback loop."},
+    {"node": "BAK1", "inputs": [], "outputs": ["BIN2(-)"], "curated_regulators_excluded": ["BRI1(+, E038 - would create positive feedback)", "PIF4(+, E164 - feedback break)"], "verdict": "appropriate", "comment": "Source co-receptor by design; documented Trap 1 mitigation."},
+    {"node": "BIN2", "inputs": ["COP1(-)","BRI1(-)","BAK1(-)"], "outputs": ["BZR1(-)"], "curated_regulators_excluded": ["BSU1(-, E041)", "SPA1(-, E209)", "BES1(-, E030)", "HSFA1d(-, E032)", "PIF3(-, E034)", "PIF4(-, E035)"], "verdict": "under-specified", "comment": "Multi-Output Scaffold is incomplete — biology: BIN2 phosphorylates BZR1, BES1, PIF3/4, HSFA1d, Aux/IAA. Currently only BZR1 target. BIN2 -> PIF4 (E035) has no positive-feedback risk (PIF4 -> DWF4 already dropped). MEDIUM priority."},
+    {"node": "BZR1", "inputs": ["BIN2(-)","PP2A(+)","DELLA(-)"], "outputs": ["ARF6(+)","PIF4(+)","DWF4(-)","Hypocotyl_Length(+)"], "curated_regulators_excluded": ["ARF6(+, E008 - feedback break)", "Auxin(+, E019 - Perception Gate bypass)", "GRF4(-, E121)", "PRE1(+, E046 outgoing)"], "verdict": "appropriate", "comment": "Well-balanced integrator. PRE1 output missing but PRE1 is not in network."},
+    {"node": "PP2A", "inputs": [], "outputs": ["BZR1(+)"], "curated_regulators_excluded": ["BES1(+, E185)"], "verdict": "appropriate", "comment": "BZR1 activator; BES1 not in network by design."},
+    {"node": "GA20OX1", "inputs": ["ABA(-)"], "outputs": ["GA4(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "GA biosynthesis with ABA crosstalk."},
+    {"node": "GA3OX1", "inputs": ["ABA(-)"], "outputs": ["GA4(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Parallel GA biosynthesis step."},
+    {"node": "GA2OX1", "inputs": ["ABA(+)"], "outputs": ["GA4(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "GA catabolism under ABA induction."},
+    {"node": "GA4", "inputs": ["GA20OX1(+)","GA3OX1(+)","GA2OX1(-)"], "outputs": ["GID1(+)"], "curated_regulators_excluded": ["GA1(+, E110)", "Light(-, E145 - bypass avoidance)"], "verdict": "appropriate", "comment": "Biosynthesis-Degradation Balance motif applied. GA1 is an upstream terpene cyclase — LOW priority."},
+    {"node": "GID1", "inputs": ["GA4(+)"], "outputs": ["DELLA(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Perception Gate receptor; composite GID1A/B/C."},
+    {"node": "DELLA", "inputs": ["ABA(+)","GID1(-)"], "outputs": ["ARF6(-)","BZR1(-)","PIF3(-)","PIF4(-)","Hypocotyl_Length(-)"], "curated_regulators_excluded": ["GAI(+, E116 - composite)", "RGA(+, E200)", "RGL1-3(+, E201-E203)", "SLY1(-, E208)", "Light(+, E144 - bypass)"], "verdict": "appropriate", "comment": "Five outgoing edges — the GA-repressor central role. Composite correctly absorbs GAI/RGA/RGL members."},
+    {"node": "TAA1", "inputs": ["PIF4(+)"], "outputs": ["Auxin(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Auxin biosynthesis first step."},
+    {"node": "YUC8", "inputs": ["PIF4(+)","PIF7(+)"], "outputs": ["Auxin(+)"], "curated_regulators_excluded": ["TCP17(+, E266)"], "verdict": "appropriate", "comment": "Composite for YUC1/2/5/8/9; canonical PIF4/PIF7 targets."},
+    {"node": "Auxin", "inputs": ["TAA1(+)","YUC8(+)"], "outputs": ["TIR1(+)"], "curated_regulators_excluded": ["YUC1(+, E233 - absorbed)", "YUC9(+, E235 - absorbed)", "BZR1(+, E019 - bypass)", "Hypocotyl_Length(+, E020 - bypass)"], "verdict": "appropriate", "comment": "Perception Gate hormone; exactly 1 outgoing edge verified."},
+    {"node": "TIR1", "inputs": ["Auxin(+)"], "outputs": ["AUX_IAA(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Composite TIR1/AFB receptor."},
+    {"node": "AUX_IAA", "inputs": ["TIR1(-)"], "outputs": ["ARF6(-)"], "curated_regulators_excluded": ["AFB1/2/5(-, E002-E004 - absorbed into TIR1 composite)", "ARF7/8(- outgoing, E017-E018 - absorbed into ARF6 composite)"], "verdict": "appropriate", "comment": "Composite absorption defensible."},
+    {"node": "ARF6", "inputs": ["PIF4(+)","AUX_IAA(-)","DELLA(-)","BZR1(+)"], "outputs": ["Hypocotyl_Length(+)"], "curated_regulators_excluded": ["RGA(-, E199 - absorbed into DELLA)", "BZR1(+, E008 - feedback break)", "IAA19(+, E010)", "PIF4(+, E011 - feedback break)", "PRE1(+, E012)", "SAUR19(+, E013)"], "verdict": "appropriate", "comment": "Composite ARF6/7/8; 4 inputs balanced."},
+    {"node": "Ethylene", "inputs": [], "outputs": ["CTR1(-)"], "curated_regulators_excluded": ["ETR1(-, E107 - receptor intermediate not modeled)", "Hypocotyl_Length(-, E108 - bypass)"], "verdict": "appropriate", "comment": "Receptor stage collapsed; ETR1 not in network but Ethylene -> CTR1 captures the direct functional effect."},
+    {"node": "CTR1", "inputs": ["Ethylene(-)"], "outputs": ["EIN2(-)"], "curated_regulators_excluded": ["ETR1(+, E106)", "Hypocotyl_Length(+, E069 - bypass)"], "verdict": "appropriate", "comment": "ctr1 KO -> EIN2 up -> EIN3 up -> short hypocotyl (constitutive triple response). Correct."},
+    {"node": "EIN2", "inputs": ["CTR1(-)"], "outputs": ["EIN3(+)"], "curated_regulators_excluded": ["EIL1(+, E086)", "Hypocotyl_Length(-, E088 - bypass)"], "verdict": "appropriate", "comment": "EIL1 redundant with EIN3; EIN3 alone sufficient."},
+    {"node": "EIN3", "inputs": ["EIN2(+)"], "outputs": ["PIF3(+)","Hypocotyl_Length(-)"], "curated_regulators_excluded": ["EBF1(-, E083)", "EBF2(-, E085)", "PIF4(+, E167)", "APD7(+, E089)", "ERF1(+, E091)"], "verdict": "appropriate", "comment": "EBF1/EBF2 dark-specific degradation not modeled; biology captured qualitatively via CTR1 path."},
+    {"node": "ABA", "inputs": [], "outputs": ["GA3OX1(-)","GA20OX1(-)","GA2OX1(+)","DELLA(+)"], "curated_regulators_excluded": ["YUC3(-, E317)", "Hypocotyl_Length(-, E318 - bypass)"], "verdict": "appropriate", "comment": "Hormone input with coherent triple-assurance on growth restriction."},
+    {"node": "Hypocotyl_Length", "inputs": ["PIF3(+)","PIF4(+)","PIF5(+)","BZR1(+)","ARF6(+)","HY5(-)","DELLA(-)","EIN3(-)"], "outputs": [], "curated_regulators_excluded": ["60+ edges routed through cascade intermediates"], "verdict": "appropriate", "comment": "5 activators AT the cap, 3 inhibitors. All major TF classes represented. Direct-edge fan-in is intentionally cascaded; 0.11 coverage ratio is architectural, not a coverage gap."}
+  ],
+  "per_pathway_audit": [
+    {
+      "pathway": "Phytochrome signaling (red/far-red)",
+      "completeness": "high",
+      "comment": "PHYB/PHYA -> COP1 inhibition AND PHYB -> PIF3/4/5/7 degradation both present (Motif 3 Coherent Feed-Forward). PHYB -> BAS1 -> BR catabolism links light to BR. However PHYA signaling lacks nuclear-translocation cofactors FHY1/FHL, so far-red-specific signaling is thin.",
+      "missing_pieces": ["FHY1 (E293, E294 inputs + E292 outgoing + E304 to HFR1)", "FHL (E294 + E306)", "Thermal reversion Temperature -> PHYB (not in curated; literature gap)"]
+    },
+    {
+      "pathway": "Cryptochrome signaling (blue)",
+      "completeness": "high",
+      "comment": "CRY1/CRY2 -> COP1 inhibition plus CRY1 -> PIF4/PIF7 destabilization. Appropriate minimal encoding.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "UV-B signaling (UVR8)",
+      "completeness": "high",
+      "comment": "UVR8 -> COP1 inhibition AND UVR8 -> HY5 direct activation AND UVR8 -> PIF4/PIF5 inhibition — triple-assurance on photomorphogenic response. RUP1/RUP2 negative feedback on UVR8 not modeled (LOW priority; only relevant under sustained UV-B).",
+      "missing_pieces": ["HY5 -> RUP1 (E249)", "HY5 -> RUP2 (E250)", "RUP1/2 -> UVR8 -1 (E247, E248)"]
+    },
+    {
+      "pathway": "BR perception & transduction",
+      "completeness": "high",
+      "comment": "BR -> BRI1 Perception Gate; BRI1 + BAK1 as co-inhibitors of BIN2; BIN2 -> BZR1; DELLA -> BZR1 crosstalk; PP2A -> BZR1 dephosphorylation. Clean multi-step cascade.",
+      "missing_pieces": ["BIN2 -> BES1 (E030) — Multi-Output", "BIN2 -> PIF4 (E035) — BR-PIF4 crosstalk, safe to add", "BSU1 as intermediate (low priority)"]
+    },
+    {
+      "pathway": "BR biosynthesis & catabolism",
+      "completeness": "medium",
+      "comment": "DET2 + DWF4 (synthesis) and BAS1 + SOB7 (catabolism) give Biosynthesis-Degradation Balance. However CPD (the third canonical BR biosynthesis enzyme) is curated (E061 CPD -> BR +1) but not in the network at all. cpd mutants are severe dwarfs.",
+      "missing_pieces": ["CPD -> BR (+1, E061)", "ROT3/BR6ox1 (literature gap per Step 1.5 residual)"]
+    },
+    {
+      "pathway": "GA perception & transduction",
+      "completeness": "high",
+      "comment": "GA4 -> GID1 -> -| DELLA Perception Gate correctly encoded. DELLA -> PIF3/PIF4/ARF6/BZR1/Hypocotyl_Length (5 targets) captures the GA-repressor central role. SLY1 dropped — defensible (E208 was a single edge and GID1 -> DELLA carries the degradation signal).",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "GA biosynthesis & catabolism",
+      "completeness": "high",
+      "comment": "GA20OX1 + GA3OX1 (synthesis) and GA2OX1 (catabolism) on GA4. ABA crosstalk (triple-assurance) included. Clean motif.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Auxin perception & transduction",
+      "completeness": "high",
+      "comment": "Auxin -> TIR1 -> -| AUX_IAA -> -| ARF6 Perception Gate correctly encoded. Composite TIR1/AFB and ARF6/7/8 defensible.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Auxin biosynthesis (thermomorphogenesis / shade)",
+      "completeness": "high",
+      "comment": "PIF4 -> TAA1/YUC8 and PIF7 -> YUC8 → Auxin. Coherent feed-forward via PIF4 -> ARF6 direct AND via Auxin cascade.",
+      "missing_pieces": ["Auxin catabolism (GH3 conjugation) — literature gap (not in curated)"]
+    },
+    {
+      "pathway": "Ethylene (dark triple response)",
+      "completeness": "medium",
+      "comment": "Ethylene -> CTR1 -> EIN2 -> EIN3 -> Hypocotyl_Length. ETR1 receptor collapsed into the direct Ethylene -> CTR1 edge (defensible simplification). EBF1/EBF2 degradation of EIN3 in dark not modeled.",
+      "missing_pieces": ["ETR1 intermediate (LOW priority)", "EBF1/EBF2 -> EIN3 degradation in dark (LOW priority)"]
+    },
+    {
+      "pathway": "Temperature thermomorphogenesis",
+      "completeness": "medium",
+      "comment": "Temperature -> ELF3_EC -| PIF4 pathway present. Temperature -> PIF4 (+1) direct edge present but lacks the HSF intermediate. Temperature -> HY5 (-1) present. Thermal reversion of PHYB (Jung/Legris 2016 Science) not available in curated.",
+      "missing_pieces": ["HSFA1d as PIF4-stabilizer (E129, E220)", "HSFA1a/b/HSFA2 redundant HSFs (E126, E127, E130)", "TCP17 parallel thermo (E265, E266)", "Temperature -> phyB thermal reversion (literature gap)"]
+    },
+    {
+      "pathway": "Shade avoidance (low R:FR)",
+      "completeness": "medium",
+      "comment": "PIF7 -> YUC8 -> Auxin -> ARF6 captures the shade-to-elongation axis. HFR1 -| PIF4 negative brake present. PIF5 -> HFR1 induction (E283) missing — this is the shade-induced HFR1 feedback.",
+      "missing_pieces": ["PIF5 -> HFR1 (+, E283)", "PAR1/PAR2 shade-induced PIF4 brakes (E157)", "ATHB2/ATHB4/HAT1-3 shade-response HD-ZIPs (E282, E284-E288) — can be LOW if PIF routes suffice"]
+    },
+    {
+      "pathway": "Circadian clock gating of elongation",
+      "completeness": "low",
+      "comment": "ENTIRE clock oscillator is MISSING as nodes: CCA1, LHY, TOC1, PRR5, PRR7, PRR9, GI are not in the network. Only ELF3_EC (Evening Complex) is present. cca1 lhy, toc1, prr579, gi single/multi mutants are canonical hypocotyl mutants. Without clock oscillator, elongation cannot respond to time-of-day gating or clock perturbations. TOC1 -> PIF4 (-1, E217) and GI -> PIF4 (-1, E118) alone would materially improve hub completeness.",
+      "missing_pieces": ["TOC1 as node + TOC1 -> PIF4 (-1, E217)", "GI as node + GI -> PIF4 (-1, E118)", "CCA1 optional (E047)", "PRR5/7/9 optional (E191, E194, E196)"]
+    },
+    {
+      "pathway": "HY5-BBX antagonism",
+      "completeness": "low",
+      "comment": "Only BBX21 is included as HY5 positive partner. BBX11 (8 curated edges) and BBX22 are missing positive partners. BBX24/BBX25 (HY5 antagonists competing for DNA binding) are missing. The BBX regulatory network around HY5 is a documented fine-tuning layer.",
+      "missing_pieces": ["BBX11 + its rich regulatory context (E274-E281)", "BBX24 -> HY5 (-1, E309)", "BBX25 -> HY5 (-1, E308)"]
+    },
+    {
+      "pathway": "PIF-BZR1-DELLA-ARF convergence (central hypocotyl integrator)",
+      "completeness": "high",
+      "comment": "PIF4 + BZR1 + ARF6 direct phenotype activators; DELLA inhibits all four (PIF3/4, BZR1, ARF6) creating a Multi-Output Scaffold on the GA-repression side. HY5 direct inhibition completes the light arm. This is the best-developed part of the network.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Phototropin / phototropism",
+      "completeness": "not_applicable",
+      "comment": "Per Step 1.5 residual_gaps_for_builder: phototropins primarily regulate phototropism/stomatal opening, not bulk hypocotyl elongation. Low-priority omission.",
+      "missing_pieces": []
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "S001",
+      "type": "add_node",
+      "priority": "high",
+      "description": "Add TOC1 node + TOC1 -> PIF4 (-1) to begin modeling clock gating of elongation",
+      "biological_justification": "TOC1 is a PRR-family transcriptional repressor that binds the PIF4 promoter and represses it at dawn; toc1 mutants show long hypocotyl. The entire clock oscillator is currently absent, and TOC1 -> PIF4 is the single most impactful clock edge for hypocotyl length. Adding TOC1 as a node provides the anchor for the clock arm without requiring the full 7-gene oscillator. TOC1 can be treated as a source node (or with a single LHY/CCA1-dependent input in a later iteration).",
+      "curated_edge_ids": ["E217"],
+      "implementation": "Add TOC1 as GENE, is_source=true. Add edge TOC1 -> PIF4 (-1, E217). Optionally add TOC1 -> Hypocotyl_Length (-1, E216) but prefer routing through PIF4 for cascade cleanliness."
+    },
+    {
+      "id": "S002",
+      "type": "add_node",
+      "priority": "high",
+      "description": "Add GI node + GI -> PIF4 (-1) as a second clock gate on PIF4",
+      "biological_justification": "GI (GIGANTEA) is a clock-gated regulator that directly represses PIF4 (Nohales 2019) and also links to flowering. gi mutants show altered hypocotyl elongation. With TOC1 and GI both feeding into PIF4, the network can respond to gi and toc1 single-mutant tests and capture clock-defective hypocotyl phenotypes. GI is inhibited by ELF3_EC (E098) which gives a natural integration into the existing clock node.",
+      "curated_edge_ids": ["E118", "E098"],
+      "implementation": "Add GI as GENE, inputs = [ELF3_EC(-)]; add edge GI -> PIF4 (-1, E118). Optionally add PIF4 -> GI (+1, E168) which closes a SAFE negative feedback loop (PIF4 up → GI up → PIF4 down) — include only if the loop is documented as stabilizing."
+    },
+    {
+      "id": "S003",
+      "type": "add_node",
+      "priority": "medium",
+      "description": "Add HSFA1d as the thermomorphogenesis intermediate for Temperature -> PIF4",
+      "biological_justification": "Temperature -> PIF4 is currently a direct edge with no intermediate. Biology routes warm-temperature signal through HSFA1a/b/d and HSFA2 heat-shock factors, which physically stabilize PIF4. HSFA1d is the best-curated single representative (E129 HSFA1d -> PIF4, E220 Temperature -> HSFA1d, E056 COP1 -> HSFA1d, E032 BIN2 -> HSFA1d, E128 HSFA1d -> Hypocotyl_Length). Adding HSFA1d converts the Temperature -> PIF4 direct edge into Temperature -> HSFA1d -> PIF4, a proper cascade step, and allows hsfa1 quadruple mutant tests to be modeled.",
+      "curated_edge_ids": ["E129", "E220", "E056", "E032"],
+      "implementation": "Add HSFA1d as GENE. Drop Temperature -> PIF4 (+1) direct edge; add Temperature -> HSFA1d (+1, E220); add HSFA1d -> PIF4 (+1, E129). Optionally add COP1 -> HSFA1d (+1, E056) and BIN2 -> HSFA1d (-1, E032) for integration."
+    },
+    {
+      "id": "S004",
+      "type": "add_node",
+      "priority": "medium",
+      "description": "Add BBX11 as parallel HY5 cofactor with rich integration",
+      "biological_justification": "BBX11 has 8 curated edges in the repository (BBX11 -> HY5 +1 E274, HY5 -> BBX11 +1 E275, BBX21 -> BBX11 +1 E276, BBX11 -> Hypocotyl_Length -1 E277, PHYA -> BBX11 +1 E278, PHYB -> BBX11 +1 E279, CRY1 -> BBX11 +1 E280, DET1 -> BBX11 +1 E281). It forms a positive feedback loop with HY5 (HY5 -> BBX11 AND BBX11 -> HY5 both +1 — POSITIVE feedback, must be broken if added). BBX11 is a silent under-representation because BBX21 alone was kept.",
+      "curated_edge_ids": ["E274", "E276", "E279", "E280"],
+      "implementation": "Add BBX11 as GENE. Add BBX11 -> HY5 (+1, E274). Add BBX21 -> BBX11 (+1, E276). Add PHYB -> BBX11 (+1, E279) and CRY1 -> BBX11 (+1, E280) as upstream regulators. DO NOT add HY5 -> BBX11 (+1) — this would close a positive-feedback loop (Trap 1). If BBX11 output to phenotype is desired, route through HY5."
+    },
+    {
+      "id": "S005",
+      "type": "add_edge",
+      "priority": "medium",
+      "description": "Complete BIN2 Multi-Output Scaffold: add BIN2 -> PIF4 (-1) and BIN2 -> BES1 (-1)",
+      "biological_justification": "BIN2 is a GSK3-like kinase that phosphorylates multiple substrates: BZR1, BES1, PIF3, PIF4, HSFA1d, Aux/IAA (Motif 5 Multi-Output Scaffold). Currently only BIN2 -> BZR1 is modeled. Adding BIN2 -> PIF4 (-1, E035) captures BR-mediated PIF4 destabilization. No positive-feedback risk: PIF4 -> DWF4 is already dropped, and PIF4 downstream targets (TAA1, YUC8, ARF6, PIF7, Hypocotyl_Length) do not loop back to BIN2. BIN2 -> BES1 (E030) is LOW priority if BES1 remains out of network.",
+      "curated_edge_ids": ["E035"],
+      "implementation": "Add edge BIN2 -> PIF4 (-1, E035). Verify no new positive-feedback loops. Consider also BIN2 -> PIF3 (-1, E034) for PIF3 BR-responsiveness."
+    },
+    {
+      "id": "S006",
+      "type": "add_edge",
+      "priority": "medium",
+      "description": "Complete SPA1 Multi-Output Scaffold: add SPA1 -> HY5 (-1) and SPA1 -> BIN2 (-1)",
+      "biological_justification": "SPA1 is part of the CUL4-COP1-SPA1 E3 complex that directly ubiquitinates HY5 (E211) and also targets BIN2 for degradation in light (E209). Currently SPA1 only activates COP1. Adding these two direct edges makes SPA1 a proper Multi-Output Scaffold (Motif 5) and captures the known spa1 spa2 spa3 spa4 quadruple mutant phenotype (extreme short hypocotyl, hyper-HY5 accumulation).",
+      "curated_edge_ids": ["E211", "E209"],
+      "implementation": "Add edge SPA1 -> HY5 (-1, E211). Add edge SPA1 -> BIN2 (-1, E209). SPA1 remains source (is_source=true with these as outgoing edges only)."
+    },
+    {
+      "id": "S007",
+      "type": "add_node",
+      "priority": "medium",
+      "description": "Add CPD as third BR biosynthesis enzyme",
+      "biological_justification": "BR biosynthesis currently has DET2 and DWF4; CPD (CONSTITUTIVE PHOTOMORPHOGENIC DWARF / CYP90A1) is the canonical third enzyme and is curated (E061 CPD -> BR +1). cpd null mutants are severe dwarfs with short hypocotyls. Including CPD completes the biosynthesis arm and gives three parallel activators on BR (geometric mean of three ≥ 0.99 under any single KO is NOT appropriate — cpd KO has a genuine dwarf phenotype, so adding CPD without Trap 2 collapse gives the correct strong phenotype for cpd single KO). Cost: 1 new node, 1 new edge.",
+      "curated_edge_ids": ["E061"],
+      "implementation": "Add CPD as GENE, is_source=true (no curated upstream). Add edge CPD -> BR (+1, E061). BR now has 3 activators (DET2, DWF4, CPD) — single KO of any one reduces BR significantly via geometric mean dilution, matching dwarf phenotype."
+    },
+    {
+      "id": "S008",
+      "type": "add_node",
+      "priority": "medium",
+      "description": "Add FHY1 (and optionally FHL) as phyA nuclear-translocation cofactor",
+      "biological_justification": "phyA signaling in Arabidopsis requires FHY1/FHL for import of activated phyA into the nucleus. Without them, phyA cannot inactivate COP1 in the nucleus. Currently PHYA -> COP1 (-1) is modeled as a direct edge but in biology this requires FHY1. fhy1 fhl double mutant is functionally equivalent to phyA null in far-red. Adding FHY1 with FHY1 -> HFR1 (+1, E304) and FHY1 -> PHYA (+1, E292) or restructuring as PHYA signaling → FHY1 → COP1/HFR1 gate would capture the accessory requirement.",
+      "curated_edge_ids": ["E292", "E293", "E304", "E306"],
+      "implementation": "Minimal option: Add FHY1 as GENE. Add FHY1 -> HFR1 (+1, E304) as parallel HFR1 activator alongside COP1 inhibition. Full option: add FHL also and restructure PHYA signaling to gate through FHY1/FHL (Motif 1 Perception Gate pattern with PHYA as ligand, FHY1/FHL as co-receptors of COP1 inhibition)."
+    },
+    {
+      "id": "S009",
+      "type": "add_edge",
+      "priority": "low",
+      "description": "Add PIF5 -> HFR1 (+1) for shade-induced negative feedback",
+      "biological_justification": "HFR1 is induced by PIF5 during shade avoidance as a negative-feedback brake (PIFs up → HFR1 up → PIF4/5/7 DNA binding blocked). Currently HFR1 is regulated only by COP1 inhibition. Adding PIF5 -> HFR1 (+1, E283) is a SAFE negative-feedback loop (Motif 2) that improves shade dynamics. No positive-feedback risk — HFR1 inhibits PIF4, not PIF5, so the loop is a self-limiting brake.",
+      "curated_edge_ids": ["E283"],
+      "implementation": "Add edge PIF5 -> HFR1 (+1, E283). Verify HFR1 still has only PIF4 as outgoing target (no HFR1 -> PIF5 edge in curated)."
+    },
+    {
+      "id": "S010",
+      "type": "add_edge",
+      "priority": "low",
+      "description": "Complete COP1 Multi-Output Scaffold: add COP1 -> HYH (-1) and COP1 -> BBX25 (-1)",
+      "biological_justification": "COP1 is a canonical Multi-Output Scaffold (Motif 5) with four current targets (HY5, HFR1, BBX21, BIN2) and two curated but excluded targets: HYH (E058) and BBX25 (E311). Adding them completes the scaffold and enables hyh-specific and bbx25-specific tests. LAF1 is a far-red-specific target and is LOW priority since phyA accessory is already partially thin.",
+      "curated_edge_ids": ["E058", "E311"],
+      "implementation": "Add HYH as GENE if not in network. Add edges COP1 -> HYH (-1, E058) and COP1 -> BBX25 (-1, E311). Add HYH -> Hypocotyl_Length (-1, E133) to keep HYH on-cascade, OR collapse HYH into HY5 (composite HY5_HYH) if biological redundancy justifies it."
+    },
+    {
+      "id": "S011",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "Temperature-induced phyB thermal reversion not curated",
+      "biological_justification": "Jung et al 2016 Science and Legris et al 2016 Science established that warm temperature accelerates phyB Pfr-to-Pr thermal reversion, inactivating the receptor. This is a canonical mechanism for plant thermosensing. Step 1.5 literature review did not capture this edge (Temperature -> PHYB -1). BUILDER correctly dropped the edge to respect DOI rule. Step 1 LITERATURE REVIEW should add these papers.",
+      "curated_edge_ids": [],
+      "implementation": "Step 1 search: 'phyB thermal reversion Arabidopsis' - Jung 2016 Science, Legris 2016 Science. Would add edge Temperature -> PHYB (-1)."
+    },
+    {
+      "id": "S012",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "Low R:FR (shade) as environmental source not curated",
+      "biological_justification": "Shade avoidance is a primary hypocotyl phenotype, but the network has no Low_R_FR or Shade ENVIRONMENT node. Currently shade tests must be simulated as PHYB gene_modifier=0.5 or similar, which conflates shade with phyB KO. Step 1 should curate a paper that provides an evidence-backed Low_R_FR -> PHYB (-1) edge (Keller 2011, Nito 2013, or a Martinez-Garcia review).",
+      "curated_edge_ids": [],
+      "implementation": "Step 1 search: 'low R:FR Arabidopsis phyB inactivation' or 'shade avoidance hypocotyl review'. Add Low_R_FR as ENVIRONMENT source, edge Low_R_FR -> PHYB (-1)."
+    }
+  ],
+  "literature_gaps": [
+    "Temperature -> phyB thermal reversion (Jung/Legris 2016 Science) — currently dropped by BUILDER for DOI compliance",
+    "Low_R_FR / Shade as ENVIRONMENT source node — prevents separating shade tests from phyB genetic perturbation",
+    "Auxin catabolism (GH3 conjugation, DAO oxidation) — Biosynthesis-Degradation Balance incomplete for Auxin",
+    "NCED-based ABA biosynthesis not curated for hypocotyl context — ABA remains a source node",
+    "DET1 upstream regulation by COP10/DDB1 — already flagged in Step 1.5 residual_gaps",
+    "SPA1 upstream regulators — already flagged in Step 1.5 residual_gaps",
+    "BR biosynthesis enzymes ROT3/CYP90C1 and BR6ox1/CYP85A1 — already flagged in Step 1.5 residual_gaps"
+  ],
+  "stop_reason": null
+}

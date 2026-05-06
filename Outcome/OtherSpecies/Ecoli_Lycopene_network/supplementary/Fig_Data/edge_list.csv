@@ -1,0 +1,93 @@
+network,edge_id,source,source_type,target,target_type,sign,effect,mechanism,n_evidence,doi_list
+Lycopene Titer,N001,Glucose,ENVIRONMENT,G3P,METABOLITE,1,activation,"Glucose enters PTS then Pgi-driven EMP glycolysis, supplying G3P as a DXS substrate.",1,10.3390/molecules25143136
+Lycopene Titer,N002,Glucose,ENVIRONMENT,Pyruvate,METABOLITE,1,activation,"Glucose glycolysis terminates in pyruvate, the second DXS substrate.",1,10.3390/molecules25143136
+Lycopene Titer,N003,Glycerol,ENVIRONMENT,G3P,METABOLITE,1,activation,"Glycerol is phosphorylated then oxidised to DHAP/G3P, enriching G3P relative to pyruvate.",1,10.3390/molecules25143136
+Lycopene Titer,N004,Xylose,ENVIRONMENT,G3P,METABOLITE,1,activation,Xylose feeds the pentose-phosphate shunt producing F6P and G3P for MEP.,1,10.3390/molecules25143136
+Lycopene Titer,N005,Xylose,ENVIRONMENT,Pyruvate,METABOLITE,1,activation,Xylose catabolism terminates in pyruvate via EMP.,1,10.3390/molecules25143136
+Lycopene Titer,N006,PGI,GENE,G3P,METABOLITE,1,activation,Pgi (phosphoglucose isomerase) routes G6P into the EMP branch feeding G3P.,1,10.1128/AEM.02155-15
+Lycopene Titer,N007,PGI,GENE,Pyruvate,METABOLITE,1,activation,Pgi-gated EMP flux terminates in pyruvate.,1,10.1128/AEM.02155-15
+Lycopene Titer,N008,ZWF,GENE,G3P,METABOLITE,-1,inhibition,"Zwf diverts G6P into the oxidative PPP, reducing G3P supply to DXS; Δzwf raises lycopene ~130%.",2,10.3390/biom13121747; 10.1007/s10529-013-1317-0
+Lycopene Titer,N009,GAPA,GENE,G3P,METABOLITE,-1,inhibition,"GapA (GAPDH) drains G3P into 1,3-bisPG in lower glycolysis.",1,10.1038/75398
+Lycopene Titer,N010,PYKA,GENE,Pyruvate,METABOLITE,1,activation,PykA (pyruvate kinase II) converts PEP to pyruvate.,1,10.3390/molecules25143136
+Lycopene Titer,N011,PYKF,GENE,Pyruvate,METABOLITE,1,activation,PykF (major pyruvate kinase) converts PEP to pyruvate.,1,10.3390/molecules25143136
+Lycopene Titer,N012,PPS,GENE,Pyruvate,METABOLITE,-1,inhibition,"Pps (PEP synthase) drains pyruvate back to PEP, reducing pyruvate pool for DXS.",1,10.3390/biom13121747
+Lycopene Titer,N013,PPS,GENE,G3P,METABOLITE,1,activation,Pps-driven pyruvate→PEP redirection ultimately raises upstream G3P availability (Farmer 2000 flux rebalance).,2,10.1038/75398; 10.1038/75398
+Lycopene Titer,N014,EDD,GENE,G3P,METABOLITE,1,activation,Edd (6-PG dehydratase) produces KDPG that Eda splits into G3P + pyruvate (Entner-Doudoroff).,1,10.1186/s12934-015-0301-x
+Lycopene Titer,N015,EDD,GENE,Pyruvate,METABOLITE,1,activation,"ED pathway via Edd supplies pyruvate stoichiometrically with G3P, matching DXS 1:1 substrate need.",1,10.1186/s12934-015-0301-x
+Lycopene Titer,N016,EDA,GENE,G3P,METABOLITE,1,activation,Eda (KDPG aldolase) splits KDPG into G3P + pyruvate.,1,10.1186/s12934-015-0301-x
+Lycopene Titer,N017,EDA,GENE,Pyruvate,METABOLITE,1,activation,Eda-generated pyruvate matches the ED 1:1 stoichiometry required by DXS.,1,10.1186/s12934-015-0301-x
+Lycopene Titer,N018,LDH,GENE,Pyruvate,METABOLITE,-1,inhibition,Ldh (lactate dehydrogenase) drains pyruvate to lactate under microaerobic growth.,1,10.3390/molecules25143136
+Lycopene Titer,N019,ACEE,GENE,Acetyl_CoA,METABOLITE,1,activation,AceE (PDH E1) is the pyruvate→Acetyl-CoA entry point feeding TCA and MVA.,1,10.3390/molecules25143136
+Lycopene Titer,N020,PTA,GENE,Acetyl_CoA,METABOLITE,-1,inhibition,Pta drains Acetyl-CoA via acetyl-P to overflow acetate.,1,10.3390/molecules25143136
+Lycopene Titer,N021,PPC,GENE,Acetyl_CoA,METABOLITE,-1,inhibition,"Ppc (PEP carboxylase) diverts PEP toward OAA, reducing the upstream supply feeding AceE and Acetyl-CoA.",1,10.3390/molecules25143136
+Lycopene Titer,N022,Glucose,ENVIRONMENT,Acetyl_P,METABOLITE,1,activation,Glucose-driven glycolysis produces acetyl-P as a signalling metabolite for the NtrC branch.,1,10.3390/molecules25143136
+Lycopene Titer,N023,Acetyl_P,METABOLITE,NRI,GENE,1,activation,Acetyl-P phosphorylates NRI (NtrC) in the absence of the dedicated kinase.,1,10.3390/molecules25143136
+Lycopene Titer,N024,NRI,GENE,PPS,GENE,1,activation,NRI-P activates pps promoter (Alper 2005 sigma-S-family screen).,1,10.1038/75398
+Lycopene Titer,N025,NRI,GENE,IDI,GENE,1,activation,NRI-P induces idi transcription in the same regulon.,1,10.1038/75398
+Lycopene Titer,N026,CRA,GENE,PPS,GENE,1,activation,Cra (FruR) activates pps under glycolytic-substrate limitation.,1,10.1038/75398
+Lycopene Titer,N027,Oxygen_Level,ENVIRONMENT,ARCA,GENE,-1,inhibition,"High oxygen oxidises the ArcB sensor, dephosphorylating ArcA and relieving its repression of aerobic genes.",1,10.3390/molecules25143136
+Lycopene Titer,N028,Oxygen_Level,ENVIRONMENT,FNR,GENE,-1,inhibition,"O2 oxidises the FNR [4Fe-4S] cluster, disassembling the active dimer.",1,10.3390/molecules25143136
+Lycopene Titer,N029,ARCA,GENE,ACEE,GENE,-1,inhibition,Phosphorylated ArcA represses the aceEF-lpd operon under anaerobiosis.,1,10.3390/molecules25143136
+Lycopene Titer,N030,FNR,GENE,ACEE,GENE,-1,inhibition,FNR represses aceE under anaerobiosis.,1,10.3390/molecules25143136
+Lycopene Titer,N031,Oxygen_Level,ENVIRONMENT,ROS,METABOLITE,1,activation,Aerobic respiration generates superoxide/peroxide through oxidative phosphorylation side-reactions.,1,10.1186/s12934-015-0381-7
+Lycopene Titer,N032,GND,GENE,NADPH,METABOLITE,1,activation,Gnd (6-PG dehydrogenase) produces NADPH during the PPP oxidative branch.,1,10.1186/s12934-015-0301-x
+Lycopene Titer,N033,GDHA,GENE,NADPH,METABOLITE,-1,inhibition,"GdhA uses NADPH for glutamate biosynthesis, competing with carotenoid cofactor demand.",1,10.3390/molecules25143136
+Lycopene Titer,N034,Acetyl_CoA,METABOLITE,Mevalonate,METABOLITE,1,activation,Acetyl-CoA is the primary substrate of the MVA upper pathway (AtoB/HMGS/HMGR).,1,10.3390/molecules25143136
+Lycopene Titer,N035,ATOB,GENE,Mevalonate,METABOLITE,1,activation,AtoB condenses two Acetyl-CoA to acetoacetyl-CoA; first committed MVA step.,2,10.1016/j.synbio.2021.04.001; 10.4014/jmb.2408.08053
+Lycopene Titer,N036,HMGS,GENE,Mevalonate,METABOLITE,1,activation,HMGS condenses acetoacetyl-CoA + Acetyl-CoA to HMG-CoA.,1,10.3390/molecules25143136
+Lycopene Titer,N037,HMGR,GENE,Mevalonate,METABOLITE,1,activation,HMGR reduces HMG-CoA to mevalonate using two NADPH — the major MVA rate-limiting step.,1,10.3390/biom13121747
+Lycopene Titer,N038,NADPH,METABOLITE,HMGR,GENE,1,activation,NADPH is a strict cofactor for HMGR reduction; NADPH depletion limits MVA flux.,1,10.1016/j.synbio.2021.04.001
+Lycopene Titer,N039,DXS,GENE,IPP,METABOLITE,1,activation,Dxs-driven MEP pathway terminates in IPP (via IspH); the rate-limiting contribution to the IPP pool.,2,10.3390/biom13121747; 10.3390/molecules25143136
+Lycopene Titer,N040,G3P,METABOLITE,IPP,METABOLITE,1,activation,G3P is the direct substrate contribution feeding MEP flux into IPP (pool model). Restored in iteration 2 to preserve G3P phenotype connectivity after the DXS->G3P(-1) substrate-depletion edge was added.,1,10.3390/molecules25143136
+Lycopene Titer,N041,Pyruvate,METABOLITE,IPP,METABOLITE,1,activation,Pyruvate is the second substrate contribution feeding MEP flux into IPP. Restored in iteration 2 to preserve Pyruvate phenotype connectivity after the DXS->Pyruvate(-1) substrate-depletion edge was added.,1,10.3390/molecules25143136
+Lycopene Titer,N043,Mevalonate,METABOLITE,IPP,METABOLITE,1,activation,Mevalonate pool feeds IPP via MVK/PMK/MVD enzymatic chain.,1,10.3390/molecules25143136
+Lycopene Titer,N044,MVK,GENE,IPP,METABOLITE,1,activation,MVK-driven MVA downstream contributes to the IPP pool; rate-limiting MVA kinase step.,1,10.1186/s13568-022-01418-6
+Lycopene Titer,N045,MVD,GENE,IPP,METABOLITE,1,activation,MVD (terminal MVA enzyme) produces IPP from mevalonate-5-PP.,1,10.3390/molecules25143136
+Lycopene Titer,N046,IDI,GENE,DMAPP,METABOLITE,1,activation,Idi equilibrates IPP to DMAPP — a critical supply arm because IspA needs DMAPP to start C10/C15 chain elongation.,1,10.3390/biom13121747
+Lycopene Titer,N047,IPP,METABOLITE,DMAPP,METABOLITE,1,activation,IPP pool is isomerised to DMAPP (pool model contribution).,1,10.3390/molecules25143136
+Lycopene Titer,N048,IPTG,ENVIRONMENT,DXS,GENE,1,activation,IPTG induces trc/T7-driven dxs expression cassettes.,1,10.3390/molecules25143136
+Lycopene Titer,N049,IPTG,ENVIRONMENT,IDI,GENE,1,activation,IPTG induces idi cassettes co-expressed with dxs.,1,10.3390/molecules25143136
+Lycopene Titer,N050,IPTG,ENVIRONMENT,CRTE,GENE,1,activation,IPTG induces crtE from the carotenoid operon.,1,10.1007/s00253-006-0623-z
+Lycopene Titer,N051,IPTG,ENVIRONMENT,CRTB,GENE,1,activation,IPTG induces crtB from the carotenoid operon.,1,10.1007/s00253-006-0623-z
+Lycopene Titer,N052,IPTG,ENVIRONMENT,CRTI,GENE,1,activation,IPTG induces crtI from the carotenoid operon.,1,10.1007/s00253-006-0623-z
+Lycopene Titer,N053,Arabinose,ENVIRONMENT,DXS,GENE,1,activation,pBAD-driven dxs cassettes respond dose-dependently to arabinose.,1,10.4014/jmb.2302.02003
+Lycopene Titer,N054,Arabinose,ENVIRONMENT,IDI,GENE,1,activation,pBAD-driven idi cassettes respond to arabinose.,1,10.4014/jmb.2302.02003
+Lycopene Titer,N055,Arabinose,ENVIRONMENT,ISPA,GENE,1,activation,pBAD-driven ispA cassettes respond to arabinose in MEP-extension engineering.,1,10.4014/jmb.2302.02003
+Lycopene Titer,N056,Plasmid_Copy_Number,ENVIRONMENT,CRTE,GENE,1,activation,Higher plasmid copy raises crtE expression ceiling (pUC > pBR322 > pACYC).,1,10.1016/j.synbio.2021.04.001
+Lycopene Titer,N057,Plasmid_Copy_Number,ENVIRONMENT,CRTB,GENE,1,activation,Higher plasmid copy raises crtB expression ceiling.,1,10.1016/j.synbio.2021.04.001
+Lycopene Titer,N058,Plasmid_Copy_Number,ENVIRONMENT,CRTI,GENE,1,activation,Higher plasmid copy raises crtI expression ceiling.,1,10.1016/j.synbio.2021.04.001
+Lycopene Titer,N059,Plasmid_Copy_Number,ENVIRONMENT,IDI,GENE,1,activation,Idi placed on tunable plasmids shows dosage-dependent lycopene response (Cheng 2022).,2,10.1186/s12934-022-01843-z; 10.1186/s12934-022-01843-z
+Lycopene Titer,N060,Plasmid_Copy_Number,ENVIRONMENT,MVK,GENE,1,activation,MVK expression scales with plasmid copy; too high causes GPP/FPP toxicity (Cheng 2022).,1,10.1186/s12934-022-01843-z
+Lycopene Titer,N061,ATP,METABOLITE,MVK,GENE,1,activation,ATP is a strict cofactor for MVK (mevalonate kinase).,1,10.3390/molecules25143136
+Lycopene Titer,N062,ISPA,GENE,FPP,METABOLITE,1,activation,IspA condenses IPP+GPP → FPP (C15).,1,10.3390/molecules25143136
+Lycopene Titer,N063,ISPA,GENE,GPP,METABOLITE,1,activation,IspA first condenses IPP+DMAPP → GPP (C10) before FPP.,1,10.3390/molecules25143136
+Lycopene Titer,N064,IPP,METABOLITE,FPP,METABOLITE,1,activation,IPP substrate pool feeds FPP synthesis (pool contribution).,1,10.3390/molecules25143136
+Lycopene Titer,N065,DMAPP,METABOLITE,FPP,METABOLITE,1,activation,DMAPP substrate pool feeds GPP→FPP chain extension.,1,10.3390/molecules25143136
+Lycopene Titer,N066,ISPB,GENE,FPP,METABOLITE,-1,inhibition,IspB (octaprenyl-PP synthase) is the essential competing FPP sink producing ubiquinone/menaquinone.,1,10.3390/molecules25143136
+Lycopene Titer,N067,GPP,METABOLITE,MVK,GENE,-1,inhibition,GPP is a product-inhibitor of MVK (Chen 2022); caps MVA downstream flux.,1,10.1186/s13568-022-01418-6
+Lycopene Titer,N068,FPP,METABOLITE,MVK,GENE,-1,inhibition,FPP feedback-inhibits MVK in the same allosteric site.,1,10.1186/s13568-022-01418-6
+Lycopene Titer,N069,GGPP,METABOLITE,MVK,GENE,-1,inhibition,"GGPP feedback-inhibits MVK, closing a tight three-level product loop.",1,10.1186/s13568-022-01418-6
+Lycopene Titer,N070,CRTE,GENE,GGPP,METABOLITE,1,activation,Heterologous CrtE condenses FPP + IPP to GGPP.,2,10.3390/biom13121747; 10.1007/s00253-006-0623-z
+Lycopene Titer,N071,FPP,METABOLITE,GGPP,METABOLITE,1,activation,FPP substrate pool feeds GGPP synthesis.,1,10.3390/molecules25143136
+Lycopene Titer,N072,CRTB,GENE,Phytoene,METABOLITE,1,activation,Heterologous CrtB condenses two GGPP into phytoene (C40).,1,10.3390/molecules25143136
+Lycopene Titer,N073,GGPP,METABOLITE,Phytoene,METABOLITE,1,activation,GGPP substrate pool feeds phytoene synthesis.,1,10.3390/molecules25143136
+Lycopene Titer,N074,CRTI,GENE,Lycopene_Titer,PHENOTYPE,1,activation,Heterologous CrtI executes the four-step desaturation producing lycopene. Terminal productive enzyme.,2,10.3390/molecules25143136; 10.3390/biom13121747
+Lycopene Titer,N075,Phytoene,METABOLITE,Lycopene_Titer,PHENOTYPE,1,activation,Phytoene substrate pool feeds the CrtI-driven lycopene step (pool contribution).,1,10.3390/molecules25143136
+Lycopene Titer,N076,NADPH,METABOLITE,CRTI,GENE,1,activation,CrtI requires NADPH (FADH2 via regeneration) for its four desaturation steps.,1,10.3390/molecules25143136
+Lycopene Titer,N079,Temperature,ENVIRONMENT,Lycopene_Titer,PHENOTYPE,-1,inhibition,37 degC vs 30 degC reduces soluble heterologous enzyme and pigment stability.,1,10.3390/molecules25143136
+Lycopene Titer,N081,RPOS,GENE,KATE,GENE,1,activation,RpoS transcriptionally induces katE (HP-II catalase) in stationary phase.,1,10.1186/s12934-015-0381-7
+Lycopene Titer,N082,CRL,GENE,RPOS,GENE,1,activation,Crl post-translationally stabilises RpoS-holoenzyme assembly.,1,10.3390/molecules25143136
+Lycopene Titer,N083,HNR,GENE,RPOS,GENE,-1,inhibition,Hnr (RssB) adaptor targets RpoS for ClpXP degradation; Δhnr raises RpoS and lycopene.,1,10.3390/molecules25143136
+Lycopene Titer,N084,SOXR,GENE,SOXS,GENE,1,activation,Oxidised [2Fe-2S] SoxR activates soxS transcription.,1,10.3390/molecules25143136
+Lycopene Titer,N085,SOXS,GENE,ZWF,GENE,1,activation,SoxS upregulates zwf for NADPH demand during oxidative stress.,1,10.3390/molecules25143136
+Lycopene Titer,N087,KATE,GENE,ROS,METABOLITE,-1,inhibition,Catalase KatE decomposes hydrogen peroxide.,1,10.1186/s12934-015-0381-7
+Lycopene Titer,N088,Lycopene_Titer,PHENOTYPE,ROS,METABOLITE,-1,inhibition,Lycopene is the most efficient singlet-oxygen quencher known; accumulating pigment reduces cellular ROS (kq ~3×10^10 M^-1 s^-1).,1,10.1186/s12934-015-0381-7
+Lycopene Titer,N089,ROS,METABOLITE,Lycopene_Titer,PHENOTYPE,-1,inhibition,Reactive oxygen species oxidatively degrade lycopene's polyene backbone — the dominant explanation of strain-level titer variation (Bongers 2015).,3,10.1186/s12934-015-0381-7; 10.1186/s12934-015-0381-7; 10.1186/s12934-015-0381-7
+Lycopene Titer,N092,DXS,GENE,G3P,METABOLITE,-1,inhibition,"Dxs consumes G3P + pyruvate into DXP; strong Dxs OE depletes G3P. Wang 2009 MAGE finds balanced (not maximal) RBS tuning for dxs/idi/ispD/ispE/ispF gives the optimum, implying a non-monotonic dose-response.",1,10.1038/nature08187
+Lycopene Titer,N093,DXS,GENE,Pyruvate,METABOLITE,-1,inhibition,"Dxs is a substrate consumer of pyruvate; at high expression it competes with pyruvate kinase/Ppc-directed flux, giving a non-monotonic dose-response.",1,10.1038/nature08187
+Lycopene Titer,N094,Arabinose,ENVIRONMENT,DXR,GENE,1,activation,Arabinose induces pBAD-driven dxr OE cassettes (Ren 2023).,1,10.4014/jmb.2302.02003
+Lycopene Titer,N095,NADPH,METABOLITE,DXR,GENE,1,activation,Dxr requires NADPH for the reductoisomerisation of DXP to MEP; low NADPH lowers effective Dxr activity.,1,10.3390/molecules25143136
+Lycopene Titer,N096,DXR,GENE,IPP,METABOLITE,1,activation,"Dxr (= IspC, DXP reductoisomerase) reduces DXP to MEP using NADPH; second rate-limiting MEP step feeding IPP. Combined dxs+dxr OE achieves the canonical ~16x lycopene (Wang 2020 review).",2,10.3390/molecules25143136; 10.3390/biom13121747
+Lycopene Titer,N097,ENVELOPE_STRESS,PROTEIN_COMPLEX,Lycopene_Titer,PHENOTYPE,-1,inhibition,"Composite envelope-biogenesis gene-family inhibitor of Lycopene_Titer. KO of any member (WaaC, WaaF, Lpp, NlpI, MlaE, TolA) disrupts outer-membrane integrity and releases lycopene accumulation.",6,10.3390/ijms23147783; 10.3390/ijms23147783; 10.3390/biom13121747; 10.3390/biom13121747; 10.3390/biom13121747; 10.3390/biom13121747
+Lycopene Titer,N098,MEMBRANE_STORAGE,PROTEIN_COMPLEX,Lycopene_Titer,PHENOTYPE,1,activation,"Composite membrane-biogenesis enzyme-family activator of Lycopene_Titer. OE of any member (PlsB, PlsC, DgkA, Almgs) expands hydrophobic membrane reservoir for lycopene sequestration (Hu 2018 synergy).",4,10.3390/molecules25143136; 10.3390/molecules25143136; 10.3390/molecules25143136; 10.1186/s12934-018-0887-x
+Lycopene Titer,N099,NADPH,METABOLITE,Mevalonate,METABOLITE,1,activation,HMGR requires 2 NADPH per mevalonate. NADPH availability is rate-limiting; MVA pathway consumes 2 NADPH per IPP vs MEP which produces net NADH but consumes NADPH for IspG/IspH.,1,10.1016/j.synbio.2021.04.001

@@ -1,0 +1,186 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Kernel_Row_Number",
+    "species": "Zea mays",
+    "created": "2026-04-20",
+    "iterations_run": 3,
+    "best_iteration": 2
+  },
+  "iteration_history": [
+    {
+      "iteration": 0,
+      "description": "Baseline (post-Builder, post-Judge, pre-Refinement)",
+      "algebraic_accuracy": 77.5,
+      "ode_accuracy": 76.1,
+      "rwr_accuracy": 78.9,
+      "failures": [],
+      "fixes_applied": 0,
+      "edges_added": 0,
+      "edges_removed": 0
+    },
+    {
+      "iteration": 1,
+      "description": "Added FEA4 -> KRN (-1); Bif1/Bif4 GOF encoding",
+      "algebraic_accuracy": 81.7,
+      "ode_accuracy": 78.9,
+      "rwr_accuracy": 78.9,
+      "failures": [
+        "T022",
+        "T023",
+        "T025",
+        "T026",
+        "T032",
+        "T036",
+        "T038",
+        "T042",
+        "T045",
+        "T062",
+        "T063",
+        "T071",
+        "T076"
+      ],
+      "fixes_applied": 3,
+      "edges_added": 1,
+      "edges_removed": 0
+    },
+    {
+      "iteration": 2,
+      "description": "Removed IDS1 -> FEA4; moved REL2 from Ear_Branching to IM_Size",
+      "algebraic_accuracy": 85.9,
+      "ode_accuracy": 80.3,
+      "rwr_accuracy": 80.3,
+      "failures": [
+        "T022",
+        "T023",
+        "T025",
+        "T026",
+        "T042",
+        "T045",
+        "T062",
+        "T063",
+        "T071",
+        "T076"
+      ],
+      "fixes_applied": 3,
+      "edges_added": 1,
+      "edges_removed": 2
+    },
+    {
+      "iteration": 3,
+      "description": "Attempted FEA4 -> BA1 removal — REVERTED (no accuracy gain)",
+      "algebraic_accuracy": 85.9,
+      "ode_accuracy": 80.3,
+      "rwr_accuracy": 80.3,
+      "failures": [
+        "T022",
+        "T023",
+        "T025",
+        "T026",
+        "T042",
+        "T045",
+        "T062",
+        "T063",
+        "T071",
+        "T076"
+      ],
+      "fixes_applied": 1,
+      "edges_added": 0,
+      "edges_removed": 1
+    }
+  ],
+  "fixes_applied": [
+    {
+      "iteration": 1,
+      "action": "edge_addition",
+      "description": "Added FEA4 -> Kernel_Row_Number with sign=-1",
+      "reason": "Cluster A (T004, T015, T072) showed ratio ~0.02 indicating cascade collapse on fea4 KO: the BA1/RA1/RA3 branch loses its FEA4 activation and Axillary_Meristem drops below the IM-size expansion gain. A direct FEA4 -> KRN (-1) shortcut re-routes the phenotypic dominance back to IM/row-number restriction.",
+      "biological_justification": "Pautler et al. (Plant Cell 2015, DOI 10.1105/tpc.114.132506) report fea4 ears with enlarged IM and increased kernel row number; the row-number gain exceeds what IM-size expansion alone predicts, implicating FEA4 as a direct row-number restrictor. Edge sign -1 reflects that loss of FEA4 increases KRN.",
+      "source": "FEA4",
+      "target": "Kernel_Row_Number",
+      "sign": -1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "T053 Bif1_het: BIF1 gene_modifier changed from 0.5 to 2.0",
+      "reason": "Predicted direction was inverted (increased) with expected decreased. Root cause: Bif1 is a semidominant GOF stabilised Aux/IAA allele, not a knockdown. Encoding with gm=0.5 (KD) inverted the repressor effect.",
+      "biological_justification": "Galli et al. (PNAS 2015, DOI 10.1073/pnas.1516473112) characterize Bif1 and Bif4 as semidominant point mutations in domain II of maize Aux/IAA proteins that stabilise the repressor against TIR1-mediated degradation, producing enhanced repressor activity.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 2.0
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "T055 Bif1;Bif4 double: BIF1 gene_modifier changed from 0.0 to 2.0 (Bif4 partner not in network; partial mapping)",
+      "reason": "Same semidominant GOF encoding issue as T053, compounded by the Bif4 component lacking a network node.",
+      "biological_justification": "Galli et al. (PNAS 2015, DOI 10.1073/pnas.1516473112) — stabilised Aux/IAA GOF.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 2.0
+    },
+    {
+      "iteration": 2,
+      "action": "edge_removal",
+      "description": "Removed IDS1 -> FEA4 (+1) [N074]",
+      "reason": "Iteration 1's FEA4 -> KRN (-1) edge interacted with the IDS1 -> FEA4 (+1) edge and created regressions on T036 (ids1 KO) and T038 (ids1;sid1) with ratios ~1.75, direction flipped. The IDS1 -> FEA4 edge was originally justified by expression correlation only, not direct DNA-binding data.",
+      "biological_justification": "Re-reading the FEA4 regulation literature: the well-established direct regulators of FEA4 are the ABPH2/MSCA1-like glutaredoxin post-translational module; the IDS1-FEA4 expression correlation reported in some studies is pathway-level rather than direct transcriptional regulation. IDS1's primary effect on KRN flows through its well-evidenced direct activation of RA1 and direct repression of Ear_Branching (both kept).",
+      "source": "IDS1",
+      "target": "FEA4",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 2,
+      "action": "edge_removal",
+      "description": "Removed REL2 -> Ear_Branching (-1) [N051]",
+      "reason": "T032 rel2 single mutant fails (ratio 0.10, cascade-amplified down) because REL2 -> Ear_Branching (-1) cascade dominates and sends KRN downward. But literature shows rel2 single mutants fasciate ears (increased KRN), and REL2's branching role is observed only in the rel2;ra doubles (where the RA complex is present). Replacing this edge with a REL2 -> IM_Size (-1) edge preserves the doubles' phenotype (driven by ra1/ra2 losses) and recovers the fasciation single.",
+      "biological_justification": "Liu et al. (Plant Physiology 2019, DOI 10.1104/pp.18.00913) report rel2 CRISPR single mutants with ear fasciation and increased kernel row number — the dominant single-mutant phenotype is IM restriction, not branching. The branching role operates in concert with the RA1/RA2 co-repressor complex (Gallavotti 2010), which is already represented in the network via RA1/RA2/RA3 edges to Ear_Branching.",
+      "source": "REL2",
+      "target": "Ear_Branching",
+      "sign": -1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 2,
+      "action": "edge_addition",
+      "description": "Added REL2 -> IM_Size (-1) [N083]",
+      "reason": "Paired with the REL2 -> Ear_Branching removal above: rel2 single mutant fasciation is captured as IM_Size disinhibition when REL2 is lost, while rel2;ra double-mutant branching behaviour continues to be driven by the RA cascade.",
+      "biological_justification": "Liu et al. (Plant Physiology 2019, DOI 10.1104/pp.18.00913): REL2 is required to restrict IM size; rel2 CRISPR mutants show fasciated ear phenotype. Sign -1 reflects REL2 as a repressor of meristem size.",
+      "source": "REL2",
+      "target": "IM_Size",
+      "sign": -1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 3,
+      "action": "edge_removal",
+      "description": "(REVERTED) Attempted to remove FEA4 -> BA1 (+1) [N075]",
+      "reason": "T025 Abphyl2 dominant (ABPH2 GOF -> FEA4 partial reduction) still predicted decreased (ratio 0.85) because BA1 drops when FEA4 drops, collapsing AM. Hypothesis: remove FEA4 -> BA1 since ARF6/BIF2 are the primary direct regulators of BA1. Outcome: best-method accuracy unchanged (85.9%). Reverted.",
+      "biological_justification": "FEA4 -> BA1 was based on ChIP-seq + differential-expression correlation (Pautler 2015); ARF6 and BIF2 are the canonical direct regulators (Gallavotti 2008, Skirpan 2009). Removal would not have violated biology, but the <0.5% accuracy gain threshold led to revert per the §8 keep/revert rule.",
+      "source": "FEA4",
+      "target": "BA1",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    }
+  ],
+  "best_model": {
+    "location": "refinement/iteration_2/",
+    "algebraic_accuracy": 85.9,
+    "ode_accuracy": 80.3,
+    "rwr_accuracy": 80.3,
+    "total_nodes": 50,
+    "total_edges": 80
+  }
+}

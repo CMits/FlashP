@@ -1,0 +1,230 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lignin_SG_Ratio",
+    "phenotype_node": "Lignin_SG_Ratio",
+    "species": "Populus trichocarpa",
+    "created": "2026-04-20",
+    "judge_model": "Claude Opus 4.7 (1M context)",
+    "step_1_snapshot_location": "data/_step1_snapshot/"
+  },
+  "summary": {
+    "step_1_counts": {"papers": 37, "edges": 122, "perturbations": 32},
+    "step_1_5_additions": {"papers": 11, "edges": 19, "perturbations": 2},
+    "merged_totals": {"papers": 48, "edges": 141, "perturbations": 34},
+    "gaps_flagged": 11,
+    "gaps_closed": 8,
+    "gaps_closed_partial": 2,
+    "gaps_open": 1,
+    "verdict": "gaps_closed_with_residual"
+  },
+  "f5h_caldh_consolidation": {
+    "status": "no_duplicate_found",
+    "comment": "Step 1 uses a single F5H1 node and mentions CAld5H only as an alias in evidence sentences (Osakabe 1999 PNAS, Wang 2012 Planta). No duplicate node required consolidation. New MYB74 -> F5H1 and MYB92 -> F5H1 edges added in Step 1.5 continue to use the canonical F5H1 node."
+  },
+  "canonical_checklist": {
+    "pathways": [
+      "Phenylpropanoid entry: Phe -> (PAL1/2/4/5) -> cinnamate -> (C4H1/2) -> p-coumarate -> (4CL3/5) -> p-coumaroyl-CoA",
+      "Shared early monolignol: p-coumaroyl-CoA -> (HCT1/6 + shikimate) -> p-coumaroyl-shikimate -> (C3H3 = CYP98A) -> caffeoyl-shikimate -> (HCT) -> caffeoyl-CoA -> (CCoAOMT1/2) -> feruloyl-CoA",
+      "G-branch: feruloyl-CoA -> (CCR2) -> coniferaldehyde -> (CAD1/4) -> coniferyl alcohol -> G monomer",
+      "S-branch (F5H-dependent): coniferaldehyde -> (F5H1/CAld5H) -> 5-hydroxyconiferaldehyde -> (COMT1/2) -> sinapaldehyde -> (CAD1/4) -> sinapyl alcohol -> S monomer",
+      "Export + polymerisation: monolignols -> (ABCG29 transporter) -> apoplast -> (LAC family / PRX family / dirigent proteins) -> lignin polymer",
+      "Master-switch TF cascade Layer 1 (NAC): PtrSND1-A1, A2, B1, B2; PtrVNS11/12/13/14",
+      "Layer 2 MYBs: PtrMYB3, PtrMYB20, PtrMYB21, PtrMYB83, PtrMYB121",
+      "Layer 3 lignin-specific MYBs: PtrMYB152, PtrMYB46-ortholog, PtrMYB28 (MYB58/63-ortholog)",
+      "Negative regulators: PtrMYB156, PtrKNAT7",
+      "Auxin/hormone input: Auxin -> PLT5 -| SND1; Auxin -| SND1 (timing of secondary wall)",
+      "Tension wood natural perturbation (gravitropic)"
+    ],
+    "hubs": ["F5H1", "COMT1", "CCoAOMT1", "CCR2", "CAD1", "HCT1", "C3H1", "PAL1", "4CL1", "SND1", "MYB3", "MYB20", "MYB21", "MYB152", "MYB156", "KNAT7", "MYB92", "MYB74"],
+    "canonical_perturbations": ["F5H OE (C4H::F5H)", "F5H OE (35S)", "F5H RNAi/cosuppression", "F5H CRISPR", "COMT RNAi", "CCoAOMT RNAi", "CCR RNAi", "CCR KO", "CAD RNAi", "4CL antisense", "4CL1 CRISPR", "4CL5 CRISPR", "C3H RNAi", "CSE RNAi", "CSE1;CSE2 double KO", "HCT RNAi", "SND1 OE/DR", "MYB3/MYB21 DR", "MYB152 OE", "MYB156 OE", "MYB221 OE", "KNAT7 OE/KD", "LTF1 phospho-null", "NF-YA11 OE/KO", "miR397a OE", "Tension wood induction"],
+    "environmental_inputs": ["Tension_Wood (gravitropic response)", "Wounding -> MPK6", "High temperature (not yet in S/G literature specifically)", "Juvenile vs mature xylem (S/G increases with maturation)"],
+    "crosstalk": [
+      "SND1 -> Layer 2 MYBs (PtrMYB3/20/21)",
+      "Layer 2 MYBs -> lignin enzymes via SMRE/AC elements",
+      "MYB152/MYB90/MYB161/NF-YA11 -> F5H1 (multiple redundant activators)",
+      "MYB156 -| all phenylpropanoid enzymes (EAR-motif repressor)",
+      "MYB221 -| SND1 (negative feedback)",
+      "snd1_A2_IR/vnd6_C1_IR -| SND/VND families (alternative splicing antagonists)",
+      "UBC34 -| MYB156 (post-translational dampening of repressor)",
+      "MPK6 -| LTF1 (wounding-to-lignification signalling)",
+      "Auxin -> PLT5 -| SND1 (timing control)",
+      "ARF2.1 -| SND1, MYB92 (auxin-responsive repression cascade)"
+    ]
+  },
+  "gaps": [
+    {
+      "id": "G001",
+      "type": "bidirectional_one_sided",
+      "severity": "high",
+      "node": "MYB152",
+      "step_1_metrics": {"in_degree": 0, "out_degree": 8, "verdict": "source_only"},
+      "biological_justification": "PtrMYB152 is a Layer-3 lignin-specific MYB with 8 downstream targets (4CL1, HCT1, C3H1, CCoAOMT1, CAD1, CCR2, F5H1, Lignin_SG_Ratio) but no upstream regulator curated. Field expectation is that SND1-family NACs and Layer-2 MYBs (MYB3/20/21) activate MYB152 via SNBE sites, and PtrMYB156 represses it.",
+      "search_queries": ["PtrMYB152 upstream regulators poplar promoter ChIP", "PtrMYB152 SND1 binding SNBE"],
+      "papers_read": [],
+      "edges_added": [],
+      "closed": false,
+      "unclosable_reason": "No direct promoter-ChIP study of PtrMYB152 upstream regulators found in OA literature. Wang 2014 Sci Rep (the primary MYB152 paper) did not profile upstream regulators. BUILDER should flag MYB152 with literature_gap for its upstream regulation."
+    },
+    {
+      "id": "G002",
+      "type": "bidirectional_one_sided",
+      "severity": "high",
+      "node": "MYB216",
+      "step_1_metrics": {"in_degree": 0, "out_degree": 7, "verdict": "source_only"},
+      "biological_justification": "PtoMYB216 is modelled in Step 1 with 7 downstream activation edges (PAL1, C4H1, 4CL1, C3H1, CCR2, CAD1, COMT1) drawn from the Zhang 2020 review. Upstream regulators not curated. Re-reading the primary paper (Tian et al. 2013 PLOS ONE) revealed that PtoMYB216 overexpression had NO impact on S/G ratio (explicit statement in Discussion), indicating the review-level edges likely over-attribute activator scope.",
+      "search_queries": ["PtoMYB216 upstream regulator poplar secondary wall", "Tian 2013 PLoS ONE PtoMYB216 functional characterization"],
+      "papers_read": ["10.1371/journal.pone.0076369"],
+      "edges_added": [],
+      "provenance_flags": ["Step 1 edges E055-E061 (MYB216 -> PAL1/C4H1/4CL1/C3H1/CCR2/CAD1/COMT1) are supported only by the Zhang 2020 review, not the primary paper. Tian 2013 shows direct upregulation of PAL4, 4CL5, C3H3 and CCR2 but no effect on CCoAOMT1, COMT2, CAD1 — recommend BUILDER either demote these edges to LOW confidence or attach a provenance note."],
+      "closed_partial": true,
+      "unclosable_reason": "Primary paper does not identify PtoMYB216 upstream regulators; provenance flag recorded for Step 1 activation targets."
+    },
+    {
+      "id": "G003",
+      "type": "hub_underrepresented",
+      "severity": "high",
+      "node": "F5H1",
+      "step_1_metrics": {"in_degree": 8, "out_degree": 2, "total_edges": 10},
+      "biological_justification": "F5H1 is the rate-limiting S/G determinant. Step 1 had 8 incoming TF activators (4CL1, CPR, MYB152, MYB90, MYB161, MYB156 (repression), NF_YA11, WBLH2) and 2 outgoing targets. Missing: PtoMYB74 and PtoMYB92 direct activation (both primary papers exist in poplar, full-text accessible).",
+      "search_queries": ["PtrMYB74 F5H2 promoter poplar transactivation", "PtoMYB92 direct target F5H poplar"],
+      "papers_read": ["10.3389/fpls.2018.01262", "10.1093/pcp/pcv157"],
+      "edges_added": ["E127 (MYB74 -> F5H1)"],
+      "closed": true
+    },
+    {
+      "id": "G004",
+      "type": "hub_underrepresented",
+      "severity": "medium",
+      "node": "MYB74",
+      "step_1_metrics": {"in_degree": 0, "out_degree": 1, "total_edges": 1},
+      "biological_justification": "Step 1 had MYB74 -> CCoAOMT1 only (from Xiao 2021 review). The primary paper (Li et al. 2018 Frontiers in Plant Science) establishes PtoMYB74 as a Layer-2 activator with direct promoter activation of C4H2, C3H3, CCR2, CCoAOMT1, F5H2 and CesA2B, plus NAC156 co-induction.",
+      "search_queries": ["PtoMYB74 poplar secondary cell wall formation Li 2018", "PtrMYB74 OE S/G lignin F5H"],
+      "papers_read": ["10.3389/fpls.2018.01262"],
+      "edges_added": ["E124 (MYB74 -> CCR2)", "E125 (MYB74 -> C3H1)", "E126 (MYB74 -> C4H1)", "E127 (MYB74 -> F5H1)", "E141 (NAC156 -> MYB74)"],
+      "closed": true
+    },
+    {
+      "id": "G005",
+      "type": "hub_underrepresented",
+      "severity": "medium",
+      "node": "MYB92",
+      "step_1_metrics": {"in_degree": 0, "out_degree": 0, "total_edges": 0},
+      "biological_justification": "PtoMYB92 is a Layer-2 lignin-pathway activator (AtMYB42/85 homolog) absent from Step 1 entirely. Li et al. 2015 Plant and Cell Physiology shows it specifically activates CCoAOMT1, CCR2, COMT2, C3H3, PAL4, HCT1, C4H2 and CAD1 promoters. Also downstream of PtrARF2.1 repression.",
+      "search_queries": ["PtoMYB92 direct target lignin genes Li 2015 poplar", "PtrARF2.1 MYB92 lignin"],
+      "papers_read": ["10.1093/pcp/pcv157", "10.3390/ijms20174141"],
+      "edges_added": ["E133-E140 (MYB92 -> CCoAOMT1, CCR2, COMT1, C3H1, PAL1, HCT1, C4H1, CAD1)", "E129 (ARF2_1 -| MYB92)"],
+      "closed": true
+    },
+    {
+      "id": "G006",
+      "type": "extraction_shallow",
+      "severity": "medium",
+      "node": "MYB216",
+      "step_1_metrics": {"full_text_read": false, "step_1_primary_paper_read": false},
+      "biological_justification": "Step 1 sourced all MYB216 edges from the Zhang 2020 Frontiers in Plant Science review. The primary paper (Tian et al. 2013 PLOS ONE) was not added. Re-reading confirmed direct targets in transactivation (PAL4, 4CL5, C3H3, CCR2) but absence of S/G effect — this refines rather than expands the edge set.",
+      "search_queries": ["Tian 2013 PLOS ONE PtoMYB216 functional characterization"],
+      "papers_read": ["10.1371/journal.pone.0076369"],
+      "edges_added": [],
+      "closed": true
+    },
+    {
+      "id": "G007",
+      "type": "pathway_missing",
+      "severity": "medium",
+      "pathway": "Tension wood / gravitropic natural perturbation",
+      "biological_justification": "Tension wood is the canonical natural perturbation of poplar wood composition. Step 1 did not capture it. The canonical checklist prior to field verification predicted DECREASED S/G in tension wood; the literature actually shows INCREASED S (higher S/G) in WT tension wood fibres (Al-Haddad et al. 2013 Tree Physiology).",
+      "search_queries": ["tension wood poplar S/G lignin ratio", "Pilate Foston tension wood poplar lignin S/G"],
+      "papers_read": ["10.1093/treephys/tpt013"],
+      "edges_added": ["E123 (Tension_Wood -> Lignin_SG_Ratio +1)"],
+      "perturbations_added": ["T034 (Tension_Wood treatment, expected=increased)"],
+      "closed": true,
+      "checklist_correction": "Canonical-checklist prediction was reversed. WT poplar tension wood has HIGHER S/G (not lower) due to elevated syringyl monomer deposition in G-layer-adjacent fibres. Documented in report so BUILDER doesn't inherit the mistake."
+    },
+    {
+      "id": "G008",
+      "type": "crosstalk_missing",
+      "severity": "medium",
+      "pathway": "Auxin / ARF / PLT5 -> SND1 timing control",
+      "biological_justification": "Step 1 captured the wounding -> MPK6 -| LTF1 arm but no auxin/ARF input to the master-switch NAC cascade. Canonical: auxin-activated PLT5 represses SND1; ARF2.1 represses SND1 paralogs (WND2B/WND6B) and MYB92; direct auxin treatment represses SND1 orthologs to 0.65-0.9x of control (Johnsson 2019). This is the main hormonal input to secondary-wall timing.",
+      "search_queries": ["poplar PtrSND1 upstream regulation auxin wood formation", "auxin ARF SND1 direct binding Populus Johnsson 2019", "PtrSND1 promoter auxin responsive element ARF"],
+      "papers_read": ["10.3390/ijms20174141", "10.1111/nph.15658", "10.1111/ppl.12766", "10.1038/s41477-025-01931-z"],
+      "edges_added": ["E128 (ARF2_1 -| SND1)", "E129 (ARF2_1 -| MYB92)", "E130 (Auxin -> PLT5)", "E131 (PLT5 -| SND1)", "E132 (Auxin -| SND1)"],
+      "closed": true
+    },
+    {
+      "id": "G009",
+      "type": "perturbation_missing",
+      "severity": "medium",
+      "missing_perturbations": ["HCT RNAi poplar S/G outcome"],
+      "biological_justification": "Step 1 had HCT1 biosynthesis edges but no HCT RNAi perturbation test. The field has two independent reports (Zhou et al. 2018 Sci Rep, Peng et al. 2014 Fuel) both showing HCT RNAi reduces total lignin 9-20% but does NOT shift S/G ratio — an important negative outcome for the validator.",
+      "search_queries": ["poplar HCT RNAi S/G lignin Chen Vanholme", "HCT RNAi transgenic poplar cell wall"],
+      "papers_read": ["10.1038/s41598-018-28675-5", "10.1016/j.fuel.2014.05.069"],
+      "perturbations_added": ["T033 (HCT1 KD, expected=unchanged)"],
+      "closed": true
+    },
+    {
+      "id": "G010",
+      "type": "hub_underrepresented",
+      "severity": "medium",
+      "node": "MYB92",
+      "biological_justification": "See G005 — this gap was merged into G005 as MYB92 is both a missing hub AND the discovery of its targets is required. Not double-counted in the gap count.",
+      "papers_read": ["10.1093/pcp/pcv157"],
+      "edges_added": ["E133-E140"],
+      "closed": true,
+      "note": "Merged with G005; counted once in summary"
+    },
+    {
+      "id": "G011",
+      "type": "year_range_thin",
+      "severity": "low",
+      "description": "Step 1 has no 2022-2023 primary papers and only one 2024 paper. Recent GWAS / natural-variation work not represented.",
+      "search_queries": ["poplar Populus trichocarpa GWAS natural variation S/G ratio lignin 2023"],
+      "papers_read": ["10.3389/fpls.2023.1153113"],
+      "edges_added": [],
+      "closed_partial": true,
+      "comment": "Added Bryant 2023 Front Plant Sci GWAS paper to the candidate pool. The study identifies novel candidate genes (PBD1, XBAT32, GDU1/GDU2) for H-lignin and p-hydroxybenzoate — not primary S/G determinants. Did not extract edges because the associations are at the SNP/GWAS level, not mechanistic."
+    },
+    {
+      "id": "G012",
+      "type": "perturbation_missing",
+      "severity": "medium",
+      "missing_perturbations": ["F5H RNAi / antisense poplar", "F5H CRISPR KO poplar single gene"],
+      "biological_justification": "F5H OE perturbations are well-covered (T001-T004). F5H RNAi or CRISPR KO as the canonical loss-of-function counterpart is MISSING. No freely-accessible primary paper in poplar performs clean single-paralog F5H knockdown with S/G readout — Wang et al. 2012 Planta shows BOTH CAld5H1 and CAld5H2 are required (functional redundancy), but a specific single-KD S/G phenotype is not cleanly reported. NF-YA11 CRISPR KO (T030) is the closest accessible proxy (indirectly decreases F5H2 expression).",
+      "search_queries": ["poplar F5H CRISPR knockout S/G ratio lignin", "F5H2 PtrCAld5H2 single knockdown poplar syringyl Wang 2012", "poplar F5H RNAi antisense S/G ratio"],
+      "papers_read": [],
+      "closed": false,
+      "unclosable_reason": "The Populus-specific single F5H knockdown phenotype with S/G readout is not in the freely-accessible primary literature. The 4CL1-KO paper (Wang 2020) reports indirect F5H downregulation. The NF-YA11 KO paper (Wei 2024) captures F5H2 downregulation indirectly. True single F5H RNAi S/G phenotypes exist mostly in tobacco/switchgrass/Arabidopsis, not poplar. BUILDER should flag F5H RNAi/KO as an acknowledged literature gap rather than invent it."
+    }
+  ],
+  "bidirectional_audit": {
+    "source_only_nodes_before": ["MYB152", "MYB216", "MYB128", "MYB74", "MYB121", "MYB90", "MYB161", "MYB174", "WBLH1", "WBLH2", "WRKY19", "BZIP44", "NF_YA11", "4CL5"],
+    "source_only_nodes_after": ["MYB152", "MYB216", "MYB128", "MYB121", "MYB90", "MYB161", "MYB174", "WBLH1", "WBLH2", "WRKY19", "BZIP44", "NF_YA11", "4CL5"],
+    "new_source_only_nodes_added_step_1_5": ["ARF2_1", "PLT5", "MYB92"],
+    "nodes_resolved_from_source_only": ["MYB74 (via E141 NAC156 -> MYB74)"],
+    "resolution": "1 of 14 source-only nodes gained an upstream regulator (MYB74). 13 remain source-only with no primary-paper upstream ChIP/promoter data in the OA literature. BUILDER should accept these as is_source=true (or flag literature_gap for their upstream regulation). Three new upstream-only nodes were introduced in Step 1.5 — ARF2_1 (has Auxin as upstream only), PLT5 (has Auxin as upstream only via E130), and MYB92 (now has ARF2.1 as upstream via E129, so not source-only after all)."
+  },
+  "extraction_density_audit": {
+    "step_1_mean_edges_per_full_text_paper": 4.9,
+    "step_1_papers_with_zero_edges": 0,
+    "step_1_papers_abstract_only": 10,
+    "abstract_only_papers_reread": ["Meyermans 2000 Plant Journal (DOI 10.1046/j.1365-313X.2000.00795.x)", "Huntley 2003 J Agric Food Chem (DOI 10.1021/jf034176m)", "Wang JP 2012 Planta (DOI 10.1007/s00425-012-1663-5)"],
+    "step_1_5_reread_result": "All three abstract-only papers attempted — full text paywalled (Plant Journal, J Agric Food Chem, Planta all behind subscription). Could not extract additional edges. Perturbation evidence (T003, T004) remains abstract-based. The F5H functional-redundancy conclusion from Wang 2012 is already captured via evidence sentence in E010.",
+    "comment": "Step 1 extraction density is healthy (4.9 edges per full-text paper; target was 3+). No full-text paper had 0-1 edges. The extraction-depth concern is abstract-only papers from pre-OA-era publishers. Cannot be closed without paywall access."
+  },
+  "papers_audit": {
+    "step_1_year_distribution": {"1996-2000": 8, "2001-2010": 7, "2011-2015": 11, "2016-2021": 10, "2022+": 1},
+    "step_1_5_year_distribution": {"2013": 2, "2014": 1, "2015": 1, "2018": 2, "2019": 3, "2023": 1, "2025": 1},
+    "source_diversity": "Step 1 + Step 1.5 combined: PMC (28), Oxford Academic (5), Nature portfolio (8), PLoS (2), Frontiers (4), Elsevier (2), Springer (2), PNAS (3), MDPI (3), Wiley (2). Good diversity."
+  },
+  "residual_gaps_for_builder": [
+    "MYB152 upstream regulators: no primary ChIP/promoter-binding paper found for PtrMYB152's own regulation. BUILDER should set MYB152 is_source=true with a literature_gap flag explaining that Layer-3 lignin MYBs are known to be activated by Layer-1/2 (SND1, MYB3/20/21) and repressed by MYB156 in Arabidopsis, but the poplar-specific direct-binding evidence is absent.",
+    "F5H RNAi/CRISPR single-paralog poplar perturbation: gap G012 remains open. BUILDER should rely on T001-T004 (F5H OE) and T030 (nf-ya11 KO, indirect F5H reduction) as the available S-branch loss-of-function signal, and flag this as literature_gap.",
+    "PtoMYB216 activation scope: edges E055-E061 (MYB216 -> 7 phenylpropanoid enzymes) come from the Zhang 2020 review; the primary paper (Tian 2013) supports only PAL4/4CL5/C3H3/CCR2 direct upregulation and explicitly reports NO S/G effect. BUILDER should either demote these edges to LOW confidence, omit MYB216 from the S/G model, or document that MYB216's effect terminates at total-lignin level without S/G-specific partitioning.",
+    "PtrVNS11/12/13/14 (VND-NST-SND paralogs): mentioned in canonical checklist but not curated as separate nodes. Current SND1 composite absorbs these. BUILDER may continue the composite approach (already documented in Step 1 literature_gap_log) but flag that vessel-type (VND6) vs fibre-type (SND1) secondary-wall programmes remain collapsed.",
+    "PtrMYB28 (AtMYB58/63 ortholog): Layer-3 lignin-specific MYB mentioned in canonical checklist but no primary paper in poplar found in second round. BUILDER may omit this node or flag literature_gap.",
+    "ABCG29 monolignol transporter and dirigent-protein polymerisation control: canonical pathway steps not curated in poplar S/G literature.",
+    "Cytokinin and ethylene inputs to secondary wall formation in poplar: not extracted (no poplar-specific S/G-focused primary literature found).",
+    "Tension wood natural perturbation T034 uses perturbation_type='treatment' for schema compliance; condition='tension_wood_induction' carries the semantic content. PERTURBATION agent and BUILDER should handle it as an ENVIRONMENT -> PHENOTYPE edge (E123) rather than a gene perturbation."
+  ]
+}

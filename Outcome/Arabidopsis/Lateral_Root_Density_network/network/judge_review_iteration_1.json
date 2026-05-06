@@ -1,0 +1,722 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lateral_Root_Density",
+    "phenotype_node": "Lateral_Root_Density",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "iteration": 1,
+    "judge_model": "Claude Opus 4.7"
+  },
+  "verdict": "iterate",
+  "summary": "The network is biologically coherent at the core auxin-signalling cascade (Auxin -> TIR1 -> IAA14/IAA28 -> ARF7/19 -> LBD/PLT -> emergence) with clean Perception Gates for Auxin, Cytokinin, Ethylene, and ABA. However, three canonical LR regulators are entirely omitted (GATA23 founder-cell marker; WOX11/12 founder-to-organ transition; the BR module BRI1/BIN2/BZR1/BES1 added by Step 1.5 G006), and HY5 (shoot-root light-integration, 5 curated edges) is dropped. ARF7 coverage is 0.57 when composite-expanded (acceptable), but ABA (0.17), GATA23 (0.00), WOX11 (0.00), HY5 (0.00), and the entire BR module (0.00 for 4 nodes x 3 edges each) flag as key-player under-representation. Recommend iteration to add GATA23, WOX11/WOX12, and BR composite; HY5 and ABI5 are medium-priority. The LR activator/inhibitor caps are tight (6/7 act, 7/7 inh) and some additions require routing through intermediates to stay under hard cap 7.",
+  "rubric_scores": {
+    "pathway_completeness": {
+      "score": 3,
+      "justification": "Core pathways covered: auxin perception/signalling/biosynthesis/transport (via composites), CK via AHK->ARR_B, nitrate CHL1/NLP7/ANR1 and Low_Nitrate/CLE/CLV1, ethylene via EIN2, ABA via PYR-PP2C-SnRK2-ABI4, GA/DELLA, SL via MAX1/3/4 and D14/MAX2. Missing entirely: GATA23 founder-cell specification, WOX11/12 founder-to-organ transition (G003 gap was closed in Step 1.5 and dropped here), brassinosteroid module (G006), HY5 shoot-root light integration, phosphate machinery (STOP1/ALMT1/LPR1/PDR2), and the CK->SHY2->PIN mutual inhibition arm. Minor auxin biosynthesis amplification via ethylene (Ethylene -> TAA1/WEI2/WEI7, G004) lost to Perception Gate purity."
+    },
+    "mechanistic_depth": {
+      "score": 4,
+      "justification": "Most cascades are multi-step with proper intermediates (Auxin->TIR1->IAA14->ARF7->LBD->LR; ABA->PYL8->ABI1->SNRK2->ABI4->LR). Composites represent gene families transparently. Some paths are shorter than ideal (SL->D14->LR direct because SMXL678 not in curated; GA->DELLA->LR without GID1). Source % is an appropriate 39.6%. Mechanism strings carry curated content."
+    },
+    "motif_coverage": {
+      "score": 4,
+      "justification": "Perception Gate applied strictly for Auxin (sole outgoing edge to TIR1), Cytokinin (sole edge to AHK), Ethylene (sole edge to EIN2), ABA (sole edge to PYL8). Biosynthesis-Degradation Balance for Auxin (TAA1/TAR2/YUC4/AUX1 vs GH3/DAO1), Cytokinin (IPT5 vs CKX2), Ethylene (ACS/ACO), Strigolactone (MAX1/MAX3/MAX4). Multi-Output Scaffold on TIR1 (IAA14 + IAA28). Coherent Feed-Forward: ARF7 + ARF19 both drive LBD and PLT. Safe Self-Limiting Feedback via CLE->CLV1->LR(-). Missed: GA Perception Gate lacks GID1 intermediate (no curated GA->GID1 edge - literature_gap). SL Perception Gate lacks SMXL678 co-inhibitor target (literature_gap - SMXL not in curated_edges for LR). Mutual Inhibition (CK<->Auxin via SHY2/IAA3 and ARRs) missing due to uncurated CK->SHY2 induction."
+    },
+    "cascade_balance": {
+      "score": 5,
+      "justification": "Every node within 1-7 activators/inhibitors cap. Source percentage 39.6% (19/48) squarely in 30-50% target. Auxin has 4 activators and 2 inhibitors. ARF7/19 each have 2 inhibitors (IAA14, IAA28). LR phenotype is at the hard-cap on both sides: 6 activators and 7 inhibitors. Source nodes all have outgoing edges (no orphans). No node is under-specified."
+    },
+    "composite_node_handling": {
+      "score": 4,
+      "justification": "Six composites are used cleanly: LBD (LBD16/18/29), PLT (PLT3/5/7), PIN (PIN1/2/3/7), AHK (AHK2/3/4), ARR_B (ARR1/10/12), CLE (CLE1/3/4/7). Membership documented in each node's description field. All follow the §9.3 test: paralogs functionally redundant, same downstream targets, same effect direction. Caveat: PIN1 is predominantly stele-auxin-pericycle while PIN2 is shootward cortex - arguably NOT fully co-redundant for LR specifically; modeling them as a single composite loses pin2 vs pin3 pin7 functional differentiation, but the reconciliation layer in Step 3 can still map single-paralog KOs as 'composite member' with gm=0.99."
+    },
+    "hub_completeness": {
+      "score": 3,
+      "justification": "ARF7 (curated 14 edges, network 8 when composite-expanded = ~0.57) - acceptable but missing ARF7->GATA23 (E033), HY5->ARF19 (E162), IAA3->ARF7 (E015), ARF7->SRS5 (E052), ARF7->PHR1 (E125), MYB77->ARF7 (E143). LBD16 curated 10, network (via composite) ~5 = 0.5 - acceptable. PLT3 curated 9, network (composite) 5 = 0.56. ABA curated 6, network 1 direct edge = 0.17 (all other ABA outgoings excluded for gate; reasonable design but ABI5 from Step 1.5 G008 is lost - should be re-added). Auxin curated 27, network 7 = 0.26 (26 outgoings sacrificed to gate - documented design choice, not a silent drop). Missing hubs: GATA23 (5 curated) and WOX11 (5 curated) are silent drops, NOT gate-motivated - these are the clearest hub-completeness failures."
+    },
+    "topology_hazards": {
+      "score": 5,
+      "justification": "Auxin has exactly one outgoing edge (Auxin->TIR1) - Perception Gate clean. Cytokinin outgoing only to AHK composite. Ethylene outgoing only to EIN2. ABA outgoing only to PYL8. No positive feedback loops detected (Auxin<-AUX1 is one-directional; PIN<-PLT is one-directional; no PIN->Auxin or LAX3->Auxin). No self-loops. No sole-activator collapses that would drop a cascade leg to floor (every hub has at least two activators or an activator + inhibitor pair). Dangerous Trap 1 fixed by design."
+    },
+    "evidence_quality": {
+      "score": 4,
+      "justification": "Sampled edges: Auxin->TIR1 (E001 mechanism 'Auxin binds TIR1/AFB F-box co-receptor to form SCF complex'; specific). LBD->LR (E029, mechanism preserved with composite-note). TIR1->IAA14 (E002 'SCF-TIR1 ubiquitinates IAA14 for 26S proteasomal degradation'; specific). MAX1->Strigolactone (E157). All carry curated evidence_sentence and DOIs verbatim. No fabricated references. Composite edges correctly disclose the representative curated edge_id in the mechanism string. One minor note: because composites map to a single curated edge, other composite-member curated edges (e.g., E021 ARF19->LBD16, E030 LBD18->LR) are technically 'lost' from the network evidence block; they remain in curated_edges.json but a reviewer tracing the network's LBD->LR line sees only E029. Low concern but worth a mechanism_improvement note per composite."
+    },
+    "phenotype_audit": {
+      "score": 3,
+      "justification": "Lateral_Root_Density has 6 activators (LBD, PLT, PUCHI, LAX3, PIN, ANR1) and 7 inhibitors (ARR_B, CLV1, EIN2, ABI4, DELLA, D14, MAX2). Activator count is at the upper end of 3-5 target but within hard cap. Effector classes covered for activators: TFs (LBD, PLT, PUCHI), transporters (LAX3, PIN), nitrate (ANR1); MISSING: founder-cell specification TF (GATA23) and brassinosteroid arm (BZR/BES1). Inhibitor coverage is complete across CK (ARR_B), nitrate demand (CLV1), ethylene (EIN2), ABA (ABI4), GA (DELLA), SL (D14 + MAX2). Score 3 because GATA23 and BR module were silent drops at the phenotype node level."
+    },
+    "rejected_edges_review": {
+      "score": 3,
+      "justification": "Perception-gate-motivated rejections are defensible (Auxin->LR direct, Auxin->PIN1 direct, Cytokinin->PIN*, Ethylene->TAA1/WEI2/WEI7 bypass etc.). Feedback-loop rejections are defensible (PIN1->Auxin, LAX3->Auxin). However, several rejections appear driven by cap/parsimony pressure rather than biology: GATA23 entirely dropped (ARF7->GATA23 E033, GATA23->LR E032, IAA28->GATA23 E200 all in curated), WOX11/WOX12 entirely dropped (5 curated edges, explicit Step 1.5 gap G003 closure), entire BR module dropped (6 curated edges, explicit G006 closure), HY5/PHYA/PHYB entirely dropped (5 curated edges), ABI5 dropped despite Step 1.5 G008 closure, AFB3/NAC4 arm dropped (Nitrate->AFB3->NAC4->LR, 4 curated edges). Some of these are cap-constrained at the LR node (8+ direct activators would exceed hard cap) but a composite-routing or intermediate-node approach could have preserved at least GATA23 and BR."
+    },
+    "key_player_density": {
+      "score": 3,
+      "justification": "Coverage ratio audit (network edges / curated edges for nodes with curated >= 5): ARF7=0.57 (8/14, with composite expansion), LBD16=0.40 (via LBD), LBD29=0.80 (via LBD), PLT3=0.56 (via PLT), PUCHI=0.40, AHK2=0.80 (via AHK), TAR2=0.60, EIN2=0.75, IAA28=0.75 - all acceptable. UNDER-REPRESENTED key players: ABA=0.17 (1/6), Auxin=0.26 (7/27) - both heavily gate-reduced, documented design choice. OMITTED key players (curated >= 5, ratio 0.00): GATA23 (0/5), WOX11 (0/5), HY5 (0/5), BES1 (0/4), BRI1 (0/3), BZR1 (0/3), BIN2 (0/3) - BR module counts as four contiguous omissions. Cytokinin coverage 0.38 is borderline under-rep (5/13) but 8 of 13 missing are gate-excluded bypass edges to transporters. Score 3 because the GATA23/WOX11/BR omissions are silent drops, not gate-justified.",
+      "per_player_ratios": {
+        "ARF7": 0.57,
+        "ARF19": 0.86,
+        "LBD16_via_composite": 0.40,
+        "LBD29_via_composite": 0.80,
+        "PLT3_via_composite": 0.56,
+        "PUCHI": 0.40,
+        "PIN1_via_composite": 0.14,
+        "AHK2_via_composite": 0.80,
+        "TAR2": 0.60,
+        "EIN2": 0.75,
+        "IAA28": 0.75,
+        "ABA": 0.17,
+        "Auxin": 0.26,
+        "Cytokinin": 0.38,
+        "Ethylene": 0.33,
+        "Strigolactone": 1.00,
+        "GATA23": 0.00,
+        "WOX11": 0.00,
+        "HY5": 0.00,
+        "AFB3": 0.00,
+        "BRI1": 0.00,
+        "BIN2": 0.00,
+        "BZR1": 0.00,
+        "BES1": 0.00,
+        "ABI5": 0.00,
+        "Low_Nitrate": 0.60,
+        "Low_Phosphate": 0.33
+      }
+    }
+  },
+  "per_node_audit": [
+    {
+      "node": "Lateral_Root_Density",
+      "inputs": ["LBD(+)", "PLT(+)", "PUCHI(+)", "LAX3(+)", "PIN(+)", "ANR1(+)", "ARR_B(-)", "CLV1(-)", "EIN2(-)", "ABI4(-)", "DELLA(-)", "D14(-)", "MAX2(-)"],
+      "outputs": [],
+      "curated_regulators_excluded": ["TIR1(+)", "AFB2(+)", "LBD16/18/29(individual)", "PLT3(individual)", "PUCHI(redundant)", "GATA23(+)", "AUX1(+)", "PIN1/2/3/7/8(individual)", "ABCB19(+)", "GNOM(+)", "Auxin(+)", "NAC4(+)", "NRT1.1/CHL1(+)", "NRT2.1(+)", "High_Nitrate(-)", "Low_Nitrate(-)", "Cytokinin(-)", "AHK2(-)", "AHK3(-)", "AHP6(+)", "CLE1/3/4/7(individual)", "BAM1(-)", "Ethylene(-)", "ETR1(-)", "Brassinosteroid(+)", "BZR1(+)", "BES1(+)", "WOX11(+)", "HY5(-)", "Far_Red(+)", "UV_B(-)", "Hypoxia(-)", "Low_Potassium(-)", "Salt(-)", "Low_Phosphate(+)", "Water(+)", "Mechanical_Stress(+)", "KAI2(-)", "ABA(-)", "ABI5(-)", "PYL8(+)", "MYB77(+)", "GA(+)", "ACR4(-)", "GLV6(-)", "HAE(+)", "RALF34(-)", "ETT(-)", "QSK1(-)", "ORE1(+)", "NAC1(+)", "DA3(+)", "PRH1(+)", "TOR(+)", "BBX16(-)", "CLE2(-)"],
+      "verdict": "appropriate",
+      "comment": "At hard-cap on both arms (6 activators, 7 inhibitors). Direct transporter, gene-individual, and environmental-bypass edges correctly routed via intermediates. Cap-constrained: adding GATA23(+), BZR(+), NAC4(+) and ABI5(-) requires cap trade-offs."
+    },
+    {
+      "node": "Auxin",
+      "inputs": ["TAA1(+)", "TAR2(+)", "YUC4(+)", "AUX1(+)", "GH3(-)", "DAO1(-)"],
+      "outputs": ["TIR1(+)"],
+      "curated_regulators_excluded": ["AGL21(+)", "IBA(+)", "CEPR1(+)", "PIN1(+)", "NRT1.1/CHL1(+)", "Mechanical_Stress(+)", "LAX3(+)", "WEI2(+)", "WEI7(+)"],
+      "verdict": "appropriate",
+      "comment": "Perception Gate clean - sole outgoing edge to TIR1. Biosynthesis-Degradation Balance motif correctly applied. 26 outgoing curated edges intentionally routed via TIR1 to enforce gate."
+    },
+    {
+      "node": "Cytokinin",
+      "inputs": ["IPT5(+)", "CKX2(-)"],
+      "outputs": ["AHK(+)"],
+      "curated_regulators_excluded": ["ARR1(+)-feedback", "AHP6(-)-feedback", "ARR15(-)-feedback", "CKX2 (kept)", "IPT3/7(+)-paralogs not curated"],
+      "verdict": "appropriate",
+      "comment": "Perception Gate clean. Biosynthesis-Degradation Balance via IPT5/CKX2 single-gene-per-direction representatives. Type-A ARR negative-feedback arm not implemented due to LR model scope."
+    },
+    {
+      "node": "Ethylene",
+      "inputs": ["ACS(+)", "ACO(+)"],
+      "outputs": ["EIN2(+)"],
+      "curated_regulators_excluded": ["direct->EIN2 kept; direct->AUX1(+), TAA1(+), TAR2(+), WEI2(+), WEI7(+), LR(-) all dropped for gate purity"],
+      "verdict": "appropriate",
+      "comment": "Perception Gate clean - sole outgoing edge to EIN2. The G004 ethylene-auxin biosynthesis amplification arm (Ethylene->TAA1/TAR2/WEI2/WEI7) was added in Step 1.5 and dropped here; this is a real loss because 'ein2 + low_N' and 'ein3 eil1' tests need the amplification. Literature_gap for EIN3->TAA1/TAR2 curated evidence."
+    },
+    {
+      "node": "ABA",
+      "inputs": [],
+      "outputs": ["PYL8(+)"],
+      "curated_regulators_excluded": ["Low_Nitrate(+) incoming (E210)", "ABI4(+) direct outgoing (E136)", "ABI5(+) direct outgoing (E247)", "LR(-) direct outgoing (E141)", "NRT1.1(-) direct outgoing (E209)"],
+      "verdict": "appropriate_but_minimal",
+      "comment": "Perception Gate clean. Coverage 0.17 is low but intentional - all 5 non-gate ABA edges were bypass/direct-to-target. ABI5 arm could be re-added via ABA->ABI5 (E247) accepted as mild bypass + ABI5->LR (E248) if inhibitor cap allows."
+    },
+    {
+      "node": "GA",
+      "inputs": [],
+      "outputs": ["DELLA(-)"],
+      "curated_regulators_excluded": ["LR(+) direct (E177)", "GID1 intermediate not curated for LR"],
+      "verdict": "appropriate",
+      "comment": "Minimal GA arm. Curated lacks GA->GID1 edge for proper Perception Gate implementation - literature_gap."
+    },
+    {
+      "node": "Strigolactone",
+      "inputs": ["MAX1(+)", "MAX3(+)", "MAX4(+)"],
+      "outputs": ["D14(+)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "All curated SL edges represented. Perception Gate clean. SMXL6/7/8 co-inhibitor target not implemented - SMXL not in curated_edges (literature_gap)."
+    },
+    {
+      "node": "Low_Nitrate",
+      "inputs": [],
+      "outputs": ["TAR2(+)", "CLE(+)"],
+      "curated_regulators_excluded": ["ABA(+) direct (E210)", "CLE1(+) individual (E218)", "LR(-) direct (E219)"],
+      "verdict": "appropriate",
+      "comment": "Environmental source. Two outgoing arms (TAR2 amplification + CLE demand feedback) = Coherent Feed-Forward. Low_Nitrate->ABA and Low_Nitrate->LR direct intentionally excluded."
+    },
+    {
+      "node": "Low_Phosphate",
+      "inputs": [],
+      "outputs": ["TIR1(+)"],
+      "curated_regulators_excluded": ["STOP1(+) direct (E118)", "LR(+) direct (E123)"],
+      "verdict": "under-specified",
+      "comment": "Only routes via TIR1. The STOP1/ALMT1/Malate arm and LPR1/PDR2 ferroxidase arm are absent from network (neither has curated path to LR in repository beyond Low_Phosphate->LR direct). Phosphate biology is thin. Literature_gap for STOP1/ALMT1/LPR1 downstream endpoints."
+    },
+    {
+      "node": "TIR1",
+      "inputs": ["Auxin(+)", "Low_Phosphate(+)"],
+      "outputs": ["IAA14(-)", "IAA28(-)"],
+      "curated_regulators_excluded": ["IAA3 target (E003, SHY2 not in network)", "LR direct (E005, routed via IAA-ARF)"],
+      "verdict": "appropriate",
+      "comment": "Multi-Output Scaffold motif applied (TIR1 degrades IAA14 AND IAA28 in parallel). E005 TIR1->LR excluded because the cascade via IAA14->ARF7->LBD->LR provides the net effect."
+    },
+    {
+      "node": "IAA14",
+      "inputs": ["TIR1(-)"],
+      "outputs": ["ARF7(-)", "ARF19(-)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "All 3 IAA14 curated edges in network. Canonical LR-suppressing Aux/IAA; slr-1 dominant allele will be modeled by gain-of-function gene_modifier in PERTURBATION step."
+    },
+    {
+      "node": "IAA28",
+      "inputs": ["TIR1(-)"],
+      "outputs": ["ARF7(-)", "ARF19(-)"],
+      "curated_regulators_excluded": ["GATA23 target (E200, GATA23 not in network)"],
+      "verdict": "appropriate",
+      "comment": "Missing IAA28->GATA23 because GATA23 node is not in network. Adding GATA23 would restore this canonical founder-cell inhibition edge."
+    },
+    {
+      "node": "ARF7",
+      "inputs": ["IAA14(-)", "IAA28(-)"],
+      "outputs": ["LBD(+)", "PLT(+)"],
+      "curated_regulators_excluded": ["IAA3/SHY2(-)-input (E015)", "IAA8(-)-input (E017)", "SRS5(-)-input (E052)", "HY5(-)-input (E162)", "MYB77(+)-input (E143)", "GATA23(+)-output (E033)", "PHR1(+)-output (E125)"],
+      "verdict": "under-specified_regulators",
+      "comment": "ARF7 is a central hub (curated 14 edges, network 8 composite-expanded = 0.57). Missing outputs GATA23 (founder-cell-critical) and HY5 inhibitor (light integration). Add ARF7->GATA23 (E033) in next iter. HY5 optional."
+    },
+    {
+      "node": "ARF19",
+      "inputs": ["IAA14(-)", "IAA28(-)"],
+      "outputs": ["LBD(+)", "PLT(+)"],
+      "curated_regulators_excluded": ["HY5(-)-input (E162)"],
+      "verdict": "appropriate",
+      "comment": "Tightly coupled with ARF7 via Coherent Feed-Forward. Adding HY5->ARF19 (E162) would integrate light signalling without adding to LR's inhibitor cap."
+    },
+    {
+      "node": "LBD",
+      "inputs": ["ARF7(+)", "ARF19(+)"],
+      "outputs": ["PUCHI(+)", "LAX3(+)", "Lateral_Root_Density(+)"],
+      "curated_regulators_excluded": ["HB23(-)-input (E050)", "SRS5(-)-input (E051)", "ARF5(+)-input (E024)", "Hypoxia(-)-input (E183)", "WOX11(+)-input (E221,E222)", "WOX12(+)-input (E223)", "EXP14-output (E028)"],
+      "verdict": "appropriate",
+      "comment": "Composite LBD16/18/29. WOX11/WOX12 upstream input missing - restoring WOX11 via E221/E222 as second parallel activator of LBD would capture founder-to-organ transition without bloating the LR node."
+    },
+    {
+      "node": "PLT",
+      "inputs": ["ARF7(+)", "ARF19(+)"],
+      "outputs": ["PIN(+)", "Lateral_Root_Density(+)"],
+      "curated_regulators_excluded": ["PLT3->PLT1/2/WOX5/PIN3/SHR (E038/E039/E040/E042/E043)"],
+      "verdict": "appropriate",
+      "comment": "Composite PLT3/5/7. PLT3->PIN3 is represented via PLT->PIN composite edge. PLT3->SHR/SCR radial pathway omitted - SHR/SCR do not reach LR in curated (literature_gap)."
+    },
+    {
+      "node": "PUCHI",
+      "inputs": ["LBD(+)"],
+      "outputs": ["Lateral_Root_Density(+)"],
+      "curated_regulators_excluded": ["TOLS2(+)-input (E048)", "RLK7(+)-input (E049)", "VLCFA-output (E046)"],
+      "verdict": "under-specified",
+      "comment": "Missing upstream TOLS2-RLK7-PUCHI prebranch-site spacing module (G002 coverage). Current upstream only via LBD. Literature-level: TOLS2/RLK7 are signal-peptide + receptor pair; curated has both entering PUCHI - worth adding for prebranch oscillator representation."
+    },
+    {
+      "node": "PIN",
+      "inputs": ["PLT(+)"],
+      "outputs": ["Lateral_Root_Density(+)"],
+      "curated_regulators_excluded": ["Auxin(+) (E059, gate)", "Cytokinin inputs (E085/E086/E087, gate)", "ABI4(-)-input (E139)", "SHY2/IAA3(-)-input (E093)", "PID(-)-input (E232), WAG1/2(-)-inputs (E233/E234)", "Flavonoids(+)-input (E197)", "PIN->Auxin (E060, Trap 1 feedback)"],
+      "verdict": "appropriate",
+      "comment": "Composite PIN1/2/3/7. PID/WAG1/WAG2 kinase-polarity control (G005) not in network because they are inhibitors of PIN function (not expression) and composite obscures which polarity layer. Acceptable abstraction. PIN-polarity-at-bending cues absent."
+    },
+    {
+      "node": "AUX1",
+      "inputs": [],
+      "outputs": ["Auxin(+)"],
+      "curated_regulators_excluded": ["Ethylene(+) (E131, gate)", "Iron(+) (E208)", "LR(+) direct (E062, routed via Auxin)"],
+      "verdict": "appropriate",
+      "comment": "Source. Influx carrier role modeled via AUX1->Auxin. Direct AUX1->LR would add redundant activator to cap-constrained phenotype."
+    },
+    {
+      "node": "LAX3",
+      "inputs": ["LBD(+)"],
+      "outputs": ["Lateral_Root_Density(+)"],
+      "curated_regulators_excluded": ["NRT1.1/CHL1(-)-input (E105)", "Ethylene(+)-input (gate)", "LAX3->Auxin (E063, Trap 1 feedback)"],
+      "verdict": "appropriate",
+      "comment": "Represents LR-emergence step. LAX3->Auxin excluded to avoid positive feedback loop (LAX3<-LBD<-ARF<-TIR1<-Auxin<-LAX3)."
+    },
+    {
+      "node": "TAA1",
+      "inputs": [],
+      "outputs": ["Auxin(+)"],
+      "curated_regulators_excluded": ["Water(+)-input (E179)", "Ethylene(+)-input (E226, G004)"],
+      "verdict": "appropriate",
+      "comment": "Source. Ethylene->TAA1 dropped for Perception Gate purity; loses ethylene-auxin biosynthesis amplification (G004). Literature_gap for EIN3->TAA1 would enable gated amplification."
+    },
+    {
+      "node": "TAR2",
+      "inputs": ["Low_Nitrate(+)", "CHL1(-)"],
+      "outputs": ["Auxin(+)"],
+      "curated_regulators_excluded": ["Ethylene(+)-input (E231, gate)", "LR(+) direct (E250)"],
+      "verdict": "appropriate",
+      "comment": "N-dual-regulation clean: Low_Nitrate induces TAR2; NRT1.1/CHL1 transceptor suppresses (basipetal auxin modulation). TAR2->LR direct excluded as bypass."
+    },
+    {
+      "node": "YUC4",
+      "inputs": [],
+      "outputs": ["Auxin(+)"],
+      "curated_regulators_excluded": ["LRP1(+)-input (E056)", "FUS3(+)-input (E058)"],
+      "verdict": "appropriate",
+      "comment": "Source. LRP1 regulator would require adding LRP1 as floating intermediate; parsimony OK."
+    },
+    {
+      "node": "GH3",
+      "inputs": [],
+      "outputs": ["Auxin(-)"],
+      "curated_regulators_excluded": ["Auxin(+)-input (E076, Perception Gate; also would create GH3<-Auxin<-TAA1/TAR2->Auxin feedback chain but via TIR1 not direct)"],
+      "verdict": "appropriate",
+      "comment": "Source. Auxin->GH3 self-limiting induction would be biologically correct (feedback degradation) but requires routing through ARFs which is not curated. Literature_gap for ARF->GH3 evidence."
+    },
+    {
+      "node": "DAO1",
+      "inputs": [],
+      "outputs": ["Auxin(-)"],
+      "curated_regulators_excluded": ["Auxin(+)-input (E077, gate + feedback)"],
+      "verdict": "appropriate",
+      "comment": "Source auxin catabolism. Similar to GH3 - feedback route through ARF not curated."
+    },
+    {
+      "node": "AHK",
+      "inputs": ["Cytokinin(+)"],
+      "outputs": ["ARR_B(+)"],
+      "curated_regulators_excluded": ["AHK2->LR direct (E082)", "AHK3->LR direct (E083)"],
+      "verdict": "appropriate",
+      "comment": "Composite AHK2/3/4/CRE1. Direct AHK->LR edges excluded; signal routed via ARR_B correctly representing type-B TF activation."
+    },
+    {
+      "node": "ARR_B",
+      "inputs": ["AHK(+)"],
+      "outputs": ["Lateral_Root_Density(-)"],
+      "curated_regulators_excluded": ["ARR1->Cytokinin(+)-output (E205, feedback)", "type-A ARR induction not curated"],
+      "verdict": "appropriate",
+      "comment": "Composite ARR1/ARR10/ARR12. Type-B TF role correctly terminal-inhibitor of LR. Type-A ARR negative-feedback module (ARR15, ARR3-7 family) not in network scope."
+    },
+    {
+      "node": "IPT5",
+      "inputs": [],
+      "outputs": ["Cytokinin(+)"],
+      "curated_regulators_excluded": ["Auxin(+)-input (E088, gate)", "SHY2/IAA3(-)-input (E092)"],
+      "verdict": "appropriate",
+      "comment": "Source. Auxin->IPT5 repression would be classic Bielach 2012 CK-auxin crosstalk via ARF->SHY2->IPT5; currently absent because SHY2/IAA3 and ARR->SHY2 induction not in curated."
+    },
+    {
+      "node": "CKX2",
+      "inputs": [],
+      "outputs": ["Cytokinin(-)"],
+      "curated_regulators_excluded": ["Auxin(-)-input (E089, gate)"],
+      "verdict": "appropriate",
+      "comment": "Source representative of CKX family. Auxin repression of CKX2 excluded for gate purity."
+    },
+    {
+      "node": "CHL1",
+      "inputs": [],
+      "outputs": ["TAR2(-)", "NLP7(+)", "ANR1(+)"],
+      "curated_regulators_excluded": ["CIPK23(-)-input (E102)", "ABA(-)-input (E209)", "NRT1.1->Nitrate(+) (E097)", "NRT1.1->LAX3(-) (E105)", "NRT1.1->Auxin(+) (E106)", "NRT1.1->LR direct (E103)"],
+      "verdict": "appropriate",
+      "comment": "Source; NRT1.1/NPF6.3 canonical name. T101-phosphorylation switching by CIPK23 not modeled (would require CIPK23 source + CIPK23->CHL1). Three outgoing arms (TAR2, NLP7, ANR1) capture the transceptor's major LR effects."
+    },
+    {
+      "node": "NLP7",
+      "inputs": ["CHL1(+)"],
+      "outputs": ["ANR1(+)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Master N-response TF, relays to ANR1. Both curated edges represented."
+    },
+    {
+      "node": "ANR1",
+      "inputs": ["NLP7(+)", "CHL1(+)"],
+      "outputs": ["Lateral_Root_Density(+)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Terminal nitrate-elongation TF. All curated ANR1 edges represented."
+    },
+    {
+      "node": "CLE",
+      "inputs": ["Low_Nitrate(+)"],
+      "outputs": ["CLV1(+)"],
+      "curated_regulators_excluded": ["CLE1/CLE3/CLE4/CLE7 individual->LR edges", "CLE3->BAM1 (E245)"],
+      "verdict": "appropriate",
+      "comment": "Composite CLE1/3/4/7. Individual CLE->LR direct edges consolidated via CLV1. BAM1 co-receptor merged into CLV1 as noted in literature_judge_report residual_gaps_for_builder."
+    },
+    {
+      "node": "CLV1",
+      "inputs": ["CLE(+)"],
+      "outputs": ["Lateral_Root_Density(-)"],
+      "curated_regulators_excluded": ["CLV1->CLE2 (E114, secondary pathway)"],
+      "verdict": "appropriate",
+      "comment": "Self-Limiting Feedback (CLE->CLV1->LR(-)) correctly implements shoot-demand systemic N module (Araya 2014)."
+    },
+    {
+      "node": "EIN2",
+      "inputs": ["Ethylene(+)", "CTR1(-)"],
+      "outputs": ["Lateral_Root_Density(-)"],
+      "curated_regulators_excluded": ["EIN2->EIN3 (E127, because EIN3 dropped)"],
+      "verdict": "appropriate_but_short",
+      "comment": "Ethylene pathway is short: Ethylene->EIN2->LR. EIN3 downstream TF dropped because no curated EIN3->target edges for LR. Loses EIN3-dependent TAA1/TAR2 amplification from G004."
+    },
+    {
+      "node": "CTR1",
+      "inputs": [],
+      "outputs": ["EIN2(-)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Source Raf-like kinase. Single curated edge represented."
+    },
+    {
+      "node": "ACS",
+      "inputs": [],
+      "outputs": ["Ethylene(+)"],
+      "curated_regulators_excluded": ["ETO1(-)-input (E135)"],
+      "verdict": "appropriate",
+      "comment": "Source composite of ACS family. ETO1 post-translational repressor dropped."
+    },
+    {
+      "node": "ACO",
+      "inputs": [],
+      "outputs": ["Ethylene(+)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "Source. Single curated edge represented."
+    },
+    {
+      "node": "PYL8",
+      "inputs": ["ABA(+)"],
+      "outputs": ["ABI1(-)"],
+      "curated_regulators_excluded": ["PYL8->MYB77(+) (E142)", "PYL8->LR direct (E144)"],
+      "verdict": "appropriate",
+      "comment": "Canonical ABA Perception Gate entry. MYB77 branch dropped; PYL8->LR direct is bypass and correctly routed via ABI1/SnRK2/ABI4."
+    },
+    {
+      "node": "ABI1",
+      "inputs": ["PYL8(-)"],
+      "outputs": ["SNRK2(-)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "PP2C composite. Canonical repression of SnRK2."
+    },
+    {
+      "node": "SNRK2",
+      "inputs": ["ABI1(-)"],
+      "outputs": ["ABI4(+)"],
+      "curated_regulators_excluded": ["SNRK2->ABI5 not curated"],
+      "verdict": "appropriate",
+      "comment": "Core ABA kinase. SnRK2->ABI5 mechanism not curated for LR - blocks full ABI5 arm inclusion via gate-pure route. Literature_gap."
+    },
+    {
+      "node": "ABI4",
+      "inputs": ["SNRK2(+)"],
+      "outputs": ["Lateral_Root_Density(-)"],
+      "curated_regulators_excluded": ["ABA(+) direct (E136, gate)", "Cytokinin(+) direct (E137, gate)", "Auxin(-) direct (E138, gate)", "ABI4->PIN1 (E139)"],
+      "verdict": "appropriate",
+      "comment": "Canonical ABA-responsive TF. Multiple hormone-direct inputs consolidated via SNRK2 gate. ABI4->PIN1 bypass dropped (PIN is composite downstream of PLT)."
+    },
+    {
+      "node": "DELLA",
+      "inputs": ["GA(-)"],
+      "outputs": ["Lateral_Root_Density(-)"],
+      "curated_regulators_excluded": ["GID1(-)-input (E178)", "Low_Potassium(+)-input (E185)"],
+      "verdict": "appropriate",
+      "comment": "Short GA arm. GID1 intermediate absent for strict Perception Gate because GA->GID1 edge not curated - literature_gap."
+    },
+    {
+      "node": "D14",
+      "inputs": ["Strigolactone(+)"],
+      "outputs": ["Lateral_Root_Density(-)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "SL receptor. Direct D14->LR used because SMXL6/7/8 target repressor not in curated (literature_gap for Motif 1 completion)."
+    },
+    {
+      "node": "MAX2",
+      "inputs": [],
+      "outputs": ["Lateral_Root_Density(-)"],
+      "curated_regulators_excluded": ["MAX2->BES1(-)-output (E158, BES1 not in network)"],
+      "verdict": "appropriate",
+      "comment": "Source F-box protein. Direct MAX2->LR because SMXL downstream target not curated. MAX2->BES1 crosstalk to BR lost because BR module absent."
+    },
+    {
+      "node": "MAX1",
+      "inputs": [],
+      "outputs": ["Strigolactone(+)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "SL biosynthesis. Single curated edge represented."
+    },
+    {
+      "node": "MAX3",
+      "inputs": [],
+      "outputs": ["Strigolactone(+)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "SL biosynthesis (CCD7). Single curated edge represented."
+    },
+    {
+      "node": "MAX4",
+      "inputs": [],
+      "outputs": ["Strigolactone(+)"],
+      "curated_regulators_excluded": [],
+      "verdict": "appropriate",
+      "comment": "SL biosynthesis (CCD8). Single curated edge represented."
+    }
+  ],
+  "per_pathway_audit": [
+    {
+      "pathway": "Auxin perception and transduction (core)",
+      "completeness": "high",
+      "comment": "Auxin -> TIR1 -> IAA14/IAA28 (Multi-Output Scaffold) -> ARF7/ARF19 (Coherent Feed-Forward) -> LBD/PLT is complete and motif-rich. Perception Gate clean. slr-1, tir1 afb2 afb3+IAA and iaa14-1 tests should behave correctly.",
+      "missing_pieces": ["AFB2 co-receptor (only has curated ->LR direct, not ->IAA14)", "IAA3/SHY2 and IAA19 as additional Aux/IAA repressors", "ARF5/MP for earlier primary-meristem steps (peripheral for LR)"]
+    },
+    {
+      "pathway": "Auxin biosynthesis",
+      "completeness": "high",
+      "comment": "TAA1 + TAR2 + YUC4 as three activators of Auxin; represents IPA pathway. TAR2 N-regulation preserves nitrate amplification arm.",
+      "missing_pieces": ["YUC6/YUC3/YUC5/YUC8/YUC9 not in curated (literature_gap per residual_gaps_for_builder)", "Ethylene->TAA1/TAR2 amplification dropped for gate", "TAR1 not in curated"]
+    },
+    {
+      "pathway": "Auxin polar transport",
+      "completeness": "medium",
+      "comment": "PIN composite (PIN1/2/3/7) + AUX1 + LAX3 represent main transport machinery. GNOM and ABCB19 dropped (no path to LR without direct edge, which would overflow cap). PID/WAG polarity kinases merged out.",
+      "missing_pieces": ["PID/WAG1/WAG2 polarity switches (G005 closure lost)", "GNOM ARF-GEF for PIN recycling", "ABCB19 auxin efflux", "PIN8 stelar atypical transporter"]
+    },
+    {
+      "pathway": "LR founder cell specification",
+      "completeness": "low",
+      "comment": "CRITICAL GAP - GATA23 founder-cell marker entirely omitted. IAA28 is the only founder-specification Aux/IAA in network. No GATA23 means no ability to model gata23 amiRNA tests or founder-cell-specific perturbations.",
+      "missing_pieces": ["GATA23 (E032, E033, E072, E200)", "WRKY23 (not in curated)", "prebranch-site oscillator (not mechanistically modelable)"]
+    },
+    {
+      "pathway": "LR initiation asymmetric cell division",
+      "completeness": "high",
+      "comment": "ARF7 + ARF19 -> LBD composite (LBD16/18/29) -> PUCHI is present. TOLS2-RLK7-PUCHI spacing module not included - PUCHI only receives LBD input.",
+      "missing_pieces": ["TOLS2 + RLK7 upstream of PUCHI (E048, E049)", "cyclin downstream targets"]
+    },
+    {
+      "pathway": "LR primordium organogenesis",
+      "completeness": "medium",
+      "comment": "PLT composite (PLT3/5/7) with ARF7/19 inputs and PIN output represents patterning. WOX11/WOX12 founder-to-organ transition entirely missing (G003 closure lost). SHR/SCR radial patterning not in curated path to LR.",
+      "missing_pieces": ["WOX11 (E220, E221, E222, E224, E225)", "WOX12 (E223)", "WOX5 stem-cell-niche (downstream of WOX11)", "SHR/SCR (peripheral)"]
+    },
+    {
+      "pathway": "LR emergence through overlying tissues",
+      "completeness": "medium",
+      "comment": "LAX3 auxin influx carrier represented as LBD->LAX3->LR. Ethylene->EIN2->LR represents ethylene-induced cell-wall remodelling as a single terminal inhibitor.",
+      "missing_pieces": ["Direct Ethylene->LAX3 amplification (dropped for gate)", "HAE (E172) and IDA (E171) cell-wall loosening module"]
+    },
+    {
+      "pathway": "Cytokinin perception and signalling",
+      "completeness": "medium",
+      "comment": "Cytokinin -> AHK composite -> ARR_B composite -> LR(-) is gate-clean. Type-A ARR negative feedback not included.",
+      "missing_pieces": ["AHP1-5 phosphorelay intermediates (not in curated)", "Type-A ARRs for negative feedback (ARR15, ARR3/4/5/6/7)", "CK -> SHY2/IAA3 induction for PIN crosstalk (not curated)"]
+    },
+    {
+      "pathway": "Cytokinin biosynthesis and catabolism",
+      "completeness": "high",
+      "comment": "IPT5 (biosynthesis) + CKX2 (catabolism) applies Biosynthesis-Degradation Balance motif. Cannot model IPT3/IPT7 or CKX3/CKX5 individually (paralog collapse into representatives).",
+      "missing_pieces": ["IPT3, IPT7 paralogs", "CKX3, CKX5 paralogs"]
+    },
+    {
+      "pathway": "Nitrate signalling",
+      "completeness": "medium",
+      "comment": "Two arms present: CHL1 -> NLP7 -> ANR1 -> LR (patch elongation) and Low_Nitrate -> CLE -> CLV1 -> LR(-) (shoot demand feedback). AFB3 -> NAC4 -> OBP4 auxin-signalling amplifier arm absent.",
+      "missing_pieces": ["AFB3 -> NAC4 -> LR (E007, E108)", "OBP4", "miR393 -> AFB3 (regulatory RNA not modeled)", "CIPK23 phospho-switching of CHL1", "TAR2 nitrate-induction preserved - good"]
+    },
+    {
+      "pathway": "Phosphate signalling",
+      "completeness": "low",
+      "comment": "Only Low_Phosphate -> TIR1 -> IAA14 -> ARF -> LBD -> LR arm present. STOP1/ALMT1/Malate and LPR1/LPR2/PDR2/Callose arms absent.",
+      "missing_pieces": ["STOP1 -> ALMT1 -> Malate arm (E118-E120)", "LPR1/LPR2/PDR2 ferroxidase arm (E121-E122)", "PHR1/PHL1 TFs (E125)"]
+    },
+    {
+      "pathway": "Ethylene signalling",
+      "completeness": "medium",
+      "comment": "Ethylene -> EIN2 -> LR(-) with CTR1 as repressor of EIN2 and ACS/ACO as biosynthesis activators. ETR1 receptor absent. EIN3 downstream TF dropped for lack of curated targets.",
+      "missing_pieces": ["ETR1 receptor (E129 direct->LR only)", "EIN3 (no downstream curated beyond LR)", "ETO1 ACS repressor", "Ethylene -> TAA1/TAR2/WEI2/WEI7 auxin amplification (G004)"]
+    },
+    {
+      "pathway": "ABA signalling",
+      "completeness": "medium",
+      "comment": "ABA -> PYL8 -> ABI1 -> SNRK2 -> ABI4 -> LR(-) is gate-clean. ABI5 (G008 closure) dropped because SnRK2 -> ABI5 not curated and bypass excluded. MYB77 arm dropped.",
+      "missing_pieces": ["ABI5 (E247, E248, E249) - key ABA bZIP TF", "ABI3 TF", "MYB77 ABA-auxin crosstalk (E142-E145)"]
+    },
+    {
+      "pathway": "GA/DELLA signalling",
+      "completeness": "low",
+      "comment": "Minimal GA -> DELLA(-) -> LR(-). No GID1 intermediate (not curated). No GA biosynthesis or degradation (GA20ox, GA3ox, GA2ox).",
+      "missing_pieces": ["GID1 receptor intermediate (literature_gap)", "GA biosynthesis (GA20ox, GA3ox)", "GA2ox inactivation enzymes"]
+    },
+    {
+      "pathway": "Brassinosteroid signalling",
+      "completeness": "none",
+      "comment": "Entire BR module absent - BRI1, BIN2, BZR1, BES1 all dropped. Step 1.5 explicitly added G006 closure for BR. bzr1-1D and bes1-D canonical gain-of-function tests cannot be reconciled.",
+      "missing_pieces": ["BR -> BRI1 (E204)", "BRI1 -> BIN2(-) (E235)", "BIN2 -> BZR1(-) (E236)", "BIN2 -> BES1(-) (E237)", "BZR1 -> LR(+) (E238)", "BES1 -> LR(+) (E239)", "MAX2 -> BES1(-) SL-BR crosstalk (E158)"]
+    },
+    {
+      "pathway": "Strigolactone / karrikin",
+      "completeness": "high",
+      "comment": "MAX1/3/4 -> SL -> D14 -> LR(-) with MAX2 as parallel source->LR(-). SMXL6/7/8 not in curated so Motif 1 (Perception Gate with co-inhibitor SMXL target) is abbreviated. Karrikin arm dropped (KAI2, minor for LR).",
+      "missing_pieces": ["SMXL6/7/8 (literature_gap - not in curated)", "KAI2 receptor", "D27 isomerase"]
+    },
+    {
+      "pathway": "Auxin-cytokinin mutual inhibition",
+      "completeness": "low",
+      "comment": "Not implemented. CK -> SHY2/IAA3 -> repress PIN arm (Bielach 2012 canonical) absent because CK->SHY2 induction not in curated_edges.json. Auxin -> ARF -> repress type-A ARRs also absent.",
+      "missing_pieces": ["ARR_B -> SHY2/IAA3 transcriptional induction (literature_gap)", "SHY2/IAA3 node with SHY2 -> PIN(-) edge (E093)", "ARF7/19 -> type-A ARRs"]
+    },
+    {
+      "pathway": "Shoot-to-root HY5 light integration",
+      "completeness": "none",
+      "comment": "HY5, PHYA, PHYB all dropped. Light-nitrate-root coordination absent.",
+      "missing_pieces": ["Far_Red -> PHYA (E159)", "PHYA -> HY5 (E160)", "PHYB -> HY5 (E161)", "HY5 -> ARF19(-) (E162)", "HY5 -> LR(-) (E163)"]
+    },
+    {
+      "pathway": "Mechanical / gravitropism / hydrotropism",
+      "completeness": "none",
+      "comment": "Mechanical_Stress, Water, UV_B, Low_Potassium, Salt, Hypoxia environmental nodes all dropped. MIZ1 not in curated.",
+      "missing_pieces": ["Mechanical_Stress -> Auxin or PIN3 relocalisation", "Water -> TAA1", "Hypoxia -> LBD16(-)"]
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "S001",
+      "type": "add_node",
+      "priority": "high",
+      "description": "Add GATA23 founder-cell marker with ARF7->GATA23(+), IAA28->GATA23(-), and GATA23->Lateral_Root_Density(+)",
+      "biological_justification": "GATA23 is the canonical xylem-pole-pericycle founder-cell marker (De Rybel 2010) and is listed in the literature_judge canonical_checklist as a critical hub. Its absence means gata23 amiRNA and founder-cell-specific perturbations cannot be modeled. ARF7->GATA23 captures auxin-ARF activation at prebranch sites; IAA28->GATA23 captures the dominant-negative repression released by auxin. This is a core founder-cell node with 5 curated edges currently at 0.00 coverage.",
+      "curated_edge_ids": ["E032", "E033", "E200"],
+      "implementation": "Add GATA23 (GENE, full_name 'GATA TRANSCRIPTION FACTOR 23', description 'xylem-pole-pericycle founder cell marker'). Add edges ARF7->GATA23(+, E033), IAA28->GATA23(-, E200), GATA23->Lateral_Root_Density(+, E032). Note: GATA23->LR will push LR activator count from 6 to 7 (at hard cap)."
+    },
+    {
+      "id": "S002",
+      "type": "add_node",
+      "priority": "high",
+      "description": "Add WOX11 (and optionally WOX12) founder-to-organ transition TF with WOX11->LBD(+) via E221/E222 and upstream Auxin->WOX11(+) via E220",
+      "biological_justification": "Step 1.5 explicitly closed gap G003 with the WOX11/WOX12 module (Hu 2014 Plant Cell, Liu 2016 Plant Physiol). WOX11/12 act in parallel with ARF7/ARF19 to activate LBD16/LBD29 during the founder-to-organ transition. Their absence collapses textbook two-route LR primordium initiation into a single ARF-only route, underpredicting LBD induction. Auxin->WOX11 edge does create a minor Perception Gate leak (Auxin would have 2 outgoing edges: TIR1 and WOX11) - acceptable tradeoff because WOX11 is a downstream TF (not a direct LR effector) and the gate is preserved for all phenotype-proximal logic. Route WOX11->LBD (not WOX11->LR direct) to avoid bloating LR activator cap.",
+      "curated_edge_ids": ["E220", "E221", "E222"],
+      "implementation": "Add WOX11 (GENE, 'WUSCHEL-RELATED HOMEOBOX 11'). Add edges Auxin->WOX11(+, E220) and WOX11->LBD(+, E221 [evidence E221 covers WOX11->LBD16, composite interpretation includes LBD18/29 via E222]). Document Perception Gate leak as literature_gap for 'ARF7->WOX11 direct curated evidence' to enable future gate-pure routing. WOX12 can be added as paralog or deferred - E223 (WOX12->LBD16) provides redundancy."
+    },
+    {
+      "id": "S003",
+      "type": "add_node",
+      "priority": "high",
+      "description": "Add the brassinosteroid module: BRI1, BIN2, and a BZR composite (BZR1+BES1) with BR->BRI1->BIN2(-)->BZR(-)->Lateral_Root_Density(+)",
+      "biological_justification": "Step 1.5 explicitly closed gap G006 for this module (Al-Mamun 2024). bzr1-1D and bes1-D are canonical LR gain-of-function tests; EBR (epi-brassinolide) treatment is a canonical exogenous-hormone test. Without this module, all three tests silently reconcile to 'not_in_network'. The BR Perception Gate (BR->BRI1 sole outgoing) is cleanly implementable. Use BZR composite (BZR1 + BES1 paralogs) to add only a single LR activator, pushing LR activators from 6 (or 7 if GATA23 added) toward hard cap. The BUILDER must decide whether to accept cap saturation or route through a downstream intermediate.",
+      "curated_edge_ids": ["E204", "E235", "E236", "E237", "E238", "E239"],
+      "implementation": "Add Brassinosteroid (HORMONE, source), BRI1 (GENE), BIN2 (GENE), BZR (PROTEIN_COMPLEX, 'BZR1+BES1 composite'). Edges: BR->BRI1(+, E204), BRI1->BIN2(-, E235), BIN2->BZR(-, E236 [composite includes E237 for BES1]), BZR->LR(+, E238 [composite includes E239]). Note MAX2->BES1 E158 crosstalk can route MAX2->BZR(-). If LR activator cap is binding, consider deferring BZR->LR and adding BZR->LBD (not curated - would require literature_gap flag) or accept 7-8 activators as temporary overflow."
+    },
+    {
+      "id": "S004",
+      "type": "add_node",
+      "priority": "medium",
+      "description": "Add HY5 shoot-root light integration via PHYB->HY5->ARF19(-) (not through LR direct)",
+      "biological_justification": "HY5 integrates shoot-perceived light status with root developmental decisions (Chen 2016 Curr Biol; Sakuraba 2019 J Exp Bot). 5 curated edges, 0 represented. Routing HY5->ARF19(-) per E162 rather than HY5->LR direct (E163) keeps LR inhibitor cap unchanged and correctly captures HY5 as a light-modulated ARF19 repressor. Far_Red/PHYA arm optional; PHYB alone gives a constitutive HY5 activator for light-independent background.",
+      "curated_edge_ids": ["E161", "E162"],
+      "implementation": "Add HY5 (GENE, 'ELONGATED HYPOCOTYL 5') and PHYB (GENE, source, 'PHYTOCHROME B'). Edges: PHYB->HY5(+, E161), HY5->ARF19(-, E162). ARF19 inhibitors would go from 2 (IAA14, IAA28) to 3 - well within 7 cap. Optional: add PHYA + Far_Red to model shade avoidance on LR."
+    },
+    {
+      "id": "S005",
+      "type": "add_node",
+      "priority": "medium",
+      "description": "Add ABI5 bZIP TF via ABA->ABI5(+) and ABI5->Lateral_Root_Density(-)",
+      "biological_justification": "Step 1.5 explicitly closed G008 for ABI5. ABI5 is required (with ABI4) for nitrate-induced LR inhibition and represents the post-emergence ABA stress repression. abi5 is in the canonical_mutants list. Because SnRK2->ABI5 is not curated, the cleanest include route is ABA->ABI5 direct (E247) - this introduces a minor ABA Perception Gate leak but is justified because ABI5 is terminal (TF->LR), so it does not enable hormone-bypass of the abi1/snrk2 signaling chain for other targets.",
+      "curated_edge_ids": ["E247", "E248"],
+      "implementation": "Add ABI5 (GENE, 'ABA INSENSITIVE 5'). Edges: ABA->ABI5(+, E247), ABI5->LR(-, E248). Adds one LR inhibitor (from 7 to 8 - EXCEEDS hard cap). BUILDER must either (a) merge ABI5 into a composite with ABI4 (ABI4_5) and keep a single LR inhibitor, or (b) defer to iteration 3 with documented rationale. Option (a) is preferred: ABI4+ABI5 share upstream ABA input and downstream LR repression - composite handling OK."
+    },
+    {
+      "id": "S006",
+      "type": "add_edge",
+      "priority": "medium",
+      "description": "Add ARF7->GATA23(+, E033) and IAA28->GATA23(-, E200) - subsumed by S001 if GATA23 node added",
+      "biological_justification": "Dependent on S001 (GATA23 node addition). Listed separately to make the ARF7 hub-completeness improvement explicit: adding these two edges raises ARF7 coverage from 0.57 to 0.64 and closes the founder-cell specification gap in the ARF7 output set.",
+      "curated_edge_ids": ["E033", "E200"],
+      "implementation": "Implied by S001; no separate action needed if S001 accepted."
+    },
+    {
+      "id": "S007",
+      "type": "add_edge",
+      "priority": "medium",
+      "description": "Add TOLS2->PUCHI(+, E048) and RLK7->PUCHI(+, E049) prebranch-site spacing module",
+      "biological_justification": "TOLS2 is a small signaling peptide bound by RLK7 (LRR-RLK receptor) to induce PUCHI expression, setting LR prebranch-site spacing (Toyokura 2019 Dev Cell). Adds upstream regulation to PUCHI which is currently single-input (LBD only). Low-cost addition: two source genes (TOLS2, RLK7) + two edges.",
+      "curated_edge_ids": ["E048", "E049"],
+      "implementation": "Add TOLS2 (GENE, source) and RLK7 (GENE, source). Edges: TOLS2->PUCHI(+, E048) and RLK7->PUCHI(+, E049). PUCHI activators go from 1 (LBD) to 3 - well under cap."
+    },
+    {
+      "id": "S008",
+      "type": "add_node",
+      "priority": "medium",
+      "description": "Add AFB3->NAC4 nitrate-responsive auxin amplifier arm",
+      "biological_justification": "Step 1.5's G004 partially covers ethylene-auxin. The Vidal 2010/2013 AFB3->NAC4->OBP4 nitrate-auxin amplifier is a canonical arm identified in literature_judge canonical_checklist pathways and canonical_hubs. Currently AFB3 has 4 curated edges and is OMITTED. Adding Nitrate->AFB3(+, E010) + AFB3->NAC4(+, E007) + NAC4->LR(+, E108) provides a third nitrate-to-LR arm alongside NLP7/ANR1 and CLE/CLV1. Adds a Nitrate metabolite node as source.",
+      "curated_edge_ids": ["E010", "E007", "E108"],
+      "implementation": "Add Nitrate (METABOLITE, source), AFB3 (GENE), NAC4 (GENE). Edges: Nitrate->AFB3(+, E010), AFB3->NAC4(+, E007), NAC4->LR(+, E108). Pushes LR activators to 7 (at cap if S001 also accepted) or 8 (over cap if S001+S008 both accepted). BUILDER should prioritize S001 over S008 if cap is binding; alternative: route NAC4 via ANR1 (no curated edge; literature_gap)."
+    },
+    {
+      "id": "S009",
+      "type": "mechanism_improvement",
+      "priority": "low",
+      "description": "For composite-node edges, include all curated member edge_ids in the mechanism string or evidence block",
+      "biological_justification": "A reviewer tracing the LBD->Lateral_Root_Density edge currently sees only E029 (LBD16->LR). The composite actually represents E029 + E030 (LBD18->LR) + E031 (LBD29->LR). Appending the member edge_ids to the mechanism string preserves reviewer traceability without changing the evidence payload.",
+      "curated_edge_ids": ["E029", "E030", "E031"],
+      "implementation": "In network.json, extend the mechanism field of composite edges to list all curated member edge_ids, e.g. 'LBD16 required for asymmetric division initiating LR primordium [Composite LBD=LBD16/18/29; member curated edges: E029 (LBD16->LR), E030 (LBD18->LR), E031 (LBD29->LR)]'. Apply to LBD, PLT, PIN, AHK, ARR_B, CLE composite edges."
+    },
+    {
+      "id": "S010",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "No curated ARR_B -> SHY2/IAA3 edge for CK induction of SHY2 (Bielach 2012 auxin-CK mutual inhibition mechanism)",
+      "biological_justification": "The canonical auxin-cytokinin mutual inhibition via CK-induced SHY2/IAA3 repressing PIN transcription (Bielach 2012; Dello Ioio 2008) is a textbook LR crosstalk module. Without curated ARR_B->SHY2 evidence, SHY2 cannot be included with gate-pure regulation. Step 1 search did not find direct SHY2/IAA3 transcriptional-induction evidence for this phenotype.",
+      "curated_edge_ids": [],
+      "implementation": "Flag for future Step 1 LITERATURE REVIEW expansion: search 'ARR1 SHY2 direct target Arabidopsis root' and 'Dello Ioio cytokinin SHY2 IAA3 transcription'. If found, SHY2/IAA3 can be added with ARR_B->SHY2(+), SHY2->PIN(-), and TIR1->SHY2(-) restoring the canonical mutual-inhibition loop."
+    },
+    {
+      "id": "S011",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "No curated EIN3 -> downstream-target edges; loses G004 ethylene-auxin biosynthesis amplification",
+      "biological_justification": "G004 added Ethylene->TAA1/WEI2/WEI7/TAR2 direct edges; these were dropped by BUILDER for Perception Gate purity. The canonical mechanism is Ethylene->EIN2->EIN3 (TF)->TAA1/TAR2 etc. Without curated EIN3->TAA1 or EIN3->WEI2 edges, the gated version of the amplifier cannot be built. Step 1 found the regulation at the hormone level but not the EIN3-TF level.",
+      "curated_edge_ids": [],
+      "implementation": "Flag for Step 1 expansion: search 'EIN3 direct target TAA1 TAR2 Arabidopsis root' and 'Stepanova 2008 EIN3 chromatin immunoprecipitation auxin biosynthesis'."
+    },
+    {
+      "id": "S012",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "No SMXL6/7/8 node in curated_edges - SL Perception Gate cannot implement full Motif 1 co-inhibitor pattern",
+      "biological_justification": "Canonical SL signalling is SL->D14+MAX2->(ubiquitinate)SMXL6/7/8->downstream. Without SMXL in curated_edges (the repository covers SL signalling at the MAX2 and D14 level but not SMXL family members as discrete nodes), the BUILDER can only use direct D14->LR and MAX2->LR terminal edges. This also affects MAX2's multi-output-scaffold role.",
+      "curated_edge_ids": [],
+      "implementation": "Flag for Step 1 expansion: search 'SMXL6 SMXL7 SMXL8 lateral root Arabidopsis' and 'Soundappan Wang 2015 SMXL strigolactone repressor'."
+    },
+    {
+      "id": "S013",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "Phosphate machinery (STOP1/ALMT1, LPR1/LPR2/PDR2, PHR1/PHL1) has no curated path to Lateral_Root_Density beyond Low_Phosphate direct",
+      "biological_justification": "G010 in literature_judge report noted Low_Phosphate as structurally expected source. STOP1->ALMT1->Malate and LPR1->Callose arms terminate at metabolites that have no curated -> LR edge. PHR1 is regulated by ARF7 (E125) but has no outgoing to LR in curated. Step 1 found upstream P-signalling but not the mechanistic connection to LR density in canonical curated reviews.",
+      "curated_edge_ids": [],
+      "implementation": "Flag for Step 1 expansion: search 'ALMT1 lateral root initiation' and 'LPR1 lateral root density Arabidopsis' and 'PHR1 PHL1 lateral root'."
+    }
+  ],
+  "literature_gaps": [
+    "ARR_B (type-B ARR) -> SHY2/IAA3 direct transcriptional induction evidence - blocks Bielach 2012 auxin-CK mutual inhibition motif",
+    "EIN3 -> TAA1/TAR2/WEI2/WEI7 direct target binding evidence - blocks gated version of ethylene-auxin biosynthesis amplification (G004)",
+    "SMXL6/7/8 as nodes - blocks full SL Perception Gate with Motif 1 co-inhibitor pattern",
+    "ARF7 -> WOX11 direct evidence - would allow gate-pure WOX11 inclusion without Auxin->WOX11 bypass",
+    "STOP1/ALMT1 and LPR1/LPR2 downstream endpoints reaching Lateral_Root_Density",
+    "GID1 -> DELLA destabilisation edge for GA - enables full GA Perception Gate",
+    "GA20ox / GA3ox / GA2ox biosynthesis/degradation for GA Biosynthesis-Degradation Balance",
+    "D27 carotenoid isomerase for SL biosynthesis completeness",
+    "CIPK23 -> NRT1.1 phospho-switching evidence (T101) for dual-affinity transceptor modeling",
+    "AHK2 -> IAA14 or IAA28 co-receptor evidence - enables full Auxin Perception Gate co-inhibitor pattern (currently TIR1 is sole inhibitor of IAA14)"
+  ],
+  "stop_reason": null
+}

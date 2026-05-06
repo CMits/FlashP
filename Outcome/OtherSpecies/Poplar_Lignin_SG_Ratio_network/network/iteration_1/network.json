@@ -1,0 +1,2109 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lignin_SG_Ratio",
+    "phenotype_node": "Lignin_SG_Ratio",
+    "species": "Populus trichocarpa",
+    "created": "2026-04-20",
+    "total_nodes": 44,
+    "total_edges": 93,
+    "source_nodes": 11,
+    "source_percentage": 25.0,
+    "literature_gap_log": [
+      "Source percentage 25% is below the softened 30-50% target. Literature gap: Layer-3 lignin-specific MYBs (MYB152, MYB90, MYB161) and NF_YA11, WBLH2, MYB156, MYB74 lack curated upstream regulators in Populus primary literature \u00e2\u20ac\u201d residual gap flagged in literature_judge_report.json G001.",
+      "4CL5 is the compensatory paralog activated upon 4CL1 loss; no curated upstream regulator in poplar literature \u00e2\u20ac\u201d encoded as source.",
+      "CSE1 modeled as source (WBLH1 -> CSE1 edge E102 from review-level evidence excluded for parsimony).",
+      "Tension_Wood environmental input connects directly to Lignin_SG_Ratio (E123) because the Al-Haddad 2013 paper reports the phenotype-level S/G elevation without mechanistic dissection of whether F5H1 transcription is the mediator.",
+      "Metabolite chain uses sequential substrate + enzyme activators for each intermediate so upstream enzyme perturbations propagate through the cascade (cf. BUILDER_AGENT.md Phase 3 #3 cascade tracing).",
+      "NAC156 included as Layer-2 NAC cofactor (SND1 target, activates CCoAOMT1 and MYB74). NAC157, VND6, snd1_A2_IR, vnd6_C1_IR excluded to avoid composite-cascade overlap.",
+      "Auxin / PLT5 / ARF2.1 cascade partially included via Auxin -| SND1 (E132) and ARF2_1 -| SND1 / MYB92 (E128, E129). PLT5 intermediate excluded because mechanism is secondary-wall timing, not S/G partitioning.",
+      "Wounding / MPK6 / LTF1 cascade excluded (E092-E094) as specialized wounding-response, not constitutive S/G regulation.",
+      "EPSP_TF / HAT / MYB20 repressive arm (E095, E096) excluded as niche.",
+      "BZIP44 / HDA15 repression of CCoAOMT1 and CCR2 (E097, E098) excluded as niche epigenetic modulation.",
+      "miR397a / LAC3 arm (E105, E027) excluded because laccase polymerization affects total lignin content but not the S/G partitioning per se.",
+      "miR166 / HD-ZIP III (E106) excluded as indirect.",
+      "VND6, NAC157, MYB128, MYB121, MYB174, MYB216, MYB221-feedback-to-CCoAOMT1, WRKY19 excluded for parsimony (each has 1-2 redundant enzyme targets already covered by MYB3/MYB20/MYB21).",
+      "Direct C3H1 -> Lignin_SG_Ratio edge (E021) included as poplar-specific phenomenological edge capturing H-accumulation effect of C3H KD that a monomer-cascade alone cannot model without an H-monomer node.",
+      "PtoMYB216 direct-enzyme edges (E055-E061) flagged in literature_judge_report G002 excluded \u00e2\u20ac\u201d Tian 2013 primary paper reports no S/G effect."
+    ]
+  },
+  "nodes": [
+    {
+      "id": "Tension_Wood",
+      "type": "ENVIRONMENT",
+      "full_name": "Tension wood formation (gravitropic stress)",
+      "description": "Natural perturbation from mechanical bending; induces gelatinous-fibre secondary walls with elevated syringyl content",
+      "is_source": true
+    },
+    {
+      "id": "Auxin",
+      "type": "HORMONE",
+      "full_name": "Auxin (IAA)",
+      "description": "Phytohormone that represses SND1/VND timing of secondary-wall deposition during xylem differentiation",
+      "is_source": true
+    },
+    {
+      "id": "ARF2_1",
+      "type": "GENE",
+      "full_name": "AUXIN RESPONSE FACTOR 2.1 (PtrARF2.1)",
+      "description": "Auxin response factor that represses WND2B/6B (SND1 paralogs) and MYB92 in poplar leaves/stems",
+      "is_source": true
+    },
+    {
+      "id": "SND1",
+      "type": "GENE",
+      "full_name": "SECONDARY WALL-ASSOCIATED NAC DOMAIN 1 (composite of PtrWND2B/6B/6A)",
+      "description": "Master Layer-1 NAC switch activating the secondary-wall transcriptional cascade",
+      "is_source": false
+    },
+    {
+      "id": "NAC156",
+      "type": "GENE",
+      "full_name": "PtrNAC156",
+      "description": "Layer-2 NAC activated by SND1; activates MYB74 and CCoAOMT1",
+      "is_source": false
+    },
+    {
+      "id": "MYB3",
+      "type": "GENE",
+      "full_name": "PtrMYB3 (MYB46 ortholog)",
+      "description": "Layer-2 secondary-wall MYB activator; activates PAL1, CCoAOMT1, COMT1; feedback activates MYB221",
+      "is_source": false
+    },
+    {
+      "id": "MYB20",
+      "type": "GENE",
+      "full_name": "PtrMYB20 (MYB46 ortholog)",
+      "description": "Layer-2 secondary-wall MYB activator (parallel to MYB3); activates PAL1, CCoAOMT1",
+      "is_source": false
+    },
+    {
+      "id": "MYB21",
+      "type": "GENE",
+      "full_name": "PtrMYB21 (MYB83 ortholog)",
+      "description": "Layer-2 secondary-wall MYB activator; activates 4CL1 and CCoAOMT1",
+      "is_source": false
+    },
+    {
+      "id": "MYB74",
+      "type": "GENE",
+      "full_name": "PtoMYB74 (MYB42/85 homolog)",
+      "description": "Layer-2 MYB activator of C4H2, C3H3, CCR2, CCoAOMT1, F5H2 via direct promoter binding",
+      "is_source": false
+    },
+    {
+      "id": "MYB92",
+      "type": "GENE",
+      "full_name": "PtoMYB92 (MYB42/85 homolog)",
+      "description": "Broad-spectrum lignin pathway activator; direct targets include CCoAOMT1, CCR2, COMT1, C3H1, PAL1, HCT1, C4H1, CAD1; repressed by ARF2.1",
+      "is_source": false
+    },
+    {
+      "id": "MYB152",
+      "type": "GENE",
+      "full_name": "PtrMYB152 (MYB43 homolog)",
+      "description": "Layer-3 lignin-specific activator with net S/G-raising phenotype; hits 4CL1, HCT1, C3H1, CCoAOMT1, CAD1, CCR2, F5H1 and contributes an S-biased direct phenotype edge",
+      "is_source": true
+    },
+    {
+      "id": "MYB90",
+      "type": "GENE",
+      "full_name": "PtrMYB090",
+      "description": "Layer-3 S-branch activator; binds F5H1 and COMT1 promoters",
+      "is_source": true
+    },
+    {
+      "id": "MYB161",
+      "type": "GENE",
+      "full_name": "PtrMYB161",
+      "description": "Layer-3 S-branch activator binding CAld5H1/2 (F5H1) promoters",
+      "is_source": true
+    },
+    {
+      "id": "MYB156",
+      "type": "GENE",
+      "full_name": "PtoMYB156",
+      "description": "EAR-motif broad-spectrum repressor of phenylpropanoid / monolignol pathway genes",
+      "is_source": true
+    },
+    {
+      "id": "MYB221",
+      "type": "GENE",
+      "full_name": "PdMYB221",
+      "description": "Broad repressor suppressing nine lignin enzymes; also feeds back to repress SND1 for secondary-wall homeostasis",
+      "is_source": false
+    },
+    {
+      "id": "KNAT7",
+      "type": "GENE",
+      "full_name": "PtrKNAT7",
+      "description": "KNOX-class homeodomain TF with modest S/G-raising effect; activates PAL and CCR under OE",
+      "is_source": false
+    },
+    {
+      "id": "NF_YA11",
+      "type": "GENE",
+      "full_name": "PtNF-YA11",
+      "description": "Nuclear Factor-Y alpha subunit that directly binds and activates F5H2 (F5H1) promoter",
+      "is_source": true
+    },
+    {
+      "id": "WBLH2",
+      "type": "GENE",
+      "full_name": "PtrWBLH2 (BEL1-like homeodomain)",
+      "description": "Upstream activator of HCT1 and F5H1",
+      "is_source": true
+    },
+    {
+      "id": "PAL1",
+      "type": "GENE",
+      "full_name": "PHENYLALANINE AMMONIA-LYASE 1",
+      "description": "Entry-step enzyme; deaminates L-Phe to trans-cinnamate",
+      "is_source": false
+    },
+    {
+      "id": "C4H1",
+      "type": "GENE",
+      "full_name": "CINNAMATE 4-HYDROXYLASE 1 (CYP73A)",
+      "description": "P450 that hydroxylates cinnamate to p-coumarate",
+      "is_source": false
+    },
+    {
+      "id": "PT4CL1",
+      "type": "GENE",
+      "full_name": "4-COUMARATE:CoA LIGASE 1",
+      "description": "Activates p-coumarate to p-coumaroyl-CoA; KO preferentially reduces S-units and downregulates F5H",
+      "is_source": false
+    },
+    {
+      "id": "PT4CL5",
+      "type": "GENE",
+      "full_name": "4-COUMARATE:CoA LIGASE 5",
+      "description": "Compensatory 4CL paralog activating caffeic acid to caffeoyl-CoA; supplies G-branch flux in 4CL1-KO background",
+      "is_source": true
+    },
+    {
+      "id": "HCT1",
+      "type": "GENE",
+      "full_name": "HYDROXYCINNAMOYL-CoA:SHIKIMATE HYDROXYCINNAMOYL TRANSFERASE 1",
+      "description": "Transfers p-coumaroyl-CoA onto shikimate; RNAi lowers total lignin but not S/G",
+      "is_source": false
+    },
+    {
+      "id": "C3H1",
+      "type": "GENE",
+      "full_name": "p-COUMARATE 3'-HYDROXYLASE (CYP98A)",
+      "description": "3'-hydroxylation of p-coumaroyl-shikimate; C3H KD in poplar preferentially blocks G-branch, elevating S/G via H accumulation",
+      "is_source": false
+    },
+    {
+      "id": "CSE1",
+      "type": "GENE",
+      "full_name": "CAFFEOYL SHIKIMATE ESTERASE 1",
+      "description": "Hydrolyzes caffeoyl-shikimate to caffeic acid; silencing modestly lowers S/G",
+      "is_source": true
+    },
+    {
+      "id": "CCOAOMT1",
+      "type": "GENE",
+      "full_name": "CAFFEOYL-CoA O-METHYLTRANSFERASE 1",
+      "description": "Methylates caffeoyl-CoA to feruloyl-CoA; supports both G and S branches",
+      "is_source": false
+    },
+    {
+      "id": "CCR2",
+      "type": "GENE",
+      "full_name": "CINNAMOYL-CoA REDUCTASE 2",
+      "description": "Reduces feruloyl-CoA to coniferaldehyde; the G/S-branch-point precursor; KD preferentially reduces S-units",
+      "is_source": false
+    },
+    {
+      "id": "F5H1",
+      "type": "GENE",
+      "full_name": "FERULATE 5-HYDROXYLASE 1 (CAld5H; composite of PtrCAld5H1 and PtrCAld5H2)",
+      "description": "Rate-limiting S-branch enzyme; 5-hydroxylates coniferaldehyde; dominant S/G determinant in poplar",
+      "is_source": false
+    },
+    {
+      "id": "COMT1",
+      "type": "GENE",
+      "full_name": "CAFFEIC ACID O-METHYLTRANSFERASE 1",
+      "description": "Methylates 5-hydroxyconiferaldehyde to sinapaldehyde; required for S-unit formation",
+      "is_source": false
+    },
+    {
+      "id": "CAD1",
+      "type": "GENE",
+      "full_name": "CINNAMYL ALCOHOL DEHYDROGENASE 1",
+      "description": "Final reductase producing both coniferyl (G) and sinapyl (S) alcohols",
+      "is_source": false
+    },
+    {
+      "id": "Cinnamate",
+      "type": "METABOLITE",
+      "full_name": "trans-Cinnamate",
+      "description": "First phenylpropanoid intermediate",
+      "is_source": false
+    },
+    {
+      "id": "P_Coumarate",
+      "type": "METABOLITE",
+      "full_name": "p-Coumarate",
+      "description": "Hydroxylated cinnamate; shared precursor",
+      "is_source": false
+    },
+    {
+      "id": "P_Coumaroyl_CoA",
+      "type": "METABOLITE",
+      "full_name": "p-Coumaroyl-CoA",
+      "description": "CoA-activated thioester; branch point to H units / main pathway",
+      "is_source": false
+    },
+    {
+      "id": "P_Coumaroyl_Shikimate",
+      "type": "METABOLITE",
+      "full_name": "p-Coumaroyl-shikimate",
+      "description": "HCT-generated ester used for aromatic 3-hydroxylation",
+      "is_source": false
+    },
+    {
+      "id": "Caffeoyl_Shikimate",
+      "type": "METABOLITE",
+      "full_name": "Caffeoyl-shikimate",
+      "description": "C3H'-hydroxylation product en route to caffeic acid via CSE",
+      "is_source": false
+    },
+    {
+      "id": "Caffeic_Acid",
+      "type": "METABOLITE",
+      "full_name": "Caffeic acid",
+      "description": "CSE hydrolysis product; substrate for 4CL5 in compensatory flux",
+      "is_source": false
+    },
+    {
+      "id": "Caffeoyl_CoA",
+      "type": "METABOLITE",
+      "full_name": "Caffeoyl-CoA",
+      "description": "Compensatory-pathway CoA ester feeding CCoAOMT",
+      "is_source": false
+    },
+    {
+      "id": "Feruloyl_CoA",
+      "type": "METABOLITE",
+      "full_name": "Feruloyl-CoA",
+      "description": "Common CoA precursor for both G and S branches after CCoAOMT",
+      "is_source": false
+    },
+    {
+      "id": "Coniferaldehyde",
+      "type": "METABOLITE",
+      "full_name": "Coniferaldehyde",
+      "description": "Central G/S branch-point aldehyde; CAD1 reduces to G monomer, F5H1 hydroxylates toward S",
+      "is_source": false
+    },
+    {
+      "id": "Hydroxyconiferaldehyde",
+      "type": "METABOLITE",
+      "full_name": "5-Hydroxyconiferaldehyde",
+      "description": "F5H1 product; committed S-branch precursor methylated by COMT1",
+      "is_source": false
+    },
+    {
+      "id": "Sinapaldehyde",
+      "type": "METABOLITE",
+      "full_name": "Sinapaldehyde",
+      "description": "COMT1 product; CAD1 reduces to sinapyl alcohol",
+      "is_source": false
+    },
+    {
+      "id": "Coniferyl_Alcohol",
+      "type": "METABOLITE",
+      "full_name": "Coniferyl alcohol (G monolignol)",
+      "description": "G monolignol output of the G-branch; exported to apoplast for polymerization",
+      "is_source": false
+    },
+    {
+      "id": "Sinapyl_Alcohol",
+      "type": "METABOLITE",
+      "full_name": "Sinapyl alcohol (S monolignol)",
+      "description": "S monolignol output of the S-branch; exported and polymerized",
+      "is_source": false
+    },
+    {
+      "id": "Lignin_SG_Ratio",
+      "type": "PHENOTYPE",
+      "full_name": "Lignin syringyl/guaiacyl ratio",
+      "description": "Compositional ratio of S:G units in the stem xylem lignin polymer; WT Populus trichocarpa ~2-3",
+      "is_source": false
+    }
+  ],
+  "edges": [
+    {
+      "source": "PAL1",
+      "target": "Cinnamate",
+      "sign": 1,
+      "edge_id": "N001",
+      "effect": "activation",
+      "mechanism": "PAL1 deaminates L-phenylalanine to trans-cinnamate, the entry step of phenylpropanoid metabolism",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2020.00652",
+          "title": "Transcriptional and Post-transcriptional Regulation of Lignin Biosynthesis Pathway Genes in Populus",
+          "authors": "Zhang J, Tuskan GA, Tschaplinski TJ, Muchero W, Chen JG",
+          "year": 2020,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "PAL catalyzes the initial step of phenylpropanoid biosynthesis",
+          "claim": "PAL catalyses phenylalanine to cinnamate"
+        }
+      ]
+    },
+    {
+      "source": "C4H1",
+      "target": "P_Coumarate",
+      "sign": 1,
+      "edge_id": "N002",
+      "effect": "activation",
+      "mechanism": "C4H (CYP73A) hydroxylates cinnamate at the 4-position to produce p-coumarate",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2020.00652",
+          "title": "Transcriptional and Post-transcriptional Regulation of Lignin Biosynthesis Pathway Genes in Populus",
+          "authors": "Zhang J, Tuskan GA, Tschaplinski TJ, Muchero W, Chen JG",
+          "year": 2020,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "C4H hydroxylates cinnamate to p-coumarate in the phenylpropanoid pathway",
+          "claim": "C4H produces p-coumarate"
+        }
+      ]
+    },
+    {
+      "source": "PT4CL1",
+      "target": "P_Coumaroyl_CoA",
+      "sign": 1,
+      "edge_id": "N003",
+      "effect": "activation",
+      "mechanism": "4CL1 activates p-coumarate as its CoA thioester for downstream reactions",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.110.159269",
+          "title": "Antisense Down-Regulation of 4CL Expression Alters Lignification, Tree Growth, and Saccharification Potential of Field-Grown Poplar",
+          "authors": "Voelker SL, Lachenbruch B, Meinzer FC, et al.",
+          "year": 2010,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "4CL catalyses the activation of 4-coumarate to 4-coumaroyl-CoA",
+          "claim": "4CL1 produces p-coumaroyl-CoA"
+        }
+      ]
+    },
+    {
+      "source": "HCT1",
+      "target": "P_Coumaroyl_Shikimate",
+      "sign": 1,
+      "edge_id": "N004",
+      "effect": "activation",
+      "mechanism": "HCT transfers p-coumaroyl-CoA onto shikimate to yield p-coumaroyl-shikimate",
+      "evidence": [
+        {
+          "doi": "10.7717/peerj.10741",
+          "title": "Characterization and functional analysis of the Hydroxycinnamoyl-CoA: shikimate hydroxycinnamoyl transferase (HCT) gene family in poplar",
+          "authors": "Peng X, Wang X, Chen Y, Wang X, Zhang L, Chao N, Lu H",
+          "year": 2021,
+          "journal": "PeerJ",
+          "evidence_sentence": "PtHCT1 and PtHCT6 have been associated with lignin biosynthesis because of their xylem-specific expression profile",
+          "claim": "HCT1 generates p-coumaroyl-shikimate"
+        }
+      ]
+    },
+    {
+      "source": "C3H1",
+      "target": "Caffeoyl_Shikimate",
+      "sign": 1,
+      "edge_id": "N005",
+      "effect": "activation",
+      "mechanism": "C3'H (CYP98A) hydroxylates p-coumaroyl-shikimate at the 3'-position",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0706537105",
+          "title": "RNAi-mediated suppression of p-coumaroyl-CoA 3'-hydroxylase in hybrid poplar impacts lignin deposition and soluble secondary metabolism",
+          "authors": "Coleman HD, Park JY, Nair R, Chapple C, Mansfield SD",
+          "year": 2008,
+          "journal": "PNAS",
+          "evidence_sentence": "C3'H is a cytochrome P450-dependent monooxygenase that catalyzes the 3'-hydroxylation of p-coumaroyl shikimate and p-coumaroyl quinate",
+          "claim": "C3H1 produces caffeoyl-shikimate"
+        }
+      ]
+    },
+    {
+      "source": "CSE1",
+      "target": "Caffeic_Acid",
+      "sign": 1,
+      "edge_id": "N006",
+      "effect": "activation",
+      "mechanism": "CSE hydrolyses caffeoyl-shikimate into caffeic acid and shikimate",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.17.00920",
+          "title": "Silencing CAFFEOYL SHIKIMATE ESTERASE Affects Lignification and Improves Saccharification in Poplar",
+          "authors": "Saleme MLS, Cesarino I, Vargas L, et al.",
+          "year": 2017,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "CSE is able to catalyze the conversion of caffeoyl shikimate into caffeate in Arabidopsis",
+          "claim": "CSE1 produces caffeic acid"
+        }
+      ]
+    },
+    {
+      "source": "PT4CL5",
+      "target": "Caffeoyl_CoA",
+      "sign": 1,
+      "edge_id": "N007",
+      "effect": "activation",
+      "mechanism": "4CL5 re-activates caffeic acid to caffeoyl-CoA in the CSE-shortcut path (compensatory route that becomes dominant in 4CL1-KO poplar)",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.19.01550",
+          "title": "Compensatory Guaiacyl Lignin Biosynthesis at the Expense of Syringyl Lignin in 4CL1-Knockout Poplar",
+          "authors": "Wang JP, Matthews ML, Williams CM, et al.",
+          "year": 2020,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Combined activity of CSE with that of 4CL, producing caffeoyl-CoA",
+          "claim": "4CL5 produces caffeoyl-CoA from caffeic acid"
+        }
+      ]
+    },
+    {
+      "source": "CCOAOMT1",
+      "target": "Feruloyl_CoA",
+      "sign": 1,
+      "edge_id": "N008",
+      "effect": "activation",
+      "mechanism": "CCoAOMT methylates caffeoyl-CoA to feruloyl-CoA, the shared precursor of G and S branches",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.124.2.563",
+          "title": "Essential Role of Caffeoyl Coenzyme A O-Methyltransferase in Lignin Biosynthesis in Woody Poplar Plants",
+          "authors": "Zhong R, Morrison WH 3rd, Himmelsbach DS, Poole FL 2nd, Ye ZH",
+          "year": 2000,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "reduction in CCoAOMT could effectively affect the availability of the substrate feruloyl CoA",
+          "claim": "CCoAOMT1 produces feruloyl-CoA"
+        }
+      ]
+    },
+    {
+      "source": "CCR2",
+      "target": "Coniferaldehyde",
+      "sign": 1,
+      "edge_id": "N009",
+      "effect": "activation",
+      "mechanism": "CCR reduces feruloyl-CoA to coniferaldehyde, the central G/S branch-point aldehyde",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.107.054148",
+          "title": "Downregulation of Cinnamoyl-Coenzyme A Reductase in Poplar",
+          "authors": "Leple JC, Dauwe R, Morreel K, et al.",
+          "year": 2007,
+          "journal": "Plant Cell",
+          "evidence_sentence": "CCR catalyzes the conversion of feruloyl-CoA to coniferaldehyde in monolignol biosynthesis",
+          "claim": "CCR2 produces coniferaldehyde"
+        }
+      ]
+    },
+    {
+      "source": "F5H1",
+      "target": "Hydroxyconiferaldehyde",
+      "sign": 1,
+      "edge_id": "N010",
+      "effect": "activation",
+      "mechanism": "F5H1/CAld5H hydroxylates coniferaldehyde at the 5-position, committing flux to the S-branch",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.96.16.8955",
+          "title": "Coniferyl aldehyde 5-hydroxylation and methylation direct syringyl lignin biosynthesis in angiosperms",
+          "authors": "Osakabe K, Tsao CC, Li L, Popko JL, Umezawa T, Carraway DT, Smeltzer RH, Joshi CP, Chiang VL",
+          "year": 1999,
+          "journal": "PNAS",
+          "evidence_sentence": "CAld5H catalyzes 5-hydroxylation of coniferyl aldehyde into 5-hydroxyconiferyl aldehyde",
+          "claim": "F5H1 produces 5-hydroxyconiferaldehyde"
+        }
+      ]
+    },
+    {
+      "source": "COMT1",
+      "target": "Sinapaldehyde",
+      "sign": 1,
+      "edge_id": "N011",
+      "effect": "activation",
+      "mechanism": "COMT methylates the 5-OH of 5-hydroxyconiferaldehyde to produce sinapaldehyde",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.96.16.8955",
+          "title": "Coniferyl aldehyde 5-hydroxylation and methylation direct syringyl lignin biosynthesis in angiosperms",
+          "authors": "Osakabe K, Tsao CC, Li L, Popko JL, Umezawa T, Carraway DT, Smeltzer RH, Joshi CP, Chiang VL",
+          "year": 1999,
+          "journal": "PNAS",
+          "evidence_sentence": "5-hydroxyconiferyl aldehyde was converted exclusively into sinapyl aldehyde when incubated with LsCOMT",
+          "claim": "COMT1 produces sinapaldehyde"
+        }
+      ]
+    },
+    {
+      "source": "CAD1",
+      "target": "Coniferyl_Alcohol",
+      "sign": 1,
+      "edge_id": "N012",
+      "effect": "activation",
+      "mechanism": "CAD1 reduces coniferaldehyde to coniferyl alcohol, the G monolignol",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.112.4.1479",
+          "title": "Red Xylem and Higher Lignin Extractability by Down-Regulating a Cinnamyl Alcohol Dehydrogenase in Poplar",
+          "authors": "Baucher M, Chabbert B, Pilate G, et al.",
+          "year": 1996,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "CAD catalyzes the last step in the biosynthesis of the lignin precursors, the monolignols",
+          "claim": "CAD1 reduces coniferaldehyde to coniferyl alcohol"
+        }
+      ]
+    },
+    {
+      "source": "CAD1",
+      "target": "Sinapyl_Alcohol",
+      "sign": 1,
+      "edge_id": "N013",
+      "effect": "activation",
+      "mechanism": "CAD1 reduces sinapaldehyde to sinapyl alcohol, the S monolignol",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.112.4.1479",
+          "title": "Red Xylem and Higher Lignin Extractability by Down-Regulating a Cinnamyl Alcohol Dehydrogenase in Poplar",
+          "authors": "Baucher M, Chabbert B, Pilate G, et al.",
+          "year": 1996,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "CAD reduces both coniferaldehyde and sinapaldehyde to the respective alcohols",
+          "claim": "CAD1 reduces sinapaldehyde to sinapyl alcohol"
+        }
+      ]
+    },
+    {
+      "source": "Cinnamate",
+      "target": "P_Coumarate",
+      "sign": 1,
+      "edge_id": "N014",
+      "effect": "activation",
+      "mechanism": "Substrate flux via C4H: depletion of cinnamate (e.g., PAL1 KO) propagates to reduce p-coumarate pool",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2020.00652",
+          "title": "Transcriptional and Post-transcriptional Regulation of Lignin Biosynthesis Pathway Genes in Populus",
+          "authors": "Zhang J, Tuskan GA, Tschaplinski TJ, Muchero W, Chen JG",
+          "year": 2020,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "C4H hydroxylates cinnamate to p-coumarate",
+          "claim": "Cinnamate is the substrate converted to p-coumarate"
+        }
+      ]
+    },
+    {
+      "source": "P_Coumarate",
+      "target": "P_Coumaroyl_CoA",
+      "sign": 1,
+      "edge_id": "N015",
+      "effect": "activation",
+      "mechanism": "p-Coumarate is the 4CL substrate; depletion upstream reduces the CoA-thioester pool",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.110.159269",
+          "title": "Antisense Down-Regulation of 4CL Expression Alters Lignification, Tree Growth, and Saccharification Potential of Field-Grown Poplar",
+          "authors": "Voelker SL, Lachenbruch B, Meinzer FC, et al.",
+          "year": 2010,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "4CL catalyses the activation of 4-coumarate to 4-coumaroyl-CoA",
+          "claim": "p-coumarate is the substrate for 4CL"
+        }
+      ]
+    },
+    {
+      "source": "P_Coumaroyl_CoA",
+      "target": "P_Coumaroyl_Shikimate",
+      "sign": 1,
+      "edge_id": "N016",
+      "effect": "activation",
+      "mechanism": "p-Coumaroyl-CoA substrate flux via HCT",
+      "evidence": [
+        {
+          "doi": "10.7717/peerj.10741",
+          "title": "Characterization and functional analysis of the Hydroxycinnamoyl-CoA: shikimate hydroxycinnamoyl transferase (HCT) gene family in poplar",
+          "authors": "Peng X, Wang X, Chen Y, Wang X, Zhang L, Chao N, Lu H",
+          "year": 2021,
+          "journal": "PeerJ",
+          "evidence_sentence": "PtoHCT1 from Populus tomentosa was characterised in vitro, generating caffeoyl shikimate (from p-coumaroyl shikimate intermediate)",
+          "claim": "p-coumaroyl-CoA flows to p-coumaroyl shikimate via HCT"
+        }
+      ]
+    },
+    {
+      "source": "P_Coumaroyl_Shikimate",
+      "target": "Caffeoyl_Shikimate",
+      "sign": 1,
+      "edge_id": "N017",
+      "effect": "activation",
+      "mechanism": "Substrate flux via C3'H",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0706537105",
+          "title": "RNAi-mediated suppression of p-coumaroyl-CoA 3'-hydroxylase in hybrid poplar impacts lignin deposition and soluble secondary metabolism",
+          "authors": "Coleman HD, Park JY, Nair R, Chapple C, Mansfield SD",
+          "year": 2008,
+          "journal": "PNAS",
+          "evidence_sentence": "C3'H catalyses 3'-hydroxylation of p-coumaroyl shikimate",
+          "claim": "p-coumaroyl-shikimate is the C3H substrate"
+        }
+      ]
+    },
+    {
+      "source": "Caffeoyl_Shikimate",
+      "target": "Caffeic_Acid",
+      "sign": 1,
+      "edge_id": "N018",
+      "effect": "activation",
+      "mechanism": "CSE-mediated substrate flux; caffeoyl-shikimate is hydrolysed to caffeic acid",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.17.00920",
+          "title": "Silencing CAFFEOYL SHIKIMATE ESTERASE Affects Lignification and Improves Saccharification in Poplar",
+          "authors": "Saleme MLS, Cesarino I, Vargas L, et al.",
+          "year": 2017,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "CSE is able to catalyze the conversion of caffeoyl shikimate into caffeate",
+          "claim": "caffeoyl-shikimate is converted to caffeic acid"
+        }
+      ]
+    },
+    {
+      "source": "Caffeic_Acid",
+      "target": "Caffeoyl_CoA",
+      "sign": 1,
+      "edge_id": "N019",
+      "effect": "activation",
+      "mechanism": "4CL5 compensatory activation produces caffeoyl-CoA",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.19.01550",
+          "title": "Compensatory Guaiacyl Lignin Biosynthesis at the Expense of Syringyl Lignin in 4CL1-Knockout Poplar",
+          "authors": "Wang JP, Matthews ML, Williams CM, et al.",
+          "year": 2020,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Combined activity of CSE with that of 4CL, producing caffeoyl-CoA",
+          "claim": "Caffeic acid flows to caffeoyl-CoA via 4CL5"
+        }
+      ]
+    },
+    {
+      "source": "Caffeoyl_CoA",
+      "target": "Feruloyl_CoA",
+      "sign": 1,
+      "edge_id": "N020",
+      "effect": "activation",
+      "mechanism": "CCoAOMT substrate flux",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.124.2.563",
+          "title": "Essential Role of Caffeoyl Coenzyme A O-Methyltransferase in Lignin Biosynthesis in Woody Poplar Plants",
+          "authors": "Zhong R, Morrison WH 3rd, Himmelsbach DS, Poole FL 2nd, Ye ZH",
+          "year": 2000,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "CCoAOMT methylates caffeoyl-CoA to feruloyl-CoA",
+          "claim": "caffeoyl-CoA flows to feruloyl-CoA via CCoAOMT"
+        }
+      ]
+    },
+    {
+      "source": "Feruloyl_CoA",
+      "target": "Coniferaldehyde",
+      "sign": 1,
+      "edge_id": "N021",
+      "effect": "activation",
+      "mechanism": "CCR substrate flux",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.107.054148",
+          "title": "Downregulation of Cinnamoyl-Coenzyme A Reductase in Poplar",
+          "authors": "Leple JC, Dauwe R, Morreel K, et al.",
+          "year": 2007,
+          "journal": "Plant Cell",
+          "evidence_sentence": "CCR converts feruloyl-CoA to coniferaldehyde",
+          "claim": "feruloyl-CoA flows to coniferaldehyde via CCR"
+        }
+      ]
+    },
+    {
+      "source": "Coniferaldehyde",
+      "target": "Hydroxyconiferaldehyde",
+      "sign": 1,
+      "edge_id": "N022",
+      "effect": "activation",
+      "mechanism": "F5H1 substrate flux into the S-branch",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.96.16.8955",
+          "title": "Coniferyl aldehyde 5-hydroxylation and methylation direct syringyl lignin biosynthesis in angiosperms",
+          "authors": "Osakabe K, Tsao CC, Li L, et al.",
+          "year": 1999,
+          "journal": "PNAS",
+          "evidence_sentence": "coniferyl aldehyde is the preferred substrate for CAld5H",
+          "claim": "Coniferaldehyde is substrate for 5-hydroxylation"
+        }
+      ]
+    },
+    {
+      "source": "Coniferaldehyde",
+      "target": "Coniferyl_Alcohol",
+      "sign": 1,
+      "edge_id": "N023",
+      "effect": "activation",
+      "mechanism": "CAD substrate flux for G-branch",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.112.4.1479",
+          "title": "Red Xylem and Higher Lignin Extractability by Down-Regulating a Cinnamyl Alcohol Dehydrogenase in Poplar",
+          "authors": "Baucher M, Chabbert B, Pilate G, et al.",
+          "year": 1996,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "CAD reduces coniferaldehyde to coniferyl alcohol",
+          "claim": "coniferaldehyde flows to coniferyl alcohol via CAD"
+        }
+      ]
+    },
+    {
+      "source": "Hydroxyconiferaldehyde",
+      "target": "Sinapaldehyde",
+      "sign": 1,
+      "edge_id": "N024",
+      "effect": "activation",
+      "mechanism": "COMT substrate flux",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.96.16.8955",
+          "title": "Coniferyl aldehyde 5-hydroxylation and methylation direct syringyl lignin biosynthesis in angiosperms",
+          "authors": "Osakabe K, Tsao CC, Li L, et al.",
+          "year": 1999,
+          "journal": "PNAS",
+          "evidence_sentence": "5-hydroxyconiferyl aldehyde was converted exclusively into sinapyl aldehyde when incubated with LsCOMT",
+          "claim": "5OH-coniferaldehyde is substrate for sinapaldehyde"
+        }
+      ]
+    },
+    {
+      "source": "Sinapaldehyde",
+      "target": "Sinapyl_Alcohol",
+      "sign": 1,
+      "edge_id": "N025",
+      "effect": "activation",
+      "mechanism": "CAD substrate flux for S-branch",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.112.4.1479",
+          "title": "Red Xylem and Higher Lignin Extractability by Down-Regulating a Cinnamyl Alcohol Dehydrogenase in Poplar",
+          "authors": "Baucher M, Chabbert B, Pilate G, et al.",
+          "year": 1996,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "CAD reduces cinnamaldehydes to corresponding alcohols",
+          "claim": "Sinapaldehyde flows to sinapyl alcohol via CAD"
+        }
+      ]
+    },
+    {
+      "source": "F5H1",
+      "target": "Lignin_SG_Ratio",
+      "sign": 1,
+      "edge_id": "N026",
+      "effect": "activation",
+      "mechanism": "F5H1 is the rate-limiting S-branch enzyme; its activity level is the dominant determinant of poplar S/G",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.109.137059",
+          "title": "The Effects on Lignin Structure of Overexpression of Ferulate 5-Hydroxylase in Hybrid Poplar",
+          "authors": "Stewart JJ, Akiyama T, Chapple C, Ralph J, Mansfield SD",
+          "year": 2009,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "C4H::F5H transgenic lignin was comprised of as much as 97.5% syringyl units; the syringyl level in the wild-type control was 68%",
+          "claim": "F5H1 activity sets S/G"
+        }
+      ]
+    },
+    {
+      "source": "Sinapyl_Alcohol",
+      "target": "Lignin_SG_Ratio",
+      "sign": 1,
+      "edge_id": "N027",
+      "effect": "activation",
+      "mechanism": "Sinapyl alcohol is the S monolignol feeding the S numerator of the S/G ratio",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.109.137059",
+          "title": "The Effects on Lignin Structure of Overexpression of Ferulate 5-Hydroxylase in Hybrid Poplar",
+          "authors": "Stewart JJ, Akiyama T, Chapple C, Ralph J, Mansfield SD",
+          "year": 2009,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "F5H affects the partitioning between the two major traditional monolignols, coniferyl and sinapyl alcohols",
+          "claim": "Sinapyl alcohol raises S/G"
+        }
+      ]
+    },
+    {
+      "source": "MYB152",
+      "target": "Lignin_SG_Ratio",
+      "sign": 1,
+      "edge_id": "N028",
+      "effect": "activation",
+      "mechanism": "PtrMYB152 OE in Arabidopsis raised S/G monomer ratio from 0.31 (WT) to 0.37-0.42",
+      "evidence": [
+        {
+          "doi": "10.1038/srep05054",
+          "title": "Regulation of secondary cell wall biosynthesis by poplar R2R3 MYB transcription factor PtrMYB152 in Arabidopsis",
+          "authors": "Wang S, Li E, Porth I, Chen JG, Mansfield SD, Douglas CJ",
+          "year": 2014,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "S/G monomer ratio was higher in the transgenic plants than wild-type (0.37-0.42 vs 0.31)",
+          "claim": "MYB152 OE raises S/G"
+        }
+      ]
+    },
+    {
+      "source": "Tension_Wood",
+      "target": "Lignin_SG_Ratio",
+      "sign": 1,
+      "edge_id": "N029",
+      "effect": "activation",
+      "mechanism": "Tension wood fibres in WT poplar deposit a higher proportion of syringyl units than normal or opposite wood",
+      "evidence": [
+        {
+          "doi": "10.1093/treephys/tpt013",
+          "title": "Chemical responses to modified lignin composition in tension wood of hybrid poplar (Populus tremula x Populus alba)",
+          "authors": "Al-Haddad JM, Kang KY, Mansfield SD, Telewski FW",
+          "year": 2013,
+          "journal": "Tree Physiology",
+          "evidence_sentence": "In the wild-type poplar, the lignin in tension wood contained a significantly higher percentage of syringyl than normal wood or opposite wood",
+          "claim": "Tension wood elevates S/G"
+        }
+      ]
+    },
+    {
+      "source": "Coniferyl_Alcohol",
+      "target": "Lignin_SG_Ratio",
+      "sign": -1,
+      "edge_id": "N030",
+      "effect": "inhibition",
+      "mechanism": "Coniferyl alcohol is the G monolignol feeding the G denominator of the S/G ratio; excess G lowers the ratio",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.109.137059",
+          "title": "The Effects on Lignin Structure of Overexpression of Ferulate 5-Hydroxylase in Hybrid Poplar",
+          "authors": "Stewart JJ, Akiyama T, Chapple C, Ralph J, Mansfield SD",
+          "year": 2009,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "only coupling of a monolignol with a G unit can result in beta-5-coupled products; G-unit surplus lowers S/G",
+          "claim": "Coniferyl alcohol surplus lowers S/G"
+        }
+      ]
+    },
+    {
+      "source": "C3H1",
+      "target": "Lignin_SG_Ratio",
+      "sign": -1,
+      "edge_id": "N031",
+      "effect": "inhibition",
+      "mechanism": "In poplar, C3H downregulation preferentially reduces G units at the expense of H accumulation, raising S/G ratio from ~1.7 to ~3.6 \u00e2\u20ac\u201d encoded as C3H net-negative on S/G",
+      "evidence": [
+        {
+          "doi": "10.1007/s12155-012-9218-y",
+          "title": "Effects on Lignin Structure of Coumarate 3-Hydroxylase Downregulation in Poplar",
+          "authors": "Ralph J, Akiyama T, Coleman HD, Mansfield SD",
+          "year": 2012,
+          "journal": "BioEnergy Research",
+          "evidence_sentence": "C3H downregulation reduced lignin levels by half and markedly increased the proportion of H units; G/S went from 0.59 WT to 0.28 C3H (so S/G roughly doubled)",
+          "claim": "C3H down raises S/G in poplar"
+        }
+      ]
+    },
+    {
+      "source": "Auxin",
+      "target": "SND1",
+      "sign": -1,
+      "edge_id": "N032",
+      "effect": "repression",
+      "mechanism": "Auxin represses SND1 orthologs during xylem cell expansion, delaying secondary-wall deposition until after expansion",
+      "evidence": [
+        {
+          "doi": "10.1111/ppl.12766",
+          "title": "The plant hormone auxin directs timing of xylem development by inhibition of secondary cell wall deposition through repression of secondary wall NAC-domain transcription factors",
+          "authors": "Johnsson C, Jin X, Xue W, Dubreuil C, Lezhneva L, Fischer U",
+          "year": 2019,
+          "journal": "Physiologia Plantarum",
+          "evidence_sentence": "In the presence of auxin, the SND1 orthologs were slightly repressed to between 0.9 and 0.65-fold of the control",
+          "claim": "Auxin represses SND1"
+        }
+      ]
+    },
+    {
+      "source": "ARF2_1",
+      "target": "SND1",
+      "sign": -1,
+      "edge_id": "N033",
+      "effect": "repression",
+      "mechanism": "PtrARF2.1 represses WND2B/WND6B (SND1 paralogs); RNAi lines show upregulated WND2B/6B",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20174141",
+          "title": "PtrARF2.1 Is Involved in Regulation of Leaf Development and Lignin Biosynthesis in Poplar Trees",
+          "authors": "Fu Y, Win P, Zhang H, et al.",
+          "year": 2019,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "transcript abundance of WND2B, WND6B and MYB92 were upregulated in PtrARF2.1-RNAi leaves",
+          "claim": "ARF2.1 represses SND1"
+        }
+      ]
+    },
+    {
+      "source": "MYB221",
+      "target": "SND1",
+      "sign": -1,
+      "edge_id": "N034",
+      "effect": "repression",
+      "mechanism": "PdMYB221 feedback-represses master-switch SND1 for secondary-wall homeostasis",
+      "evidence": [
+        {
+          "doi": "10.1038/srep12240",
+          "title": "Poplar PdMYB221 is involved in the direct and indirect regulation of secondary wall biosynthesis during wood formation",
+          "authors": "Tang X, Zhuang Y, Qi G, et al.",
+          "year": 2015,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "PdMYB221 OE suppresses SND1 NST1 VND6 MYB85",
+          "claim": "MYB221 feedback-represses SND1"
+        }
+      ]
+    },
+    {
+      "source": "SND1",
+      "target": "MYB3",
+      "sign": 1,
+      "edge_id": "N035",
+      "effect": "activation",
+      "mechanism": "PtrSND1/WND2B binds SNBE sites in PtrMYB3 promoter",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.181354",
+          "title": "Dissection of the Transcriptional Program Regulating Secondary Wall Biosynthesis during Wood Formation in Poplar",
+          "authors": "McCarthy RL, Zhong R, Lee C, Ye ZH",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "PtrMYB3 and PtrMYB20 were demonstrated to be direct targets of PtrWNDs",
+          "claim": "SND1 activates MYB3"
+        }
+      ]
+    },
+    {
+      "source": "SND1",
+      "target": "MYB20",
+      "sign": 1,
+      "edge_id": "N036",
+      "effect": "activation",
+      "mechanism": "SND1 directly activates MYB20 (MYB46 ortholog)",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.181354",
+          "title": "Dissection of the Transcriptional Program Regulating Secondary Wall Biosynthesis during Wood Formation in Poplar",
+          "authors": "McCarthy RL, Zhong R, Lee C, Ye ZH",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "direct targets of PtrWNDs and functional orthologs of the Arabidopsis MYB46",
+          "claim": "SND1 activates MYB20"
+        }
+      ]
+    },
+    {
+      "source": "SND1",
+      "target": "MYB21",
+      "sign": 1,
+      "edge_id": "N037",
+      "effect": "activation",
+      "mechanism": "PtrWNDs induce PtrMYB21 expression",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0069219",
+          "title": "The Poplar MYB Master Switches Bind to the SMRE Site and Activate the Secondary Wall Biosynthetic Program during Wood Formation",
+          "authors": "Zhong R, McCarthy RL, Haghighat M, Ye ZH",
+          "year": 2013,
+          "journal": "PLoS ONE",
+          "evidence_sentence": "expression of PtrMYB2 and PtrMYB21 is induced by PtrWNDs",
+          "claim": "SND1 activates MYB21"
+        }
+      ]
+    },
+    {
+      "source": "SND1",
+      "target": "KNAT7",
+      "sign": 1,
+      "edge_id": "N038",
+      "effect": "activation",
+      "mechanism": "PtrWND activates PtrKNAT7 in the second-tier cascade",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.181354",
+          "title": "Dissection of the Transcriptional Program Regulating Secondary Wall Biosynthesis during Wood Formation in Poplar",
+          "authors": "McCarthy RL, Zhong R, Lee C, Ye ZH",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "KNAT7 homolog (PtrKNAT7) induced by PtrWND2B",
+          "claim": "SND1 activates KNAT7"
+        }
+      ]
+    },
+    {
+      "source": "SND1",
+      "target": "CCOAOMT1",
+      "sign": 1,
+      "edge_id": "N039",
+      "effect": "activation",
+      "mechanism": "PtrWND3A/6B directly activates PtrCCoAOMT1 via SNBE",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2020.00652",
+          "title": "Transcriptional and Post-transcriptional Regulation of Lignin Biosynthesis Pathway Genes in Populus",
+          "authors": "Zhang J, Tuskan GA, Tschaplinski TJ, Muchero W, Chen JG",
+          "year": 2020,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "transcript of CCoAOMT1 was induced by overexpressing WND3A; direct target of PtrWND6B",
+          "claim": "SND1 activates CCoAOMT1"
+        }
+      ]
+    },
+    {
+      "source": "SND1",
+      "target": "NAC156",
+      "sign": 1,
+      "edge_id": "N040",
+      "effect": "activation",
+      "mechanism": "PtrSND1 (WND2B) activates PtrNAC156 in the second-tier cascade",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.181354",
+          "title": "Dissection of the Transcriptional Program Regulating Secondary Wall Biosynthesis during Wood Formation in Poplar",
+          "authors": "McCarthy RL, Zhong R, Lee C, Ye ZH",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "PtrWND2B-regulated transcription factors including PtrNAC156",
+          "claim": "SND1 activates NAC156"
+        }
+      ]
+    },
+    {
+      "source": "NAC156",
+      "target": "MYB74",
+      "sign": 1,
+      "edge_id": "N041",
+      "effect": "activation",
+      "mechanism": "PtrNAC156 expression is co-elevated with PtoMYB74 in transgenic OE lines, consistent with second-tier regulation",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2018.01262",
+          "title": "Ectopic Expression of PtoMYB74 in Poplar and Arabidopsis Promotes Secondary Cell Wall Formation",
+          "authors": "Li C, Ma X, Yu H, Fu Y, Luo K",
+          "year": 2018,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "expression levels of secondary wall-associated NAC and MYB transcription factors were not induced in the transgenic lines except for PtrNAC156 and PtrMYB128",
+          "claim": "NAC156 is co-regulated with MYB74 in the cascade"
+        }
+      ]
+    },
+    {
+      "source": "NAC156",
+      "target": "CCOAOMT1",
+      "sign": 1,
+      "edge_id": "N042",
+      "effect": "activation",
+      "mechanism": "PtrNAC156 activates PtrCCoAOMT1 promoter",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.181354",
+          "title": "Dissection of the Transcriptional Program Regulating Secondary Wall Biosynthesis during Wood Formation in Poplar",
+          "authors": "McCarthy RL, Zhong R, Lee C, Ye ZH",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "PtrNAC156 activate the promoters of PtrCesA8 and PtrCCoAOMT1",
+          "claim": "NAC156 activates CCoAOMT1"
+        }
+      ]
+    },
+    {
+      "source": "MYB3",
+      "target": "PAL1",
+      "sign": 1,
+      "edge_id": "N043",
+      "effect": "activation",
+      "mechanism": "PtrMYB3 activates PAL via SMRE",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2020.00652",
+          "title": "Transcriptional and Post-transcriptional Regulation of Lignin Biosynthesis Pathway Genes in Populus",
+          "authors": "Zhang J, Tuskan GA, Tschaplinski TJ, Muchero W, Chen JG",
+          "year": 2020,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "PtrMYB3 and PtrMYB20 activate biosynthesis pathways including PAL genes",
+          "claim": "MYB3 activates PAL1"
+        }
+      ]
+    },
+    {
+      "source": "MYB3",
+      "target": "CCOAOMT1",
+      "sign": 1,
+      "edge_id": "N044",
+      "effect": "activation",
+      "mechanism": "PtrMYB3 activates lignin biosynthetic genes including CCoAOMT1",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.181354",
+          "title": "Dissection of the Transcriptional Program Regulating Secondary Wall Biosynthesis during Wood Formation in Poplar",
+          "authors": "McCarthy RL, Zhong R, Lee C, Ye ZH",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "PtrMYB3 activates biosynthetic genes for all three major wood components",
+          "claim": "MYB3 activates CCoAOMT1"
+        }
+      ]
+    },
+    {
+      "source": "MYB3",
+      "target": "COMT1",
+      "sign": 1,
+      "edge_id": "N045",
+      "effect": "activation",
+      "mechanism": "PtrMYB3 activates COMT2 via SMRE",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.111.181354",
+          "title": "Dissection of the Transcriptional Program Regulating Secondary Wall Biosynthesis during Wood Formation in Poplar",
+          "authors": "McCarthy RL, Zhong R, Lee C, Ye ZH",
+          "year": 2011,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "PtrMYB3 able to activate lignin biosynthetic genes including COMT2",
+          "claim": "MYB3 activates COMT1"
+        }
+      ]
+    },
+    {
+      "source": "MYB3",
+      "target": "MYB221",
+      "sign": 1,
+      "edge_id": "N046",
+      "effect": "activation",
+      "mechanism": "MYB46-class MYBs activate MYB221/MYB4-class repressors as part of the homeostatic feedback",
+      "evidence": [
+        {
+          "doi": "10.1038/srep12240",
+          "title": "Poplar PdMYB221 is involved in the direct and indirect regulation of secondary wall biosynthesis during wood formation",
+          "authors": "Tang X, Zhuang Y, Qi G, et al.",
+          "year": 2015,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "MYB4 can be activated by MYB46, a second-level master regulator",
+          "claim": "MYB3 activates MYB221"
+        }
+      ]
+    },
+    {
+      "source": "MYB20",
+      "target": "PAL1",
+      "sign": 1,
+      "edge_id": "N047",
+      "effect": "activation",
+      "mechanism": "PtrMYB20 activates PAL",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2020.00652",
+          "title": "Transcriptional and Post-transcriptional Regulation of Lignin Biosynthesis Pathway Genes in Populus",
+          "authors": "Zhang J, Tuskan GA, Tschaplinski TJ, Muchero W, Chen JG",
+          "year": 2020,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "PtrMYB3 and PtrMYB20 activate biosynthesis pathways of lignin including PAL",
+          "claim": "MYB20 activates PAL1"
+        }
+      ]
+    },
+    {
+      "source": "MYB21",
+      "target": "PT4CL1",
+      "sign": 1,
+      "edge_id": "N048",
+      "effect": "activation",
+      "mechanism": "PtrMYB21 (MYB83 ortholog) activates 4CL1 via SMRE",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0069219",
+          "title": "The Poplar MYB Master Switches Bind to the SMRE Site and Activate the Secondary Wall Biosynthetic Program during Wood Formation",
+          "authors": "Zhong R, McCarthy RL, Haghighat M, Ye ZH",
+          "year": 2013,
+          "journal": "PLoS ONE",
+          "evidence_sentence": "PtrMYB21 overexpressors show lignin (4CL1 and CCoAOMT1) activation",
+          "claim": "MYB21 activates 4CL1"
+        }
+      ]
+    },
+    {
+      "source": "MYB21",
+      "target": "CCOAOMT1",
+      "sign": 1,
+      "edge_id": "N049",
+      "effect": "activation",
+      "mechanism": "PtrMYB21 activates CCoAOMT1 via SMRE",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0069219",
+          "title": "The Poplar MYB Master Switches Bind to the SMRE Site and Activate the Secondary Wall Biosynthetic Program during Wood Formation",
+          "authors": "Zhong R, McCarthy RL, Haghighat M, Ye ZH",
+          "year": 2013,
+          "journal": "PLoS ONE",
+          "evidence_sentence": "activation of cellulose, xylan and lignin (4CL1 and CCoAOMT1)",
+          "claim": "MYB21 activates CCoAOMT1"
+        }
+      ]
+    },
+    {
+      "source": "MYB74",
+      "target": "CCR2",
+      "sign": 1,
+      "edge_id": "N050",
+      "effect": "activation",
+      "mechanism": "PtoMYB74 directly activates the CCR2 promoter in transactivation assays",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2018.01262",
+          "title": "Ectopic Expression of PtoMYB74 in Poplar and Arabidopsis Promotes Secondary Cell Wall Formation",
+          "authors": "Li C, Ma X, Yu H, Fu Y, Luo K",
+          "year": 2018,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "PtoMYB74 could activate the promoters of biosynthetic genes for lignin (CCOAOMT1, CCR2, C3H3, C4H2, F5H2) and cellulose (CesA2B)",
+          "claim": "MYB74 activates CCR2"
+        }
+      ]
+    },
+    {
+      "source": "MYB74",
+      "target": "C3H1",
+      "sign": 1,
+      "edge_id": "N051",
+      "effect": "activation",
+      "mechanism": "PtoMYB74 directly activates C3H3 (C3H1) promoter",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2018.01262",
+          "title": "Ectopic Expression of PtoMYB74 in Poplar and Arabidopsis Promotes Secondary Cell Wall Formation",
+          "authors": "Li C, Ma X, Yu H, Fu Y, Luo K",
+          "year": 2018,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "PtoMYB74 could activate the promoters of biosynthetic genes for lignin (CCOAOMT1, CCR2, C3H3, C4H2, F5H2)",
+          "claim": "MYB74 activates C3H1"
+        }
+      ]
+    },
+    {
+      "source": "MYB74",
+      "target": "C4H1",
+      "sign": 1,
+      "edge_id": "N052",
+      "effect": "activation",
+      "mechanism": "PtoMYB74 directly activates C4H2 (C4H1) promoter",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2018.01262",
+          "title": "Ectopic Expression of PtoMYB74 in Poplar and Arabidopsis Promotes Secondary Cell Wall Formation",
+          "authors": "Li C, Ma X, Yu H, Fu Y, Luo K",
+          "year": 2018,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "PtoMYB74 could activate the promoters of biosynthetic genes for lignin (CCOAOMT1, CCR2, C3H3, C4H2, F5H2)",
+          "claim": "MYB74 activates C4H1"
+        }
+      ]
+    },
+    {
+      "source": "MYB74",
+      "target": "F5H1",
+      "sign": 1,
+      "edge_id": "N053",
+      "effect": "activation",
+      "mechanism": "PtoMYB74 directly activates F5H2 (F5H1) promoter",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2018.01262",
+          "title": "Ectopic Expression of PtoMYB74 in Poplar and Arabidopsis Promotes Secondary Cell Wall Formation",
+          "authors": "Li C, Ma X, Yu H, Fu Y, Luo K",
+          "year": 2018,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "PtoMYB74 could activate the promoters of biosynthetic genes for lignin (CCOAOMT1, CCR2, C3H3, C4H2, F5H2)",
+          "claim": "MYB74 activates F5H1"
+        }
+      ]
+    },
+    {
+      "source": "ARF2_1",
+      "target": "MYB92",
+      "sign": -1,
+      "edge_id": "N054",
+      "effect": "repression",
+      "mechanism": "PtrARF2.1 represses PtoMYB92; MYB92 is upregulated in PtrARF2.1-RNAi",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms20174141",
+          "title": "PtrARF2.1 Is Involved in Regulation of Leaf Development and Lignin Biosynthesis in Poplar Trees",
+          "authors": "Fu Y, Win P, Zhang H, et al.",
+          "year": 2019,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "transcript abundance of WND2B, WND6B and MYB92 were upregulated in PtrARF2.1-RNAi leaves",
+          "claim": "ARF2.1 represses MYB92"
+        }
+      ]
+    },
+    {
+      "source": "MYB92",
+      "target": "CCOAOMT1",
+      "sign": 1,
+      "edge_id": "N055",
+      "effect": "activation",
+      "mechanism": "PtoMYB92 activates CCoAOMT1",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcv157",
+          "title": "PtoMYB92 is a Transcriptional Activator of the Lignin Biosynthetic Pathway During Secondary Cell Wall Formation in Populus tomentosa",
+          "authors": "Li C, Wang X, Ran L, Tian Q, Fan D, Luo K",
+          "year": 2015,
+          "journal": "Plant and Cell Physiology",
+          "evidence_sentence": "PtoMYB92 specifically activated the expression of lignin biosynthetic genes including CCOAOMT1, CCR2, COMT2, C3H3, PAL4, HCT1, C4H2 and CAD1",
+          "claim": "MYB92 activates CCoAOMT1"
+        }
+      ]
+    },
+    {
+      "source": "MYB92",
+      "target": "CCR2",
+      "sign": 1,
+      "edge_id": "N056",
+      "effect": "activation",
+      "mechanism": "PtoMYB92 activates CCR2",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcv157",
+          "title": "PtoMYB92 is a Transcriptional Activator of the Lignin Biosynthetic Pathway During Secondary Cell Wall Formation in Populus tomentosa",
+          "authors": "Li C, Wang X, Ran L, Tian Q, Fan D, Luo K",
+          "year": 2015,
+          "journal": "Plant and Cell Physiology",
+          "evidence_sentence": "PtoMYB92 specifically activated the expression of lignin biosynthetic genes including CCOAOMT1, CCR2, COMT2, C3H3, PAL4, HCT1, C4H2 and CAD1",
+          "claim": "MYB92 activates CCR2"
+        }
+      ]
+    },
+    {
+      "source": "MYB92",
+      "target": "COMT1",
+      "sign": 1,
+      "edge_id": "N057",
+      "effect": "activation",
+      "mechanism": "PtoMYB92 activates COMT2 (COMT1)",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcv157",
+          "title": "PtoMYB92 is a Transcriptional Activator of the Lignin Biosynthetic Pathway During Secondary Cell Wall Formation in Populus tomentosa",
+          "authors": "Li C, Wang X, Ran L, Tian Q, Fan D, Luo K",
+          "year": 2015,
+          "journal": "Plant and Cell Physiology",
+          "evidence_sentence": "PtoMYB92 specifically activated the expression of lignin biosynthetic genes including CCOAOMT1, CCR2, COMT2, C3H3, PAL4, HCT1, C4H2 and CAD1",
+          "claim": "MYB92 activates COMT1"
+        }
+      ]
+    },
+    {
+      "source": "MYB92",
+      "target": "C3H1",
+      "sign": 1,
+      "edge_id": "N058",
+      "effect": "activation",
+      "mechanism": "PtoMYB92 activates C3H3 (C3H1)",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcv157",
+          "title": "PtoMYB92 is a Transcriptional Activator of the Lignin Biosynthetic Pathway During Secondary Cell Wall Formation in Populus tomentosa",
+          "authors": "Li C, Wang X, Ran L, Tian Q, Fan D, Luo K",
+          "year": 2015,
+          "journal": "Plant and Cell Physiology",
+          "evidence_sentence": "PtoMYB92 specifically activated the expression of lignin biosynthetic genes including CCOAOMT1, CCR2, COMT2, C3H3, PAL4, HCT1, C4H2 and CAD1",
+          "claim": "MYB92 activates C3H1"
+        }
+      ]
+    },
+    {
+      "source": "MYB92",
+      "target": "PAL1",
+      "sign": 1,
+      "edge_id": "N059",
+      "effect": "activation",
+      "mechanism": "PtoMYB92 activates PAL4 (PAL1)",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcv157",
+          "title": "PtoMYB92 is a Transcriptional Activator of the Lignin Biosynthetic Pathway During Secondary Cell Wall Formation in Populus tomentosa",
+          "authors": "Li C, Wang X, Ran L, Tian Q, Fan D, Luo K",
+          "year": 2015,
+          "journal": "Plant and Cell Physiology",
+          "evidence_sentence": "PtoMYB92 specifically activated the expression of lignin biosynthetic genes including CCOAOMT1, CCR2, COMT2, C3H3, PAL4, HCT1, C4H2 and CAD1",
+          "claim": "MYB92 activates PAL1"
+        }
+      ]
+    },
+    {
+      "source": "MYB92",
+      "target": "HCT1",
+      "sign": 1,
+      "edge_id": "N060",
+      "effect": "activation",
+      "mechanism": "PtoMYB92 activates HCT1",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcv157",
+          "title": "PtoMYB92 is a Transcriptional Activator of the Lignin Biosynthetic Pathway During Secondary Cell Wall Formation in Populus tomentosa",
+          "authors": "Li C, Wang X, Ran L, Tian Q, Fan D, Luo K",
+          "year": 2015,
+          "journal": "Plant and Cell Physiology",
+          "evidence_sentence": "PtoMYB92 specifically activated the expression of lignin biosynthetic genes including CCOAOMT1, CCR2, COMT2, C3H3, PAL4, HCT1, C4H2 and CAD1",
+          "claim": "MYB92 activates HCT1"
+        }
+      ]
+    },
+    {
+      "source": "MYB92",
+      "target": "C4H1",
+      "sign": 1,
+      "edge_id": "N061",
+      "effect": "activation",
+      "mechanism": "PtoMYB92 activates C4H2 (C4H1)",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcv157",
+          "title": "PtoMYB92 is a Transcriptional Activator of the Lignin Biosynthetic Pathway During Secondary Cell Wall Formation in Populus tomentosa",
+          "authors": "Li C, Wang X, Ran L, Tian Q, Fan D, Luo K",
+          "year": 2015,
+          "journal": "Plant and Cell Physiology",
+          "evidence_sentence": "PtoMYB92 specifically activated the expression of lignin biosynthetic genes including CCOAOMT1, CCR2, COMT2, C3H3, PAL4, HCT1, C4H2 and CAD1",
+          "claim": "MYB92 activates C4H1"
+        }
+      ]
+    },
+    {
+      "source": "MYB92",
+      "target": "CAD1",
+      "sign": 1,
+      "edge_id": "N062",
+      "effect": "activation",
+      "mechanism": "PtoMYB92 activates CAD1",
+      "evidence": [
+        {
+          "doi": "10.1093/pcp/pcv157",
+          "title": "PtoMYB92 is a Transcriptional Activator of the Lignin Biosynthetic Pathway During Secondary Cell Wall Formation in Populus tomentosa",
+          "authors": "Li C, Wang X, Ran L, Tian Q, Fan D, Luo K",
+          "year": 2015,
+          "journal": "Plant and Cell Physiology",
+          "evidence_sentence": "PtoMYB92 specifically activated the expression of lignin biosynthetic genes including CCOAOMT1, CCR2, COMT2, C3H3, PAL4, HCT1, C4H2 and CAD1",
+          "claim": "MYB92 activates CAD1"
+        }
+      ]
+    },
+    {
+      "source": "MYB152",
+      "target": "PT4CL1",
+      "sign": 1,
+      "edge_id": "N063",
+      "effect": "activation",
+      "mechanism": "PtrMYB152 upregulates 4CL1",
+      "evidence": [
+        {
+          "doi": "10.1038/srep05054",
+          "title": "Regulation of secondary cell wall biosynthesis by poplar R2R3 MYB transcription factor PtrMYB152 in Arabidopsis",
+          "authors": "Wang S, Li E, Porth I, Chen JG, Mansfield SD, Douglas CJ",
+          "year": 2014,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "transgenic lines had increased expression of several lignin biosynthetic genes including 4CL1",
+          "claim": "MYB152 activates 4CL1"
+        }
+      ]
+    },
+    {
+      "source": "MYB152",
+      "target": "HCT1",
+      "sign": 1,
+      "edge_id": "N064",
+      "effect": "activation",
+      "mechanism": "PtrMYB152 upregulates HCT1",
+      "evidence": [
+        {
+          "doi": "10.1038/srep05054",
+          "title": "Regulation of secondary cell wall biosynthesis by poplar R2R3 MYB transcription factor PtrMYB152 in Arabidopsis",
+          "authors": "Wang S, Li E, Porth I, Chen JG, Mansfield SD, Douglas CJ",
+          "year": 2014,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "increased expression of biosynthetic genes including HCT",
+          "claim": "MYB152 activates HCT1"
+        }
+      ]
+    },
+    {
+      "source": "MYB152",
+      "target": "C3H1",
+      "sign": 1,
+      "edge_id": "N065",
+      "effect": "activation",
+      "mechanism": "PtrMYB152 upregulates C3H1",
+      "evidence": [
+        {
+          "doi": "10.1038/srep05054",
+          "title": "Regulation of secondary cell wall biosynthesis by poplar R2R3 MYB transcription factor PtrMYB152 in Arabidopsis",
+          "authors": "Wang S, Li E, Porth I, Chen JG, Mansfield SD, Douglas CJ",
+          "year": 2014,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "increased expression of biosynthetic genes including C3H1",
+          "claim": "MYB152 activates C3H1"
+        }
+      ]
+    },
+    {
+      "source": "MYB152",
+      "target": "CCOAOMT1",
+      "sign": 1,
+      "edge_id": "N066",
+      "effect": "activation",
+      "mechanism": "PtrMYB152 upregulates CCoAOMT1",
+      "evidence": [
+        {
+          "doi": "10.1038/srep05054",
+          "title": "Regulation of secondary cell wall biosynthesis by poplar R2R3 MYB transcription factor PtrMYB152 in Arabidopsis",
+          "authors": "Wang S, Li E, Porth I, Chen JG, Mansfield SD, Douglas CJ",
+          "year": 2014,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "increased expression of biosynthetic genes including CCoAOMT1",
+          "claim": "MYB152 activates CCoAOMT1"
+        }
+      ]
+    },
+    {
+      "source": "MYB152",
+      "target": "CAD1",
+      "sign": 1,
+      "edge_id": "N067",
+      "effect": "activation",
+      "mechanism": "PtrMYB152 upregulates CAD",
+      "evidence": [
+        {
+          "doi": "10.1038/srep05054",
+          "title": "Regulation of secondary cell wall biosynthesis by poplar R2R3 MYB transcription factor PtrMYB152 in Arabidopsis",
+          "authors": "Wang S, Li E, Porth I, Chen JG, Mansfield SD, Douglas CJ",
+          "year": 2014,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "increased expression of biosynthetic genes including CAD6",
+          "claim": "MYB152 activates CAD1"
+        }
+      ]
+    },
+    {
+      "source": "MYB152",
+      "target": "CCR2",
+      "sign": 1,
+      "edge_id": "N068",
+      "effect": "activation",
+      "mechanism": "PtrMYB152 activates CCR2",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2020.00652",
+          "title": "Transcriptional and Post-transcriptional Regulation of Lignin Biosynthesis Pathway Genes in Populus",
+          "authors": "Zhang J, Tuskan GA, Tschaplinski TJ, Muchero W, Chen JG",
+          "year": 2020,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "CCR2 activated by PtrMYB152",
+          "claim": "MYB152 activates CCR2"
+        }
+      ]
+    },
+    {
+      "source": "MYB152",
+      "target": "F5H1",
+      "sign": 1,
+      "edge_id": "N069",
+      "effect": "activation",
+      "mechanism": "PtrMYB152 activates F5H",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2020.00652",
+          "title": "Transcriptional and Post-transcriptional Regulation of Lignin Biosynthesis Pathway Genes in Populus",
+          "authors": "Zhang J, Tuskan GA, Tschaplinski TJ, Muchero W, Chen JG",
+          "year": 2020,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "F5H activated by PtrMYB152 and PtrMYB090/161",
+          "claim": "MYB152 activates F5H1"
+        }
+      ]
+    },
+    {
+      "source": "MYB90",
+      "target": "F5H1",
+      "sign": 1,
+      "edge_id": "N070",
+      "effect": "activation",
+      "mechanism": "PtrMYB090 binds and activates F5H promoter",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2020.00652",
+          "title": "Transcriptional and Post-transcriptional Regulation of Lignin Biosynthesis Pathway Genes in Populus",
+          "authors": "Zhang J, Tuskan GA, Tschaplinski TJ, Muchero W, Chen JG",
+          "year": 2020,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "PtrMYB090, PtrMYB161 identified as upstream regulators of F5H genes",
+          "claim": "MYB90 activates F5H1"
+        }
+      ]
+    },
+    {
+      "source": "MYB90",
+      "target": "COMT1",
+      "sign": 1,
+      "edge_id": "N071",
+      "effect": "activation",
+      "mechanism": "PtrMYB090 activates COMT2 (COMT1)",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2020.00652",
+          "title": "Transcriptional and Post-transcriptional Regulation of Lignin Biosynthesis Pathway Genes in Populus",
+          "authors": "Zhang J, Tuskan GA, Tschaplinski TJ, Muchero W, Chen JG",
+          "year": 2020,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "COMT2 is activated by PtoMYB170, PtrMYB090 and PtrMYB152",
+          "claim": "MYB90 activates COMT1"
+        }
+      ]
+    },
+    {
+      "source": "MYB161",
+      "target": "F5H1",
+      "sign": 1,
+      "edge_id": "N072",
+      "effect": "activation",
+      "mechanism": "PtrMYB161 binds and directly regulates PtrCAld5H1/2 (F5H1) promoters",
+      "evidence": [
+        {
+          "doi": "10.3390/ijms22073560",
+          "title": "MYB Transcription Factors and Its Regulation in Secondary Cell Wall Formation and Lignin Biosynthesis during Xylem Development",
+          "authors": "Xiao R, Zhang C, Guo X, Li H, Lu H",
+          "year": 2021,
+          "journal": "International Journal of Molecular Sciences",
+          "evidence_sentence": "PtrMYB161 TF binds and directly regulates two syringyl-specific monolignol genes",
+          "claim": "MYB161 activates F5H1"
+        }
+      ]
+    },
+    {
+      "source": "NF_YA11",
+      "target": "F5H1",
+      "sign": 1,
+      "edge_id": "N073",
+      "effect": "activation",
+      "mechanism": "PtNF-YA11 directly binds and activates PtF5H2 (F5H1) promoter",
+      "evidence": [
+        {
+          "doi": "10.1016/j.indcrop.2024.119891",
+          "title": "Poplar NF-YA11 alters lignin composition and increases methane yield by upregulating the FERULIC ACID 5-HYDROXYLASE 2 gene",
+          "authors": "Wei et al.",
+          "year": 2024,
+          "journal": "Industrial Crops and Products",
+          "evidence_sentence": "PtF5H2 is direct target of PtNF-YA11; OE increases S-lignin, nf-ya11 KO decreases S-lignin",
+          "claim": "NF-YA11 activates F5H1"
+        }
+      ]
+    },
+    {
+      "source": "WBLH2",
+      "target": "HCT1",
+      "sign": 1,
+      "edge_id": "N074",
+      "effect": "activation",
+      "mechanism": "PtrWBLH2 activates HCT1",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2020.00652",
+          "title": "Transcriptional and Post-transcriptional Regulation of Lignin Biosynthesis Pathway Genes in Populus",
+          "authors": "Zhang J, Tuskan GA, Tschaplinski TJ, Muchero W, Chen JG",
+          "year": 2020,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "HCT1 regulated by PtrWBLH2",
+          "claim": "WBLH2 activates HCT1"
+        }
+      ]
+    },
+    {
+      "source": "WBLH2",
+      "target": "F5H1",
+      "sign": 1,
+      "edge_id": "N075",
+      "effect": "activation",
+      "mechanism": "PtrWBLH2 is upstream regulator of F5H",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2020.00652",
+          "title": "Transcriptional and Post-transcriptional Regulation of Lignin Biosynthesis Pathway Genes in Populus",
+          "authors": "Zhang J, Tuskan GA, Tschaplinski TJ, Muchero W, Chen JG",
+          "year": 2020,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "PtrWBLH2 identified as upstream regulator of F5H genes",
+          "claim": "WBLH2 activates F5H1"
+        }
+      ]
+    },
+    {
+      "source": "MYB156",
+      "target": "PAL1",
+      "sign": -1,
+      "edge_id": "N076",
+      "effect": "repression",
+      "mechanism": "PtoMYB156 EAR-motif repressor downregulates PAL1",
+      "evidence": [
+        {
+          "doi": "10.1038/srep41209",
+          "title": "PtoMYB156 is involved in negative regulation of phenylpropanoid metabolism and secondary cell wall biosynthesis during wood formation in poplar",
+          "authors": "Yang L, Zhao X, Ran L, Li C, Fan D, Luo K",
+          "year": 2017,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "overexpression of PtoMYB156 also resulted in downregulation of PtoPAL1",
+          "claim": "MYB156 represses PAL1"
+        }
+      ]
+    },
+    {
+      "source": "MYB156",
+      "target": "C4H1",
+      "sign": -1,
+      "edge_id": "N077",
+      "effect": "repression",
+      "mechanism": "PtoMYB156 OE downregulates C4H2",
+      "evidence": [
+        {
+          "doi": "10.1038/srep41209",
+          "title": "PtoMYB156 is involved in negative regulation of phenylpropanoid metabolism and secondary cell wall biosynthesis during wood formation in poplar",
+          "authors": "Yang L, Zhao X, Ran L, Li C, Fan D, Luo K",
+          "year": 2017,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "PtoMYB156 OE downregulates C4H2",
+          "claim": "MYB156 represses C4H1"
+        }
+      ]
+    },
+    {
+      "source": "MYB156",
+      "target": "PT4CL1",
+      "sign": -1,
+      "edge_id": "N078",
+      "effect": "repression",
+      "mechanism": "PtoMYB156 represses 4CL1",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2020.00652",
+          "title": "Transcriptional and Post-transcriptional Regulation of Lignin Biosynthesis Pathway Genes in Populus",
+          "authors": "Zhang J, Tuskan GA, Tschaplinski TJ, Muchero W, Chen JG",
+          "year": 2020,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "PtoMYB156 is negative regulator of secondary wall biosynthesis; represses phenylpropanoid pathway",
+          "claim": "MYB156 represses 4CL1"
+        }
+      ]
+    },
+    {
+      "source": "MYB156",
+      "target": "HCT1",
+      "sign": -1,
+      "edge_id": "N079",
+      "effect": "repression",
+      "mechanism": "PtoMYB156 OE downregulates HCT1",
+      "evidence": [
+        {
+          "doi": "10.1038/srep41209",
+          "title": "PtoMYB156 is involved in negative regulation of phenylpropanoid metabolism and secondary cell wall biosynthesis during wood formation in poplar",
+          "authors": "Yang L, Zhao X, Ran L, Li C, Fan D, Luo K",
+          "year": 2017,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "PtoMYB156 OE downregulates HCT1",
+          "claim": "MYB156 represses HCT1"
+        }
+      ]
+    },
+    {
+      "source": "MYB156",
+      "target": "C3H1",
+      "sign": -1,
+      "edge_id": "N080",
+      "effect": "repression",
+      "mechanism": "PtoMYB156 OE downregulates C3H1",
+      "evidence": [
+        {
+          "doi": "10.1038/srep41209",
+          "title": "PtoMYB156 is involved in negative regulation of phenylpropanoid metabolism and secondary cell wall biosynthesis during wood formation in poplar",
+          "authors": "Yang L, Zhao X, Ran L, Li C, Fan D, Luo K",
+          "year": 2017,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "PtoMYB156 OE downregulates C3H1",
+          "claim": "MYB156 represses C3H1"
+        }
+      ]
+    },
+    {
+      "source": "MYB156",
+      "target": "CCOAOMT1",
+      "sign": -1,
+      "edge_id": "N081",
+      "effect": "repression",
+      "mechanism": "PtoMYB156 OE downregulates CCoAOMT1",
+      "evidence": [
+        {
+          "doi": "10.1038/srep41209",
+          "title": "PtoMYB156 is involved in negative regulation of phenylpropanoid metabolism and secondary cell wall biosynthesis during wood formation in poplar",
+          "authors": "Yang L, Zhao X, Ran L, Li C, Fan D, Luo K",
+          "year": 2017,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "PtoMYB156 OE downregulates CCoMOT1",
+          "claim": "MYB156 represses CCoAOMT1"
+        }
+      ]
+    },
+    {
+      "source": "MYB156",
+      "target": "F5H1",
+      "sign": -1,
+      "edge_id": "N082",
+      "effect": "repression",
+      "mechanism": "PtoMYB156 OE downregulates F5H2",
+      "evidence": [
+        {
+          "doi": "10.1038/srep41209",
+          "title": "PtoMYB156 is involved in negative regulation of phenylpropanoid metabolism and secondary cell wall biosynthesis during wood formation in poplar",
+          "authors": "Yang L, Zhao X, Ran L, Li C, Fan D, Luo K",
+          "year": 2017,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "PtoMYB156 OE downregulates F5H2",
+          "claim": "MYB156 represses F5H1"
+        }
+      ]
+    },
+    {
+      "source": "MYB221",
+      "target": "COMT1",
+      "sign": -1,
+      "edge_id": "N083",
+      "effect": "repression",
+      "mechanism": "PdMYB221 binds and represses PdCOMT2 promoter (EMSA)",
+      "evidence": [
+        {
+          "doi": "10.1038/srep12240",
+          "title": "Poplar PdMYB221 is involved in the direct and indirect regulation of secondary wall biosynthesis during wood formation",
+          "authors": "Tang X, Zhuang Y, Qi G, et al.",
+          "year": 2015,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "PdMYB221 binds PdCOMT2 promoter by EMSA; transactivation shows repression",
+          "claim": "MYB221 represses COMT1"
+        }
+      ]
+    },
+    {
+      "source": "MYB221",
+      "target": "CCR2",
+      "sign": -1,
+      "edge_id": "N084",
+      "effect": "repression",
+      "mechanism": "PdMYB221 represses PdCCR1/CCR2 in transactivation",
+      "evidence": [
+        {
+          "doi": "10.1038/srep12240",
+          "title": "Poplar PdMYB221 is involved in the direct and indirect regulation of secondary wall biosynthesis during wood formation",
+          "authors": "Tang X, Zhuang Y, Qi G, et al.",
+          "year": 2015,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "represses PdCCR1",
+          "claim": "MYB221 represses CCR2"
+        }
+      ]
+    },
+    {
+      "source": "MYB221",
+      "target": "C4H1",
+      "sign": -1,
+      "edge_id": "N085",
+      "effect": "repression",
+      "mechanism": "PdMYB221 OE suppresses C4H",
+      "evidence": [
+        {
+          "doi": "10.1038/srep12240",
+          "title": "Poplar PdMYB221 is involved in the direct and indirect regulation of secondary wall biosynthesis during wood formation",
+          "authors": "Tang X, Zhuang Y, Qi G, et al.",
+          "year": 2015,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "PdMYB221 OE suppresses lignin synthetic genes including C4H",
+          "claim": "MYB221 represses C4H1"
+        }
+      ]
+    },
+    {
+      "source": "MYB221",
+      "target": "HCT1",
+      "sign": -1,
+      "edge_id": "N086",
+      "effect": "repression",
+      "mechanism": "PdMYB221 OE suppresses HCT",
+      "evidence": [
+        {
+          "doi": "10.1038/srep12240",
+          "title": "Poplar PdMYB221 is involved in the direct and indirect regulation of secondary wall biosynthesis during wood formation",
+          "authors": "Tang X, Zhuang Y, Qi G, et al.",
+          "year": 2015,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "PdMYB221 OE suppresses HCT",
+          "claim": "MYB221 represses HCT1"
+        }
+      ]
+    },
+    {
+      "source": "MYB221",
+      "target": "C3H1",
+      "sign": -1,
+      "edge_id": "N087",
+      "effect": "repression",
+      "mechanism": "PdMYB221 OE suppresses C3H1",
+      "evidence": [
+        {
+          "doi": "10.1038/srep12240",
+          "title": "Poplar PdMYB221 is involved in the direct and indirect regulation of secondary wall biosynthesis during wood formation",
+          "authors": "Tang X, Zhuang Y, Qi G, et al.",
+          "year": 2015,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "PdMYB221 OE suppresses C3H1",
+          "claim": "MYB221 represses C3H1"
+        }
+      ]
+    },
+    {
+      "source": "MYB221",
+      "target": "CAD1",
+      "sign": -1,
+      "edge_id": "N088",
+      "effect": "repression",
+      "mechanism": "PdMYB221 OE suppresses CAD5 (CAD1)",
+      "evidence": [
+        {
+          "doi": "10.1038/srep12240",
+          "title": "Poplar PdMYB221 is involved in the direct and indirect regulation of secondary wall biosynthesis during wood formation",
+          "authors": "Tang X, Zhuang Y, Qi G, et al.",
+          "year": 2015,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "PdMYB221 OE suppresses CAD5",
+          "claim": "MYB221 represses CAD1"
+        }
+      ]
+    },
+    {
+      "source": "MYB221",
+      "target": "PAL1",
+      "sign": -1,
+      "edge_id": "N089",
+      "effect": "repression",
+      "mechanism": "PdMYB221 OE suppresses PAL1",
+      "evidence": [
+        {
+          "doi": "10.1038/srep12240",
+          "title": "Poplar PdMYB221 is involved in the direct and indirect regulation of secondary wall biosynthesis during wood formation",
+          "authors": "Tang X, Zhuang Y, Qi G, et al.",
+          "year": 2015,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "PdMYB221 OE suppresses PAL1",
+          "claim": "MYB221 represses PAL1"
+        }
+      ]
+    },
+    {
+      "source": "MYB221",
+      "target": "PT4CL1",
+      "sign": -1,
+      "edge_id": "N090",
+      "effect": "repression",
+      "mechanism": "PdMYB221 OE suppresses 4CL1",
+      "evidence": [
+        {
+          "doi": "10.1038/srep12240",
+          "title": "Poplar PdMYB221 is involved in the direct and indirect regulation of secondary wall biosynthesis during wood formation",
+          "authors": "Tang X, Zhuang Y, Qi G, et al.",
+          "year": 2015,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "PdMYB221 OE suppresses 4CL1",
+          "claim": "MYB221 represses 4CL1"
+        }
+      ]
+    },
+    {
+      "source": "MYB221",
+      "target": "CCOAOMT1",
+      "sign": -1,
+      "edge_id": "N091",
+      "effect": "repression",
+      "mechanism": "PdMYB221 OE suppresses 9 lignin genes including CCoAOMT1",
+      "evidence": [
+        {
+          "doi": "10.1038/srep12240",
+          "title": "Poplar PdMYB221 is involved in the direct and indirect regulation of secondary wall biosynthesis during wood formation",
+          "authors": "Tang X, Zhuang Y, Qi G, et al.",
+          "year": 2015,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "nine lignin synthetic genes suppressed",
+          "claim": "MYB221 represses CCoAOMT1"
+        }
+      ]
+    },
+    {
+      "source": "KNAT7",
+      "target": "PAL1",
+      "sign": 1,
+      "edge_id": "N092",
+      "effect": "activation",
+      "mechanism": "PtKNAT7 OE upregulates PAL",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2021.762067",
+          "title": "Genetic Modification of KNAT7 Transcription Factor Expression Enhances Saccharification and Reduces Recalcitrance of Woody Biomass in Poplars",
+          "authors": "Ahlawat YK, Biswal AK, Chowdary YA, Mohnen D",
+          "year": 2021,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "PAL upregulated in PtKNAT7-OE lines",
+          "claim": "KNAT7 activates PAL1"
+        }
+      ]
+    },
+    {
+      "source": "KNAT7",
+      "target": "CCR2",
+      "sign": 1,
+      "edge_id": "N093",
+      "effect": "activation",
+      "mechanism": "PtKNAT7 OE upregulates CCR",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2021.762067",
+          "title": "Genetic Modification of KNAT7 Transcription Factor Expression Enhances Saccharification and Reduces Recalcitrance of Woody Biomass in Poplars",
+          "authors": "Ahlawat YK, Biswal AK, Chowdary YA, Mohnen D",
+          "year": 2021,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "CCR upregulated in PtKNAT7-OE lines",
+          "claim": "KNAT7 activates CCR2"
+        }
+      ]
+    }
+  ]
+}

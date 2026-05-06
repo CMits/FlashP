@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Kernel_Row_Number",
+    "species": "Zea mays",
+    "created": "2026-04-20"
+  },
+  "summary": {
+    "best_method": "Algebraic",
+    "best_accuracy": 0.859,
+    "best_kappa": 0.7525,
+    "best_mcc": 0.6568,
+    "recommendation_band": "export",
+    "recommendation": "Best-method accuracy 85.9% within 80-95% band. Refinement has converged (3-iteration cap + iter-3 revert). Remaining failures are framework limits; proceed to Export.",
+    "refinement_delta_pct": {
+      "algebraic": 8.4,
+      "ode": 4.2,
+      "rwr": 1.4
+    }
+  },
+  "comparison": [
+    {
+      "method": "Algebraic",
+      "accuracy": 0.859,
+      "kappa": 0.7525,
+      "mcc": 0.6568,
+      "convergence_rate": 1.0,
+      "best_params": "epsilon=0.1, K=10.0, damping=0.7, direction_threshold=0.05",
+      "strengths": "Post-refinement best method (85.9%, kappa 0.753 substantial). Handles Perception Gate rescues (T020, T021 pass) and correctly resolves IDS1, ra1/ra2, BIF1 GOF, and FEA4/ABPH2 cascade after the refinement fixes.",
+      "weaknesses": "Residual dilution for weak-KD (T042) and exogenous-CK treatment (T062, T063) — signal washed across 4+ step cascades. Non-monotonic dosage (T045, T076, T026) and Trap 5 rescue (T022, T023) are framework limits.",
+      "failures": [
+        "T022",
+        "T023",
+        "T025",
+        "T026",
+        "T042",
+        "T045",
+        "T062",
+        "T063",
+        "T071",
+        "T076"
+      ]
+    },
+    {
+      "method": "ODE",
+      "accuracy": 0.803,
+      "kappa": 0.6585,
+      "mcc": 0.648,
+      "convergence_rate": 1.0,
+      "best_params": "K=0.5, n=2 (best from 24-point sensitivity sweep)",
+      "strengths": "Hill nonlinearity cleanly amplifies strong perturbations; +4.2 pp gain over baseline after refinement.",
+      "weaknesses": "Hill saturation caps OE signals (T064 KNR6 OE unchanged). Method-specific IDS1 residual at T036/T038 despite iter-2 edge removal. Same framework limits as Algebraic.",
+      "failures": [
+        "T004",
+        "T015",
+        "T023",
+        "T024",
+        "T025",
+        "T026",
+        "T042",
+        "T045",
+        "T046",
+        "T062",
+        "T063",
+        "T064",
+        "T071",
+        "T072"
+      ]
+    },
+    {
+      "method": "RWR",
+      "accuracy": 0.803,
+      "kappa": 0.6288,
+      "mcc": 0.4402,
+      "convergence_rate": 1.0,
+      "best_params": "alpha=0.5",
+      "strengths": "Tied second-best (80.3%). Recovers some KRN-QTL downstream tests that ODE misses.",
+      "weaknesses": "Signed-diffusion leaks exogenous peptide through receptor-null backgrounds (T020-T023 all fail). Flips ra1/ra2 direction (T029, T030).",
+      "failures": [
+        "T020",
+        "T021",
+        "T022",
+        "T023",
+        "T024",
+        "T026",
+        "T033",
+        "T034",
+        "T035",
+        "T042",
+        "T045",
+        "T071",
+        "T072",
+        "T076"
+      ]
+    }
+  ]
+}

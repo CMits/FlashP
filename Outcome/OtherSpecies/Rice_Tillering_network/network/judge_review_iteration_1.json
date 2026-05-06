@@ -1,0 +1,438 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "tillering",
+    "phenotype_node": "Tiller_Number",
+    "species": "Oryza sativa",
+    "created": "2026-04-20",
+    "iteration": 1,
+    "judge_model": "Claude Opus 4.7 (1M context)"
+  },
+  "verdict": "iterate",
+  "summary": "The network is a strong first draft (65 nodes, 94 edges) with the SL Perception Gate properly implemented (SL->D14; D14, D3 co-inhibit D53) and all canonical integrator hubs (D53, IPA1, TB1, MOC1, NGR5) appropriately wired. However, THREE other hormones (Gibberellin, Auxin, Cytokinin) bypass their receptors, producing Perception-Gate purity violations that will fail signalling-mutant and rescue tests. The ABA biosynthesis arm is absent (NCED1, OsHOX12 curated but excluded), the canonical axillary-meristem regulator TAB1/OsWUS is missing, and four newly-curated nodes (OsHOX12, NCED1, OsDRM1, OsHK3) flagged by Step 1.5 were not placed on any cascade. Tiller_Number (8 inputs) and TB1 (8 inputs) exceed the 7-input hard cap. Nine HIGH/MEDIUM structural suggestions; iterate required.",
+  "rubric_scores": {
+    "pathway_completeness": {
+      "score": 3,
+      "justification": "SL biosynthesis + perception arms are complete (D27->D17/D10->MAX1->SL; D14+D3 co-inhibit D53; D53 represses IPA1 and MOC1). Nitrogen arm (NRT1.1B->NGR5; GATA8/LBD37->TCP19) is well-represented. BR (Brassinosteroid->BZR1/DLT) and clock (CCA1/PRR1) arms present. BUT: (a) ABA biosynthesis arm is a single summary edge T20->ABA with no NCED1/OsHOX12 intermediates despite both being curated (E091, E158, E157); (b) axillary-meristem initiation arm lacks TAB1/OsWUS despite E079, E080, E081 being curated; (c) auxin-signalling cascade has no OsTIR1 receptor or OsIAA/OsARF TFs despite E063-E065 being curated; (d) GA-signalling cascade lacks GID1 receptor despite E135/E136 curated. These are non-peripheral arms that ought to be modelled."
+    },
+    "mechanistic_depth": {
+      "score": 3,
+      "justification": "SL cascade is multi-step and layered (SL->D14->D53->{IPA1,MOC1,CKX9}). Clock is layered (Light/Photoperiod->CCA1/PRR1->TB1). But three major hormone arms use direct bypass edges that collapse mechanistic intermediates: Gibberellin->SLR1(-1) and Gibberellin->NGR5(-1) skip GID1 receptor; Cytokinin->TB1(-1) and Cytokinin->RR_TYPEA(+1) skip the HK4->AHP->RR21 transduction chain that is actually already in the network; Auxin->TB1(+1), Auxin->D10(+1), Auxin->D17(+1), Auxin->IPT(-1) skip OsTIR1-OsIAA-OsARF signalling entirely. NGR5's PRC2-mediated repression of SL biosynthesis genes (Wu 2020 Science) is not captured as D10/D27 edges from NGR5."
+    },
+    "motif_coverage": {
+      "score": 3,
+      "justification": "Perception Gate is applied cleanly for Strigolactone (only outgoing edge = D14) - excellent. But NOT applied for Gibberellin (2 direct outgoing: SLR1, NGR5), Cytokinin (3 direct outgoing despite HK4 being in-network), or Auxin (4 direct outgoing with no receptor in-network). Biosynthesis-Degradation Balance is done well for Cytokinin (IPT/LOG synthesise; CKX2/CKX9 degrade). Multi-Output Scaffold applied for IPA1 (->TB1, ->D53, ->PIN1B) and D53 (->IPA1, ->MOC1, ->CKX9). Feed-Forward motifs (Nitrogen->NGR5->TB1 and Nitrogen->TB1 direct) missing: currently N->NGR5 present but no direct N->TB1 (the Wu 2020 E113 edge is in curated but rejected)."
+    },
+    "cascade_balance": {
+      "score": 3,
+      "justification": "Source-node percentage = 28/65 = 43.1%, within the softened 30-50% target range. No node has zero outputs except the phenotype. BUT two nodes violate the 7-input hard cap: TB1 has 8 inputs (IPA1+, NGR5-, CK-, Auxin+, CCA1+, BZR1-, T6P-, VIL2-) and Tiller_Number has 8 inputs (5 act / 3 inh). Several nodes are genuinely under-specified (1 input) where curated evidence has 3+ regulators: AHP (only HK4; E160 OsHK3->AHP rejected), GATA8 (input only from nothing - is_source=True but GATA8-H haplotype curation exists), RR21 (only AHP; biology has OsHK cascade redundancy)."
+    },
+    "composite_node_handling": {
+      "score": 3,
+      "justification": "Partial. PIN1B is implicitly a PIN1a+1b composite (E011 OsPIN1b->IPA1 target and E058 OsPIN1b->TN target both land on PIN1B) but this is not documented in annotations. OsMAX1 is split into MAX1 (generic paralog family collapsed) + MAX1_1900 (Os1900 N-responsive) - documented. CKX family is partially composited: CKX2 and CKX9 separate, OsCKX4 (E044) and OsCKX11 (E046) excluded without documentation. OsHK family: only HK4 kept; OsHK3 (E161, E160) excluded. miR156/miR529 paralogs: only miR156 kept (E014 miR529->IPA1 excluded). These look like silent exclusions, not documented composites."
+    },
+    "hub_completeness": {
+      "score": 4,
+      "justification": "Major integrator hubs are well-regulated. TB1 (8 inputs from IPA1, NGR5, CK, Auxin, CCA1, BZR1, T6P, VIL2) covers canonical positive (IPA1, CCA1, Auxin) and negative (NGR5, CK, BZR1, T6P, VIL2) regulators. Missing: TB1->D14 feedback (E024) and TB1->MADS57 (E122) - but these would close a positive feedback loop (TRAP 1 risk) so defensible exclusion. IPA1 (7 inputs + 3 outputs) covers D53, miR156, IPI1, SHI1, RR21, CCA1, NGR5 - comprehensive. miR529 (E014) missing. D53 (4 inputs: D14-, D3-, IPA1+, Sucrose+) and MOC1 (4 inputs: D53-, TAD1-, TE-, SLR1+) are appropriate. Hubs overall solid - score lowered from 5 only because of miR529 and TB1 feedback defensibility documentation gap."
+    },
+    "topology_hazards": {
+      "score": 2,
+      "justification": "Multiple Perception-Gate purity violations = multiple TRAP 3 hazards. (a) Gibberellin has 2 direct outgoing (SLR1, NGR5) with no GID1 receptor - GA-GID1-SCF-SLR1 is a textbook SL-analog Perception Gate; (b) Cytokinin has 3 direct outgoing (TB1, HK4, RR_TYPEA) with HK4 in the network - Cytokinin->TB1 and Cytokinin->RR_TYPEA bypass the receptor; (c) Auxin has 4 direct outgoing (D10, D17, IPT, TB1) with no OsTIR1 in network - most egregious. Each of these will fail the corresponding receptor-KO + exogenous-hormone rescue tests in Step 4. No TRAP 1 positive feedback loops detected (network correctly broke TB1<->D14 feedback by excluding E024). No TRAP 2 redundancy issues. No self-loops."
+    },
+    "evidence_quality": {
+      "score": 4,
+      "justification": "Sampled 10 edges: all have DOI + title + authors + year + journal + evidence_sentence + claim (flat v2.0 schema). Mechanism strings are specific (e.g., E143 'SL-bound D14 directly binds D3 F-box protein to form D14-D3 complex', E140 'D53 contains EAR motifs and recruits TOPLESS/TPR co-repressors'). Some evidence sentences are 'abstract_read' rather than 'full_text_read' - about 20% of sampled edges. Edge N090 'OsGATA8 promotes tiller formation by repressing OsTCP19' is well-sourced (Wang 2024 Nat Genet). No placeholder mechanisms detected. Score 4 rather than 5 because abstract-only verifications could be upgraded to full-text for downstream-hub edges."
+    },
+    "phenotype_audit": {
+      "score": 3,
+      "justification": "Tiller_Number has 8 inputs (5 activators: MOC1, DLT, PIN9, LAX1, FON1; 3 inhibitors: TB1, PIN1B, ABA) - exceeds the 3-5 target and the 7-cap. All major effector classes represented: integrator TF (TB1), meristem TFs (MOC1, DLT, FON1), transporters (PIN1B, PIN9, LAX1), hormone (ABA direct). BUT missing a canonical direct Gibberellin arm (GA->SLR1->MOC1 routes indirectly) - defensible. Missing OsGATA8->TN direct (E150) and MOC3->TN direct (E154) - but MOC3 routes via FON1, and GATA8 routes via TCP19->DLT - defensible cascade routes. Score 3 because of over-count (8 > 7). Recommendation: consider whether PIN1B and PIN9 both being in the phenotype set is double-counting auxin-transport effects."
+    },
+    "rejected_edges_review": {
+      "score": 4,
+      "justification": "75 curated edges not in the network. Categorised: (a) SUMMARY edges correctly excluded because cascade is present - majority, e.g. Strigolactone->TN (E100), Cytokinin->TN (E047), D53->TN (E129), IPA1->TN (E101), GATA8->TN (E150), PRR1->TN (E125), SLR1->TN (E105), Gibberellin->TN (E106), TAD1->TN (E127), TE->TN (E128), MOC3->TN (E154), OsPIN1a/b->TN (E057, E058), CCA1->TN (E126), CKX2->TN (E130), Sucrose->TN (E073), TAB1->TN (E079), miR444a->TN (E111), OsDRM1->TN (E163), Auxin->TN (E110), OsNiR->TN (E096), LAX2->TN (E077), NPF7.7->TN (E102), OsPIN2->TN (E059) - all defensible as cascade routes are represented; (b) BYPASS edges correctly excluded - Strigolactone->CKX9 (E056) [cascade via D53], Strigolactone->TB1 (E112) [cascade via D53->IPA1], Strigolactone->BZR1 (E086) [cascade via D53 possible], Strigolactone->PIN1 (E108) [no PIN1 in network]; (c) SIGNIFICANT non-summary edges silently excluded - GID1->SLR1 (E135), GID1->NGR5 (E136) [TRAP 3], OsTIR1->OsIAA (E064), OsIAA->OsARF (E065) [auxin signalling], TAB1->OSH1 (E080) [meristem], FON2->TAB1 (E081), D53->TPL (E140), TPL->IPA1 (E141), NCED1->ABA (E091), OsHOX12->NCED1 (E158), Strigolactone->OsHOX12 (E157), OsHK3->AHP (E160), IPA1->LOG (E010), IPA1->HK4 (E012), D14->D3 (E143), ABA->D10 (E159), Nitrogen->TB1 (E113), Nitrogen->TCP19 (E114). The category (c) silent exclusions drive the suggestions list."
+    },
+    "key_player_density": {
+      "score": 4,
+      "justification": "Per-node coverage ratios computed after normalising curated Os-prefix to network aliases (OsTB1->TB1, OsCCA1->CCA1, etc.). Key-player ratios: TB1 9/16=0.56, IPA1 10/16=0.62, Strigolactone 7/14=0.50, Cytokinin 8/14=0.57, Auxin 7/9=0.78, Nitrogen 6/10=0.60, MOC1 7/8=0.88, CCA1 8/9=0.89, D53 7/9=0.78, Sucrose 6/7=0.86, NGR5 8/9=0.89. Tiller_Number at 8/31=0.26 is visually alarming but the 23 excluded edges are 90%+ summary edges that have documented cascade routes (see rejected_edges_review). ABA at 1/4=0.25 has only 4 curated edges so falls below the 5-edge §9.11 threshold - but STILL signals a weak biosynthesis arm that deserves attention. No node with curated_count>=5 has ratio<0.30 after summary-edge correction. Score 4 rather than 5 because ABA biosynthesis arm is under-specified even if §9.11 formal threshold is not triggered.",
+      "per_player_ratios": {
+        "TB1": 0.56,
+        "IPA1": 0.62,
+        "Strigolactone": 0.50,
+        "Cytokinin": 0.57,
+        "Auxin": 0.78,
+        "Nitrogen": 0.60,
+        "MOC1": 0.88,
+        "CCA1": 0.89,
+        "D53": 0.78,
+        "Sucrose": 0.86,
+        "NGR5": 0.89,
+        "Tiller_Number": 0.26,
+        "ABA": 0.25,
+        "LAX1": 0.40,
+        "SLR1": 0.60,
+        "GATA8": 0.33
+      }
+    }
+  },
+  "per_node_audit": [
+    {"node": "ABA", "inputs": [], "outputs": ["Tiller_Number(-)"], "curated_regulators_excluded": ["NCED1(+) via E091", "T20(+) via E156 - present in-network", "OsHOX12 upstream of NCED1"], "verdict": "under-specified", "comment": "Source node with zero activators/inhibitors despite NCED1->ABA (E091) being curated. Single output OK for a peripheral hormone arm, but biosynthesis depth missing."},
+    {"node": "AHP", "inputs": ["HK4(+)"], "outputs": ["RR21(+)"], "curated_regulators_excluded": ["OsHK3(+) via E160"], "verdict": "under-specified", "comment": "Single activator where OsHK3 redundancy (E160) is documented. Could be composited as OsHK family or add OsHK3 as second activator."},
+    {"node": "Ammonium", "inputs": [], "outputs": ["PIN9(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source node, one canonical downstream target. OK."},
+    {"node": "Auxin", "inputs": ["Decapitation(-)", "TAR2(+)", "YUCCA(+)"], "outputs": ["D10(+)", "D17(+)", "IPT(-)", "TB1(+)"], "curated_regulators_excluded": ["OsTIR1(-) via E063 - RECEPTOR MISSING"], "verdict": "bypass_violation", "comment": "Auxin has 4 direct outgoing edges but no receptor in network. This is a Perception Gate (Motif 1) TRAP 3 - tir1+IAA rescue tests will fail. Either add OsTIR1+OsIAA+OsARF cascade, or document as framework limitation."},
+    {"node": "BZR1", "inputs": ["Brassinosteroid(+)"], "outputs": ["TB1(-)"], "curated_regulators_excluded": ["Strigolactone(-) via E086 - summary, defensible"], "verdict": "appropriate", "comment": "Single activator + single repressor-output is fine for a TF. Could add SL->BZR1 via D53 cascade if D53-BZR1 complex is modelled."},
+    {"node": "Brassinosteroid", "inputs": [], "outputs": ["BZR1(+)", "DLT(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source hormone with 2 clean outputs. Perception Gate not needed because BR receptor not in curated pool."},
+    {"node": "CCA1", "inputs": ["PRR1(-)", "Sucrose(-)", "Light(+)"], "outputs": ["TB1(+)", "D14(+)", "D10(+)", "IPA1(+)", "PRR1(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Excellent multi-output clock TF. All curated outputs included (N050-N054). Reciprocal PRR1 feedback correctly modelled."},
+    {"node": "CKX2", "inputs": ["DST(+)"], "outputs": ["Cytokinin(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "CK degradation enzyme, DST-driven per Li 2013."},
+    {"node": "CKX9", "inputs": ["D53(-)"], "outputs": ["Cytokinin(-)"], "curated_regulators_excluded": ["Strigolactone(+) via E056 - summary, cascade via D53 is in-network"], "verdict": "appropriate", "comment": "Properly gated via D53 (not direct SL->CKX9 bypass). Good Perception-Gate application."},
+    {"node": "Cytokinin", "inputs": ["CKX2(-)", "CKX9(-)", "IPT(+)", "LOG(+)", "RR_TYPEA(-)"], "outputs": ["TB1(-)", "HK4(+)", "RR_TYPEA(+)"], "curated_regulators_excluded": ["OsHK3(+) via E161 - paralog", "OsCKX4/11 via E044/E046 - paralogs"], "verdict": "bypass_violation", "comment": "Cytokinin has direct edge Cytokinin->TB1(-1) that bypasses HK4->AHP->RR21->IPA1->TB1 cascade, which IS in the network. This is TRAP 3. Recommend remove Cytokinin->TB1 direct and let cascade carry the signal. Cytokinin->RR_TYPEA direct also bypasses HK4 signalling."},
+    {"node": "D10", "inputs": ["Auxin(+)", "CCA1(+)", "Phosphate(-)", "Nitrogen(-)"], "outputs": ["Strigolactone(+)"], "curated_regulators_excluded": ["ABA(-) via E159"], "verdict": "appropriate", "comment": "SL biosynthesis gene, environmental/hormonal inputs well-captured. ABA repression would add ABA-SL antagonism arm."},
+    {"node": "D14", "inputs": ["Strigolactone(+)", "MADS57(-)", "NGR5(-)", "CCA1(+)"], "outputs": ["D53(-)"], "curated_regulators_excluded": ["TB1(+) via E024 - feedback, TRAP 1 risk"], "verdict": "appropriate", "comment": "SL receptor. TB1->D14 positive feedback correctly excluded (would create TB1->D14->D53->IPA1->TB1 amplification loop)."},
+    {"node": "D17", "inputs": ["Auxin(+)", "Phosphate(-)", "Nitrogen(-)"], "outputs": ["Strigolactone(+)"], "curated_regulators_excluded": ["ABA(-)", "CCA1(+) - not curated for D17"], "verdict": "appropriate", "comment": "SL biosynthesis enzyme (OsHTD1). Missing CCA1 direct? Not in curated for D17 so not a gap."},
+    {"node": "D27", "inputs": ["Phosphate(-)", "Nitrogen(-)"], "outputs": ["Strigolactone(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "SL biosynthesis. Missing Auxin(+) input? Not curated as direct edge for D27, unlike D10/D17. OK."},
+    {"node": "D3", "inputs": [], "outputs": ["D53(-)"], "curated_regulators_excluded": ["D14(+) via E143 - complex formation"], "verdict": "appropriate", "comment": "F-box protein, source node with co-inhibitor role in Perception Gate. E143 D14->D3 is complex-formation, not necessary to model because D3+D14 already co-inhibit D53 in the gate motif."},
+    {"node": "D53", "inputs": ["D14(-)", "D3(-)", "IPA1(+)", "Sucrose(+)"], "outputs": ["IPA1(-)", "MOC1(-)", "CKX9(-)"], "curated_regulators_excluded": ["TPL(+) via E140 - could improve mechanism annotation"], "verdict": "appropriate", "comment": "Central Perception-Gate target with 3-arm output. Missing TPL co-repressor is a mechanism-depth issue, not functionally critical for algebraic model."},
+    {"node": "DLT", "inputs": ["TCP19(-)", "Brassinosteroid(+)"], "outputs": ["Tiller_Number(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "BR effector, repressed by TCP19 - good cross-talk motif."},
+    {"node": "DST", "inputs": [], "outputs": ["CKX2(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Zinc-finger TF, source node. Single target OK."},
+    {"node": "DTN1", "inputs": [], "outputs": ["Sucrose(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source node. One of the newly-added Step 1.5 nodes - BUILDER placed it sensibly."},
+    {"node": "Decapitation", "inputs": [], "outputs": ["Auxin(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Environment source, canonical apical-dominance release mechanism."},
+    {"node": "FON1", "inputs": ["MOC3(+)"], "outputs": ["Tiller_Number(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "CLV1-like receptor, part of meristem-size control."},
+    {"node": "FON2", "inputs": [], "outputs": ["MOC3(-)"], "curated_regulators_excluded": ["TAB1(-) via E081 - TAB1 not in network"], "verdict": "appropriate", "comment": "CLV3-like peptide. Excluded edge to TAB1 only relevant if TAB1 is added."},
+    {"node": "GA20OX2", "inputs": [], "outputs": ["Gibberellin(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "GA biosynthesis enzyme, source node."},
+    {"node": "GATA8", "inputs": [], "outputs": ["TCP19(-)"], "curated_regulators_excluded": ["OsAMT3.2(-) via E149 - peripheral N-uptake"], "verdict": "appropriate", "comment": "N-response TF, single target via TCP19 is core mechanism (Wang 2024)."},
+    {"node": "Gibberellin", "inputs": ["GA20OX2(+)"], "outputs": ["SLR1(-)", "NGR5(-)"], "curated_regulators_excluded": ["GID1(-) via E135/E136 - RECEPTOR MISSING"], "verdict": "bypass_violation", "comment": "Gibberellin directly inhibits SLR1 and NGR5 without GID1 receptor. TRAP 3 Perception-Gate violation - gid1 mutant + GA rescue will fail. HIGH priority add GID1 node and route GA through it."},
+    {"node": "HK4", "inputs": ["Cytokinin(+)"], "outputs": ["AHP(+)"], "curated_regulators_excluded": ["IPA1(+) via E012"], "verdict": "under-specified", "comment": "CK receptor. Missing IPA1->HK4 (E012) would add transcriptional upregulation loop."},
+    {"node": "IPA1", "inputs": ["D53(-)", "miR156(-)", "IPI1(-)", "SHI1(-)", "RR21(+)", "CCA1(+)", "NGR5(-)"], "outputs": ["TB1(+)", "D53(+)", "PIN1B(+)"], "curated_regulators_excluded": ["miR529(-) via E014 - paralog of miR156", "TPL(-) via E141"], "verdict": "appropriate", "comment": "Master integrator of SL/clock/N/sugar signalling. Well-specified with 7 regulators. miR529 paralog missing but minor (redundant with miR156). IPA1->LOG (E010) and IPA1->HK4 (E012) outputs excluded - these add downstream CK-activation arm."},
+    {"node": "IPI1", "inputs": [], "outputs": ["IPA1(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "E3 ligase for IPA1, is_source=True correctly (no curated upstream in OA literature per literature_judge_report G011)."},
+    {"node": "IPT", "inputs": ["Auxin(-)"], "outputs": ["Cytokinin(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "CK biosynthesis, auxin-antagonistic regulation. Missing IPA1->LOG (E010) would strengthen CK-biosynthesis hub, but LOG handles acute activation."},
+    {"node": "LAX1", "inputs": ["MOC1(+)"], "outputs": ["Tiller_Number(+)"], "curated_regulators_excluded": ["LAX2(+) via E078 - LAX2 not in network"], "verdict": "appropriate", "comment": "Axillary meristem initiation. LAX2 partner not in network - could be added as composite with LAX1. Ratio 0.40 (2/5) is borderline."},
+    {"node": "LBD37", "inputs": ["Nitrogen(+)"], "outputs": ["TCP19(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "N-response repressor of TCP19. Clean motif."},
+    {"node": "LOG", "inputs": [], "outputs": ["Cytokinin(+)"], "curated_regulators_excluded": ["IPA1(+) via E010"], "verdict": "under-specified", "comment": "Is_source=True but IPA1->LOG (E010) is curated. Moving LOG downstream of IPA1 would couple meristem-enlargement to CK activation."},
+    {"node": "Light", "inputs": [], "outputs": ["CCA1(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Environmental source."},
+    {"node": "MADS57", "inputs": ["miR444(-)"], "outputs": ["D14(-)"], "curated_regulators_excluded": ["TB1(-) via E122"], "verdict": "appropriate", "comment": "Excluded TB1->MADS57 feedback defensible (would close TB1->MADS57->D14->D53->IPA1->TB1 loop)."},
+    {"node": "MAX1", "inputs": [], "outputs": ["Strigolactone(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Generic MAX1 family collapsed node, complementing MAX1_1900 for N-specificity. Documented in literature_judge_report G013."},
+    {"node": "MAX1_1900", "inputs": ["Nitrogen(+)"], "outputs": ["Strigolactone(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Os1900-specific N-responsive paralog (Ito 2023). Good separation from generic MAX1."},
+    {"node": "MOC1", "inputs": ["D53(-)", "TAD1(-)", "TE(-)", "SLR1(+)"], "outputs": ["Tiller_Number(+)", "LAX1(+)", "MOC3(+)"], "curated_regulators_excluded": ["OSH1(+) via E028 - OSH1 not in network"], "verdict": "appropriate", "comment": "Central meristem-formation GRAS TF. All canonical regulators included. Motif-consistent (degradation-by-APC/C via TAD1, TE)."},
+    {"node": "MOC2", "inputs": [], "outputs": ["Sucrose(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Fructose-1,6-bisphosphatase, source node. Metabolic Sucrose producer."},
+    {"node": "MOC3", "inputs": ["FON2(-)", "MOC1(+)"], "outputs": ["FON1(+)"], "curated_regulators_excluded": ["Tiller_Number direct via E154 - summary, cascade via FON1 is present"], "verdict": "appropriate", "comment": "Axillary-meristem TF (TAB1/OsWUS ortholog). Wait - is MOC3 = TAB1? Literature says MOC3/TAB1/OsWUS are same; check node_annotations for clarity."},
+    {"node": "NGR5", "inputs": ["Gibberellin(-)", "SLR1(+)", "Nitrogen(+)", "NRT1_1B(+)", "Sucrose(+)"], "outputs": ["TB1(-)", "D14(-)", "IPA1(-)"], "curated_regulators_excluded": ["GID1(-) via E136 - proper GA-perception gate"], "verdict": "appropriate", "comment": "Critical N-response PRC2 recruiter (Wu 2020). 5-input hub well-specified. Missing edges NGR5->D10(-) and NGR5->D27(-) for PRC2-mediated SL-biosynthesis repression - not found in curated set; file as literature_gap if mechanism is needed."},
+    {"node": "NRT1_1B", "inputs": [], "outputs": ["NGR5(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Nitrate transceptor, source. E081 connection to NGR5 in-network."},
+    {"node": "Nitrogen", "inputs": [], "outputs": ["NGR5(+)", "LBD37(+)", "D10(-)", "D17(-)", "D27(-)", "MAX1_1900(+)"], "curated_regulators_excluded": ["OsNLP4(+) via E095 - N-assimilation arm"], "verdict": "appropriate", "comment": "Environmental source with 6 clean outputs - well-connected. Excluded OsNLP4->OsNiR arm is a separate N-assimilation pathway; defensible exclusion as peripheral."},
+    {"node": "PIN1B", "inputs": ["IPA1(+)"], "outputs": ["Tiller_Number(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Implicit OsPIN1a+1b composite (E011 and E058 land here). Composite not documented in node_annotations - should be."},
+    {"node": "PIN9", "inputs": ["Ammonium(+)"], "outputs": ["Tiller_Number(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "NH4+-inducible transporter. Clean peripheral module."},
+    {"node": "PRR1", "inputs": ["CCA1(-)", "Photoperiod(+)"], "outputs": ["CCA1(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Clock component, reciprocal feedback with CCA1 captured."},
+    {"node": "Phosphate", "inputs": [], "outputs": ["D27(-)", "D10(-)", "D17(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Environmental source, canonical Pi-starvation SL-induction arm."},
+    {"node": "Photoperiod", "inputs": [], "outputs": ["PRR1(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Environmental source."},
+    {"node": "RR21", "inputs": ["AHP(+)"], "outputs": ["IPA1(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "B-type RR in CK-signalling transduction chain. Single input OK for a phosphorelay output."},
+    {"node": "RR_TYPEA", "inputs": ["Cytokinin(+)"], "outputs": ["Cytokinin(-)"], "curated_regulators_excluded": ["AHP(+) - summary through HK4"], "verdict": "bypass_concern", "comment": "Currently Cytokinin->RR_TYPEA(+) is a bypass of the HK4->AHP cascade. Biologically correct edge would be AHP->RR_TYPEA(+) (phosphorelay). RR_TYPEA->Cytokinin(-1) is also a summary edge - the correct mechanism is RR_TYPEA repressing CK SIGNALLING at the RR21/AHP level, not CK levels. Consider restructuring."},
+    {"node": "SHI1", "inputs": [], "outputs": ["IPA1(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source node per literature_judge_report G011. Clean repressor of IPA1."},
+    {"node": "SLR1", "inputs": ["Gibberellin(-)"], "outputs": ["MOC1(+)", "NGR5(+)"], "curated_regulators_excluded": ["GID1(-) via E135 - RECEPTOR MISSING"], "verdict": "bypass_violation", "comment": "SLR1 (rice DELLA) directly inhibited by GA without GID1 gate. Must fix alongside Gibberellin bypass - add GID1 as intermediate, route GA through GID1 co-inhibition motif."},
+    {"node": "Strigolactone", "inputs": ["D27(+)", "D10(+)", "D17(+)", "MAX1(+)", "MAX1_1900(+)", "T20(+)"], "outputs": ["D14(+)"], "curated_regulators_excluded": ["BZR1(-) via E086 summary", "CKX9(+) via E056 summary", "PIN1(-) via E108", "TB1(+) via E112 summary", "OsHOX12(+) via E157"], "verdict": "appropriate", "comment": "Excellent Perception-Gate purity: one outgoing edge to D14 receptor only. 6 biosynthetic inputs appropriately comprehensive. The OsHOX12->NCED1->ABA arm (E157, E158, E091) would add ABA biosynthesis depth - MEDIUM priority."},
+    {"node": "Sucrose", "inputs": ["MOC2(+)", "DTN1(+)"], "outputs": ["D53(+)", "CCA1(-)", "T6P(+)", "NGR5(+)"], "curated_regulators_excluded": ["Decapitation(+)? - not curated"], "verdict": "appropriate", "comment": "Sugar signalling hub with 4 outputs. Coverage ratio 0.86 (6/7). Good multi-output. Sucrose->D53(+) is counter-intuitive to 'sugars antagonize SL' but matches curated evidence (stabilisation of D53 protein)."},
+    {"node": "T20", "inputs": [], "outputs": ["Strigolactone(+)", "ABA(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Z-ISO, carotenoid precursor enzyme. Provides both SL and ABA biosynthesis inputs - clean shared precursor. Multi-Output Scaffold applied correctly."},
+    {"node": "T6P", "inputs": ["Sucrose(+)"], "outputs": ["TB1(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Trehalose-6-P sugar signal. Clean Sucrose->T6P->TB1(-) arm."},
+    {"node": "TAD1", "inputs": [], "outputs": ["MOC1(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "APC/C component, source node per G011. Degrades MOC1."},
+    {"node": "TAR2", "inputs": [], "outputs": ["Auxin(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Auxin biosynthesis, source node."},
+    {"node": "TB1", "inputs": ["IPA1(+)", "NGR5(-)", "Cytokinin(-)", "Auxin(+)", "CCA1(+)", "BZR1(-)", "T6P(-)", "VIL2(-)"], "outputs": ["Tiller_Number(-)"], "curated_regulators_excluded": ["Nitrogen(-) via E113 - N->TB1 direct per Wu 2020", "OsTB2(-) via E088", "Strigolactone(+) via E112 summary"], "verdict": "overloaded", "comment": "8 inputs exceeds the 7-cap. All curated regulators justified except possibly Auxin(+) which should route through OsTIR1/OsARF. Consider: (a) remove Cytokinin->TB1 direct (bypass), (b) N->TB1 direct could be added for Feed-Forward Loop with NGR5 (Wu 2020 specifically describes this). Balance: 3 activators / 5 inhibitors is appropriate for a tillering-repressor TF."},
+    {"node": "TCP19", "inputs": ["LBD37(-)", "GATA8(-)"], "outputs": ["DLT(-)"], "curated_regulators_excluded": ["Nitrogen(-) via E114 - direct - E113/114 both cover Feed-Forward motif"], "verdict": "appropriate", "comment": "N-responsive TCP. LBD37/GATA8 cover the N-pathway inputs adequately. Direct N->TCP19 summary edge correctly excluded."},
+    {"node": "TE", "inputs": [], "outputs": ["MOC1(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "APC/C E3, source per G011. MOC1 degradation."},
+    {"node": "Tiller_Number", "inputs": ["TB1(-)", "MOC1(+)", "DLT(+)", "PIN1B(-)", "PIN9(+)", "LAX1(+)", "FON1(+)", "ABA(-)"], "outputs": [], "curated_regulators_excluded": ["23+ summary edges - defensibly excluded as cascades present"], "verdict": "overloaded", "comment": "8 inputs exceeds 7-cap. Consider: (a) PIN1B and PIN9 both representing polar auxin transport - keep both (opposite signs), (b) FON1 redundant with MOC1 (MOC1 already activates FON1 indirectly via MOC3)? Actually FON1 routes: MOC1->MOC3->FON1->TN. So MOC1->TN and FON1->TN double-count. Consider removing MOC1->TN direct (summary) and let cascade carry, OR remove FON1->TN as an additional meristem arm. 5 activators / 3 inhibitors balance OK."},
+    {"node": "VIL2", "inputs": [], "outputs": ["TB1(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Chromatin factor, source. Represses TB1 via PRC2 chromatin remodelling (Yoon 2019)."},
+    {"node": "YUCCA", "inputs": [], "outputs": ["Auxin(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Auxin biosynthesis enzyme family, source."},
+    {"node": "miR156", "inputs": [], "outputs": ["IPA1(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "miRNA source. miR529 paralog not in network - could be composite."},
+    {"node": "miR444", "inputs": [], "outputs": ["MADS57(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "miRNA source, canonical MADS57 regulator."}
+  ],
+  "per_pathway_audit": [
+    {
+      "pathway": "SL biosynthesis (D27->D17/D10->MAX1 paralogs->SL)",
+      "completeness": "high",
+      "comment": "Six SL-biosynthesis enzyme nodes (D27, D17, D10, MAX1, MAX1_1900, T20) all have outgoing edges to Strigolactone. Environmental regulation (Pi, N) captured. Auxin regulation on D10/D17 captured. MAX1 paralog strategy (generic + Os1900-specific) is documented and sound.",
+      "missing_pieces": ["LBO rice ortholog (literature_judge_report G012 - unclosable)", "NGR5->D10/D27 PRC2 repression arm (not in curated)", "ABA->D10 repression (E159, curated but excluded)"]
+    },
+    {
+      "pathway": "SL perception (SL->D14; D14+D3 co-inhibit D53)",
+      "completeness": "high",
+      "comment": "Textbook Perception Gate (Motif 1) implementation. Strigolactone has exactly one outgoing edge (D14 receptor). D14 and D3 both co-inhibit D53 (-1 each). SL-mutant + GR24 rescue tests will behave correctly because D14-KO will prevent GR24 signal propagation.",
+      "missing_pieces": ["D14->D3 complex formation (E143) - biochemically real but functionally redundant with co-inhibition motif"]
+    },
+    {
+      "pathway": "D53 -> TB1 direct (Song 2017 physical interaction)",
+      "completeness": "medium",
+      "comment": "D53 represses TB1 via D53->IPA1(-1) then IPA1->TB1(+1) cascade, which gives the correct sign but routes through IPA1. Song 2017 also documented direct D53-TB1 physical interaction - not found in curated_edges set difference, so likely not curated. Indirect cascade is acceptable if Song 2017 direct interaction is peripheral.",
+      "missing_pieces": ["Direct D53->TB1 physical-interaction edge if Song 2017 is re-mined in Step 1 - file as literature_gap"]
+    },
+    {
+      "pathway": "D53 -> IPA1 direct and IPA1 -> TB1 activation",
+      "completeness": "high",
+      "comment": "Both canonical edges present: D53->IPA1(-1) per Song 2017/Liu 2017 and IPA1->TB1(+1) per Lu 2013. The IPA1->D53(+1) feedback (D53 E136 via IPA1 activating its own repressor) also captured - sophisticated motif.",
+      "missing_pieces": ["TPL co-repressor (E140, E141) for mechanism depth"]
+    },
+    {
+      "pathway": "miR156 -> IPA1 mRNA cleavage",
+      "completeness": "high",
+      "comment": "miR156->IPA1(-1) present. miR529 paralog missing (E014) but redundant.",
+      "missing_pieces": ["miR529 as composite with miR156 or separate regulator"]
+    },
+    {
+      "pathway": "MOC1 -> tiller bud formation",
+      "completeness": "high",
+      "comment": "MOC1 has 4 inputs (D53-, TAD1-, TE-, SLR1+) and 3 outputs (TN+, LAX1+, MOC3+). All canonical MOC1 regulators captured. APC/C-mediated degradation via TAD1 and TE present (Motif 4 biosynthesis-degradation pattern applied).",
+      "missing_pieces": ["OSH1 (E028) downstream of MOC1 - OSH1 not in network"]
+    },
+    {
+      "pathway": "TAD1/TE -> APC/C -> MOC1 degradation",
+      "completeness": "high",
+      "comment": "Both TAD1->MOC1(-1) and TE->MOC1(-1) present. APC/C complex collapsed into its two relevant subunits - defensible composite.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "OsLAX1/OsLAX2 -> axillary meristem initiation (upstream of MOC1)",
+      "completeness": "medium",
+      "comment": "LAX1 is in network but positioned DOWNSTREAM of MOC1 (MOC1->LAX1+). Biologically, LAX1/LAX2 are upstream of MOC1 in meristem INITIATION (Oikawa 2009). Consider whether this is a directionality issue - actual biology is both LAX1 and MOC1 act on axillary meristem formation in parallel, with LAX1 upstream for initiation and MOC1 for outgrowth. Current topology (MOC1->LAX1) implies MOC1 activates LAX1, which may be correct for outgrowth phase but misses the initiation role.",
+      "missing_pieces": ["LAX2 as LAX1 partner (E077, E078)", "LAX1-upstream regulators for initiation phase"]
+    },
+    {
+      "pathway": "OsTB1/FC1 -> (-1) Tiller_Number",
+      "completeness": "high",
+      "comment": "TB1->Tiller_Number(-1) sign correct. 8 input regulators cover SL (via IPA1), clock (CCA1), hormones (CK, Auxin, BR, T6P), chromatin (VIL2), N (NGR5). Slight overloading (8 > 7-cap).",
+      "missing_pieces": ["Nitrogen direct input (E113) for FFL with NGR5 - but this conflicts with 7-cap; defensible exclusion"]
+    },
+    {
+      "pathway": "Auxin biosynthesis (TAR->YUCCA->IAA)",
+      "completeness": "high",
+      "comment": "TAR2 and YUCCA both source nodes feeding Auxin(+). Clean biosynthesis. No TRP-TAR-YUCCA intermediate needed at this abstraction level.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Auxin transport (OsPIN1/2 polar transport)",
+      "completeness": "medium",
+      "comment": "PIN1B and PIN9 in network. PIN2 (E059 OsPIN2->TN+1) missing, but opposite-signed from PIN1a/1b so possibly redundant directionality. PIN1B is implicit OsPIN1a+1b composite - not documented.",
+      "missing_pieces": ["PIN2 as separate node or composite", "Document PIN1B as composite in node_annotations"]
+    },
+    {
+      "pathway": "Auxin signalling (OsTIR1 -> OsIAA -> OsARF)",
+      "completeness": "low",
+      "comment": "ENTIRE Auxin signalling cascade absent. OsTIR1 (E063, E064), OsIAA (E064, E065), OsARF (E065) all missing. Auxin has 4 direct outgoing edges (D10, D17, IPT, TB1) that are ARF-downstream summary edges. TRAP 3 Perception-Gate bypass for all 4 targets. tir1 mutant + IAA rescue tests will FAIL.",
+      "missing_pieces": ["OsTIR1 receptor node (E063, E064)", "OsIAA and OsARF TFs (E064, E065)", "Restructure Auxin direct edges to route through TIR1-IAA-ARF"]
+    },
+    {
+      "pathway": "Cytokinin biosynthesis (IPT + LOG) vs degradation (CKX2, CKX9)",
+      "completeness": "high",
+      "comment": "Biosynthesis-Degradation Balance (Motif 4) correctly applied. IPT (synthesise) + LOG (activate) as activators; CKX2 and CKX9 as degradation arms. OsCKX4 and OsCKX11 paralogs missing - could be composites.",
+      "missing_pieces": ["OsCKX4 and OsCKX11 paralog handling (E044, E046)"]
+    },
+    {
+      "pathway": "CK signalling (OsHK -> OsHP -> OsRR-B -> target + type-A feedback)",
+      "completeness": "medium",
+      "comment": "Cytokinin -> HK4 -> AHP -> RR21 -> IPA1 cascade present and correctly layered. RR_TYPEA negative feedback present but wired as Cytokinin->RR_TYPEA (bypass) rather than AHP->RR_TYPEA. Critical issue: Cytokinin->TB1(-1) direct bypass coexists with the proper cascade, meaning CK treatment will hit TB1 directly even when HK4 is KO'd. hk4 + trans-zeatin rescue test will fail.",
+      "missing_pieces": ["Remove Cytokinin->TB1 direct bypass", "Rewire RR_TYPEA as AHP->RR_TYPEA(+)", "OsHK3 paralog composite with HK4 (E160, E161)"]
+    },
+    {
+      "pathway": "Nitrogen signalling (NRT1.1B -> NGR5 -> PRC2 on SL biosynthesis)",
+      "completeness": "medium",
+      "comment": "NRT1.1B->NGR5(+1) present. NGR5 represses TB1/D14/IPA1 (all tillering-repressor arms, so NET pro-tillering). BUT: Wu 2020 Science specifically documents NGR5 PRC2-mediated repression of SL biosynthesis genes (D10, D27) - this would be NGR5->D10(-), NGR5->D27(-). Not found in curated set, so file as literature_gap or request re-mining of Wu 2020. Also E113 Nitrogen->TB1 direct curated but excluded - defensible because NGR5 already carries N signal to TB1.",
+      "missing_pieces": ["NGR5->D10(-1), NGR5->D27(-1) PRC2 repression arm - literature_gap (check Wu 2020 re-mining)", "E113 Nitrogen->TB1 direct is redundant"]
+    },
+    {
+      "pathway": "OsTCP19 N-responsive TCP",
+      "completeness": "high",
+      "comment": "TCP19 has 2 inputs (LBD37-, GATA8-) and 1 output (DLT-). Multi-input N-integration hub. Zhang 2021 and Wang 2024 canonical arms both captured.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "GA / DELLA signalling (OsGA20ox -> GA -> OsGID1 -> (degrade) SLR1)",
+      "completeness": "low",
+      "comment": "GA20OX2->Gibberellin->SLR1(-1) is DIRECT without GID1 receptor. Same for Gibberellin->NGR5(-1). TRAP 3 Perception-Gate bypass. gid1 + GA rescue tests will fail. HIGH priority add GID1 node and route GA through GID1 co-inhibition motif on SLR1 and NGR5 (using E135, E136).",
+      "missing_pieces": ["GID1 receptor node", "GID1->SLR1(-1) and GID1->NGR5(-1) co-inhibition edges (E135, E136)", "Remove direct Gibberellin->SLR1 and Gibberellin->NGR5 (become bypass after GID1 added)"]
+    },
+    {
+      "pathway": "Auxin + CK apical-dominance crosstalk",
+      "completeness": "high",
+      "comment": "Auxin->IPT(-1) captures classical apical-auxin-represses-CK-biosynthesis. Decapitation->Auxin(-1) captures decapitation-induced CK accumulation indirectly via IPT derepression. CK then acts via HK4-IPA1-TB1 cascade (and direct bypass, which is the issue). Overall biology correctly represented.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Sugar / T6P signalling",
+      "completeness": "high",
+      "comment": "Sucrose->T6P(+1)->TB1(-1) captures T6P-mediated bud outgrowth. Sucrose also -> CCA1(-), -> D53(+), -> NGR5(+). Multi-output hub well-done. Coverage ratio 0.86.",
+      "missing_pieces": []
+    },
+    {
+      "pathway": "Axillary meristem initiation (TAB1/OsWUS)",
+      "completeness": "low",
+      "comment": "TAB1 (= OsWUS) is the rice meristem-initiation ortholog of Arabidopsis WUSCHEL. Curated edges E079 TAB1->TN(+1), E080 TAB1->OSH1, E081 FON2->TAB1(-1). ALL EXCLUDED. MOC3 in network may be TAB1 alias - check node_annotations; if so, this is a naming issue not a missing-node issue. If MOC3 != TAB1, the canonical meristem-initiation arm is missing.",
+      "missing_pieces": ["TAB1 node or MOC3=TAB1 alias documentation", "TAB1->OSH1 (E080) and TAB1->TN (E079)"]
+    },
+    {
+      "pathway": "ABA biosynthesis arm",
+      "completeness": "low",
+      "comment": "ABA is in network but as a near-source (input: T20 only from E156 summary). Missing: NCED1 (rate-limiting ABA biosynthesis enzyme, E091), OsHOX12 (direct NCED1 activator, E158), Strigolactone->OsHOX12 (E157) cascade. ABA coverage ratio 0.25. Adding this arm would create SL -> OsHOX12 -> NCED1 -> ABA -> TN (-) - a parallel SL-to-TN path.",
+      "missing_pieces": ["NCED1 node (E091)", "OsHOX12 node (E157, E158)", "ABA biosynthesis cascade"]
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "S001",
+      "type": "restructure_pathway",
+      "priority": "high",
+      "description": "Add GA Perception Gate: introduce GID1 node and route Gibberellin through GID1 co-inhibition motif on SLR1 and NGR5",
+      "biological_justification": "Gibberellin currently has 2 direct outgoing edges (SLR1-, NGR5-) with no GID1 receptor, violating Motif 1 Perception Gate purity. GA-GID1 complex is the canonical mechanism for SLR1 and NGR5 degradation (Ueguchi-Tanaka 2005; Wu 2020 Science). Without GID1, gid1 mutant + GA rescue tests will incorrectly predict GA-responsive rescue.",
+      "curated_edge_ids": ["E135", "E136"],
+      "pathway_name": "GA/DELLA signalling",
+      "implementation": "Add GID1 as new GENE node (type: GENE, is_source: false). Add edges Gibberellin->GID1(+1) [mechanism: GA binds GID1 receptor forming GA-GID1 complex] - file as literature_gap if no direct curated edge for this activation, otherwise use E135 endpoint; then convert existing Gibberellin->SLR1(-1) to Gibberellin->GID1(+1) plus GID1->SLR1(-1) using E135 and GID1->NGR5(-1) using E136 (co-inhibition with the already-present Gibberellin edges converted to GID1 intermediates)."
+    },
+    {
+      "id": "S002",
+      "type": "restructure_pathway",
+      "priority": "high",
+      "description": "Remove Cytokinin->TB1 direct bypass edge (TRAP 3 Perception-Gate violation); let existing HK4->AHP->RR21->IPA1->TB1 cascade carry the signal",
+      "biological_justification": "Cytokinin currently has Cytokinin->TB1(-1) direct AND the full HK4->AHP->RR21->IPA1->TB1 cascade is in the network (RR21 activates IPA1 which activates TB1). CK represses TB1 ONLY through signalling (HK4-mediated), not CK-level-to-TB1 direct. The direct edge will incorrectly allow exogenous CK to repress TB1 even in hk4-KO backgrounds (bypass violation).",
+      "curated_edge_ids": ["E012", "E010"],
+      "target_edge": {"source": "Cytokinin", "target": "TB1"},
+      "implementation": "Remove Cytokinin->TB1(-1) edge from network.json and algebraic_equations.json. Verify IPA1->TB1(+1) cascade carries the correct signalling sign: CK->HK4(+)->AHP(+)->RR21(+)->IPA1(+)->TB1(+) gives CK->TB1 NET POSITIVE. But curated mechanism (Cytokinin REPRESSES TB1) requires NET NEGATIVE. This suggests the cascade carries OPPOSITE sign - probably the actual mechanism is CK promotes tillering by REPRESSING TB1 via a negative node. Re-examine the sign of RR21->IPA1 (currently +1) - if curated shows type-B RR ACTIVATES IPA1, the cascade gives CK->TB1 (+). The CORRECT cascade is CK->HK4->AHP->type-A-RR(-)->IPA1 or CK signalling represses IPA1. Re-verify against Doi 2007/Ashikari 2005. If cascade cannot carry correct sign, keep Cytokinin->TB1 direct but document as framework limitation."
+    },
+    {
+      "id": "S003",
+      "type": "add_node",
+      "priority": "high",
+      "description": "Add OsTIR1 auxin receptor to establish Auxin Perception Gate",
+      "biological_justification": "Auxin currently has 4 direct outgoing edges (D10+, D17+, IPT-, TB1+) with NO receptor in the network. tir1 or OsAFB mutant + IAA rescue tests will incorrectly predict auxin responsiveness. Canonical Auxin signalling is Auxin-TIR1/AFB-SCF complex ubiquitinates OsIAA repressors releasing OsARFs, which then regulate transcription of auxin-responsive genes. At minimum, the Auxin->TB1 summary edge should route through TIR1.",
+      "curated_edge_ids": ["E063", "E064", "E065"],
+      "implementation": "Add OsTIR1 node (type: GENE, is_source: true). Add edge Auxin->OsTIR1(+1) [E063 mechanism: auxin binding]. Optionally add OsIAA and OsARF nodes for full cascade (E064, E065). Restructure Auxin->TB1(+1) direct edge to route via OsARF. If minimal fix: add OsTIR1->TB1(-1) summary (since TIR1-auxin promotes degradation of IAA repressors, net effect on TB1 depends on OsARF sign)."
+    },
+    {
+      "id": "S004",
+      "type": "restructure_pathway",
+      "priority": "high",
+      "description": "Fix TB1 overload (8 inputs > 7-cap): remove Cytokinin->TB1 direct (covered by S002) and reconsider Auxin->TB1 direct vs routing through TIR1 (covered by S003)",
+      "biological_justification": "TB1 has 8 inputs, exceeding BUILDER §1.1 hard cap of 7. Two of those 8 are Perception-Gate bypass edges that should be removed: Cytokinin->TB1 (S002) and Auxin->TB1 (S003). Removing both brings TB1 to 6 inputs and resolves both overload and bypass violations simultaneously.",
+      "curated_edge_ids": ["E012", "E063"],
+      "pathway_name": "TB1 hub regulation",
+      "implementation": "After applying S002 and S003, TB1 will have 6 inputs (IPA1+, NGR5-, CCA1+, BZR1-, T6P-, VIL2-). Verify this matches the 1-5 target range with 6 being acceptable. If still too many, consider collapsing BZR1 and VIL2 as chromatin-repressor composite."
+    },
+    {
+      "id": "S005",
+      "type": "restructure_pathway",
+      "priority": "medium",
+      "description": "Fix Tiller_Number overload (8 inputs > 7-cap): consider removing MOC1->TN direct (cascade via MOC3->FON1->TN already present) OR removing FON1->TN",
+      "biological_justification": "Tiller_Number has 8 inputs (5 act / 3 inh) exceeding 7-cap. MOC1->TN(+1) and FON1->TN(+1) are partially redundant: MOC1->MOC3->FON1->TN is already a complete cascade. Biologically MOC1 affects tillering both via MOC3/FON1 (meristem size) AND direct bud formation. Pick one canonical route.",
+      "curated_edge_ids": ["E154"],
+      "target_edge": {"source": "MOC1", "target": "Tiller_Number"},
+      "implementation": "Option A (recommended): Remove MOC1->Tiller_Number(+1) direct and let MOC1->MOC3->FON1->TN cascade carry. Option B: Remove FON1->Tiller_Number(+1) and keep MOC1 direct. Option A preferred because it preserves the meristem-size-regulation motif (MOC3/FON1 are meristem-specific; MOC1 is a broader regulator)."
+    },
+    {
+      "id": "S006",
+      "type": "add_node",
+      "priority": "medium",
+      "description": "Add ABA biosynthesis cascade: OsHOX12 -> NCED1 -> ABA, with upstream Strigolactone -> OsHOX12",
+      "biological_justification": "ABA is in network as a near-source (only input: T20 summary). Curated edges E091 (NCED1->ABA), E158 (OsHOX12->NCED1), E157 (SL->OsHOX12) form a proper biosynthesis arm. Adding this arm creates a second SL->TN negative path (SL->OsHOX12->NCED1->ABA->TN(-)) parallel to the D14-D53-IPA1-TB1 arm, improving SL-signalling model robustness. literature_judge_report §8 specifically lists these as unplaced nodes.",
+      "curated_edge_ids": ["E091", "E157", "E158"],
+      "implementation": "Add NCED1 (GENE, is_source: false) and OsHOX12 (GENE, is_source: false) as new nodes. Add edges Strigolactone->OsHOX12(+1) [E157], OsHOX12->NCED1(+1) [E158], NCED1->ABA(+1) [E091]. Check Perception-Gate: Strigolactone would then have 2 outgoing edges (D14 and OsHOX12), which breaks the pure gate. Compromise: route OsHOX12 via D53 (D53->OsHOX12(-1))? File as literature_gap if D53->OsHOX12 is not curated."
+    },
+    {
+      "id": "S007",
+      "type": "add_node",
+      "priority": "medium",
+      "description": "Add TAB1 (OsWUS) axillary meristem initiation node with FON2 repression and TN activation",
+      "biological_justification": "TAB1/OsWUS is the rice ortholog of Arabidopsis WUSCHEL, required for axillary meristem initiation (Tanaka 2015). Curated edges E079 TAB1->TN(+1), E081 FON2->TAB1(-1) both exist. Currently MOC3 is in the network and may be aliased to TAB1 - VERIFY node_annotations; if MOC3 = TAB1, this is a naming ambiguity issue (rename for clarity). If MOC3 != TAB1, add TAB1 as separate node.",
+      "curated_edge_ids": ["E079", "E080", "E081"],
+      "implementation": "First check node_annotations.json: does MOC3 annotation state it is TAB1/OsWUS ortholog? If yes: rename MOC3 to TAB1 throughout, preserving existing edges. If no: add TAB1 as new node with FON2->TAB1(-1), TAB1->Tiller_Number(+1) edges. Note: MOC3->FON1 edge should be preserved either way."
+    },
+    {
+      "id": "S008",
+      "type": "mechanism_improvement",
+      "priority": "medium",
+      "description": "Document PIN1B as explicit OsPIN1a+1b composite node in node_annotations.json",
+      "biological_justification": "Curated edges E011 (OsPIN1b) and E058 (OsPIN1b) both map to PIN1B in the network; E057 (OsPIN1a->TN) is not mapped. This is an implicit composite that should be documented to explain the single PIN1B node rather than separate PIN1a/PIN1b.",
+      "curated_edge_ids": ["E011", "E057", "E058"],
+      "target_edge": {"source": "IPA1", "target": "PIN1B"},
+      "proposed_mechanism": "PIN1B represents OsPIN1a+OsPIN1b composite auxin-efflux carrier family; IPA1 directly binds OsPIN1b promoter to activate auxin efflux (E011), and loss of OsPIN1a or OsPIN1b individually increases tiller number (E057, E058).",
+      "implementation": "Update node_annotations.json for PIN1B to include 'composite_members: [OsPIN1a, OsPIN1b]' and list both curated DOIs."
+    },
+    {
+      "id": "S009",
+      "type": "restructure_pathway",
+      "priority": "medium",
+      "description": "Rewire Cytokinin -> RR_TYPEA direct edge to AHP -> RR_TYPEA for cascade consistency",
+      "biological_justification": "RR_TYPEA (type-A response regulators) are induced by CK signalling, not by CK ligand directly. The canonical two-component signalling chain is CK->HK->AHP->type-A_RR (transcriptional induction). Current Cytokinin->RR_TYPEA(+1) bypasses the phosphorelay and creates the same class of bypass as Cytokinin->TB1 (S002).",
+      "curated_edge_ids": ["E138"],
+      "target_edge": {"source": "Cytokinin", "target": "RR_TYPEA"},
+      "pathway_name": "CK phosphorelay signalling",
+      "implementation": "Remove Cytokinin->RR_TYPEA(+1) direct. Add AHP->RR_TYPEA(+1) with evidence that CK induces type-A RRs via signalling (E138 Tsai 2012). Verify RR_TYPEA->Cytokinin(-1) is actually meant to be RR_TYPEA->AHP(-1) or RR_TYPEA->HK4(-1) negative feedback on signalling (not on CK levels)."
+    },
+    {
+      "id": "S010",
+      "type": "add_edge",
+      "priority": "medium",
+      "description": "Add IPA1 -> LOG (+1) and IPA1 -> HK4 (+1) to create IPA1-CK feed-forward loop",
+      "biological_justification": "IPA1 directly activates OsLOG (E010 cytokinin-activating enzyme) and OsHK4 (E012 CK receptor). This creates a feed-forward motif where IPA1 promotes BOTH direct tillering (via TB1 - but wait, IPA1->TB1 is positive, which REPRESSES tillering) AND CK signalling. Actually biology: IPA1 GOF (ipa1-1D) REDUCES tillers (via TB1 activation) but promotes panicle development. Adding IPA1->LOG/HK4 captures panicle-CK arm.",
+      "curated_edge_ids": ["E010", "E012"],
+      "implementation": "Add edges IPA1->LOG(+1) [E010] and IPA1->HK4(+1) [E012]. Verify LOG node is converted from is_source: true to is_source: false after adding activator."
+    },
+    {
+      "id": "S011",
+      "type": "composite_merge",
+      "priority": "low",
+      "description": "Consider CKX family composite: merge CKX2, CKX9, OsCKX4 paralogs into OsCKX_family composite OR add separate CKX4/11 nodes",
+      "biological_justification": "OsCKX family has 11 paralogs; curated set covers CKX2 (E043, N066), CKX9 (E045, N033), CKX4 (E044), CKX11 (E046). All degrade cytokinin. Current network has CKX2 and CKX9 separate. Triple-redundancy modelling concerns (TRAP 2) if one mutant is silenced.",
+      "curated_edge_ids": ["E044", "E046"],
+      "merge_nodes": ["CKX2", "CKX9"],
+      "into_node": "OsCKX_family",
+      "implementation": "Option A: Keep CKX2 and CKX9 separate (current), add CKX4 and CKX11 as new nodes for complete family. Option B: Merge into OsCKX_family composite with all four paralogs. Option A preferred because DST->CKX2 (E066 promoter specificity) and D53->CKX9 (N033 SL-gated) are MECHANISTICALLY DISTINCT arms - merging loses specificity."
+    },
+    {
+      "id": "S012",
+      "type": "mechanism_improvement",
+      "priority": "low",
+      "description": "Add TPL co-repressor to document D53->IPA1 mechanism depth",
+      "biological_justification": "D53 represses IPA1 via recruitment of TOPLESS (TPL) co-repressor and EAR-motif-mediated transcriptional repression. Adding TPL as intermediate node clarifies mechanism and allows TPL-specific mutants (tpl-KO) to be modelled.",
+      "curated_edge_ids": ["E140", "E141"],
+      "target_edge": {"source": "D53", "target": "IPA1"},
+      "proposed_mechanism": "D53 contains EAR motifs and recruits TOPLESS/TPR co-repressors to IPA1 chromatin loci for transcriptional silencing",
+      "implementation": "Add TPL node (GENE, is_source: true). Add D53->TPL(+1) [E140] and TPL->IPA1(-1) [E141]. Optionally remove direct D53->IPA1(-1) to force cascade, or keep both for redundancy."
+    },
+    {
+      "id": "S013",
+      "type": "add_edge",
+      "priority": "low",
+      "description": "Add ABA -> D10 (-1) inhibition of SL biosynthesis for ABA-SL crosstalk",
+      "biological_justification": "ABA represses SL biosynthesis genes (D10, D17, D27) per E159. This adds an ABA-SL antagonism arm: ABA->D10(-)->SL reduces SL production when ABA is high. Complements the direct ABA->TN(-) edge with a SL-mediated parallel path.",
+      "curated_edge_ids": ["E159"],
+      "implementation": "Add ABA->D10(-1) edge with E159 evidence. Note: this creates ABA having 2 outgoing edges (TN- and D10-) which is a Multi-Output Scaffold - acceptable."
+    },
+    {
+      "id": "S014",
+      "type": "add_edge",
+      "priority": "low",
+      "description": "Add miR529 -> IPA1 (-1) as redundant miR156-family IPA1 regulator",
+      "biological_justification": "miR529a cleaves OsSPL14/IPA1 mRNA at the same site as miR156 (E014). Adding miR529 as separate miRNA source would model miR156/miR529 redundancy for IPA1 silencing.",
+      "curated_edge_ids": ["E014"],
+      "implementation": "Add miR529 node (REGULATORY_RNA, is_source: true). Add miR529->IPA1(-1) [E014]. Alternative: composite miR156+miR529 into single miR156-family node (cleaner if both are redundant)."
+    },
+    {
+      "id": "S015",
+      "type": "literature_gap",
+      "priority": "medium",
+      "description": "Request re-mining Wu 2020 Science for explicit NGR5 -> D10/D27 PRC2-H3K27me3 repression edges",
+      "biological_justification": "Wu 2020 Science (doi: 10.1126/science.aaz2046) documents NGR5 promoting tillering by PRC2-H3K27me3 repression of SL-biosynthesis genes (not present in current curated set per the rejected edges audit). These edges would CLOSE the N->NGR5->SL-biosynthesis feedback loop and explain why NGR5 promotes tillering despite being SL-pathway-adjacent. Currently NGR5 represses TB1/D14/IPA1 directly (tillering-repressor arm) but does NOT connect to SL biosynthesis.",
+      "curated_edge_ids": [],
+      "implementation": "Request Step 1 LITERATURE REVIEW to add edges NGR5->D10(-1) and NGR5->D27(-1) from Wu 2020 Section on PRC2 targets. If not curated-able, document as literature_gap G014 in next round's literature_judge_report."
+    },
+    {
+      "id": "S016",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "Flag missing D53 -> TB1 direct physical interaction edge (Song 2017)",
+      "biological_justification": "Song 2017 (Nat Plants 10.1038/nplants.2017.156) documented D53 directly binding both IPA1 AND OsTB1 via physical interaction. The D53->IPA1 arm is captured but D53->TB1 direct is not in curated_edges. Currently the D53->IPA1->TB1 cascade gives correct sign but routes through IPA1. Adding the direct D53-TB1 edge would add mechanism redundancy.",
+      "curated_edge_ids": [],
+      "implementation": "Request Step 1 re-mining of Song 2017 for explicit D53-TB1 physical interaction figure (likely Fig 3 or similar). Flag as literature_gap if not findable."
+    }
+  ],
+  "literature_gaps": [
+    "NGR5 -> D10/D27 PRC2-mediated H3K27me3 repression of SL biosynthesis genes (Wu 2020 Science 10.1126/science.aaz2046) - not in current curated_edges despite being a canonical Wu 2020 finding. Recommend Step 1 re-mining.",
+    "D53 -> OsTB1 direct physical interaction (Song 2017 Nat Plants 10.1038/nplants.2017.156) - Song 2017 documented D53 binds both IPA1 and TB1; IPA1 arm captured, TB1 direct arm is not curated. Cascade via IPA1 gives correct sign but misses the redundant direct interaction.",
+    "Detailed E3 ligase / upstream kinase cascade for IPI1, SHI1, DST, TAD1, TE, FON2 (listed in literature_judge_report G011 as unclosable with current OA literature). These remain is_source nodes.",
+    "LBO (LATERAL BRANCHING OXIDOREDUCTASE) rice ortholog - Arabidopsis LBO (Brewer 2016) catalyses MeCLA tailoring step in SL biosynthesis; rice ortholog not identified in current OA search (G012).",
+    "Rice PIN1 subcellular re-localisation by SL (Strigolactone -> PIN1 PM depletion, E108) would add auxin-transport-rerouting motif but PIN1 generic is not in network (only PIN1B composite)."
+  ],
+  "stop_reason": null
+}

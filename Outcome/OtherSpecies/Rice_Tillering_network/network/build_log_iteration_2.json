@@ -1,0 +1,206 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Tillering",
+    "phenotype_node": "Tiller_Number",
+    "species": "Oryza sativa",
+    "iteration": 2,
+    "created": "2026-04-20",
+    "builder_model": "Claude Opus 4.7 (1M context)",
+    "inputs": {
+      "previous_network_snapshot": "network/iteration_1/",
+      "judge_review": "network/judge_review_iteration_1.json",
+      "curated_edges": "data/curated_edges.json",
+      "literature_judge_report": "data/literature_judge_report.json"
+    }
+  },
+  "summary": "Applied 9 of 16 JUDGE iter-1 suggestions: 3/4 HIGH, 5/7 MEDIUM, 1/5 LOW. Added 4 nodes (GID1, TIR1, NCED1, HOX12), removed 8 edges, added 13 edges. Network grew 65->69 nodes, 94->99 edges. Source percentage 43.1%->39.1% (within 30-50% target). All 5 QA checks pass. TB1 input count reduced from 8 to 7 via S003 routing. Tiller_Number reduced from 8 to 7 via S005. Cytokinin->TB1 bypass KEPT as TRAP 5 documented framework limitation (revised from JUDGE S002 remove-recommendation).",
+  "suggestion_outcomes": [
+    {
+      "suggestion_id": "S001",
+      "priority": "high",
+      "status": "applied",
+      "description": "GA Perception Gate via GID1",
+      "changes": [
+        "Added node GID1 (GENE, is_source=false, input from Gibberellin)",
+        "Removed edge Gibberellin->SLR1(-1) [N026]",
+        "Removed edge Gibberellin->NGR5(-1) [N027]",
+        "Added edge Gibberellin->GID1(+1) [N095] - Ueguchi-Tanaka 2005",
+        "Added edge GID1->SLR1(-1) [N096] - Ueguchi-Tanaka 2005 (E135)",
+        "Added edge GID1->NGR5(-1) [N097] - Wu 2020 Science (E136)"
+      ],
+      "rationale": "Gibberellin now has single outgoing edge (GID1) restoring Perception Gate purity. gid1 + GA rescue tests will correctly fail (TIR1-analogue receptor KO blocks signalling)."
+    },
+    {
+      "suggestion_id": "S002",
+      "priority": "high",
+      "status": "applied_with_modification",
+      "description": "Cytokinin->TB1 bypass handling",
+      "changes": [
+        "KEPT edge Cytokinin->TB1(-1) as biologically required",
+        "UPDATED mechanism field documenting TRAP 5 framework limitation"
+      ],
+      "rationale": "BUILDER judgment: cannot remove CK->TB1 direct because the existing HK4->AHP->RR21->IPA1->TB1 phosphorelay cascade carries POSITIVE net sign (all intermediate edges sign=+1), but biology requires CK to REPRESS TB1 (CK promotes tillering). Removing the direct edge would invert the CK-TB1 relationship and break all WT CK-addition and gn1a mutant predictions. The tradeoff is a framework limitation: hk4-KO + exogenous-trans-zeatin will still produce spurious TB1 repression through the direct edge (TRAP 5). Documented in mechanism field per BUILDER §14 Trap 5."
+    },
+    {
+      "suggestion_id": "S003",
+      "priority": "high",
+      "status": "applied",
+      "description": "Auxin Perception Gate via TIR1",
+      "changes": [
+        "Added node TIR1 (GENE, is_source=false, input from Auxin; renamed from OsTIR1 per GENE ALL_CAPS naming rule)",
+        "Removed edges Auxin->D10(+1) [N017], Auxin->D17(+1) [N018], Auxin->IPT(-1) [N040], Auxin->TB1(+1) [N049]",
+        "Added edge Auxin->TIR1(+1) [N098] - Chandran 2025 (E063)",
+        "Added edge TIR1->D10(+1) [N099] - summary through OsARF transcription",
+        "Added edge TIR1->D17(+1) [N100] - summary through OsARF transcription",
+        "Added edge TIR1->IPT(-1) [N101] - summary through OsARF transcription",
+        "NOT added TIR1->TB1: deliberately excluded to reduce TB1 input count from 8 to 7 (cap compliance); Auxin's tillering effect now propagates through cascades TIR1->D10/D17->SL->D14->D53->IPA1->TB1 and TIR1->IPT->CK->TB1"
+      ],
+      "rationale": "Auxin now has single outgoing edge (TIR1) restoring Perception Gate purity. tir1 mutants and IAA rescue tests will correctly respect receptor gating. Multi-output scaffold TIR1->{D10,D17,IPT} captures pleiotropic auxin signalling (Motif 5)."
+    },
+    {
+      "suggestion_id": "S004",
+      "priority": "high",
+      "status": "resolved_by_side_effect",
+      "description": "TB1 overload fix",
+      "changes": [
+        "TB1 input count reduced from 8 to 7 via S003 (Auxin->TB1 removed, not replaced with TIR1->TB1)"
+      ],
+      "rationale": "Resolved as side-effect of S003. TB1 now has 2 activators (IPA1, CCA1) and 5 inhibitors (NGR5, Cytokinin, BZR1, T6P, VIL2) = 7 total, at the upper bound but within per-category cap."
+    },
+    {
+      "suggestion_id": "S005",
+      "priority": "medium",
+      "status": "applied",
+      "description": "Tiller_Number overload fix (remove MOC1->TN direct)",
+      "changes": [
+        "Removed edge MOC1->Tiller_Number(+1) [N022]"
+      ],
+      "rationale": "MOC1 signal now propagates to TN via two parallel cascades: MOC1->LAX1->TN and MOC1->MOC3->FON1->TN (Motif 3 coherent feed-forward preserved). TN input count reduced from 8 to 7 (4 activators DLT, PIN9, LAX1, FON1; 3 inhibitors TB1, PIN1B, ABA)."
+    },
+    {
+      "suggestion_id": "S006",
+      "priority": "medium",
+      "status": "applied_partial",
+      "description": "ABA biosynthesis arm (NCED1, HOX12)",
+      "changes": [
+        "Added node HOX12 (GENE, is_source=true; renamed from OsHOX12 per ALL_CAPS rule)",
+        "Added node NCED1 (GENE, is_source=false, input from HOX12)",
+        "Added edge HOX12->NCED1(+1) [N105] - Wei 2020 Molecular Plant (E158)",
+        "Added edge NCED1->ABA(+1) [N106] - Wei 2020 Molecular Plant (E091)",
+        "NOT added E157 Strigolactone->HOX12 to preserve SL Perception Gate purity (SL has single outgoing edge to D14 only)"
+      ],
+      "rationale": "ABA biosynthesis arm established (HOX12->NCED1->ABA->Tiller_Number(-1)). ABA now has one proper upstream activator (NCED1) plus existing T20 parallel path. HOX12 retained as source node with literature_gap flag; upstream D53-mediated HOX12 derepression (the biologically correct route that would preserve Perception Gate) is not curated."
+    },
+    {
+      "suggestion_id": "S007",
+      "priority": "medium",
+      "status": "resolved_by_documentation",
+      "description": "TAB1/OsWUS axillary meristem regulator",
+      "changes": [
+        "NO changes - MOC3 annotation already documents MOC3 as MOC3/OsWUS/TAB1 alias (node_annotations.json confirms full_name = 'MOC3 / OsWUS / TAB1')"
+      ],
+      "rationale": "Verified via node_annotations.json: MOC3 is already the TAB1/OsWUS ortholog in this network. The JUDGE flagged this as a MEDIUM priority based on possible naming ambiguity. No node addition or renaming needed. Curated edges E079 (TAB1->TN summary) and E081 (FON2->TAB1) map correctly to MOC3; E081 FON2->MOC3 is already in the network as N060."
+    },
+    {
+      "suggestion_id": "S008",
+      "priority": "medium",
+      "status": "applied",
+      "description": "Document PIN1B as OsPIN1a+OsPIN1b composite",
+      "changes": [
+        "Updated PIN1B description in node_annotations.json",
+        "Added composite_members: ['OsPIN1a', 'OsPIN1b'] to PIN1B annotation"
+      ],
+      "rationale": "Composite documentation per §9.3. Curated edges E011 and E058 (OsPIN1b) and E057 (OsPIN1a) all map to the single PIN1B node; composite reflects functional redundancy of the two paralogs for polar auxin transport."
+    },
+    {
+      "suggestion_id": "S009",
+      "priority": "medium",
+      "status": "applied",
+      "description": "Rewire Cytokinin->RR_TYPEA to AHP->RR_TYPEA",
+      "changes": [
+        "Removed edge Cytokinin->RR_TYPEA(+1) [N083]",
+        "Added edge AHP->RR_TYPEA(+1) [N102] - Tsai 2012 Plant Physiology"
+      ],
+      "rationale": "Type-A RRs are phosphorelay primary-response genes induced by the HK->AHP->RR-B cascade, not directly by CK ligand. Rewiring restores canonical CK-signalling topology. Does not break any existing cascade path because RR_TYPEA still has its outgoing RR_TYPEA->Cytokinin(-1) feedback edge intact."
+    },
+    {
+      "suggestion_id": "S010",
+      "priority": "medium",
+      "status": "applied",
+      "description": "Add IPA1->LOG and IPA1->HK4",
+      "changes": [
+        "Added edge IPA1->LOG(+1) [N103] - Lu 2013 Plant Cell (E010)",
+        "Added edge IPA1->HK4(+1) [N104] - Chun 2023 Plant Cell (E012)",
+        "LOG converted from is_source=true to is_source=false (now has activator IPA1)",
+        "HK4 gains second activator (in addition to Cytokinin)"
+      ],
+      "rationale": "Captures IPA1-mediated positive feedback on CK signalling (IPA1->HK4 receptor activation) and CK activation (IPA1->LOG). Improves the 'panicle vs tiller' IPA1 function: IPA1 GOF increases CK via LOG activation (panicle-architecture effect) while IPA1 GOF also raises TB1 (tiller-repression effect via IPA1->TB1(+1))."
+    },
+    {
+      "suggestion_id": "S011",
+      "priority": "low",
+      "status": "rejected",
+      "description": "CKX family composite consideration",
+      "rationale": "JUDGE recommended Option A (keep CKX2 and CKX9 separate). BUILDER agrees: DST->CKX2 and D53->CKX9 represent mechanistically distinct regulation arms; collapsing them would lose specificity."
+    },
+    {
+      "suggestion_id": "S012",
+      "priority": "low",
+      "status": "rejected",
+      "description": "Add TPL co-repressor node",
+      "rationale": "BUILDER judgment: adding TPL as parallel arm D53->TPL->IPA1(-) would not add predictive power because bounded-inverse inhibition already saturates at the 10x cap from the existing D53->IPA1(-1) direct edge in d53-KO conditions. TPL would be mechanism-depth decoration without model behaviour change. JUDGE S012 was LOW priority; deferred as unnecessary overhead."
+    },
+    {
+      "suggestion_id": "S013",
+      "priority": "low",
+      "status": "applied",
+      "description": "ABA->D10 SL-biosynthesis repression",
+      "changes": [
+        "Added edge ABA->D10(-1) [N107] - Wei 2020 Molecular Plant (E159)"
+      ],
+      "rationale": "Completes ABA-SL negative feedback. ABA now has 2 outgoing edges (TN-1, D10-1), capturing both direct tillering inhibition and indirect SL-biosynthesis repression arms."
+    },
+    {
+      "suggestion_id": "S014",
+      "priority": "low",
+      "status": "rejected",
+      "description": "miR529 paralog of miR156",
+      "rationale": "Redundant with miR156 already in network. Adding miR529 as separate node would inflate node count without adding predictive differentiation (single-KO of either paralog alone rarely produces phenotype)."
+    },
+    {
+      "suggestion_id": "S015",
+      "priority": "medium",
+      "status": "documented_literature_gap",
+      "description": "NGR5 -> D10/D27 PRC2 repression (Wu 2020)",
+      "rationale": "Flagged as literature_gap for future Step 1.5 re-mining. BUILDER cannot add edges without DOI evidence in curated_edges.json."
+    },
+    {
+      "suggestion_id": "S016",
+      "priority": "low",
+      "status": "documented_literature_gap",
+      "description": "D53 -> TB1 direct physical interaction (Song 2017)",
+      "rationale": "Flagged as literature_gap. Current cascade D53->IPA1->TB1 carries correct sign via IPA1."
+    }
+  ],
+  "structural_summary": {
+    "nodes": {"before": 65, "after": 69, "delta": 4, "added": ["GID1", "TIR1", "NCED1", "HOX12"]},
+    "edges": {"before": 94, "after": 99, "delta": 5, "removed": 8, "added": 13},
+    "sources": {"before_count": 28, "before_pct": 43.1, "after_count": 27, "after_pct": 39.1, "delta_count": -1, "delta_pct_points": -4.0},
+    "nodes_at_input_cap_7": ["IPA1 (act=2, inh=5)", "TB1 (act=2, inh=5)", "Tiller_Number (act=4, inh=3)"],
+    "perception_gates_established": ["GA via GID1", "Auxin via TIR1"],
+    "perception_gates_preexisting": ["SL via D14 (+D3 co-inhibition of D53)"],
+    "perception_gate_exceptions": ["Cytokinin->TB1 direct (TRAP 5 framework limitation documented)"],
+    "new_literature_gaps_flagged": ["NGR5->D10/D27 PRC2 repression (Wu 2020)", "D53->TB1 direct (Song 2017)", "HOX12 upstream D53-mediated derepression"]
+  },
+  "qa_check_results": {
+    "check_network_structure": {
+      "connectivity": "PASS (all 69 nodes reach Tiller_Number)",
+      "doi_presence": "PASS (all 99 edges have DOIs)",
+      "node_naming": "PASS (all 69 names match type-specific regex)",
+      "is_source_flag": "PASS (all flags consistent with edge structure)",
+      "phenotype_sanity": "PASS (exactly 1 PHENOTYPE node)"
+    },
+    "schema_validation": "PASS"
+  }
+}

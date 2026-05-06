@@ -1,0 +1,95 @@
+{
+  "trait": "flowering_time",
+  "aliases": [
+    {
+      "term": "CDF1",
+      "kb_node": "CDF2",
+      "reconciliation_type": "family_member",
+      "note": "CDF1 is the founding member of the CYCLING DOF FACTOR family (CDF1/2/3/5) that redundantly repress CO transcription in the photoperiod pathway. KB lacks CDF1 but contains its closest paralog CDF2 (Fornara et al. 2009 show CDF1/2/3/5 act redundantly); mapping to CDF2 preserves the photoperiodic-repressor mechanism."
+    },
+    {
+      "term": "Cold",
+      "kb_node": "vernalization",
+      "reconciliation_type": "treatment_analog",
+      "note": "In flowering-time biology, prolonged cold exposure is the canonical vernalization treatment that epigenetically silences FLC. KB node 'vernalization' is the standard analog for cold treatments used to accelerate flowering."
+    },
+    {
+      "term": "FKF1",
+      "kb_node": "GI",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "FKF1 (FLAVIN-BINDING KELCH F-BOX 1) is not in KB. FKF1 forms a blue-light-dependent complex with GI to degrade CDFs and stabilize CO at dusk under long days (Sawa et al. 2007). Its obligate partner GI captures the same photoperiodic gating function, so FKF1 perturbations are best routed through GI."
+    },
+    {
+      "term": "FRI",
+      "kb_node": "FRI_COMPLEX",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "FRI (FRIGIDA) is the scaffolding subunit of the FRIGIDA complex that recruits chromatin modifiers to upregulate FLC. KB node 'FRI_COMPLEX' represents exactly this protein assembly; a FRI KO effectively abolishes the complex."
+    },
+    {
+      "term": "FVE",
+      "kb_node": "Autonomous pathway",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "FVE (MSI4) is a core component of the autonomous floral-promotion pathway that represses FLC independently of photoperiod/vernalization (Ausin et al. 2004). FVE is not in KB; 'Autonomous pathway' is the pathway-level node that captures FVE, FCA, FPA, FLD, LD function."
+    },
+    {
+      "term": "GA20OX",
+      "kb_node": "GA",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "GA20-oxidase is the rate-limiting enzyme in bioactive GA biosynthesis. KB lacks GA20OX paralogs; perturbations (KO reduces GA, OE increases GA) are best routed through the GA hormone node itself as a mechanism mapping."
+    },
+    {
+      "term": "GA2OX",
+      "kb_node": "PavGA2ox-2L",
+      "reconciliation_type": "family_member",
+      "note": "GA2-oxidase catabolizes bioactive GAs. KB has no Arabidopsis GA2ox but carries 'PavGA2ox-2L' (a Prunus GA2ox ortholog studied in flowering-time context). Family mapping preserves the GA-catabolism mechanism."
+    },
+    {
+      "term": "GID1",
+      "kb_node": "DELLA",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "GID1 is the GA receptor that, upon binding GA, recruits SLY1 to degrade DELLAs. KB has no GID1, but 'DELLA' is the immediate downstream effector whose level inversely reflects GID1 activity: gid1 loss-of-function = high DELLA = flowering delay, matching the biology."
+    },
+    {
+      "term": "Gibberellin",
+      "kb_node": "GA",
+      "reconciliation_type": "exact_match",
+      "note": "'Gibberellin' and 'GA' are synonymous; KB node 'GA' is the canonical hormone node (also present as 'GA\u2083' for GA3 specifically)."
+    },
+    {
+      "term": "LD",
+      "kb_node": "Autonomous pathway",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "LD (LUMINIDEPENDENS) is an autonomous-pathway gene that represses FLC (Lee et al. 1994). KB does not contain LD as a gene node (the string 'LD' would collide with long-day, and KB has 'Long days' / 'Long-day conditions' for photoperiod). Routing LD perturbations through 'Autonomous pathway' preserves the FLC-repression mechanism."
+    },
+    {
+      "term": "SLY1",
+      "kb_node": "DELLA",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "SLY1 is the F-box subunit of SCF(SLY1) that ubiquitinates DELLAs for degradation upon GA perception. KB has no SLY1; mapping to DELLA captures the mechanism inversely (sly1 loss = DELLA accumulation = late flowering)."
+    },
+    {
+      "term": "SPL9",
+      "kb_node": "SPL",
+      "reconciliation_type": "family_member",
+      "note": "SPL9 is a core miR156-regulated SQUAMOSA PROMOTER BINDING PROTEIN-LIKE that promotes flowering via FUL, SOC1, MIR172 (Wang et al. 2009). KB has the family-level node 'SPL' (and SPL10); SPL9 perturbations map cleanly to 'SPL'."
+    },
+    {
+      "term": "TPS1",
+      "kb_node": "SUGAR",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "TPS1 (TREHALOSE-6-PHOSPHATE SYNTHASE 1) generates T6P, the sucrose-status signal required for FT induction at the SAM (Wahl et al. 2013). KB has no TPS1/T6P node; 'SUGAR' is the mechanistically appropriate upstream nutrient-signaling node capturing TPS1's floral-inductive role."
+    },
+    {
+      "term": "VIN3",
+      "kb_node": "vernalization pathwa",
+      "reconciliation_type": "mechanism_mapping",
+      "note": "VIN3 (VERNALIZATION INSENSITIVE 3) is the cold-induced PHD-finger protein that initiates PRC2-mediated FLC silencing during vernalization (Sung & Amasino 2004). KB lacks VIN3 directly; 'vernalization pathwa' (vernalization pathway) is the pathway-level node capturing VIN3's requisite function."
+    },
+    {
+      "term": "Warm_Temperature",
+      "kb_node": "warm temperatures",
+      "reconciliation_type": "case_insensitive",
+      "note": "'Warm_Temperature' maps directly to KB node 'warm temperatures' (case/underscore normalization). Captures elevated ambient temperature as a flowering-accelerating cue (thermal induction via PIF4/FT)."
+    }
+  ]
+}

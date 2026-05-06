@@ -1,0 +1,1271 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Plant_Height",
+    "phenotype_node": "Plant_Height",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "iteration": 3,
+    "judge_model": "Claude Opus 4.7",
+    "based_on_build_log": "network/build_log_iteration_3.json",
+    "previous_review": "network/judge_review_iteration_2.json"
+  },
+  "verdict": "approved",
+  "summary": "Final iteration. Mean rubric score 4.82/5 (iter 2: 4.09, iter 1: 3.27). All iter-2 MEDIUM suggestions applied: SL Perception Gate completed (D14/MAX2/SMXL routing via BZR_BES), CO photoperiod robustness (ZTL/CDF1/PHYA), Trap-5 mechanism annotations, lncCOOLAIR/LDL1 FLC repressors. Source % now 30.8% (within 30-50% target). All 16 per-pathway audits return 'high' completeness except the LOW-priority BP/STM meristem branch. Key-player density flags reduced to composite-explained cases. Only LOW priority and literature_gap suggestions remain. Verdict: approved. Network is ready for Step 3 PERTURBATION.",
+  "iteration_2_compliance_check": {
+    "S101_SL_Perception_Gate": "applied (full gate; direct SL->Plant_Height removed)",
+    "S102_CO_photoperiod": "applied (ZTL/CDF1/PHYA + FKF1->CDF1)",
+    "S103_mechanism_annotations": "applied (5 bypass edges now carry Trap-5 note)",
+    "S104_lncCOOLAIR_LDL1": "applied",
+    "S105_S106_S107": "deferred as LOW/literature_gap (carried to S201-S205)"
+  },
+  "rubric_scores": {
+    "pathway_completeness": {
+      "score": 5,
+      "previous_score": 4,
+      "justification": "All 8 orchestrator-mandated pathways (photoperiod, vernalization, autonomous, GA, age, ambient temperature, flowering integrators, sugar/T6P) are present. Hormone arms (GA, BR, auxin, CK, ethylene, ABA) are complete. Strigolactone pathway now has proper Perception Gate with D14+MAX2 post-iter-3 (S101 applied). Evening Complex, HY5/COP1 branches present. Remaining peripheral missing pieces (BP/STM meristem branch, CPS/KS/KO/KAO early GA biosynthesis, TEM1/H2A_Z chromatin arm, SMXL6_7_8 direct Plant_Height output) are all LOW priority or literature_gap."
+    },
+    "mechanistic_depth": {
+      "score": 5,
+      "previous_score": 4,
+      "justification": "SL Perception Gate (Strigolactone -> D14 -> MAX2 -> BZR_BES) adds layered depth in iter 3. CO now has proper 5-input photoperiod gate (FKF1+PHYA activators vs PHYB+ZTL+CDF1 inhibitors) matching textbook photoperiod biology. All cascades are 3-6 layers; no flat shortcuts remaining except the intentional SPL9->Plant_Height parallel feed-forward that coexists with the miR172->AP2_TOE->FT chain."
+    },
+    "motif_coverage": {
+      "score": 5,
+      "previous_score": 4,
+      "justification": "Perception Gate motif now applied for all hormone-receptor pairs in the network: GA+GID1+SLY1->DELLA, BR+BRI1+BAK1 via BSU1->-BIN2->BZR_BES, Auxin+TIR1->IAA19->ARF6_7_8, Strigolactone+D14+MAX2->BZR_BES (iter 3). Hormone nodes now have exactly one outgoing edge (to their receptor): Strigolactone -> D14 only; Brassinosteroid -> BRI1 only; Ethylene -> ETR1 only; Cytokinin has CKX3 (own degradation, a legitimate feedback). Gibberellin/Auxin/ABA bypass edges (S103) now bear explicit Trap-5 annotation. Multi-Output Scaffold applied to DELLA (4 outputs), BZR_BES (2 outputs), PHYB (3 outputs), MAX2 (1 output currently, expansion would need SMXL6_7_8). Biosynthesis-Degradation Balance applied for GA, CK. Coherent Feed-Forward for PIF4_5_7 (Plant_Height + YUC_TAA + GA20OX)."
+    },
+    "cascade_balance": {
+      "score": 5,
+      "previous_score": 4,
+      "justification": "Source percentage now 30.8% - within the 30-50% target. No overloaded hubs (FT at 7 = cap, FLC at 6, PIF4_5_7 at 6). Plant_Height 4+6 = 10 inputs, activators within 3-5 target. All intermediate nodes have manageable fan-in."
+    },
+    "composite_node_handling": {
+      "score": 5,
+      "previous_score": 5,
+      "justification": "Unchanged. All composites (DELLA, GID1, PIF4_5_7, BZR_BES, ARF6_7_8, GA20OX/GA3OX/GA2OX, BR_SYN, YUC_TAA, IPT, ACS_ACO, AUT_SYN, PRC2, AP2_TOE, EC, SL_SYN, FLOWER_INT) correctly applied per §9.3. New iter-3 nodes (D14, MAX2, ZTL, CDF1, PHYA, lncCOOLAIR, LDL1) kept as individuals where no redundancy exists."
+    },
+    "hub_completeness": {
+      "score": 5,
+      "previous_score": 4,
+      "justification": "Major hubs fully covered. FLC: 6 inputs (VIN3, FRI, AUT_SYN, PRC2, lncCOOLAIR, LDL1) - all canonical regulators included. FT: 7 inputs (FLC, CO, GI, AP2_TOE, SVP, FLM, T6P) - all canonical arms. CO: 5 inputs (FKF1, PHYA, PHYB, ZTL, CDF1) - full photoperiod circuit. PHYB: 3 outputs (PIF4_5_7, CO, COP1). DELLA: 3 inputs (GID1, SLY1, SPY) + 4 outputs - canonical."
+    },
+    "topology_hazards": {
+      "score": 4,
+      "previous_score": 3,
+      "justification": "IMPROVED: S103 Trap-5 annotations now applied on the 5 remaining gate-bypass edges (Gibberellin->GA20OX/GA3OX/GA2OX, Auxin->IPT, ABA->GA20OX). Each mechanism field now declares the Motif-1 purity compromise with the biological reason (missing DELLA->enzyme and ARF/ABI5->target curated edges). Not a full 5 because the bypass edges structurally remain - they are documented but not resolved - resolution requires a Step 1 literature extension (see literature_gaps)."
+    },
+    "evidence_quality": {
+      "score": 4,
+      "previous_score": 4,
+      "justification": "All 97 edges have DOIs. Mechanism strings remain specific. Iter 3 added 9 new edges, all carrying curated evidence. `verification: abstract_read` items unchanged - an ongoing follow-up."
+    },
+    "phenotype_audit": {
+      "score": 5,
+      "previous_score": 5,
+      "justification": "Plant_Height: 4 activators (PIF4_5_7, BZR_BES, ARF6_7_8, ARR1) + 6 inhibitors (SPL9, DELLA, EIN3, ABI5, FLOWER_INT, HY5) = 10 inputs. Activator count at 4 (within 3-5 target, reduced by 1 after SL gate completion). All major effector classes represented via TF integrators: light TFs (PIF4_5_7, HY5), hormone TFs (BZR_BES, ARF6_7_8, ARR1, EIN3, ABI5), master growth inhibitor (DELLA), age integrator (SPL9), flowering integrator (FLOWER_INT). SL effects now route through MAX2->BZR_BES(-1) rather than direct edge - proper Perception Gate."
+    },
+    "rejected_edges_review": {
+      "score": 5,
+      "previous_score": 4,
+      "justification": "Of ~90 rejected curated edges: ~35 are intentionally rerouted through composite collapse (AUT_SYN, PRC2, AP2_TOE, FLOWER_INT, EC, SL_SYN); ~25 are legitimately peripheral (individual SPL paralogs, BRC1, PIN1, Auxin_Transport); ~15 are CO-related alternative regulators now added (ZTL/CDF1/PHYA); ~10 are Plant_Height direct edges correctly routed through TF integrators. No genuine silent drops remain. Residual rejections represent LOW priority (BP/STM, early GA) or literature_gap items."
+    },
+    "key_player_density": {
+      "score": 5,
+      "previous_score": 4,
+      "justification": "All 9 remaining flags are composite-explained or have documented biological reasons. AP2_TOE, FLOWER_INT, EC, AUT_SYN, PRC2, SL_SYN are composite collapses (§9.11 documented-reason clause satisfied). miR172 ratio 0.20 reflects AP2_TOE target composite. GID1 ratio 0.29 reflects paralog composite. Strigolactone ratio 0.25 reflects proper Perception Gate routing (direct Plant_Height edge intentionally removed). No silent under-representation of a major hormone, metabolite, or master TF remains.",
+      "per_player_ratios": {
+        "Plant_Height": 0.24,
+        "PIF4_5_7": 0.41,
+        "FLC": 0.37,
+        "DELLA": 0.39,
+        "Gibberellin": 0.39,
+        "FT": 0.5,
+        "BZR_BES": 0.55,
+        "CO": 1.0,
+        "AP2_TOE": "0.18 (composite-explained)",
+        "FLOWER_INT": "0.18 (composite-explained)",
+        "Cytokinin": 0.4,
+        "miR172": "0.20 (targets collapsed into AP2_TOE)",
+        "miR156": 0.33,
+        "PHYB": 0.5,
+        "EC": "0.12 (composite ELF3/4/LUX; Plant_Height routed via PIF)",
+        "Auxin": 0.38,
+        "Strigolactone": "0.25 (Perception Gate routing)",
+        "SPL9": 0.38,
+        "AUT_SYN": "0.14 (6 paralog composite)",
+        "PRC2": "0.25 (4 paralog composite)",
+        "GID1": "0.29 (3 paralog composite)",
+        "SL_SYN": "0.20 (4 paralog composite)",
+        "MAX2": 0.4
+      }
+    }
+  },
+  "rubric_deltas_vs_iter_2": {
+    "pathway_completeness": {
+      "previous": 4,
+      "current": 5,
+      "delta": 1
+    },
+    "mechanistic_depth": {
+      "previous": 4,
+      "current": 5,
+      "delta": 1
+    },
+    "motif_coverage": {
+      "previous": 4,
+      "current": 5,
+      "delta": 1
+    },
+    "cascade_balance": {
+      "previous": 4,
+      "current": 5,
+      "delta": 1
+    },
+    "composite_node_handling": {
+      "previous": 5,
+      "current": 5,
+      "delta": 0
+    },
+    "hub_completeness": {
+      "previous": 4,
+      "current": 5,
+      "delta": 1
+    },
+    "topology_hazards": {
+      "previous": 3,
+      "current": 4,
+      "delta": 1
+    },
+    "evidence_quality": {
+      "previous": 4,
+      "current": 4,
+      "delta": 0
+    },
+    "phenotype_audit": {
+      "previous": 5,
+      "current": 5,
+      "delta": 0
+    },
+    "rejected_edges_review": {
+      "previous": 4,
+      "current": 5,
+      "delta": 1
+    },
+    "key_player_density": {
+      "previous": 4,
+      "current": 5,
+      "delta": 1
+    }
+  },
+  "per_node_audit": [
+    {
+      "node": "Light",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "PHYB(+)",
+        "HFR1(+)",
+        "FKF1(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "Temperature",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "PIF4_5_7(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "Cold_Vernalization",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "VIN3(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "Sucrose",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "miR156(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "FRI",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "FLC(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "BAK1",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "BSU1(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "SLY1",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "DELLA(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "PAR1",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "PIF4_5_7(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "NCED3",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "ABA(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "ACS_ACO",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "Ethylene(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "miR156",
+      "inputs": [
+        "Sucrose(-)",
+        "T6P(-)"
+      ],
+      "outputs": [
+        "SPL9(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "Gibberellin",
+      "inputs": [
+        "GA20OX(+)",
+        "GA3OX(+)",
+        "GA2OX(-)"
+      ],
+      "outputs": [
+        "GA20OX(-)",
+        "GA3OX(-)",
+        "GA2OX(+)",
+        "GID1(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "Brassinosteroid",
+      "inputs": [
+        "BR_SYN(+)"
+      ],
+      "outputs": [
+        "BRI1(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "Auxin",
+      "inputs": [
+        "YUC_TAA(+)"
+      ],
+      "outputs": [
+        "TIR1(+)",
+        "IPT(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "Cytokinin",
+      "inputs": [
+        "IPT(+)",
+        "CKX3(-)"
+      ],
+      "outputs": [
+        "CKX3(+)",
+        "AHK3(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "Ethylene",
+      "inputs": [
+        "ACS_ACO(+)"
+      ],
+      "outputs": [
+        "ETR1(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "ABA",
+      "inputs": [
+        "NCED3(+)"
+      ],
+      "outputs": [
+        "PYL(+)",
+        "GA20OX(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "GA20OX",
+      "inputs": [
+        "Gibberellin(-)",
+        "PIF4_5_7(+)",
+        "ABA(-)"
+      ],
+      "outputs": [
+        "Gibberellin(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "GA3OX",
+      "inputs": [
+        "Gibberellin(-)"
+      ],
+      "outputs": [
+        "Gibberellin(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "GA2OX",
+      "inputs": [
+        "Gibberellin(+)"
+      ],
+      "outputs": [
+        "Gibberellin(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "BR_SYN",
+      "inputs": [
+        "BZR_BES(-)"
+      ],
+      "outputs": [
+        "Brassinosteroid(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "YUC_TAA",
+      "inputs": [
+        "PIF4_5_7(+)"
+      ],
+      "outputs": [
+        "Auxin(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "IPT",
+      "inputs": [
+        "Auxin(-)"
+      ],
+      "outputs": [
+        "Cytokinin(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "CKX3",
+      "inputs": [
+        "Cytokinin(+)"
+      ],
+      "outputs": [
+        "Cytokinin(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "GID1",
+      "inputs": [
+        "Gibberellin(+)"
+      ],
+      "outputs": [
+        "DELLA(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "DELLA",
+      "inputs": [
+        "GID1(-)",
+        "SLY1(-)",
+        "SPY(+)"
+      ],
+      "outputs": [
+        "PIF4_5_7(-)",
+        "BZR_BES(-)",
+        "ARF6_7_8(-)",
+        "Plant_Height(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "BRI1",
+      "inputs": [
+        "Brassinosteroid(+)"
+      ],
+      "outputs": [
+        "BSU1(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "BIN2",
+      "inputs": [
+        "BSU1(-)"
+      ],
+      "outputs": [
+        "BZR_BES(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "BSU1",
+      "inputs": [
+        "BRI1(+)",
+        "BAK1(+)"
+      ],
+      "outputs": [
+        "BIN2(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "BZR_BES",
+      "inputs": [
+        "DELLA(-)",
+        "BIN2(-)",
+        "PP2A(+)",
+        "MAX2(-)"
+      ],
+      "outputs": [
+        "BR_SYN(-)",
+        "Plant_Height(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "TIR1",
+      "inputs": [
+        "Auxin(+)"
+      ],
+      "outputs": [
+        "IAA19(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "IAA19",
+      "inputs": [
+        "TIR1(-)"
+      ],
+      "outputs": [
+        "ARF6_7_8(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "ARF6_7_8",
+      "inputs": [
+        "DELLA(-)",
+        "IAA19(-)"
+      ],
+      "outputs": [
+        "Plant_Height(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "PHYB",
+      "inputs": [
+        "Light(+)"
+      ],
+      "outputs": [
+        "PIF4_5_7(-)",
+        "CO(-)",
+        "COP1(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "HFR1",
+      "inputs": [
+        "Light(+)"
+      ],
+      "outputs": [
+        "PIF4_5_7(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "PIF4_5_7",
+      "inputs": [
+        "PHYB(-)",
+        "HFR1(-)",
+        "PAR1(-)",
+        "Temperature(+)",
+        "DELLA(-)",
+        "EC(-)"
+      ],
+      "outputs": [
+        "YUC_TAA(+)",
+        "GA20OX(+)",
+        "Plant_Height(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "AHK3",
+      "inputs": [
+        "Cytokinin(+)"
+      ],
+      "outputs": [
+        "AHP1(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "AHP1",
+      "inputs": [
+        "AHK3(+)"
+      ],
+      "outputs": [
+        "ARR1(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "ARR1",
+      "inputs": [
+        "AHP1(+)"
+      ],
+      "outputs": [
+        "Plant_Height(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "ETR1",
+      "inputs": [
+        "Ethylene(-)"
+      ],
+      "outputs": [
+        "CTR1(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "CTR1",
+      "inputs": [
+        "ETR1(+)"
+      ],
+      "outputs": [
+        "EIN2(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "EIN2",
+      "inputs": [
+        "CTR1(-)"
+      ],
+      "outputs": [
+        "EIN3(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "EIN3",
+      "inputs": [
+        "EIN2(+)"
+      ],
+      "outputs": [
+        "Plant_Height(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "PYL",
+      "inputs": [
+        "ABA(+)"
+      ],
+      "outputs": [
+        "ABI1(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "ABI1",
+      "inputs": [
+        "PYL(-)"
+      ],
+      "outputs": [
+        "SNRK2(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "SNRK2",
+      "inputs": [
+        "ABI1(-)"
+      ],
+      "outputs": [
+        "ABI5(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "ABI5",
+      "inputs": [
+        "SNRK2(+)"
+      ],
+      "outputs": [
+        "Plant_Height(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "VIN3",
+      "inputs": [
+        "Cold_Vernalization(+)"
+      ],
+      "outputs": [
+        "FLC(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "FLC",
+      "inputs": [
+        "VIN3(-)",
+        "FRI(+)",
+        "AUT_SYN(-)",
+        "PRC2(-)",
+        "lncCOOLAIR(-)",
+        "LDL1(-)"
+      ],
+      "outputs": [
+        "FT(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Hub fully represented in iter 3 (6 inputs)."
+    },
+    {
+      "node": "FT",
+      "inputs": [
+        "FLC(-)",
+        "GI(+)",
+        "CO(+)",
+        "AP2_TOE(-)",
+        "SVP(-)",
+        "FLM(-)",
+        "T6P(+)"
+      ],
+      "outputs": [
+        "FLOWER_INT(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Hub fully represented in iter 3 (7 inputs)."
+    },
+    {
+      "node": "SPL9",
+      "inputs": [
+        "miR156(-)"
+      ],
+      "outputs": [
+        "Plant_Height(-)",
+        "miR172(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "GI",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "FKF1(+)",
+        "FT(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "FKF1",
+      "inputs": [
+        "Light(+)",
+        "GI(+)"
+      ],
+      "outputs": [
+        "CO(+)",
+        "CDF1(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "CO",
+      "inputs": [
+        "FKF1(+)",
+        "PHYB(-)",
+        "PHYA(+)",
+        "ZTL(-)",
+        "CDF1(-)"
+      ],
+      "outputs": [
+        "FT(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Hub fully represented in iter 3 (5 inputs)."
+    },
+    {
+      "node": "AUT_SYN",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "FLC(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "PRC2",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "FLC(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "miR172",
+      "inputs": [
+        "SPL9(+)"
+      ],
+      "outputs": [
+        "AP2_TOE(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "AP2_TOE",
+      "inputs": [
+        "miR172(-)"
+      ],
+      "outputs": [
+        "FT(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "SVP",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "FT(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "FLM",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "FT(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "EC",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "PIF4_5_7(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "SL_SYN",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "Strigolactone(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "Strigolactone",
+      "inputs": [
+        "SL_SYN(+)"
+      ],
+      "outputs": [
+        "D14(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "FLOWER_INT",
+      "inputs": [
+        "FT(+)"
+      ],
+      "outputs": [
+        "Plant_Height(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "COP1",
+      "inputs": [
+        "PHYB(-)"
+      ],
+      "outputs": [
+        "HY5(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "HY5",
+      "inputs": [
+        "COP1(-)"
+      ],
+      "outputs": [
+        "Plant_Height(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "TPS1",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "T6P(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "T6P",
+      "inputs": [
+        "TPS1(+)"
+      ],
+      "outputs": [
+        "FT(+)",
+        "miR156(-)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "PP2A",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "BZR_BES(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "SPY",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "DELLA(+)"
+      ],
+      "verdict": "appropriate",
+      "comment": "Unchanged from iter 2; no remaining concerns."
+    },
+    {
+      "node": "D14",
+      "inputs": [
+        "Strigolactone(+)"
+      ],
+      "outputs": [
+        "MAX2(+)"
+      ],
+      "verdict": "appropriate_new_in_iter_3",
+      "comment": "Added in iter 3. In-deg 1, out-deg 1. Completes the SL Perception Gate / photoperiod / FLC-repression arms."
+    },
+    {
+      "node": "MAX2",
+      "inputs": [
+        "D14(+)"
+      ],
+      "outputs": [
+        "BZR_BES(-)"
+      ],
+      "verdict": "appropriate_new_in_iter_3",
+      "comment": "Added in iter 3. In-deg 1, out-deg 1. Completes the SL Perception Gate / photoperiod / FLC-repression arms."
+    },
+    {
+      "node": "ZTL",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "CO(-)"
+      ],
+      "verdict": "appropriate_new_in_iter_3",
+      "comment": "Added in iter 3. In-deg 0, out-deg 1. Completes the SL Perception Gate / photoperiod / FLC-repression arms."
+    },
+    {
+      "node": "CDF1",
+      "inputs": [
+        "FKF1(-)"
+      ],
+      "outputs": [
+        "CO(-)"
+      ],
+      "verdict": "appropriate_new_in_iter_3",
+      "comment": "Added in iter 3. In-deg 1, out-deg 1. Completes the SL Perception Gate / photoperiod / FLC-repression arms."
+    },
+    {
+      "node": "PHYA",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "CO(+)"
+      ],
+      "verdict": "appropriate_new_in_iter_3",
+      "comment": "Added in iter 3. In-deg 0, out-deg 1. Completes the SL Perception Gate / photoperiod / FLC-repression arms."
+    },
+    {
+      "node": "lncCOOLAIR",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "FLC(-)"
+      ],
+      "verdict": "appropriate_new_in_iter_3",
+      "comment": "Added in iter 3. In-deg 0, out-deg 1. Completes the SL Perception Gate / photoperiod / FLC-repression arms."
+    },
+    {
+      "node": "LDL1",
+      "inputs": [
+        "(source)"
+      ],
+      "outputs": [
+        "FLC(-)"
+      ],
+      "verdict": "appropriate_new_in_iter_3",
+      "comment": "Added in iter 3. In-deg 0, out-deg 1. Completes the SL Perception Gate / photoperiod / FLC-repression arms."
+    },
+    {
+      "node": "Plant_Height",
+      "inputs": [
+        "SPL9(-)",
+        "DELLA(-)",
+        "BZR_BES(+)",
+        "ARF6_7_8(+)",
+        "ARR1(+)",
+        "EIN3(-)",
+        "ABI5(-)",
+        "PIF4_5_7(+)",
+        "FLOWER_INT(-)",
+        "HY5(-)"
+      ],
+      "outputs": [
+        "(leaf)"
+      ],
+      "verdict": "appropriate",
+      "comment": "10 inputs (4 activators + 6 inhibitors). All major effector classes represented via TF integrators. Strigolactone now routes via MAX2->BZR_BES."
+    }
+  ],
+  "per_pathway_audit": [
+    {
+      "pathway": "Gibberellin (biosynthesis / signaling / catabolism)",
+      "completeness": "high",
+      "missing_pieces": [
+        "DELLA->GAox feedback (literature_gap)",
+        "CPS/KS/KO/KAO early biosynthesis (LOW)"
+      ],
+      "comment": "Full Motif 4 + Perception Gate + Multi-Output Scaffold. Trap-5 annotations applied."
+    },
+    {
+      "pathway": "Brassinosteroid signaling",
+      "completeness": "high",
+      "missing_pieces": [],
+      "comment": "Full Perception Gate, PP2A activation, SL-BR crosstalk via MAX2->BZR_BES added in iter 3."
+    },
+    {
+      "pathway": "Auxin signaling",
+      "completeness": "high",
+      "missing_pieces": [],
+      "comment": "Perception Gate applied linearly; Auxin->IPT bypass annotated with Trap-5 note (S103)."
+    },
+    {
+      "pathway": "Cytokinin biosynthesis-signaling",
+      "completeness": "high",
+      "missing_pieces": [],
+      "comment": "Full Motif 4 and two-component chain."
+    },
+    {
+      "pathway": "Ethylene signaling",
+      "completeness": "high",
+      "missing_pieces": [],
+      "comment": "Complete inverted-receptor chain."
+    },
+    {
+      "pathway": "ABA signaling",
+      "completeness": "high",
+      "missing_pieces": [
+        "ABA catabolism (literature_gap)"
+      ],
+      "comment": "Canonical PYL->ABI1->SNRK2->ABI5 chain; ABA->GA20OX bypass annotated."
+    },
+    {
+      "pathway": "Strigolactone signaling",
+      "completeness": "high",
+      "missing_pieces": [
+        "SMXL6_7_8->Plant_Height literature_gap"
+      ],
+      "comment": "Full Perception Gate in iter 3: SL_SYN->Strigolactone->D14->MAX2->BZR_BES(-). Direct Plant_Height edge removed for gate purity."
+    },
+    {
+      "pathway": "Light / PHYB / shade avoidance",
+      "completeness": "high",
+      "missing_pieces": [],
+      "comment": "PHYB, HFR1, PAR1, Evening Complex, HY5/COP1 all wired."
+    },
+    {
+      "pathway": "Photoperiod (CO/GI/FKF1/CDF1/ZTL/PHYA->FT)",
+      "completeness": "high",
+      "missing_pieces": [],
+      "comment": "Complete in iter 3: ZTL, CDF1, PHYA added with PHYB and FKF1 producing a full photoperiod gate on CO."
+    },
+    {
+      "pathway": "Vernalization (FRI/FLC/VIN3/PRC2/COOLAIR)",
+      "completeness": "high",
+      "missing_pieces": [],
+      "comment": "lncCOOLAIR added in iter 3; PRC2 + VIN3 + FRI fully represented."
+    },
+    {
+      "pathway": "Autonomous (FCA/FPA/FLD/FVE/LD/FY/LDL1 -> FLC)",
+      "completeness": "high",
+      "missing_pieces": [],
+      "comment": "AUT_SYN composite + LDL1 separate; all curated autonomous regulators represented."
+    },
+    {
+      "pathway": "Age (miR156/SPL/miR172/AP2-TOE)",
+      "completeness": "high",
+      "missing_pieces": [],
+      "comment": "Full cascade with T6P parallel repression."
+    },
+    {
+      "pathway": "Ambient temperature (SVP/FLM -> FT)",
+      "completeness": "high",
+      "missing_pieces": [
+        "ARP6->H2A_Z->FT chromatin arm (LOW)"
+      ],
+      "comment": "SVP/FLM canonical arm present; ambient-temp PIF4 arm also present."
+    },
+    {
+      "pathway": "Flowering integrators",
+      "completeness": "high",
+      "missing_pieces": [],
+      "comment": "FLOWER_INT composite covers SOC1/LFY/AP1."
+    },
+    {
+      "pathway": "Sugar/T6P",
+      "completeness": "high",
+      "missing_pieces": [],
+      "comment": "Full TPS1/T6P/miR156/FT circuit."
+    },
+    {
+      "pathway": "Shoot apical meristem (BP/STM)",
+      "completeness": "absent",
+      "missing_pieces": [
+        "BP/STM (LOW)"
+      ],
+      "comment": "Low priority for primary-stem height; defer."
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "S201",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "SMXL6_7_8 -> Plant_Height direct edge absent from curated. Required to close SL Perception Gate output with SMXL as the repressor (canonical motif layout).",
+      "biological_justification": "Current SL gate uses MAX2 -> BZR_BES as the downstream edge; adding SMXL6_7_8 would provide the canonical SMXL-based SL-response output. Low priority because the current gate already captures SL-dependent growth modulation.",
+      "curated_edge_ids": [],
+      "implementation": "Step 1 LITERATURE REVIEW: search 'SMXL6 SMXL7 SMXL8 plant stature', 'smxl678 primary shoot height'."
+    },
+    {
+      "id": "S202",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "DELLA -> GA20OX/GA3OX/GA2OX feedback edges not curated; GA Trap-5 resolution deferred.",
+      "biological_justification": "Zentella 2007 Plant Cell documented DELLA transcriptional regulation of GA metabolism genes. Curating these would close Gibberellin Motif-1 gate purity. S103 mitigation (mechanism annotation) already applied.",
+      "curated_edge_ids": [],
+      "implementation": "Step 1 LITERATURE REVIEW: 'DELLA GA20ox GA3ox GA2ox transcriptional feedback'."
+    },
+    {
+      "id": "S203",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "BR catabolism (BAS1/CYP72C1) and ABA catabolism (CYP707A) absent from curated. Motif 4 Biosynthesis-Degradation Balance is incomplete for BR and ABA.",
+      "biological_justification": "Without catabolism nodes, bas1/sob7 (BR) and cyp707a (ABA) mutants are not modelable. Low priority because these mutants are less commonly profiled.",
+      "curated_edge_ids": [],
+      "implementation": "Step 1 LITERATURE REVIEW extension."
+    },
+    {
+      "id": "S204",
+      "type": "add_node",
+      "priority": "low",
+      "description": "BP/STM meristem-identity branch optional.",
+      "biological_justification": "BP -> Plant_Height (+1) curated (E226) but primary effect is on meristem, not stem height. Adding requires pushing phenotype activator count from 4 to 5 (at cap) or restructuring. Low priority for plant-height validation.",
+      "curated_edge_ids": [
+        "E226",
+        "E227"
+      ],
+      "implementation": "Add only if post-validation refinement requires bp/stm mutant prediction."
+    },
+    {
+      "id": "S205",
+      "type": "add_node",
+      "priority": "low",
+      "description": "Early GA biosynthesis (CPS/KS/KO/KAO) as composite GA_UPSTREAM.",
+      "biological_justification": "Currently ga1 (CPS) KO is not modelable because the earliest biosynthesis node is GA20OX composite. Adding a GA_UPSTREAM composite source with GA_UPSTREAM -> GA20OX(+1) would enable ga1 prediction.",
+      "curated_edge_ids": [
+        "E046",
+        "E047",
+        "E048",
+        "E049"
+      ],
+      "implementation": "Add GA_UPSTREAM (PROTEIN_COMPLEX, source). Edge GA_UPSTREAM -> GA20OX(+1)."
+    }
+  ],
+  "literature_gaps": [
+    "SMXL6_7_8 -> Plant_Height for height context",
+    "DELLA -> GA20OX/GA3OX/GA2OX feedback edges",
+    "BR catabolism (BAS1/CYP72C1/CYP734A1)",
+    "ABA catabolism (CYP707A1/2)",
+    "Auxin conjugation/degradation (GH3/DAO)",
+    "Ethylene signaling-to-DELLA stabilisation (EIN3 -> RGA/GAI, Achard 2003/2007)"
+  ],
+  "stop_reason": null,
+  "suggestion_counts": {
+    "high": 0,
+    "medium": 0,
+    "low": 5,
+    "total": 5
+  },
+  "mean_score": 4.82,
+  "previous_mean_score": 4.09,
+  "score_trajectory": {
+    "iteration_1_mean": 3.27,
+    "iteration_2_mean": 4.09,
+    "iteration_3_mean": 4.82,
+    "total_improvement": 1.55
+  }
+}

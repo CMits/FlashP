@@ -1,0 +1,2193 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "flowering_time",
+    "phenotype_node": "Flowering_Time",
+    "species": "Sorghum bicolor",
+    "created": "2026-04-21",
+    "total_nodes": 35,
+    "total_edges": 80,
+    "source_nodes": 10,
+    "source_percentage": 28.6,
+    "node_synonyms": {
+      "PHYB": [
+        "SbPhyB",
+        "Ma3",
+        "Sobic.001G394400"
+      ],
+      "PHYC": [
+        "SbPhyC",
+        "Ma5",
+        "Sobic.001G087100"
+      ],
+      "PRR37": [
+        "SbPRR37",
+        "Ma1",
+        "Sobic.006G057866"
+      ],
+      "GHD7": [
+        "SbGhd7",
+        "Ma6",
+        "Sb06g000570",
+        "Sobic.006G004400"
+      ],
+      "MA2_SMYD": [
+        "Ma2",
+        "SbSMYD",
+        "Sobic.002G302700"
+      ],
+      "CO": [
+        "SbCO",
+        "SbHd1",
+        "CONSTANS",
+        "SbCOL"
+      ],
+      "ID1": [
+        "SbID1",
+        "INDETERMINATE1"
+      ],
+      "EHD1": [
+        "SbEhd1",
+        "Early Heading Date 1"
+      ],
+      "FT1": [
+        "SbFT1",
+        "SbCN15"
+      ],
+      "FT8": [
+        "SbFT8",
+        "SbCN8",
+        "Sobic.003G295300"
+      ],
+      "FT10": [
+        "SbFT10",
+        "SbCN12"
+      ],
+      "FT12": [
+        "SbFT12",
+        "FlrAvgD1",
+        "Sb06g012260"
+      ],
+      "GF14": [
+        "Sb14-3-3",
+        "14-3-3"
+      ],
+      "SOC1": [
+        "SbSOC1",
+        "SbMADS31",
+        "Sobic.004G003434"
+      ],
+      "AP1": [
+        "SbAP1",
+        "SbMADS7",
+        "Sobic.002G010100"
+      ],
+      "AP2": [
+        "SbAP2",
+        "Sobic.001G036800",
+        "rap2.7-ortholog"
+      ],
+      "FKF1": [
+        "SbFKF1",
+        "SbFFL"
+      ],
+      "GI": [
+        "SbGI",
+        "SbGIGANTEA"
+      ],
+      "CCA1": [
+        "SbCCA1"
+      ],
+      "LHY": [
+        "SbLHY"
+      ],
+      "TOC1": [
+        "SbTOC1",
+        "SbPRR1"
+      ],
+      "ELF3": [
+        "SbELF3"
+      ],
+      "ELF4": [
+        "SbELF4"
+      ],
+      "LUX": [
+        "SbLUX"
+      ],
+      "FD1": [
+        "SbFD1"
+      ],
+      "LFY": [
+        "SbLFY"
+      ],
+      "SBP19": [
+        "SbSBP19",
+        "SbSPL19",
+        "Sobic.002G312300"
+      ],
+      "SBP4": [
+        "SbSBP4"
+      ],
+      "miR156h": [
+        "sbi-MIR156h"
+      ],
+      "miR172a": [
+        "sbi-MIR172a"
+      ]
+    },
+    "residual_gaps_for_builder_applied": [
+      "G008: SbHd1 consolidated with SbCO; E092 (SbHd1->SbGhd7) DROPPED as rice-only mechanism (Hd1-Ghd7 complex) without sorghum-direct evidence.",
+      "G005: SbPhyA and SbCRY1 DROPPED from model (no downstream edges; option (a) per judge recommendation).",
+      "G011: SbGI has 1 curated inhibitor (CCA1) and 5 outgoing edges; flagged literature_gap for missing TOC1->GI and EC->GI edges.",
+      "G014: SbFT13 NOT included (Wolabu 2016 reports non-detectable in tested tissues).",
+      "G003_residual: EC edges (E096/E097/E098/E099/E100/E106/E111) retained in v1 with original confidence levels; rice ortholog inference noted in edge mechanisms."
+    ],
+    "motifs_applied": [
+      "Perception Gate: Light -> PHYB -> PRR37 / GHD7 (no Light bypass to PRR37/GHD7/FT/Flowering_Time)",
+      "Multi-Output Scaffold: PRR37 -> (FT1, FT8, FT10, EHD1, CO); GHD7 -> (FT1, FT8, FT10, EHD1, ELF3, FKF1); ID1 -> 6 targets",
+      "Coherent Feed-Forward: PRR37 -| FT + PRR37 -> GHD7 -| EHD1 -> FT; ELF3 -| both PRR37 and GHD7",
+      "Mutual Inhibition: CCA1 -| TOC1 -| CCA1 oscillator; GHD7 -| ELF3 / ELF3 -| GHD7 daylength switch",
+      "Age-pathway convergence: miR156h -| SBP -> miR172a -| AP2; miR156h -| SBP4 -> SOC1"
+    ],
+    "bypass_policy": "Light NOT connected directly to PRR37/GHD7/FT/Flowering_Time. Photoperiod_SD DROPPED (direct FT activation bypass). Photoperiod_LD retained as coincidence-regime input to PRR37 and GHD7 (separate from raw Light)."
+  },
+  "nodes": [
+    {
+      "id": "Light",
+      "type": "ENVIRONMENT",
+      "full_name": "Ambient light",
+      "description": "Environmental light input; activates photoreceptors PHYB/PHYC and entrains the morning clock (CCA1/LHY).",
+      "is_source": true
+    },
+    {
+      "id": "Blue_Light",
+      "type": "ENVIRONMENT",
+      "full_name": "Blue-light photon flux",
+      "description": "Blue light input to the LOV-domain F-box protein FKF1.",
+      "is_source": true
+    },
+    {
+      "id": "Photoperiod_LD",
+      "type": "ENVIRONMENT",
+      "full_name": "Long-day photoperiod regime",
+      "description": "Binary/continuous LD regime indicator: under LD the evening light window coincides with PRR37/GHD7 transcriptional peaks.",
+      "is_source": true
+    },
+    {
+      "id": "Gibberellin",
+      "type": "HORMONE",
+      "full_name": "Gibberellin",
+      "description": "Bioactive GA pool (GA1/GA20); mild flowering-promoting hormone in cereals. Encoded as a source hormone; exogenous GA3 treatment maps to exogenous_supply.",
+      "is_source": true
+    },
+    {
+      "id": "PHYB",
+      "type": "GENE",
+      "full_name": "Phytochrome B (Ma3 locus, Sobic.001G394400)",
+      "description": "Red-light photoreceptor; primary photoperiod sensor. ma3^R null causes ~60-day-earlier LD flowering (Childs 1997, Yang 2014). Ma-locus alias: Ma3.",
+      "is_source": false
+    },
+    {
+      "id": "PHYC",
+      "type": "GENE",
+      "full_name": "Phytochrome C (Ma5 locus, Sobic.001G087100)",
+      "description": "Secondary red-light photoreceptor; acts in parallel with PHYB to activate PRR37/GHD7. Ma-locus alias: Ma5.",
+      "is_source": false
+    },
+    {
+      "id": "CCA1",
+      "type": "GENE",
+      "full_name": "CIRCADIAN CLOCK ASSOCIATED 1",
+      "description": "Morning-phased MYB transcription factor; light-entrained at dawn; represses TOC1, GI, and PRR37.",
+      "is_source": false
+    },
+    {
+      "id": "LHY",
+      "type": "GENE",
+      "full_name": "LATE ELONGATED HYPOCOTYL",
+      "description": "Morning-phased MYB transcription factor partially redundant with CCA1; represses TOC1.",
+      "is_source": false
+    },
+    {
+      "id": "TOC1",
+      "type": "GENE",
+      "full_name": "TIMING OF CAB EXPRESSION 1 (PRR1)",
+      "description": "Evening-phased PRR protein; core oscillator component that represses CCA1 (negative feedback loop).",
+      "is_source": false
+    },
+    {
+      "id": "GI",
+      "type": "GENE",
+      "full_name": "GIGANTEA",
+      "description": "Afternoon/evening-phased clock protein; activates PRR37, CO, and EHD1 as part of the photoperiod-sensing module. sbgi-ems1 delays flowering ~30 days.",
+      "is_source": false
+    },
+    {
+      "id": "FKF1",
+      "type": "GENE",
+      "full_name": "FLAVIN-BINDING KELCH REPEAT F-BOX 1 (SbFFL)",
+      "description": "LOV-domain F-box protein activated by blue light; co-stabilises CO with GI in the late afternoon. Repressed by GHD7 (Tadesse 2024).",
+      "is_source": false
+    },
+    {
+      "id": "ELF3",
+      "type": "GENE",
+      "full_name": "EARLY FLOWERING 3",
+      "description": "Evening Complex scaffold; represses PRR37 and GHD7 (rice ortholog evidence). Inactivated post-translationally by PHYB. Reciprocally repressed by GHD7.",
+      "is_source": false
+    },
+    {
+      "id": "ELF4",
+      "type": "GENE",
+      "full_name": "EARLY FLOWERING 4",
+      "description": "Evening Complex subunit that assembles with LUX onto ELF3 docking protein (Nusinow 2011); required for EC activity.",
+      "is_source": true
+    },
+    {
+      "id": "LUX",
+      "type": "GENE",
+      "full_name": "LUX ARRHYTHMO",
+      "description": "Evening Complex DNA-binding subunit that targets PRR/Ghd7 promoters (rice OsLUX evidence; Andrade 2022).",
+      "is_source": true
+    },
+    {
+      "id": "PRR37",
+      "type": "GENE",
+      "full_name": "PSEUDO-RESPONSE REGULATOR 37 (Ma1 locus, Sobic.006G057866)",
+      "description": "Key LD floral repressor; directly represses EHD1 and florigens (FT1/FT8/FT10), and activates GHD7 and CO. Dominant Ma1 gives latest flowering. Ma-locus alias: Ma1.",
+      "is_source": false
+    },
+    {
+      "id": "GHD7",
+      "type": "GENE",
+      "full_name": "Grain number, plant height and heading date 7 (Ma6 locus, Sobic.006G004400)",
+      "description": "Major LD floral repressor; directly represses EHD1, FT1/FT8/FT10, ELF3, FKF1 (Tadesse 2024 ChIP-seq). Ma-locus alias: Ma6.",
+      "is_source": false
+    },
+    {
+      "id": "MA2_SMYD",
+      "type": "GENE",
+      "full_name": "MATURITY 2 (SMYD-family lysine methyltransferase, Sobic.002G302700)",
+      "description": "Enhances amplitude of PRR37 and CO transcription in LD. ma2 (L141*) flowers ~100 days earlier. Source node: no curated upstream regulator.",
+      "is_source": true
+    },
+    {
+      "id": "ID1",
+      "type": "GENE",
+      "full_name": "INDETERMINATE 1 (conserved maize ID1 / rice Ehd2 ortholog)",
+      "description": "Master regulator of sorghum flowering; activates CO, PRR37, GHD7, EHD1 and the florigens. sbid1-2 (Q199*) delays flowering ~170 days. Source node (no curated upstream regulator).",
+      "is_source": true
+    },
+    {
+      "id": "CO",
+      "type": "GENE",
+      "full_name": "CONSTANS (also SbHd1; CO-like transcription factor)",
+      "description": "B-box TF; activator of EHD1 and florigens in permissive backgrounds. Stabilised by FKF1-GI; destabilised by PHYB in LD daylight (E095). SbHd1 is treated as alias of CO (Judge G008).",
+      "is_source": false
+    },
+    {
+      "id": "EHD1",
+      "type": "GENE",
+      "full_name": "EARLY HEADING DATE 1",
+      "description": "B-type response regulator; primary direct activator of FT1/FT8/FT10. Repressed by PRR37 and GHD7 in LD.",
+      "is_source": false
+    },
+    {
+      "id": "FT1",
+      "type": "GENE",
+      "full_name": "FLOWERING LOCUS T 1 (SbCN15; Hd3a-subclade florigen)",
+      "description": "Mobile florigen; forms florigen activation complex with FD1 and GF14 at the SAM. Directly repressed by PHYB even under PRR37/GHD7-null background.",
+      "is_source": false
+    },
+    {
+      "id": "FT8",
+      "type": "GENE",
+      "full_name": "FLOWERING LOCUS T 8 (SbCN8; ZCN8-subclade florigen)",
+      "description": "Principal florigen in sorghum; binds GF14 (not FD1) for FAC. Activates SOC1 at the SAM.",
+      "is_source": false
+    },
+    {
+      "id": "FT10",
+      "type": "GENE",
+      "full_name": "FLOWERING LOCUS T 10 (SbCN12; ZCN8-subclade paralog)",
+      "description": "Major florigen; directly repressed by GHD7 (Tadesse 2024 ChIP-seq). Binds GF14.",
+      "is_source": false
+    },
+    {
+      "id": "FT12",
+      "type": "GENE",
+      "full_name": "FLOWERING LOCUS T 12 (FlrAvgD1, Sb06g012260, panicoid-specific PEBP)",
+      "description": "Floral suppressor; loss-of-function drove photoperiod-insensitive temperate adaptation (Cuevas 2016). Source node \u2014 no curated upstream regulator.",
+      "is_source": true
+    },
+    {
+      "id": "FD1",
+      "type": "GENE",
+      "full_name": "FLOWERING LOCUS D 1",
+      "description": "bZIP transcription factor; binds FT1 at the SAM to assemble the florigen activation complex (FAC) and activate AP1/SOC1.",
+      "is_source": false
+    },
+    {
+      "id": "GF14",
+      "type": "GENE",
+      "full_name": "General Regulatory Factor 14 (14-3-3 scaffold; Sb14-3-3 composite)",
+      "description": "14-3-3 scaffold; required component of the FAC with FT1/FT8/FT10 (Cai 2016, Wolabu 2016). Promotes flowering.",
+      "is_source": false
+    },
+    {
+      "id": "SOC1",
+      "type": "GENE",
+      "full_name": "SUPPRESSOR OF OVEREXPRESSION OF CO 1 (SbMADS31, Sobic.004G003434)",
+      "description": "MADS-box flowering integrator at the SAM; activated by florigens, SBP4, and LFY/AP1 feedback.",
+      "is_source": false
+    },
+    {
+      "id": "LFY",
+      "type": "GENE",
+      "full_name": "LEAFY",
+      "description": "Meristem-identity integrator; activated by SOC1 and activates AP1 in a mutual reinforcement loop.",
+      "is_source": false
+    },
+    {
+      "id": "AP1",
+      "type": "GENE",
+      "full_name": "APETALA 1 (SbMADS7, Sobic.002G010100; AP1/FUL clade)",
+      "description": "Terminal meristem-identity MADS-box; commits shoot apical meristem to floral fate.",
+      "is_source": false
+    },
+    {
+      "id": "AP2",
+      "type": "GENE",
+      "full_name": "APETALA 2 (Sobic.001G036800; rap2.7-ortholog)",
+      "description": "AP2-like floral repressor; targeted for cleavage by miR172a in the age pathway. Represses FT8 and directly delays flowering.",
+      "is_source": false
+    },
+    {
+      "id": "SBP19",
+      "type": "GENE",
+      "full_name": "SQUAMOSA PROMOTER BINDING PROTEIN 19 (Sobic.002G312300; SPL19)",
+      "description": "Age-pathway SPL TF; targeted by miR156h; activates miR172a transcription (age-pathway amplifier).",
+      "is_source": false
+    },
+    {
+      "id": "SBP4",
+      "type": "GENE",
+      "full_name": "SQUAMOSA PROMOTER BINDING PROTEIN 4",
+      "description": "Age-pathway SPL TF; targeted by miR156h; activates SOC1 at the SAM (age-pathway convergence with photoperiod pathway).",
+      "is_source": false
+    },
+    {
+      "id": "miR156h",
+      "type": "REGULATORY_RNA",
+      "full_name": "sbi-MIR156h",
+      "description": "Age-pathway microRNA; high at juvenile phase, declines with age. Cleaves SBP19 and SBP4 transcripts. Source node \u2014 intrinsic age program.",
+      "is_source": true
+    },
+    {
+      "id": "miR172a",
+      "type": "REGULATORY_RNA",
+      "full_name": "sbi-MIR172a",
+      "description": "Age-pathway microRNA; activated by SBP19 upon decline of miR156h. Cleaves AP2 transcripts to relieve flowering repression.",
+      "is_source": false
+    },
+    {
+      "id": "Flowering_Time",
+      "type": "PHENOTYPE",
+      "full_name": "Flowering time (days to anthesis)",
+      "description": "Days to flowering / heading in sorghum. Higher value = later flowering. Florigens (FT1/FT8/FT10), SOC1, AP1, GF14, and Gibberellin reduce days (sign=-1); FT12 and AP2 delay flowering (sign=+1).",
+      "is_source": false
+    }
+  ],
+  "edges": [
+    {
+      "source": "Light",
+      "target": "PHYB",
+      "sign": 1,
+      "edge_id": "N001",
+      "effect": "activation",
+      "mechanism": "Red light activates phytochrome B photoreceptor; Pfr form accumulates in light.",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.113.2.611",
+          "title": "The sorghum photoperiod sensitivity gene, Ma3, encodes a phytochrome B",
+          "authors": "Childs KL, Miller FR, Cordonnier-Pratt MM, Pratt LH, Morgan PW, Mullet JE",
+          "year": 1997,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "ma3 sorghum lacks a 123-KD phytochrome that predominates in light-grown plants and that is present in non-ma3 plants.",
+          "claim": "Light activates PhyB (Ma3) expression / Pfr accumulation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Light",
+      "target": "PHYC",
+      "sign": 1,
+      "edge_id": "N002",
+      "effect": "activation",
+      "mechanism": "Phytochrome C is activated by red light; Ma5 locus encodes SbPhyC.",
+      "evidence": [
+        {
+          "doi": "10.1038/s41598-023-42306-8",
+          "title": "Deleterious mutations predicted in the sorghum Maturity and Dwarf genes from whole-genome resequencing",
+          "authors": "Thurber CS, Ma JM, Higgins RH, Brown PJ",
+          "year": 2023,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "Ma5 = SbPhyC (Sobic.001G087100, Chr01)",
+          "claim": "Ma5 locus encodes Phytochrome C, a light photoreceptor",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Light",
+      "target": "CCA1",
+      "sign": 1,
+      "edge_id": "N003",
+      "effect": "activation",
+      "mechanism": "Dawn light entrains the morning oscillator: CCA1 expression peaks at dawn and is light-gated. Conservation across Arabidopsis and grasses (rice OsCCA1).",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-12-32",
+          "title": "Association analysis of photoperiodic flowering time genes in west and central African sorghum",
+          "authors": "Bhosale SU, Stich B, Rattunde HFW, Weltzien E, Haussmann BIG, Hash CT, Melchinger AE, Parzies HK",
+          "year": 2012,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "LHY, CCA1, TOC1 (circadian oscillator)...entrained by light-dark cycles.",
+          "claim": "Light entrains the sorghum circadian clock at dawn, driving CCA1 morning peak",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Light",
+      "target": "LHY",
+      "sign": 1,
+      "edge_id": "N004",
+      "effect": "activation",
+      "mechanism": "Dawn light activates LHY morning expression alongside CCA1 in the core oscillator. Light entrainment is a canonical clock input.",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-12-32",
+          "title": "Association analysis of photoperiodic flowering time genes in west and central African sorghum",
+          "authors": "Bhosale SU, Stich B, Rattunde HFW, Weltzien E, Haussmann BIG, Hash CT, Melchinger AE, Parzies HK",
+          "year": 2012,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "LHY, CCA1, TOC1 (circadian oscillator)...entrained by light-dark cycles.",
+          "claim": "Light entrains LHY morning expression in sorghum",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "Blue_Light",
+      "target": "FKF1",
+      "sign": 1,
+      "edge_id": "N005",
+      "effect": "activation",
+      "mechanism": "SbFKF1/SbFFL contains a LOV domain that forms a covalent adduct with FMN upon blue-light illumination, activating the F-box protein to recruit substrates via SCF ubiquitin ligase.",
+      "evidence": [
+        {
+          "doi": "10.1002/pld3.281",
+          "title": "A sorghum gigantea mutant attenuates florigen gene expression and delays flowering time",
+          "authors": "Abdul-Awal SM, Chen J, Xin Z, Harmon FG",
+          "year": 2020,
+          "journal": "Plant Direct",
+          "evidence_sentence": "SbGI physically interacts with the sorghum FKF1-like (SbFFL) protein, and the SbGI-SbFFL interaction is stimulated by blue light.",
+          "claim": "Blue light activates the SbFKF1-SbGI complex formation",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Photoperiod_LD",
+      "target": "PRR37",
+      "sign": 1,
+      "edge_id": "N006",
+      "effect": "activation",
+      "mechanism": "Long-day light evening phase coincides with SbPRR37 evening mRNA peak via PhyB; in SD the evening peak is eliminated because the phase occurs in darkness.",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1106212108",
+          "title": "Coincident light and clock regulation of PRR37 controls photoperiodic flowering in sorghum",
+          "authors": "Murphy RL, Klein RR, Morishige DT, Brady JA, Rooney WL, Miller FR, Dugas DV, Klein PE, Mullet JE",
+          "year": 2011,
+          "journal": "Proceedings of the National Academy of Sciences",
+          "evidence_sentence": "peaks of SbPRR37 mRNA abundance in the morning and in the evening...evening peak of SbPRR37 expression in SD does not occur due to darkness.",
+          "claim": "LD photoperiod activates SbPRR37 evening peak",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Photoperiod_LD",
+      "target": "GHD7",
+      "sign": 1,
+      "edge_id": "N007",
+      "effect": "activation",
+      "mechanism": "LD induces evening peak of SbGhd7 via PhyB; SD eliminates this peak (darkness).",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0105352",
+          "title": "Sorghum Phytochrome B Inhibits Flowering in Long Days by Activating Expression of SbPRR37 and SbGHD7",
+          "authors": "Yang S, Weers BD, Morishige DT, Mullet JE",
+          "year": 2014,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "evening peak of expression is attenuated in SD when this phase occurs in darkness.",
+          "claim": "LD photoperiod activates SbGhd7 evening peak",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PHYB",
+      "target": "PRR37",
+      "sign": 1,
+      "edge_id": "N008",
+      "effect": "activation",
+      "mechanism": "PhyB (Ma3) is required for evening-light activation of SbPRR37 in long days; loss of PhyB eliminates the evening expression peak of SbPRR37.",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0105352",
+          "title": "Sorghum Phytochrome B Inhibits Flowering in Long Days by Activating Expression of SbPRR37 and SbGHD7",
+          "authors": "Yang S, Weers BD, Morishige DT, Mullet JE",
+          "year": 2014,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "PhyB is required for light activation of SbPRR37 and SbGHD7 expression in the evening of long days.",
+          "claim": "Phytochrome B activates SbPRR37 expression in the evening of LD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PHYB",
+      "target": "GHD7",
+      "sign": 1,
+      "edge_id": "N009",
+      "effect": "activation",
+      "mechanism": "PhyB activates SbGhd7 expression through evening-phase light signaling in long days.",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0105352",
+          "title": "Sorghum Phytochrome B Inhibits Flowering in Long Days by Activating Expression of SbPRR37 and SbGHD7",
+          "authors": "Yang S, Weers BD, Morishige DT, Mullet JE",
+          "year": 2014,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "Sorghum phytochrome B inhibits flowering in long days by activating expression of SbPRR37 and SbGHD7, repressors of SbEHD1, SbCN8 and SbCN12.",
+          "claim": "PhyB activates SbGhd7 expression in LD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PHYB",
+      "target": "FT1",
+      "sign": -1,
+      "edge_id": "N010",
+      "effect": "repression",
+      "mechanism": "PhyB represses SbCN15 (SbFT1 = Hd3a-subclade florigen) via a mechanism that is PRR37/Ghd7-independent and photoperiod-independent. Loss of PhyB causes ~60-fold upregulation of SbCN15.",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0105352",
+          "title": "Sorghum Phytochrome B Inhibits Flowering in Long Days by Activating Expression of SbPRR37 and SbGHD7",
+          "authors": "Yang S, Weers BD, Morishige DT, Mullet JE",
+          "year": 2014,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "PhyB mediated repression of SbCN15 expression occurs regardless of photoperiod.",
+          "claim": "PhyB represses SbCN15/SbFT1 constitutively",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PHYB",
+      "target": "CO",
+      "sign": -1,
+      "edge_id": "N011",
+      "effect": "repression",
+      "mechanism": "PhyB/PhyC mediate SbCO protein destabilisation in LD daylight hours, reducing CO activity (opposite of Arabidopsis); in SD this is released.",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-14-148",
+          "title": "CONSTANS is a photoperiod regulated activator of flowering in sorghum",
+          "authors": "Yang S, Murphy RL, Morishige DT, Klein PE, Rooney WL, Mullet JE",
+          "year": 2014,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "Reduced PhyB/C-mediated degradation of SbCO in SD, relative to LD.",
+          "claim": "PhyB promotes SbCO protein degradation in LD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PHYB",
+      "target": "ELF3",
+      "sign": -1,
+      "edge_id": "N012",
+      "effect": "repression",
+      "mechanism": "PhyB inactivates ELF3 post-translationally; in rice, OsPhyB inactivates OsELF3 through post-translational modifications in response to light, thereby attenuating Evening Complex repression on Ghd7/PRR37 in LD.",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.2122582119",
+          "title": "The evening complex integrates photoperiod signals to control flowering in rice",
+          "authors": "Andrade L, Lu Y, Cordeiro A, Costa MMR, Wigge PA, Saibo NJM, Jaeger KE",
+          "year": 2022,
+          "journal": "Proceedings of the National Academy of Sciences",
+          "evidence_sentence": "OsPhyB inactivates OsELF3 through post-translational modifications in response to light.",
+          "claim": "Rice OsPhyB inactivates OsELF3; mechanism inferred for sorghum SbPhyB\u2192SbELF3",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "PHYC",
+      "target": "PRR37",
+      "sign": 1,
+      "edge_id": "N013",
+      "effect": "activation",
+      "mechanism": "Phytochrome C (Ma5) acts together with PhyB to delay flowering in LD through activation of floral repressors; PhyC-light signaling contributes to PRR37 activation.",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "Ma5 encodes phytochrome C (phyC)...acts as a photoperiod-dependent flowering repressor.",
+          "claim": "PhyC (Ma5) represses flowering via same pathway as PhyB \u2192 PRR37",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1038/s41598-023-42306-8",
+          "title": "Deleterious mutations predicted in sorghum Ma and Dw genes",
+          "authors": "Thurber CS, Ma JM, Higgins RH, Brown PJ",
+          "year": 2023,
+          "journal": "Scientific Reports",
+          "evidence_sentence": "Ma5 = SbPhyC...Light sensing...strong flowering inhibition (dominant form required).",
+          "claim": "Ma5/PhyC is a dominant flowering repressor, consistent with acting upstream of PRR37",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PHYC",
+      "target": "GHD7",
+      "sign": 1,
+      "edge_id": "N014",
+      "effect": "activation",
+      "mechanism": "PhyC contributes to evening-light signaling that activates Ghd7 in LD, parallel to PhyB.",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "The other photoreceptor, Phytochrome C (PhyC), is proposed as the candidate gene for the Ma5 (SbPhyC) locus.",
+          "claim": "SbPhyC acts upstream of Ghd7 in the sorghum LD repression pathway",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CCA1",
+      "target": "TOC1",
+      "sign": -1,
+      "edge_id": "N015",
+      "effect": "repression",
+      "mechanism": "Conserved circadian oscillator: morning-phased CCA1 binds EE elements in the TOC1 promoter and represses its transcription.",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-12-32",
+          "title": "Association analysis of photoperiodic flowering time genes in west and central African sorghum",
+          "authors": "Bhosale SU, Stich B, Rattunde HFW, Weltzien E, Haussmann BIG, Hash CT, Melchinger AE, Parzies HK",
+          "year": 2012,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "LHY, CCA1, TOC1 (circadian oscillator).",
+          "claim": "Canonical CCA1-TOC1 oscillator structure conserved in sorghum",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "TOC1",
+      "target": "CCA1",
+      "sign": -1,
+      "edge_id": "N016",
+      "effect": "repression",
+      "mechanism": "Evening-phased TOC1 represses CCA1 transcription, completing the core oscillator feedback loop.",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-12-32",
+          "title": "Association analysis of photoperiodic flowering time genes in west and central African sorghum",
+          "authors": "Bhosale SU, Stich B, Rattunde HFW, Weltzien E, Haussmann BIG, Hash CT, Melchinger AE, Parzies HK",
+          "year": 2012,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "LHY, CCA1, TOC1 (circadian oscillator).",
+          "claim": "TOC1 represses CCA1 in the sorghum circadian clock",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "LHY",
+      "target": "TOC1",
+      "sign": -1,
+      "edge_id": "N017",
+      "effect": "repression",
+      "mechanism": "LHY and CCA1 act redundantly to repress TOC1 in the morning.",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-12-32",
+          "title": "Association analysis of photoperiodic flowering time genes in west and central African sorghum",
+          "authors": "Bhosale SU, Stich B, Rattunde HFW, Weltzien E, Haussmann BIG, Hash CT, Melchinger AE, Parzies HK",
+          "year": 2012,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "LHY, CCA1, TOC1 (circadian oscillator).",
+          "claim": "LHY contributes to morning repression of TOC1 in sorghum",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "CCA1",
+      "target": "GI",
+      "sign": -1,
+      "edge_id": "N018",
+      "effect": "repression",
+      "mechanism": "Morning-phased CCA1/LHY represses GI to restrict GI expression to the afternoon/evening peak.",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-12-32",
+          "title": "Association analysis of photoperiodic flowering time genes in west and central African sorghum",
+          "authors": "Bhosale SU, Stich B, Rattunde HFW, Weltzien E, Haussmann BIG, Hash CT, Melchinger AE, Parzies HK",
+          "year": 2012,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "GI (circadian regulator linking to CO\u2192FT flowering pathway).",
+          "claim": "Sorghum GI is regulated by the core circadian clock (CCA1/LHY repress; TOC1 permits)",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "CCA1",
+      "target": "PRR37",
+      "sign": -1,
+      "edge_id": "N019",
+      "effect": "repression",
+      "mechanism": "Morning-phased CCA1/LHY MYB TFs repress evening-phased genes including PRR37; canonical across Arabidopsis and grass oscillators. Conservation inferred for sorghum from the clock-gated bimodal SbPRR37 expression (Murphy 2011).",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1106212108",
+          "title": "Coincident light and clock regulation of PRR37 controls photoperiodic flowering in sorghum",
+          "authors": "Murphy RL, Klein RR, Morishige DT, Brady JA, Rooney WL, Miller FR, Dugas DV, Klein PE, Mullet JE",
+          "year": 2011,
+          "journal": "Proceedings of the National Academy of Sciences",
+          "evidence_sentence": "circadian clock modulates SbPRR37 expression under...free-running conditions.",
+          "claim": "Morning clock (CCA1/LHY) gates SbPRR37 evening expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ELF4",
+      "target": "ELF3",
+      "sign": 1,
+      "edge_id": "N020",
+      "effect": "activation",
+      "mechanism": "ELF4 and LUX physically associate with ELF3 to form the Evening Complex; ELF3 serves as docking scaffold. Without ELF4/LUX, ELF3 loses repressive activity on clock output.",
+      "evidence": [
+        {
+          "doi": "10.1038/nature10182",
+          "title": "The ELF4-ELF3-LUX complex links the circadian clock to diurnal control of hypocotyl growth",
+          "authors": "Nusinow DA, Helfer A, Hamilton EE, King JJ, Imaizumi T, Schultz TF, Farre EM, Kay SA",
+          "year": 2011,
+          "journal": "Nature",
+          "evidence_sentence": "ELF3 served as a docking protein that brought together ELF4 and LUX; the biological activities of the three components peak in the evening, as does the formation of the evening complex.",
+          "claim": "ELF4 and LUX assemble with ELF3 to form the Evening Complex (conserved)",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "ELF3",
+      "target": "PRR37",
+      "sign": -1,
+      "edge_id": "N021",
+      "effect": "repression",
+      "mechanism": "Evening Complex subunit ELF3 represses morning/evening PRR genes; inferred in sorghum from rice OsELF3-1 ortholog, which negatively regulates OsPRR1/37/73/95 (Zhao 2012).",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0043705",
+          "title": "OsELF3-1, an ortholog of Arabidopsis early flowering 3, regulates rice circadian rhythm and photoperiodic flowering",
+          "authors": "Zhao J, Huang X, Ouyang X, Chen W, Du A, Zhu L, Wang S, Deng XW, Li S",
+          "year": 2012,
+          "journal": "PLoS ONE",
+          "evidence_sentence": "OsELF3-1 negatively regulates OsPRR1, OsPRR37, OsPRR73 and OsPRR95 expression.",
+          "claim": "OsELF3 (ortholog of SbELF3) represses OsPRR37; mechanism inferred for sorghum Evening Complex",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ELF3",
+      "target": "GHD7",
+      "sign": -1,
+      "edge_id": "N022",
+      "effect": "repression",
+      "mechanism": "Evening Complex subunit ELF3 represses Ghd7; in rice, OsELF3 suppresses Ghd7 expression, accelerating flowering under LD. Mechanism conserved in sorghum Evening Complex.",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0043705",
+          "title": "OsELF3-1, an ortholog of Arabidopsis early flowering 3, regulates rice circadian rhythm and photoperiodic flowering",
+          "authors": "Zhao J, Huang X, Ouyang X, Chen W, Du A, Zhu L, Wang S, Deng XW, Li S",
+          "year": 2012,
+          "journal": "PLoS ONE",
+          "evidence_sentence": "OsELF3-1 suppresses a flowering repressor grain number, plant height and heading date 7 (Ghd7) to indirectly accelerate flowering under long-day (LD) conditions.",
+          "claim": "OsELF3 represses Ghd7; conserved in sorghum",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1073/pnas.2122582119",
+          "title": "The evening complex integrates photoperiod signals to control flowering in rice",
+          "authors": "Andrade L, Lu Y, Cordeiro A, Costa MMR, Wigge PA, Saibo NJM, Jaeger KE",
+          "year": 2022,
+          "journal": "Proceedings of the National Academy of Sciences",
+          "evidence_sentence": "OsELF3 directly represses the expression of the LD-dependent flowering repressors Ghd7 and OsPRR37 within the evening complex.",
+          "claim": "OsELF3 directly represses Ghd7 within the Evening Complex",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "LUX",
+      "target": "PRR37",
+      "sign": -1,
+      "edge_id": "N023",
+      "effect": "repression",
+      "mechanism": "Evening Complex DNA-binding subunit LUX targets promoters of morning/evening PRR genes; rice OsLUX recruits OsELF3-1 and OsELF4s to repress Hd1 and Ghd7. Mechanism inferred for sorghum LUX ortholog.",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.2122582119",
+          "title": "The evening complex integrates photoperiod signals to control flowering in rice",
+          "authors": "Andrade L, Lu Y, Cordeiro A, Costa MMR, Wigge PA, Saibo NJM, Jaeger KE",
+          "year": 2022,
+          "journal": "Proceedings of the National Academy of Sciences",
+          "evidence_sentence": "The evening complex target suppresses the expression of Hd1 and Ghd7 directly to modulate photoperiodic flowering in rice.",
+          "claim": "Rice OsLUX/Evening Complex represses Hd1 and Ghd7; mechanism inferred for SbLUX\u2192SbPRR37",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "LUX",
+      "target": "GHD7",
+      "sign": -1,
+      "edge_id": "N024",
+      "effect": "repression",
+      "mechanism": "LUX binds the Ghd7 promoter as part of the Evening Complex; rice evidence (OsLUX recruits ELF3/ELF4 to repress Ghd7).",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.2122582119",
+          "title": "The evening complex integrates photoperiod signals to control flowering in rice",
+          "authors": "Andrade L, Lu Y, Cordeiro A, Costa MMR, Wigge PA, Saibo NJM, Jaeger KE",
+          "year": 2022,
+          "journal": "Proceedings of the National Academy of Sciences",
+          "evidence_sentence": "Evening complex target suppresses the expression of Hd1 and Ghd7 directly.",
+          "claim": "OsLUX/EC directly represses Ghd7; conserved in sorghum",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "GHD7",
+      "target": "ELF3",
+      "sign": -1,
+      "edge_id": "N025",
+      "effect": "repression",
+      "mechanism": "SbGhd7 binds the SbELF3 promoter at the TGAATG motif and directly represses its transcription (Tadesse 2024 ChIP-seq + DAP-seq).",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19591",
+          "title": "Sorghum SbGhd7 is a major regulator of floral transition and directly represses genes crucial for flowering activation",
+          "authors": "Tadesse T, Lugassi N, Dragonas B, Shmuel YH, Gladman N, Yuan Y, Weers B, Mullet JE, Pasternak T, Leshkowitz D, Levy AA",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "repressing transcription of...EARLY FLOWERING 3 (SbELF3).",
+          "claim": "SbGhd7 directly represses SbELF3",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GHD7",
+      "target": "FKF1",
+      "sign": -1,
+      "edge_id": "N026",
+      "effect": "repression",
+      "mechanism": "SbGhd7 directly represses SbFKF1 (ChIP-seq target, TGAATG binding motif).",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19591",
+          "title": "Sorghum SbGhd7 is a major regulator of floral transition and directly represses genes crucial for flowering activation",
+          "authors": "Tadesse T, Lugassi N, Dragonas B, Shmuel YH, Gladman N, Yuan Y, Weers B, Mullet JE, Pasternak T, Leshkowitz D, Levy AA",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "repressing transcription of...FLAVIN-BINDING, KELCH REPEAT, F-BOX1 (SbFKF1).",
+          "claim": "SbGhd7 directly represses SbFKF1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GI",
+      "target": "PRR37",
+      "sign": 1,
+      "edge_id": "N027",
+      "effect": "activation",
+      "mechanism": "GI is required for normal diurnal SbPRR37 expression; sbgi-ems1 loses 2-5 fold PRR37 abundance across key time points.",
+      "evidence": [
+        {
+          "doi": "10.1002/pld3.281",
+          "title": "A sorghum gigantea mutant attenuates florigen gene expression and delays flowering time",
+          "authors": "Abdul-Awal SM, Chen J, Xin Z, Harmon FG",
+          "year": 2020,
+          "journal": "Plant Direct",
+          "evidence_sentence": "SbPRR37 transcript...levels in sbgi-ems1 plants were diminished by 2- to 5-fold at these time points.",
+          "claim": "SbGI activates SbPRR37 expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GI",
+      "target": "CO",
+      "sign": 1,
+      "edge_id": "N028",
+      "effect": "activation",
+      "mechanism": "GI-FKF1 complex stabilizes CO and promotes CO transcription at 12 h after dawn, coincident with SbGI peak expression.",
+      "evidence": [
+        {
+          "doi": "10.1002/pld3.281",
+          "title": "A sorghum gigantea mutant attenuates florigen gene expression and delays flowering time",
+          "authors": "Abdul-Awal SM, Chen J, Xin Z, Harmon FG",
+          "year": 2020,
+          "journal": "Plant Direct",
+          "evidence_sentence": "The major effect of sbgi-ems1 was diminishment of SbCO transcript levels at 12 hr after dawn in either photoperiod.",
+          "claim": "SbGI activates SbCO expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1186/1471-2229-14-148",
+          "title": "CONSTANS is a photoperiod regulated activator of flowering in sorghum",
+          "authors": "Yang S, Murphy RL, Morishige DT, Klein PE, Rooney WL, Mullet JE",
+          "year": 2014,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "In long days, GI activates CONSTANS (CO) expression in conjunction with FKF1.",
+          "claim": "GI activates CO expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GI",
+      "target": "EHD1",
+      "sign": 1,
+      "edge_id": "N029",
+      "effect": "activation",
+      "mechanism": "GI activates Ehd1 expression, mainly under SD at ZT12 (SD peak strongly attenuated in sbgi).",
+      "evidence": [
+        {
+          "doi": "10.1002/pld3.281",
+          "title": "A sorghum gigantea mutant attenuates florigen gene expression and delays flowering time",
+          "authors": "Abdul-Awal SM, Chen J, Xin Z, Harmon FG",
+          "year": 2020,
+          "journal": "Plant Direct",
+          "evidence_sentence": "The peak of SbEHD1 occurring at 12 hr under SD was significantly reduced in sbgi-ems1.",
+          "claim": "SbGI activates SbEhd1 expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FKF1",
+      "target": "CO",
+      "sign": 1,
+      "edge_id": "N030",
+      "effect": "activation",
+      "mechanism": "Blue-light-activated FKF1 forms a complex with GI that stabilizes CO protein and promotes CO transcription at late afternoon.",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-14-148",
+          "title": "CONSTANS is a photoperiod regulated activator of flowering in sorghum",
+          "authors": "Yang S, Murphy RL, Morishige DT, Klein PE, Rooney WL, Mullet JE",
+          "year": 2014,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "In long days, GI activates CONSTANS (CO) expression in conjunction with FKF1.",
+          "claim": "FKF1 activates CO together with GI",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1002/pld3.281",
+          "title": "A sorghum gigantea mutant attenuates florigen gene expression and delays flowering time",
+          "authors": "Abdul-Awal SM, Chen J, Xin Z, Harmon FG",
+          "year": 2020,
+          "journal": "Plant Direct",
+          "evidence_sentence": "SbGI physically interacts with the sorghum FKF1-like (SbFFL) protein, and the SbGI-SbFFL interaction is stimulated by blue light.",
+          "claim": "SbFFL/FKF1 acts with SbGI to activate CO",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "MA2_SMYD",
+      "target": "PRR37",
+      "sign": 1,
+      "edge_id": "N031",
+      "effect": "activation",
+      "mechanism": "Ma2 locus (Sobic.002G302700, SMYD lysine methyltransferase) increases SbPRR37 expression amplitude in LD. Loss of Ma2 (ma2 = L141*) reduces PRR37 peak amplitude, advancing flowering.",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0212154",
+          "title": "Maturity2, a novel regulator of flowering time in Sorghum bicolor",
+          "authors": "Casto AL, McKinley BA, Yu KMJ, Rooney WL, Mullet JE",
+          "year": 2019,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "Ma2 delayed flowering in long days by selectively enhancing the expression of SbPRR37 (Ma1) and SbCO.",
+          "claim": "Ma2 activates SbPRR37 expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "MA2_SMYD",
+      "target": "CO",
+      "sign": 1,
+      "edge_id": "N032",
+      "effect": "activation",
+      "mechanism": "Ma2 activates SbCO expression in LD; loss of Ma2 reduces both SbCO expression peaks.",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0212154",
+          "title": "Maturity2, a novel regulator of flowering time in Sorghum bicolor",
+          "authors": "Casto AL, McKinley BA, Yu KMJ, Rooney WL, Mullet JE",
+          "year": 2019,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "enhanced expression of both SbPRR37 (Ma1) and SbCO by Ma2 in Ma1Ma2 genotypes.",
+          "claim": "Ma2 activates SbCO expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ID1",
+      "target": "CO",
+      "sign": 1,
+      "edge_id": "N033",
+      "effect": "activation",
+      "mechanism": "SbID1 establishes the capacity for SbCO expression; sbid1-2 mutants lose wildtype SbCO waveform across all time points.",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2023.1304822",
+          "title": "Sorghum bicolor INDETERMINATE1 is a conserved primary regulator of flowering",
+          "authors": "Gladman N, Goodwin S, Chougule K, Richard McCombie W, Ware D",
+          "year": 2023,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "floral activator SbCO transcript accumulation in sbid1-2 was low at all time points and lacked the wild-type waveform.",
+          "claim": "SbID1 activates SbCO expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ID1",
+      "target": "PRR37",
+      "sign": 1,
+      "edge_id": "N034",
+      "effect": "activation",
+      "mechanism": "SbID1 required for proper SbPRR37 diurnal expression; sbid1-2 abolishes PRR37 peaks.",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2023.1304822",
+          "title": "Sorghum bicolor INDETERMINATE1 is a conserved primary regulator of flowering",
+          "authors": "Gladman N, Goodwin S, Chougule K, Richard McCombie W, Ware D",
+          "year": 2023,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "SbPRR37 and SbGhd7 transcripts were low at all time points in sbid1-2.",
+          "claim": "SbID1 activates SbPRR37 expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ID1",
+      "target": "GHD7",
+      "sign": 1,
+      "edge_id": "N035",
+      "effect": "activation",
+      "mechanism": "SbID1 required for proper SbGhd7 diurnal expression; primary Ghd7 peak at ZT16 is absent in sbid1-2.",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2023.1304822",
+          "title": "Sorghum bicolor INDETERMINATE1 is a conserved primary regulator of flowering",
+          "authors": "Gladman N, Goodwin S, Chougule K, Richard McCombie W, Ware D",
+          "year": 2023,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "primary SbGhd7 peak at ZT16 in the wild type...did not occur in sbid1-2.",
+          "claim": "SbID1 activates SbGhd7 expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ID1",
+      "target": "EHD1",
+      "sign": 1,
+      "edge_id": "N036",
+      "effect": "activation",
+      "mechanism": "SbID1 (maize ID1 / rice Ehd2 ortholog) activates SbEhd1 expression. In rice, Ehd2 up-regulates Ehd1 under both SD and LD; ehd2 mutants show 145-365 day flowering delays.",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.108.125542",
+          "title": "Ehd2, a Rice Ortholog of the Maize INDETERMINATE1 Gene, Promotes Flowering by Up-Regulating Ehd1",
+          "authors": "Matsubara K, Yamanouchi U, Wang ZX, Minobe Y, Izawa T, Yano M",
+          "year": 2008,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Ehd2 up-regulates the transcription of Ehd1 and of the downstream FT-like genes, Hd3a and RFT1, under both SD and LD conditions.",
+          "claim": "Rice Ehd2 (= sorghum SbID1 ortholog) activates Ehd1; conserved in sorghum",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.3389/fpls.2023.1304822",
+          "title": "Sorghum bicolor INDETERMINATE1 is a conserved primary regulator of flowering",
+          "authors": "Gladman N, Goodwin S, Chougule K, Richard McCombie W, Ware D",
+          "year": 2023,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "sbid1-2 shows loss of SbCO waveform and reduced florigen expression, consistent with Ehd1 axis disruption.",
+          "claim": "SbID1 is required for downstream florigen induction (consistent with SbID1\u2192SbEhd1 via the rice Ehd2 ortholog mechanism)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ID1",
+      "target": "FT8",
+      "sign": 1,
+      "edge_id": "N037",
+      "effect": "activation",
+      "mechanism": "SbID1 required for SbCN8/SbFT8 florigen expression peaks.",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2023.1304822",
+          "title": "Sorghum bicolor INDETERMINATE1 is a conserved primary regulator of flowering",
+          "authors": "Gladman N, Goodwin S, Chougule K, Richard McCombie W, Ware D",
+          "year": 2023,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "Expression of florigen-encoding genes SbCN8 and SbCN12 was also lower in sbid1-2 than in the wild type.",
+          "claim": "SbID1 activates SbCN8/SbFT8 expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "ID1",
+      "target": "FT10",
+      "sign": 1,
+      "edge_id": "N038",
+      "effect": "activation",
+      "mechanism": "SbID1 required for SbCN12/SbFT10 florigen expression.",
+      "evidence": [
+        {
+          "doi": "10.3389/fpls.2023.1304822",
+          "title": "Sorghum bicolor INDETERMINATE1 is a conserved primary regulator of flowering",
+          "authors": "Gladman N, Goodwin S, Chougule K, Richard McCombie W, Ware D",
+          "year": 2023,
+          "journal": "Frontiers in Plant Science",
+          "evidence_sentence": "Expression of florigen-encoding genes SbCN8 and SbCN12 was also lower in sbid1-2 than in the wild type.",
+          "claim": "SbID1 activates SbCN12/SbFT10 expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PRR37",
+      "target": "CO",
+      "sign": 1,
+      "edge_id": "N039",
+      "effect": "activation",
+      "mechanism": "In LD, SbPRR37 upregulates SbCO expression at dawn (opposite to Arabidopsis). Differential SbCO expression between LD and SD requires PRR37. NOTE: this activation edge is paired with the PRR37-CO co-repressor action on SbCN8/12 (E025 below) \u2014 the net effect of PRR37 in LD is floral repression via the CO-Ehd1-FT axis.",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1106212108",
+          "title": "Coincident light and clock regulation of PRR37 controls photoperiodic flowering in sorghum",
+          "authors": "Murphy RL, Klein RR, Morishige DT, Brady JA, Rooney WL, Miller FR, Dugas DV, Klein PE, Mullet JE",
+          "year": 2011,
+          "journal": "Proceedings of the National Academy of Sciences",
+          "evidence_sentence": "SbPRR37 activates expression of the floral inhibitor CONSTANS and represses expression of the floral activators Early Heading Date 1, FLOWERING LOCUS T, Zea mays CENTRORADIALIS 8, and floral induction.",
+          "claim": "SbPRR37 activates SbCO expression at dawn in LD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1371/journal.pone.0105352",
+          "title": "Sorghum Phytochrome B Inhibits Flowering in Long Days by Activating Expression of SbPRR37 and SbGHD7",
+          "authors": "Yang S, Weers BD, Morishige DT, Mullet JE",
+          "year": 2014,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "SbPRR37 activates SbCO expression peaking at dawn.",
+          "claim": "SbPRR37 activates SbCO expression in LD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PRR37",
+      "target": "EHD1",
+      "sign": -1,
+      "edge_id": "N040",
+      "effect": "repression",
+      "mechanism": "SbPRR37 represses SbEhd1 expression in LD, preventing the induction of florigens.",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0105352",
+          "title": "Sorghum Phytochrome B Inhibits Flowering in Long Days by Activating Expression of SbPRR37 and SbGHD7",
+          "authors": "Yang S, Weers BD, Morishige DT, Mullet JE",
+          "year": 2014,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "SbPRR37 and SbGHD7 repress expression of the grass specific floral activator, SbEHD1.",
+          "claim": "SbPRR37 represses SbEhd1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PRR37",
+      "target": "FT1",
+      "sign": -1,
+      "edge_id": "N041",
+      "effect": "repression",
+      "mechanism": "SbPRR37 suppresses SbFT1/SbCN15 florigen expression in LD via repression of SbEhd1 and/or direct repression in co-repressor complex with SbCO.",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.13834",
+          "title": "Three FLOWERING LOCUS T-like genes function as potential florigens and mediate photoperiod response in sorghum",
+          "authors": "Wolabu TW, Zhang F, Niu L, Kalve S, Bhatnagar-Mathur P, Muszynski MG, Tadege M",
+          "year": 2016,
+          "journal": "New Phytologist",
+          "evidence_sentence": "cooperatively repressed by the classical sorghum maturity loci.",
+          "claim": "SbPRR37 represses SbFT1 florigen in LD",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "PRR37",
+      "target": "FT8",
+      "sign": -1,
+      "edge_id": "N042",
+      "effect": "repression",
+      "mechanism": "SbPRR37 represses SbCN8 (SbFT8) florigen expression in LD. Casto/Murphy 2019 show PRR37 and CO act as co-repressors on SbCN8/SbCN12 in LD.",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0105352",
+          "title": "Sorghum Phytochrome B Inhibits Flowering in Long Days by Activating Expression of SbPRR37 and SbGHD7",
+          "authors": "Yang S, Weers BD, Morishige DT, Mullet JE",
+          "year": 2014,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "SbPRR37 and SbGHD7 repress expression of...SbCN8.",
+          "claim": "SbPRR37 represses SbCN8/SbFT8 florigen in LD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1371/journal.pone.0212154",
+          "title": "Maturity2, a novel regulator of flowering time in Sorghum bicolor",
+          "authors": "Casto AL, McKinley BA, Yu KMJ, Rooney WL, Mullet JE",
+          "year": 2019,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "SbPRR37 and SbCO are co-repressors of the expression of SbCN8 and SbCN12 in long days.",
+          "claim": "PRR37 co-represses SbCN8 with SbCO in LD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "PRR37",
+      "target": "FT10",
+      "sign": -1,
+      "edge_id": "N043",
+      "effect": "repression",
+      "mechanism": "SbPRR37 represses SbCN12 (SbFT10) florigen in LD.",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0105352",
+          "title": "Sorghum Phytochrome B Inhibits Flowering in Long Days by Activating Expression of SbPRR37 and SbGHD7",
+          "authors": "Yang S, Weers BD, Morishige DT, Mullet JE",
+          "year": 2014,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "SbPRR37 and SbGHD7 repress...SbCN12.",
+          "claim": "SbPRR37 represses SbCN12/SbFT10 florigen in LD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GHD7",
+      "target": "EHD1",
+      "sign": -1,
+      "edge_id": "N044",
+      "effect": "repression",
+      "mechanism": "SbGhd7 directly binds the SbEhd1 promoter (TGAATG motif) and represses its transcription. Direct ChIP-seq/DAP-seq target.",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19591",
+          "title": "Sorghum SbGhd7 is a major regulator of floral transition and directly represses genes crucial for flowering activation",
+          "authors": "Tadesse T, Lugassi N, Dragonas B, Shmuel YH, Gladman N, Yuan Y, Weers B, Mullet JE, Pasternak T, Leshkowitz D, Levy AA",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "repressing transcription of...floral activators EARLY HEADING DATE (SbEhd1).",
+          "claim": "SbGhd7 directly represses SbEhd1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.3835/plantgenome2013.11.0040",
+          "title": "Ghd7 (Ma6) Represses Sorghum Flowering in Long Days",
+          "authors": "Murphy RL, Morishige DT, Brady JA, Rooney WL, Yang S, Klein PE, Mullet JE",
+          "year": 2014,
+          "journal": "The Plant Genome",
+          "evidence_sentence": "Sorghum Ghd7 increases photoperiod sensitivity and delays flowering by inhibiting expression of the floral activator SbEhd1 and genes encoding FT.",
+          "claim": "SbGhd7 represses SbEhd1 in LD",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "GHD7",
+      "target": "FT1",
+      "sign": -1,
+      "edge_id": "N045",
+      "effect": "repression",
+      "mechanism": "SbGhd7 represses SbFT1 (SbCN15) florigen in LD via repression of SbEhd1 and direct binding.",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.13834",
+          "title": "Three FLOWERING LOCUS T-like genes function as potential florigens",
+          "authors": "Wolabu TW, Zhang F, Niu L, Kalve S, Bhatnagar-Mathur P, Muszynski MG, Tadege M",
+          "year": 2016,
+          "journal": "New Phytologist",
+          "evidence_sentence": "cooperatively repressed by the classical sorghum maturity loci.",
+          "claim": "SbGhd7 (Ma6) represses SbFT1 florigen",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "GHD7",
+      "target": "FT8",
+      "sign": -1,
+      "edge_id": "N046",
+      "effect": "repression",
+      "mechanism": "SbGhd7 represses SbCN8 (SbFT8) florigen in LD, both directly and via SbEhd1 repression.",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pone.0105352",
+          "title": "Sorghum Phytochrome B Inhibits Flowering in Long Days by Activating Expression of SbPRR37 and SbGHD7",
+          "authors": "Yang S, Weers BD, Morishige DT, Mullet JE",
+          "year": 2014,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "SbGhd7...inhibiting expression of the floral activators SbEHD1, SbCN12 and SbCN8.",
+          "claim": "SbGhd7 represses SbCN8/SbFT8 florigen",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GHD7",
+      "target": "FT10",
+      "sign": -1,
+      "edge_id": "N047",
+      "effect": "repression",
+      "mechanism": "SbGhd7 directly binds the SbFT10 promoter and represses its transcription. Tadesse 2024 shows SbFT10 as the major directly-bound florigen target.",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19591",
+          "title": "Sorghum SbGhd7 is a major regulator of floral transition and directly represses genes crucial for flowering activation",
+          "authors": "Tadesse T, Lugassi N, Dragonas B, Shmuel YH, Gladman N, Yuan Y, Weers B, Mullet JE, Pasternak T, Leshkowitz D, Levy AA",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "repressing transcription of the major florigen FLOWERING LOCUS T 10 (SbFT10).",
+          "claim": "SbGhd7 directly represses SbFT10",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CO",
+      "target": "EHD1",
+      "sign": 1,
+      "edge_id": "N048",
+      "effect": "activation",
+      "mechanism": "SbCO activates SbEhd1 expression ~25-fold in SbCO-2 backgrounds vs sbco-null.",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-14-148",
+          "title": "CONSTANS is a photoperiod regulated activator of flowering in sorghum",
+          "authors": "Yang S, Murphy RL, Morishige DT, Klein PE, Rooney WL, Mullet JE",
+          "year": 2014,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "CO activates expression of SbEHD1...~25-fold increase in RIL105 vs RIL112.",
+          "claim": "SbCO activates SbEhd1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CO",
+      "target": "FT8",
+      "sign": 1,
+      "edge_id": "N049",
+      "effect": "activation",
+      "mechanism": "SbCO activates SbCN8 (SbFT8) florigen expression ~10-fold (canonical CO \u2192 FT activation, day-length regulated at protein level).",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-14-148",
+          "title": "CONSTANS is a photoperiod regulated activator of flowering in sorghum",
+          "authors": "Yang S, Murphy RL, Morishige DT, Klein PE, Rooney WL, Mullet JE",
+          "year": 2014,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "expression of SbCN8 was ~10-fold higher in RIL105 (SbCO-2).",
+          "claim": "SbCO activates SbCN8/SbFT8 florigen",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CO",
+      "target": "FT10",
+      "sign": 1,
+      "edge_id": "N050",
+      "effect": "activation",
+      "mechanism": "SbCO strongly activates SbCN12 (SbFT10) florigen ~100-fold.",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-14-148",
+          "title": "CONSTANS is a photoperiod regulated activator of flowering in sorghum",
+          "authors": "Yang S, Murphy RL, Morishige DT, Klein PE, Rooney WL, Mullet JE",
+          "year": 2014,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "SbCN12 mRNA levels were ~100-fold higher in RIL105 (SbCO-2).",
+          "claim": "SbCO activates SbCN12/SbFT10 florigen",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "CO",
+      "target": "FT1",
+      "sign": 1,
+      "edge_id": "N051",
+      "effect": "activation",
+      "mechanism": "SbCO mildly activates SbCN15 (SbFT1) florigen (effect small compared to other florigens).",
+      "evidence": [
+        {
+          "doi": "10.1186/1471-2229-14-148",
+          "title": "CONSTANS is a photoperiod regulated activator of flowering in sorghum",
+          "authors": "Yang S, Murphy RL, Morishige DT, Klein PE, Rooney WL, Mullet JE",
+          "year": 2014,
+          "journal": "BMC Plant Biology",
+          "evidence_sentence": "mRNA level of SbCN15 (Hd3a) was similar in the two genotypes (minimal effect).",
+          "claim": "SbCO weakly activates SbFT1/SbCN15",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "EHD1",
+      "target": "FT1",
+      "sign": 1,
+      "edge_id": "N052",
+      "effect": "activation",
+      "mechanism": "SbEhd1 activates SbFT1 directly; SbEhd1 OE promotes SbFT1 promoter activity.",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19591",
+          "title": "Sorghum SbGhd7 is a major regulator of floral transition and directly represses genes crucial for flowering activation",
+          "authors": "Tadesse T, Lugassi N, Dragonas B, Shmuel YH, Gladman N, Yuan Y, Weers B, Mullet JE, Pasternak T, Leshkowitz D, Levy AA",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "SbEhd1OE activated the promoters of three functional florigens (SbFT1, SbFT8 and SbFT10), dramatically accelerating flowering.",
+          "claim": "SbEhd1 activates SbFT1 florigen promoter",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "EHD1",
+      "target": "FT8",
+      "sign": 1,
+      "edge_id": "N053",
+      "effect": "activation",
+      "mechanism": "SbEhd1 directly activates SbFT8 (SbCN8) florigen promoter.",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19591",
+          "title": "Sorghum SbGhd7 is a major regulator of floral transition and directly represses genes crucial for flowering activation",
+          "authors": "Tadesse T, Lugassi N, Dragonas B, Shmuel YH, Gladman N, Yuan Y, Weers B, Mullet JE, Pasternak T, Leshkowitz D, Levy AA",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "SbEhd1OE activated the promoters of three functional florigens (SbFT1, SbFT8 and SbFT10).",
+          "claim": "SbEhd1 activates SbFT8 florigen promoter",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "EHD1",
+      "target": "FT10",
+      "sign": 1,
+      "edge_id": "N054",
+      "effect": "activation",
+      "mechanism": "SbEhd1 directly activates SbFT10 (SbCN12) florigen promoter.",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19591",
+          "title": "Sorghum SbGhd7 is a major regulator of floral transition and directly represses genes crucial for flowering activation",
+          "authors": "Tadesse T, Lugassi N, Dragonas B, Shmuel YH, Gladman N, Yuan Y, Weers B, Mullet JE, Pasternak T, Leshkowitz D, Levy AA",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "SbEhd1OE activated the promoters of three functional florigens (SbFT1, SbFT8 and SbFT10).",
+          "claim": "SbEhd1 activates SbFT10 florigen promoter",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1371/journal.pone.0105352",
+          "title": "Sorghum Phytochrome B Inhibits Flowering in Long Days",
+          "authors": "Yang S, Weers BD, Morishige DT, Mullet JE",
+          "year": 2014,
+          "journal": "PLOS ONE",
+          "evidence_sentence": "floral activators, SbEhd1 and SbCO, induce expression of SbCN8 and SbCN12.",
+          "claim": "SbEhd1 activates SbCN12/SbFT10",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FT1",
+      "target": "FD1",
+      "sign": 1,
+      "edge_id": "N055",
+      "effect": "activation",
+      "mechanism": "SbFT1 protein physically interacts with SbFD1 to form the florigen activation complex (FAC) in the shoot apical meristem.",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "SbFT1 directly interacts with SbFD1 in Y2H/BiFC assays.",
+          "claim": "SbFT1 forms FAC complex with SbFD1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FT1",
+      "target": "GF14",
+      "sign": 1,
+      "edge_id": "N056",
+      "effect": "activation",
+      "mechanism": "SbFT1 binds sorghum 14-3-3 scaffold protein; all three florigens bind 14-3-3.",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.13834",
+          "title": "Three FLOWERING LOCUS T-like genes function as potential florigens",
+          "authors": "Wolabu TW, Zhang F, Niu L, Kalve S, Bhatnagar-Mathur P, Muszynski MG, Tadege M",
+          "year": 2016,
+          "journal": "New Phytologist",
+          "evidence_sentence": "interact with sorghum 14-3-3 proteins.",
+          "claim": "SbFT1 binds Sb14-3-3 to form florigen complex",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "FT8",
+      "target": "GF14",
+      "sign": 1,
+      "edge_id": "N057",
+      "effect": "activation",
+      "mechanism": "SbFT8 binds Sb14-3-3 scaffold protein (florigen activation complex).",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "SbFT8 and SbFT10 directly interact with Sb14-3-3 but not with SbFD1.",
+          "claim": "SbFT8 binds Sb14-3-3",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FT10",
+      "target": "GF14",
+      "sign": 1,
+      "edge_id": "N058",
+      "effect": "activation",
+      "mechanism": "SbFT10 binds Sb14-3-3 scaffold protein (florigen activation complex).",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "SbFT8 and SbFT10 directly interact with Sb14-3-3 but not with SbFD1.",
+          "claim": "SbFT10 binds Sb14-3-3",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FT1",
+      "target": "SOC1",
+      "sign": 1,
+      "edge_id": "N059",
+      "effect": "activation",
+      "mechanism": "Florigen activation complex (SbFT1-FD-14-3-3) activates SbSOC1 (SbMADS31) expression in the shoot apical meristem.",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "In Arabidopsis, FT together with SUPPRESSOR OF OVEREXPRESSION OF CONSTANS (SOC1), promotes expression of meristem identity gene LFY and AP1, leading to floral transition.",
+          "claim": "SbFT1 activates SbSOC1 (conserved module)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        },
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "SbMADS31 (Sobic.004G003434) encodes a SOC1 MADS-box transcription factor subfamily protein.",
+          "claim": "SbMADS31 is the sorghum SOC1 ortholog",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FT8",
+      "target": "SOC1",
+      "sign": 1,
+      "edge_id": "N060",
+      "effect": "activation",
+      "mechanism": "Florigen SbFT8 activates SbSOC1 (SbMADS31) in the meristem.",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "Three FLOWERING LOCUS T-like genes (SbFT1, SbFT8 and SbFT10)...serve as the ultimate mediators of photoperiod response and floral transition.",
+          "claim": "SbFT8 activates SbSOC1 (conserved FT \u2192 SOC1 module)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FT10",
+      "target": "SOC1",
+      "sign": 1,
+      "edge_id": "N061",
+      "effect": "activation",
+      "mechanism": "Florigen SbFT10 activates SbSOC1 in the meristem (major florigen, directly repressed by Ghd7).",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19591",
+          "title": "Sorghum SbGhd7 is a major regulator of floral transition and directly represses genes crucial for flowering activation",
+          "authors": "Tadesse T, Lugassi N, Dragonas B, Shmuel YH, Gladman N, Yuan Y, Weers B, Mullet JE, Pasternak T, Leshkowitz D, Levy AA",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "FLOWERING LOCUS T 10 (SbFT10)...major florigen.",
+          "claim": "SbFT10 is the major florigen driving floral transition (acts via SOC1/AP1 module)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SOC1",
+      "target": "LFY",
+      "sign": 1,
+      "edge_id": "N062",
+      "effect": "activation",
+      "mechanism": "Conserved SOC1 \u2192 LFY activation in the floral transition.",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "FT together with SUPPRESSOR OF OVEREXPRESSION OF CONSTANS (SOC1), promotes expression of meristem identity gene LFY and AP1.",
+          "claim": "SOC1 activates LFY in sorghum meristem",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SOC1",
+      "target": "AP1",
+      "sign": 1,
+      "edge_id": "N063",
+      "effect": "activation",
+      "mechanism": "SOC1 activates AP1 in the floral transition; SbMADS7 is the sorghum AP1/FUL clade MADS.",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "SbMADS7 (Sobic.002G010100)...clusters with the AP1/FUL clade...act as regulators of floral initiation.",
+          "claim": "SbMADS7 is sorghum AP1 ortholog, downstream of SOC1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "LFY",
+      "target": "AP1",
+      "sign": 1,
+      "edge_id": "N064",
+      "effect": "activation",
+      "mechanism": "LFY directly activates AP1 transcription; mutual reinforcement in floral meristem identity.",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "promotes expression of meristem identity gene LFY and AP1.",
+          "claim": "LFY activates AP1 in sorghum floral transition",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FD1",
+      "target": "AP1",
+      "sign": 1,
+      "edge_id": "N065",
+      "effect": "activation",
+      "mechanism": "FD bZIP TF acts with the florigen-FD-14-3-3 FAC complex to activate AP1 at the shoot apical meristem, triggering floral meristem identity. Canonical module conserved from Arabidopsis FD.",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "FT together with FD and 14-3-3 proteins forms the florigen activation complex (FAC) that activates AP1 and SOC1 to initiate floral transition.",
+          "claim": "SbFD1 in the FAC activates SbAP1 (conserved module)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "miR156h",
+      "target": "SBP19",
+      "sign": -1,
+      "edge_id": "N066",
+      "effect": "repression",
+      "mechanism": "sbi-miR156h cleaves SbSBP19 transcripts via complementary site in 3' UTR.",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "sbi-MIR156h was determined to target 14 genes...SBP transcription factors.",
+          "claim": "sbi-miR156h represses SbSBP19",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "miR156h",
+      "target": "SBP4",
+      "sign": -1,
+      "edge_id": "N067",
+      "effect": "repression",
+      "mechanism": "sbi-miR156h targets SbSBP4 for cleavage.",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "SbSBP19, SbSBP4, SbSBP7...targeted by miR156h.",
+          "claim": "sbi-miR156h represses SbSBP4",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SBP19",
+      "target": "miR172a",
+      "sign": 1,
+      "edge_id": "N068",
+      "effect": "activation",
+      "mechanism": "SPL/SBP TFs (e.g. SbSBP19) directly bind MIR172a promoter and activate its transcription (age-pathway module).",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "In maize, ZmSPL13 and ZmSPL29 directly bind to the promoter of and activate the expression of mir172.",
+          "claim": "SbSBP19/SPL TFs activate sbi-miR172a expression",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "miR172a",
+      "target": "AP2",
+      "sign": -1,
+      "edge_id": "N069",
+      "effect": "repression",
+      "mechanism": "sbi-miR172a cleaves SbAP2 / Sobic.001G036800 (rap2.7-ortholog) transcripts, relieving AP2-mediated repression of flowering.",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "sbiMIR172a targets the orthologs of the maize genes ids1 and sid1...rap2.7...glossy15.",
+          "claim": "sbi-miR172a represses SbAP2/rap2.7-ortholog",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "AP2",
+      "target": "FT8",
+      "sign": -1,
+      "edge_id": "N070",
+      "effect": "repression",
+      "mechanism": "Maize rap2.7 ortholog represses ZmFT (ZCN8); sorghum AP2/Sobic.001G036800 likely represses SbFT8/SbFT10 in similar fashion.",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "ortholog of the maize gene rap2.7 which acts as a negative regulator of flowering time.",
+          "claim": "SbAP2 represses SbFT8 (maize rap2.7 \u2192 ZmFT repression conserved)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SBP4",
+      "target": "SOC1",
+      "sign": 1,
+      "edge_id": "N071",
+      "effect": "activation",
+      "mechanism": "SPL/SBP TFs directly activate SOC1 expression at the meristem (age-pathway convergence with photoperiod pathway). Conserved from Arabidopsis SPL9 \u2192 SOC1 and maize ZmSPL targets.",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "SbSBP19, SbSBP4, SbSBP7 are targeted by miR156h...SPL TFs act as regulators of floral initiation via SOC1/AP1 in the age pathway.",
+          "claim": "SbSBP4 activates SbSOC1 as part of the age-pathway convergence with photoperiod pathway",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FT1",
+      "target": "Flowering_Time",
+      "sign": -1,
+      "edge_id": "N072",
+      "effect": "inhibition",
+      "mechanism": "SbFT1 florigen promotes the vegetative-to-reproductive transition in the shoot apical meristem, reducing days to flowering.",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.13834",
+          "title": "Three FLOWERING LOCUS T-like genes function as potential florigens",
+          "authors": "Wolabu TW, Zhang F, Niu L, Kalve S, Bhatnagar-Mathur P, Muszynski MG, Tadege M",
+          "year": 2016,
+          "journal": "New Phytologist",
+          "evidence_sentence": "three genes...activate flowering in transgenic Arabidopsis plants, suggesting florigenic potential.",
+          "claim": "SbFT1 is a functional florigen accelerating flowering",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ]
+    },
+    {
+      "source": "FT8",
+      "target": "Flowering_Time",
+      "sign": -1,
+      "edge_id": "N073",
+      "effect": "inhibition",
+      "mechanism": "SbFT8 florigen accelerates flowering transition.",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19591",
+          "title": "Sorghum SbGhd7 is a major regulator of floral transition and directly represses genes crucial for flowering activation",
+          "authors": "Tadesse T, Lugassi N, Dragonas B, Shmuel YH, Gladman N, Yuan Y, Weers B, Mullet JE, Pasternak T, Leshkowitz D, Levy AA",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "SbEhd1OE activated the promoters of three functional florigens (SbFT1, SbFT8 and SbFT10), dramatically accelerating flowering.",
+          "claim": "SbFT8 florigen accelerates flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FT10",
+      "target": "Flowering_Time",
+      "sign": -1,
+      "edge_id": "N074",
+      "effect": "inhibition",
+      "mechanism": "SbFT10 is the major florigen in sorghum (directly repressed by Ghd7); promotes flowering transition.",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.19591",
+          "title": "Sorghum SbGhd7 is a major regulator of floral transition and directly represses genes crucial for flowering activation",
+          "authors": "Tadesse T, Lugassi N, Dragonas B, Shmuel YH, Gladman N, Yuan Y, Weers B, Mullet JE, Pasternak T, Leshkowitz D, Levy AA",
+          "year": 2024,
+          "journal": "New Phytologist",
+          "evidence_sentence": "repressing transcription of the major florigen FLOWERING LOCUS T 10 (SbFT10).",
+          "claim": "SbFT10 major florigen \u2192 accelerates flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "FT12",
+      "target": "Flowering_Time",
+      "sign": 1,
+      "edge_id": "N075",
+      "effect": "inhibition",
+      "mechanism": "SbFT12 (Sb06g012260, FlrAvgD1, panicoid-specific PEBP) is a floral suppressor; loss-of-function confers photoperiod-insensitive early flowering. Reduction-of-function at CAAT-box deletion in 5'UTR drove temperate adaptation.",
+      "evidence": [
+        {
+          "doi": "10.1093/molbev/msw120",
+          "title": "The Evolution of Photoperiod-Insensitive Flowering in Sorghum, A Genomic Model for Panicoid Grasses",
+          "authors": "Cuevas HE, Zhou C, Tang H, Khadke PP, Das S, Lin YR, Ge Z, Clemente T, Upadhyaya HD, Hash CT, Paterson AH",
+          "year": 2016,
+          "journal": "Molecular Biology and Evolution",
+          "evidence_sentence": "wild-type Sb06g012260 is a floral suppressor.",
+          "claim": "SbFT12 is a panicoid-specific floral suppressor delaying flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "AP2",
+      "target": "Flowering_Time",
+      "sign": 1,
+      "edge_id": "N076",
+      "effect": "inhibition",
+      "mechanism": "SbAP2 (Sobic.001G036800, rap2.7-ortholog) represses flowering; loss (via miR172) relieves repression.",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "ortholog of the maize gene rap2.7 which acts as a negative regulator of flowering time.",
+          "claim": "SbAP2 negatively regulates flowering time",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "SOC1",
+      "target": "Flowering_Time",
+      "sign": -1,
+      "edge_id": "N077",
+      "effect": "inhibition",
+      "mechanism": "SbSOC1 (SbMADS31) activates LFY/AP1 in the shoot apical meristem, triggering floral meristem identity.",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "SbMADS31 (Sobic.004G003434) encodes a SOC1 MADS-box transcription factor subfamily protein.",
+          "claim": "SbSOC1/SbMADS31 promotes flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "AP1",
+      "target": "Flowering_Time",
+      "sign": -1,
+      "edge_id": "N078",
+      "effect": "inhibition",
+      "mechanism": "SbAP1 (SbMADS7) commits the meristem to floral identity and triggers flowering.",
+      "evidence": [
+        {
+          "doi": "10.1111/tpj.70250",
+          "title": "Genes and pathways determining flowering time variation in temperate-adapted sorghum",
+          "authors": "Lemmon ZH, Stitzer MC, Jensen SE, Lovell JT, Siahkamari E, Morris GP, Washburn JD",
+          "year": 2025,
+          "journal": "The Plant Journal",
+          "evidence_sentence": "SbMADS7 (Sobic.002G010100)...act as regulators of floral initiation.",
+          "claim": "SbAP1 promotes flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "GF14",
+      "target": "Flowering_Time",
+      "sign": -1,
+      "edge_id": "N079",
+      "effect": "inhibition",
+      "mechanism": "Sb14-3-3 is a required scaffold of the florigen activation complex (binds all three florigens). Loss of 14-3-3 function breaks FAC assembly and delays flowering.",
+      "evidence": [
+        {
+          "doi": "10.1080/15592324.2016.1261232",
+          "title": "Photoperiod response and floral transition in sorghum",
+          "authors": "Cai Y, Li Q, Liu X, Liu G, Wang L, Li Q, Ma T, Zhang Z",
+          "year": 2016,
+          "journal": "Plant Signaling & Behavior",
+          "evidence_sentence": "SbFT8 and SbFT10 directly interact with Sb14-3-3...florigen activation complex (FAC).",
+          "claim": "Sb14-3-3 is required for FAC-mediated floral transition \u2192 promotes flowering",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    },
+    {
+      "source": "Gibberellin",
+      "target": "Flowering_Time",
+      "sign": -1,
+      "edge_id": "N080",
+      "effect": "inhibition",
+      "mechanism": "Under inductive SD, early-morning peak of GA20/GA1 coincides with floral induction, hastening flowering. GA promotes flowering in grasses via DELLA destabilisation and FT activation.",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.104.2.347",
+          "title": "Photoperiod Control of Gibberellin Levels and Flowering in Sorghum",
+          "authors": "Foster KR, Morgan PW",
+          "year": 1995,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "under inductive 10-h photoperiods, the peak of GA20 and GA1 levels was shifted to an early morning peak, and flowering was hastened.",
+          "claim": "Gibberellin peak timing correlates with accelerated flowering in sorghum SD",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ]
+    }
+  ]
+}

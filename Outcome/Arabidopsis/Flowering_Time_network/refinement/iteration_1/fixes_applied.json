@@ -1,0 +1,25 @@
+{
+  "iteration": 1,
+  "date": "2026-04-18",
+  "fixes": [
+    {
+      "iteration": 1,
+      "action": "edge_removal",
+      "description": "Removed Warm_Temperature -> FT (+1) direct edge (curated E313).",
+      "reason": "T127/T128 pif4 KO under Warm_Temperature predicted increased but expected decreased. Warm->FT direct path bypasses PIF4 dependency on thermoinduction.",
+      "biological_justification": "Kumar et al. 2012 (10.1038/nature11216) show pif4 loss-of-function blocks warm-temperature-induced flowering; model should route warm signal through PIF4 exclusively. Reverted because removal did not help \u2014 the Warm -| SVP -> FT(-release) arm still carries the warm signal independently of PIF4 in the geometric-mean framework.",
+      "source": "Warm_Temperature",
+      "target": "FT",
+      "sign": 1,
+      "modifier_type": null,
+      "value": null
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 89.2,
+    "ode_accuracy": 90.3,
+    "rwr_accuracy": 90.3,
+    "kept": false,
+    "reason": "Reverted: best-method accuracy unchanged (90.3% -> 90.3%)."
+  }
+}

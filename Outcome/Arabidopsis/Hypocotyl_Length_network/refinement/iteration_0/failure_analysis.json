@@ -1,0 +1,230 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Hypocotyl_Length",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19"
+  },
+  "failures": [
+    {
+      "test_id": "T003",
+      "gene": "ACC_treatment",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "unchanged",
+      "predicted_direction": "decreased",
+      "category": "framework_limitation",
+      "explanation": "WT + ACC at 28C is expected unchanged because warm temperature (thermomorphogenesis) suppresses the ethylene triple response. The model cannot represent the warm-temperature gating of ethylene signalling, so it predicts decreased like the cool-temperature ACC test. Failed on: algebraic, ode, rwr.",
+      "evidence": "10.1007/s42994-021-00063-0",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T004",
+      "gene": "AFB5",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "increased",
+      "category": "composite_collapse",
+      "explanation": "AFB5 single KO + picloram. AFB5 mapped to TIR1 composite via composite_member modifier 0.997, which produces no measurable change. Single AFB paralog phenotype is lost in the composite collapse. Failed on: algebraic, ode, rwr.",
+      "evidence": "10.7554/eLife.19048",
+      "fixable": false,
+      "fix_strategy": "Could split AFB1/2/3/5 from TIR1, but adds 4 nodes for marginal coverage."
+    },
+    {
+      "test_id": "T009",
+      "gene": "ARF7",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "unchanged",
+      "category": "composite_collapse",
+      "explanation": "ARF7 single KO mapped to ARF6 family_member with modifier 0.997. ARF7 has hypocotyl-specific roles distinct from ARF6, but the single-paralog modifier washes out the effect. Failed on: algebraic, ode.",
+      "evidence": "10.1104/pp.18.00718",
+      "fixable": false,
+      "fix_strategy": "Add ARF7 as a separate node if curated_edges support its regulation; otherwise accept the limitation."
+    },
+    {
+      "test_id": "T010",
+      "gene": "ARF8",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "unchanged",
+      "category": "composite_collapse",
+      "explanation": "ARF8 single KO mapped to ARF6 family_member with modifier 0.997. Same rationale as ARF7. Failed on: algebraic, ode.",
+      "evidence": "10.1104/pp.18.00718",
+      "fixable": false,
+      "fix_strategy": "Add ARF8 as separate node, or accept composite limitation."
+    },
+    {
+      "test_id": "T022",
+      "gene": "BIN2",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "predicted_direction": "decreased",
+      "category": "framework_limitation",
+      "explanation": "bin2-1 is a constitutively active kinase. In darkness, the dominant effect is reduced BR signalling -> reduced BES1/BZR1 activity. In the literature this paradoxically increases hypocotyl in dark (BR-deficient phenocopy of thin-stem dark-growth). The model has BIN2 -| BZR1 with BZR1 -> Hypocotyl(+); bin2-1 OE consistently predicts decreased. The context-dependent direction reversal between dark and light cannot be captured by sign-fixed edges. Failed on: algebraic, ode, rwr.",
+      "evidence": "10.1073/pnas.1700850114",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T046",
+      "gene": "EIN2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "unchanged",
+      "category": "framework_limitation",
+      "explanation": "ein2 KO + ACC in dark expects increased (insensitive). Model adds Ethylene exogenous=1.0 alongside EIN2 gm=0; with EIN2=0 the canonical ethylene cascade collapses and Hypocotyl returns to baseline. Compared to WT (no ACC) the prediction is correctly 'unchanged' biologically \u2014 the literature 'increased' label uses an implicit WT+ACC baseline. Trap 5 (signaling mutant + treatment baseline mismatch). Failed on: algebraic, ode, rwr.",
+      "evidence": "10.1105/tpc.110.076588",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T047",
+      "gene": "EIN3",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "unchanged",
+      "category": "framework_limitation",
+      "explanation": "ein3 KO + ACC. Same as T046 \u2014 receptor/TF KO removes the ethylene inhibition and the implicit baseline used by the literature differs from the WT-no-treatment baseline used by the validator. Failed on: algebraic, ode, rwr.",
+      "evidence": "10.1105/tpc.110.076588",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T049",
+      "gene": "EIN3_EIL1",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "unchanged",
+      "category": "framework_limitation",
+      "explanation": "ein3 eil1 double KO + ACC. EIL1 collapsed to EIN3 composite. Same Trap-5 baseline issue as T046/T047. Failed on: algebraic, ode, rwr.",
+      "evidence": "10.1007/s42994-021-00063-0",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T077",
+      "gene": "NAA_treatment",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "predicted_direction": "increased",
+      "category": "edge_case",
+      "explanation": "NAA exogenous Auxin treatment. ODE ratio = 1.026 (sub-threshold). Same sub-threshold dilution issue as T104; ODE-specific failure. Failed on: ode.",
+      "evidence": "10.7554/eLife.19048",
+      "fixable": true,
+      "fix_strategy": "Same as T104."
+    },
+    {
+      "test_id": "T087",
+      "gene": "PIF1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "unchanged",
+      "category": "composite_collapse",
+      "explanation": "PIF1 (PIL5) is not a separate node. Mapped to PIF3 (closest skotomorphogenesis PIF) via family_member with modifier 0.997. PIF1's hypocotyl role under Rc is partially distinct from PIF3, so the single-paralog modifier washes out the effect. Failed on: algebraic, ode.",
+      "evidence": "10.1105/tpc.114.130666",
+      "fixable": true,
+      "fix_strategy": "Add PIF1 as separate node if curated_edges support its hypocotyl-specific edges."
+    },
+    {
+      "test_id": "T099",
+      "gene": "PIF7",
+      "perturbation_type": "phospho_dead_mutant",
+      "expected_direction": "increased",
+      "predicted_direction": "unchanged",
+      "category": "edge_case",
+      "explanation": "PIF7 phospho-dead mutant in shade. Encoded as PIF7 gm=2.0. Algebraic ratio = 1.035 (just below the 0.05 direction threshold) \u2014 geometric-mean dilution dampens the signal because PIF7 is one of several activators of Hypocotyl_Length. The directional change is correct in sign but too small to cross the threshold. Failed on: algebraic, ode.",
+      "evidence": "10.7554/eLife.31636",
+      "fixable": true,
+      "fix_strategy": "Lower direction threshold for borderline tests, or add a direct PIF7 -> Hypocotyl edge if curated_edges allow."
+    },
+    {
+      "test_id": "T104",
+      "gene": "Picloram_treatment",
+      "perturbation_type": "exogenous_treatment",
+      "expected_direction": "increased",
+      "predicted_direction": "increased",
+      "category": "edge_case",
+      "explanation": "Picloram (synthetic auxin) under warm temperature. Encoded as exogenous Auxin=1.0. ODE ratio = 1.026 (sub-threshold). The signal is present but geometric-mean dilution through the auxin cascade keeps the change below the 0.05 direction threshold under ODE Hill K=0.5, n=1. Failed on: ode.",
+      "evidence": "10.1038/s41467-022-32585-6",
+      "fixable": true,
+      "fix_strategy": "Sub-threshold magnitude. ODE-only failure (algebraic and RWR pass)."
+    },
+    {
+      "test_id": "T106",
+      "gene": "RGA",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "unchanged",
+      "category": "composite_collapse",
+      "explanation": "RGA single KO (1 of 5 DELLA paralogs) -> DELLA composite gm=0.997 -> no measurable change. RGA has the strongest single-paralog phenotype in the DELLA family but is collapsed into the composite. Failed on: algebraic, ode.",
+      "evidence": "10.1199/tab.0103",
+      "fixable": true,
+      "fix_strategy": "Could split RGA from DELLA composite (RGA dominates the family in hypocotyl); other DELLAs remain composite."
+    },
+    {
+      "test_id": "T112",
+      "gene": "TIR1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "unchanged",
+      "category": "framework_limitation",
+      "explanation": "TIR1 KO + auxin treatment. Trap 5: removing the auxin receptor blocks perception, but the model still adds Auxin=1.0 to downstream nodes. Algebraic returns ratio=1.0 because TIR1 KO + Auxin=1.0 still reaches AUX_IAA equilibrium near baseline; RWR over-shoots positive. Failed on: algebraic, ode, rwr.",
+      "evidence": "10.7554/eLife.19048",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T128",
+      "gene": "GID1A_GID1B",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "decreased",
+      "category": "composite_collapse",
+      "explanation": "gid1a gid1b double KO mapped to GID1 composite gm=0.5. Biology: gid1a and gid1b have asymmetric roles; the double can produce more elongation than expected from a uniform GID1 composite. Composite collapse loses the asymmetry. Failed on: algebraic, ode, rwr.",
+      "evidence": "10.1105/tpc.106.047415",
+      "fixable": false,
+      "fix_strategy": "Splitting GID1 paralogs adds 3 nodes for gain on 3 tests (T127-T129)."
+    },
+    {
+      "test_id": "T129",
+      "gene": "GID1B_GID1C",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "unchanged",
+      "predicted_direction": "decreased",
+      "category": "composite_collapse",
+      "explanation": "gid1b gid1c double KO is expected unchanged because GID1A retains function. The composite collapse cannot distinguish which paralog remains functional, so it predicts a global GID1 reduction -> short hypocotyl. Failed on: algebraic, ode, rwr.",
+      "evidence": "10.1105/tpc.106.047415",
+      "fixable": false,
+      "fix_strategy": "Same as T128."
+    },
+    {
+      "test_id": "T137",
+      "gene": "BAS1_SOB7",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "increased",
+      "category": "epistasis_complexity",
+      "explanation": "bas1 sob7 double KO. Both BAS1 and SOB7 catabolise BR. Removing both should accumulate BR -> longer hypocotyl (the model's prediction). Literature reports paradoxical decreased hypocotyl, likely from BR overaccumulation feedback on BR biosynthesis or homeostasis. The model has no BR-overaccumulation feedback. Failed on: algebraic, ode, rwr.",
+      "evidence": "10.1534/g3.112.004580",
+      "fixable": false,
+      "fix_strategy": "Adding negative feedback BR -| DET2/DWF4 would model BR homeostasis but risks oscillation."
+    }
+  ],
+  "summary": {
+    "total_failures": 17,
+    "by_category": {
+      "framework_limitation": 6,
+      "composite_collapse": 7,
+      "edge_case": 3,
+      "epistasis_complexity": 1
+    },
+    "fixable_count": 5,
+    "unfixable_count": 12,
+    "per_method_failure_counts": {
+      "algebraic": 15,
+      "ode": 17,
+      "rwr": 10
+    }
+  }
+}

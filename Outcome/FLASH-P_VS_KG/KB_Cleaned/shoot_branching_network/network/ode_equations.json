@@ -1,0 +1,774 @@
+{
+  "metadata": {
+    "method": "ODE_Hill",
+    "K": 2.0,
+    "n": 2,
+    "accuracy": 73.8,
+    "hill_activation_formula": "f(x) = x^2 * (2.0^2 + 1) / (2.0^2 + x^2)",
+    "hill_inhibition_formula": "g(x) = (2.0^2 + 1) / (2.0^2 + x^2)",
+    "ode_dynamics": "dx/dt = production - x; at steady state x = production",
+    "dt": 0.1,
+    "max_time": 50.0,
+    "convergence_tolerance": 0.0001,
+    "direction_threshold": 0.05
+  },
+  "equations": [
+    {
+      "node": "ABCB19",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABCB19 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Shoot_Branching",
+      "activators": [
+        "SMXL678",
+        "BES1",
+        "TRE6P",
+        "D2",
+        "ATCRY1",
+        "MAX2",
+        "Extended period of c",
+        "Copper deficiency",
+        "ADL1",
+        "SLS",
+        "Heterologous overexp",
+        "SAP11",
+        "ES10Y",
+        "Cytokinin",
+        "shoot meristems",
+        "miR156",
+        "EBE; (ERF114",
+        "nutrient availabilit",
+        "FHY3",
+        "ASU1",
+        "LBO",
+        "Overexpression of Gh",
+        "HXK1",
+        "PERK12",
+        "PIN1",
+        "environmental condit",
+        "A1",
+        "CYP86A8",
+        "DEFOLIATION",
+        "Overexpression of At",
+        "ASL39",
+        "SPL15",
+        "Loss-of-function in ",
+        "Altered carotenoid p",
+        "alterations in carbo",
+        "CAND1",
+        "initiation and growt",
+        "CUC3",
+        "CLE42",
+        "EBE",
+        "CUC2",
+        "Verticillium longisp",
+        "SUGARS",
+        "TDIF",
+        "RanBP domain-contain",
+        "BRCA1",
+        "CLE41",
+        "Red Light",
+        "ERF114",
+        "IPT",
+        "MBD9",
+        "Decapitation",
+        "AXR1",
+        "AMS",
+        "CUC1",
+        "BrMYC2/3-1OE"
+      ],
+      "inhibitors": [
+        "ABCB19",
+        "HB53",
+        "SMXL2",
+        "NO3",
+        "HACR",
+        "Nitrogen",
+        "WT",
+        "BRC1",
+        "KAI2",
+        "PIN347",
+        "PP5",
+        "Strigolactone",
+        "GR5",
+        "Effector protein(s)",
+        "LCMAX1",
+        "low red light to far",
+        "CLAMT",
+        "CN",
+        "bioactive substance",
+        "MIR171C",
+        "BPTCP19",
+        "exogenous applicatio",
+        "Sucrose",
+        "AUX",
+        "production of long-d",
+        "Auxin",
+        "PHYB",
+        "MECLA",
+        "CARLACTONE",
+        "Overexpression of Cm",
+        "BPTCP8",
+        "(2R)-isomers",
+        "cryptochrome 1",
+        "PMF",
+        "D14",
+        "BPTCP14",
+        "SMAX1",
+        "remaining MeCLA",
+        "Undefined hormone",
+        "A. thaliana",
+        "Gibberellin",
+        "VCTCP18",
+        "Overexpression of Md",
+        "SPL9",
+        "R_FR_Ratio",
+        "ARR1",
+        "ABA",
+        "BRC2",
+        "MAX1",
+        "AP2",
+        "BRC"
+      ],
+      "formula": "Shoot_Branching = prod(f(SMXL678, BES1, TRE6P, D2, ATCRY1, MAX2, Extended period of c, Copper deficiency, ADL1, SLS, Heterologous overexp, SAP11, ES10Y, Cytokinin, shoot meristems, miR156, EBE; (ERF114, nutrient availabilit, FHY3, ASU1, LBO, Overexpression of Gh, HXK1, PERK12, PIN1, environmental condit, A1, CYP86A8, DEFOLIATION, Overexpression of At, ASL39, SPL15, Loss-of-function in , Altered carotenoid p, alterations in carbo, CAND1, initiation and growt, CUC3, CLE42, EBE, CUC2, Verticillium longisp, SUGARS, TDIF, RanBP domain-contain, BRCA1, CLE41, Red Light, ERF114, IPT, MBD9, Decapitation, AXR1, AMS, CUC1, BrMYC2/3-1OE)) * prod(g(ABCB19, HB53, SMXL2, NO3, HACR, Nitrogen, WT, BRC1, KAI2, PIN347, PP5, Strigolactone, GR5, Effector protein(s), LCMAX1, low red light to far, CLAMT, CN, bioactive substance, MIR171C, BPTCP19, exogenous applicatio, Sucrose, AUX, production of long-d, Auxin, PHYB, MECLA, CARLACTONE, Overexpression of Cm, BPTCP8, (2R)-isomers, cryptochrome 1, PMF, D14, BPTCP14, SMAX1, remaining MeCLA, Undefined hormone, A. thaliana, Gibberellin, VCTCP18, Overexpression of Md, SPL9, R_FR_Ratio, ARR1, ABA, BRC2, MAX1, AP2, BRC)) * gene_modifier + exogenous"
+    },
+    {
+      "node": "SMXL678",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SMXL678 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BES1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BES1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "HB53",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HB53 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SMXL2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SMXL2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TRE6P",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TRE6P = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "NO3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "NO3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "D2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "D2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "HACR",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HACR = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Nitrogen",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Nitrogen = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ATCRY1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATCRY1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MAX2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MAX2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Extended period of c",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Extended period of c = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Copper deficiency",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Copper deficiency = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ADL1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ADL1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SLS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SLS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "WT",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "WT = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BRC1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BRC1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Heterologous overexp",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Heterologous overexp = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SAP11",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SAP11 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "KAI2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "KAI2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PIN347",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PIN347 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PP5",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PP5 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Strigolactone",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Strigolactone = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "GR5",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GR5 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ES10Y",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ES10Y = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Cytokinin",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Cytokinin = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Effector protein(s)",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Effector protein(s) = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "shoot meristems",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "shoot meristems = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LCMAX1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LCMAX1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "low red light to far",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "low red light to far = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "miR156",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "miR156 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "EBE; (ERF114",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EBE; (ERF114 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CLAMT",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CLAMT = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "nutrient availabilit",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "nutrient availabilit = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "FHY3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "FHY3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CN",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CN = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "bioactive substance",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "bioactive substance = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ASU1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ASU1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "LBO",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LBO = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Overexpression of Gh",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Gh = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "HXK1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HXK1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PERK12",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PERK12 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PIN1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PIN1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MIR171C",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MIR171C = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BPTCP19",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BPTCP19 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "exogenous applicatio",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "exogenous applicatio = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Sucrose",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Sucrose = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AUX",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AUX = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "production of long-d",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "production of long-d = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Auxin",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Auxin = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "environmental condit",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "environmental condit = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "A1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "A1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PHYB",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PHYB = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MECLA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MECLA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CYP86A8",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CYP86A8 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CARLACTONE",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CARLACTONE = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "DEFOLIATION",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "DEFOLIATION = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Overexpression of Cm",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Cm = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Overexpression of At",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of At = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ASL39",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ASL39 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BPTCP8",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BPTCP8 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "(2R)-isomers",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "(2R)-isomers = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SPL15",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SPL15 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "cryptochrome 1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "cryptochrome 1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "PMF",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PMF = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "D14",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "D14 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BPTCP14",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BPTCP14 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Loss-of-function in ",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Loss-of-function in  = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Altered carotenoid p",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Altered carotenoid p = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "alterations in carbo",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "alterations in carbo = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CAND1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CAND1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SMAX1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SMAX1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "remaining MeCLA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "remaining MeCLA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Undefined hormone",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Undefined hormone = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "initiation and growt",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "initiation and growt = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "A. thaliana",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "A. thaliana = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Gibberellin",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Gibberellin = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CUC3",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CUC3 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CLE42",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CLE42 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "VCTCP18",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "VCTCP18 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "EBE",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EBE = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CUC2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CUC2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Overexpression of Md",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Overexpression of Md = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SPL9",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SPL9 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Verticillium longisp",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Verticillium longisp = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "SUGARS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SUGARS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "R_FR_Ratio",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "R_FR_Ratio = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "TDIF",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "TDIF = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ARR1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ARR1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "RanBP domain-contain",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "RanBP domain-contain = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ABA",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ABA = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BRCA1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BRCA1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CLE41",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CLE41 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Red Light",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Red Light = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BRC2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BRC2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "ERF114",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ERF114 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "IPT",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "IPT = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MBD9",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MBD9 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "MAX1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MAX1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "Decapitation",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Decapitation = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AXR1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AXR1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AMS",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AMS = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "CUC1",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CUC1 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "AP2",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "AP2 = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BRC",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BRC = 1.0 * 1.0 * gene_modifier + exogenous"
+    },
+    {
+      "node": "BrMYC2/3-1OE",
+      "activators": [],
+      "inhibitors": [],
+      "formula": "BrMYC2/3-1OE = 1.0 * 1.0 * gene_modifier + exogenous"
+    }
+  ]
+}

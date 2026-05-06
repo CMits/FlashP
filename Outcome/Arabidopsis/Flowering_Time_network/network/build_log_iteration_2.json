@@ -1,0 +1,176 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Flowering_Time",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-18",
+    "iteration": 2,
+    "responds_to": "judge_review_iteration_1.json",
+    "builder_model": "Claude Opus 4.7 (1M context)"
+  },
+  "before": {"nodes": 38, "edges": 59, "source_pct": 42.11},
+  "after":  {"nodes": 42, "edges": 83, "source_pct": 42.86},
+  "snapshot": "network/iteration_1/",
+  "applied_suggestions": [
+    {
+      "id": "S001",
+      "priority": "high",
+      "disposition": "applied",
+      "edges_added": [{"source": "TFL1", "target": "Flowering_Time", "sign": -1, "curated_edge_id": "E278"}],
+      "note": "Phenotype now has 1 inhibitor (TFL1) per §9.9 repressing-arm requirement."
+    },
+    {
+      "id": "S002",
+      "priority": "high",
+      "disposition": "applied",
+      "edges_added": [
+        {"source": "TFL1", "target": "SOC1", "sign": -1, "curated_edge_id": "E281"},
+        {"source": "TFL1", "target": "FD",   "sign":  1, "curated_edge_id": "E276"}
+      ],
+      "note": "TFL1 now has 4 outgoing edges (AP1, LFY, SOC1, FD) plus the phenotype inhibition — Motif 5 Multi-Output Scaffold complete."
+    },
+    {
+      "id": "S003",
+      "priority": "high",
+      "disposition": "applied",
+      "edges_added": [
+        {"source": "DELLA", "target": "CO",   "sign": -1, "curated_edge_id": "E070"},
+        {"source": "DELLA", "target": "PIF4", "sign": -1, "curated_edge_id": "E077"}
+      ],
+      "note": "DELLA Multi-Output Scaffold extended to 5 targets: SPL9, LFY, SOC1, CO, PIF4. Enables GA–photoperiod and GA–thermosensing crosstalk."
+    },
+    {
+      "id": "S004",
+      "priority": "high",
+      "disposition": "applied",
+      "nodes_added": ["GA2OX"],
+      "edges_added": [{"source": "GA2OX", "target": "Gibberellin", "sign": -1, "curated_edge_id": "E140"}],
+      "note": "GA2OX (source GENE) completes Motif 4 Biosynthesis-Degradation Balance for Gibberellin (1 activator GA20OX + 1 inhibitor GA2OX)."
+    },
+    {
+      "id": "S005",
+      "priority": "high",
+      "disposition": "applied",
+      "edges_added": [
+        {"source": "FCA",  "target": "SVP", "sign": -1, "curated_edge_id": "E099"},
+        {"source": "FVE",  "target": "SVP", "sign": -1, "curated_edge_id": "E136"},
+        {"source": "SOC1", "target": "SVP", "sign": -1, "curated_edge_id": "E238"},
+        {"source": "SVP",  "target": "FLC", "sign":  1, "curated_edge_id": "E258"}
+      ],
+      "note": "SVP now has 4 inhibitors (Warm, FCA, FVE, SOC1) and one activating output to FLC. SOC1<->SVP mutual inhibition is Motif 7. Pre-Edge check 4 (feedback): SVP->FLC->SOC1-|SVP closes a positive self-loop on SVP but it coincides with existing SVP-|SOC1 direct inhibition — this is coherent feed-forward on SOC1 from SVP. Damping=0.7 handles bistable behaviour per Motif 7 note."
+    },
+    {
+      "id": "S006",
+      "priority": "high",
+      "disposition": "applied",
+      "edges_added": [
+        {"source": "CDF1",             "target": "FT", "sign": -1, "curated_edge_id": "E048"},
+        {"source": "FKF1",             "target": "FT", "sign":  1, "curated_edge_id": "E111"},
+        {"source": "GI",               "target": "FT", "sign":  1, "curated_edge_id": "E147"},
+        {"source": "Warm_Temperature", "target": "FT", "sign":  1, "curated_edge_id": "E313"}
+      ],
+      "note": "FT activator count rises to 6 (CO, FKF1, GI, PIF4, Warm_Temperature + T6P from S010); inhibitors rise to 3 (FLC, SVP, CDF1). FT coverage ratio 0.19 -> ~0.36. These form Motif 3 Coherent Feed-Forward with existing CO-path."
+    },
+    {
+      "id": "S007",
+      "priority": "high",
+      "disposition": "rejected",
+      "reason": "Hard-cap violation of BUILDER §10 (max 7 inhibitors per node). FLC already has 7 inhibitors (VIN3, PRC2, FCA, FPA, FLD, FVE, LD); adding Vernalization->FLC (E308) would make 8. The vernalization effect on FLC is already captured via Cold/Vernalization -> VIN3 -> FLC (E067, E310, E298) with VIN3 recruiting PRC2 (E300, implicit in PRC2 source). Dropping an autonomous-pathway gene to make room would lose single-mutant resolution (fca, fve, fld, ld are distinct perturbations). Reassess in iteration 3 if Judge provides an alternative restructure.",
+      "curated_edge_ids": ["E308"]
+    },
+    {
+      "id": "S008",
+      "priority": "medium",
+      "disposition": "applied",
+      "edges_added": [{"source": "SOC1", "target": "AP2", "sign": -1, "curated_edge_id": "E229"}],
+      "note": "Closes Motif 7 mutual inhibition SOC1<->AP2. Safe bistable switch with damping."
+    },
+    {
+      "id": "S009",
+      "priority": "medium",
+      "disposition": "applied",
+      "nodes_added": ["FUL"],
+      "edges_added": [
+        {"source": "FT",   "target": "FUL",            "sign":  1, "curated_edge_id": "E128"},
+        {"source": "SPL9", "target": "FUL",            "sign":  1, "curated_edge_id": "E250"},
+        {"source": "FUL",  "target": "AP1",            "sign":  1, "curated_edge_id": "E133"},
+        {"source": "FUL",  "target": "Flowering_Time", "sign":  1, "curated_edge_id": "E134"}
+      ],
+      "note": "FUL integrator added with 2 activators (FT, SPL9) and 2 outputs (AP1, Flowering_Time). Phenotype activator count 3 -> 4, still within §10 (3-5 max). FT -> FUL -> AP1 and FT -> AP1 form Motif 3 Coherent Feed-Forward."
+    },
+    {
+      "id": "S010",
+      "priority": "medium",
+      "disposition": "applied",
+      "nodes_added": ["TPS1", "T6P"],
+      "edges_added": [
+        {"source": "Sucrose", "target": "T6P", "sign":  1, "curated_edge_id": "E268"},
+        {"source": "TPS1",    "target": "T6P", "sign":  1, "curated_edge_id": "E292"},
+        {"source": "T6P",     "target": "FT",  "sign":  1, "curated_edge_id": "E270"}
+      ],
+      "note": "Sugar-sensing arm added. Sucrose now has 2 outgoing edges (miR156, T6P). TPS1 source GENE, T6P non-source METABOLITE. Provides tps1-mutant phenotype prediction capability."
+    },
+    {
+      "id": "S011",
+      "priority": "medium",
+      "disposition": "rejected",
+      "reason": "VRN1's only curated edge is VRN1 -> FLC (E304). FLC inhibitor count is at the §10 hard cap of 7; adding VRN1 -> FLC would push FLC to 8 inhibitors. Without a connecting edge VRN1 would be a floating node (violates BUILDER §1.1 Rule 1). VRN1's biological role (vernalization-induced FLC repression) is already covered by the VIN3/PRC2 cascade — the reason S007 was also rejected.",
+      "curated_edge_ids": ["E304"]
+    },
+    {
+      "id": "S012",
+      "priority": "medium",
+      "disposition": "applied",
+      "edges_added": [{"source": "GI", "target": "PIF4", "sign": -1, "curated_edge_id": "E148"}],
+      "note": "Thermomorphogenesis negative feedback on PIF4. PIF4 now has 1 activator (Warm_Temperature), 2 inhibitors (DELLA from S003, GI from S012). Safe single-negative feedback (not mutual positive)."
+    },
+    {
+      "id": "S013",
+      "priority": "medium",
+      "disposition": "partially_applied",
+      "edges_added": [{"source": "Vernalization", "target": "AGL24", "sign": 1, "curated_edge_id": "E307"}],
+      "edges_rejected": [
+        {"source": "Gibberellin", "target": "AGL24", "curated_edge_id": "E151",
+         "reason": "Perception-Gate purity rule (BUILDER §12 Motif 1). Gibberellin must have a single outgoing edge to GID1; GA effect on AGL24 would need to flow through DELLA. No curated DELLA -> AGL24 edge exists, so the GA effect on AGL24 cannot be modelled without breaking gate purity. Flag as literature_gap."}
+      ],
+      "note": "AGL24 now has 2 activators (SOC1, Vernalization). Gibberellin retains single-outgoing-edge discipline."
+    },
+    {
+      "id": "S014",
+      "priority": "low",
+      "disposition": "rejected",
+      "reason": "Phenotype already has TFL1 inhibitor from S001; FLC influence on the phenotype already flows through FT and SOC1 (dual cascade paths). Adding FLC -> Flowering_Time direct would be redundant with the cascade philosophy in BUILDER §11. LOW priority - not blocking.",
+      "curated_edge_ids": ["E113"]
+    },
+    {
+      "id": "S015",
+      "priority": "low",
+      "disposition": "rejected",
+      "reason": "Superseded by S010: the T6P intermediate node now carries the sugar -> FT signal, which is mechanistically preferable (Wahl 2013 shows T6P as the proximate FT activator, not sucrose directly).",
+      "curated_edge_ids": ["E267"]
+    },
+    {
+      "id": "S016",
+      "priority": "low",
+      "disposition": "deferred",
+      "reason": "AP2 -> AP1 edge (E017 MEDIUM) kept. AP2 -| SOC1 -> AP1 provides the main age-pathway influence on AP1; AP2 -> AP1 direct adds orthogonal repression. Mechanism string is pulled from curated. No urgent change; can revisit in iteration 3 if Judge flags.",
+      "curated_edge_ids": ["E017"]
+    }
+  ],
+  "summary": {
+    "applied_high": 6,
+    "rejected_high": 1,
+    "applied_medium": 5,
+    "rejected_medium": 1,
+    "partial_medium": 0,
+    "applied_low": 0,
+    "rejected_low": 2,
+    "deferred_low": 1,
+    "new_nodes": ["GA2OX", "FUL", "TPS1", "T6P"],
+    "edges_added": 24,
+    "qa_status": {
+      "structure_check": "all 5 checks PASS (exit 0)",
+      "schema_validation": "ALL PASS"
+    }
+  }
+}

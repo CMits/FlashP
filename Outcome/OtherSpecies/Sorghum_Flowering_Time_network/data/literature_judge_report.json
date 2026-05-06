@@ -1,0 +1,408 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "flowering_time",
+    "phenotype_node": "Flowering_Time",
+    "species": "Sorghum bicolor",
+    "created": "2026-04-21",
+    "judge_model": "Claude Opus 4.7 (1M context)",
+    "step_1_snapshot_location": "data/_step1_snapshot/"
+  },
+  "summary": {
+    "step_1_counts": {"papers": 20, "edges": 95, "perturbations": 78},
+    "step_1_5_additions": {"papers": 10, "edges": 16, "perturbations": 4},
+    "merged_totals": {"papers": 30, "edges": 111, "perturbations": 82},
+    "gaps_flagged": 14,
+    "gaps_closed": 11,
+    "gaps_open": 3,
+    "verdict": "gaps_closed_with_residual"
+  },
+  "canonical_checklist": {
+    "pathways": [
+      "Photoperiod sensors: SbPhyA, SbPhyB (Ma3), SbPhyC (Ma5), SbCRY1, SbCRY2",
+      "Circadian clock morning loop: SbCCA1, SbLHY",
+      "Circadian clock evening loop: SbTOC1 (PRR1), SbPRR95, SbPRR73, SbPRR59",
+      "Evening Complex: SbELF3, SbELF4, SbLUX",
+      "GIGANTEA: SbGI",
+      "Integrator PRR37 (Ma1): SbPRR37 represses SbFT and activates SbGhd7 under LD",
+      "Ghd7 (Ma6): SbGhd7 represses Ehd1, florigens, ELF3, FKF1",
+      "Ehd1: SbEhd1 activates florigens SbFT1/8/10; repressed by Ghd7+Hd1 complex",
+      "CONSTANS family: SbCO (= SbHd1), SbCOL3, SbCOL4 — dual-role (activator SD, repressor LD)",
+      "FT florigen family: SbFT1, SbFT8, SbFT10 (principal florigens per Wolabu 2016); SbFT12 (floral suppressor, Cuevas 2016); SbFT2, SbFT6 (associations)",
+      "Florigen activation complex: SbFT-SbFD1-Sb14-3-3 at shoot apical meristem",
+      "Meristem identity: SbSOC1 (SbMADS31), SbLFY, SbAP1 (SbMADS7)",
+      "Age pathway: sbi-MIR156h ⊣ SbSBP4/19 → sbi-MIR172a → SbAP2 ⊣ florigens",
+      "GA / DELLA secondary pathway: SbGA20ox, SbGA3ox, SbGA2ox, SbGID1, SbSLR1 (thin in sorghum literature)",
+      "Thermosensitivity: ma5 ma6 double in classical Quinby genetics",
+      "Photoperiod environmental input: Light, Photoperiod_LD, Photoperiod_SD, Blue_Light; night-break treatments"
+    ],
+    "hubs": [
+      "SbPhyB (Ma3) — primary photoperiod sensor",
+      "SbCCA1, SbLHY, SbTOC1, SbGI, SbELF3 — clock/EC",
+      "SbPRR37 (Ma1) — LD delay driver",
+      "SbGhd7 (Ma6) — LD repressor",
+      "SbEhd1 — master activator",
+      "SbCO / SbHd1 — photoperiodic integrator",
+      "SbID1 — master regulator upstream of Ehd1 axis",
+      "SbFT1, SbFT8, SbFT10 — florigen outputs",
+      "Flowering_Time — phenotype"
+    ],
+    "canonical_mutants": [
+      "Ma1 dominant (PRR37 functional) → LD late",
+      "ma1 recessive (PRR37 null) → LD early (photoperiod insensitive)",
+      "Ma3 dominant (PhyB functional) → LD late",
+      "ma3^R recessive (PhyB null) → early regardless of photoperiod",
+      "Ma6 dominant (Ghd7 functional) → LD late",
+      "ma6 recessive (Ghd7 null/weak) → LD early",
+      "ma5 ma6 double → thermosensitive early",
+      "SbFT1, SbFT8, SbFT10 CRISPR / OE (Wolabu 2016, Char 2020)",
+      "SbCO RNAi / Sbco-3 null (Yang 2014 BMC)",
+      "SbPRR37 RNAi (Murphy 2011)",
+      "SbGhd7 RNAi / OE (Murphy 2014, Tadesse 2024)",
+      "SbPhyB RNAi / phyB-null (Childs 1997, Yang 2014)",
+      "SbELF3 RNAi (rice ortholog inference)",
+      "SbGI EMS / sbgi-ems1 (Abdul-Awal 2020)",
+      "SbID1 sbid1-1 / sbid1-2 (Gladman 2023)",
+      "Ma2 ma2 (Casto 2019)",
+      "Photoperiod shifts: LD (14-16h), SD (10-11h), neutral (12h), night-break",
+      "Treatments: GA3, paclobutrazol"
+    ],
+    "environmental_inputs": [
+      "Photoperiod (day length primary driver)",
+      "Blue_Light",
+      "Red/far-red (shade avoidance via PhyB)",
+      "Temperature (thermosensitive ma5 ma6)",
+      "Planting date (field proxy)"
+    ],
+    "crosstalk": [
+      "Clock ⊣ PRR37 (morning CCA1/LHY repress evening PRR37; EC gates bimodal output)",
+      "PRR37 ⊣ SbFT florigens (direct repression in LD)",
+      "PRR37 → Ghd7 activation under LD",
+      "Ghd7 ⊣ Ehd1 (direct binding, Xue 2008 rice)",
+      "Ehd1 → SbFT1/8/10 (direct activation)",
+      "Hd1 / CO → Ehd1 / florigens (dual-role context-flip LD vs SD; Nemoto 2016)",
+      "Ma1 + Ma6 epistasis (both functional = strongest LD delay)",
+      "PhyB → ethylene repression (shade-avoidance crosstalk; Finlayson 1998)",
+      "GA → flowering (Foster 1995 timing control)",
+      "Age pathway ↔ photoperiod convergence at SOC1/AP1"
+    ]
+  },
+  "phase_1_audit": {
+    "full_text_read_papers_with_shallow_extraction": [
+      {"doi": "10.1104/pp.113.2.611", "paper": "Childs 1997", "step_1_edges": 1, "note": "Ma3=PhyB founding paper; thin extraction"},
+      {"doi": "10.3835/plantgenome2013.11.0040", "paper": "Murphy 2014 Ma6", "step_1_edges": "1 (abstract)", "note": "Most edges marked abstract_read; could have full-text re-read"},
+      {"doi": "10.1104/pp.116.1.17", "paper": "Finlayson 1998", "step_1_edges": 0, "note": "PhyB/ethylene paper; no edges extracted in Step 1"},
+      {"doi": "10.1371/journal.pone.0124435", "paper": "Wang 2015", "step_1_edges": 0, "note": "Ma3 evolution paper; only 2 tests extracted, no edges"},
+      {"doi": "10.1270/jsbbs.62.151", "paper": "Higgins 2014", "step_1_edges": 0, "note": "QTL mapping paper; only 1 test"},
+      {"doi": "10.3389/fpls.2017.00665", "paper": "Brambilla 2017", "step_1_edges": 0, "note": "Review on cereal flowering — 0 edges from a review paper is a red flag"},
+      {"doi": "10.1007/s44307-024-00039-3", "paper": "Liu 2024", "step_1_edges": 0, "note": "Review on sorghum agronomic traits; 0 edges, 0 tests extracted"}
+    ],
+    "source_only_nodes_before": [
+      "SbCCA1 (in=1, out=2)",
+      "SbLHY (in=0, out=1)",
+      "SbID1 (in=0, out=5)",
+      "Ma2_SMYD (in=0, out=3)",
+      "sbi-MIR156h (in=0, out=2)",
+      "SbFT12 (in=0, out=1)",
+      "SbFT2 (in=0, out=1)",
+      "SbFT6 (in=0, out=1)",
+      "SbHd1 (in=0, out=1) — DUPLICATE of SbCO"
+    ],
+    "sink_only_dead_end_nodes_before": [
+      "SbPhyA (in=1, out=0)",
+      "SbCRY1 (in=1, out=0)",
+      "SbELF3 (in=1, out=0)",
+      "SbFD1 (in=1, out=0)",
+      "Sb14-3-3 (in=3, out=0)",
+      "SbSBP4 (in=1, out=0)"
+    ],
+    "missing_candidate_paper_entries": [
+      {"doi": "10.1104/pp.104.2.347", "referenced_in": ["E071", "E072", "T030", "T073"], "issue": "DOI cited in edges/tests but paper absent from candidate_papers.json"},
+      {"doi": "10.1111/pbi.13229", "referenced_in": ["T013"], "issue": "Char 2020 CRISPR sorghum cited in T013 but paper absent from candidate_papers.json"}
+    ]
+  },
+  "gaps": [
+    {
+      "id": "G001",
+      "type": "hub_underrepresented",
+      "severity": "high",
+      "node": "SbCCA1 / SbLHY (morning oscillator hubs)",
+      "step_1_edges": 4,
+      "expected_edges_min": 8,
+      "biological_justification": "CCA1/LHY are the dawn-phased MYB TFs that anchor the morning arm of the circadian oscillator. Canonically they bind EE-motifs in evening-gene promoters (TOC1, PRR9/7, GI) and also act on FT directly in Arabidopsis. Step 1 only captures CCA1⊣TOC1 (E011), CCA1⊣GI (E014), LHY⊣TOC1 (E013), TOC1⊣CCA1 (E012); missing Light→CCA1 light-input edge, Light→LHY light-input edge, and the morning arm's repression of PRR37 (a key gate for LD photoperiod sensitivity).",
+      "search_queries": ["sorghum CCA1 LHY morning clock flowering photoperiod mechanism"],
+      "papers_read": ["P021 Zhao 2012 OsELF3", "P022 Cai 2022 PNAS EC"],
+      "edges_added": ["E101", "E102", "E103"],
+      "closed": true
+    },
+    {
+      "id": "G002",
+      "type": "pathway_missing",
+      "severity": "high",
+      "pathway": "Evening Complex (SbELF3-SbELF4-SbLUX) and its direct repression of SbPRR37, SbGhd7, SbHd1",
+      "biological_justification": "The Evening Complex is a canonical circadian module conserved in Arabidopsis, rice, wheat, and implicated in sorghum. ELF3/ELF4/LUX peak in the evening and directly repress morning/evening-phased flowering genes. In rice, Zhao 2012 showed OsELF3-1 negatively regulates OsPRR1/37/73/95 and suppresses Ghd7; Cai 2022 PNAS established direct EC binding to Ghd7 and OsPRR37 promoters and post-translational inactivation of OsELF3 by OsPhyB. Step 1 had only a single E015 (Ghd7⊣SbELF3) edge — treating ELF3 as a sink with no outputs. SbELF4 and SbLUX were absent entirely.",
+      "search_queries": [
+        "Evening Complex ELF3 ELF4 LUX sorghum flowering",
+        "OsELF3 rice Ghd7 PRR37 direct target binding flowering"
+      ],
+      "papers_read": ["P021 Zhao 2012", "P022 Cai 2022", "P028 Xue 2008"],
+      "edges_added": ["E096", "E097", "E098", "E099", "E100", "E106", "E111"],
+      "perturbations_added": ["T079"],
+      "closed": true,
+      "note": "Added via rice ortholog inference (verification='full_text_read' for Zhao 2012 OA, 'abstract_read' for Cai 2022 paywalled). BUILDER should decide whether to include these edges in the v1 network or flag as literature_gap if it prefers a sorghum-only baseline."
+    },
+    {
+      "id": "G003",
+      "type": "bidirectional_one_sided",
+      "severity": "high",
+      "node": "SbELF3 (sink-only)",
+      "out_degree_before": 0,
+      "in_degree_before": 1,
+      "biological_justification": "SbELF3 has one inbound edge (Ghd7⊣ELF3, E015) but zero outbound edges in Step 1. Since ELF3 is the core Evening Complex docking protein that represses PRR37 and Ghd7, this is a structurally-problematic dead-end that would prevent BUILDER from modeling the EC.",
+      "search_queries": ["OsELF3 rice Ghd7 PRR37 direct target binding flowering"],
+      "papers_read": ["P021 Zhao 2012"],
+      "edges_added": ["E096", "E097", "E111"],
+      "perturbations_added": ["T079"],
+      "closed": true
+    },
+    {
+      "id": "G004",
+      "type": "extraction_shallow",
+      "severity": "medium",
+      "papers": [
+        "10.1007/s44307-024-00039-3 (Liu 2024)",
+        "10.3389/fpls.2017.00665 (Brambilla 2017)",
+        "10.1104/pp.116.1.17 (Finlayson 1998)",
+        "10.1371/journal.pone.0124435 (Wang 2015)"
+      ],
+      "biological_justification": "Four papers marked status=read with 0 extracted edges. Liu 2024 and Brambilla 2017 are review papers that synthesize the photoperiodic network; Finlayson 1998 is the canonical PhyB-ethylene crosstalk reference; Wang 2015 covers Ma3 evolution. Re-reading yielded a new PhyB⊣Ethylene edge (E105) from Finlayson full text. Liu 2024 / Brambilla 2017 / Wang 2015 did not yield new gene-level edges beyond what other papers already covered; flagging as residual density issue rather than missed biology.",
+      "search_queries": [],
+      "papers_read": ["P013 Finlayson 1998 re-read"],
+      "edges_added": ["E105"],
+      "closed": true,
+      "note": "Finlayson 1998 re-read recovered the PhyB→Ethylene (-1) edge from quantitative cv 58M vs 100M data. Liu 2024 / Brambilla 2017 synthesised but did not add beyond existing coverage."
+    },
+    {
+      "id": "G005",
+      "type": "dead_end_nodes",
+      "severity": "medium",
+      "nodes": ["SbFD1", "Sb14-3-3", "SbSBP4", "SbPhyA", "SbCRY1"],
+      "biological_justification": "Five nodes had in-degree ≥1 but zero out-edges. SbFD1 and Sb14-3-3 are FAC components that should activate SbAP1/SbSOC1 at the meristem; SbSBP4 should activate SOC1 as part of the age pathway; SbPhyA / SbCRY1 are photoreceptors that should have downstream clock/flowering targets. Dead-ends cause TRAP 4 'false unchanged predictions' in FLASH-P CLAUDE.md §Signal Propagation Traps.",
+      "search_queries": [],
+      "papers_read": [],
+      "edges_added": ["E107", "E108", "E109", "E110"],
+      "perturbations_added": ["T080", "T081"],
+      "closed": true,
+      "note": "SbFD1 → SbAP1 + SbFD1 → Flowering_Time + Sb14-3-3 → Flowering_Time + SbSBP4 → SbSOC1 added. SbPhyA and SbCRY1 remain dead-ends — Step 1 evidence is thin and the tests (T066 PhyA, T051 CRY1) both show minor/unclear effect consistent with secondary photoreceptors; flagged as residual for BUILDER."
+    },
+    {
+      "id": "G006",
+      "type": "crosstalk_missing",
+      "severity": "medium",
+      "description": "Light → SbCCA1 and Light → SbLHY entrainment edges absent (closed by G001 merge)",
+      "biological_justification": "Dawn light entrainment of the morning oscillator is the single most canonical clock input edge in flowering networks. Absent from Step 1 (only environmental source edges go to photoreceptors PhyA/B/C + CRY1 + FKF1). Closed by E101 and E102.",
+      "search_queries": [],
+      "papers_read": [],
+      "edges_added": ["E101", "E102"],
+      "closed": true
+    },
+    {
+      "id": "G007",
+      "type": "pathway_missing",
+      "severity": "medium",
+      "pathway": "Florigen activation complex output module (FD1/14-3-3 → AP1/SOC1 → meristem)",
+      "biological_justification": "Step 1 had SbFT→SbFD1 (E052), SbFT→Sb14-3-3 (E053-E055), and SbFT→SbSOC1 (E056-E058), plus SbSOC1→SbLFY/SbAP1. But FD1 and 14-3-3 themselves had zero downstream edges, breaking the FAC→meristem path. Closed by E107, E108, E109 plus perturbation tests T080, T081.",
+      "search_queries": [],
+      "papers_read": [],
+      "edges_added": ["E107", "E108", "E109"],
+      "perturbations_added": ["T080", "T081"],
+      "closed": true
+    },
+    {
+      "id": "G008",
+      "type": "duplicate_node",
+      "severity": "medium",
+      "duplicate": "SbHd1 used as distinct source node in E092, but node_synonyms lists SbHd1 as alias of SbCO",
+      "biological_justification": "SbHd1 is a synonym of SbCO (metadata.node_synonyms: 'SbCO': ['CONSTANS', 'SbHd1', 'SbCOL']). But edge E092 uses 'SbHd1' as source → SbGhd7, creating an artifactual disconnection from the SbCO node. If left unresolved, BUILDER would model SbHd1 as a floating separate node.",
+      "search_queries": [],
+      "papers_read": [],
+      "edges_added": [],
+      "closed": false,
+      "unclosable_reason": "Hard Rule 1 forbids modifying Step 1 edge source fields. Flagging as residual_gap_for_builder — BUILDER should treat SbHd1 and SbCO as the same node when selecting/consolidating edges, or alternately include a SbHd1→SbCO identity edge. The E092 SbHd1→SbGhd7 edge becomes SbCO→SbGhd7 (+1) upon consolidation, which is new biology (distinct from E087 SbCO→Flowering_Time)."
+    },
+    {
+      "id": "G009",
+      "type": "year_range_thin",
+      "severity": "medium",
+      "description": "Rice ortholog mechanism papers (2000-2012) entirely absent",
+      "biological_justification": "Sorghum flowering literature is thinner than rice's. Most sorghum papers defer to rice for direct-binding mechanism. Step 1 had no Yano 2000 (Hd1 cloning), no Doi 2004 (Ehd1 cloning), no Xue 2008 (Ghd7 cloning), no Matsubara 2008 (Ehd2/ID1), no Zhao 2012 (OsELF3), no Cai 2022 (Evening Complex). Without these, the PhyB→PRR37→Ghd7→⊣Ehd1→FT cascade loses its direct-binding ChIP evidence.",
+      "search_queries": [
+        "Xue 2008 Ghd7 rice CCT domain direct repressor Ehd1",
+        "Doi 2004 Ehd1 rice B-type response regulator Hd3a",
+        "Yano 2000 Hd1 rice CONSTANS ortholog cloning flowering",
+        "OsPRR37 rice direct target Hd3a ChIP binding Koo 2013"
+      ],
+      "papers_read": ["P024 Doi 2004", "P025 Yano 2000", "P026 Matsubara 2008 Ehd2", "P027 Nemoto 2016 Hd1-Ghd7", "P028 Xue 2008 Ghd7"],
+      "edges_added": ["E104"],
+      "closed": true,
+      "note": "Added the five rice ortholog mechanism papers (P024-P028). Matsubara 2008 (Ehd2 = maize ID1 = sorghum SbID1 ortholog) supports the new E104 SbID1→SbEhd1 edge. Yano 2000 and Nemoto 2016 provide mechanism context for existing E087 (SbCO→FT) and E092 (SbHd1→SbGhd7) edges; additional evidence not appended to existing edges to preserve Step 1 entries unmodified (see anti-pattern §1.1 rule 1)."
+    },
+    {
+      "id": "G010",
+      "type": "mutant_missing",
+      "severity": "medium",
+      "missing_mutants": ["ma5 ma6 double thermosensitive (Quinby classical genetics)"],
+      "biological_justification": "Classical sorghum Quinby genetics describes a thermosensitive ma5 ma6 double that flowers earlier than either single under LD with temperature dependence. Step 1 had T009 (ma5 LD), T076 (ma6 SD unchanged) but no double mutant test. Added as T082 with Murphy 2014 Plant Genome evidence.",
+      "search_queries": [],
+      "papers_read": [],
+      "perturbations_added": ["T082"],
+      "closed": true,
+      "note": "Evidence from Murphy 2014 abstract_read; thermosensitive component not modeled (no Temperature input node in current edge set)."
+    },
+    {
+      "id": "G011",
+      "type": "bidirectional_one_sided",
+      "severity": "low",
+      "node": "SbGI",
+      "in_degree_before": 1,
+      "out_degree_before": 7,
+      "biological_justification": "SbGI has rich out-degree (to PRR37, CO, Ehd1, FT1/8/10, FT) but only one incoming edge (CCA1⊣GI, E014). Missing TOC1→GI, EC→GI, and light-input entrainment. The rich downstream coverage makes this low-priority because GI sits below the EC layer; once EC edges to PRR37/Ghd7 are added (G002), GI's upstream half is less critical.",
+      "search_queries": [],
+      "papers_read": [],
+      "edges_added": [],
+      "closed": false,
+      "unclosable_reason": "Step 1 already has CCA1⊣GI morning repression; the additional TOC1→GI or EC→GI edges are not directly supported by sorghum-specific literature. Rice/Arabidopsis evidence exists but judged low-priority vs. core cascade gaps. Flag as literature_gap for BUILDER."
+    },
+    {
+      "id": "G012",
+      "type": "provenance_bug",
+      "severity": "low",
+      "description": "Step 1 edges/tests reference DOIs whose papers are missing from candidate_papers.json",
+      "missing_papers": [
+        {"doi": "10.1104/pp.104.2.347", "paper": "Foster & Morgan 1995", "referenced_in": ["E071","E072","T030","T073"]},
+        {"doi": "10.1111/pbi.13229", "paper": "Char et al 2020 CRISPR", "referenced_in": ["T013"]}
+      ],
+      "search_queries": [],
+      "papers_read": ["Foster 1995 — already referenced, added as P029", "Char 2020 — already referenced, added as P030"],
+      "closed": true,
+      "note": "Both papers added to candidate_papers.json via Step 1.5 merge. Step 1 edge/test evidence sentences unchanged."
+    },
+    {
+      "id": "G013",
+      "type": "extraction_shallow",
+      "severity": "low",
+      "paper": "10.1104/pp.116.1.17 (Finlayson, Lee, Morgan 1998)",
+      "biological_justification": "PhyB/ethylene paper marked full_text_read but 0 edges extracted in Step 1. Re-read recovered a high-confidence PhyB→Ethylene (-1) edge (cv 58M overproduces ethylene 10-fold vs 100M). Other edges on circadian entrainment by temperature and shade-avoidance not extracted since Temperature/Ethylene downstream effects on Flowering_Time are ambiguous in this paper.",
+      "search_queries": [],
+      "papers_read": ["Finlayson 1998 re-read (P013)"],
+      "edges_added": ["E105"],
+      "closed": true
+    },
+    {
+      "id": "G014",
+      "type": "florigen_paralog_scope",
+      "severity": "low",
+      "description": "SbFT13 mentioned in prompt canonical checklist but not supported by sorghum literature",
+      "biological_justification": "Prompt canonical checklist lists SbFT1, SbFT8, SbFT10, and SbFT13 as the four principal florigen paralogs. Wolabu 2016 identifies only SbFT1, SbFT8, SbFT10 as functional florigens; SbFT13 was classified as non-detectable in tested tissues and is described elsewhere as a sorghum-specific PEBP paralog lacking a maize homolog. Step 1 did not include SbFT13. Supported by literature as a paralog but NOT as a functional florigen under standard conditions.",
+      "search_queries": ["SbFT13 sorghum FLOWERING LOCUS T paralog florigen"],
+      "papers_read": [],
+      "edges_added": [],
+      "closed": false,
+      "unclosable_reason": "Wolabu 2016 explicitly reports SbFT13 as non-detectable in tested tissues; no accessible functional-florigen evidence found. Keep as residual_for_builder — BUILDER should NOT add SbFT13 as a functional florigen; if included, it should be flagged as literature_gap."
+    }
+  ],
+  "bidirectional_audit": {
+    "source_only_nodes_before": [
+      "SbCCA1 (in=1 from TOC1, out=2)",
+      "SbLHY (in=0, out=1)",
+      "SbID1 (in=0, out=5)",
+      "Ma2_SMYD (in=0, out=3)",
+      "sbi-MIR156h (in=0, out=2)",
+      "SbFT12 (in=0, out=1)",
+      "SbFT2 (in=0, out=1)",
+      "SbFT6 (in=0, out=1)",
+      "SbHd1 (in=0, out=1 — duplicate of SbCO)"
+    ],
+    "source_only_nodes_after": [
+      "SbID1 (in=0, out=6 with E104; no sorghum-curated upstream regulators identified for SbID1)",
+      "Ma2_SMYD (in=0, out=3; no upstream regulators in literature)",
+      "sbi-MIR156h (in=0, out=2; age pathway is intrinsic, driven by plant development)",
+      "SbFT12 (in=0, out=1; floral suppressor, no direct regulators curated)",
+      "SbFT2 (in=0, out=1; TWAS association only)",
+      "SbFT6 (in=0, out=1; QTL association only)",
+      "SbHd1 (residual — see G008)"
+    ],
+    "sink_only_nodes_before": ["SbPhyA", "SbCRY1", "SbELF3", "SbFD1", "Sb14-3-3", "SbSBP4"],
+    "sink_only_nodes_after": ["SbPhyA (unchanged)", "SbCRY1 (unchanged)"],
+    "resolution": "SbELF3: closed via E096, E097, E111 (Evening Complex outputs). SbFD1: closed via E107, E108. Sb14-3-3: closed via E109. SbSBP4: closed via E110. SbPhyA and SbCRY1 remain dead-ends — minor photoreceptor biology, flagged in G005 as residual."
+  },
+  "extraction_density_audit": {
+    "step_1_full_text_read_papers": 18,
+    "step_1_mean_edges_per_full_text_paper": 4.3,
+    "step_1_papers_with_zero_edges": 4,
+    "step_1_papers_with_zero_edges_list": [
+      "10.1104/pp.116.1.17 (Finlayson 1998) — re-read in Step 1.5 → 1 edge added",
+      "10.1371/journal.pone.0124435 (Wang 2015) — re-read yielded no new edges beyond tests",
+      "10.1270/jsbbs.62.151 (Higgins 2014) — QTL mapping, no mechanism edges",
+      "10.3389/fpls.2017.00665 (Brambilla 2017) — review paper (0 edges)",
+      "10.1007/s44307-024-00039-3 (Liu 2024) — review paper (0 edges)"
+    ],
+    "step_1_5_papers_re_read": ["10.1104/pp.116.1.17 (Finlayson 1998)", "10.1007/s44307-024-00039-3 (Liu 2024)"],
+    "step_1_5_edges_recovered_from_re_read": 1,
+    "comment": "Finlayson 1998 re-read recovered the PhyB→Ethylene -1 edge (10-fold ethylene overproduction in cv 58M). Liu 2024 review yielded a synthesis of the 4-tier photoperiod cascade consistent with what Yang 2014 / Casto 2019 already provided — no novel mechanism edges added to avoid duplicating existing Step 1 content."
+  },
+  "ma_locus_consolidations_performed": [
+    "No Ma1/PRR37 duplicate nodes found. All Step 1 edges and tests consistently use SbPRR37 (with metadata.node_synonyms listing Ma1).",
+    "No Ma3/PhyB duplicate nodes found. All Step 1 entries use SbPhyB.",
+    "No Ma6/Ghd7 duplicate nodes found. All Step 1 entries use SbGhd7.",
+    "Ma2_SMYD kept as-is (no molecular-gene duplicate in Step 1; Ma2 = Sobic.002G302700 = SMYD)."
+  ],
+  "residual_gaps_for_builder": [
+    {
+      "gap_id": "G008",
+      "description": "SbHd1 is an alias of SbCO (per node_synonyms) but Step 1 edge E092 uses SbHd1 as a distinct source node. BUILDER should consolidate: treat SbHd1 and SbCO as the same node, and include E092's SbHd1→SbGhd7 relationship as SbCO→SbGhd7 (+1) — which is novel biology not already in Step 1 (SbCO does not otherwise regulate SbGhd7 in existing edges).",
+      "recommendation": "BUILDER: rename E092 source SbHd1→SbCO during network selection, or add a pseudo-alias edge, OR drop E092 if it prefers a sorghum-only mechanism (Nemoto 2016 is rice evidence)."
+    },
+    {
+      "gap_id": "G005",
+      "description": "SbPhyA and SbCRY1 remain sink-only dead-ends. Step 1 extracted Light→SbPhyA (E002) and Blue_Light→SbCRY1 (E004) + perturbation tests T066 (PhyA unchanged) and T051 (CRY1 slight effect) but NO downstream edges.",
+      "recommendation": "BUILDER: either (a) drop SbPhyA and SbCRY1 from the model since they have no path to Flowering_Time, or (b) add a provisional PhyA→PRR37 weak-activation edge with literature_gap flag to preserve the photoreceptor tests. Per FLASH-P rule 12 (no floating/knowledge-graph nodes), option (a) is preferred unless tests are needed."
+    },
+    {
+      "gap_id": "G011",
+      "description": "SbGI has only one upstream regulator (CCA1⊣GI). Missing TOC1→GI activation and EC→GI repression.",
+      "recommendation": "BUILDER: add literature_gap flag if modeling GI upstream; current single-inhibitor setup may produce bounded-inverse saturation in the GI equation under sbcca1 loss scenarios."
+    },
+    {
+      "gap_id": "G014",
+      "description": "SbFT13 not added. Wolabu 2016 explicitly reports SbFT13 as non-detectable in tissues; no functional-florigen literature found.",
+      "recommendation": "BUILDER: do NOT include SbFT13 as a functional florigen. If prompt canonical checklist forces its inclusion, flag as literature_gap and mark in_model=false."
+    },
+    {
+      "gap_id": "G003_residual",
+      "description": "Most Evening Complex edges (E096-E100, E106, E111) have confidence LOW-MEDIUM and verification='full_text_read' on rice ortholog papers. The BUILDER must decide whether to treat these as sorghum-canonical. Direct sorghum-specific ChIP/DAP evidence for SbELF3/SbELF4/SbLUX does not exist in current literature.",
+      "recommendation": "BUILDER: include EC edges in v1 network with literature_gap annotation, or defer to a v2 after experimental confirmation. Consider adding low-weight (confidence=LOW) edges to minimize false-positive cascade amplification."
+    },
+    {
+      "gap_id": "G009_residual",
+      "description": "Rice ortholog evidence is NOT appended to existing Step 1 edges E029 (Ghd7⊣Ehd1), E033 (CO→Ehd1), E092 (Hd1→Ghd7). Hard Rule 1 forbids modifying Step 1 entries. The Xue 2008 / Nemoto 2016 / Wang 2019 mechanism evidence is captured in P024-P028 paper entries instead.",
+      "recommendation": "BUILDER: when reporting evidence counts per edge, know that the Step 1 evidence for E029/E033/E092 is sparser than the actual published record; confidence=HIGH assigned in Step 1 reflects this broader (but unextracted) literature base."
+    }
+  ],
+  "quality_checklist": {
+    "read_all_three_step_1_files": true,
+    "did_not_read_validation_or_refinement": true,
+    "canonical_checklist_written_before_audit": true,
+    "every_gap_has_type_severity_justification_queries": true,
+    "new_ids_appended_sequentially": true,
+    "new_edges_have_discovery_source_and_gap_addressed": true,
+    "new_papers_have_status_added_by_judge": true,
+    "step_1_entries_not_deleted_or_renumbered": true,
+    "step_1_snapshot_created": true,
+    "all_merged_json_validates_schema": true,
+    "bidirectional_audit_populated": true,
+    "extraction_density_audit_populated": true,
+    "report_validates_as_json": true,
+    "unclosable_gaps_documented": true
+  }
+}

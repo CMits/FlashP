@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Plant_Height",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "iteration": 3,
+    "builder_model": "Claude Opus 4.7",
+    "based_on_judge_review": "network/judge_review_iteration_2.json"
+  },
+  "before_state": {
+    "total_nodes": 71,
+    "total_edges": 89,
+    "source_nodes": 20,
+    "source_percentage": 28.2,
+    "snapshot_location": "network/iteration_2/"
+  },
+  "after_state": {
+    "total_nodes": 78,
+    "total_edges": 97,
+    "source_nodes": 24,
+    "source_percentage": 30.8
+  },
+  "applied_suggestions": [
+    {
+      "id": "S101",
+      "priority": "medium",
+      "type": "restructure_pathway",
+      "status": "applied",
+      "summary": "Completed Strigolactone Perception Gate (Motif 1): Strigolactone -> D14 -> MAX2 -> BZR_BES(-1). Strigolactone -> Plant_Height direct edge REMOVED.",
+      "nodes_added": ["D14", "MAX2"],
+      "edges_added": [
+        "Strigolactone -> D14 (+1)",
+        "D14 -> MAX2 (+1)",
+        "MAX2 -> BZR_BES (-1)"
+      ],
+      "edges_removed": ["Strigolactone -> Plant_Height (+1) - replaced by the gate through BZR_BES"],
+      "curated_edge_ids_used": ["E213", "E214", "E127"],
+      "notes": "Motif 1 purity now achieved: Strigolactone has ONLY ONE outgoing edge (to D14). MAX2 gets an on-cascade output via MAX2->BZR_BES(-1) using E127 (MAX2->BES1 curated evidence applied to the BZR_BES composite). SMXL6_7_8 NOT added because it has no curated downstream reaching Plant_Height - adding it would leave a floating or fabricated edge. Net SL effect on height now runs via MAX2->BZR_BES(-1): SL high -> MAX2 active -> BZR_BES phosphorylated/degraded -> reduced BR-driven growth. This matches the MAX2-BES1 molecular mechanism (Wang 2013). Side effect: Plant_Height activators drop from 5 to 4 (PIF4_5_7, BZR_BES, ARF6_7_8, ARR1), staying within the 3-5 phenotype activator target."
+    },
+    {
+      "id": "S102",
+      "priority": "medium",
+      "type": "add_edge",
+      "status": "applied",
+      "summary": "Added CO photoperiod robustness regulators: ZTL(-1), CDF1(-1), PHYA(+1), FKF1-|CDF1.",
+      "nodes_added": ["ZTL", "CDF1", "PHYA"],
+      "edges_added": [
+        "PHYA -> CO (+1)",
+        "ZTL -> CO (-1)",
+        "CDF1 -> CO (-1)",
+        "FKF1 -> CDF1 (-1)"
+      ],
+      "curated_edge_ids_used": ["E136", "E143", "E141", "E144"],
+      "notes": "CO now has 5 inputs: 2 activators (FKF1, PHYA) + 3 inhibitors (PHYB, ZTL, CDF1) = full photoperiod model. FKF1 gains a second output (CDF1 degradation) matching its canonical function. phyA renamed PHYA for GENE regex compliance."
+    },
+    {
+      "id": "S103",
+      "priority": "medium",
+      "type": "mechanism_improvement",
+      "status": "applied",
+      "summary": "Added Trap-5 framework disclosure to the 5 gate-bypass edges: Gibberellin->GA20OX/GA3OX/GA2OX, Auxin->IPT, ABA->GA20OX.",
+      "nodes_added": [],
+      "edges_added": [],
+      "edges_modified": [
+        "Gibberellin -> GA20OX (-1): mechanism appended with Trap-5 note",
+        "Gibberellin -> GA3OX (-1): mechanism appended with Trap-5 note",
+        "Gibberellin -> GA2OX (+1): mechanism appended with Trap-5 note",
+        "Auxin -> IPT (-1): mechanism appended with Trap-5 note",
+        "ABA -> GA20OX (-1): mechanism appended with Trap-5 note"
+      ],
+      "curated_edge_ids_used": [],
+      "notes": "Applied as post-processing inside build_network.py. Each mechanism field now ends with: '[Framework note: this edge bypasses a receptor Perception Gate (Motif 1). Biologically the feedback runs through DELLA/ARF/ABI5 but those intermediate edges are absent from curated_edges.json. Exogenous-hormone in receptor-KO backgrounds will still modulate this target - a known Trap-5 framework limitation.]'"
+    },
+    {
+      "id": "S104",
+      "priority": "medium",
+      "type": "add_edge",
+      "status": "applied",
+      "summary": "Added COOLAIR lncRNA and LDL1 histone demethylase as additional FLC repressors.",
+      "nodes_added": ["lncCOOLAIR", "LDL1"],
+      "edges_added": [
+        "lncCOOLAIR -> FLC (-1)",
+        "LDL1 -> FLC (-1)"
+      ],
+      "curated_edge_ids_used": ["E158", "E045"],
+      "notes": "lncCOOLAIR named with lowercase 'lnc' prefix to satisfy REGULATORY_RNA regex ^[a-z]+[0-9A-Z]. LDL1 added as separate GENE (not folded into AUT_SYN) to preserve single-gene resolution for ldl1 mutants. FLC now has 6 inputs: 1 activator (FRI) + 5 inhibitors (VIN3, AUT_SYN, PRC2, lncCOOLAIR, LDL1) - at the cap but valid."
+    }
+  ],
+  "rejected_suggestions": [],
+  "deferred_suggestions": [
+    {
+      "id": "S105",
+      "priority": "low",
+      "type": "literature_gap",
+      "status": "forwarded_to_step_1",
+      "reason": "SMXL6_7_8 -> Plant_Height direct edge for height context not in curated. Literature_gap only."
+    },
+    {
+      "id": "S106",
+      "priority": "low",
+      "type": "add_node",
+      "status": "deferred",
+      "reason": "BP/STM meristem branch - adding would push Plant_Height activators from 4 to 5 which is at cap but marginal; low biological priority for height vs meristem identity. Defer to post-validation refinement if needed."
+    },
+    {
+      "id": "S107",
+      "priority": "low",
+      "type": "add_node",
+      "status": "deferred",
+      "reason": "Early GA biosynthesis (CPS/KS/KO/KAO composite) - low priority; current GA20OX+GA3OX composite covers the terminal regulated steps. Add only if ga1/ga2/ga3 mutant resolution becomes necessary post-validation."
+    }
+  ],
+  "phenotype_input_summary": {
+    "activators": ["PIF4_5_7", "BZR_BES", "ARF6_7_8", "ARR1"],
+    "inhibitors": ["SPL9", "FLOWER_INT", "DELLA", "EIN3", "ABI5", "HY5"],
+    "n_activators": 4,
+    "n_inhibitors": 6,
+    "note": "Strigolactone removed as direct activator after S101 Perception Gate completion. All canonical growth effector classes still represented via the TF integrators."
+  },
+  "qa_results": {
+    "check_network_structure": "PASS (5/5 checks, exit 0)",
+    "validate_schema": "PASS (all 4 BUILDER outputs valid against Pydantic schemas)"
+  },
+  "next_step": "JUDGE iteration 3 (final review; must verdict approved or stop_max_iterations)."
+}

@@ -1,0 +1,53 @@
+{
+  "cluster": "C6_C7_Auxin_CK",
+  "papers": [
+    {"doi":"10.1105/tpc.110.075267","title":"vanishing tassel2 encodes a grass-specific tryptophan aminotransferase required for vegetative and reproductive development in maize","authors":"Phillips KA, Skirpan AL, Liu X, Christensen A, Slewinski TL, Hudson C, Barazesh S, Cohen JD, Malcomber S, McSteen P","year":2011,"journal":"Plant Cell","status":"read","full_text_read":true},
+    {"doi":"10.1073/pnas.0805596105","title":"sparse inflorescence1 encodes a monocot-specific YUCCA-like gene required for vegetative and reproductive development in maize","authors":"Gallavotti A, Barazesh S, Malcomber S, Hall D, Jackson D, Schmidt RJ, McSteen P","year":2008,"journal":"PNAS","status":"read","full_text_read":true},
+    {"doi":"10.1073/pnas.1516473112","title":"Auxin signaling modules regulate maize inflorescence architecture","authors":"Galli M, Liu Q, Moss BL, Malcomber S, Li W, Gaines C, Federici S, Roshkovan J, Meeley R, Nemhauser JL, Gallavotti A","year":2015,"journal":"PNAS","status":"read","full_text_read":true},
+    {"doi":"10.1104/pp.108.121541","title":"The Relationship between Auxin Transport and Maize Branching","authors":"Gallavotti A, Yang Y, Schmidt RJ, Jackson D","year":2008,"journal":"Plant Physiology","status":"read","full_text_read":true},
+    {"doi":"10.1104/pp.106.080119","title":"ZmPIN1a and ZmPIN1b Encode Two Novel Putative Candidates for Polar Auxin Transport and Plant Architecture Determination of Maize","authors":"Carraro N, Forestan C, Canova S, Traas J, Varotto S","year":2006,"journal":"Plant Physiology","status":"read","full_text_read":true},
+    {"doi":"10.1007/s00497-024-00510-0","title":"Hormonal influence on maize inflorescence development and reproduction","authors":"Chaudhry A, Chen Z, Gallavotti A","year":2024,"journal":"Plant Reproduction","status":"read","full_text_read":true},
+    {"doi":"10.1038/nature02778","title":"Control of phyllotaxy by the cytokinin-inducible response regulator homologue ABPHYL1","authors":"Giulini A, Wang J, Jackson D","year":2004,"journal":"Nature","status":"read","full_text_read":false},
+    {"doi":"10.1104/pp.109.137034","title":"Studies of aberrant phyllotaxy1 Mutants of Maize Indicate Complex Interactions between Auxin and Cytokinin Signaling in the Shoot Apical Meristem","authors":"Lee BH, Johnston R, Yang Y, Gallavotti A, Kojima M, Travencolo BA, Costa Lda F, Sakakibara H, Jackson D","year":2009,"journal":"Plant Physiology","status":"read","full_text_read":true}
+  ],
+  "edges": [
+    {"source":"VT2","target":"Auxin","sign":1,"doi":"10.1105/tpc.110.075267","ev":"vt2 encodes a co-ortholog of TRYPTOPHAN AMINOTRANSFERASE OF ARABIDOPSIS1 (TAA1), which converts Trp to indole-3-pyruvic acid"},
+    {"source":"SPI1","target":"Auxin","sign":1,"doi":"10.1073/pnas.0805596105","ev":"spi1 encodes a flavin monooxygenase similar to the YUCCA (YUC) genes involved in local auxin biosynthesis"},
+    {"source":"Auxin","target":"TIR1","sign":1,"doi":"10.1073/pnas.1516473112","ev":"Auxin binds TIR1 to target BIF1/BIF4 for degradation"},
+    {"source":"TIR1","target":"BIF1","sign":-1,"doi":"10.1073/pnas.1516473112","ev":"TIR1-dependent degradation of BIF1/BIF4 Aux/IAAs removes repression"},
+    {"source":"TIR1","target":"BIF4","sign":-1,"doi":"10.1073/pnas.1516473112","ev":"TIR1-dependent degradation of BIF4 Aux/IAA"},
+    {"source":"BIF1","target":"BA1","sign":-1,"doi":"10.1073/pnas.1516473112","ev":"BIF1 and BIF4 directly control BA1 transcription; Bif1/Bif4 dominant shows no BA1 expression"},
+    {"source":"BIF4","target":"BA1","sign":-1,"doi":"10.1073/pnas.1516473112","ev":"BIF1 and BIF4 directly control BA1 transcription"},
+    {"source":"ARF","target":"BA1","sign":1,"doi":"10.1073/pnas.1516473112","ev":"ARF4, ARF16, ARF27, ARF29, and ARF34 bound to all four probes of BA1 regulatory region"},
+    {"source":"BA1","target":"Axillary_Meristem","sign":1,"doi":"10.1104/pp.108.121541","ev":"ba1 mutants lack all axillary meristems; BA1 is required for AM initiation"},
+    {"source":"BIF2","target":"ZmPIN1a","sign":1,"doi":"10.1104/pp.106.080119","ev":"BIF2 phosphorylates ZmPIN1a and regulates ZmPIN1a subcellular localization in vivo"},
+    {"source":"BIF2","target":"BA1","sign":1,"doi":"10.1104/pp.108.121541","ev":"BIF2 and BA1 co-localize in the nucleus; BIF2 functions by interacting with BA1 to promote axillary meristem initiation"},
+    {"source":"ZmPIN1a","target":"Auxin_transport","sign":1,"doi":"10.1104/pp.106.080119","ev":"ZmPIN1a encodes putative auxin efflux carrier with basal membrane polarization directing basipetal auxin flux"},
+    {"source":"ZmPIN1b","target":"Auxin_transport","sign":1,"doi":"10.1104/pp.106.080119","ev":"ZmPIN1b encodes putative auxin efflux carrier"},
+    {"source":"Auxin_transport","target":"Axillary_Meristem","sign":1,"doi":"10.1104/pp.108.121541","ev":"NPA treatment (PAT inhibition) completely abolished ability of IM to form any axillary meristem"},
+    {"source":"Axillary_Meristem","target":"Kernel_Row_Number","sign":1,"doi":"10.1104/pp.108.121541","ev":"AM initiation is prerequisite to SPM formation and kernel row establishment"},
+    {"source":"Cytokinin","target":"ZmIPT","sign":-1,"doi":"10.1007/s00497-024-00510-0","ev":"Feedback regulation of CK biosynthesis; IPT catalyses the first committed step in CK biosynthesis"},
+    {"source":"ZmIPT","target":"Cytokinin","sign":1,"doi":"10.1007/s00497-024-00510-0","ev":"IPT is the rate-limiting enzyme for cytokinin biosynthesis"},
+    {"source":"Cytokinin","target":"ZmCKX","sign":1,"doi":"10.1007/s00497-024-00510-0","ev":"CKX catalyses irreversible degradation of cytokinins and modulates cellular CK levels"},
+    {"source":"ZmCKX","target":"Cytokinin","sign":-1,"doi":"10.1007/s00497-024-00510-0","ev":"Cytokinin oxidases catalyse irreversible degradation of cytokinins"},
+    {"source":"Cytokinin","target":"AHK","sign":1,"doi":"10.1007/s00497-024-00510-0","ev":"CK signalling is perceived by histidine kinase receptors at cell surface"},
+    {"source":"AHK","target":"AHP","sign":1,"doi":"10.1038/nature02778","ev":"CK signalling involves His-Asp phosphotransfer through AHPs"},
+    {"source":"AHP","target":"Type_B_ARR","sign":1,"doi":"10.1038/nature02778","ev":"AHP transfers phosphate to nuclear type-B response regulators"},
+    {"source":"Type_B_ARR","target":"ABPH1","sign":1,"doi":"10.1038/nature02778","ev":"ABPH1 transcription is CK-inducible, downstream of type-B ARRs"},
+    {"source":"ABPH1","target":"ZmWUS1","sign":-1,"doi":"10.1038/s41467-021-22699-8","ev":"Type-A ARR feedback negatively modulates CK->WUS activation"}
+  ],
+  "perturbations": [
+    {"gene":"vt2","type":"knockout","direction":"decreased","mag":"strong","doi":"10.1105/tpc.110.075267","ev":"vt2 tassels lack branches and spikelets entirely; ears show severe kernel reduction"},
+    {"gene":"spi1","type":"knockout","direction":"decreased","mag":"strong","doi":"10.1073/pnas.0805596105","ev":"spi1 tassels have fewer branches and spikelets, and spi1 ears are small with fewer kernels"},
+    {"gene":"spi1;vt2","type":"double_knockout","direction":"decreased","mag":"strong","doi":"10.1105/tpc.110.075267","ev":"spi1;vt2 doubles slightly more severe than vt2 alone"},
+    {"gene":"bif1","type":"heterozygous","direction":"decreased","mag":"strong","doi":"10.1073/pnas.1516473112","ev":"Tassels with reduced branches and spikelets; ears shortened with disorganized kernel rows"},
+    {"gene":"bif2","type":"knockout","direction":"decreased","mag":"strong","doi":"10.1073/pnas.1516473112","ev":"bif2 mutants show fewer branches and spikelets"},
+    {"gene":"bif4","type":"heterozygous","direction":"decreased","mag":"strong","doi":"10.1073/pnas.1516473112","ev":"bif4 heterozygous similar defects to bif1"},
+    {"gene":"bif1;bif4","type":"double_knockout","direction":"decreased","mag":"strong","doi":"10.1073/pnas.1516473112","ev":"Pin-like inflorescences in which organogenesis was often completely impaired"},
+    {"gene":"ba1","type":"knockout","direction":"decreased","mag":"strong","doi":"10.1104/pp.108.121541","ev":"ba1 mutants completely lack all axillary meristems, resulting in a sterile plant"},
+    {"gene":"WT_plus_NPA","type":"chemical_treatment","direction":"decreased","mag":"strong","doi":"10.1104/pp.108.121541","ev":"NPA treatment completely abolished ability of IM to form any axillary meristem"},
+    {"gene":"abph1","type":"knockout","direction":"unchanged","mag":"","doi":"10.1038/nature02778","ev":"abph1 shows decussate phyllotaxy and enlarged SAM; KRN not directly scored"},
+    {"gene":"WT_plus_kinetin","type":"chemical_treatment","direction":"increased","mag":"slight","doi":"10.1007/s00497-024-00510-0","ev":"Exogenous CK treatment to ear primordia increases meristem size"},
+    {"gene":"WT_plus_IAA","type":"chemical_treatment","direction":"slight_increased","mag":"","doi":"10.1007/s00497-024-00510-0","ev":"Exogenous auxin treatment promotes lateral primordia initiation"}
+  ]
+}

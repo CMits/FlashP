@@ -1,0 +1,127 @@
+{
+  "cluster": "C2_DELLA_mechanism",
+  "papers": [
+    {
+      "doi": "10.1093/jxb/erw471",
+      "title": "Differential coupling of gibberellin responses by Rht-B1c suppressor alleles and Rht-B1b in wheat highlights a unique role for the DELLA N-terminus in dormancy",
+      "authors": "Van De Velde K, Chandler PM, Van Der Straeten D, Rohde A",
+      "year": 2017,
+      "journal": "Journal of Experimental Botany",
+      "status": "read",
+      "pmc_id": "PMC5853533"
+    },
+    {
+      "doi": "10.1093/jxb/ert183",
+      "title": "Sequence variations of the partially dominant DELLA gene Rht-B1c in wheat and their functional impacts",
+      "authors": "Wen W, Deng Q, Jia H, Wei L, Wei J, Wan H, Yang L, Cao W, Ma Z",
+      "year": 2013,
+      "journal": "Journal of Experimental Botany",
+      "status": "read",
+      "pmc_id": "PMC3733159"
+    },
+    {
+      "doi": "10.1073/pnas.2300203120",
+      "title": "Wheat plant height locus RHT25 encodes a PLATZ transcription factor that interacts with DELLA (RHT1)",
+      "authors": "Zhang Z, Belcram H, Gornicki P, Charles M, Just J, Huneau C, Magdelenat G, Couloux A, Samain S, Gill BS, Rasmussen JB, Barbe V, Faris JD, Chalhoub B",
+      "year": 2023,
+      "journal": "Proceedings of the National Academy of Sciences USA",
+      "status": "read",
+      "pmc_id": "PMC10175819"
+    }
+  ],
+  "edges": [
+    {
+      "source": "Rht-B1",
+      "target": "Grain_Dormancy",
+      "sign": 1,
+      "mechanism": "DELLA N-terminus uniquely controls seed dormancy; Rht-B1c ovg suppressors enhance dormancy while restoring stature",
+      "evidence_doi": "10.1093/jxb/erw471",
+      "evidence_sentence": "Semi-dwarf ovg alleles increased dormancy, which correlated with improved pre-harvest sprouting resistance"
+    },
+    {
+      "source": "Rht-B1",
+      "target": "PLATZ-A1",
+      "sign": 1,
+      "mechanism": "DELLA GRAS PFYRE subdomain physically interacts with PLATZ-A1 (RHT25); DELLA-PLATZ1 complex coordinates height",
+      "evidence_doi": "10.1073/pnas.2300203120",
+      "evidence_sentence": "PLATZ-A1 showed a positive interaction with RHT1-GRAS in yeast-two-hybrid assays"
+    },
+    {
+      "source": "PLATZ-A1",
+      "target": "Plant_Height",
+      "sign": 1,
+      "mechanism": "PLATZ transcription factor Rht25; loss-of-function reduces height 12.7%; OE increases height",
+      "evidence_doi": "10.1073/pnas.2300203120",
+      "evidence_sentence": "Natural and induced loss-of-function mutations in PLATZ-A1 reduce plant height and its overexpression increases plant height, demonstrating that PLATZ-A1 is the causative gene of RHT25"
+    },
+    {
+      "source": "PLATZ-A1",
+      "target": "TaGRF1",
+      "sign": 1,
+      "mechanism": "PLATZ1 promotes expression of cell-proliferation TFs GRF1, GRF5, CYCD4;1; loss-of-function downregulates these",
+      "evidence_doi": "10.1073/pnas.2300203120",
+      "evidence_sentence": "Loss-of-function caused downregulation of GRF1, GRF5, CYCD4;1 (-17 to -55% reduction)"
+    },
+    {
+      "source": "TaGRF4",
+      "target": "Rht-B1",
+      "sign": -1,
+      "mechanism": "GRF4 competes with PLATZ1 for DELLA binding; three-way interactions reduce PLATZ1-DELLA binding 74%",
+      "evidence_doi": "10.1073/pnas.2300203120",
+      "evidence_sentence": "expression of GRF4 as the third protein reduced the interaction between PLATZ1 and DELLA by 74%"
+    },
+    {
+      "source": "Rht-B1",
+      "target": "Phytochrome_Interacting_Factor",
+      "sign": -1,
+      "mechanism": "DELLA sequesters PIF transcription factors to suppress cell elongation",
+      "evidence_doi": "10.1093/jxb/ert183",
+      "evidence_sentence": "The accumulated mutant protein constitutively blocks phytochrome-interacting factor activity, suppressing cell elongation genes"
+    },
+    {
+      "source": "Rht-B1",
+      "target": "GATA22",
+      "sign": 1,
+      "mechanism": "Accumulated Rht-B1c maintains GATA22 expression higher than WT; GATA22 upregulates chlorophyll/photosynthesis genes",
+      "evidence_doi": "10.1093/jxb/ert183",
+      "evidence_sentence": "Rht-B1c line consistently maintained a markedly higher expression level of GATA22 compared to Rht-B1a lines"
+    },
+    {
+      "source": "GATA22",
+      "target": "Chlorophyll_Biosynthesis",
+      "sign": 1,
+      "mechanism": "GATA22 upregulates HEMA1, GUN4, CAO1, PorB and photosynthetic genes rbcS, CAB",
+      "evidence_doi": "10.1093/jxb/ert183",
+      "evidence_sentence": "Elevated GATA22 upregulates HEMA1, GUN4, CAO1, PorB, and photosynthetic genes (rbcS, CAB)"
+    }
+  ],
+  "perturbations": [
+    {
+      "gene": "Rht-B1c.22_ovg",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "magnitude": "slight",
+      "evidence_doi": "10.1093/jxb/erw471",
+      "evidence_sentence": "Rht-B1c.22 (tall): stem length 15-22% longer than Rht-B1b",
+      "notes": "Suppressor ovg allele in Rht-B1c background; restores tall; reference is Rht-B1b dwarf"
+    },
+    {
+      "gene": "PLATZ-A1_ko",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "magnitude": "moderate",
+      "evidence_doi": "10.1073/pnas.2300203120",
+      "evidence_sentence": "combined platz1 mutant showed a significant reduction in plant height (12.7%), peduncle length (18.7%)",
+      "notes": "Natural Rht25 = PLATZ-A1 loss-of-function"
+    },
+    {
+      "gene": "PLATZ-A1_oe",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "magnitude": "moderate",
+      "evidence_doi": "10.1073/pnas.2300203120",
+      "evidence_sentence": "UBI::PLATZ1 overexpression: Taller plants; longer peduncles; male sterile",
+      "notes": "Ubiquitin-promoter-driven OE"
+    }
+  ]
+}

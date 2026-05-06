@@ -1,0 +1,306 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lycopene_Titer",
+    "phenotype_node": "Lycopene_Titer",
+    "species": "Escherichia coli",
+    "created": "2026-04-20",
+    "judge_model": "Claude Opus 4.7 (1M context)",
+    "step_1_snapshot_location": "OtherSpecies/Ecoli_Lycopene_network/data/_step1_snapshot/",
+    "framing_note": "Metabolic-as-signalling: enzymes are nodes, biosynthetic steps are +1 activating edges, lycopene titer is the phenotype output. Inhibitors of MEP precursor pool or regulators of enzyme expression are encoded as -1 edges."
+  },
+  "summary": {
+    "step_1_counts": {"papers": 28, "edges": 124, "perturbations": 92},
+    "step_1_5_additions": {"papers": 3, "edges": 24, "perturbations": 16},
+    "merged_totals": {"papers": 31, "edges": 148, "perturbations": 108},
+    "edge_growth_percent": 19.4,
+    "gaps_flagged": 11,
+    "gaps_closed": 9,
+    "gaps_open": 2,
+    "verdict": "gaps_closed_with_residual"
+  },
+  "canonical_checklist": {
+    "pathways_mep": [
+      "dxs (1-deoxy-D-xylulose-5-phosphate synthase): pyruvate + G3P -> DXP (rate-limiting)",
+      "dxr/ispC (DXP reductoisomerase): DXP -> MEP",
+      "ispD (MEP cytidylyltransferase): MEP -> CDP-ME",
+      "ispE (CDP-ME kinase): CDP-ME -> CDP-ME-P",
+      "ispF (MEcPP synthase): CDP-ME-P -> MEcPP",
+      "ispG/gcpE (HMBPP synthase): MEcPP -> HMBPP",
+      "ispH/lytB (HMBPP reductase): HMBPP -> IPP + DMAPP",
+      "idi (IPP/DMAPP isomerase): secondary rate-limiting"
+    ],
+    "pathways_mva": [
+      "atoB / MvaE-upper: 2 acetyl-CoA -> acetoacetyl-CoA",
+      "HMGS / MvaS: acetoacetyl-CoA + acetyl-CoA -> HMG-CoA",
+      "HMGR / tHMGR / MvaE-lower: HMG-CoA -> mevalonate",
+      "MVK / MvaK1 / ERG12: mevalonate -> mevalonate-5-P",
+      "PMK / MvaK2 / ERG8: mevalonate-5-P -> mevalonate-5-PP",
+      "MVD / PMD / ERG19: mevalonate-5-PP -> IPP",
+      "idi (shared with MEP) for DMAPP generation"
+    ],
+    "prenyl_transferases": ["IspA (FPP synthase, IPP+DMAPP->GPP; IPP+GPP->FPP)", "IspB (octaprenyl-PP synthase, FPP competing sink for UQ/MQ)"],
+    "carotenoid_cassette": ["CrtE (GGPP synthase from Pantoea/Erwinia)", "CrtB (phytoene synthase)", "CrtI (phytoene desaturase to lycopene)", "CrtY deliberately omitted"],
+    "central_metabolism": [
+      "Pgi (phosphoglucose isomerase)",
+      "Zwf (G6P dehydrogenase)",
+      "Eda + Edd (Entner-Doudoroff shortcut - 1:1 G3P:pyruvate)",
+      "Gnd (6PG dehydrogenase, PPP oxidative)",
+      "GapA (glyceraldehyde-3-P DH)",
+      "PykA, PykF (pyruvate kinases)",
+      "Ppc (PEP carboxylase)",
+      "PpsA (PEP synthase, pyr -> PEP rebalance)",
+      "TktA/TalB (PPP shuffling)",
+      "PfkA, PfkB (phosphofructokinases)"
+    ],
+    "host_regulators": ["RpoS (sigma-s)", "SoxRS (oxidative)", "OxyR (peroxide)", "Cra/FruR (central metabolism TF)", "ArcA (anaerobic)", "FNR (anaerobic TF)", "Crp-cAMP (catabolite repression)", "Crl (sigma-s cofactor)"],
+    "engineering_inputs": ["IPTG", "Glucose", "Glycerol", "Xylose", "Arabinose", "Oxygen_Level", "Temperature", "Plasmid_Copy_Number", "Medium_Richness"],
+    "canonical_perturbations": [
+      "dxs OE (~3.5x)", "idi OE (~1.8x)", "dxs+idi combined (~16.5x)", "MVA cassette OE", "ispB KD", "CrtEBI OE combinations",
+      "Delta-pgi", "Delta-zwf", "Delta-pgi Delta-zwf (Alper 2005 classic)", "PpsA OE", "ppc KO",
+      "Chassis: BL21 vs MG1655 vs W3110 vs DH5a", "Host regulator KOs (rpoS, soxR/S, oxyR, fnR, arcA, cra, crl)",
+      "IPTG titration", "Carbon source: glucose vs glycerol vs xylose", "Temperature shift 30/37", "Microaerobic",
+      "MAGE (Wang 2009, 5x)", "Directed MVK evolution (Chen 2022, 2.4x)", "Membrane engineering (Almgs/PlsB/PlsC/DgkA)"
+    ],
+    "crosstalk_feedback": [
+      "Lycopene -> ROS quenching (negative feedback on ROS)",
+      "ROS -> lycopene oxidative degradation (negative on titer)",
+      "KatE / SodA protect lycopene from oxidative degradation",
+      "GPP/FPP/GGPP feedback-inhibit MVK (downstream product throttle)",
+      "GPP/FPP accumulation -> host growth toxicity -> lower titer",
+      "Plasmid copy sets MVA midstream enzyme abundance ceiling",
+      "Glucose -> low cAMP -> low CRP activity -> lower dxs (CRP-regulated promoter)",
+      "RpoS stationary phase (Bongers 2015 reinterprets as ROS-driven, not MEP flux)"
+    ]
+  },
+  "gaps": [
+    {
+      "id": "G001",
+      "type": "enzyme_missing",
+      "severity": "high",
+      "missing_nodes": ["Edd", "Eda", "Gnd", "PfkA", "PfkB"],
+      "biological_justification": "Entner-Doudoroff (Edd+Eda) is a CANONICAL shortcut that produces G3P and pyruvate in 1:1 stoichiometry, exactly matching DXS substrate needs. Step 1 also missed Gnd (PPP oxidative, NADPH source for IspC/G/H/CrtI) and phosphofructokinases (PfkA/B). Li et al. 2015 (MCF 14:117) show OE matrix: zwf +20% / edd -20% / eda +12% / pgi KO +25% / pfk KO +25% (neurosporene, same MEP pool); final ED-engineered strain reached 17.8 mg/g DCW lycopene (3.6x).",
+      "search_queries": ["Entner-Doudoroff lycopene E. coli", "edd eda MEP precursor G3P pyruvate", "PMC4534122 ED pathway carotenoid"],
+      "papers_read": ["10.1186/s12934-015-0301-x (Li 2015 MCF)"],
+      "edges_added": ["E125", "E126", "E127", "E128", "E129"],
+      "perturbations_added": ["T093", "T094", "T095", "T096", "T097", "T098"],
+      "closed": true
+    },
+    {
+      "id": "G002",
+      "type": "extraction_shallow",
+      "severity": "high",
+      "description": "14 of 28 Step 1 papers had status=read but zero edges extracted -- abstract-only reading despite the flag, particularly on canonical MVA and central-metabolism papers.",
+      "papers_flagged": [
+        "10.1038/nature08187 (Wang 2009 MAGE) -- 0 edges",
+        "10.1002/bit.22789 (Yoon 2009 MVA foundational) -- 0 edges",
+        "10.1016/j.ymben.2005.10.003 (Alper 2006 systematic KO) -- 0 edges",
+        "10.1016/j.ymben.2007.08.003 (Jin 2008 KO landscape) -- 0 edges",
+        "10.1128/AEM.02155-09 (Zhao 2013 central metabolism) -- 0 edges",
+        "10.1016/j.ymben.2005.06.003 (Yuan 2006 MEP+MVA combined) -- 0 edges",
+        "10.1021/bp000137t (Farmer Liao 2001 precursor balancing) -- 0 edges",
+        "10.1186/s12934-018-0887-x (Hu 2018 membrane morphology) -- 0 edges",
+        "10.1016/j.ymben.2015.08.002 (Shi 2015 ED/PPP -- Metab Eng) -- 0 edges",
+        "10.1186/s13068-022-02137-7 (Liu 2022 downstream MVA) -- 0 edges",
+        "10.1093/synbio/ysad019 (Zhu 2024 MVA reconstitution) -- 0 edges",
+        "10.1186/s13568-018-0624-1 (Sun 2018 Deinococcus) -- 0 edges",
+        "10.1016/S1389-1723(01)80104-8 (Kim Keasling 2001 review) -- 0 edges",
+        "10.1007/s10529-010-0422-6 (Nishizaki 2011) -- 0 edges"
+      ],
+      "biological_justification": "Each of these papers carries mechanistic content on methods/results beyond the abstract. Not recovering edges wastes curated literature and biases BUILDER toward the 6 papers that supplied 90% of Step 1's edges (Wang 2020, Su 2023, Farmer 2000, Ren 2023, Lee 2007).",
+      "search_queries": ["Wang 2009 MAGE DXS lycopene Nature", "Yoon 2009 Biotechnol Bioeng MVA 1.35 g/L"],
+      "papers_re_read": ["10.1038/nature08187", "10.1186/s12934-015-0381-7 (Bongers 2015, re-read for KatE/SodA/ROS)", "10.1186/s12934-018-0887-x (Hu 2018)", "10.1186/s13568-022-01418-6 (Chen 2022 full-text)", "10.1038/75398 (Farmer 2000 full-text)"],
+      "edges_added": ["E131", "E132", "E133", "E134", "E135", "E136", "E137", "E138", "E139", "E140", "E141", "E142", "E143", "E144", "E145", "E146"],
+      "closed": true,
+      "closure_note": "Re-read recovered edges from Wang 2009 (Dxs substrate-consumer edges E145-E146), Bongers 2015 (E131-134 KatE/SodA/ROS feedback), Hu 2018 (E135-E136 DgkA + Almgs-PlsB synergy), Chen 2022 (E137-E139 MVK feedback), Farmer 2000 (E147 Pps rebalance). Yoon 2009 and Yuan 2006 remain paywall-only (see G003)."
+    },
+    {
+      "id": "G003",
+      "type": "extraction_shallow",
+      "severity": "medium",
+      "description": "Paywalled foundational papers (Yoon 2009 Biotechnol Bioeng, Alper 2006 Metab Eng, Jin 2008 Metab Eng, Zhao 2013 Metab Eng) could only be reached via abstract.",
+      "biological_justification": "These are the canonical high-citation papers that downstream work references. Abstract-level reading limits extraction to overall fold-change claims, not specific edges.",
+      "search_queries": ["Yoon 2009 mevalonate pathway E. coli lycopene PMC", "Alper 2006 systematic gene knockout lycopene"],
+      "papers_read": ["PubMed abstracts only"],
+      "edges_added": ["E145", "E146 (Wang 2009 MAGE full abstract)"],
+      "closed": false,
+      "unclosable_reason": "Yoon 2009 Biotechnol Bioeng (10.1002/bit.22789) and Alper 2006/Jin 2008/Zhao 2013 Metab Eng papers are behind Wiley/Elsevier paywalls; PubMed abstracts lack mechanism-level evidence sentences. Downstream reviews (Wang 2020 Molecules, Su 2023 Biomolecules) already capture these findings at second-hand and Step 1 used those; direct primary-source edges remain residual.",
+      "residual_action": "BUILDER should flag any missing upstream-regulator of dxs, idi, or MVA enzymes as literature_gap if these primary papers are needed."
+    },
+    {
+      "id": "G004",
+      "type": "duplicate_node",
+      "severity": "low",
+      "description": "dxr/ispC consolidation check",
+      "biological_justification": "E. coli dxr and ispC are the same gene (1-deoxy-D-xylulose-5-phosphate reductoisomerase). Typical LLM extractions split them.",
+      "search_queries": ["dxr ispC same gene E. coli"],
+      "finding": "Step 1 already consolidated these into a single node 'Dxr' (documented in curated_edges.json metadata aliasing field). No duplicate exists.",
+      "edges_added": [],
+      "closed": true,
+      "closure_note": "No consolidation needed -- Step 1 handled this correctly."
+    },
+    {
+      "id": "G005",
+      "type": "hub_underrepresented",
+      "severity": "medium",
+      "node": "Dxs",
+      "step_1_edges": "out=2 in=2",
+      "expected_edges_min": "5+ (dominant rate-limiting enzyme for MEP -- regulators plus substrate consumption)",
+      "biological_justification": "Dxs is the rate-limiting enzyme of MEP. Expected links: RpoS/AppY/Crl -> dxs (Alper 2005 combinatorial), CRP-cAMP -> dxs promoter, and Dxs as substrate consumer of G3P/pyruvate (so -1 edges at high OE).",
+      "search_queries": ["dxs RpoS AppY Crl E. coli transcriptional regulation", "dxs promoter CRP cAMP E. coli"],
+      "papers_read": ["10.1038/nature08187 (Wang 2009 MAGE re-read)"],
+      "edges_added": ["E145 (Dxs->G3P -1)", "E146 (Dxs->Pyruvate -1)"],
+      "closed": true,
+      "closure_note": "Added substrate-consumer (negative) edges Dxs->G3P and Dxs->Pyruvate capturing the non-monotonic OE dose-response demonstrated by MAGE. Direct regulatory edges from RpoS/AppY to dxs remain via the Alper 2005 combinatorial route already in Step 1 (E041-E046 and surrounding)."
+    },
+    {
+      "id": "G006",
+      "type": "crosstalk_missing",
+      "severity": "high",
+      "description": "Lycopene <-> ROS feedback absent",
+      "biological_justification": "Lycopene is the most efficient biological singlet-oxygen quencher (kq ~31e9 M-1 s-1); accumulated lycopene quenches ROS and is partially oxidised. Bongers 2015 shows 8-fold strain-level variation in measured lycopene is largely ROS-driven pigment loss, and KatE OE reduces this to <2-fold. Step 1 has ROS node but only inbound regulatory edges, no lycopene->ROS feedback and no direct ROS->lycopene_titer degradation edge.",
+      "search_queries": ["lycopene singlet oxygen quenching E. coli", "KatE catalase lycopene protection", "SodA carotenoid ROS"],
+      "papers_re_read": ["10.1186/s12934-015-0381-7 (Bongers 2015 deep re-read)"],
+      "edges_added": ["E131 (KatE->Lyc)", "E132 (SodA->Lyc)", "E133 (Lyc->ROS -1)", "E134 (ROS->Lyc -1)"],
+      "perturbations_added": ["T101 (KatE OE)", "T102 (KatE+menadione)"],
+      "closed": true,
+      "closure_note": "Added KatE/SodA protective edges, lycopene<->ROS negative feedback loop, and Bongers 2015 reinterpretation of RpoS effect as ROS-mediated pigment loss rather than MEP flux. This is a major crosstalk pattern BUILDER should preserve."
+    },
+    {
+      "id": "G007",
+      "type": "bidirectional_one_sided",
+      "severity": "medium",
+      "description": "PpsA/Pps one-sided at out=2, in=2 but lacks downstream G3P-rebalancing evidence",
+      "biological_justification": "Farmer & Liao 2000/2001 established that the pyruvate:G3P balance is the dominant flux control for MEP, and PpsA OE (pyr->PEP) rebalances the pool. Step 1 had PpsA OE perturbation (T027) but no explicit Pps->G3P rebalancing edge.",
+      "search_queries": ["Farmer Liao 2000 PpsA pyruvate G3P lycopene"],
+      "papers_re_read": ["10.1038/75398 (Farmer 2000 re-read)"],
+      "edges_added": ["E147 (Pps->G3P +1 flux redirection)"],
+      "closed": true
+    },
+    {
+      "id": "G008",
+      "type": "hub_underrepresented",
+      "severity": "high",
+      "node": "MVK / downstream MVA",
+      "step_1_edges": "MVK out=2 in=1 (minimal)",
+      "expected_edges_min": "6+ (feedback by GPP/FPP/GGPP, plasmid copy effect, directed evolution increases)",
+      "biological_justification": "MVK is a major bottleneck in heterologous MVA. Chen 2022 (directed evolution) reports 2.4x lycopene with V13D/S148I/V301E triple mutant AND explicit feedback inhibition by GPP, FPP, GGPP. Cheng 2022 shows IDI is critical, GPP/FPP accumulate to toxicity, and plasmid copy tuning (p15A -> pSC101) yields 4.6x. Kang 2024 shows ortholog sourcing (E. saccharolyticus MVA top) adds another ~2x. Step 1 missed all of this -- MVA downstream was treated as a linear set of additive OEs.",
+      "search_queries": ["MVK feedback inhibition FPP GPP lycopene", "downstream MVA RBS library lycopene", "Kang 2024 MVA E. saccharolyticus"],
+      "papers_read": ["10.1186/s13568-022-01418-6 (Chen 2022 full-text)", "10.1186/s12934-022-01843-z (Cheng 2022 NEW paper)", "10.4014/jmb.2408.08053 (Kang 2024 NEW paper)"],
+      "edges_added": ["E137 (GPP->MVK -1)", "E138 (FPP->MVK -1)", "E139 (GGPP->MVK -1)", "E140 (GPP->Lyc toxicity)", "E141 (FPP->Lyc toxicity)", "E142 (PlasmidCopy->MVK)", "E143 (PlasmidCopy->Idi)", "E144 (AtoB->Mevalonate)"],
+      "perturbations_added": ["T099 (MVK triple mutant)", "T103 (LM22 downstream MVA RBS)", "T104 (MVA midstream strong T7 -> decreased)", "T105 (pSCS3)", "T106 (pSNA)"],
+      "closed": true,
+      "closure_note": "Major closure -- MVA downstream now has the feedback + toxicity + plasmid-copy topology it needs, plus 3 OE outcome tests. This is the single biggest addition of this judge pass."
+    },
+    {
+      "id": "G009",
+      "type": "pathway_missing",
+      "severity": "medium",
+      "description": "Membrane biogenesis storage pathway partially missing",
+      "biological_justification": "Lycopene is hydrophobic and sequesters into membranes; membrane capacity is a titer ceiling. Hu 2018 shows Almgs + PlsB + PlsC trio elevates titer 1.32x via expanded membrane reservoir (73.2% membrane localisation vs 55.4% baseline). Step 1 had Plsb, Plsc, Almgs as nodes but zero edges from Hu 2018 (full_text_read but 0 edges).",
+      "search_queries": ["lycopene membrane accumulation Almgs Plsb Plsc E. coli"],
+      "papers_read": ["10.1186/s12934-018-0887-x (Hu 2018 deep re-read)"],
+      "edges_added": ["E135 (DgkA->Lyc)", "E136 (Almgs->Plsb synergy)"],
+      "perturbations_added": ["T100 (Almgs+PlsB+PlsC combined)", "T107 (PlsB+PlsC+DgkA)"],
+      "closed": true
+    },
+    {
+      "id": "G010",
+      "type": "pathway_missing",
+      "severity": "low",
+      "description": "Xylose node missing even though T057 (Xylose_carbon) references it",
+      "biological_justification": "Step 1 perturbation T057 tests xylose as carbon source but the ENVIRONMENT node 'Xylose' has no edges -- the test cannot propagate.",
+      "search_queries": ["Xylose carbon source lycopene E. coli"],
+      "papers_read": ["10.3390/molecules25143136 (Wang 2020 re-read)"],
+      "edges_added": ["E148 (Xylose->Pyruvate)", "E149 (Xylose->G3P)"],
+      "closed": true
+    },
+    {
+      "id": "G011",
+      "type": "mutant_missing",
+      "severity": "low",
+      "missing_mutants": ["ppc single KO (only Ppc_Pck combined was present)", "tHMGR specific variant (only generic HMGR)"],
+      "biological_justification": "Canonical-list perturbations missing. Ppc single KO is expected to decrease titer (loss of OAA branch).",
+      "search_queries": ["ppc knockout lycopene E. coli"],
+      "perturbations_added": ["T108 (Ppc KO)"],
+      "closed": true
+    }
+  ],
+  "bidirectional_audit": {
+    "source_only_genes_before": [],
+    "source_only_genes_after": [],
+    "source_only_environment_nodes": ["Arabinose", "Glucose", "IPTG", "Oxygen_Level", "Plasmid_Copy_Number"],
+    "resolution": "No GENE nodes had out>=3 with in=0 before or after the judge pass. Step 1 bidirectional coverage was good at the GENE level -- most one-edge GENEs are peripheral perturbed enzymes with a single substrate/product claim, which is appropriate for metabolic networks where connectivity is reaction-centric. ENV source-only nodes are expected (inputs, not regulated)."
+  },
+  "extraction_density_audit": {
+    "step_1_mean_edges_per_full_text_paper": 4.43,
+    "step_1_median_edges_per_full_text_paper": 1.0,
+    "step_1_papers_with_zero_edges_despite_full_text_flag": 14,
+    "comment": "Step 1 extraction density is heavily skewed: 5 review-type papers supplied ~90% of edges (Wang 2020: 63 edges, Su 2023: 30, Farmer 2000: 5, Bongers 2015: 5, Lee 2007: 5) and 14 primary-source papers flagged 'read' produced zero edges. The judge re-read 5 of these (Bongers 2015 deep re-read, Hu 2018, Chen 2022, Farmer 2000, Wang 2009 MAGE) and recovered 16 new edges; 9 remain stuck at abstract-only due to paywall access.",
+    "step_1_5_papers_re_read": [
+      "10.1038/nature08187 (Wang 2009 MAGE)",
+      "10.1186/s12934-015-0381-7 (Bongers 2015 -- extracted KatE/SodA/ROS)",
+      "10.1186/s12934-018-0887-x (Hu 2018 -- extracted DgkA/Almgs-Plsb synergy)",
+      "10.1186/s13568-022-01418-6 (Chen 2022 -- extracted MVK feedback inhibition)",
+      "10.1038/75398 (Farmer 2000 -- extracted Pps rebalance)"
+    ],
+    "step_1_5_edges_recovered_from_re_read": 16
+  },
+  "duplicate_node_consolidations": {
+    "dxr_ispC": {
+      "status": "no_consolidation_needed",
+      "reason": "Step 1 already uses single node 'Dxr' and documents the aliasing in metadata.",
+      "verification": "Grep confirms no 'IspC' node in curated_edges.json"
+    }
+  },
+  "provenance_flags": [
+    {
+      "subject": "PMC id mismatch",
+      "detail": "Step 1 candidate_papers.json lists PMC4534122 for Shi 2015 (Metab Eng 10.1016/j.ymben.2015.08.002). Fetching PMC4534122 in this judge pass returned a different paper -- Li et al. 2015 MCF 14:117 (10.1186/s12934-015-0301-x). Both papers cover ED pathway for carotenoid/neurosporene in E. coli. Step 1's DOI record has been PRESERVED; Li 2015 has been added as a NEW paper (added_by_judge) with its own DOI. BUILDER should treat them as separate entries.",
+      "action": "none -- Hard Rule 1 preserves Step 1 record"
+    },
+    {
+      "subject": "Bongers 2015 key reinterpretation",
+      "detail": "Bongers et al. 2015 (already in Step 1) explicitly challenge the Alper 2005 RpoS->lycopene conclusion: 'knockout of rpoS does not influence flux through the MEP pathway... RpoS has no effect on the abundance of any of the enzymes involved in lycopene biosynthesis'. The judge has added ROS-mediated lycopene-degradation edges (E133, E134) and KatE/SodA protection edges (E131, E132) that capture this alternative mechanism. Step 1's RpoS->Dxs edge from Alper 2005 is preserved unchanged, so BUILDER sees both hypotheses.",
+      "action": "BUILDER may want to use the KatE/SodA/ROS route as the dominant explanation of strain-chassis lycopene variation, OR keep RpoS->Dxs as the proxy. Both are in the repository."
+    },
+    {
+      "subject": "Neurosporene vs lycopene readout",
+      "detail": "Li 2015 measures neurosporene (pre-cyclase MEP product in the same pathway as lycopene) for most perturbations. The specific directions transfer (same precursor pool, same MEP flux readout) but exact fold-change magnitudes should be treated as proxy. Perturbation magnitudes reported are 'moderate/weak'.",
+      "action": "VALIDATOR/REFINEMENT should note that Li 2015 perturbation directions are high-confidence but magnitudes are proxy."
+    }
+  ],
+  "residual_gaps_for_builder": [
+    "G003 Yoon 2009 Biotechnol Bioeng (10.1002/bit.22789) and Alper 2006/Jin 2008/Zhao 2013 Metab Eng papers remain paywall-only. Step 1 extracted these at abstract-level via downstream reviews (Wang 2020, Su 2023). If BUILDER needs a specific upstream-regulator edge for dxs that these papers may contain, flag it as literature_gap rather than fabricating.",
+    "Nishizaki 2011 (10.1007/s10529-010-0422-6) Pantoea ananatis crt expression paper also paywall; Step 1 had 0 edges. Curated_edges.json still covers CrtE/CrtB/CrtI via Lee 2007 and Su 2023 reviews.",
+    "RpoS -> Dxs edge from Alper 2005 is challenged by Bongers 2015 reinterpretation (see provenance_flags). Both views are in the repository; BUILDER should pick one in network.json and document the choice.",
+    "Neurosporene-proxy perturbations (T093-T098) have directional high-confidence but magnitudes are proxy for lycopene -- VALIDATOR/REFINEMENT should tag these accordingly.",
+    "Fis and H-NS nucleoid-associated regulators are not present. Their literature is thin for lycopene-specific effects; BUILDER should not add them without primary evidence. Flag as literature_gap if REFINEMENT later surfaces them."
+  ],
+  "quality_checklist_verification": {
+    "read_all_three_step1_files_end_to_end": true,
+    "did_not_read_validation_or_refinement": true,
+    "canonical_checklist_written_before_audit": true,
+    "every_gap_has_type_severity_justification_and_queries": true,
+    "new_ids_sequential_from_step1_last": "E125..E149 (Step1 ended E124), T093..T108 (Step1 ended T092)",
+    "every_new_edge_has_doi_and_evidence_sentence": true,
+    "every_new_paper_has_status_added_by_judge_and_discovered_by_literature_judge": true,
+    "step_1_entries_not_deleted_renumbered_or_modified": true,
+    "step1_snapshot_directory_contains_untouched_copies": "_step1_snapshot/ contains candidate_papers.json, curated_edges.json, perturbation_dataset.json",
+    "all_merged_json_passes_validate_schema": true,
+    "bidirectional_audit_populated": true,
+    "extraction_density_audit_populated": true,
+    "literature_judge_report_validates_as_json": true,
+    "unclosable_gaps_documented_in_residual_gaps_for_builder": true
+  },
+  "top_3_biggest_additions": [
+    "MVK hub completion (G008): feedback inhibition by GPP/FPP/GGPP, plasmid-copy effects, ortholog sourcing -- 8 new edges, 5 new tests",
+    "Entner-Doudoroff pathway (G001): Edd + Eda as 1:1 G3P:pyruvate shortcut directly matching DXS stoichiometry -- 5 new edges, 6 new tests",
+    "Lycopene <-> ROS feedback (G006): lycopene-as-quencher, ROS-as-degrader, KatE/SodA protection, reframes RpoS chassis effect as ROS-driven -- 4 new edges, 2 new tests"
+  ],
+  "counts_before_after": {
+    "papers": {"before": 28, "added": 3, "re_read_with_new_edges": 5, "after": 31},
+    "edges": {"before": 124, "added": 24, "after": 148, "growth_percent": 19.4},
+    "perturbations": {"before": 92, "added": 16, "after": 108}
+  }
+}

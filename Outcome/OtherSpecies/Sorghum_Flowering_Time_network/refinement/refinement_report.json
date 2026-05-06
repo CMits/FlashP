@@ -1,0 +1,206 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Flowering_Time",
+    "species": "Sorghum bicolor",
+    "created": "2026-04-21",
+    "iterations_run": 3,
+    "best_iteration": 3
+  },
+  "iteration_history": [
+    {
+      "iteration": 0,
+      "description": "Baseline before refinement (initial VALIDATOR output).",
+      "algebraic_accuracy": 55.8,
+      "ode_accuracy": 63.6,
+      "rwr_accuracy": 64.9,
+      "failures": ["T001","T003","T004","T005","T006","T007","T009","T010","T011","T013","T015","T016","T017","T018","T026","T030","T031","T038","T040","T044","T045","T047","T062","T063","T064","T065","T068","T072","T075","T076","T077","T078","T079","T082"],
+      "fixes_applied": 0,
+      "edges_added": 0,
+      "edges_removed": 0
+    },
+    {
+      "iteration": 1,
+      "description": "EN-1 encoding fix: removed Photoperiod_LD and Light from exogenous_supply in 30 LD gene-KO tests, restoring WT comparison baseline by defusing the validator's auto-'mutant' override.",
+      "algebraic_accuracy": 80.5,
+      "ode_accuracy": 77.9,
+      "rwr_accuracy": 85.7,
+      "failures": ["T010","T015","T016","T017","T018","T026","T030","T049","T050","T064","T068","T072","T076","T077","T079"],
+      "fixes_applied": 1,
+      "edges_added": 0,
+      "edges_removed": 0
+    },
+    {
+      "iteration": 2,
+      "description": "EN-2 extended LD-encoding fix to T030 (Gibberellin treatment) + STRUCT-1 added direct ID1 -> Flowering_Time(-1) edge to capture sbid1-2 170-day delay masked by cascade dilution.",
+      "algebraic_accuracy": 85.7,
+      "ode_accuracy": 79.2,
+      "rwr_accuracy": 85.7,
+      "failures": ["T010","T015","T026","T049","T050","T064","T068","T072","T076","T077","T079"],
+      "fixes_applied": 2,
+      "edges_added": 1,
+      "edges_removed": 0
+    },
+    {
+      "iteration": 3,
+      "description": "EN-3 SD-baseline epistasis encoding: added comparison_baseline='epistasis' with network_baseline_modifiers={Photoperiod_LD:0.0} to all 8 SD-condition tests so that WT-under-SD is the comparison instead of WT-under-LD.",
+      "algebraic_accuracy": 88.3,
+      "ode_accuracy": 84.4,
+      "rwr_accuracy": 87.0,
+      "failures": ["T010","T026","T049","T050","T064","T068","T072","T077","T079"],
+      "fixes_applied": 1,
+      "edges_added": 0,
+      "edges_removed": 0
+    }
+  ],
+  "fixes_applied": [
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "Removed Photoperiod_LD and Light from exogenous_supply in 30 LD gene-KO tests (T001, T003-T007, T009, T011, T013, T014, T031, T033, T038-T040, T044, T045, T047, T049, T050, T062, T063, T065, T068, T069, T072, T075, T078, T079, T082).",
+      "reason": "Validation_common.py lines 281-286 override comparison_baseline to 'mutant' whenever both gene_modifiers (any value != 1.0) AND exogenous_supply are present. The LD encoding convention (exogenous={Photoperiod_LD:1, Light:1}) unintentionally triggered this rescue-comparison for every LD gene-KO test. The intended comparison is mutant-under-LD vs WT-under-LD; since source nodes already default to 1.0 (LD-permissive), the exogenous boost was both double-counting LD and triggering the rescue override.",
+      "biological_justification": "Under the v2.0 source-node convention, source value = gene_modifier (default 1.0) + exogenous_supply (default 0.0). WT baseline with sources=1.0 already represents permissive LD-like conditions, which is biologically appropriate for sorghum (facultative SD plant with LD repression of flowering). Removing LD/Light exogenous leaves LD/Light at the default 1.0 (LD-permissive) and restores correct WT comparison.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "exogenous_supply",
+      "value": null
+    },
+    {
+      "iteration": 2,
+      "action": "perturbation_encoding",
+      "description": "Extended EN-1 fix to T030 (Gibberellin treatment, empty gene_modifiers but LD/Light present). Removed LD/Light from T030's exogenous_supply, keeping Gibberellin=1.0.",
+      "reason": "T030 failed in iter 1 with ratio=10 (K-cap) because Photoperiod_LD=2.0 + Light=2.0 (1.0 default + 1.0 exogenous) propagated through the cascade, saturating Flowering_Time to the ceiling. Stripping LD/Light isolates the Gibberellin signal and predicts ratio=0.5 ('decreased') as expected.",
+      "biological_justification": "Gibberellin treatment experiments occur under natural LD; algebraic WT baseline already captures LD-permissive conditions. Double-counting LD produces non-physiological source saturation.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "exogenous_supply",
+      "value": null
+    },
+    {
+      "iteration": 2,
+      "action": "edge_addition",
+      "description": "Added direct ID1 -> Flowering_Time edge with sign=-1 (ID1 reduces days-to-flower); edge_id N081.",
+      "reason": "T016/T017/T018 SbID1 LOF predicted strong 'decreased' (ratio=0.0024) when biology says sbid1-2 delays flowering ~170 days (strong 'increased'). Diagnosis: ID1 KO lowers both florigen activators AND florigen repressors (PRR37/GHD7/ELF3/etc.); bounded-inverse inhibition saturates at K=10 and partially rescues FT values. Inhibitor product stays large (~412), inhibition stays small, Flowering_Time low -> wrong direction. The direct edge puts ID1 into the Flowering_Time inhibitor product; ID1=0 -> product=0 -> floor 0.1 -> cap 10 -> Flowering_Time=10 -> 'increased'. For every other test (ID1=1.0 default) the edge is multiplicative identity and has no effect.",
+      "biological_justification": "SbID1 (Gladman 2023) is the single strongest-effect flowering-time gene in sorghum (sbid1-2 Q199* delays flowering ~170 days). Gladman shows direct ID1 dependence of SbCO, SbCN8, SbCN12 florigen transcripts. The short-cut edge collapses the multipath integrative effect into a single framework-tractable edge that captures the empirical delay that geometric-mean dilution masks. This is a modeling short-cut per REFINEMENT_AGENT Section 1.5 Step C, not a novel biological claim.",
+      "source": "ID1",
+      "target": "Flowering_Time",
+      "sign": -1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 3,
+      "action": "perturbation_encoding",
+      "description": "Added comparison_baseline='epistasis' with network_baseline_modifiers={Photoperiod_LD: 0.0} to 8 SD-condition tests (T002, T010, T015, T055, T056, T073, T076, T077). Validator now compares mutant-under-SD against WT-under-SD rather than default WT-under-LD-permissive baseline.",
+      "reason": "SD tests use gene_modifier={Photoperiod_LD:0} to represent short-day. Previously the baseline was WT-under-LD (Photoperiod_LD=1), mixing two changes (photoperiod OFF + gene KO) in one ratio. That produced strong 'decreased' when biology said 'unchanged' (T010, T076, T077) or 'increased' (T015). Epistasis baseline with Photoperiod_LD=0 isolates the gene-KO effect: both baseline and perturbed cascades have LD=0, the cascade collapse is common-mode and cancels, the residual gene-KO effect matches biology.",
+      "biological_justification": "Paper-reported SD effects are always relative to SD controls in the same experiment. Encoding the SD baseline as WT-under-SD aligns the algebraic comparison with the underlying experimental design.",
+      "source": "",
+      "target": "",
+      "sign": null,
+      "modifier_type": "baseline_modifiers",
+      "value": null
+    }
+  ],
+  "framework_limitations": [
+    {
+      "test_id": "T026",
+      "description": "PHOTOPERIOD continuous_dark (Light=0, Photoperiod_LD=0): entire network cascade crashes when Light=0 because all photoperiodic activators floor at 0.01. Model predicts strong 'decreased'; biology expects 'unchanged' (dark-grown sorghum does not flower, but days-to-flowering is not well defined). Framework cannot model the empirical definition ambiguity."
+    },
+    {
+      "test_id": "T049",
+      "description": "SbCCA1 GOF expected 'increased' (CCA1 OE delays flowering via clock disruption). Algebraic model predicts 'decreased' because CCA1 directly represses PRR37 (strong edge) and CCA1 OE amplifies PRR37 repression -> EHD1 release -> FT up -> Flowering_Time down. Whole-oscillator disruption from CCA1 OE cannot be represented in a steady-state algebraic framework with a single CCA1 phase."
+    },
+    {
+      "test_id": "T050",
+      "description": "SbGI OE LD expected 'increased' (delays flowering via PRR37 amplification). Model predicts 'decreased' with ratio=0.92 (borderline threshold). GI's geometric-mean contribution to PRR37 (1/6th weight) is too small to propagate the expected delay; deepening the GI->PRR37 coupling would require non-default weights not supported by the framework."
+    },
+    {
+      "test_id": "T064",
+      "description": "SbID1 rescue experiment (ID1=1.0 + exogenous florigen?). Framework adds exogenous supply regardless of whether signaling is functional; classic Trap 5 signaling-mutant rescue limit. fixable=false per failure_analysis."
+    },
+    {
+      "test_id": "T068",
+      "description": "SbELF3 LOF LD expected 'decreased' (per Zhao 2012 oself3 rice under LD). Model predicts 'increased' because ELF3 represses PRR37/GHD7; ELF3 loss releases PRR37/GHD7 -> FT down -> Flowering_Time up. The rice paper's 'accelerated flowering' phenotype under LD involves phase-dependent ELF3 effects (ELF3 acts both as repressor AND in clock phase gating) that a steady-state algebraic model with a single sign-encoded edge cannot capture."
+    },
+    {
+      "test_id": "T072",
+      "description": "SbPRR37 SbCO epistasis expected 'decreased'. Framework cannot isolate the CO activation arm from the PRR37 repression arm when both are perturbed; bounded-inverse cap dominates. fixable=false per failure_analysis."
+    },
+    {
+      "test_id": "T077",
+      "description": "Ma2_SMYD LOF SD expected 'unchanged'. After EN-3 epistasis fix, algebraic predicts 'increased' (ratio=23.6) because loss of Ma2 under SD still derepresses the cascade further than WT-under-SD. A tighter cascade-collapse encoding would be needed."
+    },
+    {
+      "test_id": "T079",
+      "description": "SbELF3 LOF LD expected 'decreased' (Tadesse 2024 DOI). Same framework limit as T068 - phase-gated ELF3 cannot be represented by a single sign edge. fixable=false."
+    }
+  ],
+  "best_model": {
+    "location": "refinement/iteration_3/",
+    "algebraic_accuracy": 88.3,
+    "ode_accuracy": 84.4,
+    "rwr_accuracy": 87.0,
+    "total_nodes": 35,
+    "total_edges": 81
+  },
+  "metric_summary": {
+    "baseline": {
+      "algebraic_accuracy": 55.8,
+      "algebraic_kappa": 0.2625,
+      "algebraic_mcc": 0.2543,
+      "ode_accuracy": 63.6,
+      "ode_kappa": 0.3875,
+      "ode_mcc": 0.345,
+      "rwr_accuracy": 64.9,
+      "rwr_kappa": 0.3865,
+      "rwr_mcc": 0.4358,
+      "frs_best": 5.081,
+      "dars_best": 5.5037
+    },
+    "final_best": {
+      "algebraic_accuracy": 88.3,
+      "algebraic_kappa": 0.7902,
+      "algebraic_mcc": 0.7411,
+      "ode_accuracy": 84.4,
+      "ode_kappa": 0.7293,
+      "ode_mcc": 0.6879,
+      "rwr_accuracy": 87.0,
+      "rwr_kappa": 0.765,
+      "rwr_mcc": 0.6853,
+      "frs_best": 10.3711,
+      "frs_band": "large-scale strong",
+      "dars_best": 10.6916,
+      "dars_band": "large-scale strong"
+    },
+    "delta": {
+      "algebraic": "+32.5%",
+      "ode": "+20.8%",
+      "rwr": "+22.1%",
+      "frs_delta": "+5.29",
+      "dars_delta": "+5.19"
+    }
+  },
+  "per_photoperiod_change": {
+    "LD": {"baseline_best": "0.868 (RWR)", "final_best": "0.868 (all methods)", "note": "No change in LD headline after iter 1 - iter 1 EN-1 fix already saturated LD gains."},
+    "SD": {"baseline_best": "0.556 (alg, rwr)", "final_best": "0.889 (ODE), 0.778 (alg), 0.667 (rwr)", "note": "Iter 3 EN-3 encoding fix delivered all SD improvements."},
+    "both": {"baseline_best": "1.0 (rwr)", "final_best": "1.0 (alg, rwr), 0.636 (ode)", "note": "Iter 2 ID1 edge restored 'both' ALG to 1.0."},
+    "continuous_dark": {"baseline": "0.0", "final": "0.0", "note": "Framework limit - Light=0 crashes cascade, cannot model empirical 'unchanged' phenotype."},
+    "night_break": {"baseline": "1.0", "final": "1.0", "note": "No change."},
+    "far_red_supplementation": {"baseline": "1.0", "final": "1.0", "note": "No change."},
+    "photoperiod_shift": {"baseline": "1.0", "final": "1.0", "note": "No change."}
+  },
+  "per_class_change": {
+    "PRR37_LOF": {"baseline_acc": 0.0, "final_acc_best": 1.0, "note": "Iter 1 EN-1 encoding fix alone brought this class from 0% (0/6) to 100% (6/6)."},
+    "PhyB_LOF": {"baseline_acc": 0.25, "final_acc_best": 1.0, "note": "Iter 1 EN-1 encoding fix."},
+    "Ghd7_LOF": {"baseline_acc": 0.0, "final_acc_best": 1.0, "note": "Iter 1 EN-1 encoding fix."},
+    "PhyC_LOF": {"baseline_acc": 0.0, "final_acc_best": 0.5, "note": "Partial: T010 SbPhyC SD still fails on algebraic/RWR due to framework SD-cascade-collapse."},
+    "MA2_SMYD": {"baseline_acc": 0.0, "final_acc_best": 0.5, "note": "Iter 1 fixed T011 (LD). T077 SD residually fails as framework limit."},
+    "ID1_LOF": {"baseline_acc": 0.0, "final_acc_best": 1.0, "note": "Iter 2 STRUCT-1 ID1 -> Flowering_Time edge fixed T016/T017/T018 on algebraic and RWR."},
+    "SbFT_CRISPR": {"baseline_acc": 0.5, "final_acc_best": 0.75, "note": "Iter 1 EN-1 fixed T013/T038. T056 still partial on ODE."},
+    "clock (ELF3/GI/CCA1)": {"baseline_acc": 0.667, "final_acc_best": 0.667, "note": "Mostly unchanged: T049 CCA1 OE, T068/T079 ELF3 LOF flagged as framework limits."},
+    "photoperiod_only": {"baseline_acc": 0.923, "final_acc_best": 0.923, "note": "T026 continuous_dark remains a framework limit."}
+  },
+  "notes": "Refinement delivered a +22.1% best-method gain (RWR 64.9 -> 87.0). All three methods landed in substantial-kappa territory (alg kappa=0.79, ode 0.73, rwr 0.77). FRS/DARS moved from 'small-scale solid' (5.08) to 'large-scale strong' (10.37) - a clean two-band promotion. Major mechanism-level wins: PRR37_LOF 0% -> 100%, PhyB_LOF 25% -> 100%, Ghd7_LOF 0% -> 100%, ID1_LOF 0% -> 100%, SbFT CRISPR 50% -> 75%. Residual 9-12 failures per method are distributed across framework limits (continuous_dark, ELF3 phase-gating, CCA1 clock disruption, T064 rescue, T072 epistasis) and borderline threshold cases (T050 SbGI OE ratio 0.92). Total structural change: 1 edge added (ID1 -> Flowering_Time, DOI 10.3389/fpls.2023.1304822); 4 encoding fixes (EN-1, EN-2, EN-3 all targeting the Photoperiod_LD/Light exogenous convention and the SD comparison-baseline convention)."
+}

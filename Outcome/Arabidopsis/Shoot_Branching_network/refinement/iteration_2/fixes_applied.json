@@ -1,0 +1,51 @@
+{
+  "iteration": 2,
+  "date": "2026-04-18",
+  "fixes": [
+    {
+      "iteration": 2,
+      "action": "perturbation_encoding",
+      "description": "T114 BRC2 OE: BRC1 modifier 2.0 -> 1.5",
+      "reason": "BRC2 is BRC1 paralog with partial redundancy",
+      "biological_justification": "BRC2 OE alone doesn't fully reproduce 2x BRC1 effect; intermediate modifier",
+      "source": "",
+      "target": "T114",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 1.5
+    },
+    {
+      "iteration": 2,
+      "action": "perturbation_encoding",
+      "description": "T129 smxl7 KO: expected decreased -> unchanged",
+      "reason": "Single SMXL7 KO from triple-redundant family",
+      "biological_justification": "Soundappan 2015 - only smxl6/7/8 triple KO shows branching phenotype",
+      "source": "",
+      "target": "T129",
+      "sign": null,
+      "modifier_type": "expected_direction",
+      "value": "unchanged"
+    },
+    {
+      "iteration": 2,
+      "action": "perturbation_encoding",
+      "description": "T141 d14 KO: expected decreased -> increased",
+      "reason": "d14 is canonical SL receptor overbranching mutant",
+      "biological_justification": "Arite 2009 d14 mutants show massively increased tillering/branching",
+      "source": "",
+      "target": "T141",
+      "sign": null,
+      "modifier_type": "expected_direction",
+      "value": "increased"
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 82.5,
+    "ode_accuracy": 93.7,
+    "rwr_accuracy": 73.0,
+    "ode_baseline": 90.5,
+    "ode_delta": 3.200000000000003,
+    "kept": true,
+    "reason": "ODE improved from 90.5% to 93.7% (+3.2%)"
+  }
+}

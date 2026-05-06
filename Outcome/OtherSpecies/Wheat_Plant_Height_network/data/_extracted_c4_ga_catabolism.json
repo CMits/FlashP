@@ -1,0 +1,150 @@
+{
+  "cluster": "C4_GA_catabolism",
+  "papers": [
+    {
+      "doi": "10.1111/nph.17808",
+      "title": "Rht24b, an ancient variation of TaGA2ox-A9, reduces plant height without yield penalty in wheat",
+      "authors": "Tian X, Xia X, Xu D, Liu Y, Xie L, Hassan MA, Song J, Li F, Wang D, Zhang Y, Hao Y, Li G, Chu C, He Z, Cao S",
+      "year": 2022,
+      "journal": "New Phytologist",
+      "status": "read"
+    },
+    {
+      "doi": "10.1104/pp.18.00023",
+      "title": "Rht18 Semidwarfism in Wheat Is Due to Increased GA 2-oxidaseA9 Expression and Reduced GA Content",
+      "authors": "Ford BA, Foo E, Sharwood R, Karafiatova M, Vrana J, MacMillan C, Nichols DS, Steuernagel B, Uauy C, Doležel J, Chandler PM, Spielmeyer W",
+      "year": 2018,
+      "journal": "Plant Physiology",
+      "status": "read"
+    },
+    {
+      "doi": "10.1093/jxb/eraa443",
+      "title": "Overgrowth mutants determine the causal role of gibberellin GA2oxidaseA13 in Rht12 dwarfism of wheat",
+      "authors": "Buss W, Ford BA, Foo E, Spielmeyer W",
+      "year": 2020,
+      "journal": "Journal of Experimental Botany",
+      "status": "read"
+    }
+  ],
+  "edges": [
+    {
+      "source": "TaGA2ox",
+      "target": "Gibberellin",
+      "sign": -1,
+      "mechanism": "GA 2-oxidase catabolises bioactive GA1/GA4 and their precursors to inactive metabolites (GA12→GA110 conversion); depletes bioactive GA pool",
+      "evidence_doi": "10.1104/pp.18.00023",
+      "evidence_sentence": "increased expression of GA2oxA9 in Rht18 results in a reduction of both bioactive GA content and plant height"
+    },
+    {
+      "source": "TaGA2ox",
+      "target": "Plant_Height",
+      "sign": -1,
+      "mechanism": "Increased TaGA2ox expression depletes bioactive GA, reduces stem elongation; mechanism shared by Rht12, Rht14, Rht18, Rht24",
+      "evidence_doi": "10.1093/jxb/eraa443",
+      "evidence_sentence": "Rht12, Rht18, and Rht14 share the same height-reducing mechanism"
+    },
+    {
+      "source": "Rht24",
+      "target": "TaGA2ox",
+      "sign": 1,
+      "mechanism": "Rht24b allele contains TaGA2ox-A9 with ancient variation that confers higher expression in stem tissue",
+      "evidence_doi": "10.1111/nph.17808",
+      "evidence_sentence": "Rht24b conferred higher expression of TaGA2ox-A9 in stems, leading to a reduction of bioactive GA in stems but an elevation in leaves"
+    },
+    {
+      "source": "Rht12",
+      "target": "TaGA2ox",
+      "sign": 1,
+      "mechanism": "Rht12 locus contains TaGA2oxA13 on chromosome 5A with elevated expression; overgrowth suppressors carry loss-of-function TaGA2oxA13 mutations",
+      "evidence_doi": "10.1093/jxb/eraa443",
+      "evidence_sentence": "tall overgrowth individuals contain loss-of-function mutations in GA2oxidaseA13"
+    },
+    {
+      "source": "Rht18",
+      "target": "TaGA2ox",
+      "sign": 1,
+      "mechanism": "Rht18 allele drives increased TaGA2ox-A9 expression",
+      "evidence_doi": "10.1104/pp.18.00023",
+      "evidence_sentence": "Rht18 showed higher expression of GA2oxA9 and lower GA content compared with its tall parent"
+    },
+    {
+      "source": "Rht24",
+      "target": "Plant_Height",
+      "sign": -1,
+      "mechanism": "Rht24b reduces plant height without yield penalty; increases NUE and photosynthesis",
+      "evidence_doi": "10.1111/nph.17808",
+      "evidence_sentence": "Rht24b reduced plant height, but had no yield penalty; it significantly increased nitrogen use efficiency, photosynthetic rate and the expression of related genes"
+    },
+    {
+      "source": "Rht18",
+      "target": "Plant_Height",
+      "sign": -1,
+      "mechanism": "Rht18 dominant GA-responsive dwarfing via elevated TaGA2ox-A9; distinct from GA-insensitive Rht-B1/D1",
+      "evidence_doi": "10.1104/pp.18.00023",
+      "evidence_sentence": "Rht18, a dominant and gibberellin (GA) responsive mutant, is genetically and functionally distinct from the widely used GA-insensitive semidwarfing genes"
+    },
+    {
+      "source": "Rht12",
+      "target": "Plant_Height",
+      "sign": -1,
+      "mechanism": "Rht12b dominant GA-responsive dwarf via TaGA2oxA13 5AL",
+      "evidence_doi": "10.1093/jxb/eraa443",
+      "evidence_sentence": "GA 2-oxidase gene was identified in the Rht12 region on chromosome 5A"
+    },
+    {
+      "source": "Rht14",
+      "target": "TaGA2ox",
+      "sign": 1,
+      "mechanism": "Rht14 allelic with Rht18; same TaGA2ox-A9 upregulation mechanism",
+      "evidence_doi": "10.1093/jxb/eraa443",
+      "evidence_sentence": "Rht12, Rht18, and Rht14 share the same height-reducing mechanism"
+    }
+  ],
+  "perturbations": [
+    {
+      "gene": "Rht24b",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "magnitude": "slight",
+      "evidence_doi": "10.1111/nph.17808",
+      "evidence_sentence": "Rht24b reduced plant height, but had no yield penalty",
+      "notes": "GA-responsive allele; 5-10% height reduction; NUE and photosynthesis increased"
+    },
+    {
+      "gene": "Rht18",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "magnitude": "moderate",
+      "evidence_doi": "10.1104/pp.18.00023",
+      "evidence_sentence": "Rht18 semidwarfism is due to increased GA 2-oxidaseA9 expression and reduced GA content",
+      "notes": "GA-responsive; from durum wheat cv Icaro"
+    },
+    {
+      "gene": "Rht12",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "magnitude": "strong",
+      "evidence_doi": "10.1093/jxb/eraa443",
+      "evidence_sentence": "Rht12 dwarf plants screened for tall suppressors; suppressors carry loss-of-function mutations in GA2oxidaseA13",
+      "notes": "Severe dwarf; GA-responsive"
+    },
+    {
+      "gene": "Rht14",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "magnitude": "moderate",
+      "evidence_doi": "10.1093/jxb/eraa443",
+      "evidence_sentence": "Rht12, Rht18, and Rht14 share the same height-reducing mechanism",
+      "notes": "GA-responsive durum allele"
+    },
+    {
+      "gene": "Rht12_overgrowth_suppressor",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "magnitude": "moderate",
+      "evidence_doi": "10.1093/jxb/eraa443",
+      "evidence_sentence": "tall overgrowth individuals contain loss-of-function mutations in GA2oxidaseA13",
+      "notes": "Revertant to tall; loss of TaGA2oxA13 function"
+    }
+  ]
+}

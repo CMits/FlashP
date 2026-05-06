@@ -1,0 +1,3365 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "kernel_row_number",
+    "species": "Zea mays",
+    "created": "2026-04-20",
+    "total_tests": 78,
+    "in_network": 72,
+    "not_in_network": 6,
+    "phenotype_node": "Kernel_Row_Number",
+    "convention": "Direction reports the change in Kernel_Row_Number relative to WT (or mutant alone for rescue experiments). increased=more rows per ear, decreased=fewer rows or disordered rows, unchanged=no significant difference."
+  },
+  "direction_threshold": 0.05,
+  "perturbations": [
+    {
+      "test_id": "T001",
+      "gene": "fea2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "FEA2"
+      ],
+      "gene_modifiers": {
+        "FEA2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FEA2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "fea2 reference null allele → FEA2 KO",
+      "evidence": [
+        {
+          "doi": "10.1101/gad.208501",
+          "title": "The fasciated ear2 gene encodes a leucine-rich repeat receptor-like protein that regulates shoot meristem proliferation in maize",
+          "authors": "Taguchi-Shiobara F, Yuan Z, Hake S, Jackson D",
+          "year": 2001,
+          "journal": "Genes & Development",
+          "evidence_sentence": "fea2 ears can have up to double the normal number of vertical rows of seeds (26-36 vs 16-18)",
+          "claim": "fea2 KO doubles KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "fea2 reference null allele → FEA2 KO",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T002",
+      "gene": "fea2_weak_allele",
+      "perturbation_type": "knockdown",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "FEA2"
+      ],
+      "gene_modifiers": {
+        "FEA2": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FEA2",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "fea2 weak natural-variation allele = partial-LOF → FEA2 gm=0.5 (KD)",
+      "evidence": [
+        {
+          "doi": "10.1038/ng.2534",
+          "title": "Quantitative variation in maize kernel row number is controlled by the FASCIATED EAR2 locus",
+          "authors": "Bommert P, Nagasawa NS, Jackson D",
+          "year": 2013,
+          "journal": "Nature Genetics",
+          "evidence_sentence": "weak allele of FEA2 increases KRN without the fasciation phenotype of stronger alleles",
+          "claim": "fea2 weak allele increases KRN",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "fea2 weak natural-variation allele = partial-LOF → FEA2 gm=0.5 (KD)",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T003",
+      "gene": "fea3",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "FEA3"
+      ],
+      "gene_modifiers": {
+        "FEA3": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FEA3",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "fea3 null → FEA3 KO",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "fea3 mutants show enlarged inflorescence meristems and increased kernel rows",
+          "claim": "fea3 KO increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "fea3 null → FEA3 KO",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T004",
+      "gene": "fea4",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "FEA4"
+      ],
+      "gene_modifiers": {
+        "FEA4": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FEA4",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "fea4 null → FEA4 KO",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.132506",
+          "title": "FASCIATED EAR4 Encodes a bZIP Transcription Factor That Regulates Shoot Meristem Size in Maize",
+          "authors": "Pautler M, Eveland AL, LaRue T, Yang F, Weeks R, Lunde C, Je BI, Meeley R, Komatsu M, Vollbrecht E, Sakai H, Jackson D",
+          "year": 2015,
+          "journal": "Plant Cell",
+          "evidence_sentence": "B73 kernel row number: wild-type 17.14 Â± 1.51 vs fea4 28 Â± 2.31",
+          "claim": "fea4 strongly increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "fea4 null → FEA4 KO",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T005",
+      "gene": "ct2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "CT2"
+      ],
+      "gene_modifiers": {
+        "CT2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CT2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ct2 null → CT2 KO",
+      "evidence": [
+        {
+          "doi": "10.1038/nature12583",
+          "title": "The maize GÎ± gene COMPACT PLANT2 functions in CLAVATA signalling to control shoot meristem size",
+          "authors": "Bommert P, Je BI, Goldshmidt A, Jackson D",
+          "year": 2013,
+          "journal": "Nature",
+          "evidence_sentence": "ct2 mutants have enlarged SAMs and fasciated ears",
+          "claim": "ct2 KO increases KRN",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "ct2 null → CT2 KO",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T006",
+      "gene": "Zmcrn",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ZMCRN"
+      ],
+      "gene_modifiers": {
+        "ZMCRN": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ZMCRN",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Zmcrn null → ZMCRN KO",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "Zmcrn mutants had larger vegetative shoot meristems and developed fasciated ear phenotype",
+          "claim": "Zmcrn KO increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "Zmcrn null → ZMCRN KO",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T007",
+      "gene": "td1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "TD1"
+      ],
+      "gene_modifiers": {
+        "TD1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "TD1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "td1 null → TD1 KO (CLV1-ortholog LRR-RK)",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.01671",
+          "title": "thick tassel dwarf1 encodes a putative maize ortholog of the Arabidopsis CLAVATA1 leucine-rich repeat receptor-like kinase",
+          "authors": "Bommert P, Lunde C, Nardmann J, Vollbrecht E, Running M, Jackson D, Hake S, Werr W",
+          "year": 2005,
+          "journal": "Development",
+          "evidence_sentence": "td1 female inflorescence is fasciated with extra rows of kernels",
+          "claim": "td1 KO strongly increases KRN",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "td1 null → TD1 KO (CLV1-ortholog LRR-RK)",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T008",
+      "gene": "Zmcrn_het",
+      "perturbation_type": "heterozygous",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ZMCRN"
+      ],
+      "gene_modifiers": {
+        "ZMCRN": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ZMCRN",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "Zmcrn heterozygote dosage-dependent effect → ZMCRN gm=0.5",
+      "evidence": [
+        {
+          "doi": "10.1093/plphys/kiae472",
+          "title": "Heterozygous fasciated ear mutations improve yield traits in inbred and hybrid maize lines",
+          "authors": "Wang et al.",
+          "year": 2024,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Zmcrn heterozygotes had 0.5 to 1.4 more rows than WT",
+          "claim": "Zmcrn het slightly increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Zmcrn heterozygote dosage-dependent effect → ZMCRN gm=0.5",
+      "expected_magnitude": "slight",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T009",
+      "gene": "Zmcle7_het",
+      "perturbation_type": "heterozygous",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ZMCLE7"
+      ],
+      "gene_modifiers": {
+        "ZMCLE7": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ZMCLE7",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "Zmcle7 heterozygote dosage-dependent effect → ZMCLE7 gm=0.5",
+      "evidence": [
+        {
+          "doi": "10.1093/plphys/kiae472",
+          "title": "Heterozygous fasciated ear mutations improve yield traits in inbred and hybrid maize lines",
+          "authors": "Wang et al.",
+          "year": 2024,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Zmcle7 heterozygotes had increased KRN",
+          "claim": "Zmcle7 het slightly increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Zmcle7 heterozygote dosage-dependent effect → ZMCLE7 gm=0.5",
+      "expected_magnitude": "slight",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T010",
+      "gene": "ZmCLE7_CRISPR_promoter",
+      "perturbation_type": "knockout_CRISPR",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ZMCLE7"
+      ],
+      "gene_modifiers": {
+        "ZMCLE7": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ZMCLE7",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ZmCLE7 CRISPR-Cas9 promoter deletion → reduced peptide = ZMCLE7 KO",
+      "evidence": [
+        {
+          "doi": "10.1038/s41477-021-00858-5",
+          "title": "Enhancing grain-yield-related traits by CRISPR-Cas9 promoter editing of maize CLE genes",
+          "authors": "Liu L, Gallagher J, Arevalo ED, Chen R, Skopelitis T, Wu Q, Bartlett M, Jackson D",
+          "year": 2021,
+          "journal": "Nature Plants",
+          "evidence_sentence": "Promoter edited alleles of ZmCLE7 have larger IM diameters and increased kernel row numbers",
+          "claim": "ZmCLE7 promoter KO increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "ZmCLE7 CRISPR-Cas9 promoter deletion → reduced peptide = ZMCLE7 KO",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T011",
+      "gene": "ZmFCP1_CRISPR",
+      "perturbation_type": "knockout_CRISPR",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ZMFCP1"
+      ],
+      "gene_modifiers": {
+        "ZMFCP1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ZMFCP1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ZmFCP1 CRISPR KO",
+      "evidence": [
+        {
+          "doi": "10.1038/s41477-021-00858-5",
+          "title": "Enhancing grain-yield-related traits by CRISPR-Cas9 promoter editing of maize CLE genes",
+          "authors": "Liu L, Gallagher J, Arevalo ED, Chen R, Skopelitis T, Wu Q, Bartlett M, Jackson D",
+          "year": 2021,
+          "journal": "Nature Plants",
+          "evidence_sentence": "Edited lines showed increased kernel row numbers and grain yields",
+          "claim": "ZmFCP1 KO increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "ZmFCP1 CRISPR KO",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T012",
+      "gene": "ZmCLE1E5_CRISPR",
+      "perturbation_type": "knockout_CRISPR",
+      "expected_direction": "increased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "ZmCLE1E5 is a distinct CLE peptide (not ZmCLE7 or ZmFCP1) — no matching node",
+      "evidence": [
+        {
+          "doi": "10.1038/s41477-021-00858-5",
+          "title": "Enhancing grain-yield-related traits by CRISPR-Cas9 promoter editing of maize CLE genes",
+          "authors": "Liu L, Gallagher J, Arevalo ED, Chen R, Skopelitis T, Wu Q, Bartlett M, Jackson D",
+          "year": 2021,
+          "journal": "Nature Plants",
+          "evidence_sentence": "Coding region-edited alleles of ZmCLE1E5 have larger IM diameters",
+          "claim": "ZmCLE1E5 KO slightly increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "ZmCLE1E5 is a distinct CLE peptide (not ZmCLE7 or ZmFCP1) — no matching node",
+      "expected_magnitude": "slight",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T013",
+      "gene": "fea2;Zmcrn",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "FEA2",
+        "ZMCRN"
+      ],
+      "gene_modifiers": {
+        "FEA2": 0.0,
+        "ZMCRN": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FEA2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "ZMCRN",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "fea2;Zmcrn double KO",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "fea2 is epistatic to Zmcrn; fea2;Zmcrn meristem 177.2 um",
+          "claim": "fea2;Zmcrn double increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "fea2;Zmcrn double KO",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T014",
+      "gene": "fea3;fea2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "FEA2",
+        "FEA3"
+      ],
+      "gene_modifiers": {
+        "FEA2": 0.0,
+        "FEA3": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FEA2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "FEA3",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "fea2;fea3 double KO — both CLE arms disabled",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "fea3;fea2 double mutants had the largest meristems",
+          "claim": "fea3;fea2 double strongly increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "fea2;fea3 double KO — both CLE arms disabled",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T015",
+      "gene": "fea4;fea2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "FEA2",
+        "FEA4"
+      ],
+      "gene_modifiers": {
+        "FEA2": 0.0,
+        "FEA4": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FEA2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "FEA4",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "fea2;fea4 double KO — ZmCLE7 signalling + FEA4 both disabled",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.132506",
+          "title": "FASCIATED EAR4 Encodes a bZIP Transcription Factor",
+          "authors": "Pautler M, Eveland AL, LaRue T, Yang F, Weeks R, Lunde C, Je BI, Meeley R, Komatsu M, Vollbrecht E, Sakai H, Jackson D",
+          "year": 2015,
+          "journal": "Plant Cell",
+          "evidence_sentence": "fea2 fea4 double SAM 347 vs 205 (fea4) or 202 (fea2) um; synergistic",
+          "claim": "fea2;fea4 double strongly increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "fea2;fea4 double KO — ZmCLE7 signalling + FEA4 both disabled",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T016",
+      "gene": "ct2;Zmcrn",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "CT2",
+        "ZMCRN"
+      ],
+      "gene_modifiers": {
+        "CT2": 0.0,
+        "ZMCRN": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "CT2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "ZMCRN",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ct2;Zmcrn double KO",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "SAMs of double mutants were significantly larger than each single mutant (191.8 Â± 18.6 Î¼m)",
+          "claim": "ct2;Zmcrn additive",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "ct2;Zmcrn double KO",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T017",
+      "gene": "fea3;Zmcrn",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "FEA3",
+        "ZMCRN"
+      ],
+      "gene_modifiers": {
+        "FEA3": 0.0,
+        "ZMCRN": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FEA3",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "ZMCRN",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "fea3;Zmcrn double KO",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "fea3;Zmcrn double mutants were larger than single mutants (221.5 Â± 21.2 Î¼m)",
+          "claim": "fea3;Zmcrn strongly increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "fea3;Zmcrn double KO",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T018",
+      "gene": "WT_plus_ZmCLE7",
+      "perturbation_type": "treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "ZMCLE7"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "ZMCLE7": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "ZMCLE7",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Synthetic ZmCLE7 peptide on WT ear primordia → exogenous ZMCLE7 supply",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "peptides suppress the growth of the SAM",
+          "claim": "ZmCLE7 peptide decreases IM/KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "ex_vivo",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Synthetic ZmCLE7 peptide on WT ear primordia → exogenous ZMCLE7 supply",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T019",
+      "gene": "WT_plus_ZmFCP1",
+      "perturbation_type": "treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "ZMFCP1"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "ZMFCP1": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "ZMFCP1",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Synthetic ZmFCP1 peptide on WT ear primordia → exogenous ZMFCP1 supply",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "ZmFCP1 peptide suppresses SAM growth",
+          "claim": "ZmFCP1 peptide decreases IM/KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "ex_vivo",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Synthetic ZmFCP1 peptide on WT ear primordia → exogenous ZMFCP1 supply",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T020",
+      "gene": "fea2_plus_ZmCLE7",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "FEA2",
+        "ZMCLE7"
+      ],
+      "gene_modifiers": {
+        "FEA2": 0.0
+      },
+      "exogenous_supply": {
+        "ZMCLE7": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "FEA2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "ZMCLE7",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "fea2 + ZmCLE7 peptide — Perception Gate: receptor gone so peptide cannot signal",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "fea2 mutants were insensitive to ZmCLE7",
+          "claim": "fea2 blocks CLE7 effect",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "mutant",
+      "condition": "ex_vivo",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "fea2 + ZmCLE7 peptide — Perception Gate: receptor gone so peptide cannot signal",
+      "expected_magnitude": "",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T021",
+      "gene": "ct2_plus_ZmCLE7",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "CT2",
+        "ZMCLE7"
+      ],
+      "gene_modifiers": {
+        "CT2": 0.0
+      },
+      "exogenous_supply": {
+        "ZMCLE7": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "CT2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "ZMCLE7",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "ct2 + ZmCLE7 peptide — downstream G-alpha gone; Perception Gate logic",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "ct2 growth was insensitive only to ZmCLE7 peptide",
+          "claim": "ct2 blocks CLE7 but not FCP1",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "mutant",
+      "condition": "ex_vivo",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "ct2 + ZmCLE7 peptide — downstream G-alpha gone; Perception Gate logic",
+      "expected_magnitude": "",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T022",
+      "gene": "Zmcrn_plus_ZmFCP1",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "ZMCRN",
+        "ZMFCP1"
+      ],
+      "gene_modifiers": {
+        "ZMCRN": 0.0
+      },
+      "exogenous_supply": {
+        "ZMFCP1": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "ZMCRN",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "ZMFCP1",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Zmcrn + ZmFCP1 peptide — coreceptor gone; Perception Gate logic",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "Zmcrn was partially resistant only to ZmFCP1 peptide",
+          "claim": "Zmcrn blocks FCP1 but not CLE7",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "mutant",
+      "condition": "ex_vivo",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Zmcrn + ZmFCP1 peptide — coreceptor gone; Perception Gate logic",
+      "expected_magnitude": "",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T023",
+      "gene": "fea3_plus_ZmFCP1",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [
+        "FEA3",
+        "ZMFCP1"
+      ],
+      "gene_modifiers": {
+        "FEA3": 0.0
+      },
+      "exogenous_supply": {
+        "ZMFCP1": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "FEA3",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "ZMFCP1",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "fea3 + ZmFCP1 peptide — FEA3 receptor gone; Perception Gate logic",
+      "evidence": [
+        {
+          "doi": "10.7554/eLife.35673",
+          "title": "The CLAVATA receptor FASCIATED EAR2 responds to distinct CLE peptides",
+          "authors": "Je BI, Xu F, Wu Q, Liu L, Meeley R, Gallagher JP, Corcilius L, Payne RJ, Bartlett ME, Jackson D",
+          "year": 2018,
+          "journal": "eLife",
+          "evidence_sentence": "fea3 mutants are resistant only to ZmFCP1, and not to ZmCLE7",
+          "claim": "fea3 blocks FCP1 but not CLE7",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "mutant",
+      "condition": "ex_vivo",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "fea3 + ZmFCP1 peptide — FEA3 receptor gone; Perception Gate logic",
+      "expected_magnitude": "",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T024",
+      "gene": "abph1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ABPH1"
+      ],
+      "gene_modifiers": {
+        "ABPH1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ABPH1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "abph1 null → ABPH1 KO (loss of CK-mediated negative feedback on IM)",
+      "evidence": [
+        {
+          "doi": "10.1038/nature02778",
+          "title": "Control of phyllotaxy by the cytokinin-inducible response regulator homologue ABPHYL1",
+          "authors": "Giulini A, Wang J, Jackson D",
+          "year": 2004,
+          "journal": "Nature",
+          "evidence_sentence": "abph1 mutants have enlarged shoot apical meristem (larger SAM)",
+          "claim": "abph1 KO slightly increases IM/KRN",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "abph1 null → ABPH1 KO (loss of CK-mediated negative feedback on IM)",
+      "expected_magnitude": "slight",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T025",
+      "gene": "Abphyl2_dominant",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ABPH2"
+      ],
+      "gene_modifiers": {
+        "ABPH2": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ABPH2",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Abphyl2 dominant (ectopic expression) → ABPH2 gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.130393",
+          "title": "A Maize Glutaredoxin Gene, Abphyl2, Regulates Shoot Meristem Size and Phyllotaxy",
+          "authors": "Yang F, Bui HT, Pautler M, Llaca V, Johnston R, Lee BH, Kolbe A, Sakai H, Jackson D",
+          "year": 2015,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Abphyl2 dominant meristem width 185 vs 96 Î¼m wild-type - 2-fold enlarged",
+          "claim": "Abphyl2 GOF increases IM",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Abphyl2 dominant (ectopic expression) → ABPH2 gm=2.0",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T026",
+      "gene": "Bif3",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "ZMWUS1"
+      ],
+      "gene_modifiers": {
+        "ZMWUS1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ZMWUS1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Bif3 = dominant ZmWUS1-locus duplication producing ectopic ZMWUS1 expression → ZMWUS1 gm=2.0; extreme fasciation/barren ear",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-021-22699-8",
+          "title": "Structural variation at the maize WUSCHEL1 locus alters stem cell organization in inflorescences",
+          "authors": "Chen Z, Li W, Gaines C, Buck A, Galli M, Gallavotti A",
+          "year": 2021,
+          "journal": "Nature Communications",
+          "evidence_sentence": "Bif3 dominant ZmWUS1 duplication produces ball-shaped ears with highly disorganized meristems",
+          "claim": "Bif3 disorders rows - KRN decrease functional",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Bif3 = dominant ZmWUS1-locus duplication producing ectopic ZMWUS1 expression → ZMWUS1 gm=2.0; extreme fasciation/barren ear",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T027",
+      "gene": "kn1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "KN1"
+      ],
+      "gene_modifiers": {
+        "KN1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "KN1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "kn1 null → KN1 KO (meristem termination)",
+      "evidence": [
+        {
+          "doi": "10.1101/gad.193433.112",
+          "title": "Unraveling the KNOTTED1 regulatory network in maize meristems",
+          "authors": "Bolduc N, Yilmaz A, Mejia-Guerra MK, Morohashi K, O'Connor D, Grotewold E, Hake S",
+          "year": 2012,
+          "journal": "Genes & Development",
+          "evidence_sentence": "kn1 loss-of-function plants occasionally lack shoots; null allele produces a small cob with poor kernel yield",
+          "claim": "kn1 KO strongly decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "kn1 null → KN1 KO (meristem termination)",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T028",
+      "gene": "Kn1_N",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "KN1"
+      ],
+      "gene_modifiers": {
+        "KN1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "KN1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Kn1-N dominant neomorph — ectopic KN1 expression → KN1 gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.1101/gad.193433.112",
+          "title": "Unraveling the KNOTTED1 regulatory network in maize meristems",
+          "authors": "Bolduc N, Yilmaz A, Mejia-Guerra MK, Morohashi K, O'Connor D, Grotewold E, Hake S",
+          "year": 2012,
+          "journal": "Genes & Development",
+          "evidence_sentence": "Kn1-N ectopic expression induces cell proliferation; VT2 up-regulated in Kn1-N",
+          "claim": "Kn1-N GOF perturbs architecture",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Kn1-N dominant neomorph — ectopic KN1 expression → KN1 gm=2.0",
+      "expected_magnitude": "slight",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T029",
+      "gene": "ra1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RA1"
+      ],
+      "gene_modifiers": {
+        "RA1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RA1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ra1 KO — SPM identity loss / disorganised ear",
+      "evidence": [
+        {
+          "doi": "10.1038/nature03892",
+          "title": "Architecture of floral branch systems in maize and related grasses",
+          "authors": "Vollbrecht E, Springer PS, Goh L, Buckler ES, Martienssen R",
+          "year": 2005,
+          "journal": "Nature",
+          "evidence_sentence": "The ear is usually unbranched, is highly branched in ra1 mutants, resulting in reduced fertility",
+          "claim": "ra1 KO decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "ra1 KO — SPM identity loss / disorganised ear",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T030",
+      "gene": "ra2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RA2"
+      ],
+      "gene_modifiers": {
+        "RA2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RA2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ra2 KO",
+      "evidence": [
+        {
+          "doi": "10.1038/nature03892",
+          "title": "Architecture of floral branch systems in maize and related grasses",
+          "authors": "Vollbrecht E, Springer PS, Goh L, Buckler ES, Martienssen R",
+          "year": 2005,
+          "journal": "Nature",
+          "evidence_sentence": "ra2 loss-of-function gives abnormal branching in ears",
+          "claim": "ra2 KO decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "ra2 KO",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T031",
+      "gene": "ra3",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "RA3"
+      ],
+      "gene_modifiers": {
+        "RA3": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "RA3",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ra3 KO",
+      "evidence": [
+        {
+          "doi": "10.1038/nature04725",
+          "title": "A trehalose metabolic enzyme controls inflorescence architecture in maize",
+          "authors": "Satoh-Nagasawa N, Nagasawa N, Malcomber S, Sakai H, Jackson D",
+          "year": 2006,
+          "journal": "Nature",
+          "evidence_sentence": "in ra3 plants the inflorescence branching pattern is disturbed, with ears producing abnormally shaped long branches at their bases",
+          "claim": "ra3 KO decreases KRN",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "ra3 KO",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T032",
+      "gene": "rel2",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "REL2"
+      ],
+      "gene_modifiers": {
+        "REL2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "REL2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "rel2 KO (TPL-like corepressor) — disrupted Ramosa repression",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.18.00913",
+          "title": "RAMOSA1 ENHANCER LOCUS2-Mediated Transcriptional Repression Regulates Vegetative and Reproductive Architecture",
+          "authors": "Liu X, Galli M, Camehl I, Gallavotti A",
+          "year": 2019,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "rel2 ears showed increased kernel rows with ~16% enlarged IM",
+          "claim": "rel2 KO increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "rel2 KO (TPL-like corepressor) — disrupted Ramosa repression",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T033",
+      "gene": "rel2;ra1",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "REL2",
+        "RA1"
+      ],
+      "gene_modifiers": {
+        "REL2": 0.0,
+        "RA1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "REL2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "RA1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "rel2;ra1 double KO",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.051748",
+          "title": "The control of axillary meristem fate in the maize ramosa pathway",
+          "authors": "Gallavotti A, Long JA, Stanfield S, Yang X, Jackson D, Vollbrecht E, Schmidt RJ",
+          "year": 2010,
+          "journal": "Development",
+          "evidence_sentence": "rel2;ra1-RS double mutants had highly branched ears",
+          "claim": "rel2;ra1 double decreases KRN via branching",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "rel2;ra1 double KO",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T034",
+      "gene": "rel2;ra2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "REL2",
+        "RA2"
+      ],
+      "gene_modifiers": {
+        "REL2": 0.0,
+        "RA2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "REL2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "RA2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "rel2;ra2 double KO",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.051748",
+          "title": "The control of axillary meristem fate in the maize ramosa pathway",
+          "authors": "Gallavotti A, Long JA, Stanfield S, Yang X, Jackson D, Vollbrecht E, Schmidt RJ",
+          "year": 2010,
+          "journal": "Development",
+          "evidence_sentence": "rel2;ra2 double mutant shows enhanced ear branching relative to single mutants",
+          "claim": "rel2;ra2 double decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "rel2;ra2 double KO",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T035",
+      "gene": "rel2;ra1;ra2",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "REL2",
+        "RA1",
+        "RA2"
+      ],
+      "gene_modifiers": {
+        "REL2": 0.0,
+        "RA1": 0.0,
+        "RA2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "REL2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "RA1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "RA2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "rel2;ra1;ra2 triple KO",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.051748",
+          "title": "The control of axillary meristem fate in the maize ramosa pathway",
+          "authors": "Gallavotti A, Long JA, Stanfield S, Yang X, Jackson D, Vollbrecht E, Schmidt RJ",
+          "year": 2010,
+          "journal": "Development",
+          "evidence_sentence": "massive proliferation of branches with primary, secondary, and tertiary indeterminate structures",
+          "claim": "triple ramosa severely decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "rel2;ra1;ra2 triple KO",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T036",
+      "gene": "ids1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "IDS1"
+      ],
+      "gene_modifiers": {
+        "IDS1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "IDS1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ids1 null → IDS1 KO",
+      "evidence": [
+        {
+          "doi": "10.1101/gad.12.8.1145",
+          "title": "The control of maize spikelet meristem fate by the APETALA2-like gene indeterminate spikelet1",
+          "authors": "Chuck G, Meeley RB, Hake S",
+          "year": 1998,
+          "journal": "Genes & Development",
+          "evidence_sentence": "ids1 mutant spikelets become indeterminate producing 3-10 florets; distichous initiation",
+          "claim": "ids1 KO decreases KRN via loss of SPM determinacy",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "ids1 null → IDS1 KO",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T037",
+      "gene": "sid1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "SID1"
+      ],
+      "gene_modifiers": {
+        "SID1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "SID1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "sid1 null → SID1 KO",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.024273",
+          "title": "Floral meristem initiation and meristem cell fate are regulated by the maize AP2 genes ids1 and sid1",
+          "authors": "Chuck G, Meeley R, Hake S",
+          "year": 2008,
+          "journal": "Development",
+          "evidence_sentence": "sid1 single mutants show spikelet meristem defects",
+          "claim": "sid1 KO decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "sid1 null → SID1 KO",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T038",
+      "gene": "ids1;sid1",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "IDS1",
+        "SID1"
+      ],
+      "gene_modifiers": {
+        "IDS1": 0.0,
+        "SID1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "IDS1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "SID1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ids1;sid1 double KO — SPM identity loss",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.024273",
+          "title": "Floral meristem initiation and meristem cell fate are regulated by the maize AP2 genes ids1 and sid1",
+          "authors": "Chuck G, Meeley R, Hake S",
+          "year": 2008,
+          "journal": "Development",
+          "evidence_sentence": "Double mutant initiated a maximum of four rows vs seven to eight rows in wild-type female inflorescences",
+          "claim": "ids1;sid1 double strongly decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "ids1;sid1 double KO — SPM identity loss",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T039",
+      "gene": "Ts6",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "IDS1"
+      ],
+      "gene_modifiers": {
+        "IDS1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "IDS1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Ts6 = dominant GOF miR172-resistant IDS1 allele (stabilised protein) → IDS1 gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.15890",
+          "title": "krn1, a major quantitative trait locus for kernel row number in maize",
+          "authors": "Wang J, Lin Z, Zhang X, Liu H, Zhou L, Zhong S, Li Y, Zhu C, Lin Z",
+          "year": 2019,
+          "journal": "New Phytologist",
+          "evidence_sentence": "Increased expression of ids1/Ts6 enhanced kernel row numbers",
+          "claim": "Ts6 dominant strongly increases KRN",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Ts6 = dominant GOF miR172-resistant IDS1 allele (stabilised protein) → IDS1 gm=2.0",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T040",
+      "gene": "ts4",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "miR172"
+      ],
+      "gene_modifiers": {
+        "miR172": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "miR172",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ts4 encodes zma-miR172e; ts4 null → miR172 activity reduced → miR172 gm=0.0",
+      "evidence": [
+        {
+          "doi": "10.1186/gb-2008-9-1-204",
+          "title": "MicroRNA, sex determination and floral meristem determinacy in maize",
+          "authors": "Banks JA",
+          "year": 2008,
+          "journal": "Genome Biology",
+          "evidence_sentence": "ts4 mutant feminized florets and increased spikelet branching with extra florets",
+          "claim": "ts4 KO releases IDS1, perturbs spikelet fate",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "ts4 encodes zma-miR172e; ts4 null → miR172 activity reduced → miR172 gm=0.0",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T041",
+      "gene": "KRN2_CRISPR",
+      "perturbation_type": "knockout_CRISPR",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "KRN2"
+      ],
+      "gene_modifiers": {
+        "KRN2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "KRN2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "KRN2 CRISPR KO",
+      "evidence": [
+        {
+          "doi": "10.1126/science.abg7985",
+          "title": "Convergent selection of a WD40 protein that enhances grain yield in maize and rice",
+          "authors": "Chen W, Chen L, Zhang X, Yang N, Guo J, Wang M, Ji S, Zhao X, Yin P, Cai L, Xu J, Zhang L, Han Y, Xiao Y, Xu G, Wang Y, Wang S, Wu S, Yang F, Jackson D, Cheng J, Chen S, Sun C, Qin F, Tian F, Fernie AR, Li J, Yan J, Yang X",
+          "year": 2022,
+          "journal": "Science",
+          "evidence_sentence": "Knockout of KRN2 in maize increased grain yield by ~10%",
+          "claim": "KRN2 KO increases KRN",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "KRN2 CRISPR KO",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T042",
+      "gene": "KRN4_absence_allele",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "UB3"
+      ],
+      "gene_modifiers": {
+        "UB3": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "UB3",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "KRN4 = distal cis-regulatory absence/low-expression allele at UB3 locus (Liu 2015) → UB3 gm=0.5 (partial KD), not gm=0.0 (per CLAUDE.md guidance)",
+      "evidence": [
+        {
+          "doi": "10.1371/journal.pgen.1005670",
+          "title": "KRN4 Controls Quantitative Variation in Maize Kernel Row Number",
+          "authors": "Liu L, Du Y, Shen X, Li M, Sun W, Huang J, Liu Z, Tao Y, Zheng Y, Yan J, Zhang Z",
+          "year": 2015,
+          "journal": "PLoS Genetics",
+          "evidence_sentence": "H21NX531 absence allele displayed higher KRN (more than 13 rows) vs H21 (11.8 rows)",
+          "claim": "KRN4 absence allele increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "KRN4 = distal cis-regulatory absence/low-expression allele at UB3 locus (Liu 2015) → UB3 gm=0.5 (partial KD), not gm=0.0 (per CLAUDE.md guidance)",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T043",
+      "gene": "ub3",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "UB3"
+      ],
+      "gene_modifiers": {
+        "UB3": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "UB3",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ub3 null → UB3 KO",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1407401112",
+          "title": "Maize SBP-box transcription factors unbranched2 and unbranched3 affect yield traits",
+          "authors": "Chuck GS, Brown PJ, Meeley R, Hake S",
+          "year": 2014,
+          "journal": "PNAS",
+          "evidence_sentence": "ub3 single mutant reduces tassel branches",
+          "claim": "ub3 single reduces branches (modest KRN effect)",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "ub3 null → UB3 KO",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T044",
+      "gene": "ub2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "UB2"
+      ],
+      "gene_modifiers": {
+        "UB2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "UB2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ub2 null → UB2 KO",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1407401112",
+          "title": "Maize SBP-box transcription factors unbranched2 and unbranched3 affect yield traits",
+          "authors": "Chuck GS, Brown PJ, Meeley R, Hake S",
+          "year": 2014,
+          "journal": "PNAS",
+          "evidence_sentence": "ub2 single mutant modest reduction in tassel branch number",
+          "claim": "ub2 single slight decrease",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "ub2 null → UB2 KO",
+      "expected_magnitude": "slight",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T045",
+      "gene": "ub2;ub3",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "UB2",
+        "UB3"
+      ],
+      "gene_modifiers": {
+        "UB2": 0.0,
+        "UB3": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "UB2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "UB3",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ub2;ub3 double KO — redundant SBP paralogs, strong phenotype",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1407401112",
+          "title": "Maize SBP-box transcription factors unbranched2 and unbranched3 affect yield traits",
+          "authors": "Chuck GS, Brown PJ, Meeley R, Hake S",
+          "year": 2014,
+          "journal": "PNAS",
+          "evidence_sentence": "ub2;ub3 double mutants show doubled ear kernel row numbers",
+          "claim": "ub2;ub3 double strongly increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "ub2;ub3 double KO — redundant SBP paralogs, strong phenotype",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T046",
+      "gene": "ub2;ub3;tsh4",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "UB2",
+        "UB3",
+        "TSH4"
+      ],
+      "gene_modifiers": {
+        "UB2": 0.0,
+        "UB3": 0.0,
+        "TSH4": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "UB2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "UB3",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "TSH4",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ub2;ub3;tsh4 triple KO",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1407401112",
+          "title": "Maize SBP-box transcription factors unbranched2 and unbranched3 affect yield traits",
+          "authors": "Chuck GS, Brown PJ, Meeley R, Hake S",
+          "year": 2014,
+          "journal": "PNAS",
+          "evidence_sentence": "triple mutants completely lacked tassel branches; widespread derepression",
+          "claim": "ub2;ub3;tsh4 triple strongly perturbs architecture",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "ub2;ub3;tsh4 triple KO",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T047",
+      "gene": "tb1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "teosinte branched1 (tb1) — whole-plant branching regulator; no TB1 node in this ear-focused network",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1714960114",
+          "title": "Ideal crop plant architecture is mediated by tassels replace upper ears1",
+          "authors": "Dong Z, Li W, Unger-Wallace E, Yang J, Vollbrecht E, Chuck G",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "tb1 mutants revert to highly branched ancestral state with axillary branches replacing ears",
+          "claim": "tb1 KO decreases KRN via loss of ear",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "teosinte branched1 (tb1) — whole-plant branching regulator; no TB1 node in this ear-focused network",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T048",
+      "gene": "tru1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "tassels replace upper ears1 (tru1, TCP) — no TRU1 node",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1714960114",
+          "title": "Ideal crop plant architecture is mediated by tassels replace upper ears1",
+          "authors": "Dong Z, Li W, Unger-Wallace E, Yang J, Vollbrecht E, Chuck G",
+          "year": 2017,
+          "journal": "PNAS",
+          "evidence_sentence": "tru1 mutation causes phenotypes similar to tb1; long axillary branches replace ear primordia",
+          "claim": "tru1 KO decreases KRN",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "tassels replace upper ears1 (tru1, TCP) — no TRU1 node",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T049",
+      "gene": "gt1",
+      "perturbation_type": "knockout",
+      "expected_direction": "unchanged",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "grassy tillers1 (gt1) — branching/tiller regulator, unchanged effect on ear KRN (negative biological control)",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1102819108",
+          "title": "grassy tillers1 promotes apical dominance in maize and responds to shade signals",
+          "authors": "Whipple CJ, Kebrom TH, Weber AL, Yang F, Hall D, Meeley R, Schmidt R, Doebley J, Brutnell TP, Jackson DP",
+          "year": 2011,
+          "journal": "PNAS",
+          "evidence_sentence": "gt1 has increased tillers but does not directly modify KRN in main ear",
+          "claim": "gt1 KO no KRN effect",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "grassy tillers1 (gt1) — branching/tiller regulator, unchanged effect on ear KRN (negative biological control)",
+      "expected_magnitude": "",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T050",
+      "gene": "vt2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "VT2"
+      ],
+      "gene_modifiers": {
+        "VT2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "VT2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "vt2 KO (TAA1 ortholog — auxin biosynthesis)",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.075267",
+          "title": "vanishing tassel2 encodes a grass-specific tryptophan aminotransferase",
+          "authors": "Phillips KA, Skirpan AL, Liu X, Christensen A, Slewinski TL, Hudson C, Barazesh S, Cohen JD, Malcomber S, McSteen P",
+          "year": 2011,
+          "journal": "Plant Cell",
+          "evidence_sentence": "vt2 tassels lack branches and spikelets entirely; ears show severe kernel reduction",
+          "claim": "vt2 KO strongly decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "vt2 KO (TAA1 ortholog — auxin biosynthesis)",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T051",
+      "gene": "spi1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "SPI1"
+      ],
+      "gene_modifiers": {
+        "SPI1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "SPI1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "spi1 KO (YUC ortholog — auxin biosynthesis)",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.0805596105",
+          "title": "sparse inflorescence1 encodes a monocot-specific YUCCA-like gene",
+          "authors": "Gallavotti A, Barazesh S, Malcomber S, Hall D, Jackson D, Schmidt RJ, McSteen P",
+          "year": 2008,
+          "journal": "PNAS",
+          "evidence_sentence": "spi1 ears are small, with fewer kernels",
+          "claim": "spi1 KO strongly decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "spi1 KO (YUC ortholog — auxin biosynthesis)",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T052",
+      "gene": "spi1;vt2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "SPI1",
+        "VT2"
+      ],
+      "gene_modifiers": {
+        "SPI1": 0.0,
+        "VT2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "SPI1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "VT2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "spi1;vt2 double KO — near-total loss of local auxin biosynthesis",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.110.075267",
+          "title": "vanishing tassel2 encodes a grass-specific tryptophan aminotransferase",
+          "authors": "Phillips KA, Skirpan AL, Liu X, Christensen A, Slewinski TL, Hudson C, Barazesh S, Cohen JD, Malcomber S, McSteen P",
+          "year": 2011,
+          "journal": "Plant Cell",
+          "evidence_sentence": "spi1;vt2 doubles slightly more severe than vt2 alone",
+          "claim": "spi1;vt2 severely decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "spi1;vt2 double KO — near-total loss of local auxin biosynthesis",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T053",
+      "gene": "Bif1_het",
+      "perturbation_type": "heterozygous",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "BIF1"
+      ],
+      "gene_modifiers": {
+        "BIF1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "BIF1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Bif1 heterozygote dominant GOF allele — BIF1 encoded as gene_modifier=2.0 reflecting semidominant stabilised Aux/IAA gain-of-function (Galli 2015, DOI 10.1073/pnas.1516473112): the mutant protein resists TIR1-mediated degradation, producing enhanced (not reduced) Aux/IAA repressor activity. Prior encoding as KD/KO was biologically inverted.",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1516473112",
+          "title": "Auxin signaling modules regulate maize inflorescence architecture",
+          "authors": "Galli M, Liu Q, Moss BL, Malcomber S, Li W, Gaines C, Federici S, Roshkovan J, Meeley R, Nemhauser JL, Gallavotti A",
+          "year": 2015,
+          "journal": "PNAS",
+          "evidence_sentence": "Tassels with reduced branches and spikelets; ears shortened with disorganized kernel rows",
+          "claim": "Bif1 het decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Bif1 heterozygote dominant GOF allele — BIF1 encoded as gene_modifier=2.0 reflecting semidominant stabilised Aux/IAA gain-of-function (Galli 2015, DOI 10.1073/pnas.1516473112): the mutant protein resists TIR1-mediated degradation, producing enhanced (not reduced) Aux/IAA repressor activity. Prior encoding as KD/KO was biologically inverted.",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T054",
+      "gene": "Bif4_het",
+      "perturbation_type": "heterozygous",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Bif4 (barren inflorescence 4) not represented as a node in this network",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1516473112",
+          "title": "Auxin signaling modules regulate maize inflorescence architecture",
+          "authors": "Galli M, Liu Q, Moss BL, Malcomber S, Li W, Gaines C, Federici S, Roshkovan J, Meeley R, Nemhauser JL, Gallavotti A",
+          "year": 2015,
+          "journal": "PNAS",
+          "evidence_sentence": "bif4 heterozygous similar defects to bif1",
+          "claim": "Bif4 het decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "Bif4 (barren inflorescence 4) not represented as a node in this network",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T055",
+      "gene": "Bif1;Bif4",
+      "perturbation_type": "double_mutant",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "BIF1"
+      ],
+      "gene_modifiers": {
+        "BIF1": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "BIF1",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "Bif1;Bif4 double dominant GOF — Bif1 component modelled; Bif4 partner not in network (partial mapping): BIF1 encoded as gene_modifier=2.0 reflecting semidominant stabilised Aux/IAA gain-of-function (Galli 2015, DOI 10.1073/pnas.1516473112): the mutant protein resists TIR1-mediated degradation, producing enhanced (not reduced) Aux/IAA repressor activity. Prior encoding as KD/KO was biologically inverted.",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1516473112",
+          "title": "Auxin signaling modules regulate maize inflorescence architecture",
+          "authors": "Galli M, Liu Q, Moss BL, Malcomber S, Li W, Gaines C, Federici S, Roshkovan J, Meeley R, Nemhauser JL, Gallavotti A",
+          "year": 2015,
+          "journal": "PNAS",
+          "evidence_sentence": "Pin-like inflorescences in which organogenesis was often completely impaired",
+          "claim": "Bif1;Bif4 double severely decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Bif1;Bif4 double dominant GOF — Bif1 component modelled; Bif4 partner not in network (partial mapping): BIF1 encoded as gene_modifier=2.0 reflecting semidominant stabilised Aux/IAA gain-of-function (Galli 2015, DOI 10.1073/pnas.1516473112): the mutant protein resists TIR1-mediated degradation, producing enhanced (not reduced) Aux/IAA repressor activity. Prior encoding as KD/KO was biologically inverted.",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T056",
+      "gene": "bif2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "BIF2"
+      ],
+      "gene_modifiers": {
+        "BIF2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "BIF2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "bif2 KO (PID ortholog — auxin transport regulator)",
+      "evidence": [
+        {
+          "doi": "10.1073/pnas.1516473112",
+          "title": "Auxin signaling modules regulate maize inflorescence architecture",
+          "authors": "Galli M, Liu Q, Moss BL, Malcomber S, Li W, Gaines C, Federici S, Roshkovan J, Meeley R, Nemhauser JL, Gallavotti A",
+          "year": 2015,
+          "journal": "PNAS",
+          "evidence_sentence": "bif2 mutants show fewer branches and spikelets",
+          "claim": "bif2 KO decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "bif2 KO (PID ortholog — auxin transport regulator)",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T057",
+      "gene": "ba1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "BA1"
+      ],
+      "gene_modifiers": {
+        "BA1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "BA1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ba1 KO (bHLH axillary-meristem initiator)",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.108.121541",
+          "title": "The Relationship between Auxin Transport and Maize Branching",
+          "authors": "Gallavotti A, Yang Y, Schmidt RJ, Jackson D",
+          "year": 2008,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "ba1 mutants completely lack all axillary meristems, resulting in a sterile plant",
+          "claim": "ba1 KO completely eliminates KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "ba1 KO (bHLH axillary-meristem initiator)",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T058",
+      "gene": "WT_plus_NPA",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "ZMPIN1A"
+      ],
+      "gene_modifiers": {
+        "ZMPIN1A": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ZMPIN1A",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "NPA polar-auxin-transport inhibitor → ZMPIN1A KD (gm=0.1)",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.108.121541",
+          "title": "The Relationship between Auxin Transport and Maize Branching",
+          "authors": "Gallavotti A, Yang Y, Schmidt RJ, Jackson D",
+          "year": 2008,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "NPA treatment completely abolished ability of IM to form any axillary meristem",
+          "claim": "NPA decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "treated",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "NPA polar-auxin-transport inhibitor → ZMPIN1A KD (gm=0.1)",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T059",
+      "gene": "WT_plus_IAA",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Auxin"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Auxin": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Auxin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Exogenous IAA → Auxin supply=1.0",
+      "evidence": [
+        {
+          "doi": "10.1007/s00497-024-00510-0",
+          "title": "Hormonal influence on maize inflorescence development and reproduction",
+          "authors": "Chaudhry A, Chen Z, Gallavotti A",
+          "year": 2024,
+          "journal": "Plant Reproduction",
+          "evidence_sentence": "Exogenous auxin treatment promotes lateral primordia initiation",
+          "claim": "IAA slight increase KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "treated",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Exogenous IAA → Auxin supply=1.0",
+      "expected_magnitude": "slight",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T060",
+      "gene": "WT_plus_NAA",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Auxin"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Auxin": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Auxin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Exogenous NAA (synthetic auxin) → Auxin supply=1.0",
+      "evidence": [
+        {
+          "doi": "10.1007/s00497-024-00510-0",
+          "title": "Hormonal influence on maize inflorescence development and reproduction",
+          "authors": "Chaudhry A, Chen Z, Gallavotti A",
+          "year": 2024,
+          "journal": "Plant Reproduction",
+          "evidence_sentence": "Synthetic auxins like NAA promote axillary meristem initiation",
+          "claim": "NAA slight increase KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "treated",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Exogenous NAA (synthetic auxin) → Auxin supply=1.0",
+      "expected_magnitude": "slight",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T061",
+      "gene": "WT_plus_TIBA",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "ZMPIN1A"
+      ],
+      "gene_modifiers": {
+        "ZMPIN1A": 0.1
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ZMPIN1A",
+          "modifier_type": "gene_modifier",
+          "value": 0.1
+        }
+      ],
+      "notes": "TIBA polar-auxin-transport inhibitor → ZMPIN1A KD (gm=0.1)",
+      "evidence": [
+        {
+          "doi": "10.1104/pp.108.121541",
+          "title": "The Relationship between Auxin Transport and Maize Branching",
+          "authors": "Gallavotti A, Yang Y, Schmidt RJ, Jackson D",
+          "year": 2008,
+          "journal": "Plant Physiology",
+          "evidence_sentence": "Polar auxin transport inhibitors TIBA/NPA abolish AM formation",
+          "claim": "TIBA decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "treated",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "TIBA polar-auxin-transport inhibitor → ZMPIN1A KD (gm=0.1)",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T062",
+      "gene": "WT_plus_kinetin",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Cytokinin"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Cytokinin": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Cytokinin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Exogenous kinetin → Cytokinin supply=1.0",
+      "evidence": [
+        {
+          "doi": "10.1007/s00497-024-00510-0",
+          "title": "Hormonal influence on maize inflorescence development and reproduction",
+          "authors": "Chaudhry A, Chen Z, Gallavotti A",
+          "year": 2024,
+          "journal": "Plant Reproduction",
+          "evidence_sentence": "Exogenous CK treatment to ear primordia increases meristem size",
+          "claim": "Kinetin slight increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "treated",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Exogenous kinetin → Cytokinin supply=1.0",
+      "expected_magnitude": "slight",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T063",
+      "gene": "WT_plus_BA",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "Cytokinin"
+      ],
+      "gene_modifiers": {},
+      "exogenous_supply": {
+        "Cytokinin": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "Cytokinin",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "Exogenous BA (6-benzylaminopurine) → Cytokinin supply=1.0",
+      "evidence": [
+        {
+          "doi": "10.1007/s00497-024-00510-0",
+          "title": "Hormonal influence on maize inflorescence development and reproduction",
+          "authors": "Chaudhry A, Chen Z, Gallavotti A",
+          "year": 2024,
+          "journal": "Plant Reproduction",
+          "evidence_sentence": "Benzyladenine treatment to maize meristems enlarges them",
+          "claim": "BA slight increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "treated",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "Exogenous BA (6-benzylaminopurine) → Cytokinin supply=1.0",
+      "expected_magnitude": "slight",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T064",
+      "gene": "KNR6_OE",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "KNR6"
+      ],
+      "gene_modifiers": {
+        "KNR6": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "KNR6",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "KNR6 overexpression → KNR6 gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-14746-7",
+          "title": "A serine/threonine protein kinase encoding gene KERNEL NUMBER PER ROW6 regulates maize grain yield",
+          "authors": "Jia H, Li M, Li W, Liu L, Jian Y, Yang Z, Shen X, Ning Q, Du Y, Zhao R, Jackson D, Yang X, Zhang Z",
+          "year": 2020,
+          "journal": "Nature Communications",
+          "evidence_sentence": "KNR6 OE increases KNR by 2.5 per row; ear length by 1.1 cm",
+          "claim": "KNR6 OE increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "KNR6 overexpression → KNR6 gm=2.0",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T065",
+      "gene": "KNR6_RNAi",
+      "perturbation_type": "knockdown",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "KNR6"
+      ],
+      "gene_modifiers": {
+        "KNR6": 0.5
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "KNR6",
+          "modifier_type": "gene_modifier",
+          "value": 0.5
+        }
+      ],
+      "notes": "KNR6 RNAi knockdown → KNR6 gm=0.5",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-14746-7",
+          "title": "A serine/threonine protein kinase encoding gene KERNEL NUMBER PER ROW6 regulates maize grain yield",
+          "authors": "Jia H, Li M, Li W, Liu L, Jian Y, Yang Z, Shen X, Ning Q, Du Y, Zhao R, Jackson D, Yang X, Zhang Z",
+          "year": 2020,
+          "journal": "Nature Communications",
+          "evidence_sentence": "RNAi lines shorter ears by 1.35 cm; fewer kernels per row by 2.85",
+          "claim": "KNR6 RNAi decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "KNR6 RNAi knockdown → KNR6 gm=0.5",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T066",
+      "gene": "AGAP_CRISPR",
+      "perturbation_type": "knockout_CRISPR",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "AGAP"
+      ],
+      "gene_modifiers": {
+        "AGAP": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "AGAP",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "AGAP CRISPR KO",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-020-14746-7",
+          "title": "A serine/threonine protein kinase encoding gene KERNEL NUMBER PER ROW6 regulates maize grain yield",
+          "authors": "Jia H, Li M, Li W, Liu L, Jian Y, Yang Z, Shen X, Ning Q, Du Y, Zhao R, Jackson D, Yang X, Zhang Z",
+          "year": 2020,
+          "journal": "Nature Communications",
+          "evidence_sentence": "AGAP CRISPR produced shorter IM by 76 Î¼m and fewer kernels per row by 4.75",
+          "claim": "AGAP CRISPR decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "AGAP CRISPR KO",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T067",
+      "gene": "KRN5b_KO",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "KRN5B"
+      ],
+      "gene_modifiers": {
+        "KRN5B": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "KRN5B",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "KRN5b null → KRN5B KO",
+      "evidence": [
+        {
+          "doi": "10.1111/pbi.14463",
+          "title": "KRN5b regulates maize kernel row number through mediating phosphoinositol signalling",
+          "authors": "Shen X et al.",
+          "year": 2024,
+          "journal": "Plant Biotechnology Journal",
+          "evidence_sentence": "KRN5b KO causes disordered kernel rows and decrease in number of kernels",
+          "claim": "KRN5b KO decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "KRN5b null → KRN5B KO",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T068",
+      "gene": "KRN5b_highExpr",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "KRN5B"
+      ],
+      "gene_modifiers": {
+        "KRN5B": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "KRN5B",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "KRN5b natural high-expression allele → KRN5B gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.1111/pbi.14463",
+          "title": "KRN5b regulates maize kernel row number through mediating phosphoinositol signalling",
+          "authors": "Shen X et al.",
+          "year": 2024,
+          "journal": "Plant Biotechnology Journal",
+          "evidence_sentence": "Higher-expression allele increased ear weight 10-12% via increasing KRN",
+          "claim": "KRN5b high-expr increases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "KRN5b natural high-expression allele → KRN5B gm=2.0",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T069",
+      "gene": "ZmTCP30",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "ZMTCP30"
+      ],
+      "gene_modifiers": {
+        "ZMTCP30": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ZMTCP30",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ZmTCP30 KO",
+      "evidence": [
+        {
+          "doi": "10.1093/plcell/koac352",
+          "title": "UB2/UB3/TSH4-anchored transcriptional networks regulate early maize inflorescence development",
+          "authors": "Kong D, Wang B, Wang H",
+          "year": 2022,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Zmtcp30 mutant showed decreased tassel branches and reduced grain number",
+          "claim": "Zmtcp30 KO decreases KRN",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "ZmTCP30 KO",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T070",
+      "gene": "drl1",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": false,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "drl1 (DROOPING LEAF1/RAMOSA-like) not represented as a node",
+      "evidence": [
+        {
+          "doi": "10.1242/dev.171181",
+          "title": "Maize YABBY genes drooping leaf1 and drooping leaf2 regulate floret development and floral meristem determinacy",
+          "authors": "Strable J, Vollbrecht E",
+          "year": 2019,
+          "journal": "Development",
+          "evidence_sentence": "drl1 ears are sterile with unfused carpels",
+          "claim": "drl1 KO decreases KRN via sterility",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "not_in_network",
+      "reconciliation_note": "drl1 (DROOPING LEAF1/RAMOSA-like) not represented as a node",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T071",
+      "gene": "fea4_plus_ZmCLE7",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "FEA4",
+        "ZMCLE7"
+      ],
+      "gene_modifiers": {
+        "FEA4": 0.0
+      },
+      "exogenous_supply": {
+        "ZMCLE7": 1.0
+      },
+      "perturbations": [
+        {
+          "node": "FEA4",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "ZMCLE7",
+          "modifier_type": "exogenous_supply",
+          "value": 1.0
+        }
+      ],
+      "notes": "fea4 + ZmCLE7 peptide — FEA4 is downstream of a different CLE pathway; ZmCLE7 signalling via FEA2/CT2/ZMCRN still intact, so peptide is active on the fea4 background",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.132506",
+          "title": "FASCIATED EAR4 Encodes a bZIP Transcription Factor",
+          "authors": "Pautler M, Eveland AL, LaRue T, Yang F, Weeks R, Lunde C, Je BI, Meeley R, Komatsu M, Vollbrecht E, Sakai H, Jackson D",
+          "year": 2015,
+          "journal": "Plant Cell",
+          "evidence_sentence": "fea4 parallel to CLV; fea4 mutant meristem enlargement is additive with CLE pathway loss",
+          "claim": "fea4 + CLE parallel pathway",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "mutant",
+      "condition": "ex_vivo",
+      "reconciliation_type": "treatment_analog",
+      "reconciliation_note": "fea4 + ZmCLE7 peptide — FEA4 is downstream of a different CLE pathway; ZmCLE7 signalling via FEA2/CT2/ZMCRN still intact, so peptide is active on the fea4 background",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T072",
+      "gene": "fea4;abph2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "FEA4",
+        "ABPH2"
+      ],
+      "gene_modifiers": {
+        "FEA4": 0.0,
+        "ABPH2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "FEA4",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        },
+        {
+          "node": "ABPH2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "fea4;abph2 double KO — two independent IM-restrictive pathways lost",
+      "evidence": [
+        {
+          "doi": "10.1105/tpc.114.130393",
+          "title": "A Maize Glutaredoxin Gene, Abphyl2, Regulates Shoot Meristem Size and Phyllotaxy",
+          "authors": "Yang F, Bui HT, Pautler M, Llaca V, Johnston R, Lee BH, Kolbe A, Sakai H, Jackson D",
+          "year": 2015,
+          "journal": "Plant Cell",
+          "evidence_sentence": "Abph2 fea4 double mutants showed additive meristem size defects (255 vs 173 um in Abph2 alone)",
+          "claim": "Abph2;fea4 double strong meristem increase",
+          "verification": "full_text_read",
+          "full_text_read": true
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "fea4;abph2 double KO — two independent IM-restrictive pathways lost",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T073",
+      "gene": "ba2",
+      "perturbation_type": "knockout",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "BA2"
+      ],
+      "gene_modifiers": {
+        "BA2": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "BA2",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ba2 KO (axillary-meristem initiation)",
+      "evidence": [
+        {
+          "doi": "10.1016/j.molp.2018.12.024",
+          "title": "The barren stalk2 Gene Is Required for Axillary Meristem Development in Maize",
+          "authors": "Yao H, Skirpan A, Wardell B, Matthes MS, Best NB, McCubbin T, Durbak A, Smith T, Malcomber S, McSteen P",
+          "year": 2019,
+          "journal": "Molecular Plant",
+          "evidence_sentence": "ba2 mutant fails to produce ears and has fewer branches and spikelets in the tassel",
+          "claim": "ba2 KO strongly decreases KRN (barren / earless phenotype)",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "ba2 KO (axillary-meristem initiation)",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T074",
+      "gene": "Zmer1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ZMER1"
+      ],
+      "gene_modifiers": {
+        "ZMER1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ZMER1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Zmer1 null → ZMER1 KO (ERECTA receptor)",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-025-67634-3",
+          "title": "ERECTA genes and their ligands regulate shoot and inflorescence architecture in maize",
+          "authors": "Liu X, Wang J, Li J, Kang L, Wang M, Huang Z, Man J, Huang X, Zhang Z, Yang F, Bartlett M, Wu L, Dong Z, Jackson D, Xu F",
+          "year": 2026,
+          "journal": "Nature Communications",
+          "evidence_sentence": "Zmer1 mutants have compact architecture, enlarged inflorescence meristems (IMs), and increased kernel row numbers (KRNs)",
+          "claim": "Zmer1 KO increases KRN via enlarged IM",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "case_insensitive",
+      "reconciliation_note": "Zmer1 null → ZMER1 KO (ERECTA receptor)",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T075",
+      "gene": "ZmEPFL_quintuple",
+      "perturbation_type": "knockout_CRISPR",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ZMEPFL"
+      ],
+      "gene_modifiers": {
+        "ZMEPFL": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ZMEPFL",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "ZmEPFL quintuple CRISPR KO → ZMEPFL composite node gm=0.0 (five paralogs collapsed)",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-025-67634-3",
+          "title": "ERECTA genes and their ligands regulate shoot and inflorescence architecture in maize",
+          "authors": "Liu X, Wang J, Li J, Kang L, Wang M, Huang Z, Man J, Huang X, Zhang Z, Yang F, Bartlett M, Wu L, Dong Z, Jackson D, Xu F",
+          "year": 2026,
+          "journal": "Nature Communications",
+          "evidence_sentence": "CRISPR/Cas9 editing generated different distinct frameshift alleles in five EPFL genes. Statistical analysis shows that the kernel row number is significantly increased in the quintuple mutants",
+          "claim": "Quintuple EPFL KO significantly increases KRN",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "composite_collapse",
+      "reconciliation_note": "ZmEPFL quintuple CRISPR KO → ZMEPFL composite node gm=0.0 (five paralogs collapsed)",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T076",
+      "gene": "UB3_OE",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "in_network": true,
+      "network_gene": [
+        "UB3"
+      ],
+      "gene_modifiers": {
+        "UB3": 2.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "UB3",
+          "modifier_type": "gene_modifier",
+          "value": 2.0
+        }
+      ],
+      "notes": "UB3 overexpression → UB3 gm=2.0",
+      "evidence": [
+        {
+          "doi": "10.1111/nph.14391",
+          "title": "UNBRANCHED3 regulates branching by modulating cytokinin biosynthesis and signaling in maize and rice",
+          "authors": "Du Y, Liu L, Li M, Fang S, Shen X, Chu J, Zhang Z",
+          "year": 2017,
+          "journal": "New Phytologist",
+          "evidence_sentence": "overexpression of exogenous UB3 dramatically suppressed tillering and panicle branching as a result of a greater decrease in the amount of active cytokinin",
+          "claim": "UB3 OE decreases branching / KRN via cytokinin suppression",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "exact_match",
+      "reconciliation_note": "UB3 overexpression → UB3 gm=2.0",
+      "expected_magnitude": "moderate",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T077",
+      "gene": "Zmer1;Zmer2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "in_network": true,
+      "network_gene": [
+        "ZMER1"
+      ],
+      "gene_modifiers": {
+        "ZMER1": 0.0
+      },
+      "exogenous_supply": {},
+      "perturbations": [
+        {
+          "node": "ZMER1",
+          "modifier_type": "gene_modifier",
+          "value": 0.0
+        }
+      ],
+      "notes": "Zmer1;Zmer2 double KO — ZMER1 fully affected (gm=0.0); Zmer2 partner not represented as a separate node (partial mapping)",
+      "evidence": [
+        {
+          "doi": "10.1038/s41467-025-67634-3",
+          "title": "ERECTA genes and their ligands regulate shoot and inflorescence architecture in maize",
+          "authors": "Liu X, Wang J, Li J, Kang L, Wang M, Huang Z, Man J, Huang X, Zhang Z, Yang F, Bartlett M, Wu L, Dong Z, Jackson D, Xu F",
+          "year": 2026,
+          "journal": "Nature Communications",
+          "evidence_sentence": "ZmER receptors act redundantly, with ZmER1 playing a primary role; mutants enlarge inflorescence meristems and increase kernel row numbers",
+          "claim": "Zmer1;Zmer2 double KO strongly increases KRN via redundant receptor loss",
+          "verification": "abstract_read",
+          "full_text_read": false
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "standard",
+      "reconciliation_type": "mechanism_mapping",
+      "reconciliation_note": "Zmer1;Zmer2 double KO — ZMER1 fully affected (gm=0.0); Zmer2 partner not represented as a separate node (partial mapping)",
+      "expected_magnitude": "strong",
+      "species": "Zea mays"
+    },
+    {
+      "test_id": "T078",
+      "gene": "WT_control",
+      "perturbation_type": "control",
+      "expected_direction": "unchanged",
+      "in_network": true,
+      "network_gene": [],
+      "gene_modifiers": {},
+      "exogenous_supply": {},
+      "perturbations": [],
+      "notes": "Negative control — WT baseline with no perturbation applied; validator should predict unchanged relative to WT.",
+      "evidence": [
+        {
+          "doi": "10.1007/s00497-024-00510-0",
+          "title": "Maize ear development and kernel row number: a review",
+          "authors": "Author list",
+          "year": 2024,
+          "journal": "Sexual Plant Reproduction",
+          "evidence_sentence": "WT B73 reference ears show stable 16-18 kernel rows under standard greenhouse conditions.",
+          "claim": "WT baseline"
+        }
+      ],
+      "phenotype_node": "Kernel_Row_Number",
+      "comparison_baseline": "WT",
+      "condition": "control",
+      "reconciliation_type": "control",
+      "reconciliation_note": "WT negative control",
+      "expected_magnitude": "",
+      "species": "Zea mays"
+    }
+  ]
+}

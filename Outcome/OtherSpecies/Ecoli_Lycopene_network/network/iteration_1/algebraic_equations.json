@@ -1,0 +1,640 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lycopene_Titer",
+    "species": "Escherichia coli",
+    "created": "2026-04-21",
+    "total_equations": 61
+  },
+  "parameters": {
+    "epsilon": 0.1,
+    "K": 10.0,
+    "activator_floor": 0.01,
+    "damping": 0.7,
+    "direction_threshold": 0.05,
+    "max_iterations": 100,
+    "convergence_tolerance": 0.0001
+  },
+  "equations": [
+    {
+      "node": "Glucose",
+      "type": "ENVIRONMENT",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Glucose = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Glycerol",
+      "type": "ENVIRONMENT",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Glycerol = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Xylose",
+      "type": "ENVIRONMENT",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Xylose = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "IPTG",
+      "type": "ENVIRONMENT",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "IPTG = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Arabinose",
+      "type": "ENVIRONMENT",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Arabinose = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Plasmid_Copy_Number",
+      "type": "ENVIRONMENT",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Plasmid_Copy_Number = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Oxygen_Level",
+      "type": "ENVIRONMENT",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Oxygen_Level = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Temperature",
+      "type": "ENVIRONMENT",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "Temperature = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "G3P",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "Glucose",
+        "Glycerol",
+        "Xylose",
+        "PGI",
+        "PPS",
+        "EDD",
+        "EDA"
+      ],
+      "inhibitors": [
+        "ZWF",
+        "GAPA"
+      ],
+      "formula": "G3P = (max(Glucose, 0.01) * max(Glycerol, 0.01) * max(Xylose, 0.01) * max(PGI, 0.01) * max(PPS, 0.01) * max(EDD, 0.01) * max(EDA, 0.01))^(1/7) * min(1/max(ZWF * GAPA, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Pyruvate",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "Glucose",
+        "Xylose",
+        "PGI",
+        "PYKA",
+        "PYKF",
+        "EDD",
+        "EDA"
+      ],
+      "inhibitors": [
+        "PPS",
+        "LDH"
+      ],
+      "formula": "Pyruvate = (max(Glucose, 0.01) * max(Xylose, 0.01) * max(PGI, 0.01) * max(PYKA, 0.01) * max(PYKF, 0.01) * max(EDD, 0.01) * max(EDA, 0.01))^(1/7) * min(1/max(PPS * LDH, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Acetyl_CoA",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "ACEE"
+      ],
+      "inhibitors": [
+        "PTA",
+        "PPC"
+      ],
+      "formula": "Acetyl_CoA = max(ACEE, 0.01)^(1/1) * min(1/max(PTA * PPC, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Acetyl_P",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "Glucose"
+      ],
+      "inhibitors": [],
+      "formula": "Acetyl_P = max(Glucose, 0.01)^(1/1) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NADPH",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "GND"
+      ],
+      "inhibitors": [
+        "GDHA"
+      ],
+      "formula": "NADPH = max(GND, 0.01)^(1/1) * min(1/max(GDHA, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATP",
+      "type": "METABOLITE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATP = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Mevalonate",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "Acetyl_CoA",
+        "ATOB",
+        "HMGS",
+        "HMGR"
+      ],
+      "inhibitors": [],
+      "formula": "Mevalonate = (max(Acetyl_CoA, 0.01) * max(ATOB, 0.01) * max(HMGS, 0.01) * max(HMGR, 0.01))^(1/4) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "IPP",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "DXS",
+        "G3P",
+        "Pyruvate",
+        "IDI",
+        "Mevalonate",
+        "MVK",
+        "MVD"
+      ],
+      "inhibitors": [],
+      "formula": "IPP = (max(DXS, 0.01) * max(G3P, 0.01) * max(Pyruvate, 0.01) * max(IDI, 0.01) * max(Mevalonate, 0.01) * max(MVK, 0.01) * max(MVD, 0.01))^(1/7) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DMAPP",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "IDI",
+        "IPP"
+      ],
+      "inhibitors": [],
+      "formula": "DMAPP = (max(IDI, 0.01) * max(IPP, 0.01))^(1/2) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GPP",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "ISPA"
+      ],
+      "inhibitors": [],
+      "formula": "GPP = max(ISPA, 0.01)^(1/1) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FPP",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "ISPA",
+        "IPP",
+        "DMAPP"
+      ],
+      "inhibitors": [
+        "ISPB"
+      ],
+      "formula": "FPP = (max(ISPA, 0.01) * max(IPP, 0.01) * max(DMAPP, 0.01))^(1/3) * min(1/max(ISPB, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GGPP",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "CRTE",
+        "FPP"
+      ],
+      "inhibitors": [],
+      "formula": "GGPP = (max(CRTE, 0.01) * max(FPP, 0.01))^(1/2) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Phytoene",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "CRTB",
+        "GGPP"
+      ],
+      "inhibitors": [],
+      "formula": "Phytoene = (max(CRTB, 0.01) * max(GGPP, 0.01))^(1/2) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ROS",
+      "type": "METABOLITE",
+      "is_source": false,
+      "activators": [
+        "Oxygen_Level"
+      ],
+      "inhibitors": [
+        "KATE",
+        "Lycopene_Titer"
+      ],
+      "formula": "ROS = max(Oxygen_Level, 0.01)^(1/1) * min(1/max(KATE * Lycopene_Titer, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PGI",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PGI = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ZWF",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "SOXS"
+      ],
+      "inhibitors": [],
+      "formula": "ZWF = max(SOXS, 0.01)^(1/1) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GAPA",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GAPA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PYKA",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PYKA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PYKF",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PYKF = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PPC",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PPC = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PPS",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "NRI",
+        "CRA"
+      ],
+      "inhibitors": [],
+      "formula": "PPS = (max(NRI, 0.01) * max(CRA, 0.01))^(1/2) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "EDD",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EDD = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "EDA",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "EDA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GND",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GND = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "GDHA",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "GDHA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ACEE",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "ARCA",
+        "FNR"
+      ],
+      "formula": "ACEE = 1.0 * min(1/max(ARCA * FNR, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PTA",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "PTA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "LDH",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "LDH = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "DXS",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "IPTG",
+        "Arabinose"
+      ],
+      "inhibitors": [],
+      "formula": "DXS = (max(IPTG, 0.01) * max(Arabinose, 0.01))^(1/2) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "IDI",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "NRI",
+        "IPTG",
+        "Arabinose",
+        "Plasmid_Copy_Number"
+      ],
+      "inhibitors": [],
+      "formula": "IDI = (max(NRI, 0.01) * max(IPTG, 0.01) * max(Arabinose, 0.01) * max(Plasmid_Copy_Number, 0.01))^(1/4) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ATOB",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ATOB = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "HMGS",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HMGS = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "HMGR",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "NADPH"
+      ],
+      "inhibitors": [],
+      "formula": "HMGR = max(NADPH, 0.01)^(1/1) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MVK",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "Plasmid_Copy_Number",
+        "ATP"
+      ],
+      "inhibitors": [
+        "GPP",
+        "FPP",
+        "GGPP"
+      ],
+      "formula": "MVK = (max(Plasmid_Copy_Number, 0.01) * max(ATP, 0.01))^(1/2) * min(1/max(GPP * FPP * GGPP, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "MVD",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "MVD = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ISPA",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "Arabinose"
+      ],
+      "inhibitors": [],
+      "formula": "ISPA = max(Arabinose, 0.01)^(1/1) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ISPB",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ISPB = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CRTE",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "IPTG",
+        "Plasmid_Copy_Number"
+      ],
+      "inhibitors": [],
+      "formula": "CRTE = (max(IPTG, 0.01) * max(Plasmid_Copy_Number, 0.01))^(1/2) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CRTB",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "IPTG",
+        "Plasmid_Copy_Number"
+      ],
+      "inhibitors": [],
+      "formula": "CRTB = (max(IPTG, 0.01) * max(Plasmid_Copy_Number, 0.01))^(1/2) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CRTI",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "IPTG",
+        "Plasmid_Copy_Number",
+        "NADPH"
+      ],
+      "inhibitors": [],
+      "formula": "CRTI = (max(IPTG, 0.01) * max(Plasmid_Copy_Number, 0.01) * max(NADPH, 0.01))^(1/3) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "RPOS",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "CRL"
+      ],
+      "inhibitors": [
+        "HNR"
+      ],
+      "formula": "RPOS = max(CRL, 0.01)^(1/1) * min(1/max(HNR, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CRL",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CRL = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "HNR",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "HNR = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ARCA",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "Oxygen_Level"
+      ],
+      "formula": "ARCA = 1.0 * min(1/max(Oxygen_Level, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "FNR",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [],
+      "inhibitors": [
+        "Oxygen_Level"
+      ],
+      "formula": "FNR = 1.0 * min(1/max(Oxygen_Level, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SOXR",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "SOXR = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "SOXS",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "SOXR"
+      ],
+      "inhibitors": [],
+      "formula": "SOXS = max(SOXR, 0.01)^(1/1) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "CRA",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "CRA = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "NRI",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "Acetyl_P"
+      ],
+      "inhibitors": [],
+      "formula": "NRI = max(Acetyl_P, 0.01)^(1/1) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "KATE",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "RPOS"
+      ],
+      "inhibitors": [],
+      "formula": "KATE = max(RPOS, 0.01)^(1/1) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "PLSB",
+      "type": "GENE",
+      "is_source": false,
+      "activators": [
+        "ALMGS"
+      ],
+      "inhibitors": [],
+      "formula": "PLSB = max(ALMGS, 0.01)^(1/1) * 1.0 * gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "ALMGS",
+      "type": "GENE",
+      "is_source": true,
+      "activators": [],
+      "inhibitors": [],
+      "formula": "ALMGS = gene_modifier + exogenous_supply"
+    },
+    {
+      "node": "Lycopene_Titer",
+      "type": "PHENOTYPE",
+      "is_source": false,
+      "activators": [
+        "CRTI",
+        "Phytoene",
+        "RPOS",
+        "KATE",
+        "PLSB"
+      ],
+      "inhibitors": [
+        "GPP",
+        "FPP",
+        "Temperature",
+        "ROS"
+      ],
+      "formula": "Lycopene_Titer = (max(CRTI, 0.01) * max(Phytoene, 0.01) * max(RPOS, 0.01) * max(KATE, 0.01) * max(PLSB, 0.01))^(1/5) * min(1/max(GPP * FPP * Temperature * ROS, 0.1), 10.0) * gene_modifier + exogenous_supply"
+    }
+  ]
+}

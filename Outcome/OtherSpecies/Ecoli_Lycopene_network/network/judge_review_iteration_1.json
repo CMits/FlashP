@@ -1,0 +1,326 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Lycopene_Titer",
+    "phenotype_node": "Lycopene_Titer",
+    "species": "Escherichia coli",
+    "created": "2026-04-21",
+    "iteration": 1,
+    "judge_model": "Claude Opus 4.7 (1M context)",
+    "framing_note": "Metabolic-as-signalling review: enzymes are nodes, biosynthetic steps are +1 activating edges, -1 edges encode repression or substrate depletion. Same FLASH-P mathematics apply."
+  },
+  "verdict": "iterate",
+  "summary": "Network covers the carotenoid cassette (CrtE/CrtB/CrtI) correctly and includes both MEP precursor supply (G3P, Pyruvate, DXS, IDI) and a partial MVA arm, plus basic stress regulators (RpoS, SoxR/S, ArcA, FNR). However it has three structural weaknesses: (1) the interior MEP pathway is collapsed to a single DXS->IPP shortcut - Dxr/IspD/IspE/IspF/IspG/IspH are ALL curated (mostly in_model=True) but absent, so ispC/D/E/F/G/H mutant tests cannot propagate; (2) MVA is missing PMK and treats AtoB/HMGS/HMGR as parallel activators on Mevalonate rather than a linear chain; (3) Lycopene_Titer is a 9-input hub with coverage 10/43 = 0.23, a §9.11 key-player under-representation flag, while several curated in_model=True edges (CRP, SodA, DgkA, envelope-stress set) are silently dropped. Also missing curated Dxs substrate-depletion edges E143/E144 that are in_model=True. Multiple HIGH-priority structural suggestions require a second BUILDER iteration.",
+  "rubric_scores": {
+    "pathway_completeness": {
+      "score": 3,
+      "justification": "Carotenoid cassette (CrtE/CrtB/CrtI) complete and correctly terminates at Lycopene_Titer; CrtY correctly absent. MEP precursor entry (G3P, Pyruvate) and central metabolism (PGI, ZWF, GAPA, PYKA/F, PPC, PPS, EDD, EDA, GND, GDHA, ACEE, PTA, LDH) well-covered. However the *interior* MEP (Dxr, IspD, IspE, IspF, IspG, IspH) is entirely absent despite being curated as in_model=True - this is a major pathway gap. MVA path is missing PMK (the only one of the 6 MVA enzymes absent). Oxidative defense is partial: KatE is present but SodA and KatG are not. Catabolite regulator CRP is absent. Envelope-stress sink (WaaC, WaaF, Lpp, NlpI, MlaE, TolA, Plsc, DgkA) is absent."
+    },
+    "mechanistic_depth": {
+      "score": 2,
+      "justification": "MEP is collapsed from an 8-step cascade (DXS->DXR->IspD->IspE->IspF->IspG->IspH->IPP/DMAPP) to a 1-step shortcut (DXS->IPP). MVA is collapsed similarly: AtoB, HMGS, HMGR are wired as three parallel activators of Mevalonate (rather than a chain through Acetoacetyl-CoA and HMG-CoA), and MVK and MVD are wired as parallel activators of IPP in addition to Mevalonate->IPP. IPP therefore has 7 parallel activators which, under geometric-mean activation, will dilute perturbation signal significantly (one enzyme KO moves a 7-activator geometric mean from 1.0 only to ~0.79 when the KO is set to 0.01, not to zero). Carotenoid cassette is correctly represented as a chain. Central metabolism cascade is flat (all enzymes directly affect G3P/Pyruvate pools). Lycopene<->ROS feedback motif is correctly implemented but KATE has a redundant direct edge to Lycopene_Titer alongside KATE->ROS->Lycopene_Titer route."
+    },
+    "motif_coverage": {
+      "score": 3,
+      "justification": "Competing sink motif used correctly for ISPB->FPP(-1). Multi-output scaffold used for ISPA (FPP + GPP). Feed-forward parallel paths MEP and MVA both feeding IPP is present. Lycopene<->ROS negative feedback is implemented (stabilising). However, the Biosynthesis-Degradation motif is not applied to the MEP/MVA intermediates (IPP, DMAPP, GPP, FPP, GGPP have no explicit degradation edges other than IspB->FPP). Perception Gate is not applicable (no hormone-receptor signalling). Substrate-depletion motif is missing: DXS consumes G3P and Pyruvate but the curated negative edges (E143, E144, both in_model=True) are absent, so non-monotonic DXS OE dose-response will not simulate correctly."
+    },
+    "cascade_balance": {
+      "score": 2,
+      "justification": "Three nodes exceed the hard cap of 7 inputs: G3P (9 in), Pyruvate (9 in), Lycopene_Titer (9 in). IPP sits exactly at the cap with 7 activators. Source percentage is 29/61 = 47.5%, within the softened 30-50% target. Several under-specified nodes: MVD has only incoming Plasmid_Copy_Number implied via no edge but actually has 0 inputs as a source node yet participates as activator on IPP - is_source=True here is correct given it has no curated regulation. However NADPH has only 4 inputs when 7 are curated, and Acetyl_CoA has 4 when 7 are curated. Overloaded nodes dilute signal; under-specified nodes amplify noise."
+    },
+    "composite_node_handling": {
+      "score": 4,
+      "justification": "Most nodes are kept as discrete reactions, which is appropriate for a metabolic network (paralogs are rarer than in signalling). PykA and PykF kept separate (both perturbed in literature, defensible). SOXR and SOXS kept separate (correct - distinct proteins). IDI kept as single node (correct - single gene). CrtY correctly absent (confirmed via grep of curated and network). No inappropriate collapsing detected. However: Dxr and IspC are the same gene and Step 1 lit-judge report confirms they have been consolidated to 'Dxr' in curated; network should use DXR (all-caps GENE convention) rather than omitting entirely."
+    },
+    "hub_completeness": {
+      "score": 3,
+      "justification": "Lycopene_Titer is THE integrator hub and has 10/43 = 0.23 curated-edge coverage (key-player under-represented, §9.11 flag). IPP is the second hub with 9/16 = 0.56 coverage (acceptable but missing Dxr, PMK, IspD/E/F/G/H contributions). G3P has 10/14 = 0.71 (good). Pyruvate has 10/11 = 0.91 (excellent). Mevalonate has 5/7 = 0.71 (acceptable). NADPH has 4/7 = 0.57 (missing AlphaKGDH, Dxr consumer, CrtI consumer, HMGR consumer - effectively missing E095, E106). The phenotype hub fails §9.11 with a documented under-representation."
+    },
+    "topology_hazards": {
+      "score": 4,
+      "justification": "No positive-feedback hormone-transporter loops (not applicable to metabolic network). Lycopene<->ROS negative feedback is STABILISING (per Trap 1 note). MVK has three downstream inhibitors (GPP-, FPP-, GGPP-) creating a multi-arm negative feedback - curated support from Chen 2022 - also stabilising but worth a VALIDATOR sensitivity check. No self-loops. No sole-activator collapses that I could identify. ONE redundant parallel path: KATE->Lycopene_Titer(+1) direct AND KATE->ROS(-1)->Lycopene_Titer(-1) indirect; removing the direct edge simplifies topology and matches the Bongers 2015 mechanistic interpretation (KatE acts via ROS reduction, not direct lycopene protection). Similar concern for RPOS->Lycopene_Titer(+1) direct when RPOS->KATE->(ROS route) already captures the effect."
+    },
+    "evidence_quality": {
+      "score": 4,
+      "justification": "Sampled 6 edges (N004 Xylose->G3P, N015 EDD->Pyr, N029 ARCA->ACEE, N032 GND->NADPH, N036 HMGS->Mevalonate, N082 CRL->RPOS) - all have specific mechanism strings (e.g., 'Phosphorylated ArcA represses the aceEF-lpd operon under anaerobiosis', 'HMGS condenses acetoacetyl-CoA + Acetyl-CoA to HMG-CoA') and resolvable DOIs. No placeholder 'X regulates Y' mechanisms. Evidence sentences cite primary papers and reviews (Wang 2020 Molecules, Li 2015 MCF). All 91 network edges trace to a curated edge (no fabrication, no network-only edges). Caveat: several curated edges used here carry their evidence_sentence from review papers (Wang 2020, Su 2023) not primary sources - the literature_judge_report G003 flags this as a residual gap."
+    },
+    "phenotype_audit": {
+      "score": 3,
+      "justification": "Lycopene_Titer has 5 activators (CRTI+, Phytoene+, RPOS+, KATE+, PLSB+) and 4 inhibitors (GPP-, FPP-, Temperature-, ROS-) = 9 inputs total, above the 3-5 target and above the hard cap of 7. All major effector classes present: enzyme (CRTI), substrate (Phytoene), competing metabolic pool (GPP-, FPP-), environment (Temperature), regulator (RPOS), oxidative defense (KATE), oxidative damage (ROS), membrane storage (PLSB). Both promoting and repressing arms present and balanced (5:4). Trim target: remove redundant direct edges (KATE direct, RPOS direct) and route via the ROS node (which already has a direct -1 to Lycopene_Titer). Missing a catabolite-regulator arm (CRP) and an explicit membrane-envelope-stress sink."
+    },
+    "rejected_edges_review": {
+      "score": 3,
+      "justification": "Correctly excluded direct-shortcut edges: E048 GGPP->Lyc (routes via Phytoene), E049 FPP->Lyc+1 (alternative route, BUILDER chose toxicity sign), E093 Idi->Lyc direct (routes via IPP/DMAPP), E094 Dxs->Lyc direct (routes via IPP), E114 MVK->Lyc direct, E116-E118 CrtE/B/IspA->Lyc direct. These exclusions preserve proper cascade mechanics. HOWEVER: 40 curated edges marked in_model=True are absent from network. The most structural are: E023 PMK->IPP, E028 Dxr->IPP, E029-E034 IspD/E/F/G/H->IPP/DMAPP, E057 Arabinose->Dxr, E095 NADPH->Dxr, E099 ATP->IspE, E143-E144 Dxs substrate depletion. These look like oversight rather than defensible exclusion. Also silently dropped: E062 CRP->Lyc, E069 OxyR->KatG, E131 SodA->Lyc, E134 DgkA->Lyc, E083 Plsc->Lyc, E081 Chassis_K12, E080 Medium_Richness, and the envelope-stress cluster E085-E090/E108-E112/E120-E124 (some may be defensible to exclude on grounds of shotgun-genetics noise but should be documented)."
+    },
+    "key_player_density": {
+      "score": 2,
+      "justification": "Lycopene_Titer 10/43 = 0.23 is below the 0.30 threshold and triggers a §9.11 KEY PLAYER UNDER-REPRESENTATION flag. DXS at 3/6 = 0.50 is borderline (missing substrate-depletion edges E143/E144, which are the only curated Dxs outputs not going to IPP). IDI at 6/7 = 0.86 is excellent. IPP at 9/16 = 0.56 is acceptable but reflects the Dxr/IspD/IspE/IspF/IspG/IspH absence. NADPH at 4/7 = 0.57 is borderline. MVK at 6/7 = 0.86 is excellent (Chen 2022 feedback edges preserved). G3P at 10/14 = 0.71 and Pyruvate at 10/11 = 0.91 both good. The single critical failure is the phenotype hub itself.",
+      "per_player_ratios": {
+        "Lycopene_Titer": 0.23,
+        "IPP": 0.56,
+        "G3P": 0.71,
+        "Pyruvate": 0.91,
+        "FPP": 0.88,
+        "Mevalonate": 0.71,
+        "NADPH": 0.57,
+        "MVK": 0.86,
+        "Acetyl_CoA": 0.57,
+        "IDI": 0.86,
+        "DXS": 0.5,
+        "PPS": 0.8,
+        "ROS": 0.8,
+        "GGPP": 0.8,
+        "CRTE": 0.75,
+        "CRTB": 0.75,
+        "CRTI": 1.0,
+        "RPOS": 1.0,
+        "ISPA": 0.75,
+        "DMAPP": 0.75
+      },
+      "key_player_flags": [
+        "Lycopene_Titer (10/43 = 0.23) - §9.11 UNDER-REPRESENTATION - see S003",
+        "DXS (3/6 = 0.5) - borderline, missing E143/E144 substrate-depletion - see S001",
+        "NADPH (4/7 = 0.57) - missing E095 NADPH->Dxr and E106 AlphaKGDH->NADPH; borderline but relevant because Dxr and CrtI both consume NADPH"
+      ]
+    }
+  },
+  "per_node_audit": [
+    {"node": "Glucose", "inputs": [], "outputs": ["G3P(+)", "Pyruvate(+)", "Acetyl_P(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source node, 3 downstream targets covering glycolysis entry, PDH feed and acetate spur."},
+    {"node": "Glycerol", "inputs": [], "outputs": ["G3P(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source node, single direct-to-G3P edge. Matches E003 biology (glycerol kinase -> G3P via DHAP/GAP)."},
+    {"node": "Xylose", "inputs": [], "outputs": ["G3P(+)", "Pyruvate(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Xylose feeds PPP -> F6P + G3P + Pyruvate. Two edges capture both MEP precursors."},
+    {"node": "IPTG", "inputs": [], "outputs": ["DXS(+)", "IDI(+)", "CRTE(+)", "CRTB(+)", "CRTI(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Engineering input. 5 outgoing edges matching pTrc/pLac-driven OE cassettes for MEP rate-limiting enzymes and carotenoid cassette."},
+    {"node": "Arabinose", "inputs": [], "outputs": ["DXS(+)", "IDI(+)", "ISPA(+)"], "curated_regulators_excluded": ["Dxr (E057)"], "verdict": "under-specified", "comment": "Missing Arabinose->Dxr (E057, in_model=True) because DXR is not a network node. Resolves when DXR is added."},
+    {"node": "Plasmid_Copy_Number", "inputs": [], "outputs": ["CRTE(+)", "CRTB(+)", "CRTI(+)", "IDI(+)", "MVK(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Engineering input; 5 outgoing edges capture plasmid-copy effects on carotenoid cassette, IDI boost, and MVK (Cheng 2022)."},
+    {"node": "Oxygen_Level", "inputs": [], "outputs": ["ARCA(-)", "FNR(-)", "ROS(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Environment node. ArcA and FNR both O2-sensing (correct signs, both repressed by O2). ROS generated under aerobic conditions."},
+    {"node": "Temperature", "inputs": [], "outputs": ["Lycopene_Titer(-)"], "curated_regulators_excluded": [], "verdict": "under-specified", "comment": "Direct Temperature->Lyc(-) shortcut; biology is via protein folding, CrtI thermal instability, membrane fluidity. Defensible compression but loses sub-30C vs 37C detail. Optionally expand with Temperature->CRTI(-) route later."},
+    {"node": "G3P", "inputs": ["Glucose(+)", "Glycerol(+)", "Xylose(+)", "PGI(+)", "ZWF(-)", "GAPA(-)", "PPS(+)", "EDD(+)", "EDA(+)"], "outputs": ["IPP(+)"], "curated_regulators_excluded": ["Dxs(-) (E143)", "TpiA(+) (E092)", "TalB(+) (E107)"], "verdict": "under-specified (missing Dxs substrate depletion)", "comment": "9 inputs at hard cap. Missing Dxs->G3P(-1) substrate-consumer edge (E143 in_model=True) - fundamental for non-monotonic DXS OE dose-response. TpiA and TalB are peripheral PPP enzymes with single curated edges; defensible to omit."},
+    {"node": "Pyruvate", "inputs": ["Glucose(+)", "Xylose(+)", "PGI(+)", "PYKA(+)", "PYKF(+)", "PPS(-)", "EDD(+)", "EDA(+)", "LDH(-)"], "outputs": ["IPP(+)"], "curated_regulators_excluded": ["Dxs(-) (E144)", "AceE(-)", "AlphaKGDH(-)"], "verdict": "under-specified (missing Dxs substrate depletion)", "comment": "9 inputs. Missing Dxs->Pyruvate(-1) E144 in_model=True. AceE->Pyruvate negative edge (consumer) is implicit via AceE->Acetyl_CoA(+1) but not explicit; consider adding for symmetry with GAPA/ZWF."},
+    {"node": "Acetyl_CoA", "inputs": ["ACEE(+)", "PTA(-)", "PPC(-)"], "outputs": ["Mevalonate(+)"], "curated_regulators_excluded": ["FdhF(-) (E013)", "EutD(-) (E091)", "AtoB(-)"], "verdict": "acceptable", "comment": "Core inputs present. FdhF and EutD missing (LOW confidence, LOW priority). AtoB consumes 2 AcCoA to make AcAcCoA - the AtoB->Mevalonate(+1) chain is present but AtoB's consumer role on AcCoA is implicit."},
+    {"node": "Acetyl_P", "inputs": ["Glucose(+)"], "outputs": ["NRI(+)"], "curated_regulators_excluded": ["Pta(+)"], "verdict": "acceptable", "comment": "Single activator (Glucose) is a compression - biology is Glucose->AcCoA->Pta->AcP. Current abstraction is defensible for the NRI signalling branch."},
+    {"node": "NADPH", "inputs": ["GND(+)", "GDHA(-)", "ZWF(omitted)", "HMGR(-outgoing implicit)"], "outputs": ["HMGR(+)", "CRTI(+)"], "curated_regulators_excluded": ["Dxr(consumer) (E095)", "AlphaKGDH(+) (E106)"], "verdict": "under-specified", "comment": "NADPH has 2 inputs but 7 curated. ZWF is NOT wired to NADPH (ZWF in network only has ZWF->G3P(-1) edge) - this is incorrect, ZWF produces NADPH. Missing Dxr consumer (only resolves when DXR added) and AlphaKGDH. 4/7 coverage = 0.57 borderline."},
+    {"node": "ATP", "inputs": [], "outputs": ["MVK(+)"], "curated_regulators_excluded": ["IspE(+) (E099)"], "verdict": "acceptable", "comment": "Source metabolite. Only connects to MVK. Missing IspE cofactor edge (resolves when IspE added)."},
+    {"node": "Mevalonate", "inputs": ["Acetyl_CoA(+)", "ATOB(+)", "HMGS(+)", "HMGR(+)"], "outputs": ["IPP(+)"], "curated_regulators_excluded": ["NADPH(+) (E021)"], "verdict": "mechanism-compressed", "comment": "Treats AtoB, HMGS, HMGR as three parallel activators instead of a linear MVA chain AcCoA->AcAcCoA(via AtoB)->HMG-CoA(via HMGS)->Mevalonate(via HMGR). Acceptable compression if intermediates not perturbed; loses ability to test atoB/HMGS/HMGR individually with correct stoichiometry. E021 NADPH->Mevalonate missing (captures HMGR cofactor dependency via intermediate pool)."},
+    {"node": "IPP", "inputs": ["DXS(+)", "G3P(+)", "Pyruvate(+)", "IDI(+)", "Mevalonate(+)", "MVK(+)", "MVD(+)"], "outputs": ["DMAPP(+)", "FPP(+)"], "curated_regulators_excluded": ["Dxr (E028)", "IspD (E029)", "IspE (E030)", "IspF (E031)", "IspG (E032)", "IspH (E033)", "PMK (E023)"], "verdict": "under-specified (whole MEP interior missing)", "comment": "7 parallel activators at cap. All of Dxr, IspD, IspE, IspF, IspG, IspH, PMK are curated as in_model=True and absent. Geometric mean of 7 activators severely dilutes any single-enzyme perturbation signal. HIGH priority to add at least Dxr, IspG, IspH, and PMK."},
+    {"node": "DMAPP", "inputs": ["IDI(+)", "IPP(+)"], "outputs": ["FPP(+)"], "curated_regulators_excluded": ["IspH (E034)"], "verdict": "acceptable", "comment": "Two activators (IDI interconversion + IPP->DMAPP via Idi). IspH->DMAPP missing (resolves when IspH added)."},
+    {"node": "GPP", "inputs": ["ISPA(+)"], "outputs": ["MVK(-)", "Lycopene_Titer(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "IspA produces GPP; GPP inhibits MVK (Chen 2022) and is a competing pool relative to lycopene (toxicity). Clean and complete."},
+    {"node": "FPP", "inputs": ["ISPA(+)", "IPP(+)", "DMAPP(+)", "ISPB(-)"], "outputs": ["GGPP(+)", "MVK(-)", "Lycopene_Titer(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "7 edges = 7/8 curated = 0.88. ISPB competing sink correctly signed (-1). Feedback to MVK and competing sink to Lyc both present."},
+    {"node": "GGPP", "inputs": ["CRTE(+)", "FPP(+)"], "outputs": ["Phytoene(+)", "MVK(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "CrtE converts FPP+IPP->GGPP; Phytoene output via CrtB. MVK feedback also present. 4/5 coverage."},
+    {"node": "Phytoene", "inputs": ["CRTB(+)", "GGPP(+)"], "outputs": ["Lycopene_Titer(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "CrtB converts 2x GGPP -> phytoene; phytoene is CrtI substrate. Clean."},
+    {"node": "ROS", "inputs": ["Oxygen_Level(+)", "KATE(-)", "Lycopene_Titer(-)"], "outputs": ["Lycopene_Titer(-)"], "curated_regulators_excluded": ["SodA(-) (E132)", "KatG(-)"], "verdict": "acceptable", "comment": "Lycopene<->ROS negative feedback correctly implemented. Missing SodA (superoxide dismutase) and KatG (catalase HPII). 4/5 coverage."},
+    {"node": "PGI", "inputs": [], "outputs": ["G3P(+)", "Pyruvate(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source GENE, 2 outputs capturing downstream glycolytic flux. Alper 2005 classic Delta-pgi supported."},
+    {"node": "ZWF", "inputs": ["SOXS(+)"], "outputs": ["G3P(-)"], "curated_regulators_excluded": ["NADPH(+)"], "verdict": "mechanism-incomplete", "comment": "ZWF produces NADPH as its primary product but that edge is absent; network only has ZWF->G3P(-1) (substrate diversion). Add ZWF->NADPH(+1) so that the Alper 2005 Delta-zwf prediction propagates through NADPH consumers (HMGR, CrtI, Dxr when added)."},
+    {"node": "GAPA", "inputs": [], "outputs": ["G3P(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source GENE. GapA->G3P(-1) captures substrate consumption (GapA converts G3P->1,3BPG)."},
+    {"node": "PYKA", "inputs": [], "outputs": ["Pyruvate(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source GENE. Single target."},
+    {"node": "PYKF", "inputs": [], "outputs": ["Pyruvate(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Source GENE. Parallel to PykA (distinct isozymes kept separate - correct)."},
+    {"node": "PPC", "inputs": [], "outputs": ["Acetyl_CoA(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "PEP carboxylase shunts PEP to OAA, reducing pyruvate pool and thus AcCoA. Sign=-1 correct as indirect effect on AcCoA."},
+    {"node": "PPS", "inputs": ["NRI(+)", "CRA(+)"], "outputs": ["Pyruvate(-)", "G3P(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "PpsA pyr->PEP. Depletes pyruvate (-1) and rebalances G3P pool via gluconeogenesis (+1, Farmer 2000). 4/5 coverage."},
+    {"node": "EDD", "inputs": [], "outputs": ["G3P(+)", "Pyruvate(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Entner-Doudoroff dehydratase, produces 1:1 G3P:Pyruvate stoichiometry matching DXS substrate need (Li 2015)."},
+    {"node": "EDA", "inputs": [], "outputs": ["G3P(+)", "Pyruvate(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Entner-Doudoroff aldolase, paired with EDD. Both produce the 1:1 MEP precursor stoichiometry."},
+    {"node": "GND", "inputs": [], "outputs": ["NADPH(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "6PGD NADPH source via oxidative PPP. Complementary to ZWF (which lacks its NADPH edge - see ZWF comment)."},
+    {"node": "GDHA", "inputs": [], "outputs": ["NADPH(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Glutamate dehydrogenase consumes NADPH; sign=-1 correct."},
+    {"node": "ACEE", "inputs": ["ARCA(-)", "FNR(-)"], "outputs": ["Acetyl_CoA(+)"], "curated_regulators_excluded": ["Pyruvate(-)"], "verdict": "acceptable", "comment": "PDH E1 subunit; AceE repressed by ArcA and FNR under anaerobiosis. Missing explicit consumer edge AceE->Pyruvate(-1) but indirect via Pyruvate->IPP path."},
+    {"node": "PTA", "inputs": [], "outputs": ["Acetyl_CoA(-)"], "curated_regulators_excluded": ["Acetyl_P(+)"], "verdict": "acceptable", "comment": "Phosphotransacetylase consumes AcCoA (-1). Should also produce Acetyl_P (+1) but network uses Glucose->Acetyl_P(+1) as a shortcut (N022). Defensible simplification."},
+    {"node": "LDH", "inputs": [], "outputs": ["Pyruvate(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Lactate dehydrogenase consumes pyruvate in anaerobic spill; sign=-1."},
+    {"node": "DXS", "inputs": ["IPTG(+)", "Arabinose(+)"], "outputs": ["IPP(+)"], "curated_regulators_excluded": ["G3P(-) (E143)", "Pyruvate(-) (E144)"], "verdict": "under-specified", "comment": "Missing the TWO curated substrate-consumer edges E143/E144 (both in_model=True). These are CRITICAL for capturing Dxs OE non-monotonic response (Wang 2009 MAGE). HIGH priority - see S001."},
+    {"node": "IDI", "inputs": ["IPTG(+)", "Arabinose(+)", "NRI(+)", "Plasmid_Copy_Number(+)"], "outputs": ["IPP(+)", "DMAPP(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "6/7 coverage = 0.86. Correctly wired as interconverter IPP<->DMAPP. IDI direct->Lyc edge E093 correctly excluded (routes via IPP/DMAPP)."},
+    {"node": "ATOB", "inputs": [], "outputs": ["Mevalonate(+)"], "curated_regulators_excluded": [], "verdict": "acceptable", "comment": "AcCoA thiolase step 1 of MVA. Modelled as parallel activator on Mevalonate (see Mevalonate per-node comment on chain vs parallel)."},
+    {"node": "HMGS", "inputs": [], "outputs": ["Mevalonate(+)"], "curated_regulators_excluded": [], "verdict": "acceptable", "comment": "HMG-CoA synthase step 2 of MVA. Same parallel-activator concern as AtoB."},
+    {"node": "HMGR", "inputs": ["NADPH(+)"], "outputs": ["Mevalonate(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "HMG-CoA reductase; NADPH cofactor dependency captured. 2/2 coverage."},
+    {"node": "MVK", "inputs": ["Plasmid_Copy_Number(+)", "ATP(+)", "GPP(-)", "FPP(-)", "GGPP(-)"], "outputs": ["IPP(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "6/7 coverage = 0.86. Chen 2022 downstream-product feedback inhibition fully captured. Plasmid-copy tuning (Cheng 2022) captured. ATP cofactor captured."},
+    {"node": "MVD", "inputs": [], "outputs": ["IPP(+)"], "curated_regulators_excluded": [], "verdict": "acceptable", "comment": "Mevalonate diphosphate decarboxylase (last MVA step). Modelled as parallel activator; should sit after PMK in a chain if PMK is added."},
+    {"node": "ISPA", "inputs": ["Arabinose(+)"], "outputs": ["FPP(+)", "GPP(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "FPP synthase, multi-output (FPP + GPP). 3/4 coverage."},
+    {"node": "ISPB", "inputs": [], "outputs": ["FPP(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Octaprenyl-PP synthase competing sink on FPP. Sign -1 correct. Enables ispB KD tests to predict increased lycopene."},
+    {"node": "CRTE", "inputs": ["IPTG(+)", "Plasmid_Copy_Number(+)"], "outputs": ["GGPP(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "GGPP synthase; reaches Lyc via GGPP->Phytoene->Lyc. CrtE direct->Lyc edge (E116) correctly excluded."},
+    {"node": "CRTB", "inputs": ["IPTG(+)", "Plasmid_Copy_Number(+)"], "outputs": ["Phytoene(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Phytoene synthase; reaches Lyc via Phytoene->Lyc. CrtB direct->Lyc edge (E117) correctly excluded."},
+    {"node": "CRTI", "inputs": ["IPTG(+)", "Plasmid_Copy_Number(+)", "NADPH(+)"], "outputs": ["Lycopene_Titer(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Phytoene desaturase, direct-to-Lyc correct (this IS the final enzyme). NADPH cofactor captured. 4/4 coverage."},
+    {"node": "RPOS", "inputs": ["CRL(+)", "HNR(-)"], "outputs": ["Lycopene_Titer(+)", "KATE(+)"], "curated_regulators_excluded": [], "verdict": "redundant (see topology hazards)", "comment": "RpoS->Lyc direct AND RpoS->KatE->ROS->Lyc both implemented. Per Bongers 2015 reinterpretation, RpoS effect on lycopene is ROS-mediated (KatE induction), not direct MEP flux. Recommend removing RPOS->Lycopene_Titer(+1) direct edge (N080) and keeping only the KATE route."},
+    {"node": "CRL", "inputs": [], "outputs": ["RPOS(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Sigma-S cofactor; stabilises RpoS-holoenzyme."},
+    {"node": "HNR", "inputs": [], "outputs": ["RPOS(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "RssB/Hnr is the adaptor protein for ClpXP-mediated RpoS degradation. Sign -1 correct."},
+    {"node": "ARCA", "inputs": ["Oxygen_Level(-)"], "outputs": ["ACEE(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Two-component response regulator repressed at high O2. 2/2 coverage."},
+    {"node": "FNR", "inputs": ["Oxygen_Level(-)"], "outputs": ["ACEE(-)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Fe-S regulator; activated under anaerobiosis. 2/2 coverage."},
+    {"node": "SOXR", "inputs": [], "outputs": ["SOXS(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "SoxR senses oxidative stress; activates SoxS."},
+    {"node": "SOXS", "inputs": ["SOXR(+)"], "outputs": ["ZWF(+)"], "curated_regulators_excluded": ["Lycopene_Titer (E131 is SodA-mediated)"], "verdict": "acceptable", "comment": "SoxS induces zwf (NADPH supply for oxidative stress). Direct-to-Lyc edge is actually via SodA in curated; resolves when SodA added."},
+    {"node": "CRA", "inputs": [], "outputs": ["PPS(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Cra/FruR activates ppsA (gluconeogenesis regulator). Single edge matches single curated edge."},
+    {"node": "NRI", "inputs": ["Acetyl_P(+)"], "outputs": ["PPS(+)", "IDI(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Nitrogen regulator NRI/GlnG; phosphorylated by Acetyl_P. 3/3 coverage."},
+    {"node": "KATE", "inputs": ["RPOS(+)"], "outputs": ["Lycopene_Titer(+)", "ROS(-)"], "curated_regulators_excluded": [], "verdict": "redundant direct edge", "comment": "Direct KATE->Lyc(+1) and indirect KATE->ROS(-1)->Lyc(-1) are both present. Biology: KatE protects by reducing ROS (Bongers 2015 mechanism). Recommend removing direct edge (N086) and keeping only KATE->ROS->Lyc route; otherwise KATE effect is double-counted."},
+    {"node": "PLSB", "inputs": ["ALMGS(+)"], "outputs": ["Lycopene_Titer(+)"], "curated_regulators_excluded": [], "verdict": "appropriate", "comment": "Acyl-ACP:G3P acyltransferase; expanded membrane lycopene reservoir (Hu 2018). Routing Almgs->PlsB->Lyc is correct per the Hu synergy paper."},
+    {"node": "ALMGS", "inputs": [], "outputs": ["PLSB(+)"], "curated_regulators_excluded": ["Lycopene_Titer(+) (E084)"], "verdict": "appropriate", "comment": "Alimonas monoglucosyldiacylglycerol synthase; synergy partner for PlsB. E084 direct->Lyc defensibly excluded in favour of the PlsB route."},
+    {"node": "Lycopene_Titer", "inputs": ["CRTI(+)", "Phytoene(+)", "GPP(-)", "FPP(-)", "Temperature(-)", "RPOS(+)", "KATE(+)", "ROS(-)", "PLSB(+)"], "outputs": ["ROS(-)"], "curated_regulators_excluded": ["CRP (E062)", "SodA (E131)", "DgkA (E134)", "Plsc (E083)", "AppY (E070)", "WaaC/F, Lpp, NlpI, MlaE, TolA (E085-E090)", "Chassis_K12 (E081)", "Medium_Richness (E080)", "YliE (E073)", "YjiD/YcgW/YtjC/YjfP/YjgA (E108-E112)", "FabI_stress/BamB/YggE/UspE (E120-E124)"], "verdict": "under-specified AND overloaded simultaneously", "comment": "10/43 = 0.23 coverage = §9.11 KEY PLAYER UNDER-REPRESENTATION. Paradoxically also at the 7-input hard cap with 9 inputs. The fix is structural: remove redundant direct edges (RPOS direct, KATE direct) and add an 'Envelope_Stress' or 'Membrane_Integrity' composite node that aggregates WaaC/WaaF/Lpp/NlpI/MlaE/TolA, plus add SodA as parallel to KATE, plus add CRP as a catabolite-regulator input. See S003/S004."}
+  ],
+  "per_pathway_audit": [
+    {
+      "pathway": "MEP native pathway (Dxs -> Dxr -> IspD -> IspE -> IspF -> IspG -> IspH -> IPP/DMAPP)",
+      "completeness": "low",
+      "comment": "Network has only DXS and IDI. The 6 intervening MEP enzymes (Dxr, IspD, IspE, IspF, IspG, IspH) are all curated with in_model=True flags and have resolvable DOIs, but none are network nodes. The cascade collapses DXS -> IPP in one edge, losing mechanistic depth and making any ispC/D/E/F/G/H mutant test impossible to propagate. This is the single biggest structural issue.",
+      "missing_pieces": ["Dxr (E028, E057, E095)", "IspD (E029)", "IspE (E030, E099)", "IspF (E031)", "IspG (E032)", "IspH (E033, E034)"],
+      "recommendation": "At minimum add Dxr (3 curated edges) and the rate-co-limiting pair IspG + IspH (3 curated edges between them). If full chain not added, at least wire Dxr->IPP with NADPH cofactor and Arabinose induction. See S002."
+    },
+    {
+      "pathway": "MVA heterologous pathway (AcCoA -> AtoB -> HMGS -> HMGR -> MVK -> PMK -> MVD -> IPP)",
+      "completeness": "medium",
+      "comment": "5 of 6 MVA enzymes present (AtoB, HMGS, HMGR, MVK, MVD); PMK is missing. Arrangement is compressed: AtoB+HMGS+HMGR as three parallel activators on Mevalonate instead of a linear chain through Acetoacetyl-CoA and HMG-CoA intermediates. MVK and MVD are parallel activators on IPP instead of sitting in a chain after Mevalonate. MVK feedback-inhibition by GPP/FPP/GGPP is correctly implemented (Chen 2022). Plasmid_Copy_Number tuning (Cheng 2022) is captured.",
+      "missing_pieces": ["PMK (E023, in_model=True, HIGH confidence)"],
+      "recommendation": "Add PMK as a node with PMK->IPP(+1) and at minimum Plasmid_Copy_Number->PMK(+1) if curated. Chain-restructure is optional (compressed parallel is simpler and will propagate most perturbation directions correctly). See S005."
+    },
+    {
+      "pathway": "Prenyl transferases (IspA, IspB)",
+      "completeness": "high",
+      "comment": "IspA produces FPP + GPP (multi-output scaffold motif correctly applied). IspB is the competing octaprenyl-PP sink on FPP with correct -1 sign, enabling ispB KD tests to predict increased lycopene."
+    },
+    {
+      "pathway": "Carotenoid cassette (CrtE -> CrtB -> CrtI -> Lycopene)",
+      "completeness": "high",
+      "comment": "Full cassette present. CrtE -> GGPP, CrtB -> Phytoene (with GGPP substrate), CrtI -> Lycopene_Titer (with Phytoene substrate and NADPH cofactor). CrtY confirmed absent (correct for lycopene, not beta-carotene). Direct CrtE/B->Lyc shortcut edges (E116, E117) correctly excluded in favour of the intermediate-routed path."
+    },
+    {
+      "pathway": "Central metabolism precursor supply",
+      "completeness": "high",
+      "comment": "PGI, ZWF, GAPA, PYKA, PYKF, PPC, PPS, EDD, EDA, GND, GDHA, ACEE, PTA, LDH all present. Alper 2005 Delta-pgi Delta-zwf classic is supported. Farmer 2000 PpsA rebalance captured. Li 2015 Entner-Doudoroff addition captured. ONE issue: ZWF lacks the ZWF->NADPH(+1) edge - it only has ZWF->G3P(-1). Zwf produces NADPH, so this should be added."
+    },
+    {
+      "pathway": "Host stress regulators (RpoS, Crl, Hnr, SoxR/S)",
+      "completeness": "medium",
+      "comment": "RpoS axis complete with CRL+ and HNR- inputs. RpoS acts on KATE (stress induction). SoxR->SoxS->Zwf chain present. Missing: OxyR (hydrogen peroxide regulator, E069 OxyR->KatG in_model=True). KatG and SodA are also missing. OxyR should connect to KatG (and optionally to KatE) to capture peroxide stress response."
+    },
+    {
+      "pathway": "Host metabolism regulators (ArcA, FNR, Cra, CRP)",
+      "completeness": "medium",
+      "comment": "ArcA and FNR present with correct Oxygen_Level-> inhibition and both repressing aceE (PDH). Cra present and activating ppsA. CRP (catabolite activator) is absent despite 2 curated edges (E062 CRP->Lyc, E100). Adding CRP captures Glucose->catabolite-repression->dxs-promoter biology."
+    },
+    {
+      "pathway": "Engineering inputs (IPTG, Arabinose, Plasmid, O2, Temperature, carbon sources)",
+      "completeness": "high",
+      "comment": "All source-node purity verified: IPTG, Arabinose, Plasmid_Copy_Number, Oxygen_Level, Temperature, Glucose, Glycerol, Xylose have no incoming edges (correct for engineering inputs). IPTG fans out to 5 OE targets; Plasmid to 5; Arabinose to 3. Chassis_K12 (E081) and Medium_Richness (E080) are absent but both have only single curated edges and are arguable scope."
+    },
+    {
+      "pathway": "Lycopene <-> ROS feedback and oxidative defense",
+      "completeness": "medium",
+      "comment": "Lycopene->ROS(-1) and ROS->Lycopene(-1) negative feedback loop present (stabilising). KatE->ROS(-1) reduction present. However: (a) SodA is missing (E131 SodA->Lyc and E132 SodA->ROS); (b) KatG missing; (c) OxyR missing; (d) KatE has redundant direct Lyc edge AND ROS-routed effect (double-counting)."
+    },
+    {
+      "pathway": "Membrane / envelope storage",
+      "completeness": "low",
+      "comment": "ALMGS->PLSB->Lycopene_Titer(+1) route present (Hu 2018 synergy). Plsc (E083) missing; DgkA (E134) missing; envelope-stress negative-regulator cluster (WaaC, WaaF, Lpp, NlpI, MlaE, TolA) all missing. If the envelope-stress genes were collapsed into a single 'Envelope_Stress' composite node with -1 to Lyc, the membrane arm would be much more complete without over-fanning the phenotype."
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "S001",
+      "type": "add_edge",
+      "priority": "high",
+      "description": "Add DXS substrate-consumer edges DXS->G3P(-1) and DXS->Pyruvate(-1).",
+      "biological_justification": "Dxs consumes 1x G3P + 1x Pyruvate per DXP produced. At high OE, the enzyme depletes both substrates, producing the non-monotonic dose-response observed in Wang 2009 MAGE (E143, E144 in curated, both in_model=True, MEDIUM confidence). Without these edges, Dxs OE predictions are monotonically positive, which is biologically wrong for strong OE.",
+      "curated_edge_ids": ["E143", "E144"],
+      "implementation": "Add edges: DXS -> G3P (sign=-1), DXS -> Pyruvate (sign=-1). Use DOI 10.1038/nature08187 (Wang 2009 MAGE) as primary evidence - already curated in E143/E144."
+    },
+    {
+      "id": "S002",
+      "type": "add_node",
+      "priority": "high",
+      "description": "Add DXR as a network node (with Arabinose induction and NADPH cofactor), and optionally IspG, IspH, IspD, IspE, IspF.",
+      "biological_justification": "Dxr (= ispC) is the second rate-limiting MEP enzyme, combined dxs+ispC OE reaches ~16x lycopene (canonical, Wang 2020 review). It is curated with 3 edges (E028 Dxr->IPP, E057 Arabinose->Dxr, E095 NADPH->Dxr), all in_model=True and HIGH confidence. Without DXR as a node, ispC OE/KO perturbations cannot be mapped and the dxs+ispC synergy cannot be captured. IspG and IspH are also rate-co-limiting (HMBPP accumulation) per lit-judge canonical_checklist; adding them as additional nodes captures more of the MEP cascade. Minimum acceptable: add DXR. Preferred: add DXR, IspG, IspH. Full addition: all six interior MEP enzymes.",
+      "curated_edge_ids": ["E028", "E057", "E095", "E032", "E033", "E034"],
+      "implementation": "Add DXR node as GENE is_source=false with incoming Arabinose(+1, E057) and NADPH(+1, E095) and outgoing DXR->IPP(+1, E028). Optionally add IspG node with IspG->IPP(+1, E032); IspH node with IspH->IPP(+1, E033) and IspH->DMAPP(+1, E034). Convention: use ALL_CAPS (DXR, ISPG, ISPH) to match existing GENE naming in this network."
+    },
+    {
+      "id": "S003",
+      "type": "restructure_pathway",
+      "priority": "high",
+      "description": "Resolve Lycopene_Titer §9.11 KEY PLAYER UNDER-REPRESENTATION (10/43 = 0.23 coverage). Add a composite 'Envelope_Stress' node collapsing WaaC/WaaF/Lpp/NlpI/MlaE/TolA, add SodA and CRP as separate nodes, add DgkA edge.",
+      "biological_justification": "Lycopene_Titer has 43 curated edges but only 10 in the network. This is below the 0.30 threshold and below the 0.40 strong-coverage threshold. The majority of excluded edges are envelope-stress KO hits (WaaC, WaaF, Lpp, NlpI, MlaE, TolA - all in_model=True with MEDIUM confidence from Alper 2005 systematic KO screen) that increase lycopene titer via altered membrane permeability/storage. These are paralog-like in mechanism (envelope biogenesis) and can legitimately be collapsed into a single composite node. Separately, SodA (E131, superoxide dismutase, parallel to KatE in oxidative defense) and CRP (E062, catabolite regulator) are distinct mechanisms that deserve their own nodes. DgkA (E134) is a single edge that can be added directly.",
+      "curated_edge_ids": ["E085", "E086", "E087", "E088", "E089", "E090", "E131", "E062", "E100", "E134", "E069", "E070", "E083"],
+      "implementation": "Option A (minimal): add SodA (GENE node, is_source=true, SodA -> Lycopene_Titer sign=+1 using E131; add SodA -> ROS sign=-1 using curated evidence if available). Add CRP (GENE node, is_source=true, CRP -> Lycopene_Titer sign=+1 using E062; optionally CRP -> DXS sign=+1 to capture cAMP-CRP transcriptional activation of dxs promoter, E100). Add DgkA -> Lycopene_Titer sign=+1 using E134. Option B (comprehensive): also add an Envelope_Stress composite node (type=PROTEIN_COMPLEX or collapsed GENE, is_source=true) with Envelope_Stress -> Lycopene_Titer sign=-1 grouping E085-E090. Document the composite members in node description. This takes Lycopene_Titer coverage from 0.23 to ~0.40-0.55."
+    },
+    {
+      "id": "S004",
+      "type": "remove_edge",
+      "priority": "high",
+      "description": "Remove redundant direct edges KATE -> Lycopene_Titer(+1) [N086] and RPOS -> Lycopene_Titer(+1) [N080].",
+      "biological_justification": "KatE protects lycopene by reducing ROS (Bongers 2015: 'KatE OE reduces ROS-mediated pigment loss'). The network already captures this via KATE -> ROS(-1) and ROS -> Lycopene_Titer(-1). The direct KATE -> Lyc(+1) edge double-counts the effect and inflates KatE OE predictions. Same issue for RpoS: Bongers 2015 explicitly challenges Alper 2005 by showing 'knockout of rpoS does not influence flux through the MEP pathway... RpoS has no effect on enzyme abundance'; RpoS's effect on lycopene is ROS-mediated via KatE induction, not direct. RPOS -> KATE(+1) already captures this path. Removing the direct edges also helps trim Lycopene_Titer from 9 inputs to 7 (at cap).",
+      "target_edges": [{"source": "KATE", "target": "Lycopene_Titer", "edge_id_in_network": "N086"}, {"source": "RPOS", "target": "Lycopene_Titer", "edge_id_in_network": "N080"}],
+      "curated_edge_ids": ["E130", "E063"],
+      "implementation": "Delete edges N086 and N080 from network.json and algebraic_equations.json activator lists for Lycopene_Titer. The curated edges E130 (KatE->Lyc) and E063 (RpoS->Lyc) remain in curated_edges.json for traceability but with a comment in the mechanism field noting the indirect route is preferred per Bongers 2015."
+    },
+    {
+      "id": "S005",
+      "type": "add_node",
+      "priority": "medium",
+      "description": "Add PMK (phosphomevalonate kinase) to complete the MVA pathway.",
+      "biological_justification": "PMK is one of the 6 canonical MVA enzymes and the only one currently absent. Curated E023 PMK->IPP is in_model=True with HIGH confidence. Adding PMK enables pmk OE/KD perturbation tests and allows the directed-evolution / plasmid-copy tuning experiments (Cheng 2022 LM22 cassette) to propagate correctly.",
+      "curated_edge_ids": ["E023"],
+      "implementation": "Add PMK as GENE node (is_source=true or with Plasmid_Copy_Number(+1) if curated). Add PMK -> IPP sign=+1 using E023. If chain restructure is desired, wire as Mevalonate -> MVK -> (implicit MVA-5P intermediate) -> PMK -> (implicit MVA-5PP) -> MVD -> IPP, but the simpler parallel-activator arrangement also works."
+    },
+    {
+      "id": "S006",
+      "type": "add_edge",
+      "priority": "medium",
+      "description": "Add ZWF -> NADPH (+1) edge.",
+      "biological_justification": "Zwf (G6P dehydrogenase) is the first step of the oxidative PPP and a major NADPH source. Network currently has ZWF -> G3P(-1) only (substrate diversion), missing the NADPH production effect. Without this, Zwf OE should increase NADPH (feeding Dxr when added, HMGR, CrtI) but currently only decreases G3P. Alper 2005 Delta-zwf effect is thus partially modelled.",
+      "curated_edge_ids": [],
+      "literature_gap": "Curated_edges.json does not explicitly have Zwf -> NADPH - Step 1 flagged Zwf mostly as a substrate-diverter rather than an NADPH producer. File as literature_gap for Step 1 to add Zwf -> NADPH (+1) from any central-metabolism review (Wang 2020 or Li 2015) - this is textbook biology but needs a citable sentence.",
+      "implementation": "Cannot add without curated evidence. Flag as literature_gap and ask Step 1.5 (if re-opened) or Step 1 to capture Zwf->NADPH +1 with evidence sentence from Li 2015 or Wang 2020 review text."
+    },
+    {
+      "id": "S007",
+      "type": "add_node",
+      "priority": "medium",
+      "description": "Add OxyR and KatG nodes for the peroxide-stress arm.",
+      "biological_justification": "OxyR is the master hydrogen peroxide regulator in E. coli; it activates KatG (catalase HPII) and ahpC. Curated E069 OxyR -> KatG is in_model=True with HIGH confidence. Adding this pair gives the network a second oxidative-defense arm parallel to RpoS->KatE, and connects to the ROS<->Lycopene feedback loop. Without OxyR/KatG, oxyR or katG perturbation tests cannot propagate.",
+      "curated_edge_ids": ["E069"],
+      "implementation": "Add OxyR as GENE node (is_source=true). Add KatG as GENE node (is_source=false). Edge OxyR -> KatG (+1) using E069. Edge KatG -> ROS (-1) using the same mechanism as KatE (catalase H2O2-degradation) if curated; otherwise file KatG->ROS as literature_gap."
+    },
+    {
+      "id": "S008",
+      "type": "mechanism_improvement",
+      "priority": "medium",
+      "description": "Restructure MVA from parallel activators to a cleaner chain (optional but improves mechanistic depth).",
+      "biological_justification": "Currently AtoB, HMGS, HMGR are three parallel activators on Mevalonate, and MVK, MVD are parallel activators on IPP. This loses the linear biochemistry (2 AcCoA -> AcAcCoA via AtoB -> HMG-CoA via HMGS -> Mevalonate via HMGR -> MVA-5P via MVK -> MVA-5PP via PMK -> IPP via MVD). In a chain, each enzyme KO propagates to the phenotype through a single upstream step, whereas in the parallel arrangement the geometric mean dilutes perturbations (any one KO among 3-5 activators moves the target only ~20% from baseline).",
+      "curated_edge_ids": [],
+      "implementation": "Option A (compress even more, keep current): accept the flat parallel arrangement. Simple, will predict most direction-of-change correctly. Option B (add intermediates): introduce Acetoacetyl_CoA, HMG_CoA, MVA_5P, MVA_5PP as METABOLITE nodes and rewire AtoB->AcAcCoA->HMGS->HMG_CoA->HMGR->Mevalonate->MVK->MVA_5P->PMK->MVA_5PP->MVD->IPP. This is 4 new nodes for 4 new mechanistic intermediates. Recommended only if MVA mutant-chain test coverage warrants it; otherwise defer to REFINEMENT."
+    },
+    {
+      "id": "S009",
+      "type": "add_edge",
+      "priority": "low",
+      "description": "Add Plsc -> Lycopene_Titer (+1) edge for completeness of the membrane-biogenesis trio Almgs + PlsB + PlsC.",
+      "biological_justification": "Hu 2018 demonstrates Almgs + PlsB + PlsC triple expression gives the strongest membrane-storage boost. Network has Almgs and PlsB but lacks Plsc. E083 Plsc -> Lyc is in_model=True, MEDIUM confidence.",
+      "curated_edge_ids": ["E083"],
+      "implementation": "Add Plsc node (GENE, is_source=true) with edge Plsc -> Lycopene_Titer sign=+1 using E083 evidence (10.1186/s12934-018-0887-x Hu 2018)."
+    },
+    {
+      "id": "S010",
+      "type": "add_edge",
+      "priority": "low",
+      "description": "Add NADPH -> Mevalonate (+1) as HMGR cofactor proxy (E021).",
+      "biological_justification": "HMGR is NADPH-dependent; at low NADPH, HMGR activity drops and so does Mevalonate production. Currently NADPH -> HMGR is present, which captures enzyme-activity dependence, but not the substrate-flux dependence that Alper 2005 Delta-gnd / Delta-zwf tests probe directly. E021 NADPH -> Mevalonate is in_model=True, HIGH confidence.",
+      "curated_edge_ids": ["E021"],
+      "implementation": "Add edge NADPH -> Mevalonate sign=+1 using E021 evidence."
+    },
+    {
+      "id": "S011",
+      "type": "add_edge",
+      "priority": "low",
+      "description": "Add ATP -> IspE (+1) when IspE is added per S002.",
+      "biological_justification": "IspE is the ATP-dependent CDP-ME kinase; curated E099 ATP->IspE is in_model=True, HIGH confidence. This edge is contingent on IspE being added (S002).",
+      "curated_edge_ids": ["E099"],
+      "implementation": "If IspE added per S002, also add ATP -> IspE sign=+1 using E099."
+    },
+    {
+      "id": "S012",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "Alper 2005 / Jin 2008 / Zhao 2013 / Yoon 2009 primary papers remain paywall-only.",
+      "biological_justification": "Literature_judge_report G003 flagged these as unclosable residual gaps. Any BUILDER edge that uses these papers as primary evidence currently cites the downstream review (Wang 2020 or Su 2023). If a perturbation test later requires a primary-source upstream-regulator edge for dxs, idi, or an MVA enzyme, it should be flagged rather than fabricated.",
+      "curated_edge_ids": [],
+      "implementation": "No action required in this iteration; documentation carryover."
+    }
+  ],
+  "literature_gaps": [
+    "Zwf -> NADPH (+1): textbook biology but not explicitly in curated_edges.json as an edge (Step 1 captured ZWF more as a substrate-diverter than NADPH producer). Would need an evidence sentence from Li 2015 MCF or Wang 2020 Molecules to add.",
+    "KatG -> ROS (-1): H2O2 catalase activity of KatG is textbook but not curated as an explicit network edge; only OxyR -> KatG is curated (E069). Would need evidence sentence for KatG as a ROS-degrader.",
+    "SodA -> ROS (-1): similar to KatG; SodA is in curated as SodA -> Lycopene_Titer(+1) (E131) but not with an explicit -> ROS edge, which would be more mechanistically accurate.",
+    "Alper 2005 / Jin 2008 / Zhao 2013 / Yoon 2009 primary-source access remains paywalled (carried over from literature_judge_report G003). If REFINEMENT surfaces missing upstream-regulator edges for Dxs/Idi/MVA enzymes, flag rather than fabricate.",
+    "RpoS -> Dxs (Alper 2005) vs Bongers 2015 reinterpretation conflict: both hypotheses are in the repository. This review recommends using the Bongers ROS-mediated route (KATE -> ROS -> Lyc) as the dominant mechanism and removing the direct RPOS -> Lycopene_Titer edge (S004), but the RpoS -> Dxs edge (if curated) could be retained as an alternative."
+  ],
+  "stop_reason": null
+}

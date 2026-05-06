@@ -1,0 +1,279 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "Kernel_Row_Number",
+    "species": "Zea mays",
+    "created": "2026-04-20"
+  },
+  "failures": [
+    {
+      "test_id": "T004",
+      "gene": "fea4",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "increased",
+      "category": "edge_case",
+      "explanation": "Prediction mismatch. Methods: Alg=OK, ODE=decreased(r=0.000), RWR=OK. | Methods: Alg=OK, ODE=decreased(r=0.000), RWR=OK.",
+      "evidence": "10.1105/tpc.114.132506",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T015",
+      "gene": "fea4;fea2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "increased",
+      "category": "edge_case",
+      "explanation": "Prediction mismatch. Methods: Alg=OK, ODE=decreased(r=0.000), RWR=OK. | Methods: Alg=OK, ODE=decreased(r=0.000), RWR=OK.",
+      "evidence": "10.1105/tpc.114.132506",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T020",
+      "gene": "fea2_plus_ZmCLE7",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "unchanged",
+      "predicted_direction": "unchanged",
+      "category": "framework_limitation",
+      "explanation": "RWR-specific Perception Gate leak (Trap 5): signed-diffusion leaks exogenous ZmCLE7 downstream of fea2 KO. Algebraic/ODE handle correctly. | Methods: Alg=OK, ODE=OK, RWR=decreased(r=0.997).",
+      "evidence": "10.7554/eLife.35673",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T021",
+      "gene": "ct2_plus_ZmCLE7",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "unchanged",
+      "predicted_direction": "unchanged",
+      "category": "framework_limitation",
+      "explanation": "RWR-specific Perception Gate leak (Trap 5). Algebraic/ODE OK. | Methods: Alg=OK, ODE=OK, RWR=decreased(r=0.997).",
+      "evidence": "10.7554/eLife.35673",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T022",
+      "gene": "Zmcrn_plus_ZmFCP1",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "unchanged",
+      "predicted_direction": "decreased",
+      "category": "framework_limitation",
+      "explanation": "Zmcrn + ZmFCP1 rescue — framework Trap 5 at ratio 0.944 (threshold borderline). ZmFCP1 still signals through the parallel FEA2/FEA3 arm in the model even when ZMCRN is KO, because the receptor complex is not modelled as all-or-none. | Methods: Alg=decreased(r=0.944), ODE=OK, RWR=decreased(r=0.999).",
+      "evidence": "10.7554/eLife.35673",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T023",
+      "gene": "fea3_plus_ZmFCP1",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "unchanged",
+      "predicted_direction": "decreased",
+      "category": "framework_limitation",
+      "explanation": "fea3 + ZmFCP1 rescue — same Trap 5 class. ZmFCP1 -> FEA2(+) provides residual signalling that dilutes the expected 'unchanged' signal below threshold (ratio 0.841). | Methods: Alg=decreased(r=0.841), ODE=decreased(r=0.942), RWR=decreased(r=0.999).",
+      "evidence": "10.7554/eLife.35673",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T024",
+      "gene": "abph1",
+      "perturbation_type": "knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "increased",
+      "category": "framework_limitation",
+      "explanation": "abph1 KO — ODE/RWR-specific failure; Algebraic correct. Nonlinear Hill/signed-diffusion reverses the CK negative-feedback loop sign relative to the canonical algebraic model. | Methods: Alg=OK, ODE=decreased(r=0.001), RWR=decreased(r=1.000).",
+      "evidence": "10.1038/nature02778",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T025",
+      "gene": "Abphyl2_dominant",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "increased",
+      "predicted_direction": "decreased",
+      "category": "edge_case",
+      "explanation": "Abphyl2 dominant (ABPH2 GOF -> FEA4 partial reduction to 0.5): iter 3 attempt to remove FEA4 -> BA1 did not improve accuracy and was reverted. Residual cascade through FEA4 -> RA3 -> T6P -> Ear_Branching amplification still drives the net direction down despite the new FEA4 -> KRN (-1) direct edge. | Methods: Alg=decreased(r=0.853), ODE=decreased(r=0.000), RWR=OK.",
+      "evidence": "10.1105/tpc.114.130393",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T026",
+      "gene": "Bif3",
+      "perturbation_type": "gain_of_function",
+      "expected_direction": "decreased",
+      "predicted_direction": "increased",
+      "category": "framework_limitation",
+      "explanation": "Bif3 (dominant ZmWUS1-locus duplication) produces extreme fasciation -> BARREN ear. Monotonic cascades cannot represent 'too much WUS -> no kernels' non-monotonicity. | Methods: Alg=increased(r=1.059), ODE=increased(r=1.058), RWR=increased(r=1.002).",
+      "evidence": "10.1038/s41467-021-22699-8",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T033",
+      "gene": "rel2;ra1",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "decreased",
+      "category": "edge_case",
+      "explanation": "Prediction mismatch. Methods: Alg=OK, ODE=OK, RWR=increased(r=1.003). | Methods: Alg=OK, ODE=OK, RWR=increased(r=1.003).",
+      "evidence": "10.1242/dev.051748",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T034",
+      "gene": "rel2;ra2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "decreased",
+      "category": "edge_case",
+      "explanation": "Prediction mismatch. Methods: Alg=OK, ODE=OK, RWR=increased(r=1.003). | Methods: Alg=OK, ODE=OK, RWR=increased(r=1.003).",
+      "evidence": "10.1242/dev.051748",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T035",
+      "gene": "rel2;ra1;ra2",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "decreased",
+      "predicted_direction": "decreased",
+      "category": "edge_case",
+      "explanation": "Prediction mismatch. Methods: Alg=OK, ODE=OK, RWR=increased(r=1.003). | Methods: Alg=OK, ODE=OK, RWR=increased(r=1.003).",
+      "evidence": "10.1242/dev.051748",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T042",
+      "gene": "KRN4_absence_allele",
+      "perturbation_type": "loss_of_function",
+      "expected_direction": "increased",
+      "predicted_direction": "unchanged",
+      "category": "framework_limitation",
+      "explanation": "KRN4 cis-regulatory (UB3 gm=0.5) — partial KD at 0.5 dose is washed out by geometric-mean cascade (ratio 1.0003). Dilution limit for weak-KD tests in long cascades; structural shortcut (UB3->KRN -1) would invert the biologically-correct ub3 single KO (T043), so accept as framework limit. | Methods: Alg=unchanged(r=1.000), ODE=decreased(r=0.020), RWR=decreased(r=0.997).",
+      "evidence": "10.1371/journal.pgen.1005670",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T045",
+      "gene": "ub2;ub3",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "decreased",
+      "category": "framework_limitation",
+      "explanation": "ub2;ub3 double KO: UB3's dual regulatory role (activator of KN1/BIF2/ZMTCP30 AND repressor of IM_Size/Cytokinin) produces a non-monotonic dosage response. Single-KO biology (T043 correctly decreased) and double-KO biology (T045 increased) have opposite net directions; monotonic model cannot represent both. | Methods: Alg=decreased(r=0.182), ODE=decreased(r=0.000), RWR=decreased(r=0.983).",
+      "evidence": "10.1073/pnas.1407401112",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T046",
+      "gene": "ub2;ub3;tsh4",
+      "perturbation_type": "triple_knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "increased",
+      "category": "framework_limitation",
+      "explanation": "ub2;ub3;tsh4 triple KO: ODE-only failure, same non-monotonic dosage class as T045. | Methods: Alg=OK, ODE=decreased(r=0.000), RWR=OK.",
+      "evidence": "10.1073/pnas.1407401112",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T062",
+      "gene": "WT_plus_kinetin",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "increased",
+      "predicted_direction": "unchanged",
+      "category": "framework_limitation",
+      "explanation": "WT + kinetin: Cytokinin exogenous supply is diluted across 4-step cascade (CK -> TYPE_B_ARR -> ZMWUS1 -> IM_Size -> KRN) with ABPH1 negative feedback compensating at ZMWUS1. Ratio 1.014 (below 1.05 threshold). | Methods: Alg=unchanged(r=1.014), ODE=unchanged(r=0.999), RWR=OK.",
+      "evidence": "10.1007/s00497-024-00510-0",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T063",
+      "gene": "WT_plus_BA",
+      "perturbation_type": "chemical_treatment",
+      "expected_direction": "increased",
+      "predicted_direction": "unchanged",
+      "category": "framework_limitation",
+      "explanation": "WT + BA: same geometric-mean dilution pattern as T062. | Methods: Alg=unchanged(r=1.014), ODE=unchanged(r=0.999), RWR=OK.",
+      "evidence": "10.1007/s00497-024-00510-0",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T064",
+      "gene": "KNR6_OE",
+      "perturbation_type": "overexpression",
+      "expected_direction": "increased",
+      "predicted_direction": "increased",
+      "category": "framework_limitation",
+      "explanation": "KNR6 OE: ODE-only failure — Hill K=0.5 saturates the OE signal. Algebraic and RWR both correct. ODE-parameter sensitivity, not a structural issue. | Methods: Alg=OK, ODE=unchanged(r=1.021), RWR=OK.",
+      "evidence": "10.1038/s41467-020-14746-7",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T071",
+      "gene": "fea4_plus_ZmCLE7",
+      "perturbation_type": "rescue_experiment",
+      "expected_direction": "increased",
+      "predicted_direction": "unchanged",
+      "category": "framework_limitation",
+      "explanation": "fea4 + ZmCLE7 peptide rescue: FEA2/CT2/ZMCRN arm still active in the fea4 background, so ZmCLE7 still suppresses IM. The reported 'CLE peptide further enhances fasciation on fea4' outcome depends on two-arm interaction not captured by the current cascade topology. | Methods: Alg=unchanged(r=1.000), ODE=unchanged(r=0.960), RWR=decreased(r=0.997).",
+      "evidence": "10.1105/tpc.114.132506",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T072",
+      "gene": "fea4;abph2",
+      "perturbation_type": "double_knockout",
+      "expected_direction": "increased",
+      "predicted_direction": "increased",
+      "category": "edge_case",
+      "explanation": "Prediction mismatch. Methods: Alg=OK, ODE=decreased(r=0.000), RWR=unchanged(r=1.000). | Methods: Alg=OK, ODE=decreased(r=0.000), RWR=unchanged(r=1.000).",
+      "evidence": "10.1105/tpc.114.130393",
+      "fixable": false,
+      "fix_strategy": ""
+    },
+    {
+      "test_id": "T076",
+      "gene": "UB3_OE",
+      "perturbation_type": "overexpression",
+      "expected_direction": "decreased",
+      "predicted_direction": "unchanged",
+      "category": "framework_limitation",
+      "explanation": "UB3 OE: same non-monotonic dosage response as T045. UB3 OE at gm=2.0 activates downstream KN1/BIF2/ZMTCP30 (KRN-promoting) while also inhibiting IM_Size/Cytokinin (KRN-restricting); directions partially cancel to ratio ~1. | Methods: Alg=unchanged(r=1.000), ODE=OK, RWR=increased(r=1.007).",
+      "evidence": "10.1111/nph.14391",
+      "fixable": false,
+      "fix_strategy": ""
+    }
+  ],
+  "summary": {
+    "total_failures_union_all_methods": 21,
+    "algebraic_failures": 10,
+    "ode_failures": 14,
+    "rwr_failures": 14,
+    "by_category": {
+      "edge_case": 7,
+      "framework_limitation": 14
+    },
+    "fixable_count": 0,
+    "unfixable_count": 21,
+    "post_refinement_notes": [
+      "Refinement applied 5 kept fixes (1 edge_addition, 2 edge_removals, 1 edge_addition REL2->IM_Size, 2 encoding fixes) across iterations 1-2.",
+      "Iteration 3 attempted FEA4 -> BA1 removal; reverted (no accuracy gain).",
+      "Remaining failures are dominated by framework limitations (Perception Gate leaks, non-monotonic dosage response for UB3/Bif3, signal dilution, method-specific sign flips in RWR/ODE)."
+    ]
+  }
+}

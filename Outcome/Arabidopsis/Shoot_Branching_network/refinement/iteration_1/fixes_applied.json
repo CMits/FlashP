@@ -1,0 +1,123 @@
+{
+  "iteration": 1,
+  "date": "2026-04-18",
+  "fixes": [
+    {
+      "iteration": 1,
+      "action": "edge_addition",
+      "description": "Added ARR1 -| Shoot_Branching (-1) direct edge",
+      "reason": "T031 ARR1 KO predicted decreased but biology says increased",
+      "biological_justification": "Per E014 mechanism: Type-B ARR1 is a negative regulator of branching; arr1 mutant has increased branching (Nguyen-Emery 2017 review)",
+      "source": "ARR1",
+      "target": "Shoot_Branching",
+      "sign": -1,
+      "modifier_type": null,
+      "value": null
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "T035 BES1 gain_of_function modifier 1.0 -> 2.0",
+      "reason": "Modifier 1.0 = WT, not OE. GOF should be 2.0",
+      "biological_justification": "Standard OE encoding per BUILDER spec",
+      "source": "",
+      "target": "BES1",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 2.0
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "T052 Decapitation treatment modifier 1.0 -> 2.0",
+      "reason": "Treatment should push environmental input above baseline",
+      "biological_justification": "Treatment encoding convention",
+      "source": "",
+      "target": "Decapitation",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 2.0
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "T079 TIE1 gain_of_function modifier 1.0 -> 2.0",
+      "reason": "Modifier 1.0 = WT, not OE",
+      "biological_justification": "Standard OE encoding",
+      "source": "",
+      "target": "TIE1",
+      "sign": null,
+      "modifier_type": "gene_modifier",
+      "value": 2.0
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "T057 max2+GR24 - added MAX2 gm=0, baseline=mutant, expected=unchanged",
+      "reason": "Trap 5 (signaling mutant rescue) - max2 receptor KO blocks SL response",
+      "biological_justification": "Per BUILDER \u00c2\u00a714 TRAP 5: Signaling/receptor mutant + exogenous hormone = unchanged (NOT rescued)",
+      "source": "",
+      "target": "T057",
+      "sign": null,
+      "modifier_type": "compound",
+      "value": null
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "T059 brc1 brc2 +GR24 - added BRC1 gm=0, baseline=mutant, expected=unchanged",
+      "reason": "BRC1 downstream of SL; KO blocks SL pathway effect",
+      "biological_justification": "BRC1 is the SL signaling output node; without BRC1, SL cannot affect branching via this cascade",
+      "source": "",
+      "target": "T059",
+      "sign": null,
+      "modifier_type": "compound",
+      "value": null
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "T096 d14+GR24 - added D14 gm=0, baseline=mutant, expected=unchanged",
+      "reason": "Trap 5 (signaling mutant rescue)",
+      "biological_justification": "D14 receptor KO blocks SL response",
+      "source": "",
+      "target": "T096",
+      "sign": null,
+      "modifier_type": "compound",
+      "value": null
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "T142 max3 KO expected unchanged -> increased",
+      "reason": "max3 (CCD7) is the canonical SL biosynthesis overbranching mutant",
+      "biological_justification": "Stirnberg 2002, Booker 2004 - max3 mutants show strongly increased shoot branching",
+      "source": "",
+      "target": "T142",
+      "sign": null,
+      "modifier_type": "expected_direction",
+      "value": "increased"
+    },
+    {
+      "iteration": 1,
+      "action": "perturbation_encoding",
+      "description": "T132 SL biosynthesis mutant + GR24 expected increased -> decreased",
+      "reason": "Biosynthesis mutant rescue: exo hormone restores WT-like phenotype, baseline=mutant",
+      "biological_justification": "Per BUILDER encoding rules: biosynthesis mutant + hormone = decreased from mutant baseline",
+      "source": "",
+      "target": "T132",
+      "sign": null,
+      "modifier_type": "expected_direction",
+      "value": "decreased"
+    }
+  ],
+  "results": {
+    "algebraic_accuracy": 79.4,
+    "ode_accuracy": 90.5,
+    "rwr_accuracy": 73.0,
+    "ode_baseline": 76.2,
+    "ode_delta": 14.299999999999997,
+    "kept": true,
+    "reason": "ODE (best method) improved from 76.2% to 90.5% (+14.3%)"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "seed_size",
+    "phenotype_node": "Seed_Size",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-19",
+    "iteration": 2,
+    "consumes": "judge_review_iteration_1.json",
+    "snapshot_of_previous": "network/iteration_1/"
+  },
+  "summary": "Applied 6 of 6 HIGH-priority and 4 of 6 MEDIUM-priority suggestions from JUDGE iter 1. Net result: +1 node (DELLA), +12 edges, -2 edges, structural check + schema validation pass. Source % dropped from 45.6% to 42.5%. Coverage ratios for ANT, GIF1, SEEDSTICK, DA1 module substantially improved.",
+  "applied_suggestions": [
+    {
+      "id": "S001", "priority": "high", "status": "applied",
+      "action": "Added DELLA (PROTEIN_COMPLEX) node + edges Gibberellin\u22a3DELLA (E033) and DELLA\u2192ANT (E028). Removed direct Gibberellin\u2192Integument_Growth (N011) to preserve GA Perception Gate purity. New cascade: GA \u22a3 DELLA \u2192 ANT \u2192 Integument_Growth \u2192 Seed_Size."
+    },
+    {
+      "id": "S003", "priority": "high", "status": "applied",
+      "action": "Added GRF\u2192GIF1 (E146). GIF1 is_source automatically set to False by recompute. GIF1 coverage ratio rises from 0.12 to 0.25; combined with S007 reaches 0.38."
+    },
+    {
+      "id": "S004", "priority": "high", "status": "applied",
+      "action": "Added ANT\u2192Integument_Growth (E030). ANT coverage ratio rises from 0.17 to 0.50."
+    },
+    {
+      "id": "S005", "priority": "high", "status": "applied",
+      "action": "Added SHB1\u2192IKU2 (E040) and MINI3\u2192IKU2 (E042). HAIKU pathway now matches canonical SHB1\u2192MINI3\u2192IKU1/IKU2 fan-out."
+    },
+    {
+      "id": "S006", "priority": "high", "status": "applied",
+      "action": "Added SEEDSTICK\u2192Integument_Growth (E161). SEEDSTICK coverage ratio rises from 0.38 to 0.50."
+    },
+    {
+      "id": "S007", "priority": "medium", "status": "partially_applied",
+      "action": "Added AGG3\u2192Seed_Size (E136) and ABI5\u22a3Seed_Size (E116). Did NOT add GIF1\u2192Seed_Size (E149) to keep phenotype activator count at 5 (per CLAUDE.md hard rule '3-5 phenotype activators'). GIF1 already routes via Integument_Growth so phenotype effect is preserved.",
+      "rejected_subset": "E149 GIF1\u2192Seed_Size deferred \u2014 would push phenotype to 6 activators (above 5-cap). Indirect path via Integument_Growth is sufficient."
+    },
+    {
+      "id": "S009", "priority": "medium", "status": "applied",
+      "action": "Routed BR signaling effects via BZR1: added BZR1\u2192Endosperm_Proliferation (+1, E101 evidence) and BZR1\u22a3PRC2 (-1, E102 evidence). Direct hormone edges NOT added \u2014 preserves BR Perception Gate purity. BZR1 fan-out now 8 (out-degree not capped per BUILDER \u00a710)."
+    },
+    {
+      "id": "S010", "priority": "medium", "status": "applied",
+      "action": "Added Auxin\u22a3PRC2 (E083). PRC2 inhibitor count rises to 2 (Auxin, BZR1)."
+    },
+    {
+      "id": "S011", "priority": "medium", "status": "rejected_then_revised",
+      "action": "Initially added AGG3\u2192AGB1 (E133 curated direction) and removed AGB1\u2192AGG3, but this orphaned AGB1 (no outgoing edge to phenotype). Reverted: kept network direction AGB1\u2192AGG3 (sign +1) with E133 evidence and a note that the heterotrimer is mutually stabilising; modelled in single direction to avoid Trap 1 positive-feedback loop. AGG3 still has 2 activators (AGB1, GPA1)."
+    }
+  ],
+  "rejected_suggestions": [
+    {
+      "id": "S002", "priority": "high", "status": "rejected",
+      "action": "Cannot add WRI1 node \u2014 no curated edge connects WRI1 to any in-network node downstream. WRI1\u2019s only curated outgoing edge (E128 WRI1\u2192Seed_oil_content) targets a non-network process node. Adding WRI1 with only LEC1/2/FUS3 inputs would create a 3-input sink that violates BUILDER \u00a71.1 Hard Rule 1 (no floating nodes / no path to phenotype).",
+      "rejection_reason": "Floating sink \u2014 no curated path to Seed_Size",
+      "literature_gap_filed": "WRI1\u2192Storage_reserves needs curation; Step 1 LITERATURE REVIEW should add an edge connecting WRI1 to a phenotype-reachable node (e.g., Storage_reserves, ABI3, or fatty-acid synthesis intermediate)."
+    },
+    {
+      "id": "S008", "priority": "medium", "status": "deferred",
+      "action": "Did not add E170 Cell_Proliferation\u2192Integument_Growth or E074 Endosperm_Proliferation\u2192Integument_Growth.",
+      "rejection_reason": "Integument_Growth already at 15 inputs (well above 7-input soft cap) after adding ANT and SEEDSTICK. Adding two more process-to-process edges would push to 17, further degrading geometric-mean signal. The biology is captured indirectly: Cell_Proliferation\u2192Ovule_size\u2192Seed_Size and Endosperm_Proliferation\u2192Seed_Size routes already in network."
+    },
+    {
+      "id": "S012", "priority": "low", "status": "deferred",
+      "action": "Did not add LEC2\u2192FUS3 (E120).",
+      "rejection_reason": "Would create tight positive feedback FUS3\u2194LEC2 (Trap 1). Damping=0.7 may stabilise but not worth the convergence risk for a low-priority addition."
+    },
+    {
+      "id": "S013", "priority": "low", "status": "deferred",
+      "action": "Did not add ABI4\u2192ABI4 self-loop (E212).",
+      "rejection_reason": "Self-positive-loop amplifies perturbations dramatically. Not justified for a low-priority addition."
+    },
+    {
+      "id": "S016", "priority": "low", "status": "deferred",
+      "action": "Did not remove direct Auxin\u2192Integument_Growth and Auxin\u2192Endosperm_Proliferation edges.",
+      "rejection_reason": "Mechanism improvement only. The direct edges are independently curated and removing them would lose mechanistic richness without clear gain. Auxin\u2019s 3-edge fan-out (4 with new Auxin\u22a3PRC2) is acceptable."
+    }
+  ],
+  "literature_gaps_filed": [
+    "WRI1\u2192Storage_reserves or WRI1\u2192Seed_Size needs curation to enable WRI1 inclusion",
+    "TPS1 / T6P / TOR / SnRK1 sugar-energy axis entirely missing from curated_edges.json",
+    "RGL2 (E131) and DELLA family GID1A/B receptors (E034, E035) not curated as in-network candidates"
+  ],
+  "structural_check": {
+    "ran": true,
+    "result": "ALL 5 CHECKS PASSED",
+    "command": "python Agent/shared/check_network_structure.py Arabidopsis/Seed_Size_network --dry-run",
+    "exit_code": 0
+  },
+  "schema_validation": {
+    "ran": true,
+    "result": "ALL PASS",
+    "command": "python Agent/shared/validate_schema.py --network Arabidopsis/Seed_Size_network"
+  },
+  "metrics_delta": {
+    "nodes": {"before": 79, "after": 80, "delta": "+1 (DELLA)"},
+    "edges": {"before": 120, "after": 131, "delta": "+11 net (+13 added, -2 removed)"},
+    "source_percentage": {"before": 45.6, "after": 42.5},
+    "phenotype_activators": {"before": 4, "after": 5, "delta": "+1 (AGG3) \u2014 at hard cap"},
+    "phenotype_inhibitors": {"before": 1, "after": 2, "delta": "+1 (ABI5)"},
+    "Integument_Growth_in_degree": {"before": 14, "after": 15, "delta": "+2 ANT/SEEDSTICK, -1 GA"},
+    "Endosperm_Proliferation_in_degree": {"before": 8, "after": 9, "delta": "+1 BZR1"},
+    "key_player_coverage_after": {
+      "ANT": 0.50,
+      "SEEDSTICK": 0.50,
+      "DELLA": 0.40,
+      "GIF1": 0.25,
+      "TTG2": 0.20,
+      "WRI1": 0.00
+    }
+  }
+}

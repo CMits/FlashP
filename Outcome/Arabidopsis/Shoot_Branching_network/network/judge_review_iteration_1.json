@@ -1,0 +1,256 @@
+{
+  "metadata": {
+    "flash_p_version": "2.0",
+    "phenotype": "shoot_branching",
+    "phenotype_node": "Shoot_Branching",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-18",
+    "iteration": 1,
+    "judge_model": "Claude Opus 4.7 (1M context)"
+  },
+  "verdict": "iterate",
+  "summary": "v47 is a well-structured, motif-aware network with correct Perception Gate, Multi-Output Scaffold, Self-Limiting, and Coherent Feed-Forward application. It also correctly fixes v1's GA-DELLA dead-end. However, three systematic gaps hold it below peer-review bar: (1) strigolactone biosynthesis is missing its canonical enzymes (D27, MAX1, LBO) so the biosynthesis arm is thin; (2) cytokinin has no degradation input (CKX9 dropped for Perception-Gate purity but no substitute provided), breaking Motif 4 Biosynthesis-Degradation Balance and losing the SL-CK antagonism mechanism; (3) two well-documented BRC1 inhibitors (TIE1, Decapitation direct) are silently absent despite curated evidence. These are fixable within the curated edge set and push the network from 'solid parsimonious' to 'biologically defensible for a Plant Cell readership'.",
+  "rubric_scores": {
+    "pathway_completeness": {
+      "score": 3,
+      "justification": "Core cascades (SL signaling, CK antagonism, shade, GA-DELLA-SPL9, sugar, ABA) all present and correctly wired. However: (a) SL biosynthesis is truncated - only Auxin->CCD7/CCD8->Strigolactone is modeled; D27 isomerase (E106), MAX1 oxidase (E004), and LBO (E005) are absent despite being canonical, HIGH-confidence biosynthesis enzymes with well-documented loss-of-function branching phenotypes; (b) CK degradation completely missing (no CKX9, no alternative); (c) auxin export has PIN1/PIN3 but lacks ABCB19 (E098) which is a documented parallel transporter with its own mutant phenotype. The missing biology is published and curated - this is a cutting problem, not a literature problem."
+    },
+    "mechanistic_depth": {
+      "score": 4,
+      "justification": "Cascades are layered correctly (no A->Phenotype shortcuts where intermediates exist). The BRC1->HB21->NCED3->ABA chain is textbook quality. FHY3 dual path (SMXL678+ AND SPL9-) preserves double assurance. GA->DELLA->SPL9 cascade restored. One concern: SL biosynthesis is 2 layers (Auxin->CCD->SL) when biology has 4+ layers (Auxin->CCD7/8->Carlactone->MAX1->Carlactonoic acid->LBO->SL). Collapsing the intermediate metabolites is defensible (Carlactone node would not add testable perturbations beyond what the genes cover), but the missing genes (MAX1, LBO, D27) reduce mechanistic depth of this arm."
+    },
+    "motif_coverage": {
+      "score": 3,
+      "justification": "Motif 1 (Perception Gate): correctly applied to SL signaling - SL has only SL->D14 outgoing, co-inhibitors D14+MAX2 on SMXL678. Motif 3 (Coherent Feed-Forward): excellent - FHY3 dual path, Sucrose 4-path, Decapitation 3-path. Motif 5 (Multi-Output Scaffold): correct - MAX2->SMXL678+BES1; SMXL678->BRC1+SPL9+PIN1; BRC1->Shoot_Branching+HB21+PIN3. Motif 6 (Self-Limiting): D14->D14 included. Motif 7 (Mutual Inhibition): correctly skipped (no bistable switch in curated biology). HOWEVER: Motif 4 (Biosynthesis-Degradation Balance) is incomplete - Cytokinin has only IPT (synthesis) with zero degradation input, and ABA has only biosynthesis. The SL-CK antagonism via CKX9 (a key biology point) is absent. This is the biggest motif gap."
+    },
+    "cascade_balance": {
+      "score": 5,
+      "justification": "BRC1 has 3 activators + 5 inhibitors (8 total, within 7-per-direction cap). Phenotype has 4 activators + 2 inhibitors (within 5-activator-max cap). Source percentage is exactly 30.0% (top of the 20-30% target band, acceptable). No orphans, no overloaded hubs, no dead-end nodes. Maximum cascade depth to phenotype is 6 hops (GA->DELLA->SPL9->BRC1->HB21->NCED3->ABA->Shoot_Branching is 7 but ABA->Phenotype is direct, so longest path is within norms)."
+    },
+    "composite_node_handling": {
+      "score": 4,
+      "justification": "SMXL678 (collapsing SMXL6/7/8): appropriate per §9.3 - functional redundancy >70%, same targets (BRC1, SPL9, PIN1), same direction. HB21 used to represent HB21/40/53: the BUILDER treated HB21 as the dominant paralog rather than a composite. Defensible since HB21 is the primary branching-relevant family member in Gonzalez-Grandio 2017, but the mechanism string notes 'HB21 represents HB21/40/53' - suggests composite. Either approach (dominant vs composite naming) works, just be consistent. SPL15 dropped entirely, SPL9 alone: defensible since branching literature is SPL9-focused, but an argument could be made for an SPL9_15 composite given the shared targets. BRC2 dropped: defensible (partial redundancy with BRC1, confusing in composite)."
+    },
+    "hub_completeness": {
+      "score": 3,
+      "justification": "BRC1 is the main integrator hub. v47 includes 8 of ~13 curated regulators: SMXL678(-), SPL9(+), Auxin(+), Cytokinin(-), BES1(-), FT(-), Sucrose(-), Low_R_FR(+). Excluded: TIE1 (E040, HIGH conf, documented ⊣BRC1 via TPR co-repressors - strong branching-promoter phenotype when OE, this is NOT a minor regulator); TCP14/TCP15 (E127/E128, MEDIUM conf, Class I TCP antagonists); Decapitation direct (E073, HIGH conf, documented rapid BRC1 downregulation within hours - complements the slower auxin-mediated path as Motif 3); Strigolactone direct (E087, HIGH conf but excluded for Perception Gate purity - correct). The TIE1 exclusion is a real hub-completeness issue given its HIGH confidence and clear mechanism. Decapitation->BRC1 direct is also a Motif 3 opportunity (coherent feed-forward with Decap->Auxin->BRC1)."
+    },
+    "topology_hazards": {
+      "score": 5,
+      "justification": "No positive feedback H-Transporter loops (Auxin is near-source with only Decapitation as inhibitor; PIN1 and PIN3 do not feed back to Auxin). No bypass edges (Strigolactone has exactly 1 outgoing to D14; all other SL effects correctly routed through SMXL678). No sole-activator collapse (SMXL678 has FHY3 as sole activator but +2 inhibitors so inhibition path dominates; Cytokinin has only IPT activator but IPT has 3 inputs so signal propagates). D14 self-loop correctly motif-documented (Motif 6, Seto 2019 citation). ABA->HB21 positive feedback (E081, E132, E133) was correctly excluded - this is a mature build decision."
+    },
+    "evidence_quality": {
+      "score": 4,
+      "justification": "Sampled 8 edges across pathways: mechanism strings are specific and tied to DOI-verified papers. Example quality: 'SMXL6/7/8 physically interact with SPL9 to inhibit its DNA-binding and transactivation activity' (composite of E019-E021) - specific, actionable, testable. 'Activated D14 directly targets SMXL6/7/8 for ubiquitination via the D14-MAX2 SCF complex (Perception Gate co-inhibitor 1)' - excellent. Weaknesses: (a) mechanism strings for the 3 composite HB21/40/53 edges repeat the same phrasing, could be more differentiated; (b) evidence merge across composites correctly deduplicates DOIs. All edges have at least one full_text_read verified DOI."
+    },
+    "phenotype_audit": {
+      "score": 4,
+      "justification": "Shoot_Branching has 4 activators (Cytokinin, PIN1, PIN3, T6P) and 2 inhibitors (BRC1, ABA). Effector class coverage: HORMONE+ (Cytokinin), TRANSPORTER+ (PIN1, PIN3), METABOLITE+ (T6P), TF- (BRC1), HORMONE- (ABA). Missing effector class: GENE- direct (no direct gene-phenotype edge except via BRC1). This is actually appropriate - BRC1 is the TF integrator and other TFs route through it. Both arms balanced (4 promoters, 2 repressors). One consideration: SL-mediated branching suppression currently routes only via SMXL->BRC1 and SMXL->PIN1. Adding SMXL678 direct phenotype edge would violate Motif 5 scaffold (correctly excluded). Overall appropriate."
+    },
+    "rejected_edges_review": {
+      "score": 3,
+      "justification": "86 curated edges excluded; most defensibly so. Breakdown: ~30 bypass/net-effect edges correctly excluded per Perception Gate and cascade-routing rules; ~20 paralog alternatives handled via composites (SMXL, HB, SPL15, BRC2); ~15 developmental module edges (RAX1/CUC2/LAS/STM/WUS) intentionally dropped per user scope choice; ~10 peripheral regulators (Phosphorus, SPS, HXK1, ARR1, FAR1) defensibly cut for parsimony; ~3 positive-feedback edges (ABA->HB21 family) correctly excluded for stability. BUT: 5 exclusions warrant reconsideration - MAX1 (E004), LBO (E005), D27 (E106), TIE1 (E040), ABCB19 (E098). All HIGH confidence, all with clear mechanism, all with known mutant phenotypes. These were cut for parsimony when they should have been kept for biological completeness. Decapitation->BRC1 direct (E073) and TCP14/15 (E127/E128) are borderline but defensible."
+    }
+  },
+  "per_node_audit": [
+    {"node": "Decapitation", "inputs": "SOURCE", "outputs": ["Auxin(-)", "Strigolactone(-)", "IPT(+)"], "curated_excluded": ["E073 Decap->BRC1 direct", "E082 Decap->Sucrose", "E091 Decap->Cytokinin direct", "E071 Decap->Shoot_Branching direct"], "verdict": "appropriate", "comment": "Source node with 3 outgoing paths creating Motif 3 decapitation feed-forward. E073 (Decap->BRC1 direct) could be added for a 4th path (rapid direct BRC1 downregulation complementing slower auxin-mediated effect) - MEDIUM priority. Others correctly excluded (redundant net-effect edges)."},
+    {"node": "Low_R_FR", "inputs": "SOURCE", "outputs": ["FHY3(-)", "BRC1(+)", "HB21(+)", "NCED3(+)"], "curated_excluded": ["E058 Low_R_FR->Shoot_Branching direct"], "verdict": "appropriate", "comment": "Excellent motif 3 coverage - FHY3 (SL route), BRC1 (direct), HB21 and NCED3 (ABA route). E058 net-effect correctly excluded."},
+    {"node": "Nitrogen", "inputs": "SOURCE", "outputs": ["Strigolactone(-)", "IPT(+)", "PIN3(+)"], "curated_excluded": ["E074 Nitrogen->Shoot_Branching direct", "E154 Nitrogen->Cytokinin direct"], "verdict": "appropriate", "comment": "Three-path coverage via CK biosynthesis, SL suppression, and direct PIN3 effect. Direct edges correctly excluded as redundant."},
+    {"node": "Photoperiod", "inputs": "SOURCE", "outputs": ["FT(+)"], "curated_excluded": ["E148 Photoperiod->Shoot_Branching"], "verdict": "under-specified", "comment": "Single outgoing edge. In curated edges Photoperiod only has FT as direct target - this is a Step 1 LITERATURE GAP, not a BUILDER issue. CO pathway intermediates (GI->CO->FT) would strengthen this arm but are not in curated_edges.json. Flag as literature_gap."},
+    {"node": "Sucrose", "inputs": "SOURCE", "outputs": ["Strigolactone(-)", "BRC1(-)", "T6P(+)", "HB21(-)"], "curated_excluded": ["E059 Sucrose->Shoot_Branching direct", "E076 Sucrose->Cytokinin direct"], "verdict": "appropriate", "comment": "Four-path coverage (SL suppression, BRC1 direct, T6P/FT, HB21/ABA). Excellent Motif 3. Direct edges correctly excluded."},
+    {"node": "GA", "inputs": "SOURCE", "outputs": ["DELLA(-)"], "curated_excluded": ["E093 GA->BRC1 direct"], "verdict": "appropriate", "comment": "Single outgoing edge but this is the canonical GA signaling entry point. E093 direct excluded correctly since GA->DELLA->SPL9->BRC1 cascade captures the mechanism (and E093 is medium confidence)."},
+    {"node": "miR156", "inputs": "SOURCE", "outputs": ["SPL9(-)"], "curated_excluded": ["E078 miR156->SPL15"], "verdict": "appropriate", "comment": "SPL15 dropped (SPL9 dominant). Single outgoing is correct for miR156's canonical role."},
+    {"node": "MAX2", "inputs": "SOURCE", "outputs": ["SMXL678(-)", "BES1(-)"], "curated_excluded": ["E113 MAX2->Shoot_Branching direct"], "verdict": "appropriate", "comment": "Perfect Multi-Output Scaffold (Motif 5). Net-effect edge E113 correctly excluded."},
+    {"node": "ABA2", "inputs": "SOURCE", "outputs": ["ABA(+)"], "curated_excluded": [], "verdict": "appropriate", "comment": "Single outgoing edge is correct - ABA2 is a constitutive biosynthesis enzyme."},
+    {"node": "Auxin", "inputs": ["Decapitation(-)"], "outputs": ["CCD7(+)", "CCD8(+)", "IPT(-)", "BRC1(+)", "PIN1(+)"], "curated_excluded": ["E119 Auxin->Cytokinin direct", "E120 Auxin->Strigolactone direct", "E052 Auxin->Shoot_Branching direct"], "verdict": "appropriate", "comment": "Near-source with 1 inhibitor (TRAP 1 avoided - no positive feedback from PIN1). 5 outgoing edges. Direct CK/SL/phenotype edges correctly excluded (all captured via cascade)."},
+    {"node": "CCD7", "inputs": ["Auxin(+)"], "outputs": ["Strigolactone(+)"], "curated_excluded": ["E002 CCD7->Carlactone"], "verdict": "appropriate", "comment": "Single input, single output - canonical biosynthesis gene. Carlactone intermediate node not modeled (would add 1 node for 2 edges with no perturbation gain)."},
+    {"node": "CCD8", "inputs": ["Auxin(+)"], "outputs": ["Strigolactone(+)"], "curated_excluded": ["E003 CCD8->Carlactone"], "verdict": "appropriate", "comment": "Parallels CCD7. Same reasoning."},
+    {"node": "Strigolactone", "inputs": ["CCD7(+)", "CCD8(+)", "Decapitation(-)", "Sucrose(-)", "Nitrogen(-)"], "outputs": ["D14(+)"], "curated_excluded": ["E004 MAX1->SL [H]", "E005 LBO->SL [H]", "E106 D27->SL [H]", "E103 Phosphorus->SL [H]", "E043/E053/E087/E090/E139/E140/E147/E122 SL bypass edges"], "verdict": "under-specified for biosynthesis", "comment": "Strigolactone has only 2 biosynthesis activators (CCD7, CCD8) when canonical biology requires a 4-step pathway (D27->carlactone->CCD7/8->MAX1->LBO->SL). All three missing enzymes (D27, MAX1, LBO) are HIGH confidence in curated with known mutant phenotypes (d27, max1, lbo single mutants show overbranching). Adding them would bring biosynthesis activator count to 5 (within limit). HIGH PRIORITY to add. SL outgoing correctly limited to D14 per Perception Gate (correct). Phosphorus excluded for parsimony - acceptable."},
+    {"node": "D14", "inputs": ["Strigolactone(+)", "D14(-)"], "outputs": ["SMXL678(-)", "D14(-)"], "curated_excluded": ["E007 D14->MAX2 direct", "E080/E153 SL->D14 negative alternative formulations", "E112 D14->Shoot_Branching direct", "E129/E130/E131 individual SMXL targets"], "verdict": "appropriate", "comment": "Correct Perception Gate + Motif 6 self-limiting. E007 (D14->MAX2) correctly omitted since Perception Gate treats both as co-inhibitors on SMXL678 not as sequential chain."},
+    {"node": "SMXL678", "inputs": ["D14(-)", "MAX2(-)", "FHY3(+)"], "outputs": ["BRC1(-)", "SPL9(-)", "PIN1(+)"], "curated_excluded": ["E115/E116/E117 SMXL->Shoot_Branching direct"], "verdict": "appropriate", "comment": "Central SL signaling hub. 2 inhibitors (Perception Gate co-inhibitors) + 1 activator (FHY3 shade-SL crosstalk). Multi-Output Scaffold with 3 outputs. Textbook quality."},
+    {"node": "BES1", "inputs": ["MAX2(-)"], "outputs": ["BRC1(-)"], "curated_excluded": ["E146 BES1->Shoot_Branching direct", "E147 SL->BES1 bypass"], "verdict": "appropriate but thin", "comment": "Single input (MAX2 via Multi-Output Scaffold) and single output (cooperative BRC1 repression with SMXL678). Biologically accurate. Could be considered for removal since BES1 only adds one edge to BRC1's already 5-inhibitor list - but max2 KO prediction would lose the 'both SMXL AND BES1 accumulate' pleiotropy. Keep."},
+    {"node": "DELLA", "inputs": ["GA(-)"], "outputs": ["SPL9(-)"], "curated_excluded": [], "verdict": "appropriate", "comment": "Exactly the v1 fix - DELLA now has outgoing edge to SPL9, GA-DELLA-SPL9-BRC1 cascade complete. Anti-Pattern 1 from BUILDER_AGENT.md §1.4 directly addressed."},
+    {"node": "SPL9", "inputs": ["DELLA(-)", "miR156(-)", "SMXL678(-)", "FHY3(-)"], "outputs": ["BRC1(+)"], "curated_excluded": ["E118 SPL9->Shoot_Branching direct", "SPL15 alternatives"], "verdict": "appropriate", "comment": "All-inhibitor node (0 activators, 4 inhibitors). Algebraic Activation defaults to 1.0 so WT baseline preserved. 4 inhibitors represent: age (miR156), GA pathway (DELLA), SL pathway (SMXL678), shade (FHY3). Excellent integration node."},
+    {"node": "BRC1", "inputs": ["SMXL678(-)", "SPL9(+)", "Auxin(+)", "Cytokinin(-)", "BES1(-)", "FT(-)", "Sucrose(-)", "Low_R_FR(+)"], "outputs": ["Shoot_Branching(-)", "HB21(+)", "PIN3(-)"], "curated_excluded": ["E040 TIE1->BRC1 [H]", "E073 Decapitation->BRC1 direct [H]", "E087 SL->BRC1 direct (bypass, correctly excluded)", "E093 GA->BRC1 direct", "E127/E128 TCP14/15 [M conf]", "E121 BRC1->ABA direct", "E088 BRC1->NCED3 direct", "E124 BRC1->FT reciprocal", "E138 BRC1->DRM1"], "verdict": "missing key inputs", "comment": "Central integrator. Missing TIE1 (HIGH confidence, documented branching-promoter via TPL co-repressor recruitment to BRC1 - this is NOT a minor regulator) and Decapitation direct (HIGH conf, Motif 3 opportunity). TCP14/15 borderline (M conf, antagonist class) - low priority to add. BRC1->FT reciprocal negative feedback excluded (would create negative feedback loop - could stabilize but adds complexity, defer). MEDIUM priority: add TIE1, add Decapitation->BRC1 direct."},
+    {"node": "IPT", "inputs": ["Nitrogen(+)", "Decapitation(+)", "Auxin(-)"], "outputs": ["Cytokinin(+)"], "curated_excluded": [], "verdict": "appropriate", "comment": "3 inputs drive CK biosynthesis. Correct cascade structure."},
+    {"node": "Cytokinin", "inputs": ["IPT(+)"], "outputs": ["BRC1(-)", "Shoot_Branching(+)", "PIN1(+)", "PIN3(+)"], "curated_excluded": ["E048/E049 captured", "E050/E051 PIN3/PIN7", "E076 Sucrose->CK direct", "E100 CK->WUS developmental", "E154 Nitrogen->CK direct", "E091 Decapitation->CK direct", "E065 CKX9->CK (CKX9 not in network)", "E139 SL->CK direct bypass", "E105/E125/E151 SPS/HXK1 peripheral"], "verdict": "under-specified - MISSING DEGRADATION ARM", "comment": "Cytokinin has only IPT (synthesis) as input with ZERO degradation inputs. This violates Motif 4 (Biosynthesis-Degradation Balance) and eliminates the entire SL->CK antagonism mechanism documented in Wu 2022 and others. CKX9 was dropped per Perception Gate purity (no curated SMXL->CKX9 to gate it). This is either a literature_gap (Step 1 needs SMXL-CKX regulatory papers) OR accept SL->CKX9 direct with Trap 5 disclosure. HIGH PRIORITY - either add CKX9 with direct SL input (documented Trap 5) or file literature_gap. Losing CK degradation means ckx mutants and SL+CK crosstalk tests cannot be distinguished from 'unchanged' predictions."},
+    {"node": "PIN1", "inputs": ["Auxin(+)", "Cytokinin(+)", "SMXL678(+)"], "outputs": ["Shoot_Branching(+)"], "curated_excluded": ["E043 SL->PIN1 direct bypass"], "verdict": "appropriate", "comment": "3 activators, 0 inhibitors. SL effect on PIN1 correctly routed through SMXL678 (Perception Gate). Classic auxin transporter with hormonal co-regulation."},
+    {"node": "PIN3", "inputs": ["Cytokinin(+)", "Nitrogen(+)", "BRC1(-)"], "outputs": ["Shoot_Branching(+)"], "curated_excluded": [], "verdict": "appropriate", "comment": "Nice parallel to PIN1 with BRC1 inhibition adding a feed-forward (BRC1 inhibits branching directly AND via PIN3 repression - Motif 3)."},
+    {"node": "FHY3", "inputs": ["Low_R_FR(-)"], "outputs": ["SMXL678(+)", "SPL9(-)"], "curated_excluded": ["E036 FHY3->SPL15", "E101/E150 FHY3->Shoot_Branching direct"], "verdict": "appropriate", "comment": "Excellent Motif 3 dual path: both outputs favor BRC1 reduction when FHY3 drops (under shade). Net effect on branching correct without needing direct edge."},
+    {"node": "T6P", "inputs": ["Sucrose(+)"], "outputs": ["FT(+)", "Shoot_Branching(+)"], "curated_excluded": ["E089 T6P->SnRK1", "E090 SL->T6P bypass"], "verdict": "appropriate", "comment": "T6P correctly acts via FT AND directly on phenotype (Motif 3). SnRK1 not in network - acceptable since SnRK1 is a catalytic effector without specific branching mutants tested."},
+    {"node": "FT", "inputs": ["T6P(+)", "Photoperiod(+)"], "outputs": ["BRC1(-)"], "curated_excluded": ["E084 FT->Shoot_Branching direct", "E124 BRC1->FT reciprocal feedback"], "verdict": "appropriate", "comment": "FT integrates sugar and photoperiod inputs, suppresses BRC1. Direct phenotype edge (E084) excluded - acceptable since FT->BRC1 captures the mechanism. BRC1->FT reciprocal negative feedback (E124) correctly omitted to avoid convergence complexity (medium confidence)."},
+    {"node": "HB21", "inputs": ["BRC1(+)", "Low_R_FR(+)", "Sucrose(-)"], "outputs": ["NCED3(+)"], "curated_excluded": ["E081 ABA->HB21 positive feedback (correctly excluded)", "E132/E133 ABA->HB40/53 feedback"], "verdict": "appropriate", "comment": "Strong integration node: dormancy (BRC1), shade (Low_R_FR), and sugar (Sucrose) all converge. Positive feedback from ABA correctly excluded for stability."},
+    {"node": "NCED3", "inputs": ["HB21(+)", "Low_R_FR(+)"], "outputs": ["ABA(+)"], "curated_excluded": ["E055 PHYB->NCED3 (PHYB not in network)", "E088 BRC1->NCED3 direct (redundant via HB21)"], "verdict": "appropriate", "comment": "Rate-limiting ABA biosynthesis step. Direct shade input (E135, Low_R_FR) included as Motif 3 parallel to HB21-mediated route."},
+    {"node": "ABA", "inputs": ["NCED3(+)", "ABA2(+)"], "outputs": ["Shoot_Branching(-)"], "curated_excluded": ["E081/E132/E133 ABA positive feedback to HB family"], "verdict": "appropriate but missing degradation", "comment": "Two biosynthesis inputs (rate-limiting NCED3 + downstream ABA2) covers Motif 4 synthesis arm. No ABA catabolism gene (CYP707A) in curated_edges - literature_gap. Acceptable current state."},
+    {"node": "Shoot_Branching", "inputs": ["Cytokinin(+)", "PIN1(+)", "PIN3(+)", "T6P(+)", "BRC1(-)", "ABA(-)"], "outputs": [], "curated_excluded": ["E052/E053/E058/E071/E074/E084/E098/E101/E102/E104/E112/E113/E114/E115/E116/E117/E118/E126/E137/E146/E148/E150/E151/E152/E155 - all direct gene/env->phenotype net-effect edges"], "verdict": "appropriate", "comment": "4 activators + 2 inhibitors = 6 total effector inputs. All major effector classes represented: HORMONE (CK, ABA), TRANSPORTER (PIN1, PIN3), METABOLITE (T6P), TF (BRC1). ABCB19 (E098, HIGH conf auxin loader) is the one effector-class addition worth considering."}
+  ],
+  "per_pathway_audit": [
+    {
+      "pathway": "Strigolactone biosynthesis",
+      "completeness": "medium",
+      "comment": "Auxin->CCD7/CCD8->Strigolactone covers the carotenoid cleavage step. Missing: D27 isomerase (first committed step), MAX1 P450 oxidation (carlactone -> carlactonoic acid), LBO (2-OGD final step). All three are HIGH confidence canonical biosynthesis enzymes with known overbranching mutant phenotypes (d27, max1, lbo).",
+      "missing_pieces_edge_ids": ["E004 MAX1->SL", "E005 LBO->SL", "E106 D27->SL"],
+      "recommended_action": "add_edges for canonical biosynthesis completeness"
+    },
+    {
+      "pathway": "Strigolactone signaling (Perception Gate)",
+      "completeness": "high",
+      "comment": "Textbook Perception Gate: SL->D14+MAX2->SMXL678, Multi-Output MAX2 also targets BES1, Self-Limiting D14->D14. All bypass edges correctly excluded. SMXL678 composite appropriate.",
+      "missing_pieces_edge_ids": [],
+      "recommended_action": "none"
+    },
+    {
+      "pathway": "Cytokinin biosynthesis-degradation balance",
+      "completeness": "low",
+      "comment": "BUILDER correctly includes IPT with 3 upstream regulators (Nitrogen, Decapitation, Auxin). However the degradation arm is completely missing - no CKX9 or other catabolic gene. This breaks Motif 4 (Biosynthesis-Degradation Balance). SL->CKX9 (E064) exists in curated but was dropped for Perception Gate purity (no curated SMXL->CKX9 to gate it). Consequence: ckx family mutants and SL-CK antagonism tests will show as 'unchanged' or incorrectly predicted.",
+      "missing_pieces_edge_ids": ["E064 SL->CKX9", "E065 CKX9->CK"],
+      "recommended_action": "restructure_pathway - either accept SL->CKX9 direct with Trap 5 disclosure, OR file literature_gap for SMXL->CKX9 curation and proceed without CK degradation for now"
+    },
+    {
+      "pathway": "Shade response (PHYB/FHY3)",
+      "completeness": "high",
+      "comment": "Low_R_FR has 4 paths: FHY3 degradation (SMXL678 and SPL9 dual), direct BRC1 upregulation, HB21 upregulation (ABA arm), NCED3 direct. Excellent coverage. PHYB not modeled - defensible since Low_R_FR->PHYB is a photoreversible protein-state change not captured as a curated transcriptional edge, and its effects are already captured via FHY3+direct BRC1.",
+      "missing_pieces_edge_ids": [],
+      "recommended_action": "none"
+    },
+    {
+      "pathway": "GA-DELLA-SPL9 axis",
+      "completeness": "high",
+      "comment": "Fixes v1's dead-end. GA->DELLA->SPL9->BRC1 cascade complete. E093 (GA->BRC1 direct) correctly excluded since indirect path captures it.",
+      "missing_pieces_edge_ids": [],
+      "recommended_action": "none"
+    },
+    {
+      "pathway": "Auxin homeostasis and transport",
+      "completeness": "medium",
+      "comment": "Auxin as near-source with 5 outgoing (CCD7, CCD8, IPT, BRC1, PIN1) is excellent. PIN1 and PIN3 cover main transporters. Missing ABCB19 (E098, HIGH confidence auxin loader into stem PATS) - could be added as 3rd transporter in parallel. Not urgent but would enrich.",
+      "missing_pieces_edge_ids": ["E098 ABCB19->Shoot_Branching"],
+      "recommended_action": "consider add_node ABCB19 (lower priority)"
+    },
+    {
+      "pathway": "BRC1 integration hub",
+      "completeness": "medium",
+      "comment": "8 of ~13 curated regulators present. TIE1 (HIGH conf BRC1 inhibitor via TPR co-repressor recruitment - tie1 OE shows branching phenotype) is the notable gap. Decapitation direct (HIGH conf, Motif 3 opportunity). TCP14/15 (M conf, lower priority). The TIE1 exclusion is the biggest hub-completeness concern.",
+      "missing_pieces_edge_ids": ["E040 TIE1->BRC1", "E073 Decapitation->BRC1"],
+      "recommended_action": "add_edges for TIE1 and Decapitation direct"
+    },
+    {
+      "pathway": "Sugar / T6P / Photoperiod / FT",
+      "completeness": "high",
+      "comment": "Sucrose->T6P->FT->BRC1 plus T6P->Shoot_Branching direct (Motif 3). Photoperiod integrated via FT. Strong coverage.",
+      "missing_pieces_edge_ids": [],
+      "recommended_action": "none"
+    },
+    {
+      "pathway": "ABA dormancy program (BRC1->HB21->NCED3->ABA)",
+      "completeness": "high",
+      "comment": "Complete cascade with shade and sucrose modulation at HB21 level. ABA2 provides parallel biosynthesis input. Positive feedback ABA->HB correctly excluded. Missing ABA catabolism (CYP707A) - literature_gap.",
+      "missing_pieces_edge_ids": [],
+      "recommended_action": "none (CYP707A is literature_gap, not BUILDER problem)"
+    },
+    {
+      "pathway": "Developmental / meristem initiation module",
+      "completeness": "intentionally-excluded",
+      "comment": "RAX1, CUC2, LAS, REV, STM, WUS intentionally dropped per user scope choice (branching OUTGROWTH control, not meristem INITIATION). Defensible. Multiple edges (E066-E070, E099-E100, E102, E123, E141) excluded coherently.",
+      "missing_pieces_edge_ids": [],
+      "recommended_action": "none"
+    },
+    {
+      "pathway": "Peripheral regulators (Phosphorus, SPS, HXK1, ARR1, FAR1)",
+      "completeness": "intentionally-excluded",
+      "comment": "Parsimony cuts. Phosphorus (E103, E104) would add another environment source for SL biosynthesis - low priority. SPS/HXK1 (metabolic CK pathways) and ARR1 (type-B ARR) are peripheral. FAR1 partners with FHY3 but FHY3 captures the effect.",
+      "missing_pieces_edge_ids": [],
+      "recommended_action": "none"
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "S001",
+      "type": "add_node",
+      "priority": "high",
+      "description": "Add MAX1 as GENE node and MAX1->Strigolactone (+1) edge",
+      "biological_justification": "MAX1 is cytochrome P450 711A1, oxidizes carlactone to carlactonoic acid - canonical, HIGH-confidence SL biosynthesis step. max1 single mutants show dramatic overbranching phenotype (Booker et al. 2005). Currently SL has only 2 biosynthesis activators (CCD7, CCD8); adding MAX1 reflects the real biology that max1 KO independently destroys SL production.",
+      "curated_edge_ids": ["E004"],
+      "implementation": "Add GENE node 'MAX1' (full_name 'MORE AXILLARY GROWTH 1', description 'Cytochrome P450 711A1 in strigolactone biosynthesis; oxidizes carlactone to carlactonoic acid'). Add edge MAX1->Strigolactone (+1) per E004."
+    },
+    {
+      "id": "S002",
+      "type": "add_node",
+      "priority": "high",
+      "description": "Add LBO as GENE node and LBO->Strigolactone (+1) edge",
+      "biological_justification": "LBO (LATERAL BRANCHING OXIDOREDUCTASE) is 2-OGD-dependent oxidoreductase catalyzing the final known enzymatic step in SL biosynthesis (Brewer et al. 2016). lbo single mutants show overbranching. HIGH confidence canonical biosynthesis gene.",
+      "curated_edge_ids": ["E005"],
+      "implementation": "Add GENE node 'LBO' (full_name 'LATERAL BRANCHING OXIDOREDUCTASE'). Add edge LBO->Strigolactone (+1) per E005."
+    },
+    {
+      "id": "S003",
+      "type": "add_node",
+      "priority": "high",
+      "description": "Add D27 as GENE node and D27->Strigolactone (+1) edge",
+      "biological_justification": "D27 is the carotenoid isomerase catalyzing the first committed step of SL biosynthesis. HIGH confidence (Waters et al., Lin et al.). Completes the biosynthetic arm alongside CCD7/CCD8/MAX1/LBO.",
+      "curated_edge_ids": ["E106"],
+      "implementation": "Add GENE node 'D27' (full_name 'DWARF27'). Add edge D27->Strigolactone (+1) per E106. NOTE: D27 would be a source node (no known upstream regulator in curated_edges) - adds 1 to source count."
+    },
+    {
+      "id": "S004",
+      "type": "restructure_pathway",
+      "priority": "high",
+      "description": "Address missing Cytokinin degradation arm - either add CKX9 with direct SL input (accept Trap 5) or file literature_gap",
+      "biological_justification": "Cytokinin currently has 0 degradation inputs, violating Motif 4 and eliminating SL-CK antagonism. The biology (SL->CKX9->CK degradation) is well documented but the specific SMXL678->CKX9 curated edge does not exist, so Perception Gate purity cannot be preserved. Two options: (a) add SL->CKX9 (+1) + CKX9->Cytokinin (-1) directly, document as known Trap 5 framework limitation, accept that max2+GR24 type tests will mispredict CK levels; (b) file literature_gap for Step 1 to find SMXL678->CKX9 papers before re-running.",
+      "curated_edge_ids": ["E064", "E065"],
+      "implementation": "If option (a): add CKX9 GENE node, add SL->CKX9 (+1, E064) and CKX9->Cytokinin (-1, E065). Add explicit mechanism note about Trap 5 disclosure. If option (b): file literature_gap and leave as-is for this iteration."
+    },
+    {
+      "id": "S005",
+      "type": "add_edge",
+      "priority": "medium",
+      "description": "Add TIE1 as GENE node and TIE1->BRC1 (-1) edge",
+      "biological_justification": "TIE1 (TCP INTERACTOR CONTAINING EAR MOTIF 1) binds BRC1 protein and recruits TPL/TPR co-repressors to inhibit BRC1 activity. HIGH confidence (Tao et al. 2013). tie1 single mutants show reduced branching; TIE1 OE shows increased branching - TIE1 is a documented branching promoter acting at BRC1 post-transcriptionally. Currently absent despite HIGH-confidence evidence. Addition is low-cost (1 node, 1 edge) and fills a real gap in BRC1 regulation.",
+      "curated_edge_ids": ["E040"],
+      "implementation": "Add GENE node 'TIE1'. Add edge TIE1->BRC1 (-1) per E040. TIE1 would be a source node (no known upstream regulator in curated_edges)."
+    },
+    {
+      "id": "S006",
+      "type": "add_edge",
+      "priority": "medium",
+      "description": "Add Decapitation->BRC1 (-1) direct edge (Motif 3 coherent feed-forward)",
+      "biological_justification": "Decapitation rapidly (within hours) downregulates BRC1 transcription in buds via mechanisms independent of the slower auxin-mediated cascade (Braun et al. 2012). Including this direct edge creates a proper Motif 3 coherent feed-forward loop: Decapitation->BRC1 direct AND Decapitation->Auxin->BRC1 indirect. Both paths converge. Currently Decapitation has 3 outgoing paths to branching; adding this 4th would strengthen the phenotype response to the canonical decapitation perturbation.",
+      "curated_edge_ids": ["E073"],
+      "implementation": "Add edge Decapitation->BRC1 (-1) per E073. No new nodes needed."
+    },
+    {
+      "id": "S007",
+      "type": "add_node",
+      "priority": "low",
+      "description": "Consider adding ABCB19 as parallel auxin transporter",
+      "biological_justification": "ABCB19 (ABC transporter subfamily B19) loads auxin from buds into the stem PATS, required for bud activation canalization. HIGH confidence, parallels PIN1/PIN3 function. Would give the phenotype node 5 activators (current 4) which is at the max. Lower priority than biosynthesis completeness.",
+      "curated_edge_ids": ["E098"],
+      "implementation": "Add GENE node 'ABCB19'. Add edge ABCB19->Shoot_Branching (+1) per E098. NOTE: This brings phenotype activator count to 5 (max allowed). ABCB19 would be a source node."
+    },
+    {
+      "id": "S008",
+      "type": "literature_gap",
+      "priority": "medium",
+      "description": "Step 1 LITERATURE REVIEW did not curate SMXL678 -> CKX9 transcriptional regulation",
+      "biological_justification": "Per Motif 1 Perception Gate strict rule, the SL-induced CK degradation mechanism (SL->CKX9->CK) must be routed through SMXL678 to avoid signaling-mutant bypass (Trap 5). Wu et al. 2022 review states 'SL activates CK catabolism via cytokinin oxidase' but the specific SMXL678->CKX9 transcriptional regulation has not been curated in this Step 1 output. If this paper or similar exists, its absence from curated_edges is a coverage gap, not a biological one.",
+      "curated_edge_ids": [],
+      "implementation": "Step 1 LITERATURE REVIEW should search PMC/bioRxiv for 'SMXL CKX transcriptional regulation', 'SMXL6 D53 CK biosynthesis target genes', 'SL signaling cytokinin oxidase target'. If found, add to curated_edges.json and re-run BUILDER."
+    },
+    {
+      "id": "S009",
+      "type": "literature_gap",
+      "priority": "low",
+      "description": "ABA catabolism (CYP707A family) not in curated_edges - no ABA degradation arm possible",
+      "biological_justification": "ABA has 2 biosynthesis activators (NCED3, ABA2) but no degradation input (CYP707A family). Motif 4 Biosynthesis-Degradation Balance is incomplete. Not critical for branching prediction (cyp707a mutants primarily affect dormancy rather than outgrowth) but completeness would improve ABA node realism.",
+      "curated_edge_ids": [],
+      "implementation": "Step 1 search for 'CYP707A ABA catabolism branching' papers. Low priority."
+    }
+  ],
+  "literature_gaps": [
+    "SMXL678 -> CKX9 transcriptional regulation (would enable gated SL-CK antagonism)",
+    "CYP707A ABA catabolism (would enable ABA degradation arm)",
+    "CO pathway intermediates (GI, CO) for Photoperiod->FT cascade - currently single edge"
+  ],
+  "stop_reason": null,
+  "iteration_notes": "First Judge pass. 3 HIGH priority suggestions (MAX1, LBO, D27 - all SL biosynthesis). 3 MEDIUM priority (Decapitation->BRC1 direct, TIE1, restructure CK degradation). 2 LOW. Verdict: iterate. Expected effect of applying all HIGH+MEDIUM: +4 nodes (MAX1, LBO, D27, TIE1), +5-7 edges, source percentage rises slightly (12/34 = 35%, above target band but within 50% cap; if S004 option-a is taken, CKX9 adds one non-source node helping the ratio)."
+}
