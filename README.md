@@ -89,12 +89,7 @@ All command-line prompts (Options A and B) assume you opened Claude Code from in
 ### Option A — One-shot prompt
 
 ```text
-Run the full FLASH-P v2.0 pipeline for the trait <TRAIT> in <SPECIES>.
-Read CLAUDE.md first to understand the orchestration rules and the pipeline
-handoff table, then execute every step in order — Step 1, 1.5, 2, 2.5, 3, 4,
-5, 6 — by following the corresponding agent definition in Agent/. After each
-step, write the required handoff files before moving on. Pause and ask only
-if a step's gating check (judge approval, accuracy threshold, etc.) fails.
+Run the full FLASH-P pipeline for the trait <TRAIT> in <SPECIES>.
 ```
 
 ### Option B — Step-by-step prompts
@@ -104,65 +99,49 @@ Run these one at a time, each in its own Claude Code session (or back-to-back wi
 #### Step 1 — Literature Review
 
 ```text
-Read CLAUDE.md and Agent/LITERATURE_REVIEW_AGENT.md, then run Step 1 of the
-FLASH-P pipeline for trait <TRAIT> in <SPECIES>. Produce exactly the handoff
-files specified in the agent doc. Do not start the next step.
+Run Step 1 of the FLASH-P pipeline for trait <TRAIT> in <SPECIES>. Do not start the next step.
 ```
 
 #### Step 1.5 — Literature Review Judge
 
 ```text
-Read CLAUDE.md and Agent/LITERATURE_REVIEW_JUDGE_AGENT.md, then run Step 1.5
-of the FLASH-P pipeline for trait <TRAIT> in <SPECIES>. Produce exactly the
-handoff files specified in the agent doc. Do not start the next step.
+Run Step 1.5 of the FLASH-P pipeline for trait <TRAIT> in <SPECIES>. Do not start the next step.
 ```
 
 #### Step 2 — Builder
 
 ```text
-Read CLAUDE.md and Agent/BUILDER_AGENT.md, then run Step 2 of the FLASH-P
-pipeline for trait <TRAIT> in <SPECIES>. Produce exactly the handoff files
-specified in the agent doc. Do not start the next step.
+Run Step 2 of the FLASH-P pipeline for trait <TRAIT> in <SPECIES>. Do not start the next step.
 ```
 
 #### Step 2.5 — Judge
 
 ```text
-Read CLAUDE.md and Agent/JUDGE_AGENT.md, then run Step 2.5 of the FLASH-P
-pipeline for trait <TRAIT> in <SPECIES>. Produce exactly the handoff files
-specified in the agent doc. Do not start the next step.
+Run Step 2.5 of the FLASH-P pipeline for trait <TRAIT> in <SPECIES>. Do not start the next step.
 ```
 
 #### Step 3 — Perturbation
 
 ```text
-Read CLAUDE.md and Agent/PERTURBATION_AGENT.md, then run Step 3 of the
-FLASH-P pipeline for trait <TRAIT> in <SPECIES>. Produce exactly the handoff
-files specified in the agent doc. Do not start the next step.
+Run Step 3 of the FLASH-P pipeline for trait <TRAIT> in <SPECIES>. Do not start the next step.
 ```
 
 #### Step 4 — Validator
 
 ```text
-Read CLAUDE.md and Agent/VALIDATOR_AGENT.md, then run Step 4 of the FLASH-P
-pipeline for trait <TRAIT> in <SPECIES>. Produce exactly the handoff files
-specified in the agent doc. Do not start the next step.
+Run Step 4 of the FLASH-P pipeline for trait <TRAIT> in <SPECIES>. Do not start the next step.
 ```
 
 #### Step 5 — Refinement
 
 ```text
-Read CLAUDE.md and Agent/REFINEMENT_AGENT.md, then run Step 5 of the FLASH-P
-pipeline for trait <TRAIT> in <SPECIES>. Produce exactly the handoff files
-specified in the agent doc. Do not start the next step.
+Run Step 5 of the FLASH-P pipeline for trait <TRAIT> in <SPECIES>. Do not start the next step.
 ```
 
 #### Step 6 — Export
 
 ```text
-Read CLAUDE.md and Agent/EXPORT_AGENT.md, then run Step 6 of the FLASH-P
-pipeline for trait <TRAIT> in <SPECIES>. Produce exactly the handoff files
-specified in the agent doc.
+Run Step 6 of the FLASH-P pipeline for trait <TRAIT> in <SPECIES>.
 ```
 
 ### Option C — FLASH-P GUI *(coming soon)*
