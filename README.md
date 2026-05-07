@@ -41,9 +41,7 @@ The pipeline has already been used to build **13 networks** packaged in this rep
 | Folder | Contents |
 |---|---|
 | [`Flash-P/`](Flash-P) | **The pipeline.** 8 agent definitions, the `CLAUDE.md` orchestrator, shared utilities. **This is the folder you open Claude Code in.** |
-| [`Outcome/`](Outcome) | Paper outputs from our own runs — every network, validation result, refinement history, and Cytoscape export. |
-| [`Local_FlashP_Outcome/`](Local_FlashP_Outcome) | **New addition.** Outputs from running FLASH-P against a *local* open-source LLM (Qwen3 served through Ollama) on the shoot-branching trait — demonstrating the model-agnostic claim end-to-end. |
-| [`Analysis/`](Analysis) | Supporting case studies for the manuscript (BRI1 cascade subgraph, MAX2 KO Figure 2A propagation). |
+| [`Outcome/`](Outcome) | All paper outputs from our own runs — every network, validation result, refinement history, Cytoscape export, head-to-head KG-Cleaned comparison, supporting case studies, and the local open-source-model reproduction. |
 | [`Supplementary Data/`](Supplementary%20Data) | Seven supplementary `.xlsx` tables, their build scripts, and per-dataset descriptions. |
 | [`Images/`](Images) | Repository figures: `FlashP.png` (banner), `FLASHP_Pipeline_Addition.svg` (pipeline diagram), `FLASH_P_GUI.png` (GUI preview). |
 
@@ -66,7 +64,7 @@ You will also need a Claude.ai account (login the first time you start `claude`)
 
 ## Get the repo and open Claude Code in `Flash-P/`
 
-> **Important — open Claude Code *inside* the `Flash-P/` subfolder, not at the repo root.** The pipeline reads `CLAUDE.md` and `Agent/*.md` as relative paths, and the other top-level folders (`Outcome/`, `Analysis/`, `Supplementary Data/`) are paper outputs that should stay outside the agent's working context.
+> **Important — open Claude Code *inside* the `Flash-P/` subfolder, not at the repo root.** The pipeline reads `CLAUDE.md` and `Agent/*.md` as relative paths, and the other top-level folders (`Outcome/`, `Supplementary Data/`) are paper outputs that should stay outside the agent's working context.
 
 ```bash
 git clone https://github.com/CMits/FlashP.git
@@ -190,15 +188,17 @@ The 8 agent definitions live in [`Flash-P/Agent/`](Flash-P/Agent), the orchestra
 | [`OtherSpecies/`](Outcome/OtherSpecies) | The six other-species networks (*E. coli*, maize, poplar, rice, sorghum, wheat). |
 | [`FLASH-P_VS_KG/`](Outcome/FLASH-P_VS_KG) | Head-to-head comparison: FLASH-P vs networks rebuilt from a cleaned knowledge-base baseline, validated on the same test set. |
 | [`Networks/`](Outcome/Networks) | All 13 FLASH-P networks **plus** 7 KG-Cleaned networks repackaged as `.graphml` for one-click Cytoscape import, with the manuscript's `Style_Cytoscape.xml` style file and a [dedicated README](Outcome/Networks/README.md). |
+| [`Extra_Analysis/`](Outcome/Extra_Analysis) | Supporting case studies for the manuscript: BRI1 cascade subgraph and the MAX2 KO Figure 2A propagation trace. |
+| [`Local_FlashP_Outcome/`](Outcome/Local_FlashP_Outcome) | **Local open-source-model reproduction.** The shoot-branching network rebuilt with a local LLM (Qwen3 via [Ollama](https://ollama.com/)) instead of Claude — same agent prompts, same handoff schema, fully local stack. |
 
-### `Local_FlashP_Outcome/` — local open-source-model run *(new addition)*
+#### `Outcome/Extra_Analysis/` — supporting case studies for the paper
+
+- [`BRI1/`](Outcome/Extra_Analysis/BRI1) — BRI1 cascade subgraph extracted from the merged Arabidopsis network, plus the comparison metrics underlying [Supplementary Data 6](Supplementary%20Data/Supplementary%20Data%206.xlsx).
+- [`max2KO/`](Outcome/Extra_Analysis/max2KO) — Figure 2A propagation: MAX2-knockout iteration trace through the Arabidopsis Shoot Branching network. Has its own [README](Outcome/Extra_Analysis/max2KO/README.md) describing how to regenerate every artefact.
+
+#### `Outcome/Local_FlashP_Outcome/` — local open-source-model run
 
 A reproduction of the shoot-branching network using a **local open-source LLM** (Qwen3 served through [Ollama](https://ollama.com/)) instead of Claude. The same agent prompts and handoff schema drive the run; the only thing that changes is the model behind them. This folder ships the network, validation, refinement history, and the build / reconcile / refine scripts so reviewers can see — and re-run — FLASH-P end-to-end against a fully local stack. It's a concrete demonstration of the model-agnostic claim and a preview of what the upcoming GUI will let users do with any model of their choice.
-
-### `Analysis/` — supporting case studies for the paper
-
-- [`BRI1/`](Analysis/BRI1) — BRI1 cascade subgraph extracted from the merged Arabidopsis network, plus the comparison metrics underlying [Supplementary Data 6](Supplementary%20Data/Supplementary%20Data%206.xlsx).
-- [`max2KO/`](Analysis/max2KO) — Figure 2A propagation: MAX2-knockout iteration trace through the Arabidopsis Shoot Branching network. Has its own [README](Analysis/max2KO/README.md) describing how to regenerate every artefact.
 
 ### `Supplementary Data/` — supplementary tables
 

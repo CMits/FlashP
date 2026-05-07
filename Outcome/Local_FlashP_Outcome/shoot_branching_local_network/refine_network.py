@@ -20,7 +20,7 @@ NET = ROOT / "network"
 VAL = ROOT / "validation"
 REF = ROOT / "refinement"
 REF.mkdir(exist_ok=True)
-REPO_ROOT = ROOT.parent.parent
+REPO_ROOT = ROOT.parents[2]
 VALIDATOR = REPO_ROOT / "Flash-P/Agent/shared/flashp_validator.py"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 
