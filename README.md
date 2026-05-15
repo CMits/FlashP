@@ -5,7 +5,7 @@
 <h1 align="center">FLASH-P</h1>
 
 <p align="center">
-  <em>A multi-agent system that turns primary literature into validated, perturbation-testable causal signalling networks &mdash; for any trait, in any species.</em>
+  <em>A multi-agent system that turns primary literature into validated, perturbation-testable causal networks &mdash; for any trait, in any species.</em>
 </p>
 
 <p align="center">
