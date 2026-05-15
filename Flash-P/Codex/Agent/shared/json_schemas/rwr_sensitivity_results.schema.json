@@ -1,0 +1,62 @@
+{
+  "$defs": {
+    "RWRSensitivityResult": {
+      "properties": {
+        "alpha": {
+          "title": "Alpha",
+          "type": "number"
+        },
+        "accuracy": {
+          "title": "Accuracy",
+          "type": "number"
+        },
+        "kappa": {
+          "default": 0.0,
+          "title": "Kappa",
+          "type": "number"
+        },
+        "mcc": {
+          "default": 0.0,
+          "title": "Mcc",
+          "type": "number"
+        }
+      },
+      "required": [
+        "alpha",
+        "accuracy"
+      ],
+      "title": "RWRSensitivityResult",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "network": {
+      "title": "Network",
+      "type": "string"
+    },
+    "method": {
+      "default": "Random Walk with Restart - Sensitivity Analysis",
+      "title": "Method",
+      "type": "string"
+    },
+    "parameter_ranges": {
+      "additionalProperties": true,
+      "title": "Parameter Ranges",
+      "type": "object"
+    },
+    "results": {
+      "items": {
+        "$ref": "#/$defs/RWRSensitivityResult"
+      },
+      "title": "Results",
+      "type": "array"
+    }
+  },
+  "required": [
+    "network",
+    "parameter_ranges",
+    "results"
+  ],
+  "title": "RWRSensitivityFile",
+  "type": "object"
+}

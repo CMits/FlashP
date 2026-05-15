@@ -218,7 +218,7 @@ rwr_s["best_alpha"] = rwr.get("best_alpha") or rwr.get("parameters", {}).get("al
 # ---------- write accuracy_metrics.json ----------
 accuracy_metrics = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Flowering_Time",
         "species": "Sorghum bicolor",
         "created": str(date.today()),
@@ -424,7 +424,7 @@ for tid in all_fail_ids:
 
 failure_analysis = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Flowering_Time",
         "species": "Sorghum bicolor",
         "created": str(date.today()),
@@ -528,7 +528,7 @@ else:
 
 method_comparison = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Flowering_Time",
         "species": "Sorghum bicolor",
         "created": str(date.today()),

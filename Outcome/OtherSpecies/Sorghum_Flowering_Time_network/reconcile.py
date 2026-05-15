@@ -1,7 +1,7 @@
 """Step 3 reconciliation for Sorghum Flowering Time.
 
 Maps 82 raw perturbations to the 35-node approved network, following the
-v2.0 STRICT schema (test_id sequential, network_gene list, gene_modifiers
+v1.0 STRICT schema (test_id sequential, network_gene list, gene_modifiers
 dict, exogenous_supply flat dict, perturbations array, phenotype_node).
 
 Convention for photoperiod encoding (baseline = default, Photoperiod_LD
@@ -559,7 +559,7 @@ for r in reconciled:
 
 out = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Flowering_Time",
         "species": "Sorghum bicolor",
         "created": "2026-04-21",

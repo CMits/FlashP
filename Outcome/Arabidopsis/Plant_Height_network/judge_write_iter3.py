@@ -284,7 +284,7 @@ prev_mean = round(sum(v.get("previous_score", v["score"]) for v in RUBRIC.values
 
 review = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Plant_Height",
         "phenotype_node": "Plant_Height",
         "species": "Arabidopsis thaliana",

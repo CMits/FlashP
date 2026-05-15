@@ -273,7 +273,7 @@ source_only = sorted(
 # Write three output files
 # ----------------------------------------------------------------------------
 metadata_common = {
-    "flash_p_version": "2.0",
+    "flash_p_version": "1.0",
     "phenotype": "Flowering_Time",
     "species": "Arabidopsis thaliana",
     "created": "2026-04-18",

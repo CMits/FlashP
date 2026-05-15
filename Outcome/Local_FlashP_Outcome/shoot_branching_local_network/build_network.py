@@ -199,7 +199,7 @@ def build_network_json(curated, selected_ids, phenotype_node, node_types) -> dic
 
     return {
         "metadata": {
-            "flash_p_version": "2.0",
+            "flash_p_version": "1.0",
             "phenotype": PHENOTYPE,
             "phenotype_node": phenotype_node,
             "species": SPECIES,
@@ -249,7 +249,7 @@ def build_algebraic_eqs(net: dict) -> dict:
         })
     return {
         "metadata": {
-            "flash_p_version": "2.0",
+            "flash_p_version": "1.0",
             "phenotype": PHENOTYPE,
             "phenotype_node": net["metadata"]["phenotype_node"],
             "species": SPECIES,
@@ -295,7 +295,7 @@ def build_ode_eqs(net: dict) -> dict:
         })
     return {
         "metadata": {
-            "flash_p_version": "2.0",
+            "flash_p_version": "1.0",
             "phenotype": PHENOTYPE,
             "phenotype_node": net["metadata"]["phenotype_node"],
             "species": SPECIES,
@@ -327,7 +327,7 @@ def build_node_annotations(net: dict) -> dict:
         })
     return {
         "metadata": {
-            "flash_p_version": "2.0",
+            "flash_p_version": "1.0",
             "phenotype": PHENOTYPE,
             "species": SPECIES,
             "created": "2026-05-03",

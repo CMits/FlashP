@@ -1,0 +1,279 @@
+{
+  "$defs": {
+    "Confidence": {
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ],
+      "title": "Confidence",
+      "type": "string"
+    },
+    "CuratedEdge": {
+      "properties": {
+        "edge_id": {
+          "description": "Unique edge identifier, e.g. E001",
+          "title": "Edge Id",
+          "type": "string"
+        },
+        "source": {
+          "title": "Source",
+          "type": "string"
+        },
+        "target": {
+          "title": "Target",
+          "type": "string"
+        },
+        "source_type": {
+          "$ref": "#/$defs/NodeType"
+        },
+        "target_type": {
+          "$ref": "#/$defs/NodeType"
+        },
+        "sign": {
+          "description": "1 = activation, -1 = inhibition",
+          "title": "Sign",
+          "type": "integer"
+        },
+        "effect": {
+          "$ref": "#/$defs/EdgeEffect"
+        },
+        "edge_type": {
+          "default": "",
+          "description": "transcriptional, post-translational, transport, etc.",
+          "title": "Edge Type",
+          "type": "string"
+        },
+        "confidence": {
+          "$ref": "#/$defs/Confidence",
+          "default": "MEDIUM"
+        },
+        "mechanism": {
+          "default": "",
+          "title": "Mechanism",
+          "type": "string"
+        },
+        "in_model": {
+          "default": true,
+          "description": "Whether this edge was selected for the network model",
+          "title": "In Model",
+          "type": "boolean"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceEntry"
+          },
+          "minItems": 1,
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "edge_id",
+        "source",
+        "target",
+        "source_type",
+        "target_type",
+        "sign",
+        "effect",
+        "evidence"
+      ],
+      "title": "CuratedEdge",
+      "type": "object"
+    },
+    "CuratedEdgesMetadata": {
+      "properties": {
+        "flash_p_version": {
+          "description": "Pipeline version, e.g. '1.0'",
+          "title": "Flash P Version",
+          "type": "string"
+        },
+        "phenotype": {
+          "description": "Target phenotype, e.g. 'flowering_time'",
+          "title": "Phenotype",
+          "type": "string"
+        },
+        "species": {
+          "description": "Species name, e.g. 'Arabidopsis thaliana'",
+          "title": "Species",
+          "type": "string"
+        },
+        "created": {
+          "description": "Creation date YYYY-MM-DD",
+          "title": "Created",
+          "type": "string"
+        },
+        "total_edges": {
+          "title": "Total Edges",
+          "type": "integer"
+        },
+        "high_confidence": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "High Confidence"
+        },
+        "medium_confidence": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Medium Confidence"
+        }
+      },
+      "required": [
+        "flash_p_version",
+        "phenotype",
+        "species",
+        "created",
+        "total_edges"
+      ],
+      "title": "CuratedEdgesMetadata",
+      "type": "object"
+    },
+    "EdgeEffect": {
+      "enum": [
+        "activation",
+        "inhibition",
+        "repression"
+      ],
+      "title": "EdgeEffect",
+      "type": "string"
+    },
+    "EvidenceEntry": {
+      "description": "Flat evidence structure — used everywhere.\nNEVER nested (no 'source' sub-object).",
+      "properties": {
+        "doi": {
+          "description": "DOI of the source paper",
+          "title": "Doi",
+          "type": "string"
+        },
+        "title": {
+          "default": "",
+          "description": "Paper title",
+          "title": "Title",
+          "type": "string"
+        },
+        "authors": {
+          "default": "",
+          "description": "Author list",
+          "title": "Authors",
+          "type": "string"
+        },
+        "year": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Publication year",
+          "title": "Year"
+        },
+        "journal": {
+          "default": "",
+          "description": "Journal name",
+          "title": "Journal",
+          "type": "string"
+        },
+        "evidence_sentence": {
+          "default": "",
+          "description": "Exact quote from paper supporting this claim",
+          "title": "Evidence Sentence",
+          "type": "string"
+        },
+        "claim": {
+          "default": "",
+          "description": "What this evidence supports",
+          "title": "Claim",
+          "type": "string"
+        },
+        "verification": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Verification"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "How the paper was read"
+        },
+        "full_text_read": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Whether full text was read",
+          "title": "Full Text Read"
+        }
+      },
+      "required": [
+        "doi"
+      ],
+      "title": "EvidenceEntry",
+      "type": "object"
+    },
+    "NodeType": {
+      "enum": [
+        "GENE",
+        "HORMONE",
+        "METABOLITE",
+        "ENVIRONMENT",
+        "PROTEIN_COMPLEX",
+        "REGULATORY_RNA",
+        "PHENOTYPE",
+        "PROCESS"
+      ],
+      "title": "NodeType",
+      "type": "string"
+    },
+    "Verification": {
+      "enum": [
+        "full_text_read",
+        "abstract_read",
+        "pubmed_crosschecked"
+      ],
+      "title": "Verification",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "metadata": {
+      "$ref": "#/$defs/CuratedEdgesMetadata"
+    },
+    "edges": {
+      "items": {
+        "$ref": "#/$defs/CuratedEdge"
+      },
+      "title": "Edges",
+      "type": "array"
+    }
+  },
+  "required": [
+    "metadata",
+    "edges"
+  ],
+  "title": "CuratedEdgesFile",
+  "type": "object"
+}

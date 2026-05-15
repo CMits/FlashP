@@ -396,7 +396,7 @@ def main() -> None:
     # 4) Write network.json
     network = {
         "metadata": {
-            "flash_p_version": "2.0",
+            "flash_p_version": "1.0",
             "phenotype": "flowering_time",
             "phenotype_node": "Flowering_Time",
             "species": "Sorghum bicolor",
@@ -548,7 +548,7 @@ def main() -> None:
 
     alg_file = {
         "metadata": {
-            "flash_p_version": "2.0",
+            "flash_p_version": "1.0",
             "phenotype": "flowering_time",
             "species": "Sorghum bicolor",
             "created": "2026-04-21",
@@ -583,7 +583,7 @@ def main() -> None:
 
     ann_file = {
         "metadata": {
-            "flash_p_version": "2.0",
+            "flash_p_version": "1.0",
             "phenotype": "flowering_time",
             "species": "Sorghum bicolor",
             "created": "2026-04-21",

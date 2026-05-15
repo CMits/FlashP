@@ -147,7 +147,7 @@ def to_methodaccuracy(m):
 
 accuracy_metrics = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Hypocotyl_Length",
         "species": "Arabidopsis thaliana",
         "created": "2026-04-19",
@@ -320,7 +320,7 @@ fix_count = sum(1 for f in failures if f["fixable"])
 
 failure_analysis = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Hypocotyl_Length",
         "species": "Arabidopsis thaliana",
         "created": "2026-04-19",
@@ -391,7 +391,7 @@ recommendation = (
 
 method_comparison = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Hypocotyl_Length",
         "species": "Arabidopsis thaliana",
         "created": "2026-04-19",

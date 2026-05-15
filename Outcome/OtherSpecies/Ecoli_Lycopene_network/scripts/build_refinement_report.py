@@ -121,7 +121,7 @@ best_model = {
 
 report = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Lycopene_Titer",
         "species": "Escherichia coli",
         "created": "2026-04-21",

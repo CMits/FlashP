@@ -1,0 +1,67 @@
+{
+  "$defs": {
+    "ODESensitivityResult": {
+      "properties": {
+        "K": {
+          "title": "K",
+          "type": "number"
+        },
+        "n": {
+          "title": "N",
+          "type": "integer"
+        },
+        "accuracy": {
+          "title": "Accuracy",
+          "type": "number"
+        },
+        "kappa": {
+          "default": 0.0,
+          "title": "Kappa",
+          "type": "number"
+        },
+        "mcc": {
+          "default": 0.0,
+          "title": "Mcc",
+          "type": "number"
+        }
+      },
+      "required": [
+        "K",
+        "n",
+        "accuracy"
+      ],
+      "title": "ODESensitivityResult",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "network": {
+      "title": "Network",
+      "type": "string"
+    },
+    "method": {
+      "default": "ODE (Hill Functions) - Sensitivity Analysis",
+      "title": "Method",
+      "type": "string"
+    },
+    "parameter_ranges": {
+      "additionalProperties": true,
+      "title": "Parameter Ranges",
+      "type": "object"
+    },
+    "results_grid": {
+      "items": {
+        "$ref": "#/$defs/ODESensitivityResult"
+      },
+      "title": "Results Grid",
+      "type": "array"
+    }
+  },
+  "required": [
+    "network",
+    "parameter_ranges",
+    "results_grid"
+  ],
+  "title": "ODESensitivityFile",
+  "type": "object"
+}

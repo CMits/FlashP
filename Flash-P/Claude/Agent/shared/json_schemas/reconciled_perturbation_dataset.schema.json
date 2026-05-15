@@ -1,0 +1,408 @@
+{
+  "$defs": {
+    "Direction": {
+      "enum": [
+        "increased",
+        "decreased",
+        "unchanged"
+      ],
+      "title": "Direction",
+      "type": "string"
+    },
+    "EvidenceEntry": {
+      "description": "Flat evidence structure — used everywhere.\nNEVER nested (no 'source' sub-object).",
+      "properties": {
+        "doi": {
+          "description": "DOI of the source paper",
+          "title": "Doi",
+          "type": "string"
+        },
+        "title": {
+          "default": "",
+          "description": "Paper title",
+          "title": "Title",
+          "type": "string"
+        },
+        "authors": {
+          "default": "",
+          "description": "Author list",
+          "title": "Authors",
+          "type": "string"
+        },
+        "year": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Publication year",
+          "title": "Year"
+        },
+        "journal": {
+          "default": "",
+          "description": "Journal name",
+          "title": "Journal",
+          "type": "string"
+        },
+        "evidence_sentence": {
+          "default": "",
+          "description": "Exact quote from paper supporting this claim",
+          "title": "Evidence Sentence",
+          "type": "string"
+        },
+        "claim": {
+          "default": "",
+          "description": "What this evidence supports",
+          "title": "Claim",
+          "type": "string"
+        },
+        "verification": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Verification"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "How the paper was read"
+        },
+        "full_text_read": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Whether full text was read",
+          "title": "Full Text Read"
+        }
+      },
+      "required": [
+        "doi"
+      ],
+      "title": "EvidenceEntry",
+      "type": "object"
+    },
+    "PerturbationModification": {
+      "description": "One atomic modification in a perturbation experiment.",
+      "properties": {
+        "node": {
+          "description": "Network node being modified",
+          "title": "Node",
+          "type": "string"
+        },
+        "modifier_type": {
+          "enum": [
+            "gene_modifier",
+            "exogenous_supply"
+          ],
+          "title": "Modifier Type",
+          "type": "string"
+        },
+        "value": {
+          "description": "0.0=KO, 0.5=KD, 1.0=WT, 2.0=OE for gene_modifier; 1.0 for exogenous",
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "node",
+        "modifier_type",
+        "value"
+      ],
+      "title": "PerturbationModification",
+      "type": "object"
+    },
+    "PerturbationType": {
+      "enum": [
+        "knockout",
+        "overexpression",
+        "knockdown",
+        "gain_of_function",
+        "loss_of_function",
+        "heterozygous",
+        "knockout_CRISPR",
+        "phospho_dead_mutant",
+        "knockout_arp6",
+        "double_knockout",
+        "double_mutant",
+        "triple_knockout",
+        "quadruple_knockout",
+        "quintuple_knockout",
+        "knockout_plus_treatment",
+        "knockout_plus_GR24",
+        "gain_of_function_plus_treatment",
+        "gain_of_function_plus_GR24",
+        "loss_of_function_plus_GR24",
+        "miR156_OE_plus_GR24",
+        "rescue",
+        "rescue_experiment",
+        "knockdown_in_d3_background",
+        "knockdown_in_d14_background",
+        "FC1_OE_in_d3_background",
+        "combined",
+        "combined_transgenic",
+        "epistasis",
+        "treatment",
+        "exogenous_treatment",
+        "exogenous_SL",
+        "chemical_treatment",
+        "acc_treatment",
+        "high_nitrate_treatment",
+        "drought_stress",
+        "inhibitor_PBZ",
+        "environmental",
+        "control",
+        "negative_control"
+      ],
+      "title": "PerturbationType",
+      "type": "string"
+    },
+    "ReconciledPerturbation": {
+      "description": "A single perturbation test mapped to network nodes.\n\nSTRICT RULES (v1.0):\n- network_gene must be List[str], e.g. [\"PHYB\"] not \"PHYB\"\n- gene_modifiers must be Dict[str, float], e.g. {\"PHYB\": 0.0} not 0.0\n- exogenous_supply must be Dict[str, float], e.g. {\"ABI5\": 1.0} not {\"node\": \"ABI5\", \"value\": 1.0}",
+      "properties": {
+        "test_id": {
+          "description": "Sequential ID: T001, T002, ...",
+          "title": "Test Id",
+          "type": "string"
+        },
+        "gene": {
+          "description": "Original gene name from literature",
+          "title": "Gene",
+          "type": "string"
+        },
+        "perturbation_type": {
+          "$ref": "#/$defs/PerturbationType"
+        },
+        "expected_direction": {
+          "$ref": "#/$defs/Direction"
+        },
+        "in_network": {
+          "description": "Whether the gene maps to a node in the network",
+          "title": "In Network",
+          "type": "boolean"
+        },
+        "network_gene": {
+          "description": "Network node(s) actually perturbed. ALWAYS a list.",
+          "items": {
+            "type": "string"
+          },
+          "title": "Network Gene",
+          "type": "array"
+        },
+        "gene_modifiers": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "description": "Map of network node -> modifier value. ALWAYS a dict.",
+          "title": "Gene Modifiers",
+          "type": "object"
+        },
+        "exogenous_supply": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "description": "Map of network node -> supply value. ALWAYS a flat dict.",
+          "title": "Exogenous Supply",
+          "type": "object"
+        },
+        "perturbations": {
+          "description": "Detailed list of all modifications applied",
+          "items": {
+            "$ref": "#/$defs/PerturbationModification"
+          },
+          "title": "Perturbations",
+          "type": "array"
+        },
+        "notes": {
+          "default": "",
+          "description": "Reconciliation notes, composite handling explanation",
+          "title": "Notes",
+          "type": "string"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceEntry"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "phenotype_node": {
+          "description": "Target phenotype node in the network",
+          "title": "Phenotype Node",
+          "type": "string"
+        },
+        "comparison_baseline": {
+          "default": "WT",
+          "description": "WT for most tests, mutant_alone for rescue experiments",
+          "title": "Comparison Baseline",
+          "type": "string"
+        },
+        "condition": {
+          "default": "both",
+          "description": "LD, SD, both, normal",
+          "title": "Condition",
+          "type": "string"
+        },
+        "reconciliation_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ReconciliationType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "reconciliation_note": {
+          "default": "",
+          "title": "Reconciliation Note",
+          "type": "string"
+        },
+        "expected_magnitude": {
+          "default": "",
+          "title": "Expected Magnitude",
+          "type": "string"
+        },
+        "species": {
+          "default": "",
+          "title": "Species",
+          "type": "string"
+        }
+      },
+      "required": [
+        "test_id",
+        "gene",
+        "perturbation_type",
+        "expected_direction",
+        "in_network",
+        "phenotype_node"
+      ],
+      "title": "ReconciledPerturbation",
+      "type": "object"
+    },
+    "ReconciledPerturbationMetadata": {
+      "properties": {
+        "flash_p_version": {
+          "description": "Pipeline version, e.g. '1.0'",
+          "title": "Flash P Version",
+          "type": "string"
+        },
+        "phenotype": {
+          "description": "Target phenotype, e.g. 'flowering_time'",
+          "title": "Phenotype",
+          "type": "string"
+        },
+        "species": {
+          "description": "Species name, e.g. 'Arabidopsis thaliana'",
+          "title": "Species",
+          "type": "string"
+        },
+        "created": {
+          "description": "Creation date YYYY-MM-DD",
+          "title": "Created",
+          "type": "string"
+        },
+        "total_tests": {
+          "title": "Total Tests",
+          "type": "integer"
+        },
+        "in_network": {
+          "description": "Number of tests with in_network=true",
+          "title": "In Network",
+          "type": "integer"
+        },
+        "not_in_network": {
+          "description": "Number of tests with in_network=false",
+          "title": "Not In Network",
+          "type": "integer"
+        },
+        "phenotype_node": {
+          "default": "",
+          "title": "Phenotype Node",
+          "type": "string"
+        },
+        "convention": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Convention"
+        }
+      },
+      "required": [
+        "flash_p_version",
+        "phenotype",
+        "species",
+        "created",
+        "total_tests",
+        "in_network",
+        "not_in_network"
+      ],
+      "title": "ReconciledPerturbationMetadata",
+      "type": "object"
+    },
+    "ReconciliationType": {
+      "enum": [
+        "exact_match",
+        "case_insensitive",
+        "family_member",
+        "composite_collapse",
+        "composite_member",
+        "treatment_analog",
+        "mechanism_mapping",
+        "not_in_network",
+        "control"
+      ],
+      "title": "ReconciliationType",
+      "type": "string"
+    },
+    "Verification": {
+      "enum": [
+        "full_text_read",
+        "abstract_read",
+        "pubmed_crosschecked"
+      ],
+      "title": "Verification",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "metadata": {
+      "$ref": "#/$defs/ReconciledPerturbationMetadata"
+    },
+    "direction_threshold": {
+      "default": 0.05,
+      "title": "Direction Threshold",
+      "type": "number"
+    },
+    "perturbations": {
+      "items": {
+        "$ref": "#/$defs/ReconciledPerturbation"
+      },
+      "title": "Perturbations",
+      "type": "array"
+    }
+  },
+  "required": [
+    "metadata",
+    "perturbations"
+  ],
+  "title": "ReconciledPerturbationFile",
+  "type": "object"
+}

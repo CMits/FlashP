@@ -1,4 +1,4 @@
-"""Collect FLASH-P v2.0 vs KG-Cleaned comparison metrics for the
+"""Collect FLASH-P v1.0 vs KG-Cleaned comparison metrics for the
 'Causal network inference outperforms knowledge-graph extraction' section.
 
 Reads existing validation outputs + network JSONs and emits:

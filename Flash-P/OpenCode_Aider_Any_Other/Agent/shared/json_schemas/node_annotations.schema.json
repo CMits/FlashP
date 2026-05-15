@@ -1,0 +1,130 @@
+{
+  "$defs": {
+    "NodeAnnotation": {
+      "properties": {
+        "node": {
+          "title": "Node",
+          "type": "string"
+        },
+        "full_name": {
+          "default": "",
+          "title": "Full Name",
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/$defs/NodeType"
+        },
+        "description": {
+          "default": "",
+          "title": "Description",
+          "type": "string"
+        },
+        "in_degree": {
+          "default": 0,
+          "title": "In Degree",
+          "type": "integer"
+        },
+        "out_degree": {
+          "default": 0,
+          "title": "Out Degree",
+          "type": "integer"
+        },
+        "total_degree": {
+          "default": 0,
+          "title": "Total Degree",
+          "type": "integer"
+        },
+        "is_source": {
+          "default": false,
+          "title": "Is Source",
+          "type": "boolean"
+        },
+        "n_activators": {
+          "default": 0,
+          "title": "N Activators",
+          "type": "integer"
+        },
+        "n_inhibitors": {
+          "default": 0,
+          "title": "N Inhibitors",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "node",
+        "type"
+      ],
+      "title": "NodeAnnotation",
+      "type": "object"
+    },
+    "NodeAnnotationsMetadata": {
+      "properties": {
+        "flash_p_version": {
+          "description": "Pipeline version, e.g. '1.0'",
+          "title": "Flash P Version",
+          "type": "string"
+        },
+        "phenotype": {
+          "description": "Target phenotype, e.g. 'flowering_time'",
+          "title": "Phenotype",
+          "type": "string"
+        },
+        "species": {
+          "description": "Species name, e.g. 'Arabidopsis thaliana'",
+          "title": "Species",
+          "type": "string"
+        },
+        "created": {
+          "description": "Creation date YYYY-MM-DD",
+          "title": "Created",
+          "type": "string"
+        },
+        "total_nodes": {
+          "title": "Total Nodes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "flash_p_version",
+        "phenotype",
+        "species",
+        "created",
+        "total_nodes"
+      ],
+      "title": "NodeAnnotationsMetadata",
+      "type": "object"
+    },
+    "NodeType": {
+      "enum": [
+        "GENE",
+        "HORMONE",
+        "METABOLITE",
+        "ENVIRONMENT",
+        "PROTEIN_COMPLEX",
+        "REGULATORY_RNA",
+        "PHENOTYPE",
+        "PROCESS"
+      ],
+      "title": "NodeType",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "metadata": {
+      "$ref": "#/$defs/NodeAnnotationsMetadata"
+    },
+    "annotations": {
+      "items": {
+        "$ref": "#/$defs/NodeAnnotation"
+      },
+      "title": "Annotations",
+      "type": "array"
+    }
+  },
+  "required": [
+    "metadata",
+    "annotations"
+  ],
+  "title": "NodeAnnotationsFile",
+  "type": "object"
+}

@@ -1,0 +1,253 @@
+{
+  "$defs": {
+    "BestModel": {
+      "properties": {
+        "location": {
+          "default": "",
+          "title": "Location",
+          "type": "string"
+        },
+        "algebraic_accuracy": {
+          "title": "Algebraic Accuracy",
+          "type": "number"
+        },
+        "ode_accuracy": {
+          "title": "Ode Accuracy",
+          "type": "number"
+        },
+        "rwr_accuracy": {
+          "title": "Rwr Accuracy",
+          "type": "number"
+        },
+        "total_nodes": {
+          "default": 0,
+          "title": "Total Nodes",
+          "type": "integer"
+        },
+        "total_edges": {
+          "default": 0,
+          "title": "Total Edges",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "algebraic_accuracy",
+        "ode_accuracy",
+        "rwr_accuracy"
+      ],
+      "title": "BestModel",
+      "type": "object"
+    },
+    "FixApplied": {
+      "description": "One targeted fix applied during refinement.",
+      "properties": {
+        "iteration": {
+          "title": "Iteration",
+          "type": "integer"
+        },
+        "action": {
+          "description": "edge_removal, edge_addition, perturbation_encoding, test_exclusion, sign_change",
+          "title": "Action",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        },
+        "biological_justification": {
+          "default": "",
+          "title": "Biological Justification",
+          "type": "string"
+        },
+        "source": {
+          "default": "",
+          "description": "Source node (for edge changes)",
+          "title": "Source",
+          "type": "string"
+        },
+        "target": {
+          "default": "",
+          "description": "Target node (for edge changes)",
+          "title": "Target",
+          "type": "string"
+        },
+        "sign": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sign"
+        },
+        "modifier_type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Modifier Type"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        }
+      },
+      "required": [
+        "iteration",
+        "action",
+        "description",
+        "reason"
+      ],
+      "title": "FixApplied",
+      "type": "object"
+    },
+    "IterationRecord": {
+      "description": "Summary of one refinement iteration.",
+      "properties": {
+        "iteration": {
+          "title": "Iteration",
+          "type": "integer"
+        },
+        "description": {
+          "default": "",
+          "title": "Description",
+          "type": "string"
+        },
+        "algebraic_accuracy": {
+          "title": "Algebraic Accuracy",
+          "type": "number"
+        },
+        "ode_accuracy": {
+          "title": "Ode Accuracy",
+          "type": "number"
+        },
+        "rwr_accuracy": {
+          "title": "Rwr Accuracy",
+          "type": "number"
+        },
+        "failures": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Failures",
+          "type": "array"
+        },
+        "fixes_applied": {
+          "default": 0,
+          "title": "Fixes Applied",
+          "type": "integer"
+        },
+        "edges_added": {
+          "default": 0,
+          "title": "Edges Added",
+          "type": "integer"
+        },
+        "edges_removed": {
+          "default": 0,
+          "title": "Edges Removed",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "iteration",
+        "algebraic_accuracy",
+        "ode_accuracy",
+        "rwr_accuracy"
+      ],
+      "title": "IterationRecord",
+      "type": "object"
+    },
+    "RefinementReportMetadata": {
+      "properties": {
+        "flash_p_version": {
+          "description": "Pipeline version, e.g. '1.0'",
+          "title": "Flash P Version",
+          "type": "string"
+        },
+        "phenotype": {
+          "description": "Target phenotype, e.g. 'flowering_time'",
+          "title": "Phenotype",
+          "type": "string"
+        },
+        "species": {
+          "description": "Species name, e.g. 'Arabidopsis thaliana'",
+          "title": "Species",
+          "type": "string"
+        },
+        "created": {
+          "description": "Creation date YYYY-MM-DD",
+          "title": "Created",
+          "type": "string"
+        },
+        "iterations_run": {
+          "title": "Iterations Run",
+          "type": "integer"
+        },
+        "best_iteration": {
+          "title": "Best Iteration",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "flash_p_version",
+        "phenotype",
+        "species",
+        "created",
+        "iterations_run",
+        "best_iteration"
+      ],
+      "title": "RefinementReportMetadata",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "metadata": {
+      "$ref": "#/$defs/RefinementReportMetadata"
+    },
+    "iteration_history": {
+      "items": {
+        "$ref": "#/$defs/IterationRecord"
+      },
+      "title": "Iteration History",
+      "type": "array"
+    },
+    "fixes_applied": {
+      "items": {
+        "$ref": "#/$defs/FixApplied"
+      },
+      "title": "Fixes Applied",
+      "type": "array"
+    },
+    "best_model": {
+      "$ref": "#/$defs/BestModel"
+    }
+  },
+  "required": [
+    "metadata",
+    "iteration_history",
+    "fixes_applied",
+    "best_model"
+  ],
+  "title": "RefinementReportFile",
+  "type": "object"
+}

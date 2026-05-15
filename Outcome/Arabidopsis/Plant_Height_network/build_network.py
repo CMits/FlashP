@@ -499,7 +499,7 @@ source_pct = round(source_count / total_nodes * 100, 1) if total_nodes else 0.0
 total_edges = len(materialised_edges)
 
 network_metadata = {
-    "flash_p_version": "2.0",
+    "flash_p_version": "1.0",
     "phenotype": "Plant_Height",
     "species": "Arabidopsis thaliana",
     "created": "2026-04-19",
@@ -554,7 +554,7 @@ for n in node_objs:
 
 alg_file = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Plant_Height",
         "species": "Arabidopsis thaliana",
         "created": "2026-04-19",
@@ -647,7 +647,7 @@ for n in node_objs:
 
 annot_file = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Plant_Height",
         "species": "Arabidopsis thaliana",
         "created": "2026-04-19",

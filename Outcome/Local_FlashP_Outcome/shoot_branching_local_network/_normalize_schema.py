@@ -6,7 +6,7 @@ import json, sys, os, re
 
 BASE = os.path.dirname(os.path.abspath(__file__)) + "/data"
 META = {
-    "flash_p_version": "2.0",
+    "flash_p_version": "1.0",
     "phenotype": "shoot branching",
     "species": "Arabidopsis thaliana",
     "created": "2026-05-02",

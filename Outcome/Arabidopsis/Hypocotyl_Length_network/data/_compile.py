@@ -293,7 +293,7 @@ papers_list = sorted(all_papers.values(), key=lambda p: (p["status"] != "read", 
 
 candidate_papers = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": PHENOTYPE,
         "species": SPECIES,
         "created": TODAY,
@@ -330,7 +330,7 @@ medium_count = sum(1 for e in edges_list if e["confidence"] == "MEDIUM")
 
 curated_edges = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": PHENOTYPE,
         "species": SPECIES,
         "created": TODAY,
@@ -363,7 +363,7 @@ for idx, p in enumerate(sorted(all_perturbations.values(), key=lambda x: (x["gen
 
 perturbation_dataset = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": PHENOTYPE,
         "species": SPECIES,
         "created": TODAY,

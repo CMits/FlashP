@@ -280,7 +280,7 @@ curated_by_id = {e["edge_id"]: e for e in curated["edges"]}
 
 
 def build_evidence(curated_id: str):
-    """Copy primary evidence block(s) from curated edge, flat v2.0 shape."""
+    """Copy primary evidence block(s) from curated edge, flat v1.0 shape."""
     if curated_id not in curated_by_id:
         raise KeyError(f"Curated edge {curated_id} not found")
     ev_list = curated_by_id[curated_id].get("evidence", [])
@@ -331,7 +331,7 @@ for eid, src, tgt, sign, effect, mech, curated_id in EDGES:
 source_count = sum(1 for n in node_objs if n["is_source"])
 network = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Plant_Height",
         "phenotype_node": "Plant_Height",
         "species": "Triticum aestivum",
@@ -419,7 +419,7 @@ for n in node_objs:
 
 algebraic = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Plant_Height",
         "species": "Triticum aestivum",
         "created": "2026-04-20",
@@ -503,7 +503,7 @@ for n in node_objs:
 
 node_annotations = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Plant_Height",
         "species": "Triticum aestivum",
         "created": "2026-04-20",

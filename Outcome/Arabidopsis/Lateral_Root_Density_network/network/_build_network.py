@@ -1,5 +1,5 @@
 """
-FLASH-P v2.0 Step 2 BUILDER - Lateral_Root_Density (Arabidopsis thaliana)
+FLASH-P v1.0 Step 2 BUILDER - Lateral_Root_Density (Arabidopsis thaliana)
 
 ITERATION 2 - Applied JUDGE iteration_1 suggestions (see build_log_iteration_2.json)
 
@@ -325,7 +325,7 @@ def build_network(curated: Dict[str, Dict]) -> Dict:
 
     return {
         "metadata": {
-            "flash_p_version": "2.0",
+            "flash_p_version": "1.0",
             "phenotype": "Lateral_Root_Density",
             "phenotype_node": PHENO,
             "species": "Arabidopsis thaliana",
@@ -389,7 +389,7 @@ def build_algebraic(network: Dict) -> Dict:
 
     return {
         "metadata": {
-            "flash_p_version": "2.0",
+            "flash_p_version": "1.0",
             "phenotype": "Lateral_Root_Density",
             "species": "Arabidopsis thaliana",
             "created": "2026-04-19",
@@ -492,7 +492,7 @@ def build_annotations(network: Dict) -> Dict:
 
     return {
         "metadata": {
-            "flash_p_version": "2.0",
+            "flash_p_version": "1.0",
             "phenotype": "Lateral_Root_Density",
             "species": "Arabidopsis thaliana",
             "created": "2026-04-19",

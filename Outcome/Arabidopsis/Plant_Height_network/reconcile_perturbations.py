@@ -389,7 +389,7 @@ control_test = {
     "evidence": [{
         "doi": "10.0/wt-control",
         "title": "Wild-type negative control",
-        "authors": "FLASH-P v2.0",
+        "authors": "FLASH-P v1.0",
         "year": 2026,
         "journal": "(internal)",
         "evidence_sentence": "WT Col-0 plants at normal conditions show standard plant height baseline.",
@@ -413,7 +413,7 @@ not_in_net_count = len(reconciled) - in_net_count
 
 out = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Plant_Height",
         "species": "Arabidopsis thaliana",
         "created": "2026-04-19",

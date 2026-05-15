@@ -510,7 +510,7 @@ for nid, ntype, full, desc in NODES:
 
 network = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Lycopene_Titer",
         "phenotype_node": "Lycopene_Titer",
         "species": "Escherichia coli",
@@ -604,7 +604,7 @@ for nid, ntype, _, _ in NODES:
 
 alg_file = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Lycopene_Titer",
         "species": "Escherichia coli",
         "created": "2026-04-21",
@@ -703,7 +703,7 @@ for nid, ntype, full, desc in NODES:
 
 annot_file = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Lycopene_Titer",
         "species": "Escherichia coli",
         "created": "2026-04-21",

@@ -1,0 +1,423 @@
+{
+  "$defs": {
+    "DetailedResult": {
+      "description": "One perturbation test result.",
+      "properties": {
+        "test_id": {
+          "title": "Test Id",
+          "type": "string"
+        },
+        "gene": {
+          "title": "Gene",
+          "type": "string"
+        },
+        "perturbation_type": {
+          "title": "Perturbation Type",
+          "type": "string"
+        },
+        "gene_modifier": {
+          "title": "Gene Modifier",
+          "type": "number"
+        },
+        "wt_value": {
+          "default": 1.0,
+          "title": "Wt Value",
+          "type": "number"
+        },
+        "perturbed_value": {
+          "title": "Perturbed Value",
+          "type": "number"
+        },
+        "comparison_baseline": {
+          "default": "WT",
+          "title": "Comparison Baseline",
+          "type": "string"
+        },
+        "comparison_baseline_value": {
+          "default": 1.0,
+          "title": "Comparison Baseline Value",
+          "type": "number"
+        },
+        "ratio": {
+          "title": "Ratio",
+          "type": "number"
+        },
+        "log2_fold_change": {
+          "title": "Log2 Fold Change",
+          "type": "number"
+        },
+        "direction_threshold": {
+          "default": 0.05,
+          "title": "Direction Threshold",
+          "type": "number"
+        },
+        "predicted_direction": {
+          "$ref": "#/$defs/Direction"
+        },
+        "expected_direction": {
+          "$ref": "#/$defs/Direction"
+        },
+        "correct": {
+          "title": "Correct",
+          "type": "boolean"
+        },
+        "phenotype_node": {
+          "title": "Phenotype Node",
+          "type": "string"
+        },
+        "converged": {
+          "default": true,
+          "title": "Converged",
+          "type": "boolean"
+        },
+        "iterations": {
+          "default": 0,
+          "title": "Iterations",
+          "type": "integer"
+        },
+        "complexity_score": {
+          "title": "Complexity Score",
+          "type": "integer"
+        },
+        "complexity_label": {
+          "title": "Complexity Label",
+          "type": "string"
+        },
+        "path_length": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Path Length"
+        },
+        "path": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Path",
+          "type": "array"
+        },
+        "evidence_doi": {
+          "default": "",
+          "title": "Evidence Doi",
+          "type": "string"
+        },
+        "exogenous_node": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Exogenous Node"
+        },
+        "exogenous_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Exogenous Value"
+        }
+      },
+      "required": [
+        "test_id",
+        "gene",
+        "perturbation_type",
+        "gene_modifier",
+        "perturbed_value",
+        "ratio",
+        "log2_fold_change",
+        "predicted_direction",
+        "expected_direction",
+        "correct",
+        "phenotype_node",
+        "complexity_score",
+        "complexity_label"
+      ],
+      "title": "DetailedResult",
+      "type": "object"
+    },
+    "Direction": {
+      "enum": [
+        "increased",
+        "decreased",
+        "unchanged"
+      ],
+      "title": "Direction",
+      "type": "string"
+    },
+    "PerClassMetrics": {
+      "properties": {
+        "precision": {
+          "title": "Precision",
+          "type": "number"
+        },
+        "recall": {
+          "title": "Recall",
+          "type": "number"
+        },
+        "f1": {
+          "title": "F1",
+          "type": "number"
+        },
+        "support": {
+          "title": "Support",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "precision",
+        "recall",
+        "f1",
+        "support"
+      ],
+      "title": "PerClassMetrics",
+      "type": "object"
+    },
+    "PerturbationTypeMetrics": {
+      "properties": {
+        "correct": {
+          "title": "Correct",
+          "type": "integer"
+        },
+        "total": {
+          "title": "Total",
+          "type": "integer"
+        },
+        "accuracy": {
+          "title": "Accuracy",
+          "type": "number"
+        }
+      },
+      "required": [
+        "correct",
+        "total",
+        "accuracy"
+      ],
+      "title": "PerturbationTypeMetrics",
+      "type": "object"
+    },
+    "ValidationMetrics": {
+      "properties": {
+        "overall_accuracy": {
+          "title": "Overall Accuracy",
+          "type": "number"
+        },
+        "correct": {
+          "title": "Correct",
+          "type": "integer"
+        },
+        "total": {
+          "title": "Total",
+          "type": "integer"
+        },
+        "cohens_kappa": {
+          "default": 0.0,
+          "title": "Cohens Kappa",
+          "type": "number"
+        },
+        "mcc": {
+          "default": 0.0,
+          "title": "Mcc",
+          "type": "number"
+        },
+        "per_class": {
+          "additionalProperties": {
+            "$ref": "#/$defs/PerClassMetrics"
+          },
+          "title": "Per Class",
+          "type": "object"
+        },
+        "confusion_matrix": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Confusion Matrix"
+        },
+        "by_perturbation_type": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "$ref": "#/$defs/PerturbationTypeMetrics"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "By Perturbation Type"
+        }
+      },
+      "required": [
+        "overall_accuracy",
+        "correct",
+        "total"
+      ],
+      "title": "ValidationMetrics",
+      "type": "object"
+    },
+    "ValidationSummary": {
+      "properties": {
+        "total_equations": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Total Equations"
+        },
+        "total_perturbations": {
+          "title": "Total Perturbations",
+          "type": "integer"
+        },
+        "tested": {
+          "title": "Tested",
+          "type": "integer"
+        },
+        "skipped": {
+          "default": 0,
+          "title": "Skipped",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "total_perturbations",
+        "tested"
+      ],
+      "title": "ValidationSummary",
+      "type": "object"
+    }
+  },
+  "description": "Schema for script_validation_results.json, ode_validation_results.json,\nand rwr_validation_results.json. All three share this structure.",
+  "properties": {
+    "flash_p_version": {
+      "title": "Flash P Version",
+      "type": "string"
+    },
+    "network": {
+      "title": "Network",
+      "type": "string"
+    },
+    "phenotype": {
+      "title": "Phenotype",
+      "type": "string"
+    },
+    "species": {
+      "title": "Species",
+      "type": "string"
+    },
+    "method": {
+      "default": "",
+      "description": "Algebraic, ODE (Hill Functions), or RWR",
+      "title": "Method",
+      "type": "string"
+    },
+    "equation_mode": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Equation Mode"
+    },
+    "equation_spec": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Equation Spec"
+    },
+    "parameters": {
+      "additionalProperties": true,
+      "title": "Parameters",
+      "type": "object"
+    },
+    "summary": {
+      "$ref": "#/$defs/ValidationSummary"
+    },
+    "metrics": {
+      "$ref": "#/$defs/ValidationMetrics"
+    },
+    "detailed_results": {
+      "items": {
+        "$ref": "#/$defs/DetailedResult"
+      },
+      "title": "Detailed Results",
+      "type": "array"
+    },
+    "hill_formulas": {
+      "anyOf": [
+        {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Hill Formulas"
+    },
+    "best_alpha": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Best Alpha"
+    }
+  },
+  "required": [
+    "flash_p_version",
+    "network",
+    "phenotype",
+    "species",
+    "summary",
+    "metrics",
+    "detailed_results"
+  ],
+  "title": "ValidationResultsFile",
+  "type": "object"
+}

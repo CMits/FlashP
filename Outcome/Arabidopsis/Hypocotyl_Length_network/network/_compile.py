@@ -595,7 +595,7 @@ def build_network():
     source_percentage = round(source_count / total_nodes * 100, 1)
 
     metadata = {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Hypocotyl_Length",
         "species": "Arabidopsis thaliana",
         "created": "2026-04-19",
@@ -668,7 +668,7 @@ def build_algebraic(network):
 
     return {
         "metadata": {
-            "flash_p_version": "2.0",
+            "flash_p_version": "1.0",
             "phenotype": "Hypocotyl_Length",
             "species": "Arabidopsis thaliana",
             "created": "2026-04-19",
@@ -764,7 +764,7 @@ def build_annotations(network):
         })
     return {
         "metadata": {
-            "flash_p_version": "2.0",
+            "flash_p_version": "1.0",
             "phenotype": "Hypocotyl_Length",
             "species": "Arabidopsis thaliana",
             "created": "2026-04-19",

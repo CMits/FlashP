@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "flash_p_version": "2.0",
+    "flash_p_version": "1.0",
     "phenotype": "Flowering_Time",
     "species": "Sorghum bicolor",
     "created": "2026-04-21",
@@ -59,7 +59,7 @@
       "action": "perturbation_encoding",
       "description": "Removed Photoperiod_LD and Light from exogenous_supply in 30 LD gene-KO tests (T001, T003-T007, T009, T011, T013, T014, T031, T033, T038-T040, T044, T045, T047, T049, T050, T062, T063, T065, T068, T069, T072, T075, T078, T079, T082).",
       "reason": "Validation_common.py lines 281-286 override comparison_baseline to 'mutant' whenever both gene_modifiers (any value != 1.0) AND exogenous_supply are present. The LD encoding convention (exogenous={Photoperiod_LD:1, Light:1}) unintentionally triggered this rescue-comparison for every LD gene-KO test. The intended comparison is mutant-under-LD vs WT-under-LD; since source nodes already default to 1.0 (LD-permissive), the exogenous boost was both double-counting LD and triggering the rescue override.",
-      "biological_justification": "Under the v2.0 source-node convention, source value = gene_modifier (default 1.0) + exogenous_supply (default 0.0). WT baseline with sources=1.0 already represents permissive LD-like conditions, which is biologically appropriate for sorghum (facultative SD plant with LD repression of flowering). Removing LD/Light exogenous leaves LD/Light at the default 1.0 (LD-permissive) and restores correct WT comparison.",
+      "biological_justification": "Under the v1.0 source-node convention, source value = gene_modifier (default 1.0) + exogenous_supply (default 0.0). WT baseline with sources=1.0 already represents permissive LD-like conditions, which is biologically appropriate for sorghum (facultative SD plant with LD repression of flowering). Removing LD/Light exogenous leaves LD/Light at the default 1.0 (LD-permissive) and restores correct WT comparison.",
       "source": "",
       "target": "",
       "sign": null,

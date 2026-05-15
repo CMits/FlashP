@@ -1,0 +1,137 @@
+{
+  "$defs": {
+    "MethodAccuracy": {
+      "properties": {
+        "accuracy": {
+          "title": "Accuracy",
+          "type": "number"
+        },
+        "correct": {
+          "title": "Correct",
+          "type": "integer"
+        },
+        "total_tested": {
+          "title": "Total Tested",
+          "type": "integer"
+        },
+        "kappa": {
+          "default": 0.0,
+          "title": "Kappa",
+          "type": "number"
+        },
+        "mcc": {
+          "default": 0.0,
+          "title": "Mcc",
+          "type": "number"
+        },
+        "convergence_rate": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Convergence Rate"
+        },
+        "failures": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Failures",
+          "type": "array"
+        },
+        "ci_95": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ci 95"
+        },
+        "best_K": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Best K"
+        },
+        "best_n": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Best N"
+        },
+        "best_alpha": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Best Alpha"
+        }
+      },
+      "required": [
+        "accuracy",
+        "correct",
+        "total_tested"
+      ],
+      "title": "MethodAccuracy",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "metadata": {
+      "additionalProperties": true,
+      "title": "Metadata",
+      "type": "object"
+    },
+    "tests": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "title": "Tests",
+      "type": "object"
+    },
+    "algebraic": {
+      "$ref": "#/$defs/MethodAccuracy"
+    },
+    "ode": {
+      "$ref": "#/$defs/MethodAccuracy"
+    },
+    "rwr": {
+      "$ref": "#/$defs/MethodAccuracy"
+    }
+  },
+  "required": [
+    "algebraic",
+    "ode",
+    "rwr"
+  ],
+  "title": "AccuracyMetricsFile",
+  "type": "object"
+}

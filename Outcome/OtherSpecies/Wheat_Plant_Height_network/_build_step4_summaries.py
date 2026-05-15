@@ -277,7 +277,7 @@ tier2 = alg["metrics"].get("tier2_scope", {})
 
 accuracy_metrics = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Plant_Height",
         "species": "Triticum aestivum",
         "network": "Wheat_Plant_Height_network",
@@ -454,7 +454,7 @@ for f in failures:
 
 failure_analysis = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Plant_Height",
         "species": "Triticum aestivum",
         "network": "Wheat_Plant_Height_network",
@@ -521,7 +521,7 @@ best_doc = scored[0][1]
 
 method_comparison = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Plant_Height",
         "species": "Triticum aestivum",
         "network": "Wheat_Plant_Height_network",

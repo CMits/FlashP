@@ -524,7 +524,7 @@ nin_ct = sum(1 for r in recs if not r["in_network"])
 
 output = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Lateral_Root_Density",
         "species": "Arabidopsis thaliana",
         "created": "2026-04-19",

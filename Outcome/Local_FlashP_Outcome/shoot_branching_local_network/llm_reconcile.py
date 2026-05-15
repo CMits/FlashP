@@ -179,7 +179,7 @@ def main():
             "perturbation_type": t.get("perturbation_type", ""),
         })
 
-    out = {"metadata": {"flash_p_version":"2.0","phenotype":"shoot_branching",
+    out = {"metadata": {"flash_p_version":"1.0","phenotype":"shoot_branching",
                         "phenotype_node": phenotype_node, "species":"Arabidopsis thaliana",
                         "created":"2026-05-03","iteration":1,
                         "total_tests": len(out_perts),

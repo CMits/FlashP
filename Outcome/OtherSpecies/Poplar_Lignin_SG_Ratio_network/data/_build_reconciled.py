@@ -534,7 +534,7 @@ in_network_count = sum(1 for t in tests if t["in_network"])
 not_in_network_count = sum(1 for t in tests if not t["in_network"])
 
 metadata = {
-    "flash_p_version": "2.0",
+    "flash_p_version": "1.0",
     "phenotype": "Lignin_SG_Ratio",
     "species": "Populus trichocarpa",
     "created": "2026-04-20",

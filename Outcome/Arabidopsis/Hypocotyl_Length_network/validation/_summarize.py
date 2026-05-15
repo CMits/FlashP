@@ -286,7 +286,7 @@ def main():
     # --- accuracy_metrics.json --- #
     accuracy = {
         "metadata": {
-            "flash_p_version": "2.0",
+            "flash_p_version": "1.0",
             "phenotype": PHENOTYPE,
             "species": SPECIES,
             "created": CREATED,
@@ -394,7 +394,7 @@ def main():
 
     failure_file = {
         "metadata": {
-            "flash_p_version": "2.0",
+            "flash_p_version": "1.0",
             "phenotype": PHENOTYPE,
             "species": SPECIES,
             "created": CREATED,
@@ -494,7 +494,7 @@ def main():
 
     method_comp = {
         "metadata": {
-            "flash_p_version": "2.0",
+            "flash_p_version": "1.0",
             "phenotype": PHENOTYPE,
             "species": SPECIES,
             "created": CREATED,

@@ -506,7 +506,7 @@ source_pct = round(source_count / len(nodes_out) * 100, 1) if nodes_out else 0.0
 
 network = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Tillering",
         "phenotype_node": "Tiller_Number",
         "species": "Oryza sativa",
@@ -574,7 +574,7 @@ for n in nodes_out:
 
 alg = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Tillering",
         "species": "Oryza sativa",
         "created": "2026-04-20",
@@ -669,7 +669,7 @@ for n in nodes_out:
 
 na = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Tillering",
         "species": "Oryza sativa",
         "created": "2026-04-20",

@@ -378,7 +378,7 @@ KEY_PLAYER_FLAGS = [
 
 review = {
     "metadata": {
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "Plant_Height",
         "phenotype_node": "Plant_Height",
         "species": "Arabidopsis thaliana",

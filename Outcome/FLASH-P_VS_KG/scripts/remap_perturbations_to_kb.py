@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Remap v2.0 reconciled perturbations from Arabidopsis/<Phenotype>_network (FLASH-P)
+Remap v1.0 reconciled perturbations from Arabidopsis/<Phenotype>_network (FLASH-P)
 onto the KB_Cleaned/<trait>_network node sets, so the same tests can be run by the
 shared validators against the KB networks.
 
@@ -72,7 +72,7 @@ def load_expert_aliases(trait: str, kb_exact: set):
 
     aliases_dict: {term -> kb_node}.
     type_overrides_dict: {term -> reconciliation_type} so we can report
-    the specific v2.0 enum (family_member / composite_member / treatment_analog
+    the specific v1.0 enum (family_member / composite_member / treatment_analog
     / mechanism_mapping) instead of a generic fallback.
     """
     aliases = {}
@@ -146,7 +146,7 @@ def harvest_aliases(archive_reconciled_path: Path, kb_exact: set):
 def map_node(name: str, kb_exact: set, kb_ci: dict, aliases: dict,
              type_overrides: dict = None):
     """Return (kb_node_name, how) or (None, None).
-    how is one of the v2.0 ReconciliationType enum values.
+    how is one of the v1.0 ReconciliationType enum values.
     """
     type_overrides = type_overrides or {}
     if name in kb_exact:
@@ -232,11 +232,11 @@ def remap_file(src_reconciled: Path, kb_network_dir: Path,
 
     meta = deepcopy(d.get("metadata", {}))
     meta.update({
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": phenotype,
         "phenotype_node": phenotype_node,
         "species": meta.get("species", "Arabidopsis thaliana"),
-        "source": "FLASH-P v2.0 tests remapped to KB_Cleaned nodes",
+        "source": "FLASH-P v1.0 tests remapped to KB_Cleaned nodes",
         "total_tests": total,
         "in_network": in_net,
         "not_in_network": not_in_net,
@@ -319,11 +319,11 @@ def run_merged():
 
     meta = deepcopy(d.get("metadata", {}))
     meta.update({
-        "flash_p_version": "2.0",
+        "flash_p_version": "1.0",
         "phenotype": "merged",
         "phenotype_node": meta.get("phenotype_node", ""),
         "species": meta.get("species", "Arabidopsis thaliana"),
-        "source": "FLASH-P v2.0 merged tests remapped to KB merged nodes",
+        "source": "FLASH-P v1.0 merged tests remapped to KB merged nodes",
         "total_tests": total,
         "in_network": in_net,
         "not_in_network": not_in_net,
@@ -382,8 +382,8 @@ def run_merged_pleiotropic():
 
     meta = deepcopy(d.get("metadata", {}))
     meta.update({
-        "flash_p_version": "2.0",
-        "source": "FLASH-P v2.0 pleiotropic tests remapped to KB merged nodes",
+        "flash_p_version": "1.0",
+        "source": "FLASH-P v1.0 pleiotropic tests remapped to KB merged nodes",
         "total_tests": len(new_tests),
     })
     out = {"metadata": meta, "pleiotropic_tests": new_tests}

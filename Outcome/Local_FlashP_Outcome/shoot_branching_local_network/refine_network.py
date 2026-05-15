@@ -21,7 +21,7 @@ VAL = ROOT / "validation"
 REF = ROOT / "refinement"
 REF.mkdir(exist_ok=True)
 REPO_ROOT = ROOT.parents[2]
-VALIDATOR = REPO_ROOT / "Flash-P/Agent/shared/flashp_validator.py"
+VALIDATOR = REPO_ROOT / "Flash-P/Claude/Agent/shared/flashp_validator.py"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 
 PROMPT = """You are refining a mechanistic signaling network for shoot branching in Arabidopsis thaliana. The current network is failing the {n_fail} tests below. Propose 2–5 coordinated, evidence-based fixes per the FLASH-P REFINEMENT protocol.
@@ -371,7 +371,7 @@ def main():
 
     final_acc = get_accuracy()
     report = {
-        "metadata": {"flash_p_version":"2.0", "phenotype":"shoot_branching",
+        "metadata": {"flash_p_version":"1.0", "phenotype":"shoot_branching",
                      "species":"Arabidopsis thaliana", "created":"2026-05-03",
                      "model": args.model},
         "baseline_accuracy": base_acc,

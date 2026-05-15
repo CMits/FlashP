@@ -1,0 +1,122 @@
+{
+  "$defs": {
+    "FlashPMetadata": {
+      "description": "Metadata block present in every pipeline output file.",
+      "properties": {
+        "flash_p_version": {
+          "description": "Pipeline version, e.g. '1.0'",
+          "title": "Flash P Version",
+          "type": "string"
+        },
+        "phenotype": {
+          "description": "Target phenotype, e.g. 'flowering_time'",
+          "title": "Phenotype",
+          "type": "string"
+        },
+        "species": {
+          "description": "Species name, e.g. 'Arabidopsis thaliana'",
+          "title": "Species",
+          "type": "string"
+        },
+        "created": {
+          "description": "Creation date YYYY-MM-DD",
+          "title": "Created",
+          "type": "string"
+        }
+      },
+      "required": [
+        "flash_p_version",
+        "phenotype",
+        "species",
+        "created"
+      ],
+      "title": "FlashPMetadata",
+      "type": "object"
+    },
+    "MethodComparisonEntry": {
+      "properties": {
+        "method": {
+          "title": "Method",
+          "type": "string"
+        },
+        "accuracy": {
+          "title": "Accuracy",
+          "type": "number"
+        },
+        "kappa": {
+          "default": 0.0,
+          "title": "Kappa",
+          "type": "number"
+        },
+        "mcc": {
+          "default": 0.0,
+          "title": "Mcc",
+          "type": "number"
+        },
+        "convergence_rate": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Convergence Rate"
+        },
+        "best_params": {
+          "default": "",
+          "title": "Best Params",
+          "type": "string"
+        },
+        "strengths": {
+          "default": "",
+          "title": "Strengths",
+          "type": "string"
+        },
+        "weaknesses": {
+          "default": "",
+          "title": "Weaknesses",
+          "type": "string"
+        },
+        "failures": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Failures",
+          "type": "array"
+        }
+      },
+      "required": [
+        "method",
+        "accuracy"
+      ],
+      "title": "MethodComparisonEntry",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "metadata": {
+      "$ref": "#/$defs/FlashPMetadata"
+    },
+    "summary": {
+      "additionalProperties": true,
+      "title": "Summary",
+      "type": "object"
+    },
+    "comparison": {
+      "items": {
+        "$ref": "#/$defs/MethodComparisonEntry"
+      },
+      "title": "Comparison",
+      "type": "array"
+    }
+  },
+  "required": [
+    "metadata",
+    "comparison"
+  ],
+  "title": "MethodComparisonFile",
+  "type": "object"
+}
