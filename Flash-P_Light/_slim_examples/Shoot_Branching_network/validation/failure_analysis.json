@@ -1,0 +1,167 @@
+{
+  "metadata": {
+    "flash_p_version": "1.0",
+    "phenotype": "shoot_branching",
+    "method": "ode",
+    "created": "2026-04-18",
+    "total_failures": 15,
+    "total_tests": 63
+  },
+  "categorized_failures": {
+    "wrong_direction_inc_to_dec": {
+      "count": 6,
+      "tests": [
+        {
+          "test_id": "T031",
+          "gene": "ARR1",
+          "perturbation_type": "knockout",
+          "expected": "increased",
+          "predicted": "decreased",
+          "ratio": 0.1435,
+          "path_length": 3
+        },
+        {
+          "test_id": "T057",
+          "gene": "GR24 on max2",
+          "perturbation_type": "knockout_plus_GR24",
+          "expected": "increased",
+          "predicted": "decreased",
+          "ratio": 0.9381,
+          "path_length": 3
+        },
+        {
+          "test_id": "T059",
+          "gene": "GR24 on brc1 brc2",
+          "perturbation_type": "knockout_plus_GR24",
+          "expected": "increased",
+          "predicted": "decreased",
+          "ratio": 0.9381,
+          "path_length": 3
+        },
+        {
+          "test_id": "T096",
+          "gene": "GR24 on d14",
+          "perturbation_type": "knockout_plus_GR24",
+          "expected": "increased",
+          "predicted": "decreased",
+          "ratio": 0.9381,
+          "path_length": 3
+        },
+        {
+          "test_id": "T128",
+          "gene": "smxl678",
+          "perturbation_type": "knockout",
+          "expected": "increased",
+          "predicted": "decreased",
+          "ratio": 0.0263,
+          "path_length": 2
+        },
+        {
+          "test_id": "T132",
+          "gene": "GR24",
+          "perturbation_type": "knockout",
+          "expected": "increased",
+          "predicted": "decreased",
+          "ratio": 0.1237,
+          "path_length": 3
+        }
+      ]
+    },
+    "missing_propagation": {
+      "count": 4,
+      "tests": [
+        {
+          "test_id": "T035",
+          "gene": "BES1",
+          "perturbation_type": "gain_of_function",
+          "expected": "increased",
+          "predicted": "unchanged",
+          "ratio": 1.0,
+          "path_length": 2
+        },
+        {
+          "test_id": "T052",
+          "gene": "Decapitation",
+          "perturbation_type": "treatment",
+          "expected": "increased",
+          "predicted": "unchanged",
+          "ratio": 1.0,
+          "path_length": 2
+        },
+        {
+          "test_id": "T079",
+          "gene": "TIE1",
+          "perturbation_type": "gain_of_function",
+          "expected": "increased",
+          "predicted": "unchanged",
+          "ratio": 1.0,
+          "path_length": 2
+        },
+        {
+          "test_id": "T129",
+          "gene": "smxl7",
+          "perturbation_type": "knockout",
+          "expected": "decreased",
+          "predicted": "unchanged",
+          "ratio": 0.9994,
+          "path_length": 2
+        }
+      ]
+    },
+    "false_positive_change": {
+      "count": 3,
+      "tests": [
+        {
+          "test_id": "T084",
+          "gene": "HB21",
+          "perturbation_type": "knockout",
+          "expected": "unchanged",
+          "predicted": "increased",
+          "ratio": 1.6912,
+          "path_length": 3
+        },
+        {
+          "test_id": "T114",
+          "gene": "BRC2",
+          "perturbation_type": "overexpression",
+          "expected": "unchanged",
+          "predicted": "decreased",
+          "ratio": 0.4847,
+          "path_length": 1
+        },
+        {
+          "test_id": "T142",
+          "gene": "max3",
+          "perturbation_type": "knockout",
+          "expected": "unchanged",
+          "predicted": "increased",
+          "ratio": 2.1533,
+          "path_length": 4
+        }
+      ]
+    },
+    "wrong_direction_dec_to_inc": {
+      "count": 2,
+      "tests": [
+        {
+          "test_id": "T133",
+          "gene": "cytokinin",
+          "perturbation_type": "knockout",
+          "expected": "decreased",
+          "predicted": "increased",
+          "ratio": 3094.0582,
+          "path_length": 1
+        },
+        {
+          "test_id": "T141",
+          "gene": "d14",
+          "perturbation_type": "knockout",
+          "expected": "decreased",
+          "predicted": "increased",
+          "ratio": 7.8855,
+          "path_length": 3
+        }
+      ]
+    }
+  }
+}

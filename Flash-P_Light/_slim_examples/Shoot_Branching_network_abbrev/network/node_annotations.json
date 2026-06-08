@@ -1,0 +1,279 @@
+{
+  "metadata": {
+    "flash_p_version": "1.0",
+    "phenotype": "shoot_branching",
+    "pn": "Shoot_Branching",
+    "sp": "Arabidopsis thaliana",
+    "created": "2026-04-18",
+    "iteration": 4,
+    "total_nodes": 38
+  },
+  "annotations": [
+    {
+      "n": "Decapitation",
+      "fn": "Apical decapitation",
+      "ty": "E",
+      "desc": "Surgical removal of shoot apex releasing axillary buds",
+      "src": true
+    },
+    {
+      "n": "Low_R_FR",
+      "fn": "Low red:far-red ratio",
+      "ty": "E",
+      "desc": "Shade signal; degrades FHY3 and phyB",
+      "src": true
+    },
+    {
+      "n": "Nitrogen",
+      "fn": "Nitrogen availability",
+      "ty": "E",
+      "desc": "High N upregulates IPT-mediated CK biosynthesis, represses SL",
+      "src": true
+    },
+    {
+      "n": "Photoperiod",
+      "fn": "Photoperiod (day length)",
+      "ty": "E",
+      "desc": "Day length signal acting via CO-FT pathway",
+      "src": true
+    },
+    {
+      "n": "Sucrose",
+      "fn": "Sucrose",
+      "ty": "M",
+      "desc": "Primary carbon/signaling metabolite",
+      "src": false
+    },
+    {
+      "n": "miR156",
+      "fn": "microRNA156",
+      "ty": "R",
+      "desc": "Age-regulated microRNA silencing SPL9",
+      "src": true
+    },
+    {
+      "n": "MAX2",
+      "fn": "MORE AXILLARY GROWTH 2",
+      "ty": "G",
+      "desc": "Constitutive F-box protein; SL and karrikin perception gate co-inhibitor",
+      "src": false
+    },
+    {
+      "n": "ABA2",
+      "fn": "ABA DEFICIENT 2",
+      "ty": "G",
+      "desc": "Short-chain alcohol dehydrogenase in ABA biosynthesis",
+      "src": true
+    },
+    {
+      "n": "D27",
+      "fn": "DWARF27",
+      "ty": "G",
+      "desc": "Carotenoid isomerase; first committed step of SL biosynthesis",
+      "src": true
+    },
+    {
+      "n": "MAX1",
+      "fn": "MORE AXILLARY GROWTH 1 (CYP711A1)",
+      "ty": "G",
+      "desc": "Cytochrome P450 oxidizing carlactone in SL biosynthesis; repressed by GA (iter 3 cross-hormone)",
+      "src": false
+    },
+    {
+      "n": "LBO",
+      "fn": "LATERAL BRANCHING OXIDOREDUCTASE",
+      "ty": "G",
+      "desc": "2-OGD oxidoreductase; final SL biosynthesis step",
+      "src": true
+    },
+    {
+      "n": "Auxin",
+      "fn": "Auxin (IAA)",
+      "ty": "H",
+      "desc": "Near-source hormone maintaining apical dominance and promoting SL biosynthesis",
+      "src": false
+    },
+    {
+      "n": "CCD7",
+      "fn": "CAROTENOID CLEAVAGE DIOXYGENASE 7 (MAX3)",
+      "ty": "G",
+      "desc": "Carotenoid cleavage enzyme in SL biosynthesis",
+      "src": false
+    },
+    {
+      "n": "CCD8",
+      "fn": "CAROTENOID CLEAVAGE DIOXYGENASE 8 (MAX4)",
+      "ty": "G",
+      "desc": "Carotenoid cleavage enzyme in SL biosynthesis",
+      "src": false
+    },
+    {
+      "n": "Strigolactone",
+      "fn": "Strigolactone",
+      "ty": "H",
+      "desc": "Branching-inhibiting hormone; Perception Gate via D14+MAX2 with Trap 5 CKX9 branch",
+      "src": false
+    },
+    {
+      "n": "D14",
+      "fn": "DWARF14 (AtD14)",
+      "ty": "G",
+      "desc": "SL receptor, co-inhibitor of SMXL678 with MAX2; self-degradation (Motif 6)",
+      "src": false
+    },
+    {
+      "n": "SMXL678",
+      "fn": "SMXL6/SMXL7/SMXL8 complex",
+      "ty": "PC",
+      "desc": "SL-regulated repressors; hub repressing BRC1/SPL9, promoting PIN1",
+      "src": false
+    },
+    {
+      "n": "BES1",
+      "fn": "BRI1-EMS-SUPPRESSOR 1",
+      "ty": "G",
+      "desc": "MAX2-degraded TF; BRC1 co-repressor (Motif 5 multi-output)",
+      "src": false
+    },
+    {
+      "n": "GA",
+      "fn": "Gibberellic acid",
+      "ty": "H",
+      "desc": "Activated by Auxin, balanced by GA2OX catabolism (Motif 4). Degrades DELLA.",
+      "src": false
+    },
+    {
+      "n": "GA2OX",
+      "fn": "GIBBERELLIN 2-OXIDASE",
+      "ty": "G",
+      "desc": "GA-inactivating enzyme; induced by GA (negative feedback Motif 2)",
+      "src": false
+    },
+    {
+      "n": "DELLA",
+      "fn": "DELLA proteins (GAI/RGA/RGL1-3)",
+      "ty": "PC",
+      "desc": "GA-degraded repressors; sequester SPL9",
+      "src": false
+    },
+    {
+      "n": "SPL9",
+      "fn": "SQUAMOSA PROMOTER BINDING PROTEIN-LIKE 9",
+      "ty": "G",
+      "desc": "BRC1 activator; repressed by miR156/DELLA/SMXL678/FHY3 (all-inhibitor node)",
+      "src": false
+    },
+    {
+      "n": "BRC1",
+      "fn": "BRANCHED 1 (TCP18)",
+      "ty": "G",
+      "desc": "Master branching repressor TF; integrator of 3 activators and 7 inhibitors",
+      "src": false
+    },
+    {
+      "n": "IPT",
+      "fn": "ISOPENTENYLTRANSFERASE",
+      "ty": "G",
+      "desc": "Rate-limiting CK biosynthesis; activated by Nitrogen and Decapitation, repressed by Auxin",
+      "src": false
+    },
+    {
+      "n": "CKX9",
+      "fn": "CYTOKININ OXIDASE/DEHYDROGENASE 9",
+      "ty": "G",
+      "desc": "CK-degrading enzyme; induced by SL (Trap 5 framework limitation documented)",
+      "src": false
+    },
+    {
+      "n": "Cytokinin",
+      "fn": "Cytokinin",
+      "ty": "H",
+      "desc": "Bud outgrowth hormone; balanced by IPT (synthesis) and CKX9 (degradation)",
+      "src": false
+    },
+    {
+      "n": "PIN1",
+      "fn": "PIN-FORMED 1",
+      "ty": "G",
+      "desc": "Auxin efflux carrier; polarization required for bud outgrowth canalization",
+      "src": false
+    },
+    {
+      "n": "PIN3",
+      "fn": "PIN-FORMED 3",
+      "ty": "G",
+      "desc": "Auxin efflux carrier; connective transport between buds",
+      "src": false
+    },
+    {
+      "n": "FHY3",
+      "fn": "FAR-RED ELONGATED HYPOCOTYL 3",
+      "ty": "G",
+      "desc": "Transposase-derived TF; promotes SMXL678, inhibits SPL9 (Motif 3); shade-degraded",
+      "src": false
+    },
+    {
+      "n": "T6P",
+      "fn": "Trehalose-6-phosphate",
+      "ty": "M",
+      "desc": "Sugar signaling metabolite; reflects Sucrose status",
+      "src": false
+    },
+    {
+      "n": "FT",
+      "fn": "FLOWERING LOCUS T",
+      "ty": "G",
+      "desc": "Florigen; promotes flowering and represses BRC1",
+      "src": false
+    },
+    {
+      "n": "HB21",
+      "fn": "HOMEOBOX PROTEIN 21",
+      "ty": "G",
+      "desc": "HD-Zip I TF (representing HB21/40/53); activates NCED3 downstream of BRC1",
+      "src": false
+    },
+    {
+      "n": "NCED3",
+      "fn": "9-CIS-EPOXYCAROTENOID DIOXYGENASE 3",
+      "ty": "G",
+      "desc": "Rate-limiting ABA biosynthesis enzyme",
+      "src": false
+    },
+    {
+      "n": "ABA",
+      "fn": "Abscisic acid",
+      "ty": "H",
+      "desc": "Dormancy hormone downstream of BRC1-HB21-NCED3 cascade",
+      "src": false
+    },
+    {
+      "n": "TIE1",
+      "fn": "TCP INTERACTOR CONTAINING EAR MOTIF 1",
+      "ty": "G",
+      "desc": "BRC1-inhibiting co-repressor; activated by Cytokinin via ARR1 (iter 3: no longer source)",
+      "src": false
+    },
+    {
+      "n": "ARR1",
+      "fn": "ARABIDOPSIS RESPONSE REGULATOR 1",
+      "ty": "G",
+      "desc": "B-type response regulator; direct CK target activating TIE1 (Yang 2022)",
+      "src": false
+    },
+    {
+      "n": "CAMEL",
+      "fn": "CAMEL",
+      "ty": "G",
+      "desc": "Auxin-induced malectin-type receptor-like kinase; phosphorylates PIN1 for polar localization (Hajny 2020)",
+      "src": false
+    },
+    {
+      "n": "Shoot_Branching",
+      "fn": "Shoot branching",
+      "ty": "P",
+      "desc": "Number of axillary branches; integrative phenotype output",
+      "src": false
+    }
+  ]
+}

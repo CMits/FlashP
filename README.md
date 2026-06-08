@@ -41,9 +41,33 @@ The pipeline has already been used to build **13 networks** packaged in this rep
 | Folder | Contents |
 |---|---|
 | [`Flash-P/`](Flash-P) | **The pipeline.** Three ready-to-go subfolders &mdash; one per coding agent &mdash; each carrying the 8 agent definitions, the orchestrator instructions, and shared utilities. Open whichever subfolder matches the tool you use (see [Pick a coding agent](#pick-your-coding-agent)). |
+| [`Flash-P_Light/`](Flash-P_Light) | **Token-lean pipeline** for a single Claude Pro (or lower-tier) session &mdash; same science, DOI-only output. See [Which version?](#which-version) |
 | [`Outcome/`](Outcome) | All paper outputs from our own runs &mdash; every network, validation result, refinement history, Cytoscape export, head-to-head KG-Cleaned comparison, supporting case studies, and the local open-source-model reproduction. |
 | [`Supplementary Data/`](Supplementary%20Data) | Seven supplementary `.xlsx` tables, their build scripts, and per-dataset descriptions. |
 | [`Images/`](Images) | Repository figures: `FlashP.png` (banner), `FLASHP_Pipeline_Addition.svg` (pipeline diagram), `FLASH_P_GUI.png` (GUI preview). |
+
+---
+
+## Which version?
+
+- **Have Claude Max?** Run the full **[`Flash-P/`](Flash-P)** &mdash; every edge carries full provenance (DOI + title, authors, journal, evidence sentence) and the judges run multiple passes. Maximum transparency.
+- **On Claude Pro or a lower tier** (same idea for the lower ChatGPT/Codex tiers)? Run **[`Flash-P_Light/`](Flash-P_Light)** &mdash; token-lean, fits one session: DOI-only output, single-pass judges. Same validation results.
+
+**We suggest starting with Light.** Its quality is on par with the full Max run, so it's the fastest, cheapest way to build a real network and get a feel for the output &mdash; then move up to the full `Flash-P/` when you want the complete provenance record.
+
+### Run Flash-P Light
+
+**Claude Code** &mdash; open `Flash-P_Light/Claude/`, then run:
+
+```text
+/run-flashp <trait> in <Species>
+```
+
+For example `/run-flashp Shoot Branching in Arabidopsis`. It runs Steps 1&rarr;6 autonomously.
+
+**Codex / OpenCode / Aider / Goose** &mdash; open the matching `Flash-P_Light/` subfolder and paste:
+
+> Run the full FLASH-P Light pipeline for `<trait>` in `<Species>`. Single agent &mdash; no subagents, no WebFetch. Knowledge-first draft, then WebSearch to verify each edge/test and take the DOI from the result.
 
 ---
 
@@ -265,4 +289,4 @@ You are free to use, copy, modify, and redistribute FLASH-P for any **non-commer
 **Commercial use** (selling FLASH-P, embedding it in a commercial product, or using it as part of a paid service) requires a separate commercial licence. Contact **UniQuest Pty Ltd** (UQ's commercialisation company) at [info@uniquest.com.au](mailto:info@uniquest.com.au).
 
 If you use FLASH-P in academic work, please cite:
-> Mitsanis, C. & Kainer, D. &mdash; *FLASH-P*, The University of Queensland.
+> _Citation coming soon &mdash; bioRxiv preprint to be added._

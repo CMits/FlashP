@@ -1,0 +1,778 @@
+{
+  "metadata": {
+    "flash_p_version": "1.0",
+    "phenotype": "shoot_branching",
+    "phenotype_node": "Shoot_Branching",
+    "species": "Arabidopsis thaliana",
+    "created": "2026-04-18",
+    "iteration": 4,
+    "judge_reviews_consumed": [
+      "judge_review_iteration_1.json",
+      "judge_review_iteration_2.json"
+    ],
+    "curated_edges_source": "313-edge repository (bidirectional re-extraction)",
+    "total_nodes": 38,
+    "total_edges": 75,
+    "source_nodes": 8,
+    "source_percentage": 21.1,
+    "iter4_change_summary": "Added 5 Sucrose edges (Decap->Sucrose, Sucrose-|MAX2, Sucrose->CK/PIN1/Shoot_Branching). Sucrose and MAX2 lose source status.",
+    "refinement_iteration": 1
+  },
+  "nodes": [
+    {
+      "id": "Decapitation",
+      "type": "ENVIRONMENT",
+      "full_name": "Apical decapitation",
+      "is_source": true
+    },
+    {
+      "id": "Low_R_FR",
+      "type": "ENVIRONMENT",
+      "full_name": "Low red:far-red ratio",
+      "is_source": true
+    },
+    {
+      "id": "Nitrogen",
+      "type": "ENVIRONMENT",
+      "full_name": "Nitrogen availability",
+      "is_source": true
+    },
+    {
+      "id": "Photoperiod",
+      "type": "ENVIRONMENT",
+      "full_name": "Photoperiod (day length)",
+      "is_source": true
+    },
+    {
+      "id": "Sucrose",
+      "type": "METABOLITE",
+      "full_name": "Sucrose",
+      "is_source": false
+    },
+    {
+      "id": "miR156",
+      "type": "REGULATORY_RNA",
+      "full_name": "microRNA156",
+      "is_source": true
+    },
+    {
+      "id": "MAX2",
+      "type": "GENE",
+      "full_name": "MORE AXILLARY GROWTH 2",
+      "is_source": false
+    },
+    {
+      "id": "ABA2",
+      "type": "GENE",
+      "full_name": "ABA DEFICIENT 2",
+      "is_source": true
+    },
+    {
+      "id": "D27",
+      "type": "GENE",
+      "full_name": "DWARF27",
+      "is_source": true
+    },
+    {
+      "id": "MAX1",
+      "type": "GENE",
+      "full_name": "MORE AXILLARY GROWTH 1 (CYP711A1)",
+      "is_source": false
+    },
+    {
+      "id": "LBO",
+      "type": "GENE",
+      "full_name": "LATERAL BRANCHING OXIDOREDUCTASE",
+      "is_source": true
+    },
+    {
+      "id": "Auxin",
+      "type": "HORMONE",
+      "full_name": "Auxin (IAA)",
+      "is_source": false
+    },
+    {
+      "id": "CCD7",
+      "type": "GENE",
+      "full_name": "CAROTENOID CLEAVAGE DIOXYGENASE 7 (MAX3)",
+      "is_source": false
+    },
+    {
+      "id": "CCD8",
+      "type": "GENE",
+      "full_name": "CAROTENOID CLEAVAGE DIOXYGENASE 8 (MAX4)",
+      "is_source": false
+    },
+    {
+      "id": "Strigolactone",
+      "type": "HORMONE",
+      "full_name": "Strigolactone",
+      "is_source": false
+    },
+    {
+      "id": "D14",
+      "type": "GENE",
+      "full_name": "DWARF14 (AtD14)",
+      "is_source": false
+    },
+    {
+      "id": "SMXL678",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "SMXL6/SMXL7/SMXL8 complex",
+      "is_source": false
+    },
+    {
+      "id": "BES1",
+      "type": "GENE",
+      "full_name": "BRI1-EMS-SUPPRESSOR 1",
+      "is_source": false
+    },
+    {
+      "id": "GA",
+      "type": "HORMONE",
+      "full_name": "Gibberellic acid",
+      "is_source": false
+    },
+    {
+      "id": "GA2OX",
+      "type": "GENE",
+      "full_name": "GIBBERELLIN 2-OXIDASE",
+      "is_source": false
+    },
+    {
+      "id": "DELLA",
+      "type": "PROTEIN_COMPLEX",
+      "full_name": "DELLA proteins (GAI/RGA/RGL1-3)",
+      "is_source": false
+    },
+    {
+      "id": "SPL9",
+      "type": "GENE",
+      "full_name": "SQUAMOSA PROMOTER BINDING PROTEIN-LIKE 9",
+      "is_source": false
+    },
+    {
+      "id": "BRC1",
+      "type": "GENE",
+      "full_name": "BRANCHED 1 (TCP18)",
+      "is_source": false
+    },
+    {
+      "id": "IPT",
+      "type": "GENE",
+      "full_name": "ISOPENTENYLTRANSFERASE",
+      "is_source": false
+    },
+    {
+      "id": "CKX9",
+      "type": "GENE",
+      "full_name": "CYTOKININ OXIDASE/DEHYDROGENASE 9",
+      "is_source": false
+    },
+    {
+      "id": "Cytokinin",
+      "type": "HORMONE",
+      "full_name": "Cytokinin",
+      "is_source": false
+    },
+    {
+      "id": "PIN1",
+      "type": "GENE",
+      "full_name": "PIN-FORMED 1",
+      "is_source": false
+    },
+    {
+      "id": "PIN3",
+      "type": "GENE",
+      "full_name": "PIN-FORMED 3",
+      "is_source": false
+    },
+    {
+      "id": "FHY3",
+      "type": "GENE",
+      "full_name": "FAR-RED ELONGATED HYPOCOTYL 3",
+      "is_source": false
+    },
+    {
+      "id": "T6P",
+      "type": "METABOLITE",
+      "full_name": "Trehalose-6-phosphate",
+      "is_source": false
+    },
+    {
+      "id": "FT",
+      "type": "GENE",
+      "full_name": "FLOWERING LOCUS T",
+      "is_source": false
+    },
+    {
+      "id": "HB21",
+      "type": "GENE",
+      "full_name": "HOMEOBOX PROTEIN 21",
+      "is_source": false
+    },
+    {
+      "id": "NCED3",
+      "type": "GENE",
+      "full_name": "9-CIS-EPOXYCAROTENOID DIOXYGENASE 3",
+      "is_source": false
+    },
+    {
+      "id": "ABA",
+      "type": "HORMONE",
+      "full_name": "Abscisic acid",
+      "is_source": false
+    },
+    {
+      "id": "TIE1",
+      "type": "GENE",
+      "full_name": "TCP INTERACTOR CONTAINING EAR MOTIF 1",
+      "is_source": false
+    },
+    {
+      "id": "ARR1",
+      "type": "GENE",
+      "full_name": "ARABIDOPSIS RESPONSE REGULATOR 1",
+      "is_source": false
+    },
+    {
+      "id": "CAMEL",
+      "type": "GENE",
+      "full_name": "CAMEL",
+      "is_source": false
+    },
+    {
+      "id": "Shoot_Branching",
+      "type": "PHENOTYPE",
+      "full_name": "Shoot branching",
+      "is_source": false
+    }
+  ],
+  "edges": [
+    {
+      "source": "Decapitation",
+      "target": "Auxin",
+      "sign": -1,
+      "edge_id": "N001",
+      "doi": "10.4161/psb.27994"
+    },
+    {
+      "source": "Auxin",
+      "target": "CCD7",
+      "sign": 1,
+      "edge_id": "N002",
+      "doi": "10.1104/pp.109.137646"
+    },
+    {
+      "source": "Auxin",
+      "target": "CCD8",
+      "sign": 1,
+      "edge_id": "N003",
+      "doi": "10.1104/pp.109.137646"
+    },
+    {
+      "source": "CCD7",
+      "target": "Strigolactone",
+      "sign": 1,
+      "edge_id": "N004",
+      "doi": "10.1073/pnas.1601729113"
+    },
+    {
+      "source": "CCD8",
+      "target": "Strigolactone",
+      "sign": 1,
+      "edge_id": "N005",
+      "doi": "10.1104/pp.109.137646"
+    },
+    {
+      "source": "D27",
+      "target": "Strigolactone",
+      "sign": 1,
+      "edge_id": "N006",
+      "doi": "10.1105/tpc.15.00562"
+    },
+    {
+      "source": "MAX1",
+      "target": "Strigolactone",
+      "sign": 1,
+      "edge_id": "N007",
+      "doi": "10.1073/pnas.1601729113"
+    },
+    {
+      "source": "LBO",
+      "target": "Strigolactone",
+      "sign": 1,
+      "edge_id": "N008",
+      "doi": "10.1073/pnas.1601729113"
+    },
+    {
+      "source": "Decapitation",
+      "target": "Strigolactone",
+      "sign": -1,
+      "edge_id": "N009",
+      "doi": "10.1371/journal.pbio.3003395"
+    },
+    {
+      "source": "Sucrose",
+      "target": "Strigolactone",
+      "sign": -1,
+      "edge_id": "N010",
+      "doi": "10.1111/tpj.16873"
+    },
+    {
+      "source": "Nitrogen",
+      "target": "Strigolactone",
+      "sign": -1,
+      "edge_id": "N011",
+      "doi": "10.1104/pp.109.135475"
+    },
+    {
+      "source": "GA",
+      "target": "MAX1",
+      "sign": -1,
+      "edge_id": "N012",
+      "doi": ""
+    },
+    {
+      "source": "Strigolactone",
+      "target": "D14",
+      "sign": 1,
+      "edge_id": "N013",
+      "doi": "10.1016/j.xplc.2019.100014"
+    },
+    {
+      "source": "D14",
+      "target": "D14",
+      "sign": -1,
+      "edge_id": "N014",
+      "doi": "10.1126/sciadv.abn5057"
+    },
+    {
+      "source": "D14",
+      "target": "SMXL678",
+      "sign": -1,
+      "edge_id": "N015",
+      "doi": "10.1038/s41467-018-08124-7"
+    },
+    {
+      "source": "MAX2",
+      "target": "SMXL678",
+      "sign": -1,
+      "edge_id": "N016",
+      "doi": "10.1105/tpc.112.108480"
+    },
+    {
+      "source": "MAX2",
+      "target": "BES1",
+      "sign": -1,
+      "edge_id": "N017",
+      "doi": ""
+    },
+    {
+      "source": "SMXL678",
+      "target": "BRC1",
+      "sign": -1,
+      "edge_id": "N018",
+      "doi": "10.1105/tpc.15.00605"
+    },
+    {
+      "source": "SMXL678",
+      "target": "SPL9",
+      "sign": -1,
+      "edge_id": "N019",
+      "doi": "10.1038/s41586-020-2382-x"
+    },
+    {
+      "source": "SMXL678",
+      "target": "PIN1",
+      "sign": 1,
+      "edge_id": "N020",
+      "doi": "10.1093/jxb/eraf027"
+    },
+    {
+      "source": "Strigolactone",
+      "target": "CKX9",
+      "sign": 1,
+      "edge_id": "N021",
+      "doi": "10.1093/plphys/kiab071"
+    },
+    {
+      "source": "CKX9",
+      "target": "Cytokinin",
+      "sign": -1,
+      "edge_id": "N022",
+      "doi": "10.1093/aob/mcr069"
+    },
+    {
+      "source": "Auxin",
+      "target": "GA",
+      "sign": 1,
+      "edge_id": "N023",
+      "doi": ""
+    },
+    {
+      "source": "GA2OX",
+      "target": "GA",
+      "sign": -1,
+      "edge_id": "N024",
+      "doi": ""
+    },
+    {
+      "source": "GA",
+      "target": "GA2OX",
+      "sign": 1,
+      "edge_id": "N025",
+      "doi": ""
+    },
+    {
+      "source": "GA",
+      "target": "DELLA",
+      "sign": -1,
+      "edge_id": "N026",
+      "doi": "10.1111/jipb.12818"
+    },
+    {
+      "source": "DELLA",
+      "target": "SPL9",
+      "sign": -1,
+      "edge_id": "N027",
+      "doi": "10.1111/jipb.12818"
+    },
+    {
+      "source": "miR156",
+      "target": "SPL9",
+      "sign": -1,
+      "edge_id": "N028",
+      "doi": "10.3389/fpls.2022.887232"
+    },
+    {
+      "source": "Low_R_FR",
+      "target": "FHY3",
+      "sign": -1,
+      "edge_id": "N029",
+      "doi": "10.1073/pnas.1613199114"
+    },
+    {
+      "source": "FHY3",
+      "target": "SMXL678",
+      "sign": 1,
+      "edge_id": "N030",
+      "doi": ""
+    },
+    {
+      "source": "FHY3",
+      "target": "SPL9",
+      "sign": -1,
+      "edge_id": "N031",
+      "doi": "10.1104/pp.104.057984"
+    },
+    {
+      "source": "Low_R_FR",
+      "target": "BRC1",
+      "sign": 1,
+      "edge_id": "N032",
+      "doi": "10.1073/pnas.1613199114"
+    },
+    {
+      "source": "SPL9",
+      "target": "BRC1",
+      "sign": 1,
+      "edge_id": "N033",
+      "doi": ""
+    },
+    {
+      "source": "Auxin",
+      "target": "BRC1",
+      "sign": 1,
+      "edge_id": "N034",
+      "doi": "10.1016/j.xplc.2019.100014"
+    },
+    {
+      "source": "Cytokinin",
+      "target": "BRC1",
+      "sign": -1,
+      "edge_id": "N035",
+      "doi": "10.1104/pp.17.01691"
+    },
+    {
+      "source": "BES1",
+      "target": "BRC1",
+      "sign": -1,
+      "edge_id": "N036",
+      "doi": "10.1093/plphys/kiab071"
+    },
+    {
+      "source": "FT",
+      "target": "BRC1",
+      "sign": -1,
+      "edge_id": "N037",
+      "doi": "10.1093/plphys/kiab586"
+    },
+    {
+      "source": "Sucrose",
+      "target": "BRC1",
+      "sign": -1,
+      "edge_id": "N038",
+      "doi": "10.1101/gad.887301"
+    },
+    {
+      "source": "TIE1",
+      "target": "BRC1",
+      "sign": -1,
+      "edge_id": "N039",
+      "doi": "10.1093/jxb/erv047"
+    },
+    {
+      "source": "Decapitation",
+      "target": "BRC1",
+      "sign": -1,
+      "edge_id": "N040",
+      "doi": "10.4161/psb.27994"
+    },
+    {
+      "source": "Nitrogen",
+      "target": "IPT",
+      "sign": 1,
+      "edge_id": "N041",
+      "doi": "10.1080/15592324.2015.1126031"
+    },
+    {
+      "source": "Decapitation",
+      "target": "IPT",
+      "sign": 1,
+      "edge_id": "N042",
+      "doi": "10.4161/psb.27994"
+    },
+    {
+      "source": "Auxin",
+      "target": "IPT",
+      "sign": -1,
+      "edge_id": "N043",
+      "doi": ""
+    },
+    {
+      "source": "IPT",
+      "target": "Cytokinin",
+      "sign": 1,
+      "edge_id": "N044",
+      "doi": "10.1111/nph.17427"
+    },
+    {
+      "source": "Cytokinin",
+      "target": "ARR1",
+      "sign": 1,
+      "edge_id": "N045",
+      "doi": ""
+    },
+    {
+      "source": "ARR1",
+      "target": "TIE1",
+      "sign": 1,
+      "edge_id": "N046",
+      "doi": "10.1126/sciadv.abn5057"
+    },
+    {
+      "source": "Auxin",
+      "target": "PIN1",
+      "sign": 1,
+      "edge_id": "N047",
+      "doi": "10.1016/j.xplc.2019.100014"
+    },
+    {
+      "source": "Cytokinin",
+      "target": "PIN1",
+      "sign": 1,
+      "edge_id": "N048",
+      "doi": ""
+    },
+    {
+      "source": "Cytokinin",
+      "target": "PIN3",
+      "sign": 1,
+      "edge_id": "N049",
+      "doi": "10.1104/pp.17.01691"
+    },
+    {
+      "source": "Nitrogen",
+      "target": "PIN3",
+      "sign": 1,
+      "edge_id": "N050",
+      "doi": "10.1080/15592324.2015.1126031"
+    },
+    {
+      "source": "BRC1",
+      "target": "PIN3",
+      "sign": -1,
+      "edge_id": "N051",
+      "doi": "10.1093/plphys/kiab071"
+    },
+    {
+      "source": "Auxin",
+      "target": "CAMEL",
+      "sign": 1,
+      "edge_id": "N052",
+      "doi": "10.1126/science.aba3178"
+    },
+    {
+      "source": "CAMEL",
+      "target": "PIN1",
+      "sign": 1,
+      "edge_id": "N053",
+      "doi": "10.1126/science.aba3178"
+    },
+    {
+      "source": "Sucrose",
+      "target": "T6P",
+      "sign": 1,
+      "edge_id": "N054",
+      "doi": "10.1101/gad.887301"
+    },
+    {
+      "source": "T6P",
+      "target": "FT",
+      "sign": 1,
+      "edge_id": "N055",
+      "doi": "10.1111/nph.20072"
+    },
+    {
+      "source": "Photoperiod",
+      "target": "FT",
+      "sign": 1,
+      "edge_id": "N056",
+      "doi": "10.3389/fpls.2022.889045"
+    },
+    {
+      "source": "BRC1",
+      "target": "HB21",
+      "sign": 1,
+      "edge_id": "N057",
+      "doi": "10.1073/pnas.1613199114"
+    },
+    {
+      "source": "Low_R_FR",
+      "target": "HB21",
+      "sign": 1,
+      "edge_id": "N058",
+      "doi": "10.1105/tpc.112.108480"
+    },
+    {
+      "source": "Sucrose",
+      "target": "HB21",
+      "sign": -1,
+      "edge_id": "N059",
+      "doi": ""
+    },
+    {
+      "source": "HB21",
+      "target": "NCED3",
+      "sign": 1,
+      "edge_id": "N060",
+      "doi": "10.1038/s41467-020-15893-7"
+    },
+    {
+      "source": "Low_R_FR",
+      "target": "NCED3",
+      "sign": 1,
+      "edge_id": "N061",
+      "doi": "10.1016/j.xplc.2019.100014"
+    },
+    {
+      "source": "NCED3",
+      "target": "ABA",
+      "sign": 1,
+      "edge_id": "N062",
+      "doi": "10.1016/j.cub.2006.01.058"
+    },
+    {
+      "source": "ABA2",
+      "target": "ABA",
+      "sign": 1,
+      "edge_id": "N063",
+      "doi": ""
+    },
+    {
+      "source": "Cytokinin",
+      "target": "Shoot_Branching",
+      "sign": 1,
+      "edge_id": "N064",
+      "doi": "10.1104/pp.109.135475"
+    },
+    {
+      "source": "PIN1",
+      "target": "Shoot_Branching",
+      "sign": 1,
+      "edge_id": "N065",
+      "doi": "10.1093/plphys/kiab071"
+    },
+    {
+      "source": "PIN3",
+      "target": "Shoot_Branching",
+      "sign": 1,
+      "edge_id": "N066",
+      "doi": ""
+    },
+    {
+      "source": "T6P",
+      "target": "Shoot_Branching",
+      "sign": 1,
+      "edge_id": "N067",
+      "doi": "10.1093/pcp/pcaa066"
+    },
+    {
+      "source": "BRC1",
+      "target": "Shoot_Branching",
+      "sign": -1,
+      "edge_id": "N068",
+      "doi": "10.1126/science.aba3178"
+    },
+    {
+      "source": "ABA",
+      "target": "Shoot_Branching",
+      "sign": -1,
+      "edge_id": "N069",
+      "doi": "10.1073/pnas.1613199114"
+    },
+    {
+      "source": "Decapitation",
+      "target": "Sucrose",
+      "sign": 1,
+      "edge_id": "N070",
+      "doi": "10.1104/pp.18.00519"
+    },
+    {
+      "source": "Sucrose",
+      "target": "MAX2",
+      "sign": -1,
+      "edge_id": "N071",
+      "doi": "10.1111/nph.17834"
+    },
+    {
+      "source": "Sucrose",
+      "target": "Cytokinin",
+      "sign": 1,
+      "edge_id": "N072",
+      "doi": "10.1093/plphys/kiab003"
+    },
+    {
+      "source": "Sucrose",
+      "target": "PIN1",
+      "sign": 1,
+      "edge_id": "N073",
+      "doi": "10.1093/jxb/erv047"
+    },
+    {
+      "source": "Sucrose",
+      "target": "Shoot_Branching",
+      "sign": 1,
+      "edge_id": "N074",
+      "doi": "10.1104/pp.18.00519"
+    },
+    {
+      "source": "ARR1",
+      "target": "Shoot_Branching",
+      "sign": -1,
+      "edge_id": "N075",
+      "doi": "10.1104/pp.17.01691"
+    }
+  ]
+}

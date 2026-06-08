@@ -27,6 +27,17 @@ Thumbs.db
 
 # Local scratch / Claude Code state
 .claude/
+# ...but Flash-P_Light ships its Claude Code config (slash command, subagents, settings)
+!Flash-P_Light/Claude/.claude/
+!Flash-P_Light/Claude/.claude/agents/
+!Flash-P_Light/Claude/.claude/agents/**
+!Flash-P_Light/Claude/.claude/commands/
+!Flash-P_Light/Claude/.claude/commands/**
+!Flash-P_Light/Claude/.claude/settings.json
+# ...but never the personal/runtime state inside it
+Flash-P_Light/Claude/.claude/settings.local.json
+Flash-P_Light/Claude/.claude/*.lock
+Flash-P_Light/Claude/.claude/worktrees/
 *.log
 *.tmp
 
