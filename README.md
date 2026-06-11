@@ -60,14 +60,14 @@ The pipeline has already been used to build **13 networks** packaged in this rep
 **Claude Code** &mdash; open `Flash-P_Light/Claude/`, then run:
 
 ```text
-/run-flashp <trait> in <Species>
+/run-flashp <phenotype> in <species>
 ```
 
 For example `/run-flashp Shoot Branching in Arabidopsis`. It runs Steps 1&rarr;6 autonomously.
 
 **Codex / OpenCode / Aider / Goose** &mdash; open the matching `Flash-P_Light/` subfolder and paste:
 
-> Run the full FLASH-P Light pipeline for `<trait>` in `<Species>`. Single agent &mdash; no subagents, no WebFetch. Knowledge-first draft, then WebSearch to verify each edge/test and take the DOI from the result.
+> Run the full FLASH-P Light pipeline for `<phenotype>` in `<species>`. Single agent &mdash; no subagents, no WebFetch. Knowledge-first draft, then WebSearch to verify each edge/test and take the DOI from the result.
 
 ---
 
@@ -282,11 +282,14 @@ Or open a [GitHub issue](https://github.com/CMits/FlashP/issues) on this reposit
 
 ## License
 
-FLASH-P is © 2026 **The University of Queensland** and is released under the [PolyForm Noncommercial License 1.0.0](LICENSE).
+FLASH-P is © 2026 **The University of Queensland** and is released under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](LICENSE).
 
-You are free to use, copy, modify, and redistribute FLASH-P for any **non-commercial purpose** &mdash; including academic research, teaching, personal study, hobby projects, and use within charitable organisations, educational institutions, public research organisations, and government bodies.
+You are free to share and adapt FLASH-P for any **non-commercial purpose**, provided you:
 
-**Commercial use** (selling FLASH-P, embedding it in a commercial product, or using it as part of a paid service) requires a separate commercial licence. Contact **UniQuest Pty Ltd** (UQ's commercialisation company) at [info@uniquest.com.au](mailto:info@uniquest.com.au).
+- give appropriate credit to the creators (**Christos Mitsanis** and **David Kainer**) and **The University of Queensland** (**Attribution**), and
+- license any derivative works under these same terms (**ShareAlike**).
+
+See the [full licence text](LICENSE) or <https://creativecommons.org/licenses/by-nc-sa/4.0/> for details.
 
 If you use FLASH-P in academic work, please cite:
 > _Citation coming soon &mdash; bioRxiv preprint to be added._
