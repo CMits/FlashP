@@ -19,7 +19,7 @@ The three folders are identical except the orchestrator filename:
 2. `/clear` to start a clean session (so the token count reflects just this run).
 3. Paste this prompt, filling in your trait + species:
 
-   > **Run the full FLASH-P pipeline for `<trait>` in `<species>`. Single agent only — do NOT launch
+   > **Run the full FLASH-P pipeline for Shoot Branching in Arabidopsis. Single agent only — do NOT launch
    > subagents and do NOT WebFetch full papers. Knowledge-first draft, then WebSearch to verify each
    > edge/test and take the DOI from the search result.**
 

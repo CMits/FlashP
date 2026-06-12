@@ -1,0 +1,219 @@
+"""
+Common types for FLASH-M **Light** schemas (Medical edition).
+
+Light differs from the full pipeline (see ``../LEXICON.md`` for the full legend):
+
+  * **Short field keys** via Pydantic aliases. Every slim model sets
+    ``populate_by_name=True``, so BOTH the short alias (``m``) and the readable
+    Python name (``gene_modifiers``) are accepted on input. Dump with
+    ``model_dump(by_alias=True)`` to emit the short form.
+  * **Short enum VALUES** (``NodeType.GENE == "G"``, ``NodeType.DRUG == "D"``,
+    ``Direction.INCREASED == "up"``), but ``LexEnum._missing_`` also accepts the
+    long/readable form ("GENE", "DRUG", "increased") so an agent that emits the
+    readable value still validates.
+  * **Provenance is a single ``doi`` string** (alias ``d``); the fat
+    ``EvidenceEntry`` object is gone from the Light data files.
+
+Medical edition deltas vs plant Light:
+  * ``NodeType`` adds ``DRUG`` (short ``"D"``) for therapeutic agents.
+  * ``PerturbationType`` carries the medical drug-response vocabulary (kept for
+    reference/import-compat; ``pt`` is a free string in the slim schemas, with
+    preferred short codes documented in ``../LEXICON.md``).
+
+The legacy enums/models (``PerturbationType``, ``EdgeEffect``, ``Confidence``,
+``Verification``, ``EvidenceEntry``) are kept defined for import-compatibility with
+the rest of the package but are **not** used by the slim Light schemas.
+"""
+
+from __future__ import annotations
+
+from enum import Enum
+from typing import List, Optional
+
+from pydantic import BaseModel, ConfigDict, Field
+
+
+# ============================================================================
+# Base classes
+# ============================================================================
+
+class SlimModel(BaseModel):
+    """Base for Light record models.
+
+    - ``populate_by_name=True`` -> accept short alias OR readable name on input.
+    - ``use_enum_values=True``  -> store/serialize the (short) enum value.
+    - ``extra="ignore"``        -> tolerate stray fields rather than reject.
+    Serialize the short form with ``model.model_dump(by_alias=True)``.
+    """
+    model_config = ConfigDict(
+        populate_by_name=True, use_enum_values=True, extra="ignore"
+    )
+
+
+class LexEnum(str, Enum):
+    """str-enum whose values are short codes but that also accepts the long form.
+
+    Resolution order in ``_missing_``: exact short value (handled by Enum), then
+    case-insensitive match against the member name OR the long value. So both
+    ``"ko"`` and ``"knockout"``/``"KNOCKOUT"`` resolve to the same member.
+    """
+
+    @classmethod
+    def _missing_(cls, value):
+        v = str(value).strip().lower()
+        for member in cls:
+            if member.name.lower() == v or str(member.value).lower() == v:
+                return member
+        return None
+
+
+# ============================================================================
+# Enums — SHORT values (long form accepted on input via LexEnum._missing_)
+# ============================================================================
+
+class NodeType(LexEnum):
+    GENE = "G"
+    HORMONE = "H"            # In medical: ligands, cytokines, growth factors
+    METABOLITE = "M"
+    ENVIRONMENT = "E"        # In medical: cellular context (Hypoxia, Serum_Starvation, Radiation)
+    PROTEIN_COMPLEX = "PC"
+    REGULATORY_RNA = "R"
+    PHENOTYPE = "P"          # In medical: cellular/molecular readout (Cell_Proliferation, Apoptosis, Phospho_AKT)
+    PROCESS = "PR"
+    DRUG = "D"               # Therapeutic agents: small-molecule inhibitors, antibodies, PROTACs, etc.
+
+
+class Direction(LexEnum):
+    INCREASED = "up"
+    DECREASED = "dn"
+    UNCHANGED = "nc"
+
+
+class ReconciliationType(LexEnum):
+    EXACT_MATCH = "em"
+    CASE_INSENSITIVE = "ci"
+    FAMILY_MEMBER = "fm"          # e.g. HRAS measured but only KRAS in network
+    COMPOSITE_COLLAPSE = "cc"     # e.g. HRAS/KRAS/NRAS modeled as RAS composite
+    COMPOSITE_MEMBER = "cm"
+    TREATMENT_ANALOG = "ta"       # e.g. a tool inhibitor mapped onto its target as KD
+    MECHANISM_MAPPING = "mm"      # e.g. PROTAC of EGFR mapped to gene_modifiers={"EGFR": 0.0}
+    NOT_IN_NETWORK = "nin"
+    CONTROL = "ctl"
+
+
+# ============================================================================
+# Shared metadata (one block per file -> kept READABLE, not abbreviated)
+# ============================================================================
+
+class FlashPMetadata(BaseModel):
+    """Metadata block present in every pipeline output file (readable keys)."""
+    model_config = ConfigDict(extra="ignore")
+    flash_p_version: str = "light-medical-1.0"
+    phenotype: str = ""
+    species: str = ""
+    created: str = ""
+
+
+# ============================================================================
+# Legacy definitions — kept ONLY for package import-compatibility and as the
+# medical perturbation-vocabulary reference. Not enforced by the slim Light
+# data files (``pt`` is a free string; short codes live in ../LEXICON.md).
+# ============================================================================
+
+class PerturbationType(str, Enum):
+    # ----- Genetic perturbations (single gene) -----
+    WILD_TYPE = "wild_type"
+    KNOCKOUT = "knockout"                          # full LoF: CRISPR, homozygous deletion, nonsense mutation
+    KNOCKOUT_CRISPR = "knockout_CRISPR"
+    KNOCKDOWN = "knockdown"                        # siRNA, shRNA, hypomorph, heterozygous LoF
+    OVEREXPRESSION = "overexpression"              # cDNA transfection, GoF mutation, amplification
+    GAIN_OF_FUNCTION = "gain_of_function"          # activating mutation (e.g., KRAS G12D, BRAF V600E, EGFR L858R)
+    LOSS_OF_FUNCTION = "loss_of_function"          # generic LoF allele
+    HETEROZYGOUS = "heterozygous"
+    PHOSPHO_DEAD_MUTANT = "phospho_dead_mutant"    # e.g., AKT S473A
+    DOMINANT_NEGATIVE = "dominant_negative"
+    PROTAC_DEGRADATION = "PROTAC_degradation"      # post-translational degrader (effective KO at protein level)
+    DEGRON_DEPLETION = "degron_depletion"          # AID/dTAG inducible degradation
+
+    # ----- Genetic perturbations (multi-gene / epistasis) -----
+    DOUBLE_KNOCKOUT = "double_knockout"
+    DOUBLE_MUTANT = "double_mutant"
+    TRIPLE_KNOCKOUT = "triple_knockout"
+    EPISTASIS = "epistasis"
+    COMBINED = "combined"
+    COMBINED_TRANSGENIC = "combined_transgenic"
+
+    # ----- Drug treatments (WT background) -----
+    DRUG_TREATMENT = "drug_treatment"                          # generic drug administration
+    KINASE_INHIBITOR_TREATMENT = "kinase_inhibitor_treatment"  # e.g., erlotinib, trametinib, imatinib
+    ANTIBODY_TREATMENT = "antibody_treatment"                  # e.g., trastuzumab, cetuximab, anti-PD-1
+    LIGAND_STIMULATION = "ligand_stimulation"                  # e.g., EGF, TNF-alpha, insulin
+    AGONIST_TREATMENT = "agonist_treatment"
+    ANTAGONIST_TREATMENT = "antagonist_treatment"
+    PROTAC_TREATMENT = "PROTAC_treatment"
+    CHEMICAL_TREATMENT = "chemical_treatment"                  # tool compounds, generic small molecules
+    HORMONE_TREATMENT = "hormone_treatment"                    # e.g., estrogen, glucocorticoid, insulin
+
+    # ----- Drug + genetic perturbation combos -----
+    KNOCKOUT_PLUS_DRUG = "knockout_plus_drug"
+    KNOCKDOWN_PLUS_DRUG = "knockdown_plus_drug"
+    OVEREXPRESSION_PLUS_DRUG = "overexpression_plus_drug"
+    RESISTANCE_MUTATION_PLUS_DRUG = "resistance_mutation_plus_drug"    # e.g., EGFR T790M + erlotinib (rescue should fail)
+    SENSITIZING_MUTATION_PLUS_DRUG = "sensitizing_mutation_plus_drug"  # e.g., EGFR L858R + erlotinib (rescue succeeds)
+
+    # ----- Combination therapy / sequencing -----
+    COMBINATION_THERAPY = "combination_therapy"        # 2+ drugs simultaneously
+    SEQUENTIAL_THERAPY = "sequential_therapy"
+    DRUG_WITHDRAWAL = "drug_withdrawal"
+    DRUG_HOLIDAY = "drug_holiday"
+
+    # ----- Rescue experiments (legacy generic terms; prefer specific values above) -----
+    RESCUE = "rescue"
+    RESCUE_EXPERIMENT = "rescue_experiment"
+    TREATMENT = "treatment"                            # generic, prefer DRUG_TREATMENT or LIGAND_STIMULATION
+
+    # ----- Cellular context / environmental -----
+    HYPOXIA = "hypoxia"
+    SERUM_STARVATION = "serum_starvation"
+    NUTRIENT_DEPRIVATION = "nutrient_deprivation"
+    RADIATION = "radiation"
+    OXIDATIVE_STRESS = "oxidative_stress"
+    HEAT_SHOCK = "heat_shock"
+    ENVIRONMENTAL = "environmental"
+
+    # ----- Controls -----
+    CONTROL = "control"
+    VEHICLE_CONTROL = "vehicle_control"                # DMSO / saline placebo
+    NEGATIVE_CONTROL = "negative_control"
+    POSITIVE_CONTROL = "positive_control"
+
+
+class EdgeEffect(str, Enum):
+    ACTIVATION = "activation"
+    INHIBITION = "inhibition"
+    REPRESSION = "repression"
+
+
+class Confidence(str, Enum):
+    HIGH = "HIGH"
+    MEDIUM = "MEDIUM"
+    LOW = "LOW"
+
+
+class Verification(str, Enum):
+    FULL_TEXT_READ = "full_text_read"
+    ABSTRACT_READ = "abstract_read"
+    PUBMED_CROSSCHECKED = "pubmed_crosschecked"
+
+
+class EvidenceEntry(BaseModel):
+    """Legacy fat evidence object. Light files use a single ``doi`` string instead."""
+    doi: str = ""
+    title: str = ""
+    authors: str = ""
+    year: Optional[int] = None
+    journal: str = ""
+    evidence_sentence: str = ""
+    claim: str = ""
+    verification: Optional[Verification] = None
+    full_text_read: Optional[bool] = None

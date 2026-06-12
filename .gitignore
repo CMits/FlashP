@@ -27,17 +27,37 @@ Thumbs.db
 
 # Local scratch / Claude Code state
 .claude/
-# ...but Flash-P_Light ships its Claude Code config (slash command, subagents, settings)
-!Flash-P_Light/Claude/.claude/
-!Flash-P_Light/Claude/.claude/agents/
-!Flash-P_Light/Claude/.claude/agents/**
-!Flash-P_Light/Claude/.claude/commands/
-!Flash-P_Light/Claude/.claude/commands/**
-!Flash-P_Light/Claude/.claude/settings.json
-# ...but never the personal/runtime state inside it
-Flash-P_Light/Claude/.claude/settings.local.json
-Flash-P_Light/Claude/.claude/*.lock
-Flash-P_Light/Claude/.claude/worktrees/
+# ...but each shipped version carries its Claude Code config (slash command, subagents, settings).
+# Plant ships three coding-agent variants, so its config lives under Claude/; Medical and Animal
+# are Claude-only, so their .claude sits at the version root.
+!Flash-P_Plant/Claude/.claude/
+!Flash-P_Plant/Claude/.claude/agents/
+!Flash-P_Plant/Claude/.claude/agents/**
+!Flash-P_Plant/Claude/.claude/commands/
+!Flash-P_Plant/Claude/.claude/commands/**
+!Flash-P_Plant/Claude/.claude/settings.json
+!Flash-P_Medical/.claude/
+!Flash-P_Medical/.claude/agents/
+!Flash-P_Medical/.claude/agents/**
+!Flash-P_Medical/.claude/commands/
+!Flash-P_Medical/.claude/commands/**
+!Flash-P_Medical/.claude/settings.json
+!Flash-P_Animal/.claude/
+!Flash-P_Animal/.claude/agents/
+!Flash-P_Animal/.claude/agents/**
+!Flash-P_Animal/.claude/commands/
+!Flash-P_Animal/.claude/commands/**
+!Flash-P_Animal/.claude/settings.json
+# ...but never the personal/runtime state inside them
+Flash-P_Plant/Claude/.claude/settings.local.json
+Flash-P_Plant/Claude/.claude/*.lock
+Flash-P_Plant/Claude/.claude/worktrees/
+Flash-P_Medical/.claude/settings.local.json
+Flash-P_Medical/.claude/*.lock
+Flash-P_Medical/.claude/worktrees/
+Flash-P_Animal/.claude/settings.local.json
+Flash-P_Animal/.claude/*.lock
+Flash-P_Animal/.claude/worktrees/
 *.log
 *.tmp
 
