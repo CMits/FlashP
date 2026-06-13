@@ -74,8 +74,13 @@ pipeline for a trait and species (e.g. *Shoot Branching* in *Arabidopsis*).
 ### Claude Code
 
 ```bash
+# install agentic coding platform (e.g. Claude Code)
 npm install -g @anthropic-ai/claude-code   # or get the desktop app: https://www.claude.com/product/claude-code
+
+# Download Flash-P from github. No actual installation required
 git clone https://github.com/CMits/FlashP.git
+
+# run your agent platform from the correct directory within Flash-P
 cd FlashP/Flash-P_Plant/Claude
 claude
 ```
