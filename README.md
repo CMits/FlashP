@@ -158,4 +158,6 @@ model). Stay tuned at <https://flash-p.com/>. **Status: not yet released.**
 &copy; 2026 **The University of Queensland**, released under
 [CC BY-NC-SA 4.0](LICENSE) &mdash; free to share and adapt for non-commercial use with attribution and
 share-alike. If you use FLASH-P in academic work, please cite:
-> _Citation coming soon &mdash; bioRxiv preprint to be added._
+> Mitsanis C, Fortuna NZ, Beveridge C, Kainer D. **Turning decades of biology into accurate
+> causal networks with AI agents.** _bioRxiv_ 2026.06.13.731799;
+> doi: [10.64898/2026.06.13.731799](https://doi.org/10.64898/2026.06.13.731799)
