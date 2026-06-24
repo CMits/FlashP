@@ -197,7 +197,10 @@ from flashp_validator import FlashPSimulator, SimulationConfig    # noqa: E402
 from ode_validator import ODESimulator, ODEConfig                 # noqa: E402
 
 GENE_MODES = {"KO": ("gm", 0.0), "KD": ("gm", 0.5), "OE": ("gm", 2.0)}
-EXCLUDE_TYPES = {"PHENOTYPE", "PROCESS"}
+# Accept both full-form (verbose JSON) and short-form (Light JSON) type codes
+EXCLUDE_TYPES = {"PHENOTYPE", "PROCESS", "P", "PR"}
+# Short-code → is-gene mapping (Light format uses "G"; verbose uses "GENE")
+_GENE_TYPES = {"GENE", "G"}
 
 
 def _resolve(net_dir: Path, filename: str) -> Path:
@@ -287,7 +290,7 @@ def main():
     node_types = {n["id"]: n["ty"] for n in json.load(open(net_path))["nodes"]}
 
     def modes_for(node):
-        return GENE_MODES if node_types.get(node, "GENE") == "GENE" else other_modes
+        return GENE_MODES if node_types.get(node, "GENE") in _GENE_TYPES else other_modes
 
     perturbable = [n for n in net.equations
                    if node_types.get(n, "GENE") not in EXCLUDE_TYPES]
