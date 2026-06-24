@@ -105,12 +105,23 @@ CROSS mode (--cross)  ->  <NET>/gxe_cross.tsv  (sorted by |gxe_cross_alg| desc)
     gxe_significant_alg         |gxe_cross_alg| > tau
 
 
+ODE ENGINE PARAMETERS
+---------------------
+The ODE Hill response depends on (K, n), and the validator's reported ODE
+accuracy is achieved at sensitivity-TUNED (K, n) -- NOT the ODEConfig defaults.
+So by default (--ode-params auto) this tool reuses the validator's tuned
+best_parameters from <NET>/validation/ode_sensitivity_results.json, so the ODE
+gxe column reflects the SAME engine that was validated. Use --ode-params default
+to fall back to the library defaults, or '--ode-params K,n' to set them
+explicitly. The algebraic engine has fixed parameters and needs no tuning.
+
+
 MODEL CAVEAT
 ------------
-The ODE engine uses a switch-like Hill response that inflates interaction
-magnitudes relative to the algebraic engine. Treat the ALGEBRAIC gxe as the
-interpretable result and the ODE gxe as ordinal corroboration; signs agree in
-practice.
+Even at tuned parameters the ODE Hill response is more switch-like than the
+algebraic engine and can inflate interaction magnitudes. Treat the ALGEBRAIC
+gxe as the interpretable result and the ODE gxe as corroboration; signs
+generally agree when both engines validate.
 
 
 USAGE
@@ -190,6 +201,49 @@ def _diff(x, y):
     return (x - y) if (_finite(x) and _finite(y)) else None
 
 
+def _tuned_ode_params(net_dir: Path):
+    """Best (K, n) from the validator's ODE sensitivity sweep, or None.
+
+    The GxE numbers are only as trustworthy as the engine that produces them;
+    the ODE accuracy reported by the validator is achieved at sensitivity-TUNED
+    (K, n), not the ODEConfig defaults, so by default we reuse those tuned
+    parameters here. Looks for <NET>/validation/ode_sensitivity_results.json.
+    """
+    f = net_dir / "validation" / "ode_sensitivity_results.json"
+    if not f.exists():
+        return None
+    try:
+        bp = json.load(open(f)).get("best_parameters") or {}
+        return (float(bp["K"]), int(bp["n"]))
+    except (KeyError, ValueError, TypeError, json.JSONDecodeError):
+        return None
+
+
+def _resolve_ode_config(net_dir: Path, spec: str):
+    """Build an ODEConfig + a human label from the --ode-params spec.
+
+    spec = "auto"     -> tuned (K,n) if available, else ODEConfig defaults
+           "default"  -> ODEConfig defaults
+           "K,n"      -> explicit, e.g. "0.1,2"
+    """
+    if spec == "default":
+        c = ODEConfig()
+        return c, f"default (K={c.K}, n={c.n})"
+    if spec == "auto":
+        kn = _tuned_ode_params(net_dir)
+        if kn is None:
+            c = ODEConfig()
+            return c, f"default (K={c.K}, n={c.n}; no tuned sweep found)"
+        K, n = kn
+        return ODEConfig(K=K, n=n), f"tuned (K={K}, n={n}) from ode_sensitivity_results.json"
+    try:
+        ks, ns = spec.split(",")
+        K, n = float(ks), int(ns)
+    except ValueError:
+        raise SystemExit(f"--ode-params must be 'auto', 'default', or 'K,n'; got {spec!r}")
+    return ODEConfig(K=K, n=n), f"explicit (K={K}, n={n})"
+
+
 def main():
     ap = argparse.ArgumentParser(
         description="Gene x environment (GxE) interaction scan.")
@@ -210,6 +264,11 @@ def main():
     ap.add_argument("--tau", type=float, default=0.1,
                     help="|gxe| threshold (log2 units) to flag a meaningful "
                          "interaction (default 0.1)")
+    ap.add_argument("--ode-params", default="auto", dest="ode_params",
+                    help="ODE engine (K,n): 'auto' reuses the validator's tuned "
+                         "best_parameters from validation/ode_sensitivity_results.json "
+                         "(default), 'default' uses ODEConfig defaults, or give "
+                         "explicit 'K,n' e.g. '0.1,2'")
     args = ap.parse_args()
 
     modes = [m.strip().upper() for m in args.modes.split(",") if m.strip()]
@@ -243,8 +302,9 @@ def main():
 
     genes = [n for n in net.equations if node_types.get(n) not in EXCLUDE_TYPES]
 
+    ode_cfg, ode_label = _resolve_ode_config(net_dir, args.ode_params)
     alg = FlashPSimulator(net, SimulationConfig())
-    ode = ODESimulator(net, ODEConfig())
+    ode = ODESimulator(net, ode_cfg)
     V = args.exo_value
 
     def phen(sim, gm, exo):
@@ -261,6 +321,7 @@ def main():
     print(f"Network: {net_dir.name}")
     print(f"Phenotype node: {PH}")
     print(f"WT ambient phenotype  ->  Algebraic={alg_wt_amb:.6f}   ODE={ode_wt_amb:.6f}")
+    print(f"ODE engine params: {ode_label}")
     print(f"Environment levers ({len(env_levers)}): {', '.join(env_levers)}   "
           f"(exo dose V={V})")
     print(f"Perturbable genes: {len(genes)}   modes: {','.join(modes)}")
