@@ -41,6 +41,9 @@ class Config:
     claude: ClaudeConfig
     commands: dict[str, str]
     raw: dict[str, Any]
+    discord_bot_token: str = ""
+    discord_allowlist: list[str] = field(default_factory=list)
+    discord_guild_id: str = ""
 
     def allowed_aad_ids(self) -> set[str]:
         return {str(e.get("aadObjectId", "")).strip().lower() for e in self.allowlist if e.get("aadObjectId")}
@@ -64,6 +67,14 @@ class Config:
         allow = {str(a).strip().lstrip("@").lower() for a in self.telegram_allowlist if str(a).strip()}
         return str(user_id).strip().lower() in allow or (username or "").strip().lstrip("@").lower() in allow
 
+    def is_allowed_discord(self, user_id, username: str = "") -> bool:
+        """Allowed if the Discord numeric user id OR username is on the discord allowlist.
+
+        Entries may be written with or without a leading '@'. Empty allowlist => deny all.
+        """
+        allow = {str(a).strip().lstrip("@").lower() for a in self.discord_allowlist if str(a).strip()}
+        return str(user_id).strip().lower() in allow or (username or "").strip().lstrip("@").lower() in allow
+
 
 def _resolve(base: Path, p: str) -> Path:
     candidate = Path(p)
@@ -80,6 +91,7 @@ def load_config(path: Path | None = None) -> Config:
 
     teams = raw.get("teams", {})
     tg = raw.get("telegram", {})
+    dc = raw.get("discord", {})
     c = raw.get("claude", {})
     settings_file = c.get("settings_file")
     claude = ClaudeConfig(
@@ -105,4 +117,7 @@ def load_config(path: Path | None = None) -> Config:
         claude=claude,
         commands=dict(raw.get("commands", {"gxe": "/run-flashp-gxe", "epistasis": "/run-flashp-epistasis"})),
         raw=raw,
+        discord_bot_token=dc.get("bot_token", ""),
+        discord_allowlist=list(dc.get("allowlist", [])),
+        discord_guild_id=str(dc.get("guild_id", "")),
     )
