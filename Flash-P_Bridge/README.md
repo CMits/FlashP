@@ -6,6 +6,30 @@ authenticated Claude Code subscription) → the result is sent back to the chat.
 v1 scope: **quick analyses on existing networks only** — `gxe` (gene × environment)
 and `epistasis` (gene × gene) — triggered by an **allowlist of specific people**.
 
+## How it works (and what "pushing the branch" does)
+
+The bot is **not a website or a server**. `telegram_bot.py` runs on **your** machine and *calls out*
+to Telegram (long-polling) — outbound only, **no public port, no tunnel**. When an allow-listed person
+messages it, the analysis runs **locally, on your authenticated Claude Code subscription** (or the free
+`python` engine), and the branded result is sent back. Consequences:
+
+- It only works **while your machine is on and the script is running** — close the laptop, the bot goes quiet.
+- Everything runs on **your** subscription and **your** files. Colleagues need no Claude account; they just message your bot.
+- Nothing is exposed — that's why it's safe.
+
+**Pushing this branch to GitHub shares the _code_, not a running bot.** Nobody can use FLASH-P-over-chat
+just because the code is public. To get a working bot, someone **self-hosts** (see below).
+
+## Self-host (run your own bot)
+
+1. Clone the repo and `cd Flash-P_Bridge`.
+2. `pip install -r requirements.txt`, then `cp config.example.json config.json`.
+3. Be logged in to Claude Code on that machine (`claude` on PATH, active subscription).
+4. Create your own bot with **@BotFather** → paste the token into `config.json` → `telegram.bot_token`.
+5. `python telegram_bot.py`, DM the bot to learn your id, add it to `telegram.allowlist`, restart.
+
+No cost or compute lands on anyone else — each host uses their own token and their own subscription.
+
 Two transports share one platform-agnostic core:
 - **Telegram bot (recommended, easiest)** — long-polls Telegram; **no tunnel, no public
   port, no HMAC**. Setup = one @BotFather token. → `telegram_bot.py`

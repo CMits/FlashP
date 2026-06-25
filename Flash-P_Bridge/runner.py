@@ -15,12 +15,18 @@ to the already-logged-in CLI.
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 
+import render
 from command_map import ParsedCommand
 from config_loader import Config
+
+# Force UTF-8 in child processes so driver scripts that print Unicode (e.g. the
+# minus sign in reports) never crash on a Windows cp1252 console/pipe.
+_ENV = {**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1"}
 
 # Where each verb's full outputs land, relative to <NET> (for the "see full results" pointer).
 _ARTIFACT_DIR = {"gxe": "gxe", "epistasis": "epistasis"}
@@ -31,6 +37,8 @@ class RunResult:
     ok: bool
     summary: str
     artifacts_dir: str          # human-readable path to full outputs (may not exist on failure)
+    png_path: str | None = None  # branded result card (set on success)
+    html_path: str | None = None # full styled HTML report (set on success)
 
 
 def _artifacts_pointer(cmd: ParsedCommand) -> str:
@@ -38,9 +46,15 @@ def _artifacts_pointer(cmd: ParsedCommand) -> str:
 
 
 def run(cmd: ParsedCommand, cfg: Config) -> RunResult:
-    if cfg.claude.engine == "python":
-        return _run_python(cmd, cfg)
-    return _run_claude(cmd, cfg)
+    res = _run_python(cmd, cfg) if cfg.claude.engine == "python" else _run_claude(cmd, cfg)
+    if res.ok:
+        try:
+            png, html = render.render(cmd.verb, cmd.network_name, cmd.network_dir)
+            res.png_path = str(png) if png else None
+            res.html_path = str(html) if html else None
+        except Exception as e:  # rendering must never sink a successful analysis
+            print("render error:", e, flush=True)
+    return res
 
 
 def _run_claude(cmd: ParsedCommand, cfg: Config) -> RunResult:
@@ -63,6 +77,7 @@ def _run_claude(cmd: ParsedCommand, cfg: Config) -> RunResult:
             cwd=str(cfg.project_dir),
             capture_output=True,
             text=True,
+            env=_ENV,
             timeout=cfg.claude.timeout_seconds,
         )
     except subprocess.TimeoutExpired:
@@ -103,7 +118,7 @@ def _run_python(cmd: ParsedCommand, cfg: Config) -> RunResult:
 
     try:
         proc = subprocess.run(
-            args, cwd=str(cfg.project_dir), capture_output=True, text=True,
+            args, cwd=str(cfg.project_dir), capture_output=True, text=True, env=_ENV,
             timeout=cfg.claude.timeout_seconds,
         )
     except subprocess.TimeoutExpired:
