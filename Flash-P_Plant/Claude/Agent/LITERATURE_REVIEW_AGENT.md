@@ -146,16 +146,19 @@ Use MULTIPLE search sources to find ALL papers. Do NOT rely solely on PMC.
 - `"Google Scholar {phenotype} {species} {keyword}"` — broadest academic search
 
 ### Keyword strategy (examples — adapt to phenotype):
+**First decide the trait's dominant regulatory modality/modalities** (hormonal / metabolic-flux / transport / transcriptional / structural-developmental / defense-stress) and weight the seeds toward it — do NOT assume every trait is hormone-driven. A pigment, metabolite-content, or cell-wall trait is mostly enzymatic; a nutrient-content trait is often transport-driven; a flowering/architecture trait is TF/hormonal.
 - Core: `"{phenotype} {species} regulation review"`
-- Pathway-specific: `"{hormone} signaling {phenotype} {species}"` (one per hormone)
+- Pathway-specific (hormonal): `"{hormone} signaling {phenotype} {species}"` (one per relevant hormone)
+- Pathway-specific (metabolic/biosynthetic): `"{pathway} biosynthesis {phenotype} {species}"`, `"rate-limiting enzyme {pathway} {species}"`
+- Pathway-specific (transport): `"{substrate} transporter {phenotype} {species}"`
 - Gene-specific: `"{gene_family} {species} {phenotype} mutant"` (one per gene family)
-- Mechanism: `"hormone crosstalk {phenotype} {species}"`
-- Receptors: `"{hormone} receptor {species} signaling"`
+- Mechanism: `"{phenotype} {species} crosstalk"` (use `"hormone crosstalk …"` only if the trait is hormonal)
+- Receptors / sensors: `"{hormone} receptor {species} signaling"` / `"{signal} sensor {species}"`
 - Transcription factors: `"transcription factor {phenotype} {species}"`
-- Environmental: `"light nitrogen phosphate {phenotype} {species}"`
+- Environmental: `"light nitrogen phosphate temperature {phenotype} {species}"`
 - Time ranges: `"1999-2010"` AND `"2010-2020"` AND `"2020-2026"`
 - Experiment-focused: `"{species} {gene} knockout overexpression {phenotype} mutant"`
-- Cross-species: `"rice tiller pea branching {keyword}"` (for conserved pathways)
+- Cross-species (conserved pathways): `"{ortholog/gene_family} {related_species} {phenotype_analog}"` — pick the species + analogous trait that fit YOUR phenotype (e.g. tillering → rice/maize; fruit traits → tomato; grain composition → wheat/maize), not a fixed pair
 
 **Year-range coverage**: Papers MUST span 1999-2026. If any 5-year range is empty, do a targeted search for it.
 

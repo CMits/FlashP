@@ -236,7 +236,8 @@ Do this manually, THEN run the script as a second check:
 ```json
 {
   "metadata": {
-    "flash_p_version": "1.0",
+    "flash_p_version": "light-1.0-debiasing",
+    "build_variant": "debiasing",
     "phenotype": "shoot_branching",
     "species": "Oryza sativa",
     "created": "2026-04-10",
@@ -357,7 +358,8 @@ Do this manually, THEN run the script as a second check:
 ```json
 {
   "metadata": {
-    "flash_p_version": "1.0",
+    "flash_p_version": "light-1.0-debiasing",
+    "build_variant": "debiasing",
     "phenotype": "shoot_branching",
     "species": "Oryza sativa",
     "created": "2026-04-10",
@@ -614,7 +616,7 @@ This section catalogs the most common non-linear motifs with worked examples sho
 
 ### How to read the motifs (IMPORTANT — the patterns are agnostic)
 
-Each motif below is presented with an Arabidopsis / shoot-branching **worked example** for concreteness, but the pattern itself is **species-agnostic and phenotype-agnostic**. When you build a network for a different phenotype or species:
+Each motif below carries a detailed Arabidopsis / shoot-branching **worked example** (kept for its full math trace) and, for most motifs, a compact **second worked example in a different regulatory modality** (metabolic-flux, transcriptional, transport, defense, or developmental) so the pattern is not anchored to hormone biology. The pattern itself is **species-agnostic, phenotype-agnostic, and modality-agnostic**. When you build a network for a different phenotype or species:
 
 1. **Identify the pattern structure** (nodes, edges, topology).
 2. **Swap in the biology of your target system.** E.g., the Perception Gate motif applies equally to SL-D14-MAX2, JA-COI1, GA-GID1-DELLA, brassinosteroid-BRI1-BAK1, ethylene-CTR1-EIN2, and auxin-TIR1-Aux/IAA systems. The worked example uses SL because this builder was originally written for shoot branching; **your network's worked example will use your system's biology.**
@@ -696,7 +698,19 @@ Target_Repressor → Other_Target_1 (-1)       [ALL other effects route through 
 Target_Repressor → Other_Target_2 (+1)       [both inhibition and activation downstream]
 ```
 
-### MOTIF 2: Hormone Crosstalk Feedback (Controlled Negative Loop)
+**Second worked example — PRR co-receptor gate (defense / immunity modality):**
+```
+flg22 → FLS2 (+1)              [elicitor activates the pattern-recognition receptor]
+FLS2  → Immune_Output (+1)     [co-activator 1]
+BAK1  → Immune_Output (+1)     [co-activator 2, source node — obligate co-receptor]
+Immune_Output = (max(FLS2,0.01) * max(BAK1,0.01))^(1/2) * gm + exo
+
+bak1 KO: BAK1=0 → output=(1*0.01)^0.5=0.1 → no PTI even with flg22 present ✓
+fls2 KO: same collapse ✓ (both components obligately required = AND gate)
+```
+**Modality note**: when the two obligate components ACTIVATE an output (immunity, light-driven photomorphogenesis) rather than DE-repress a repressor (hormone signaling), use the **geometric-mean co-activator** form instead of the co-inhibitor form. The AND-gate logic is identical; only the signs flip. BAK1 is the canonical shared co-receptor for many LRR-RKs (FLS2, EFR, and the hormonal BRI1) — the same gate recurs across immunity and hormone perception.
+
+### MOTIF 2: Crosstalk Feedback (Controlled Negative Loop)
 
 **Biology**: Hormones regulate each other's biosynthesis, transport, and degradation. These feedback loops are fundamental to hormonal homeostasis. Completely breaking them (as Trap 1 warns) sacrifices biological accuracy.
 
@@ -753,6 +767,19 @@ This correctly models that SL promotes dormancy BOTH through SMXL-BRC1
 AND through CK depletion — a coherent feed-forward loop (see Motif 3).
 ```
 
+**Second worked example — flavonoid MBW negative feedback (metabolic / transcriptional modality):**
+```
+MYB75 → bHLH_TT8 (+1)      [activator MYB induces its bHLH partner → MBW complex]
+MBW   → DFR (+1)           [MBW drives the anthocyanin biosynthesis enzyme]
+MBW   → MYBL2 (+1)         [MBW ALSO induces the R3-MYB repressor]
+MYBL2 → MBW (-1)           [repressor feeds back and restrains the complex]
+DFR   → Anthocyanin (+1)
+
+Negative feedback: high MBW → MYBL2 up → MBW restrained → stable pigment level.
+SAFE (stabilizing), structurally identical to hormone-homeostasis loops — no
+runaway because the loop is net-negative and resolves through the metabolite output.
+```
+
 ### MOTIF 3: Coherent Feed-Forward Loop (Double Assurance)
 
 **Biology**: A signal reaches its target through TWO parallel paths that REINFORCE each other. This makes the response more robust and harder to circumvent.
@@ -785,6 +812,16 @@ This is why decapitation is such a robust branching inducer.
 ```
 
 **When to use**: Look for biological processes where reviews say "X acts through MULTIPLE mechanisms." If curated edges show A→C directly AND A→B→C, include BOTH paths. The feed-forward structure strengthens the signal and matches biology.
+
+**Second worked example — MBW coherent FFL (metabolic / transcriptional modality):**
+```
+Path 1: MYB75 → bHLH_GL3 → DFR        [MYB induces bHLH, which co-activates the enzyme]
+Path 2: MYB75 ──────────→ DFR         [MYB also binds the DFR promoter directly]
+
+Both paths: MYB present → DFR ON (type-1 coherent FFL).
+KO of bHLH alone only partially reduces DFR (Path 2 still active) — matches the
+observed partial phenotype of bHLH single mutants vs. the full loss in myb mutants.
+```
 
 ### MOTIF 4: Biosynthesis-Degradation Balance
 
@@ -830,6 +867,19 @@ aba2 KO:  ABA = (1 * 0.01)^0.5 = 0.1 → same effect
 - **Auxin**: YUC/TAA (synthesis) / GH3/DAO (conjugation/degradation)
 - **JA**: LOX/AOS/AOC (synthesis) / JA-degrading enzymes
 
+**Second worked example — carotenoid pool balance (metabolic-flux modality):**
+```
+PSY  → Carotenoid (+1)     [synthesis — rate-limiting phytoene synthase]
+CCD4 → Carotenoid (-1)     [oxidative cleavage — degradation/turnover]
+Carotenoid = max(PSY,0.01) * min(1/max(CCD4,0.1),10) * gm + exo
+
+ccd4 KO: cleavage lost → carotenoid accumulates (canonical yellow/orange-flesh
+         phenotype in potato, peach, chrysanthemum) ✓
+psy  KO: synthesis lost → carotenoid drops ✓
+```
+The synthesis/turnover balance is NOT hormone-specific — apply it to any metabolite
+pool (starch: AGPase synthesis / BAM degradation; anthocyanin: biosynthesis / peroxidase).
+
 ### MOTIF 5: Multi-Output Scaffold (One Enzyme, Multiple Substrates)
 
 **Biology**: E3 ubiquitin ligases, kinases, and phosphatases often target MULTIPLE substrates. One signaling event triggers PARALLEL downstream effects.
@@ -863,6 +913,18 @@ GID1 → DELLA_RGL (-1)     [degrades RGL proteins]
 ```
 
 **When to use**: Whenever a single gene's KO produces PLEIOTROPIC effects that are hard to explain through one downstream target. The multi-output scaffold captures that the enzyme sits at a branching point in the signaling cascade.
+
+**Second worked example — pathway master-regulator scaffold (metabolic / transcriptional modality):**
+```
+MYB_master → CHS (+1)
+MYB_master → CHI (+1)
+MYB_master → DFR (+1)      [ONE transcription factor activates MANY pathway enzymes]
+
+myb_master KO: ALL structural genes drop together → the whole biosynthetic pathway
+collapses — a stronger, more pleiotropic phenotype than any single-enzyme KO.
+This is the scaffold signature: the regulator sits above a fan-out of targets, exactly
+like an E3/kinase fanning out over multiple substrates, but in the transcriptional layer.
+```
 
 ### MOTIF 6: Self-Limiting Feedback (Receptor Self-Degradation)
 
@@ -914,6 +976,17 @@ An external signal (e.g., decapitation raising CK) tips the switch.
 ```
 
 **When to use**: Cell fate decisions, dormancy-vs-growth transitions, flowering commitment. Be careful with damping — mutual inhibition can oscillate without it.
+
+**Second worked example — trichome / root-hair patterning switch (structural / developmental modality):**
+```
+GL3_MBW → GL2 (+1)         [activator complex drives the cell-fate gene]
+GL3_MBW → CPC (+1)         [it ALSO produces the mobile R3-MYB inhibitor]
+CPC → GL3_MBW (-1)         [CPC moves to the neighbouring cell and represses the complex there]
+
+Mutual antagonism between neighbours → each cell commits to ONE of two fates
+(hair vs non-hair; trichome vs pavement). Lateral inhibition, no hormone involved.
+A patterning cue (position, or an upstream TF) tips the switch.
+```
 
 ### Motif Selection Decision Tree
 
