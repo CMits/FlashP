@@ -1,0 +1,36 @@
+{
+  "host": "127.0.0.1",
+  "port": 8787,
+
+  "project_dir": "../Flash-P_Plant/Claude",
+  "network_roots": ["../Networks_Flash-P", "../Flash-P_Plant/Claude/networks", "../Outcome"],
+
+  "telegram": {
+    "bot_token": "PASTE_THE_BOTFATHER_TOKEN_HERE",
+    "allowlist": ["@your_telegram_username"]
+  },
+
+  "teams": {
+    "hmac_token": "PASTE_THE_OUTGOING_WEBHOOK_HMAC_TOKEN_HERE",
+    "workflow_url": "PASTE_THE_POWER_AUTOMATE_WORKFLOW_URL_HERE"
+  },
+
+  "allowlist": [
+    { "aadObjectId": "00000000-0000-0000-0000-000000000000", "name": "Your Name (the one demo person)" }
+  ],
+
+  "claude": {
+    "bin": "claude",
+    "engine": "claude",
+    "model": "sonnet",
+    "permission_mode": "dontAsk",
+    "settings_file": "settings.headless.json",
+    "extra_args": [],
+    "timeout_seconds": 1800
+  },
+
+  "commands": {
+    "gxe": "/run-flashp-gxe",
+    "epistasis": "/run-flashp-epistasis"
+  }
+}

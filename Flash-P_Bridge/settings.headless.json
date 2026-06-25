@@ -1,0 +1,42 @@
+{
+  "//": "Permission profile for UNATTENDED, Teams-triggered FLASH-P runs. Loaded via `claude --settings`.",
+  "//mode": "Used with `--permission-mode dontAsk`: nothing prompts; anything not allowed is denied; deny always wins.",
+  "//defense": "Primary containment is at the bridge layer (only `/run-flashp-gxe|epistasis <known-network>` is ever sent). This deny-list is the second layer: it blocks destructive / exfiltration / repo-mutating shell verbs even though the agent is only ever asked to do read-only analysis.",
+  "permissions": {
+    "defaultMode": "dontAsk",
+    "allow": [
+      "Read",
+      "Grep",
+      "Glob",
+      "Edit",
+      "Write",
+      "Task",
+      "WebSearch",
+      "Bash"
+    ],
+    "deny": [
+      "Bash(rm:*)",
+      "Bash(rm *)",
+      "Bash(rmdir *)",
+      "Bash(del *)",
+      "Bash(Remove-Item *)",
+      "Bash(format *)",
+      "Bash(mkfs *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(Invoke-WebRequest *)",
+      "Bash(Invoke-RestMethod *)",
+      "Bash(scp *)",
+      "Bash(ssh *)",
+      "Bash(git push *)",
+      "Bash(git commit *)",
+      "Bash(git reset *)",
+      "Bash(git checkout *)",
+      "Bash(npm *)",
+      "Bash(pip install *)",
+      "Bash(shutdown *)",
+      "Bash(reg *)",
+      "Bash(schtasks *)"
+    ]
+  }
+}
