@@ -1104,19 +1104,23 @@ All nodes = 1.0 when all inputs = 1.0. This is guaranteed by the math in BOTH eq
 
 ## 14. Signal Propagation Traps
 
-Before finalizing the network, check for these traps that WILL cause wrong predictions:
+Before finalizing the network, check for these traps that WILL cause wrong predictions. Each is a
+**general class** — the worked instance is from hormone signaling because that is where they were first
+catalogued, but the same failure appears in metabolic, transport, and transcriptional networks.
+Substitute your trait's own components.
 
-### TRAP 1: Positive feedback loops between hormone and transporter
+### TRAP 1: Mutually-activating pair (positive feedback that inverts a prediction)
 
-If `Hormone->Transporter(+1)` and `Transporter->Hormone(+1)`, a KO upstream that releases the transporter from inhibition will cause the hormone to SPIKE, often producing WRONG predictions.
+Any `A->B(+1)` together with `B->A(+1)` is a runaway loop: an upstream KO that releases B from inhibition makes B SPIKE, which spikes A, often flipping the phenotype prediction.
 
-**Example**: Auxin->PIN1(+1) and PIN1->Auxin(+1). When SL drops -> PIN1 inhibition released -> PIN1 up -> Auxin spikes -> Auxin INHIBITS branching. Wrong!
+- **Hormonal instance**: `Auxin->PIN1(+1)` and `PIN1->Auxin(+1)`. When SL drops -> PIN1 inhibition released -> PIN1 up -> Auxin spikes -> Auxin INHIBITS branching. Wrong!
+- **Metabolic / transport instance**: a product that up-regulates its own biosynthetic enzyme, or a transporter that raises the very substrate that induces the transporter — same runaway.
 
-**FIX**: Break the loop. Make the hormone a near-source node (no activators, only inhibitors). The transporter can be regulated but must NOT feed back to hormone level.
+**FIX**: Break the loop. Make the upstream entity a near-source node (no activators, only inhibitors). The downstream node can be regulated but must NOT feed back to the upstream level.
 
-### TRAP 2: Redundant gene modifiers too low
+### TRAP 2: Redundant gene-family modifiers too low
 
-Triple-redundant family single KO modifier must be 0.99, NOT 0.667. Even 0.9 cascades through multiple nodes and predicts wrong direction.
+Any redundant paralog family with overlapping function (SMXL6/7/8 in SL signaling, or a CYP/UGT/CCD enzyme family in a biosynthetic pathway): a single-member KO modifier must be 0.99, NOT 0.667. Even 0.9 cascades through multiple nodes and predicts the wrong direction.
 
 ### TRAP 3: Disconnected nodes
 
@@ -1126,9 +1130,9 @@ Every node MUST have at least one edge. Source nodes that aren't referenced by a
 
 The phenotype node should have 3-5 activators max. More causes geometric mean dilution where single KOs barely move the phenotype.
 
-### TRAP 5: Signaling mutant rescue experiments
+### TRAP 5: Exogenous supply bypasses a broken upstream step
 
-Exogenous hormone supply ALWAYS adds to the equation regardless of signaling gene status. Accept max2+GR24 and similar as framework limitations. Flag, don't distort.
+Exogenous supply of a ligand, metabolite, or substrate ALWAYS adds to the equation regardless of the status of the gene meant to perceive or process it. This affects rescue experiments in every modality: `max2 + GR24` (hormonal — receptor KO, ligand still applied) and `enzyme-KO + exogenous precursor` (metabolic — the supplied precursor bypasses the missing enzyme). Accept these as framework limitations. Flag, don't distort.
 
 ## 15. Network Size Philosophy -- Cascade Quality Over Raw Count
 
@@ -1161,7 +1165,7 @@ Do NOT aim for a specific node or edge count. Instead, build the best quality CA
 - [ ] Built from `curated_edges.json` (NOT `curated_edges_filtered.json`)
 - [ ] Did NOT read `perturbation_dataset.json` or validation results during building
 - [ ] Traced signal propagation for core pathways
-- [ ] NO positive feedback loops between hormones and transporters (Trap 1)
+- [ ] NO mutually-activating pairs / positive-feedback loops that can invert a prediction (Trap 1)
 - [ ] NO disconnected nodes -- every node has at least one edge (Trap 3)
 - [ ] Source nodes correctly marked -- nodes with no activators/inhibitors have `is_source: true`
 - [ ] Network is a single connected component
