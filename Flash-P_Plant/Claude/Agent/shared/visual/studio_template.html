@@ -53,6 +53,28 @@
     input:focus, select:focus { box-shadow: 0 0 0 2px color-mix(in srgb, var(--ring) 35%, transparent); }
     .uplabel { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
 
+    /* ---- hover info tooltips ---- */
+    .info {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 14px; height: 14px; border-radius: 999px; border: 1px solid var(--muted);
+      color: var(--muted); font-size: 9.5px; font-style: normal; font-weight: 700;
+      line-height: 1; cursor: help; position: relative; vertical-align: middle;
+      margin-left: 5px; text-transform: none; letter-spacing: 0;
+    }
+    .info:hover { color: var(--primary); border-color: var(--primary); }
+    .info::after {
+      content: attr(data-tip);
+      position: absolute; left: 50%; top: calc(100% + 8px); transform: translateX(-50%);
+      width: 240px; max-width: 62vw; background: var(--card); color: var(--fg);
+      border: 1px solid var(--border); border-radius: 9px; padding: 9px 11px;
+      font-size: 11.5px; font-weight: 400; line-height: 1.5; text-align: left;
+      box-shadow: 0 6px 18px rgba(0,0,0,.16); z-index: 60;
+      opacity: 0; visibility: hidden; transition: opacity .12s; pointer-events: none; white-space: normal;
+    }
+    .info.up::after { top: auto; bottom: calc(100% + 8px); }
+    .info.left::after { left: auto; right: 0; transform: none; }
+    .info:hover::after { opacity: 1; visibility: visible; }
+
     /* ---- top bar ---- */
     #topbar {
       display: flex; align-items: center; gap: 10px; padding: 8px 14px;
@@ -273,7 +295,8 @@
         <!-- network -->
         <div class="pane net-pane">
           <div class="net-head"><b style="font-size:13px;">Network</b>
-            <span class="crumb" style="font-size:11px;">click a node to perturb it</span></div>
+            <span class="crumb" style="font-size:11px;">click a node to perturb it</span>
+            <span id="sim-net-info"></span></div>
           <div class="net-canvaswrap"><div class="cy" id="sim-cy"></div></div>
           <div class="actioncard" id="sim-actioncard"></div>
         </div>
@@ -306,6 +329,20 @@
       return '<a href="https://doi.org/' + encodeURI(doi) + '" target="_blank" rel="noopener">' + esc(doi) + '</a>';
     }
     function el(html) { var d = document.createElement('div'); d.innerHTML = html; return d.firstElementChild; }
+    // Small hover "i" with a plain-text explanation. pos: '' | 'up' | 'left' | 'up left'.
+    function info(tip, pos) {
+      return '<span class="info' + (pos ? ' ' + pos : '') + '" data-tip="' + esc(tip) + '" title="' + esc(tip) + '">i</span>';
+    }
+    var TIPS = {
+      method: 'How the perturbation spreads through the network. Algebraic (Flash-P): solves the steady-state equations — geometric-mean activation, bounded inhibition, with wild type = 1. RWR: random-walk with restart; scores how strongly (and which way) each node is pushed. ODE: integrates Hill-function dynamics to steady state. The method that scored best on this network is preselected.',
+      perturb: 'Genes you alter: KO = knockout (activity → 0), KD = knockdown (halved), OE = overexpression (doubled). Add several for double/triple mutants. Tip: click a node in the network panel to add it here.',
+      treat: 'Supply a node externally at a fixed level (e.g. a hormone or nutrient), independent of its own regulators. Use this for environmental inputs rather than gene edits.',
+      baseline: 'What your perturbation is compared against. Wild type = the unperturbed network. Custom baseline = compare two conditions (e.g. a double mutant vs the single mutant).',
+      yaxis: 'Fold vs baseline: each node relative to the baseline (>1 up, <1 down). log₂ fold change: log₂ of that fold, symmetric around 0 (+1 = doubled, −1 = halved). Absolute: the raw steady-state values.',
+      outcome: 'The node whose response you are tracking. Defaults to the phenotype, but you can pick any node in the network.',
+      converge: 'The model repeats until node values stop changing (a steady state). “Converged” means a stable answer was found; if it did not converge, treat the numbers with extra caution.',
+      network: 'Click any node to perturb it (KO / KD / OE) or supply it (exogenous). Perturbed nodes get a coloured ring. Edges: arrows activate, bars (⊣) inhibit.',
+    };
     var TYPE_LABELS = window.FLASHP.TYPE_LABELS;
     var SIM = window.FLASHPSIM;
 
@@ -469,6 +506,7 @@
       var titleHtml = '<b>' + esc(net.name) + '</b>' + (net.species ? ' <span class="sp">' + esc(net.species) + '</span>' : '');
       document.getElementById('view-title').innerHTML = titleHtml;
       var panel = document.getElementById('view-panel');
+      panel.className = 'nodepanel'; panel.innerHTML = ''; // clear any selection left from a previous network
 
       function renderPanel(d) {
         if (!d) { panel.className = 'nodepanel'; panel.innerHTML = ''; return; }
@@ -561,6 +599,7 @@
       resetSimState(net);
       setView('sim');
       document.getElementById('sim-species').textContent = net.species || '';
+      document.getElementById('sim-net-info').innerHTML = info(TIPS.network);
       var nsel = document.getElementById('sim-network');
       nsel.innerHTML = '';
       NETWORKS.forEach(function (n) {
@@ -570,6 +609,7 @@
       nsel.onchange = function () { openSim(nsel.value); };
 
       buildBuilder();
+      renderActionCard(); // picked was reset to null — clear any leftover card from a previous network
       initSimGraph(net);
       renderResults();
     }
@@ -592,20 +632,20 @@
       b.innerHTML =
         datalist +
         // method
-        '<div class="group"><div class="uplabel" style="margin-bottom:6px;">Method</div>' +
+        '<div class="group"><div class="uplabel" style="margin-bottom:6px;">Method' + info(TIPS.method) + '</div>' +
         '<div class="row2" id="sim-methods">' +
         ['algebraic', 'rwr', 'ode'].map(function (m) {
           return '<button class="btn' + (simState.method === m ? ' active' : '') + '" data-m="' + m + '">' + esc(SIM.METHOD_LABELS[m]) + '</button>';
         }).join('') + '</div></div>' +
         // perturbations
         '<div class="group"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">' +
-        '<span class="uplabel">Perturbations</span><span class="crumb" id="sim-mutlabel" style="font-size:11px;"></span></div>' +
+        '<span class="uplabel">Perturbations' + info(TIPS.perturb) + '</span><span class="crumb" id="sim-mutlabel" style="font-size:11px;"></span></div>' +
         '<div class="addrow"><input id="sim-geneinput" list="sim-nodelist" placeholder="Add gene / node…" />' +
         '<select id="sim-genemod">' + SIM.MODIFIER_LABELS.map(function (m) { return '<option value="' + m.value + '">' + m.label.split(' ')[0] + '</option>'; }).join('') + '</select>' +
         '<button class="btn iconbtn" id="sim-geneadd">+</button></div>' +
         '<div id="sim-generows"></div></div>' +
         // treatments
-        '<div class="group"><div class="uplabel" style="margin-bottom:6px;">Treatments <span style="text-transform:none;font-weight:400;">(exogenous supply)</span></div>' +
+        '<div class="group"><div class="uplabel" style="margin-bottom:6px;">Treatments <span style="text-transform:none;font-weight:400;">(exogenous supply)</span>' + info(TIPS.treat) + '</div>' +
         '<div class="addrow"><input id="sim-treatinput" list="sim-nodelist" placeholder="Add node…" />' +
         '<input id="sim-treatval" type="number" step="0.1" value="1" style="width:62px;flex:none;" />' +
         '<button class="btn iconbtn" id="sim-treatadd">+</button></div>' +
@@ -615,7 +655,7 @@
         '<button class="btn" id="sim-clear" title="Clear">&#8634;</button></div>' +
         // baseline
         '<div class="group" style="border-top:1px solid var(--border);padding-top:12px;">' +
-        '<div class="uplabel" style="margin-bottom:6px;">Compare against</div>' +
+        '<div class="uplabel" style="margin-bottom:6px;">Compare against' + info(TIPS.baseline) + '</div>' +
         '<div class="row2"><button class="btn' + (simState.baselineMode === 'wt' ? ' active' : '') + '" data-base="wt">Wild type</button>' +
         '<button class="btn' + (simState.baselineMode === 'custom' ? ' active' : '') + '" data-base="custom">Custom baseline</button></div>' +
         '<div id="sim-baseeditor"></div></div>' +
@@ -838,7 +878,7 @@
 
       host.innerHTML = '<div class="inner">' +
         summaryHtml(res, mode) +
-        (!rwr ? '<div class="ymodes"><span class="uplabel" style="font-weight:400;">Y-axis</span>' +
+        (!rwr ? '<div class="ymodes"><span class="uplabel" style="font-weight:400;">Y-axis' + info(TIPS.yaxis) + '</span>' +
           modes.map(function (m) { return '<span class="pill' + (mode === m.k ? ' active' : '') + '" data-y="' + m.k + '">' + m.l + '</span>'; }).join('') + '</div>' : '') +
         '<div class="block"><h3>' + chartTitle(res, mode) + '</h3><div id="sim-chart"></div></div>' +
         '<div class="block"><h3>Nodes <span style="text-transform:none;color:var(--muted);">— click to toggle on the chart</span></h3>' +
@@ -893,13 +933,13 @@
         simState.nodes.filter(function (n) { return n.id !== res.phenotype; }).map(function (n) { return '<option value="' + esc(n.id) + '">' + esc(n.id) + '</option>'; }).join('');
       function cond(label) { return (label || '—').split(' + ').map(function (t) { return esc(t); }).join('<br>'); }
       return '<div class="summary">' +
-        '<div class="cell"><div class="k">Outcome</div><select id="sim-outcome" style="font-weight:700;">' + options + '</select></div>' +
+        '<div class="cell"><div class="k">Outcome' + info(TIPS.outcome) + '</div><select id="sim-outcome" style="font-weight:700;">' + options + '</select></div>' +
         '<div class="cell"><div class="k">Predicted</div><div class="v" style="color:' + color + ';text-transform:capitalize;">' + arrow + ' ' + dir + '</div></div>' +
         '<div class="cell"><div class="k">' + metricLabel + '</div><div class="v">' + metric + '</div></div>' +
         '<div class="cell"><div class="k">Condition</div><div class="v" style="font-size:14px;">' + cond(simState.testLabel) + '</div></div>' +
         '<div class="cell"><div class="k">vs Baseline</div><div class="v" style="font-size:14px;">' + cond(res.baselineLabel) + '</div></div>' +
         '<div class="cell"><div class="k">Method</div><div class="v">' + esc(SIM.METHOD_LABELS[res.method]) + '</div></div>' +
-        '<div class="cell" style="margin-left:auto;"><div class="k">Convergence</div><div class="crumb" style="font-size:11px;">' +
+        '<div class="cell" style="margin-left:auto;"><div class="k">Convergence' + info(TIPS.converge, 'left') + '</div><div class="crumb" style="font-size:11px;">' +
         (res.converged ? 'converged at iteration ' + res.convergedAt : 'did not fully converge') + '</div></div>' +
         '</div>';
       // re-set outcome select value after render
