@@ -185,8 +185,8 @@
     }
     #view-view .vtitle b { font-size: 13.5px; } #view-view .vtitle .sp { color: var(--muted); font-style: italic; }
     #view-view .legend { left: 12px; bottom: 12px; }
-    #view-view .nodepanel { right: 12px; top: 64px; bottom: 12px; width: 320px; max-width: calc(100% - 24px); }
-    #view-view .simbtn { position: absolute; right: 12px; bottom: 12px; z-index: 7; }
+    #view-view .nodepanel { right: 12px; top: 108px; bottom: 12px; width: 320px; max-width: calc(100% - 24px); }
+    #view-view .simbtn { display: block; width: 100%; margin-top: 9px; }
 
     /* ---- simulate layout ---- */
     #view-sim { display: none; }
@@ -273,10 +273,12 @@
           <button id="view-zout" title="Zoom out">&#8722;</button>
           <button id="view-labels" title="Toggle labels">T</button>
         </div>
-        <div class="vtitle" id="view-title"></div>
+        <div class="vtitle">
+          <div id="view-title"></div>
+          <button class="btn primary simbtn" id="view-tosim">Run simulation</button>
+        </div>
         <div class="panelbar legend" id="view-legend"></div>
         <div class="nodepanel" id="view-panel"></div>
-        <button class="btn primary simbtn" id="view-tosim">Simulate this network &rarr;</button>
       </div>
     </section>
 
