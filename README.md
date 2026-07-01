@@ -26,8 +26,10 @@
 New here? This is the whole thing:
 
 1. **Download the repo** — green **`Code ▸ Download ZIP`** at the top of this page (or `git clone`),
-   unzip it, and open the **[`Flash-P_Plant/`](Flash-P_Plant)** folder. *(Plant is the place to start.)*
-2. **Open that folder inside [Claude Code](https://claude.com/claude-code)** in your terminal.
+   then unzip it. Pick your version folder — start with **[`Flash-P_Plant/`](Flash-P_Plant)**.
+2. **Open a terminal in the `Claude` subfolder** of that version — i.e. inside
+   **`Flash-P_Plant/Claude/`** — and start **[Claude Code](https://claude.com/claude-code)** there
+   (run `claude`). That subfolder is the project root Claude Code should open.
 3. **Run a command** — e.g. `/run-flashp <trait> in <species>`. Don't want to approve every step?
    Press **`shift + tab`** to turn on auto-accept and let it run.
 4. **Go do something fun ☕** — come back to a finished, DOI-backed network. Then
